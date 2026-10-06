@@ -49,6 +49,7 @@ def inspect_matrix(root):
     source = q.source_digest(root)
     targets = q.load(root / "SCOPE.json")["target_platforms"]
     persistence_required = (root / "tools/run_persistence_tests.py").is_file()
+    probe_required = (root / "tools/run_browser_probe_tests.py").is_file()
     rows = []
     for target in targets:
         row = {"target": target, "status": "NOT_RUN"}
@@ -72,6 +73,8 @@ def inspect_matrix(root):
                               "control_junit", "foundation_report", "foundation_junit"}
             if persistence_required:
                 required_roles.update({"persistence_report", "persistence_junit"})
+            if probe_required:
+                required_roles.update({"browser_probe_report", "browser_probe_junit"})
             q.require(required_roles.issubset(artifacts),
                       "Missing native artifacts")
             for reference_item in artifacts.values():
@@ -81,6 +84,9 @@ def inspect_matrix(root):
             if persistence_required:
                 report_roles.append("persistence_report")
                 junit_roles.append("persistence_junit")
+            if probe_required:
+                report_roles.append("browser_probe_report")
+                junit_roles.append("browser_probe_junit")
             for role in report_roles:
                 q.require(q.load(q.artifact(root, artifacts[role]))["status"] == "PASS", "Failed target subcheck")
             scopes = {"maintenance_report": "DEVELOPMENT_CHECK_WITH_SEPARATE_FOUNDATION_TESTS",
@@ -89,9 +95,17 @@ def inspect_matrix(root):
                       "foundation_report": "APPLICATION_FOUNDATION_OFFLINE_NOT_FULL_V1_CONFORMANCE"}
             if persistence_required:
                 scopes["persistence_report"] = "P02_DURABILITY_OFFLINE_NOT_FULL_V1_ACCEPTANCE"
+            if probe_required:
+                scopes["browser_probe_report"] = "P03_PROBE_RECORDER_OFFLINE_NOT_LIVE_BROWSER_ACCEPTANCE"
             for role, expected_scope in scopes.items():
                 q.require(q.load(q.artifact(root, artifacts[role]))["scope"] == expected_scope,
                           "Incorrect target subcheck scope")
+            if probe_required:
+                probe = q.load(q.artifact(root, artifacts["browser_probe_report"]))
+                q.require(probe["phase"] == "P03" and probe["phase_accepted"] is False
+                          and type(probe["live_provider_calls"]) is int and probe["live_provider_calls"] == 0
+                          and probe["external_transport"] == "SYNTHETIC_OBSERVATIONS_NO_BROWSER_DRIVER",
+                          "Offline preparation cannot certify live browser acceptance")
             foundation = q.load(q.artifact(root, artifacts["foundation_report"]))
             q.require(foundation["host"]["system"] == target, "Foundation tests ran on another OS")
             environment = q.load(q.artifact(root, artifacts["environment_report"]))

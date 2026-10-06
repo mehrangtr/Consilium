@@ -66,9 +66,9 @@ jobs:
           path: evidence/targets/Windows/
       - name: Validate source hashes, host, dependencies, tests and smoke results
         run: python tools/check_target_matrix.py
-      - name: Record configured phase checks without accepting the phase
+      - name: Record configured phase checks or report its blocker without acceptance
         if: always()
-        run: python tools/run_current_phase.py
+        run: python tools/run_current_phase.py --report-blocked
       - uses: actions/upload-artifact@v7
         if: always()
         with:

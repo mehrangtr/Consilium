@@ -13,8 +13,8 @@
     },
     {
       "path": ".github/workflows/check.yml",
-      "bytes": 2696,
-      "sha256": "04efa8a79236785b9785a8cce35613127880511f8ca4085a88f4c1f7e709ecef"
+      "bytes": 2726,
+      "sha256": "a40b14da1dbbc8a0ef016b357b9cdcc5a83cb0d0486e83acfcee2cf430d57eff"
     },
     {
       "path": ".gitignore",
@@ -58,8 +58,8 @@
     },
     {
       "path": "HANDOFF.json",
-      "bytes": 28063,
-      "sha256": "9afc0ec0270865c47cf6af1ad2efead296d9ff2e8311809e01685f56d2a3172b"
+      "bytes": 31501,
+      "sha256": "3263bb85bd517f97590a81790df6d87a8fe26334b35cde63291a0c6e01c18e81"
     },
     {
       "path": "HANDOFF_TEMPLATE_FA.md",
@@ -73,8 +73,8 @@
     },
     {
       "path": "PROGRESS.json",
-      "bytes": 48670,
-      "sha256": "d85fb542570391e83ca1fac68c0ffe0125776ac582e5a07284de8990bd988328"
+      "bytes": 52680,
+      "sha256": "e6f002d729852e4701db8dc28ecfc2d190667cbe1c2084ba3012a87813980306"
     },
     {
       "path": "README_FA.md",
@@ -98,8 +98,8 @@
     },
     {
       "path": "TRANSFER_FILES.json",
-      "bytes": 27280,
-      "sha256": "3ade5ec14d480c4c9268a17b4940fd54fdaca231886b77022c81e2b42a29fca4"
+      "bytes": 27653,
+      "sha256": "7524f1cc88780886dfa4be59c22178f5296817f669d8340e17dc51e2feff6bc4"
     },
     {
       "path": "VALIDATION_REPORT.json",
@@ -125,6 +125,11 @@
       "path": "docs/MODEL_EVALUATION_PLAN_FA.md",
       "bytes": 3662,
       "sha256": "f1b2fce58d6e8ea8e4f0bd5570d1e024fc4a6ea00fa71258efdfaeb24ee31a4f"
+    },
+    {
+      "path": "docs/P03_PROBE_RUNBOOK_FA.md",
+      "bytes": 6636,
+      "sha256": "43540a46e924b8869503ee420b0acbabd04260796ad7996ccfe1f88e4010edee"
     },
     {
       "path": "docs/RUNBOOK_FA.md",
@@ -170,6 +175,11 @@
       "path": "docs/decisions/ADR-007-P02_DURABLE_DISPATCH_FA.md",
       "bytes": 8231,
       "sha256": "e78d4e70a386ea3baa7dc135fbbbe1f2eee89a877e72bc3660771faaf0edb3b3"
+    },
+    {
+      "path": "docs/decisions/ADR-008-P03_PROBE_RECORDER_FA.md",
+      "bytes": 5781,
+      "sha256": "0576779a30bb61f972525bb4158c527c3dbfcc73f7a36586105567b6ed2883a5"
     },
     {
       "path": "evidence/accepted/P00_8d4ab2499d5f/PRESERVATION.json",
@@ -653,13 +663,13 @@
     },
     {
       "path": "evidence/control-tests/JUNIT.xml",
-      "bytes": 8358,
-      "sha256": "a417c913cac1f8def3b18a9ecef93286a88d418829e45e8ec266e148091c421b"
+      "bytes": 9064,
+      "sha256": "41ebd1780a9c4967db18494c7058c00a8114276468e3372ab237d9a57767b7ae"
     },
     {
       "path": "evidence/control-tests/RUN.json",
-      "bytes": 14148,
-      "sha256": "75115478e95a7be538e91d87bf221dd24da7f5f66d590eda459d2c11c02a3427"
+      "bytes": 15256,
+      "sha256": "e358791f396da3b627909fb69ee8d01f313dc4e1ed5d38d0146593ccd423beb3"
     },
     {
       "path": "evidence/environment/RUN.json",
@@ -709,7 +719,7 @@
     {
       "path": "evidence/foundation-tests/RUN.json",
       "bytes": 8363,
-      "sha256": "55da43c4adc89e98c87f1bc6ea27d56ed93b95b59c6d0355769d324b16c5ca04"
+      "sha256": "8650d2f0d1633a1380c3026248e0bbfad0bd179566b8662a97006c668e31f560"
     },
     {
       "path": "evidence/git/Consilium_Source.bundle",
@@ -723,18 +733,18 @@
     },
     {
       "path": "evidence/maintenance-check/RUN.json",
-      "bytes": 1023,
-      "sha256": "bd5104399feeec1b0645b2b6f4598e91a457c9a64fd9b5b731e786c99afb5693"
+      "bytes": 1139,
+      "sha256": "0fe5be963169134a8bcf8553fcd3f3d57bc0d25f6d1f08976d0e27284e89776a"
     },
     {
       "path": "evidence/navigation/BACKLOG_FA.md",
       "bytes": 29896,
-      "sha256": "6328cc03bab560e3b410ba7674b2a7cf90eff11267d60bad037353d6f7ad1603"
+      "sha256": "ea9256bd64b6fd02103088a286b4cc3db2427f44b58816fe830588cc808360bd"
     },
     {
       "path": "evidence/navigation/STATUS_FA.md",
-      "bytes": 26727,
-      "sha256": "cbf7e78dc1c0a88df2b0021596b1120252d1670f100118d42fb16553968eb50d"
+      "bytes": 29951,
+      "sha256": "0b92f209a867c8da9d9efc4eff77bcd12b3af9681360633ae6bff917d644064f"
     },
     {
       "path": "evidence/persistence-history/decision-resume-review-red/JUNIT.xml",
@@ -864,7 +874,7 @@
     {
       "path": "evidence/persistence-tests/RUN.json",
       "bytes": 12601,
-      "sha256": "aa7ccfbdcb476f6c9ffa1da813182f22985237f7bbb0bfecf237d79871db0bdf"
+      "sha256": "99ec2ce72bbacd008eac2d32f2d9bbedfdb5d31bb99fbb5596ef046cfad0d61b"
     },
     {
       "path": "evidence/reproduction/RUN.json",
@@ -2417,9 +2427,14 @@
       "sha256": "0bb52b9a7f77fcffce44fa151800a8e53118f21c45d54acba97e26687c167bd6"
     },
     {
+      "path": "src/consilium/core/browser_probe.py",
+      "bytes": 7895,
+      "sha256": "72cf8bfaf20de470ec0ec355e5ecbbcce0d8dc2ecc422d6fa84a516d8782f2b3"
+    },
+    {
       "path": "src/consilium/core/contracts.py",
-      "bytes": 9742,
-      "sha256": "01a632f121d571161bf5a36d581daa138465c258a9860324cd36561330d42a4c"
+      "bytes": 9948,
+      "sha256": "c9023888419974508c908d5eec6829328874d7af5a8c12f248d0572fca0d1e69"
     },
     {
       "path": "src/consilium/core/operation_states.py",
@@ -2447,6 +2462,11 @@
       "sha256": "ebc33ec888dd453f0ccb3d3bb680f04ae32cf82442e869e2a3a93c459acbe2b8"
     },
     {
+      "path": "src/consilium/shell/browser_probe.py",
+      "bytes": 3180,
+      "sha256": "4ef2f6dc77cf39bf11cf34c138cff18ade81c9bef77cb8541466b0be3910cf81"
+    },
+    {
       "path": "src/consilium/shell/ledger.py",
       "bytes": 28939,
       "sha256": "859632846b66ac142bd7cef06672d2789f1727194efa6b225bccac06404d703e"
@@ -2470,6 +2490,16 @@
       "path": "src/consilium/shell/storage.py",
       "bytes": 25330,
       "sha256": "5997c56c10784f4850212bcb989c691711b39ac277e6028a76585d7eea4aa116"
+    },
+    {
+      "path": "tests/browser_probe/crash_worker.py",
+      "bytes": 1063,
+      "sha256": "5edce5fb4a667c62d687413842f6155730021f461b4501522bc0413e82d1bbf9"
+    },
+    {
+      "path": "tests/browser_probe/test_probe.py",
+      "bytes": 20090,
+      "sha256": "8f3231027bd825bb19560e3d71f3785cfdfc63273065d45d4450b5693ffe2bcc"
     },
     {
       "path": "tests/foundation/test_foundation.py",
@@ -2512,19 +2542,24 @@
       "sha256": "9179cf8656c75eee5c68f200d7c95001d739cd3c9c5949c21dbd2568de83ec0a"
     },
     {
+      "path": "tests/test_phase_reporting.py",
+      "bytes": 1595,
+      "sha256": "1b86e6739ce79ca2f0e7be301defb3d5f6904ec10b4a635e26fd0fe1f6d22cda"
+    },
+    {
       "path": "tests/test_qualityctl.py",
       "bytes": 29425,
       "sha256": "07495ef5b1b462ab3292cfa1cbf3c6de7005d9b8e9c777b20503ebd41daae659"
     },
     {
       "path": "tests/test_target_checks.py",
-      "bytes": 11193,
-      "sha256": "3d9f0a8af2a22d5bd51f5bcddeffff544d4077f79c0f377665b5f81720057412"
+      "bytes": 13134,
+      "sha256": "e118411a53a9850b4073791138b07f671bcad0117c626a8657e14926b954b539"
     },
     {
       "path": "tools/check.py",
-      "bytes": 3065,
-      "sha256": "c05d277f850ba202bf45c95da47a27890ac3097bff2a501ef7d3cd5609fcf9bf"
+      "bytes": 3332,
+      "sha256": "de69dc1f0548fd486957dd6c5d60be903f302a4a40b2f6339404ffdf818ea6ad"
     },
     {
       "path": "tools/check_environment.py",
@@ -2543,8 +2578,8 @@
     },
     {
       "path": "tools/check_target_matrix.py",
-      "bytes": 8660,
-      "sha256": "0301f34823643d752f930d4299e4c3b7878dfb9dc509b06bec7864ddf123b750"
+      "bytes": 9644,
+      "sha256": "430fd2396d20257cf916bda3890abe336ff13e5edf2aef10f053f3ea243506aa"
     },
     {
       "path": "tools/qualityctl.py",
@@ -2553,8 +2588,18 @@
     },
     {
       "path": "tools/record_target_checks.py",
-      "bytes": 6032,
-      "sha256": "40420339b4bc855022480f435fd0006350320c5a323f91824616750650be8247"
+      "bytes": 6262,
+      "sha256": "f750bee99d5c5ec23cad35a636ed00b14bc89ab6fad51c1ebfe9fd2588162bbe"
+    },
+    {
+      "path": "tools/run_browser_probe.py",
+      "bytes": 2481,
+      "sha256": "74b5db8a1b7d7bb63a54d064c06f11fbcf22ab0ba2308e697f32917409571f63"
+    },
+    {
+      "path": "tools/run_browser_probe_tests.py",
+      "bytes": 2785,
+      "sha256": "689603f8b318d54a86967811239302eeb745ee18acfbf1b4b7de02830fcf16f0"
     },
     {
       "path": "tools/run_consilium.py",
@@ -2568,8 +2613,8 @@
     },
     {
       "path": "tools/run_current_phase.py",
-      "bytes": 775,
-      "sha256": "37126a7866c0b78d030113c55bdb07904778f70b5d5551b42b6367553c5610fb"
+      "bytes": 1522,
+      "sha256": "0d7487922fa9db93c7ff789b548e93133e7672222e76a4c6f5d7c792e1a05c2d"
     },
     {
       "path": "tools/run_foundation_tests.py",

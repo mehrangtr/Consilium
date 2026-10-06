@@ -4,7 +4,7 @@
   "verified_application_requirements": 0,
   "status": "PASS",
   "counts": {
-    "tests": 82,
+    "tests": 88,
     "failures": 0,
     "errors": 0,
     "skipped": 0,
@@ -12,41 +12,43 @@
     "unexpected_successes": 0
   },
   "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
-  "date": "2026-10-06T12:47:35.154194+00:00",
+  "date": "2026-10-06T16:19:59.632603+00:00",
   "platform": "Linux-6.18.44-x86_64-with-glibc2.39",
   "source_files_before": {
     "tools/qualityctl.py": "6e6720263ad59ed623d3f966e2edff8cfb25ee8e59456bec973c8dcd36171ba3",
     "tools/run_control_tests.py": "c2844ce3de623d84c514784702a7ff861e8f60ec60f40a1aaee54fad4dcb73cf",
-    "tools/check.py": "c05d277f850ba202bf45c95da47a27890ac3097bff2a501ef7d3cd5609fcf9bf",
-    "tools/check_target_matrix.py": "0301f34823643d752f930d4299e4c3b7878dfb9dc509b06bec7864ddf123b750",
-    "tools/record_target_checks.py": "40420339b4bc855022480f435fd0006350320c5a323f91824616750650be8247",
+    "tools/check.py": "de69dc1f0548fd486957dd6c5d60be903f302a4a40b2f6339404ffdf818ea6ad",
+    "tools/check_target_matrix.py": "430fd2396d20257cf916bda3890abe336ff13e5edf2aef10f053f3ea243506aa",
+    "tools/record_target_checks.py": "f750bee99d5c5ec23cad35a636ed00b14bc89ab6fad51c1ebfe9fd2588162bbe",
     "ROADMAP.json": "ee444b7e89a9b7724e970e1ed11e50b9762833587823fc01c331425480433cfd",
-    "PROGRESS.json": "6c2138c783a66e2b38527dee93cf7a8d37277bb003961162976ef1fceca42b8d",
+    "PROGRESS.json": "d85fb542570391e83ca1fac68c0ffe0125776ac582e5a07284de8990bd988328",
     "baseline/Consilium_User_Guarded_Governance_v1.3_Reviewed.zip": "8f898b60627c07ec9c4028ff4bfa510c1b5578c2dd1141fa8f2f16ed648fd742",
     "tests/test_git_preservation.py": "ed93431b625d3ffd8f96207bec66775466202d3142b1b378c8709d8221801526",
     "tests/test_native_recording.py": "9179cf8656c75eee5c68f200d7c95001d739cd3c9c5949c21dbd2568de83ec0a",
+    "tests/test_phase_reporting.py": "1b86e6739ce79ca2f0e7be301defb3d5f6904ec10b4a635e26fd0fe1f6d22cda",
     "tests/test_qualityctl.py": "07495ef5b1b462ab3292cfa1cbf3c6de7005d9b8e9c777b20503ebd41daae659",
-    "tests/test_target_checks.py": "3d9f0a8af2a22d5bd51f5bcddeffff544d4077f79c0f377665b5f81720057412"
+    "tests/test_target_checks.py": "e118411a53a9850b4073791138b07f671bcad0117c626a8657e14926b954b539"
   },
   "host": {
     "system": "Linux",
     "python": "3.12.14"
   },
-  "source_digest_before": "a26532121e6eea90b6e6bae3bc5d3e5af6f49257ab453cd0472f49389b63fb51",
-  "source_digest_after": "a26532121e6eea90b6e6bae3bc5d3e5af6f49257ab453cd0472f49389b63fb51",
+  "source_digest_before": "a14e4bcfaf7cd9f982bb52d96037d099608e12c1d541855041a4491e25723c19",
+  "source_digest_after": "a14e4bcfaf7cd9f982bb52d96037d099608e12c1d541855041a4491e25723c19",
   "source_files_after": {
     "tools/qualityctl.py": "6e6720263ad59ed623d3f966e2edff8cfb25ee8e59456bec973c8dcd36171ba3",
     "tools/run_control_tests.py": "c2844ce3de623d84c514784702a7ff861e8f60ec60f40a1aaee54fad4dcb73cf",
-    "tools/check.py": "c05d277f850ba202bf45c95da47a27890ac3097bff2a501ef7d3cd5609fcf9bf",
-    "tools/check_target_matrix.py": "0301f34823643d752f930d4299e4c3b7878dfb9dc509b06bec7864ddf123b750",
-    "tools/record_target_checks.py": "40420339b4bc855022480f435fd0006350320c5a323f91824616750650be8247",
+    "tools/check.py": "de69dc1f0548fd486957dd6c5d60be903f302a4a40b2f6339404ffdf818ea6ad",
+    "tools/check_target_matrix.py": "430fd2396d20257cf916bda3890abe336ff13e5edf2aef10f053f3ea243506aa",
+    "tools/record_target_checks.py": "f750bee99d5c5ec23cad35a636ed00b14bc89ab6fad51c1ebfe9fd2588162bbe",
     "ROADMAP.json": "ee444b7e89a9b7724e970e1ed11e50b9762833587823fc01c331425480433cfd",
-    "PROGRESS.json": "6c2138c783a66e2b38527dee93cf7a8d37277bb003961162976ef1fceca42b8d",
+    "PROGRESS.json": "d85fb542570391e83ca1fac68c0ffe0125776ac582e5a07284de8990bd988328",
     "baseline/Consilium_User_Guarded_Governance_v1.3_Reviewed.zip": "8f898b60627c07ec9c4028ff4bfa510c1b5578c2dd1141fa8f2f16ed648fd742",
     "tests/test_git_preservation.py": "ed93431b625d3ffd8f96207bec66775466202d3142b1b378c8709d8221801526",
     "tests/test_native_recording.py": "9179cf8656c75eee5c68f200d7c95001d739cd3c9c5949c21dbd2568de83ec0a",
+    "tests/test_phase_reporting.py": "1b86e6739ce79ca2f0e7be301defb3d5f6904ec10b4a635e26fd0fe1f6d22cda",
     "tests/test_qualityctl.py": "07495ef5b1b462ab3292cfa1cbf3c6de7005d9b8e9c777b20503ebd41daae659",
-    "tests/test_target_checks.py": "3d9f0a8af2a22d5bd51f5bcddeffff544d4077f79c0f377665b5f81720057412"
+    "tests/test_target_checks.py": "e118411a53a9850b4073791138b07f671bcad0117c626a8657e14926b954b539"
   },
   "source_unchanged": true,
   "cases": [
@@ -64,6 +66,18 @@
     },
     {
       "id": "test_native_recording.NativeRecordingControls.test_timed_out_check_preserves_partial_log_and_failed_checkpoint",
+      "status": "PASS"
+    },
+    {
+      "id": "test_phase_reporting.PhaseReportingControls.test_default_command_still_blocks_on_phase_gate",
+      "status": "PASS"
+    },
+    {
+      "id": "test_phase_reporting.PhaseReportingControls.test_reporting_blocked_phase_never_runs_or_accepts_it",
+      "status": "PASS"
+    },
+    {
+      "id": "test_phase_reporting.PhaseReportingControls.test_reporting_option_never_hides_invalid_governance",
       "status": "PASS"
     },
     {
@@ -355,6 +369,14 @@
       "status": "PASS"
     },
     {
+      "id": "test_target_checks.TargetEvidenceControls.test_probe_report_cannot_claim_live_acceptance",
+      "status": "PASS"
+    },
+    {
+      "id": "test_target_checks.TargetEvidenceControls.test_probe_source_requires_current_native_probe_artifacts",
+      "status": "PASS"
+    },
+    {
       "id": "test_target_checks.TargetEvidenceControls.test_skipped_native_test_is_rejected",
       "status": "PASS"
     },
@@ -368,6 +390,10 @@
     },
     {
       "id": "test_target_checks.TargetEvidenceControls.test_status_only_smoke_rows_are_rejected",
+      "status": "PASS"
+    },
+    {
+      "id": "test_target_checks.TargetEvidenceControls.test_synthetic_probe_graph_exercises_validator_without_certifying_browser",
       "status": "PASS"
     },
     {

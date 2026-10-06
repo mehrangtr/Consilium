@@ -2,7 +2,7 @@
 
 این نما خودکار از `ROADMAP.json`، `PROGRESS.json` و `CHECKS.json` ساخته شده است. ویرایش دستی مرجع نیست؛ پس از تغییر مبنا فرمان تولید را دوباره اجرا کنید.
 
-شناسهٔ مبنای نما: `7516664cb4e18496802c390b72fc5b3296e98fce5d47dd0f32a0cfb9e177168f`.
+شناسهٔ مبنای نما: `4c6d4a7dad6881241e9d3746c8479c79e2bee08daf08f3cc6d2126da13dad5ad`.
 
 مرحلهٔ فعلی: `P03`. آخرین مرحلهٔ پذیرفته‌شده: `P02`.
 
@@ -19,11 +19,18 @@
     "Exact code commit c46c4451c2e4a473ab3f4d574bb2357ba1a468e3 passed both selected OSs: 60 foundation, 82 control, 80 persistence tests, 12 real process-exit cases and 4 foundation CLI scenarios.",
     "Repeat P02 acceptance audit passed; original acceptance hashes and source remain unchanged; fresh Linux tests and existing exact-source native evidence revalidated.",
     "Full P02 source and acceptance evidence were published and verified on public main at 3bdf3f366bcc72679ae18480901b59d19c51ebe5. All 614 Git blob fingerprints and critical file contents matched. Standing GitHub access and publication authorization remain in force.",
-    "P03 access preflight reached the actual DeepSeek sign-in page. No model prompt was sent; account, model, conversation and provider capabilities remain unverified."
+    "P03 access preflight reached the actual DeepSeek sign-in page. No model prompt was sent; account, model, conversation and provider capabilities remain unverified.",
+    "P03 offline observation recorder, binding hash, unique attempt marker and CLI implemented; 38 synthetic observation tests including 3 actual process exits passed locally. No live capability or phase acceptance claimed."
   ],
-  "working_changes": [],
-  "next_action": "پذیرش و انتشار P02 کامل است. P03 تا فراهم‌شدن نشست مجاز و درخواست تازهٔ کاربر برای ورود مسدود است؛ درخواست امن ورود رد شد و نباید خودکار تکرار شود. سه معیار مرورگر واقعی باقی‌اند و P04 باز نمی‌شود.",
-  "next_command": "python tools/qualityctl.py status",
+  "working_changes": [
+    "src/consilium/core/browser_probe.py",
+    "src/consilium/shell/browser_probe.py",
+    "tools/run_browser_probe.py",
+    "docs/P03_PROBE_RUNBOOK_FA.md",
+    "docs/decisions/ADR-008-P03_PROBE_RECORDER_FA.md"
+  ],
+  "next_action": "ابزار ثبت آزمون مرورگر در P03 آماده و ۲۶۶ آزمون محلی پاس شده‌اند؛ بررسی بومی ویندوز و لینوکس و ثبت نهایی این آماده‌سازی در جریان است. آزمون زنده به نشست مجاز نیاز دارد؛ ورود ردشده بدون درخواست تازهٔ صریح تکرار نشود. P04 باز نمی‌شود.",
+  "next_command": "python tools/check.py",
   "inputs_missing": [
     "P03 authenticated session remains unverified. The secure authentication request was declined; do not re-request authentication unless the user explicitly asks."
   ],
@@ -277,7 +284,7 @@
   },
   "unfinished_work": {
     "schema_version": 1,
-    "updated_at_utc": "2026-10-06T15:57:43.863378+00:00",
+    "updated_at_utc": "2026-10-06T16:22:48.561345+00:00",
     "canonical_location": "PROGRESS.json.resume.unfinished_work",
     "continuation_instruction": "Continue with standing access and publication permission; evaluate future impact of unfinished work.",
     "items": [
@@ -286,7 +293,7 @@
         "phase": "P03",
         "status": "BLOCKED_AUTHENTICATION_DECLINED",
         "title_fa": "آزمون واقعی یک اتصال مرورگر از دامنهٔ مصوب",
-        "completed_fa": "قراردادها و مسیر دفتر عملیات بررسی شدند. دسترسی واقعی به صفحهٔ ورود DeepSeek در مرورگر ابری مشاهده شد؛ پیام آزمایشی هنوز ارسال نشده است. درخواست امن انتخاب روش ورود نیز با نتیجهٔ ردشده پایان یافت؛ موفقیت ورود تأیید نشده است.",
+        "completed_fa": "بررسی واقعی صفحهٔ ورود و نتیجهٔ ردشدهٔ درخواست امن ورود حفظ شد. ابزار ثبت مشاهده و اتصال به دفتر عملیات، حفاظت اتصال گفتگو و نشانگر یکتای تلاش ساخته شد؛ ۲۶۶ آزمون محلی از جمله ۳۸ آزمون آماده‌سازی و سه قطع پردازهٔ جدید پاس شدند. بررسی بومی تازه در جریان است؛ پیام زنده ارسال نشده است.",
         "remaining_fa": "تعیین مسیر مرورگر مجاز و حساب و مدل منتخب، ثبت ارسال و پاسخ و ادامهٔ همان گفتگو، مشاهدهٔ انقضای نشست و ارسال نامطمئن، جدول قابلیت‌ها و بازبرآورد زمان، و ثبت بررسی‌های واقعی و بازبینی سه معیار.",
         "live_observation": "SIGN_IN_PAGE_OBSERVED; NO_SIGNED_IN_ACCOUNT_OR_MODEL_CALL",
         "registered_phase_checks": [],
@@ -325,7 +332,7 @@
           "Partial and complete response observations are distinct; continuation must refer to the same verified conversation.",
           "Use zero paid provider calls. Windows execution remains the assistant responsibility."
         ],
-        "next_action_fa": "درخواست ورود را تکرار نکن. اگر کاربر بعداً صریحاً ورود را خواست، وضعیت تازهٔ صفحه را بخوان و مسیر امن را ادامه بده؛ پس از نشست مجاز، آزمون واقعی دفتر عملیات و هر سه معیار تکمیل شوند.",
+        "next_action_fa": "ابزار ثبت آزمون مرورگر در P03 آماده و ۲۶۶ آزمون محلی پاس شده‌اند؛ بررسی بومی ویندوز و لینوکس و ثبت نهایی این آماده‌سازی در جریان است. آزمون زنده به نشست مجاز نیاز دارد؛ ورود ردشده بدون درخواست تازهٔ صریح تکرار نشود. P04 باز نمی‌شود.",
         "done_when_fa": "هر سه معیار خروج `P03` در `ROADMAP.json` با شاهد واقعی پاس شده و گیت پذیرش اجرا شده باشد.",
         "access_preflight": {
           "schema_version": 1,
@@ -365,6 +372,38 @@
           "provider_prompt_sent": false,
           "retry_without_new_user_authentication_request": false,
           "continuation_rule": "Respect the declined secure authentication request; do not retry credentials, switch sign-in method or offer another takeover unless the user requests authentication again."
+        },
+        "offline_preparation": {
+          "status": "OFFLINE_IMPLEMENTATION_TESTED; NATIVE_CI_PENDING",
+          "phase_acceptance": false,
+          "live_provider_calls": 0,
+          "source_changed": true,
+          "files": [
+            "src/consilium/core/browser_probe.py",
+            "src/consilium/shell/browser_probe.py",
+            "tools/run_browser_probe.py",
+            "docs/P03_PROBE_RUNBOOK_FA.md",
+            "docs/decisions/ADR-008-P03_PROBE_RECORDER_FA.md"
+          ],
+          "local_counts": {
+            "foundation": 60,
+            "control": 88,
+            "persistence": 80,
+            "browser_probe": 38,
+            "total": 266
+          },
+          "real_process_exit_cases": {
+            "persistence": 12,
+            "browser_probe": 3
+          },
+          "review_independent": false,
+          "limitations": [
+            "No browser driver or provider call",
+            "Observation schema and hashes do not prove live evidence authenticity",
+            "Complete transport response is not product validation",
+            "Partial or ambiguous results cannot be replaced; full recovery remains future work"
+          ],
+          "native_verification": "PENDING on separate branch; do not claim Windows from local Linux"
         }
       }
     ],
@@ -394,13 +433,14 @@
         "P02"
       ],
       "source_digest": "a26532121e6eea90b6e6bae3bc5d3e5af6f49257ab453cd0472f49389b63fb51",
-      "source_changed": false,
+      "source_changed": true,
       "native_test_counts_per_os": {
         "foundation": 60,
         "control": 82,
         "persistence": 80
       },
-      "rerun_policy_fa": "مرحلهٔ پذیرفته‌شده را فقط در صورت تغییر منبع یا شکست و ناسازگاری شاهد دوباره اجرا کن."
+      "rerun_policy_fa": "مرحلهٔ پذیرفته‌شده را فقط در صورت تغییر منبع یا شکست و ناسازگاری شاهد دوباره اجرا کن.",
+      "source_digest_meaning": "Historical accepted P02 source anchor; P03 preparation changes source without rewriting that acceptance."
     },
     "execution_rules": {
       "external_step_seconds": 45,
@@ -432,6 +472,38 @@
         "verified_publication_commit": "3bdf3f366bcc72679ae18480901b59d19c51ebe5"
       }
     ]
+  },
+  "p03_probe_preparation": {
+    "status": "OFFLINE_IMPLEMENTATION_TESTED; NATIVE_CI_PENDING",
+    "phase_acceptance": false,
+    "live_provider_calls": 0,
+    "source_changed": true,
+    "files": [
+      "src/consilium/core/browser_probe.py",
+      "src/consilium/shell/browser_probe.py",
+      "tools/run_browser_probe.py",
+      "docs/P03_PROBE_RUNBOOK_FA.md",
+      "docs/decisions/ADR-008-P03_PROBE_RECORDER_FA.md"
+    ],
+    "local_counts": {
+      "foundation": 60,
+      "control": 88,
+      "persistence": 80,
+      "browser_probe": 38,
+      "total": 266
+    },
+    "real_process_exit_cases": {
+      "persistence": 12,
+      "browser_probe": 3
+    },
+    "review_independent": false,
+    "limitations": [
+      "No browser driver or provider call",
+      "Observation schema and hashes do not prove live evidence authenticity",
+      "Complete transport response is not product validation",
+      "Partial or ambiguous results cannot be replaced; full recovery remains future work"
+    ],
+    "native_verification": "PENDING on separate branch; do not claim Windows from local Linux"
   }
 }
 ```

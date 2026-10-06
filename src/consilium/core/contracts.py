@@ -220,6 +220,9 @@ class AdapterRequest(Contract):
     intent: OperationIntent
     connection: ConnectionSpec
     timeout_seconds: Annotated[float, Field(gt=0.0)]
+    # Optional opaque transport context, frozen durably with the dispatch request.
+    # It is separate from the prompt hash and never contains credentials.
+    transport_binding_hash: Sha256 | None = None
 
     @model_validator(mode="after")
     def intent_matches_connection(self) -> Self:

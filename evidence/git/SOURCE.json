@@ -1,0 +1,9 @@
+{
+  "application_source_commit": "1438db67acd94bd9fcd40e9c997994b7b43dd954",
+  "checkpoint_commit": "160a6114a3ce0abd7af2af6f7bd970b3dcbebf0d",
+  "source_digest": "ea9746a49a419270f326e56f4f89ad2a14113f33e63a0ad04ba50a027d3fc309",
+  "scope": "LOCAL_GIT_HISTORY_NOT_PHASE_ACCEPTANCE",
+  "remote_repository": "mehrangtr/Consilium observed; empty; not configured or modified",
+  "bundle_sha256": "27956a7f40e97dbbcb8e589967da37b3bdca91b4083f65d96029dafbf0204755",
+  "note": "Archive metadata and immutable evidence are authoritative; generated bundle/manifest metadata may be newer than their stored Git versions."
+}

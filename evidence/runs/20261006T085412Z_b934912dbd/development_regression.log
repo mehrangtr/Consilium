@@ -1,0 +1,207 @@
+test_failure_before_reports_exist_still_publishes_a_failed_checkpoint (test_native_recording.NativeRecordingControls.test_failure_before_reports_exist_still_publishes_a_failed_checkpoint) ... ok
+test_old_mutable_reports_cannot_be_reused_as_a_fresh_native_run (test_native_recording.NativeRecordingControls.test_old_mutable_reports_cannot_be_reused_as_a_fresh_native_run) ... ok
+test_timed_out_check_preserves_partial_log_and_failed_checkpoint (test_native_recording.NativeRecordingControls.test_timed_out_check_preserves_partial_log_and_failed_checkpoint) ... ok
+test_accepted_criterion_bytes_survive_later_changes (test_qualityctl.QualityControls.test_accepted_criterion_bytes_survive_later_changes) ... ok
+test_accepted_phase_advances_only_one_step (test_qualityctl.QualityControls.test_accepted_phase_advances_only_one_step) ... ok
+test_archive_byte_tampering_is_rejected (test_qualityctl.QualityControls.test_archive_byte_tampering_is_rejected) ... ok
+test_archive_case_collisions_are_rejected (test_qualityctl.QualityControls.test_archive_case_collisions_are_rejected) ... ok
+test_archive_unsafe_member_is_rejected (test_qualityctl.QualityControls.test_archive_unsafe_member_is_rejected) ... ok
+test_build_products_do_not_change_source_but_real_code_does (test_qualityctl.QualityControls.test_build_products_do_not_change_source_but_real_code_does) ... ok
+test_changed_baseline_is_rejected (test_qualityctl.QualityControls.test_changed_baseline_is_rejected) ... ok
+test_changed_criterion_text_blocks (test_qualityctl.QualityControls.test_changed_criterion_text_blocks) ... ok
+test_current_failed_run_without_junit_keeps_error_and_log (test_qualityctl.QualityControls.test_current_failed_run_without_junit_keeps_error_and_log) ... ok
+test_current_run_from_older_source_is_explicit (test_qualityctl.QualityControls.test_current_run_from_older_source_is_explicit) ... ok
+test_current_run_junit_tampering_blocks_handoff (test_qualityctl.QualityControls.test_current_run_junit_tampering_blocks_handoff) ... ok
+test_current_run_log_tampering_blocks_handoff (test_qualityctl.QualityControls.test_current_run_log_tampering_blocks_handoff) ... ok
+test_current_run_receipt_tampering_blocks_handoff (test_qualityctl.QualityControls.test_current_run_receipt_tampering_blocks_handoff) ... ok
+test_duplicate_check_ids_are_rejected (test_qualityctl.QualityControls.test_duplicate_check_ids_are_rejected) ... ok
+test_empty_multiline_environment_example_is_safe (test_qualityctl.QualityControls.test_empty_multiline_environment_example_is_safe) ... ok
+test_existing_acceptance_evidence_can_be_preserved_without_advancing (test_qualityctl.QualityControls.test_existing_acceptance_evidence_can_be_preserved_without_advancing) ... ok
+test_expensive_acceptance_check_is_not_silently_repeated (test_qualityctl.QualityControls.test_expensive_acceptance_check_is_not_silently_repeated) ... ok
+test_fabricated_completed_status_is_rejected (test_qualityctl.QualityControls.test_fabricated_completed_status_is_rejected) ... ok
+test_failed_work_in_progress_preserves_checkpoint_and_run (test_qualityctl.QualityControls.test_failed_work_in_progress_preserves_checkpoint_and_run) ... ok
+test_failing_junit_overrides_zero_exit (test_qualityctl.QualityControls.test_failing_junit_overrides_zero_exit) ... ok
+test_gate_lock_blocks_parallel_update (test_qualityctl.QualityControls.test_gate_lock_blocks_parallel_update) ... ok
+test_handoff_includes_accepted_evidence (test_qualityctl.QualityControls.test_handoff_includes_accepted_evidence) ... ok
+test_handoff_includes_generated_navigation (test_qualityctl.QualityControls.test_handoff_includes_generated_navigation) ... ok
+test_handoff_keeps_native_report_graph_without_editing_source_allowlist (test_qualityctl.QualityControls.test_handoff_keeps_native_report_graph_without_editing_source_allowlist) ... ok
+test_handoff_keeps_precise_in_phase_resume_point (test_qualityctl.QualityControls.test_handoff_keeps_precise_in_phase_resume_point) ... ok
+test_handoff_roundtrip_preserves_source_fingerprint (test_qualityctl.QualityControls.test_handoff_roundtrip_preserves_source_fingerprint) ... ok
+test_incomplete_handoff_is_explicit (test_qualityctl.QualityControls.test_incomplete_handoff_is_explicit) ... ok
+test_inconsistent_junit_totals_fail (test_qualityctl.QualityControls.test_inconsistent_junit_totals_fail) ... ok
+test_independent_next_phase_blocker_is_preserved (test_qualityctl.QualityControls.test_independent_next_phase_blocker_is_preserved) ... ok
+test_initial_status_retains_unverified_application (test_qualityctl.QualityControls.test_initial_status_retains_unverified_application) ... ok
+test_invalid_timeout_is_rejected (test_qualityctl.QualityControls.test_invalid_timeout_is_rejected) ... ok
+test_known_low_severity_defect_blocks (test_qualityctl.QualityControls.test_known_low_severity_defect_blocks) ... ok
+test_latest_pointer_cannot_reference_another_phase (test_qualityctl.QualityControls.test_latest_pointer_cannot_reference_another_phase) ... ok
+test_manually_changed_navigation_is_not_a_second_truth (test_qualityctl.QualityControls.test_manually_changed_navigation_is_not_a_second_truth) ... ok
+test_missing_exit_criterion_blocks (test_qualityctl.QualityControls.test_missing_exit_criterion_blocks) ... ok
+test_missing_review_does_not_advance_progress (test_qualityctl.QualityControls.test_missing_review_does_not_advance_progress) ... ok
+test_navigation_detects_changed_progress_and_refreshes (test_qualityctl.QualityControls.test_navigation_detects_changed_progress_and_refreshes) ... ok
+test_navigation_detects_changes_to_acceptance_checks (test_qualityctl.QualityControls.test_navigation_detects_changes_to_acceptance_checks) ... ok
+test_navigation_does_not_advance_or_change_canonical_data (test_qualityctl.QualityControls.test_navigation_does_not_advance_or_change_canonical_data) ... ok
+test_no_registered_checks_blocks_phase (test_qualityctl.QualityControls.test_no_registered_checks_blocks_phase) ... ok
+test_nonempty_recognizable_environment_credential_is_rejected (test_qualityctl.QualityControls.test_nonempty_recognizable_environment_credential_is_rejected) ... ok
+test_nonzero_exit_overrides_passing_junit (test_qualityctl.QualityControls.test_nonzero_exit_overrides_passing_junit) ... ok
+test_old_junit_is_not_reused (test_qualityctl.QualityControls.test_old_junit_is_not_reused) ... ok
+test_omitted_source_is_rejected (test_qualityctl.QualityControls.test_omitted_source_is_rejected) ... ok
+test_out_of_order_phase_is_blocked (test_qualityctl.QualityControls.test_out_of_order_phase_is_blocked) ... ok
+test_path_traversal_is_rejected (test_qualityctl.QualityControls.test_path_traversal_is_rejected) ... ok
+test_preservation_refuses_already_changed_original_proof (test_qualityctl.QualityControls.test_preservation_refuses_already_changed_original_proof) ... ok
+test_progress_change_invalidates_receipt (test_qualityctl.QualityControls.test_progress_change_invalidates_receipt) ... ok
+test_regression_checks_are_included (test_qualityctl.QualityControls.test_regression_checks_are_included) ... ok
+test_sensitive_file_is_rejected (test_qualityctl.QualityControls.test_sensitive_file_is_rejected) ... ok
+test_shared_junit_output_is_rejected (test_qualityctl.QualityControls.test_shared_junit_output_is_rejected) ... ok
+test_skipped_test_fails (test_qualityctl.QualityControls.test_skipped_test_fails) ... ok
+test_source_change_invalidates_receipt (test_qualityctl.QualityControls.test_source_change_invalidates_receipt) ... ok
+test_source_fingerprint_order_is_portable_across_native_path_ordering (test_qualityctl.QualityControls.test_source_fingerprint_order_is_portable_across_native_path_ordering) ... ok
+test_stale_navigation_blocks_handoff (test_qualityctl.QualityControls.test_stale_navigation_blocks_handoff) ... ok
+test_successful_command_without_junit_fails (test_qualityctl.QualityControls.test_successful_command_without_junit_fails) ... ok
+test_symlink_is_rejected (test_qualityctl.QualityControls.test_symlink_is_rejected) ... ok
+test_tampered_log_blocks (test_qualityctl.QualityControls.test_tampered_log_blocks) ... ok
+test_unknown_finding_type_cannot_hide_a_defect (test_qualityctl.QualityControls.test_unknown_finding_type_cannot_hide_a_defect) ... ok
+test_zero_tests_fails (test_qualityctl.QualityControls.test_zero_tests_fails) ... ok
+test_another_host_cannot_be_renamed_windows (test_target_checks.TargetEvidenceControls.test_another_host_cannot_be_renamed_windows) ... ok
+test_complete_current_synthetic_graph_exercises_success_path (test_target_checks.TargetEvidenceControls.test_complete_current_synthetic_graph_exercises_success_path) ... ok
+test_duplicate_smoke_scenarios_are_not_complete_evidence (test_target_checks.TargetEvidenceControls.test_duplicate_smoke_scenarios_are_not_complete_evidence) ... ok
+test_environment_pass_label_cannot_hide_a_wrong_locked_dependency (test_target_checks.TargetEvidenceControls.test_environment_pass_label_cannot_hide_a_wrong_locked_dependency) ... ok
+test_false_subcheck_status_cannot_hide_recorded_failures (test_target_checks.TargetEvidenceControls.test_false_subcheck_status_cannot_hide_recorded_failures) ... ok
+test_linux_success_does_not_count_as_windows (test_target_checks.TargetEvidenceControls.test_linux_success_does_not_count_as_windows) ... ok
+test_missing_check_log_is_rejected (test_target_checks.TargetEvidenceControls.test_missing_check_log_is_rejected) ... ok
+test_missing_native_runs_do_not_pass (test_target_checks.TargetEvidenceControls.test_missing_native_runs_do_not_pass) ... ok
+test_native_report_test_counts_must_match_junit (test_target_checks.TargetEvidenceControls.test_native_report_test_counts_must_match_junit) ... ok
+test_skipped_native_test_is_rejected (test_target_checks.TargetEvidenceControls.test_skipped_native_test_is_rejected) ... ok
+test_smoke_label_cannot_hide_a_wrong_delivery_outcome (test_target_checks.TargetEvidenceControls.test_smoke_label_cannot_hide_a_wrong_delivery_outcome) ... ok
+test_stale_source_is_rejected (test_target_checks.TargetEvidenceControls.test_stale_source_is_rejected) ... ok
+test_status_only_smoke_rows_are_rejected (test_target_checks.TargetEvidenceControls.test_status_only_smoke_rows_are_rejected) ... ok
+test_tampered_target_bytes_are_rejected (test_target_checks.TargetEvidenceControls.test_tampered_target_bytes_are_rejected) ... ok
+test_wrong_python_version_is_rejected_even_if_every_label_says_pass (test_target_checks.TargetEvidenceControls.test_wrong_python_version_is_rejected_even_if_every_label_says_pass) ... ok
+
+----------------------------------------------------------------------
+Ran 78 tests in 2.043s
+
+OK
+{"scope": "DEVELOPMENT_CONTROL_TOOLING_ONLY", "status": "PASS", "counts": {"tests": 78, "failures": 0, "errors": 0, "skipped": 0, "expected_failures": 0, "unexpected_successes": 0}}
+AGENTS.md: LEXICAL_CHECK=PASS (rendering not certified)
+CONSILIUM_DEEP_GL_CL_COMPARISON_FA.md: LEXICAL_CHECK=PASS (rendering not certified)
+CONSILIUM_HANDOFF_AND_QUALITY_PROTOCOL_FA.md: LEXICAL_CHECK=PASS (rendering not certified)
+CONSILIUM_MASTER_ROADMAP_FA.md: LEXICAL_CHECK=PASS (rendering not certified)
+CONSILIUM_PROGRESS_P01_FA.md: LEXICAL_CHECK=PASS (rendering not certified)
+HANDOFF_TEMPLATE_FA.md: LEXICAL_CHECK=PASS (rendering not certified)
+README_FA.md: LEXICAL_CHECK=PASS (rendering not certified)
+START_HERE_FA.md: LEXICAL_CHECK=PASS (rendering not certified)
+docs/DATA_CONTRACTS_FA.md: LEXICAL_CHECK=PASS (rendering not certified)
+docs/MODEL_EVALUATION_PLAN_FA.md: LEXICAL_CHECK=PASS (rendering not certified)
+docs/RUNBOOK_FA.md: LEXICAL_CHECK=PASS (rendering not certified)
+docs/SCOPE_AND_INVENTORY_FA.md: LEXICAL_CHECK=PASS (rendering not certified)
+docs/decisions/ADR-001-TRUTH_AND_HANDOFF_FA.md: LEXICAL_CHECK=PASS (rendering not certified)
+docs/decisions/ADR-002-DEVELOPMENT_CHECK_AND_MODEL_SELECTION_FA.md: LEXICAL_CHECK=PASS (rendering not certified)
+docs/decisions/ADR-003-P01_FOUNDATION_FA.md: LEXICAL_CHECK=PASS (rendering not certified)
+docs/decisions/ADR-004-P01_REAUDIT_FA.md: LEXICAL_CHECK=PASS (rendering not certified)
+evidence/navigation/STATUS_FA.md: LEXICAL_CHECK=PASS (rendering not certified)
+evidence/navigation/BACKLOG_FA.md: LEXICAL_CHECK=PASS (rendering not certified)
+{"status": "PASS", "phase": "P01", "scope": "CURRENT_HOST_DEPENDENCY_LOCK_NOT_OTHER_OS_PROOF", "host": {"system": "Linux", "python": "3.12.14"}, "dependencies": [{"package": "setuptools", "required": "84.0.0", "installed": "84.0.0", "status": "PASS"}, {"package": "pydantic", "required": "2.13.5", "installed": "2.13.5", "status": "PASS"}, {"package": "pydantic-core", "required": "2.46.5", "installed": "2.46.5", "status": "PASS"}, {"package": "annotated-types", "required": "0.8.0", "installed": "0.8.0", "status": "PASS"}, {"package": "typing-extensions", "required": "4.16.0", "installed": "4.16.0", "status": "PASS"}, {"package": "typing-inspection", "required": "0.4.4", "installed": "0.4.4", "status": "PASS"}], "windows_execution": "NOT_RUN", "network_calls": 0}
+test_all_scenarios_execute_without_network (test_foundation.AdapterTests.test_all_scenarios_execute_without_network) ... ok
+test_api_success_binds_result_to_request (test_foundation.AdapterTests.test_api_success_binds_result_to_request) ... ok
+test_browser_success_has_browser_capabilities (test_foundation.AdapterTests.test_browser_success_has_browser_capabilities) ... ok
+test_delayed_response_past_deadline_is_pending (test_foundation.AdapterTests.test_delayed_response_past_deadline_is_pending) ... ok
+test_delayed_response_uses_virtual_time (test_foundation.AdapterTests.test_delayed_response_uses_virtual_time) ... ok
+test_expired_session_does_not_send (test_foundation.AdapterTests.test_expired_session_does_not_send) ... ok
+test_invalid_json_is_a_received_but_invalid_response (test_foundation.AdapterTests.test_invalid_json_is_a_received_but_invalid_response) ... ok
+test_mock_does_not_advertise_unimplemented_operations (test_foundation.AdapterTests.test_mock_does_not_advertise_unimplemented_operations) ... ok
+test_mock_satisfies_the_adapter_protocol (test_foundation.AdapterTests.test_mock_satisfies_the_adapter_protocol) ... ok
+test_partial_response_does_not_become_complete (test_foundation.AdapterTests.test_partial_response_does_not_become_complete) ... ok
+test_probe_cannot_rebind_a_recorded_attempt_to_a_new_connection (test_foundation.AdapterTests.test_probe_cannot_rebind_a_recorded_attempt_to_a_new_connection) ... ok
+test_probe_cannot_rebind_a_recorded_attempt_to_new_input (test_foundation.AdapterTests.test_probe_cannot_rebind_a_recorded_attempt_to_new_input) ... ok
+test_probe_keeps_frozen_request_hash (test_foundation.AdapterTests.test_probe_keeps_frozen_request_hash) ... ok
+test_quota_rejection_does_not_send (test_foundation.AdapterTests.test_quota_rejection_does_not_send) ... ok
+test_same_attempt_cannot_be_sent_twice (test_foundation.AdapterTests.test_same_attempt_cannot_be_sent_twice) ... ok
+test_timeout_after_delivery_preserves_confirmed_delivery (test_foundation.AdapterTests.test_timeout_after_delivery_preserves_confirmed_delivery) ... ok
+test_timeout_after_send_stays_unknown (test_foundation.AdapterTests.test_timeout_after_send_stays_unknown) ... ok
+test_timeout_before_send_is_provably_not_sent (test_foundation.AdapterTests.test_timeout_before_send_is_provably_not_sent) ... ok
+test_unknown_observation_does_not_trigger_retry (test_foundation.AdapterTests.test_unknown_observation_does_not_trigger_retry) ... ok
+test_unseen_attempt_cannot_be_proved_not_sent (test_foundation.AdapterTests.test_unseen_attempt_cannot_be_proved_not_sent) ... ok
+test_wrong_transport_mode_is_rejected_before_recording_send (test_foundation.AdapterTests.test_wrong_transport_mode_is_rejected_before_recording_send) ... ok
+test_blank_prompt_is_rejected_without_echoing_input (test_foundation.ContractTests.test_blank_prompt_is_rejected_without_echoing_input) ... ok
+test_blind_review_is_default (test_foundation.ContractTests.test_blind_review_is_default) ... ok
+test_capabilities_cannot_silently_claim_live_verification (test_foundation.ContractTests.test_capabilities_cannot_silently_claim_live_verification) ... ok
+test_complete_result_cannot_claim_unknown_delivery (test_foundation.ContractTests.test_complete_result_cannot_claim_unknown_delivery) ... ok
+test_critique_requires_reason_and_real_numeric_score (test_foundation.ContractTests.test_critique_requires_reason_and_real_numeric_score) ... ok
+test_custom_decision_requires_instruction (test_foundation.ContractTests.test_custom_decision_requires_instruction) ... ok
+test_duplicate_debate_participants_are_rejected (test_foundation.ContractTests.test_duplicate_debate_participants_are_rejected) ... ok
+test_empty_complete_response_is_rejected (test_foundation.ContractTests.test_empty_complete_response_is_rejected) ... ok
+test_empty_messages_are_rejected (test_foundation.ContractTests.test_empty_messages_are_rejected) ... ok
+test_frozen_input_cannot_be_mutated (test_foundation.ContractTests.test_frozen_input_cannot_be_mutated) ... ok
+test_generation_identity_is_independent (test_foundation.ContractTests.test_generation_identity_is_independent) ... ok
+test_hash_changes_when_generation_parameters_change (test_foundation.ContractTests.test_hash_changes_when_generation_parameters_change) ... ok
+test_hash_is_reproducible_after_json_round_trip (test_foundation.ContractTests.test_hash_is_reproducible_after_json_round_trip) ... ok
+test_hash_preserves_exact_prompt_bytes (test_foundation.ContractTests.test_hash_preserves_exact_prompt_bytes) ... ok
+test_invalid_response_failure_requires_an_invalid_received_response (test_foundation.ContractTests.test_invalid_response_failure_requires_an_invalid_received_response) ... ok
+test_manual_answer_records_actual_prompt_and_round_visibility (test_foundation.ContractTests.test_manual_answer_records_actual_prompt_and_round_visibility) ... ok
+test_mismatched_request_hash_is_rejected (test_foundation.ContractTests.test_mismatched_request_hash_is_rejected) ... ok
+test_model_copy_does_not_bypass_validation (test_foundation.ContractTests.test_model_copy_does_not_bypass_validation) ... ok
+test_nil_identity_is_rejected (test_foundation.ContractTests.test_nil_identity_is_rejected) ... ok
+test_non_custom_decision_cannot_smuggle_instruction (test_foundation.ContractTests.test_non_custom_decision_cannot_smuggle_instruction) ... ok
+test_non_finite_generation_parameter_is_rejected (test_foundation.ContractTests.test_non_finite_generation_parameter_is_rejected) ... ok
+test_operation_identity_is_not_content_hash (test_foundation.ContractTests.test_operation_identity_is_not_content_hash) ... ok
+test_retry_preserves_logical_identity_and_changes_attempt (test_foundation.ContractTests.test_retry_preserves_logical_identity_and_changes_attempt) ... ok
+test_reused_identity_fields_are_rejected (test_foundation.ContractTests.test_reused_identity_fields_are_rejected) ... ok
+test_schema_generation_for_all_contracts (test_foundation.ContractTests.test_schema_generation_for_all_contracts) ... ok
+test_schema_version_cannot_be_boolean (test_foundation.ContractTests.test_schema_version_cannot_be_boolean) ... ok
+test_strings_and_booleans_are_not_revision_numbers (test_foundation.ContractTests.test_strings_and_booleans_are_not_revision_numbers) ... ok
+test_targeted_round_requires_target (test_foundation.ContractTests.test_targeted_round_requires_target) ... ok
+test_unrelated_connection_cannot_receive_intent (test_foundation.ContractTests.test_unrelated_connection_cannot_receive_intent) ... ok
+test_credentials_are_not_fields_in_public_connection (test_foundation.PrivateBoundaryTests.test_credentials_are_not_fields_in_public_connection) ... ok
+test_environment_secret_is_not_in_repr_or_public_spec (test_foundation.PrivateBoundaryTests.test_environment_secret_is_not_in_repr_or_public_spec) ... ok
+test_existing_profile_cannot_resolve_back_into_source (test_foundation.PrivateBoundaryTests.test_existing_profile_cannot_resolve_back_into_source) ... ok
+test_private_field_aliases_cannot_escape_the_public_boundary (test_foundation.PrivateBoundaryTests.test_private_field_aliases_cannot_escape_the_public_boundary) ... ok
+test_private_profile_must_be_outside_source (test_foundation.PrivateBoundaryTests.test_private_profile_must_be_outside_source) ... ok
+test_public_boundary_accepts_nonsecret_report (test_foundation.PrivateBoundaryTests.test_public_boundary_accepts_nonsecret_report) ... ok
+test_public_boundary_rejects_known_secret_without_echo (test_foundation.PrivateBoundaryTests.test_public_boundary_rejects_known_secret_without_echo) ... ok
+test_public_boundary_rejects_multiline_known_secret (test_foundation.PrivateBoundaryTests.test_public_boundary_rejects_multiline_known_secret) ... ok
+test_public_boundary_rejects_secret_field_even_with_short_value (test_foundation.PrivateBoundaryTests.test_public_boundary_rejects_secret_field_even_with_short_value) ... ok
+test_pure_core_does_not_import_transport_or_storage (test_foundation.PrivateBoundaryTests.test_pure_core_does_not_import_transport_or_storage) ... ok
+
+----------------------------------------------------------------------
+Ran 60 tests in 0.019s
+
+OK
+{"phase": "P01", "scope": "APPLICATION_FOUNDATION_OFFLINE_NOT_FULL_V1_CONFORMANCE", "status": "PASS", "counts": {"tests": 60, "failures": 0, "errors": 0, "skipped": 0}}
+{
+  "schema_version": 1,
+  "scope": "DEVELOPMENT_CHECK_WITH_SEPARATE_FOUNDATION_TESTS",
+  "status": "PASS",
+  "checks": [
+    {
+      "id": "state_navigation_python_syntax",
+      "status": "PASS"
+    },
+    {
+      "id": "control_tests",
+      "status": "PASS",
+      "returncode": 0
+    },
+    {
+      "id": "markdown_lexical",
+      "status": "PASS",
+      "returncode": 0
+    },
+    {
+      "id": "environment_lock",
+      "status": "PASS",
+      "returncode": 0
+    },
+    {
+      "id": "foundation_tests",
+      "status": "PASS",
+      "returncode": 0
+    }
+  ],
+  "source_digest_before": "e5c868d5d2ab0dd56d21f7873f9f23d876a5fd4ac60e45b2989ec7167ac94087",
+  "source_digest_after": "e5c868d5d2ab0dd56d21f7873f9f23d876a5fd4ac60e45b2989ec7167ac94087",
+  "application_runtime_tests": "FOUNDATION_ONLY",
+  "application_phase_accepted": false,
+  "static_type_check": "NOT_RUN",
+  "visual_rendering": "NOT_RUN"
+}
+

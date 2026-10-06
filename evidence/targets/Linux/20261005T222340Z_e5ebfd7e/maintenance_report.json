@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "scope": "DEVELOPMENT_CHECK_WITH_SEPARATE_FOUNDATION_TESTS",
+  "status": "PASS",
+  "checks": [
+    {
+      "id": "state_navigation_python_syntax",
+      "status": "PASS"
+    },
+    {
+      "id": "control_tests",
+      "status": "PASS",
+      "returncode": 0
+    },
+    {
+      "id": "markdown_lexical",
+      "status": "PASS",
+      "returncode": 0
+    },
+    {
+      "id": "environment_lock",
+      "status": "PASS",
+      "returncode": 0
+    },
+    {
+      "id": "foundation_tests",
+      "status": "PASS",
+      "returncode": 0
+    }
+  ],
+  "source_digest_before": "7c5fb585dcc234c2ca5463c7f00532f65205eacb754b1e6dd5739f116d00dbe3",
+  "source_digest_after": "7c5fb585dcc234c2ca5463c7f00532f65205eacb754b1e6dd5739f116d00dbe3",
+  "application_runtime_tests": "FOUNDATION_ONLY",
+  "application_phase_accepted": false,
+  "static_type_check": "NOT_RUN",
+  "visual_rendering": "NOT_RUN"
+}

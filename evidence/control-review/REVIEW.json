@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "scope": "DEVELOPMENT_CONTROL_TOOLING_ONLY",
+  "status": "PASS",
+  "source_digest": "6305783e92cca177c9653ff2cf142cf8938a978778722731fbd7a270a7a421a0",
+  "reviewer": "Codex; same author in a separate review pass",
+  "independent_reviewer": false,
+  "method": "Read changed paths, assess phase/requirement impact and execute behavioral negative/positive checks",
+  "open_known_defects_in_changed_scope": 0,
+  "changes_reviewed": [
+    "latest completed run pointer and hash-bound transfer of failed/incomplete run evidence",
+    "derived navigation and stale/manual-edit refusal",
+    "portable check command with honest scope",
+    "decision and runbook documentation",
+    "unchanged protected baseline and phase order"
+  ],
+  "limits": [
+    "Application source and actual integrations are not supplied",
+    "Windows, visual rendering and static type checking are NOT_RUN",
+    "Recorded review and test semantics still require judgment",
+    "Current-phase unaccepted review and supplementary evidence need explicit transfer allowlisting",
+    "Simultaneous configured runs in one working folder are unsupported"
+  ]
+}

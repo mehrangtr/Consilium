@@ -1,0 +1,20 @@
+{
+  "status": "FAIL",
+  "scope": "STATIC_RUNNER_CONFIG_CHECK_NOT_NATIVE_EXECUTION",
+  "checked_at_utc": "2026-10-06T09:32:49.018Z",
+  "manifest": "actions/python-versions/versions-manifest.json",
+  "manifest_blob_sha": "6e449c983a836ebb17364e5225798bd8b160b647",
+  "findings": [
+    {
+      "id": "CI-001",
+      "kind": "DEFECT",
+      "message": "actions/setup-python has no Windows x64 distribution of Python 3.12.14 in the current official manifest.",
+      "requested": {
+        "target": "Windows",
+        "python": "3.12.14"
+      },
+      "linux_execution_is_not_windows_validation": true
+    }
+  ],
+  "native_windows_execution": "NOT_RUN"
+}

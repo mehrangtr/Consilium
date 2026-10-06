@@ -1,0 +1,22 @@
+test_foundation (unittest.loader._FailedTest.test_foundation) ... ERROR
+
+======================================================================
+ERROR: test_foundation (unittest.loader._FailedTest.test_foundation)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_foundation
+Traceback (most recent call last):
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/loader.py", line 396, in _find_test_path
+    module = self._get_module_from_name(name)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/loader.py", line 339, in _get_module_from_name
+    __import__(name)
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tests/foundation/test_foundation.py", line 14, in <module>
+    from consilium.core.contracts import (
+ModuleNotFoundError: No module named 'consilium'
+
+
+----------------------------------------------------------------------
+Ran 1 test in 0.000s
+
+FAILED (errors=1)
+{"phase": "P01", "scope": "APPLICATION_FOUNDATION_OFFLINE_NOT_FULL_V1_CONFORMANCE", "status": "FAIL", "counts": {"tests": 1, "failures": 0, "errors": 1, "skipped": 0}}

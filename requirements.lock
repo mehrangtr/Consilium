@@ -1,0 +1,7 @@
+# Exact installed/validated P01 runtime and build-tool versions. No model SDK yet.
+setuptools==84.0.0
+pydantic==2.13.5
+pydantic-core==2.46.5
+annotated-types==0.8.0
+typing-extensions==4.16.0
+typing-inspection==0.4.4

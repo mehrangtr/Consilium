@@ -1,0 +1,13 @@
+[build-system]
+requires = ["setuptools==84.0.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "consilium-local"
+version = "0.1.0.dev1"
+description = "User-controlled local AI council; P01 foundation under development"
+requires-python = ">=3.12,<3.13"
+dependencies = ["pydantic==2.13.5"]
+
+[tool.setuptools.packages.find]
+where = ["src"]

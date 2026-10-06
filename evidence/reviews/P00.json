@@ -1,0 +1,52 @@
+{
+  "phase": "P00",
+  "source_digest": "9df2fdd6eb6a23f746475a14f136e62e43b5cf0ea0b15c61e88c4ee6fb30c4fc",
+  "status": "PASS",
+  "reviewer": "Codex; same author, separate review pass",
+  "independent": false,
+  "method": "Read user choices, compare scope with all 30 protected canonical IDs, inspect input inventory and both fresh check logs; explicitly distinguish unknown access and unexecuted Windows from runtime proof.",
+  "impact_assessment": "No protected requirement, phase dependency or baseline byte changed. Five services and two operating systems clarify scope. Paid API calls remain unauthorized. Runtime conformance remains 0/30.",
+  "findings": [],
+  "criteria": [
+    {
+      "id": "P00.E01",
+      "criterion": "یک دامنهٔ نسخهٔ اول و یک جدول اتصال روشن داریم؛ همهٔ ۳۰ خواسته محفوظ مانده‌اند.",
+      "status": "PASS",
+      "notes": "Direct user choices preserved in SCOPE; three required modes and all five providers remain V1. Original 30-entry registry remains byte-identical.",
+      "evidence": [
+        {
+          "path": "SCOPE.json",
+          "sha256": "d765c16838ba623f107fd3d995c5c50a32452f45f1710c5d2122e927b5eb5abb"
+        },
+        {
+          "path": "baseline/Consilium_User_Guarded_Governance_v1.3_Reviewed.zip",
+          "sha256": "8f898b60627c07ec9c4028ff4bfa510c1b5578c2dd1141fa8f2f16ed648fd742"
+        },
+        {
+          "path": "evidence/scope/RUN.json",
+          "sha256": "79563b8319c43e71b639a6f6a0c51698c8bf807cd19464c2a380875564082836"
+        }
+      ]
+    },
+    {
+      "id": "P00.E02",
+      "criterion": "موجودی کد و دسترسی‌ها با شاهد یا وضعیت نامعلوم ثبت شده است؛ شمار اتصال‌ها برای بازبرآورد معلوم است.",
+      "status": "PASS",
+      "notes": "Reviewed input inventory explicitly finds no starting app source; not a claim about unknown external repositories. Ten planned live adapters plus Manual counted. Account/model/capability/Windows access remain explicitly UNKNOWN or NOT_RUN, as allowed by this inventory criterion. Revised estimate marks dual-platform and access wait uncertainty.",
+      "evidence": [
+        {
+          "path": "INVENTORY.json",
+          "sha256": "0c4cc650500f1252180430b221938f8c0c8318b24a700a9ff114309054f976bc"
+        },
+        {
+          "path": "docs/SCOPE_AND_INVENTORY_FA.md",
+          "sha256": "b1731763e733e05f5877e3f22f9c988422da2fbc841591d4a2a39b57a83d89bf"
+        },
+        {
+          "path": "evidence/runs/20261005T214708Z_55e989cfdc/RUN.json",
+          "sha256": "300571ad538ca95de3653becafcecf3dcb51844c937534c049d2c1fddcd80f26"
+        }
+      ]
+    }
+  ]
+}

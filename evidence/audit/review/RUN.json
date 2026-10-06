@@ -1,0 +1,111 @@
+{
+  "schema_version": 1,
+  "date_utc": "2026-10-06T08:55:36.922336+00:00",
+  "scope": "P01_REAUDIT_CODE_AND_HANDOFF_NOT_PHASE_ACCEPTANCE",
+  "status": "PASS",
+  "source_digest": "e5c868d5d2ab0dd56d21f7873f9f23d876a5fd4ac60e45b2989ec7167ac94087",
+  "reviewer": "Codex; same author, separate review pass",
+  "independent_reviewer": false,
+  "open_known_defects_in_reviewed_scope": 0,
+  "new_findings": [
+    [
+      "RA01",
+      "Private field spelling aliases are rejected.",
+      "test_private_field_aliases_cannot_escape_the_public_boundary"
+    ],
+    [
+      "RA02",
+      "Invalid-response failure requires an invalid received response.",
+      "test_invalid_response_failure_requires_an_invalid_received_response"
+    ],
+    [
+      "RA03",
+      "Mock does not advertise unimplemented streaming or conversation continuation.",
+      "test_mock_does_not_advertise_unimplemented_operations"
+    ],
+    [
+      "RA04",
+      "Smoke evidence requires four distinct cases and actual matching outcomes.",
+      "test_duplicate_smoke_scenarios_are_not_complete_evidence"
+    ],
+    [
+      "RA05",
+      "Recorded counts, Python environment, dependency lock and full logs are validated.",
+      "test_native_report_test_counts_must_match_junit"
+    ],
+    [
+      "RA06",
+      "Mutable previous reports cannot substitute for reports from a new invocation.",
+      "test_old_mutable_reports_cannot_be_reused_as_a_fresh_native_run"
+    ],
+    [
+      "RA07",
+      "Early failure and timeout preserve failed checkpoints and available logs.",
+      "test_timed_out_check_preserves_partial_log_and_failed_checkpoint"
+    ],
+    [
+      "RA08",
+      "All root test modules are discovered; new failure-recorder tests execute.",
+      "test_failure_before_reports_exist_still_publishes_a_failed_checkpoint"
+    ],
+    [
+      "RA09",
+      "Packaging outputs are excluded without excluding actual source changes.",
+      "test_build_products_do_not_change_source_but_real_code_does"
+    ],
+    [
+      "RA10",
+      "Canonical progress distinguishes tested foundation from untested full V1 conformance.",
+      "PROGRESS.json"
+    ],
+    [
+      "RA11",
+      "Previous review and original criterion bytes are retained; new review references immutable evidence.",
+      "evidence/audit/history/P01_review_snapshot.json"
+    ]
+  ],
+  "foundation_counts": {
+    "tests": 60,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "control_counts": {
+    "tests": 78,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "expected_failures": 0,
+    "unexpected_successes": 0
+  },
+  "evidence": [
+    {
+      "path": "evidence/targets/Linux/20261006T085341Z_fa709cdf/RUN.json",
+      "sha256": "6755d824e7fc8b82e7a3c1390a345bde42c572bdfa9b2bba76425f0918dc6c22"
+    },
+    {
+      "path": "evidence/audit/installation/RUN.json",
+      "sha256": "b1ff9d6de8f5ed16adce258f4b29aa237fc081306c87ccfa9e1fede2d4630704"
+    },
+    {
+      "path": "evidence/audit/history/P01_review_snapshot.json",
+      "sha256": "9d4cdf4feb6224aa133cd58a9f2247135c1a1fbd69567957acb739262ac3739a"
+    }
+  ],
+  "phase_acceptance": "BLOCKED_NATIVE_WINDOWS_NOT_RUN",
+  "preserved_p00_acceptance": true,
+  "protected_requirements_changed": false,
+  "phase_order_changed": false,
+  "static_type_check": "NOT_RUN",
+  "visual_rendering": "NOT_RUN",
+  "reproduction": {
+    "path": "evidence/reproduction/RUN.json",
+    "sha256": "ffabdae8ba4c9a73930fa3db34849966d8d15184e3147cb71c25d5077bfcf33e",
+    "status": "PASS_FRESH_VENV_AND_PACKAGE_INSTALL_LINUX_ONLY"
+  },
+  "phase_gate_check": {
+    "status": "BLOCKED_AS_REQUIRED",
+    "reason": "Checks failed or source changed since the run",
+    "progress_unchanged": true
+  }
+}

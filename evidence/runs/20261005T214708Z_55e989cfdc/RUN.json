@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "phase": "P00",
+  "plan_version": "1.2",
+  "source_digest_before": "9df2fdd6eb6a23f746475a14f136e62e43b5cf0ea0b15c61e88c4ee6fb30c4fc",
+  "source_digest_after": "9df2fdd6eb6a23f746475a14f136e62e43b5cf0ea0b15c61e88c4ee6fb30c4fc",
+  "progress_sha256": "c3e68b3c83fccfb3b0a29142e7b7972ee10f669f104e77782c5e2d86026a13fe",
+  "checks": [
+    {
+      "id": "scope_inventory",
+      "kind": "static",
+      "argv": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "tools/check_scope.py"
+      ],
+      "returncode": 0,
+      "log": "evidence/runs/20261005T214708Z_55e989cfdc/scope_inventory.log",
+      "log_sha256": "a4cbef7d8a9fc9d76a023d73e1cc2ea29e459f64c7e8bb8af5ae11c0f10f8a6c",
+      "counts": null,
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "id": "development_regression",
+      "kind": "test",
+      "argv": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "tools/check.py"
+      ],
+      "returncode": 0,
+      "log": "evidence/runs/20261005T214708Z_55e989cfdc/development_regression.log",
+      "log_sha256": "720ca66b9eb9d0ea1fedc191ff4f1205bb693d2b77bba4953c6283ca2039dfd2",
+      "counts": {
+        "tests": 52,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "junit": "evidence/runs/20261005T214708Z_55e989cfdc/development_regression.xml",
+      "junit_input": "evidence/control-tests/JUNIT.xml",
+      "junit_sha256": "b5161c158c450cde0c77c91df2273056ea2eb411f423b13729deae8ee5d59cf3",
+      "status": "PASS",
+      "error": null
+    }
+  ],
+  "status": "PASS",
+  "scope": "CONFIGURED_CHECKS_NOT_PROOF_OF_CORRECTNESS"
+}

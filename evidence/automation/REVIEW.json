@@ -1,0 +1,40 @@
+{
+  "date_utc": "2026-10-06T09:38:22.662298+00:00",
+  "scope": "AUTONOMOUS_CI_PREPARATION_REVIEW_NOT_PHASE_ACCEPTANCE",
+  "status": "PASS",
+  "source_digest": "ea9746a49a419270f326e56f4f89ad2a14113f33e63a0ad04ba50a027d3fc309",
+  "reviewer": "Codex, same author in a separate review pass",
+  "independent_review": false,
+  "native_linux": {
+    "path": "evidence/targets/Linux/20261006T094101Z_c0ed933a/RUN.json",
+    "sha256": "760c15e0945fdee8621f4d242a4f806ac7c981209702c3afb12fe565dd26a4e0"
+  },
+  "phase_receipt": {
+    "path": "evidence/runs/20261006T094325Z_faad696fb1/RUN.json",
+    "sha256": "a6ea8ad4a59a4879afb1b50bb85e5d1ba8e1d2449a23d6df62a918bee4f74485"
+  },
+  "configured_phase_checks_status": "FAIL",
+  "failed_check_ids": [
+    "native_target_matrix"
+  ],
+  "windows_execution": "NOT_RUN",
+  "remote_workflow_execution": "NOT_RUN",
+  "public_publication_permission": "NOT_GRANTED",
+  "remote_mutations_performed": false,
+  "user_windows_assistance_required": false,
+  "source_files_examined": 53,
+  "nested_governance_files_checked": 31,
+  "recognizable_secret_checks": "PASS; pattern checks and reviewed paths, not a guarantee of detecting unknown secrets",
+  "phase_order_changed": false,
+  "protected_requirements_changed": false,
+  "phase_accepted": false,
+  "P02_started": false,
+  "closed_findings": [
+    "CI-001"
+  ],
+  "remaining_action": "Publish this exact reviewed checkpoint after authorization for public publication; assistant runs both OS jobs, retrieves native artifacts and reviews the P01 gate.",
+  "fresh_directory_reproduction": {
+    "path": "evidence/reproduction/RUN.json",
+    "sha256": "aa74bb7a30704b8572730bdea21d058d4d62423c8bd8d1ab94228e579721815d"
+  }
+}

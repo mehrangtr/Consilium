@@ -1,0 +1,20 @@
+{
+  "date_utc": "2026-10-06T09:30:53.950576+00:00",
+  "local_system": "Linux",
+  "local_windows_runtime": "NOT_AVAILABLE",
+  "remote_repository": "mehrangtr/Consilium",
+  "visibility": "public",
+  "repository_empty": true,
+  "permissions_observed": {
+    "admin": true,
+    "push": true,
+    "pull": true
+  },
+  "remote_mutations": 0,
+  "public_publication_permission": "NOT_GRANTED",
+  "planned_execution": "NATIVE_GITHUB_HOSTED_WINDOWS_AND_LINUX",
+  "remote_execution": "NOT_RUN",
+  "windows_execution": "NOT_RUN",
+  "user_windows_assistance_required": false,
+  "next_action": "Publish the exact reviewed checkpoint after public publication authorization; assistant runs and retrieves native evidence."
+}

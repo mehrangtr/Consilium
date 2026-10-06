@@ -1,0 +1,101 @@
+test_accepted_phase_advances_only_one_step (test_qualityctl.QualityControls.test_accepted_phase_advances_only_one_step) ... ok
+test_archive_byte_tampering_is_rejected (test_qualityctl.QualityControls.test_archive_byte_tampering_is_rejected) ... ok
+test_archive_case_collisions_are_rejected (test_qualityctl.QualityControls.test_archive_case_collisions_are_rejected) ... ok
+test_archive_unsafe_member_is_rejected (test_qualityctl.QualityControls.test_archive_unsafe_member_is_rejected) ... ok
+test_changed_baseline_is_rejected (test_qualityctl.QualityControls.test_changed_baseline_is_rejected) ... ok
+test_changed_criterion_text_blocks (test_qualityctl.QualityControls.test_changed_criterion_text_blocks) ... ok
+test_current_failed_run_without_junit_keeps_error_and_log (test_qualityctl.QualityControls.test_current_failed_run_without_junit_keeps_error_and_log) ... ok
+test_current_run_from_older_source_is_explicit (test_qualityctl.QualityControls.test_current_run_from_older_source_is_explicit) ... ok
+test_current_run_junit_tampering_blocks_handoff (test_qualityctl.QualityControls.test_current_run_junit_tampering_blocks_handoff) ... ok
+test_current_run_log_tampering_blocks_handoff (test_qualityctl.QualityControls.test_current_run_log_tampering_blocks_handoff) ... ok
+test_current_run_receipt_tampering_blocks_handoff (test_qualityctl.QualityControls.test_current_run_receipt_tampering_blocks_handoff) ... ok
+test_duplicate_check_ids_are_rejected (test_qualityctl.QualityControls.test_duplicate_check_ids_are_rejected) ... ok
+test_expensive_acceptance_check_is_not_silently_repeated (test_qualityctl.QualityControls.test_expensive_acceptance_check_is_not_silently_repeated) ... ok
+test_fabricated_completed_status_is_rejected (test_qualityctl.QualityControls.test_fabricated_completed_status_is_rejected) ... ok
+test_failed_work_in_progress_preserves_checkpoint_and_run (test_qualityctl.QualityControls.test_failed_work_in_progress_preserves_checkpoint_and_run) ... ok
+test_failing_junit_overrides_zero_exit (test_qualityctl.QualityControls.test_failing_junit_overrides_zero_exit) ... ok
+test_gate_lock_blocks_parallel_update (test_qualityctl.QualityControls.test_gate_lock_blocks_parallel_update) ... ok
+test_handoff_includes_accepted_evidence (test_qualityctl.QualityControls.test_handoff_includes_accepted_evidence) ... ok
+test_handoff_includes_generated_navigation (test_qualityctl.QualityControls.test_handoff_includes_generated_navigation) ... ok
+test_handoff_keeps_precise_in_phase_resume_point (test_qualityctl.QualityControls.test_handoff_keeps_precise_in_phase_resume_point) ... ok
+test_handoff_roundtrip_preserves_source_fingerprint (test_qualityctl.QualityControls.test_handoff_roundtrip_preserves_source_fingerprint) ... ok
+test_incomplete_handoff_is_explicit (test_qualityctl.QualityControls.test_incomplete_handoff_is_explicit) ... ok
+test_inconsistent_junit_totals_fail (test_qualityctl.QualityControls.test_inconsistent_junit_totals_fail) ... ok
+test_independent_next_phase_blocker_is_preserved (test_qualityctl.QualityControls.test_independent_next_phase_blocker_is_preserved) ... ok
+test_initial_status_retains_unverified_application (test_qualityctl.QualityControls.test_initial_status_retains_unverified_application) ... ok
+test_invalid_timeout_is_rejected (test_qualityctl.QualityControls.test_invalid_timeout_is_rejected) ... ok
+test_known_low_severity_defect_blocks (test_qualityctl.QualityControls.test_known_low_severity_defect_blocks) ... ok
+test_latest_pointer_cannot_reference_another_phase (test_qualityctl.QualityControls.test_latest_pointer_cannot_reference_another_phase) ... ok
+test_manually_changed_navigation_is_not_a_second_truth (test_qualityctl.QualityControls.test_manually_changed_navigation_is_not_a_second_truth) ... ok
+test_missing_exit_criterion_blocks (test_qualityctl.QualityControls.test_missing_exit_criterion_blocks) ... ok
+test_missing_review_does_not_advance_progress (test_qualityctl.QualityControls.test_missing_review_does_not_advance_progress) ... ok
+test_navigation_detects_changed_progress_and_refreshes (test_qualityctl.QualityControls.test_navigation_detects_changed_progress_and_refreshes) ... ok
+test_navigation_detects_changes_to_acceptance_checks (test_qualityctl.QualityControls.test_navigation_detects_changes_to_acceptance_checks) ... ok
+test_navigation_does_not_advance_or_change_canonical_data (test_qualityctl.QualityControls.test_navigation_does_not_advance_or_change_canonical_data) ... ok
+test_no_registered_checks_blocks_phase (test_qualityctl.QualityControls.test_no_registered_checks_blocks_phase) ... ok
+test_nonzero_exit_overrides_passing_junit (test_qualityctl.QualityControls.test_nonzero_exit_overrides_passing_junit) ... ok
+test_old_junit_is_not_reused (test_qualityctl.QualityControls.test_old_junit_is_not_reused) ... ok
+test_omitted_source_is_rejected (test_qualityctl.QualityControls.test_omitted_source_is_rejected) ... ok
+test_out_of_order_phase_is_blocked (test_qualityctl.QualityControls.test_out_of_order_phase_is_blocked) ... ok
+test_path_traversal_is_rejected (test_qualityctl.QualityControls.test_path_traversal_is_rejected) ... ok
+test_progress_change_invalidates_receipt (test_qualityctl.QualityControls.test_progress_change_invalidates_receipt) ... ok
+test_regression_checks_are_included (test_qualityctl.QualityControls.test_regression_checks_are_included) ... ok
+test_sensitive_file_is_rejected (test_qualityctl.QualityControls.test_sensitive_file_is_rejected) ... ok
+test_shared_junit_output_is_rejected (test_qualityctl.QualityControls.test_shared_junit_output_is_rejected) ... ok
+test_skipped_test_fails (test_qualityctl.QualityControls.test_skipped_test_fails) ... ok
+test_source_change_invalidates_receipt (test_qualityctl.QualityControls.test_source_change_invalidates_receipt) ... ok
+test_stale_navigation_blocks_handoff (test_qualityctl.QualityControls.test_stale_navigation_blocks_handoff) ... ok
+test_successful_command_without_junit_fails (test_qualityctl.QualityControls.test_successful_command_without_junit_fails) ... ok
+test_symlink_is_rejected (test_qualityctl.QualityControls.test_symlink_is_rejected) ... ok
+test_tampered_log_blocks (test_qualityctl.QualityControls.test_tampered_log_blocks) ... ok
+test_unknown_finding_type_cannot_hide_a_defect (test_qualityctl.QualityControls.test_unknown_finding_type_cannot_hide_a_defect) ... ok
+test_zero_tests_fails (test_qualityctl.QualityControls.test_zero_tests_fails) ... ok
+
+----------------------------------------------------------------------
+Ran 52 tests in 1.650s
+
+OK
+{"scope": "DEVELOPMENT_CONTROL_TOOLING_ONLY", "status": "PASS", "counts": {"tests": 52, "failures": 0, "errors": 0, "skipped": 0, "expected_failures": 0, "unexpected_successes": 0}}
+AGENTS.md: LEXICAL_CHECK=PASS (rendering not certified)
+CONSILIUM_DEEP_GL_CL_COMPARISON_FA.md: LEXICAL_CHECK=PASS (rendering not certified)
+CONSILIUM_HANDOFF_AND_QUALITY_PROTOCOL_FA.md: LEXICAL_CHECK=PASS (rendering not certified)
+CONSILIUM_MASTER_ROADMAP_FA.md: LEXICAL_CHECK=PASS (rendering not certified)
+HANDOFF_TEMPLATE_FA.md: LEXICAL_CHECK=PASS (rendering not certified)
+README_FA.md: LEXICAL_CHECK=PASS (rendering not certified)
+START_HERE_FA.md: LEXICAL_CHECK=PASS (rendering not certified)
+docs/DATA_CONTRACTS_FA.md: LEXICAL_CHECK=PASS (rendering not certified)
+docs/MODEL_EVALUATION_PLAN_FA.md: LEXICAL_CHECK=PASS (rendering not certified)
+docs/RUNBOOK_FA.md: LEXICAL_CHECK=PASS (rendering not certified)
+docs/SCOPE_AND_INVENTORY_FA.md: LEXICAL_CHECK=PASS (rendering not certified)
+docs/decisions/ADR-001-TRUTH_AND_HANDOFF_FA.md: LEXICAL_CHECK=PASS (rendering not certified)
+docs/decisions/ADR-002-DEVELOPMENT_CHECK_AND_MODEL_SELECTION_FA.md: LEXICAL_CHECK=PASS (rendering not certified)
+evidence/navigation/STATUS_FA.md: LEXICAL_CHECK=PASS (rendering not certified)
+evidence/navigation/BACKLOG_FA.md: LEXICAL_CHECK=PASS (rendering not certified)
+{
+  "schema_version": 1,
+  "scope": "DEVELOPMENT_CONTROL_TOOLING_ONLY",
+  "status": "PASS",
+  "checks": [
+    {
+      "id": "state_navigation_python_syntax",
+      "status": "PASS"
+    },
+    {
+      "id": "control_tests",
+      "status": "PASS",
+      "returncode": 0
+    },
+    {
+      "id": "markdown_lexical",
+      "status": "PASS",
+      "returncode": 0
+    }
+  ],
+  "source_digest_before": "9df2fdd6eb6a23f746475a14f136e62e43b5cf0ea0b15c61e88c4ee6fb30c4fc",
+  "source_digest_after": "9df2fdd6eb6a23f746475a14f136e62e43b5cf0ea0b15c61e88c4ee6fb30c4fc",
+  "application_runtime_tests": "NOT_RUN",
+  "application_phase_accepted": false,
+  "static_type_check": "NOT_RUN",
+  "visual_rendering": "NOT_RUN"
+}
+

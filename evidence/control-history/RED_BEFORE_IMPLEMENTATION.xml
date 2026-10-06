@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='utf-8'?>
+<testsuite tests="49" failures="2" errors="8" skipped="0"><testcase name="test_qualityctl.QualityControls.test_accepted_phase_advances_only_one_step" /><testcase name="test_qualityctl.QualityControls.test_archive_byte_tampering_is_rejected" /><testcase name="test_qualityctl.QualityControls.test_archive_case_collisions_are_rejected" /><testcase name="test_qualityctl.QualityControls.test_archive_unsafe_member_is_rejected" /><testcase name="test_qualityctl.QualityControls.test_changed_baseline_is_rejected" /><testcase name="test_qualityctl.QualityControls.test_changed_criterion_text_blocks" /><testcase name="test_qualityctl.QualityControls.test_current_failed_run_without_junit_keeps_error_and_log"><error>Traceback (most recent call last):
+  File "/workspace/scratch/2cd898e3d2ec/consilium_roadmap_execution_v1.2/tests/test_qualityctl.py", line 398, in test_current_failed_run_without_junit_keeps_error_and_log
+    self.assertEqual(info["latest_current_phase_run"]["status"], "FAIL")
+                     ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyError: 'latest_current_phase_run'
+</error></testcase><testcase name="test_qualityctl.QualityControls.test_current_run_from_older_source_is_explicit"><error>Traceback (most recent call last):
+  File "/workspace/scratch/2cd898e3d2ec/consilium_roadmap_execution_v1.2/tests/test_qualityctl.py", line 410, in test_current_run_from_older_source_is_explicit
+    self.assertFalse(info["latest_current_phase_run"]["source_matches_current"])
+                     ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyError: 'latest_current_phase_run'
+</error></testcase><testcase name="test_qualityctl.QualityControls.test_current_run_log_tampering_blocks_handoff"><failure>Traceback (most recent call last):
+  File "/workspace/scratch/2cd898e3d2ec/consilium_roadmap_execution_v1.2/tests/test_qualityctl.py", line 426, in test_current_run_log_tampering_blocks_handoff
+    with self.assertRaises(q.Blocked):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Blocked not raised
+</failure></testcase><testcase name="test_qualityctl.QualityControls.test_current_run_receipt_tampering_blocks_handoff"><failure>Traceback (most recent call last):
+  File "/workspace/scratch/2cd898e3d2ec/consilium_roadmap_execution_v1.2/tests/test_qualityctl.py", line 418, in test_current_run_receipt_tampering_blocks_handoff
+    with self.assertRaises(q.Blocked):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Blocked not raised
+</failure></testcase><testcase name="test_qualityctl.QualityControls.test_duplicate_check_ids_are_rejected" /><testcase name="test_qualityctl.QualityControls.test_expensive_acceptance_check_is_not_silently_repeated" /><testcase name="test_qualityctl.QualityControls.test_fabricated_completed_status_is_rejected" /><testcase name="test_qualityctl.QualityControls.test_failed_work_in_progress_preserves_checkpoint_and_run"><error>Traceback (most recent call last):
+  File "/workspace/scratch/2cd898e3d2ec/consilium_roadmap_execution_v1.2/tests/test_qualityctl.py", line 384, in test_failed_work_in_progress_preserves_checkpoint_and_run
+    self.assertEqual(info["latest_current_phase_run"]["status"], "FAIL")
+                     ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyError: 'latest_current_phase_run'
+</error></testcase><testcase name="test_qualityctl.QualityControls.test_failing_junit_overrides_zero_exit" /><testcase name="test_qualityctl.QualityControls.test_gate_lock_blocks_parallel_update" /><testcase name="test_qualityctl.QualityControls.test_handoff_includes_accepted_evidence" /><testcase name="test_qualityctl.QualityControls.test_handoff_includes_generated_navigation"><error>Traceback (most recent call last):
+  File "/workspace/scratch/2cd898e3d2ec/consilium_roadmap_execution_v1.2/tests/test_qualityctl.py", line 451, in test_handoff_includes_generated_navigation
+    q.navigation(self.root)
+    ^^^^^^^^^^^^
+AttributeError: module 'qualityctl' has no attribute 'navigation'
+</error></testcase><testcase name="test_qualityctl.QualityControls.test_handoff_keeps_precise_in_phase_resume_point" /><testcase name="test_qualityctl.QualityControls.test_handoff_roundtrip_preserves_source_fingerprint" /><testcase name="test_qualityctl.QualityControls.test_incomplete_handoff_is_explicit" /><testcase name="test_qualityctl.QualityControls.test_inconsistent_junit_totals_fail" /><testcase name="test_qualityctl.QualityControls.test_independent_next_phase_blocker_is_preserved" /><testcase name="test_qualityctl.QualityControls.test_initial_status_retains_unverified_application" /><testcase name="test_qualityctl.QualityControls.test_invalid_timeout_is_rejected" /><testcase name="test_qualityctl.QualityControls.test_known_low_severity_defect_blocks" /><testcase name="test_qualityctl.QualityControls.test_manually_changed_navigation_is_not_a_second_truth"><error>Traceback (most recent call last):
+  File "/workspace/scratch/2cd898e3d2ec/consilium_roadmap_execution_v1.2/tests/test_qualityctl.py", line 468, in test_manually_changed_navigation_is_not_a_second_truth
+    q.navigation(self.root)
+    ^^^^^^^^^^^^
+AttributeError: module 'qualityctl' has no attribute 'navigation'
+</error></testcase><testcase name="test_qualityctl.QualityControls.test_missing_exit_criterion_blocks" /><testcase name="test_qualityctl.QualityControls.test_missing_review_does_not_advance_progress" /><testcase name="test_qualityctl.QualityControls.test_navigation_detects_changed_progress_and_refreshes"><error>Traceback (most recent call last):
+  File "/workspace/scratch/2cd898e3d2ec/consilium_roadmap_execution_v1.2/tests/test_qualityctl.py", line 441, in test_navigation_detects_changed_progress_and_refreshes
+    q.navigation(self.root)
+    ^^^^^^^^^^^^
+AttributeError: module 'qualityctl' has no attribute 'navigation'
+</error></testcase><testcase name="test_qualityctl.QualityControls.test_navigation_does_not_advance_or_change_canonical_data"><error>Traceback (most recent call last):
+  File "/workspace/scratch/2cd898e3d2ec/consilium_roadmap_execution_v1.2/tests/test_qualityctl.py", line 431, in test_navigation_does_not_advance_or_change_canonical_data
+    q.navigation(self.root)
+    ^^^^^^^^^^^^
+AttributeError: module 'qualityctl' has no attribute 'navigation'
+</error></testcase><testcase name="test_qualityctl.QualityControls.test_no_registered_checks_blocks_phase" /><testcase name="test_qualityctl.QualityControls.test_nonzero_exit_overrides_passing_junit" /><testcase name="test_qualityctl.QualityControls.test_old_junit_is_not_reused" /><testcase name="test_qualityctl.QualityControls.test_omitted_source_is_rejected" /><testcase name="test_qualityctl.QualityControls.test_out_of_order_phase_is_blocked" /><testcase name="test_qualityctl.QualityControls.test_path_traversal_is_rejected" /><testcase name="test_qualityctl.QualityControls.test_progress_change_invalidates_receipt" /><testcase name="test_qualityctl.QualityControls.test_regression_checks_are_included" /><testcase name="test_qualityctl.QualityControls.test_sensitive_file_is_rejected" /><testcase name="test_qualityctl.QualityControls.test_shared_junit_output_is_rejected" /><testcase name="test_qualityctl.QualityControls.test_skipped_test_fails" /><testcase name="test_qualityctl.QualityControls.test_source_change_invalidates_receipt" /><testcase name="test_qualityctl.QualityControls.test_stale_navigation_blocks_handoff"><error>Traceback (most recent call last):
+  File "/workspace/scratch/2cd898e3d2ec/consilium_roadmap_execution_v1.2/tests/test_qualityctl.py", line 459, in test_stale_navigation_blocks_handoff
+    q.navigation(self.root)
+    ^^^^^^^^^^^^
+AttributeError: module 'qualityctl' has no attribute 'navigation'
+</error></testcase><testcase name="test_qualityctl.QualityControls.test_successful_command_without_junit_fails" /><testcase name="test_qualityctl.QualityControls.test_symlink_is_rejected" /><testcase name="test_qualityctl.QualityControls.test_tampered_log_blocks" /><testcase name="test_qualityctl.QualityControls.test_unknown_finding_type_cannot_hide_a_defect" /><testcase name="test_qualityctl.QualityControls.test_zero_tests_fails" /></testsuite>

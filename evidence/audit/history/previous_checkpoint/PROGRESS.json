@@ -1,0 +1,515 @@
+{
+  "schema_version": 1,
+  "plan_version": "1.2",
+  "updated_at": "2026-10-05",
+  "application_source_commit": "893919cd45c4ecbcd311142a80a1a91c0f7c75d2",
+  "current_phase": "P01",
+  "verified_application_requirements": 0,
+  "governance_check_note": "۱۵ آزمون بستهٔ حاکمیت در بررسی قبلی موفق بوده؛ آزمون اجرایی محصول هنوز عرضه یا اجرا نشده است.",
+  "phases": [
+    {
+      "id": "P00",
+      "status": "COMPLETED",
+      "actual_engineering_hours": null,
+      "external_wait_hours": 0,
+      "source_commit": null,
+      "outputs": [
+        "SCOPE.json",
+        "INVENTORY.json",
+        "docs/SCOPE_AND_INVENTORY_FA.md"
+      ],
+      "tests": [
+        "evidence/runs/20261005T214708Z_55e989cfdc/RUN.json"
+      ],
+      "exit_evidence": [
+        "evidence/accepted/P00_8d4ab2499d5f/REVIEW.json"
+      ],
+      "blockers": [],
+      "notes": [
+        "انتخاب‌های مستقیم کاربر ثبت شده‌اند؛ دسترسی زنده با وضعیت UNKNOWN حفظ شده است."
+      ],
+      "accepted_source_digest": "9df2fdd6eb6a23f746475a14f136e62e43b5cf0ea0b15c61e88c4ee6fb30c4fc",
+      "accepted_receipt_sha256": "300571ad538ca95de3653becafcecf3dcb51844c937534c049d2c1fddcd80f26",
+      "accepted_review_sha256": "e2cde09fc186926307a32007f5cdadade6346acdf51c4209bc595d22042ef1c4",
+      "evidence_preservation_record": {
+        "path": "evidence/accepted/P00_8d4ab2499d5f/PRESERVATION.json",
+        "sha256": "1d7a9011b3dd08f1a7add4e0dd6beea2ac105576d7ac88426b31b6240555b601"
+      }
+    },
+    {
+      "id": "P01",
+      "status": "IN_PROGRESS",
+      "actual_engineering_hours": null,
+      "external_wait_hours": null,
+      "source_commit": "893919cd45c4ecbcd311142a80a1a91c0f7c75d2",
+      "outputs": [
+        "src/consilium",
+        "tests/foundation/test_foundation.py",
+        "requirements.lock",
+        "docs/decisions/ADR-003-P01_FOUNDATION_FA.md"
+      ],
+      "tests": [],
+      "exit_evidence": [],
+      "blockers": [
+        "شاهد اجرای بومی آزمون‌های P01 روی Windows برای همین نسخهٔ منبع هنوز وجود ندارد."
+      ],
+      "notes": [
+        "کد پایه و اصلاح‌های بازبینی آماده‌اند؛ تا شاهد واقعی دو محیط، پذیرش مرحله انجام نمی‌شود."
+      ]
+    },
+    {
+      "id": "P02",
+      "status": "BLOCKED",
+      "actual_engineering_hours": 0,
+      "external_wait_hours": 0,
+      "source_commit": null,
+      "outputs": [],
+      "tests": [],
+      "exit_evidence": [],
+      "blockers": [
+        "پیش‌نیاز P01 کامل نشده است."
+      ],
+      "notes": []
+    },
+    {
+      "id": "P03",
+      "status": "BLOCKED",
+      "actual_engineering_hours": 0,
+      "external_wait_hours": 0,
+      "source_commit": null,
+      "outputs": [],
+      "tests": [],
+      "exit_evidence": [],
+      "blockers": [
+        "پیش‌نیاز P02 کامل نشده است."
+      ],
+      "notes": []
+    },
+    {
+      "id": "P04",
+      "status": "BLOCKED",
+      "actual_engineering_hours": 0,
+      "external_wait_hours": 0,
+      "source_commit": null,
+      "outputs": [],
+      "tests": [],
+      "exit_evidence": [],
+      "blockers": [
+        "پیش‌نیاز P03 کامل نشده است."
+      ],
+      "notes": []
+    },
+    {
+      "id": "P05",
+      "status": "BLOCKED",
+      "actual_engineering_hours": 0,
+      "external_wait_hours": 0,
+      "source_commit": null,
+      "outputs": [],
+      "tests": [],
+      "exit_evidence": [],
+      "blockers": [
+        "پیش‌نیاز P04 کامل نشده است."
+      ],
+      "notes": []
+    },
+    {
+      "id": "P06",
+      "status": "BLOCKED",
+      "actual_engineering_hours": 0,
+      "external_wait_hours": 0,
+      "source_commit": null,
+      "outputs": [],
+      "tests": [],
+      "exit_evidence": [],
+      "blockers": [
+        "پیش‌نیاز P05 کامل نشده است."
+      ],
+      "notes": []
+    },
+    {
+      "id": "P07",
+      "status": "BLOCKED",
+      "actual_engineering_hours": 0,
+      "external_wait_hours": 0,
+      "source_commit": null,
+      "outputs": [],
+      "tests": [],
+      "exit_evidence": [],
+      "blockers": [
+        "پیش‌نیاز P06 کامل نشده است."
+      ],
+      "notes": []
+    },
+    {
+      "id": "P08",
+      "status": "BLOCKED",
+      "actual_engineering_hours": 0,
+      "external_wait_hours": 0,
+      "source_commit": null,
+      "outputs": [],
+      "tests": [],
+      "exit_evidence": [],
+      "blockers": [
+        "پیش‌نیاز P07 کامل نشده است."
+      ],
+      "notes": []
+    },
+    {
+      "id": "P09",
+      "status": "BLOCKED",
+      "actual_engineering_hours": 0,
+      "external_wait_hours": 0,
+      "source_commit": null,
+      "outputs": [],
+      "tests": [],
+      "exit_evidence": [],
+      "blockers": [
+        "پیش‌نیاز P08 کامل نشده است."
+      ],
+      "notes": []
+    },
+    {
+      "id": "P10",
+      "status": "BLOCKED",
+      "actual_engineering_hours": 0,
+      "external_wait_hours": 0,
+      "source_commit": null,
+      "outputs": [],
+      "tests": [],
+      "exit_evidence": [],
+      "blockers": [
+        "پیش‌نیاز P09 کامل نشده است."
+      ],
+      "notes": []
+    },
+    {
+      "id": "P11",
+      "status": "BLOCKED",
+      "actual_engineering_hours": 0,
+      "external_wait_hours": 0,
+      "source_commit": null,
+      "outputs": [],
+      "tests": [],
+      "exit_evidence": [],
+      "blockers": [
+        "پیش‌نیاز P10 کامل نشده است."
+      ],
+      "notes": []
+    },
+    {
+      "id": "P12",
+      "status": "BLOCKED",
+      "actual_engineering_hours": 0,
+      "external_wait_hours": 0,
+      "source_commit": null,
+      "outputs": [],
+      "tests": [],
+      "exit_evidence": [],
+      "blockers": [
+        "پیش‌نیاز P11 کامل نشده است."
+      ],
+      "notes": []
+    },
+    {
+      "id": "P13",
+      "status": "BLOCKED",
+      "actual_engineering_hours": 0,
+      "external_wait_hours": 0,
+      "source_commit": null,
+      "outputs": [],
+      "tests": [],
+      "exit_evidence": [],
+      "blockers": [
+        "پیش‌نیاز P12 کامل نشده است."
+      ],
+      "notes": []
+    },
+    {
+      "id": "P14",
+      "status": "BLOCKED",
+      "actual_engineering_hours": 0,
+      "external_wait_hours": 0,
+      "source_commit": null,
+      "outputs": [],
+      "tests": [],
+      "exit_evidence": [],
+      "blockers": [
+        "پیش‌نیاز P13 کامل نشده است."
+      ],
+      "notes": []
+    },
+    {
+      "id": "P15",
+      "status": "BLOCKED",
+      "actual_engineering_hours": 0,
+      "external_wait_hours": 0,
+      "source_commit": null,
+      "outputs": [],
+      "tests": [],
+      "exit_evidence": [],
+      "blockers": [
+        "پیش‌نیاز P14 کامل نشده است."
+      ],
+      "notes": []
+    },
+    {
+      "id": "P16",
+      "status": "BLOCKED",
+      "actual_engineering_hours": 0,
+      "external_wait_hours": 0,
+      "source_commit": null,
+      "outputs": [],
+      "tests": [],
+      "exit_evidence": [],
+      "blockers": [
+        "پیش‌نیاز P15 کامل نشده است."
+      ],
+      "notes": []
+    }
+  ],
+  "change_log": [
+    {
+      "date": "2026-10-05",
+      "reason": "افزودن کنترل شاهد و انتقال پژوهش طبق درخواست کاربر؛ ترتیب و خواسته‌های محصول حفظ شدند.",
+      "phase_order_changed": false,
+      "protected_requirements_changed": false
+    },
+    {
+      "date": "2026-10-05",
+      "reason": "ثبت انتخاب‌های کاربر، ایجاد کد P01 و گیت بومی دو محیط؛ حفظ تصویر ثابت شاهد پذیرش قدیمی و آزمون کنترل مستقل از وضعیت واقعی. ساعت مهندسی اندازه‌گیری نشده و null باقی است.",
+      "phase_order_changed": false,
+      "protected_requirements_changed": false
+    }
+  ],
+  "runtime_conformance": [
+    {
+      "id": "UR-001",
+      "implementation_status": "UNVERIFIED",
+      "verification_status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "UR-002",
+      "implementation_status": "UNVERIFIED",
+      "verification_status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "UR-003",
+      "implementation_status": "UNVERIFIED",
+      "verification_status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "UR-004",
+      "implementation_status": "UNVERIFIED",
+      "verification_status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "UR-005",
+      "implementation_status": "UNVERIFIED",
+      "verification_status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "UR-006",
+      "implementation_status": "UNVERIFIED",
+      "verification_status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "UR-007",
+      "implementation_status": "UNVERIFIED",
+      "verification_status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "UR-008",
+      "implementation_status": "UNVERIFIED",
+      "verification_status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "UR-009",
+      "implementation_status": "UNVERIFIED",
+      "verification_status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "UR-010",
+      "implementation_status": "UNVERIFIED",
+      "verification_status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "UR-011",
+      "implementation_status": "UNVERIFIED",
+      "verification_status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "UR-012",
+      "implementation_status": "UNVERIFIED",
+      "verification_status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "UR-013",
+      "implementation_status": "UNVERIFIED",
+      "verification_status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "UR-014",
+      "implementation_status": "UNVERIFIED",
+      "verification_status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "UR-015",
+      "implementation_status": "UNVERIFIED",
+      "verification_status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "UR-016",
+      "implementation_status": "UNVERIFIED",
+      "verification_status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "UR-017",
+      "implementation_status": "UNVERIFIED",
+      "verification_status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "UR-018",
+      "implementation_status": "UNVERIFIED",
+      "verification_status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "UR-019",
+      "implementation_status": "UNVERIFIED",
+      "verification_status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "UR-020",
+      "implementation_status": "UNVERIFIED",
+      "verification_status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "UR-021",
+      "implementation_status": "UNVERIFIED",
+      "verification_status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "UR-022",
+      "implementation_status": "UNVERIFIED",
+      "verification_status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "UR-023",
+      "implementation_status": "UNVERIFIED",
+      "verification_status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "UR-024",
+      "implementation_status": "UNVERIFIED",
+      "verification_status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "UR-025",
+      "implementation_status": "UNVERIFIED",
+      "verification_status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "UR-026",
+      "implementation_status": "UNVERIFIED",
+      "verification_status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "UR-027",
+      "implementation_status": "UNVERIFIED",
+      "verification_status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "UR-028",
+      "implementation_status": "UNVERIFIED",
+      "verification_status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "UR-029",
+      "implementation_status": "UNVERIFIED",
+      "verification_status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "UR-030",
+      "implementation_status": "UNVERIFIED",
+      "verification_status": "NOT_RUN",
+      "evidence": []
+    }
+  ],
+  "control_tooling_status": {
+    "status": "SEE_EVIDENCE_REPORT",
+    "report": "evidence/control-tests/RUN.json",
+    "application_runtime_tests": "NOT_RUN",
+    "actual_manual_hours": null
+  },
+  "resume": {
+    "phase": "P01",
+    "last_verified_checkpoint": "P00",
+    "completed_work": [
+      "دامنه و موجودی مرحلهٔ صفر پذیرفته شدند.",
+      "قراردادهای داده، اتصال ساختگی و مرز خصوصی پیاده و در لینوکس آزموده شدند."
+    ],
+    "working_changes": [
+      "بستن P01 نیازمند اجرای بومی Windows، گزارش نسخهٔ یکسان و بازبینی نهایی است."
+    ],
+    "next_action": "همین بسته را در Windows با Python 3.12 و requirements.lock اجرا کنید؛ گزارش record_target_checks را منتقل، هر دو محیط را راستی‌آزمایی و بازبینی مرحله یک را تکمیل کنید. سپس گیت P01؛ پیش از پذیرش آن P02 شروع نشود.",
+    "next_command": "python tools/record_target_checks.py",
+    "inputs_missing": [
+      "Native Windows execution evidence for this exact source snapshot"
+    ],
+    "known_quirks": [
+      {
+        "id": "DEV-003",
+        "note": "شواهد پذیرش معیار به‌صورت تصویر ثابت حفظ می‌شوند؛ فایل جاری در مرحله بعد می‌تواند تغییر کند.",
+        "references": [
+          "tools/qualityctl.py::freeze_review_evidence",
+          "tests/test_qualityctl.py::test_accepted_criterion_bytes_survive_later_changes"
+        ]
+      },
+      {
+        "id": "P01-001",
+        "note": "DELIVERY و RESPONSE دو محور جدا هستند؛ مشاهده به ورودی و اتصال قبلی وابسته است.",
+        "references": [
+          "src/consilium/core/contracts.py",
+          "src/consilium/adapters/mock.py"
+        ]
+      },
+      {
+        "id": "P01-002",
+        "note": "موفقیت check یا دادهٔ ساختگی، پذیرش بومی Windows نیست. نبود شاهد، کد خروج 2 برای گیت دارد.",
+        "references": [
+          "tools/check_target_matrix.py",
+          "docs/RUNBOOK_FA.md"
+        ]
+      }
+    ]
+  }
+}

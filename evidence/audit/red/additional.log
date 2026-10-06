@@ -1,0 +1,41 @@
+test_build_products_do_not_change_source_but_real_code_does (test_qualityctl.QualityControls.test_build_products_do_not_change_source_but_real_code_does) ... FAIL
+test_environment_pass_label_cannot_hide_a_wrong_locked_dependency (test_target_checks.TargetEvidenceControls.test_environment_pass_label_cannot_hide_a_wrong_locked_dependency) ... FAIL
+test_wrong_python_version_is_rejected_even_if_every_label_says_pass (test_target_checks.TargetEvidenceControls.test_wrong_python_version_is_rejected_even_if_every_label_says_pass) ... FAIL
+
+======================================================================
+FAIL: test_build_products_do_not_change_source_but_real_code_does (test_qualityctl.QualityControls.test_build_products_do_not_change_source_but_real_code_does)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/2cd898e3d2ec/consilium_audit_project/tests/test_qualityctl.py", line 24, in test_build_products_do_not_change_source_but_real_code_does
+    self.assertEqual(q.source_digest(self.root), before)
+AssertionError: 'bb45cb90c464d8ced6546ae69b8dfbfe069199af52e14d02ccf538a00c6b47be' != '40a24753352d14437f0394a57badee6cd8fccfb3715fb5092fb5a1a51a5969ce'
+- bb45cb90c464d8ced6546ae69b8dfbfe069199af52e14d02ccf538a00c6b47be
++ 40a24753352d14437f0394a57badee6cd8fccfb3715fb5092fb5a1a51a5969ce
+
+
+======================================================================
+FAIL: test_environment_pass_label_cannot_hide_a_wrong_locked_dependency (test_target_checks.TargetEvidenceControls.test_environment_pass_label_cannot_hide_a_wrong_locked_dependency)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/2cd898e3d2ec/consilium_audit_project/tests/test_target_checks.py", line 165, in test_environment_pass_label_cannot_hide_a_wrong_locked_dependency
+    self.assertEqual(inspect_matrix(self.root)["targets"][1]["status"], "FAIL")
+AssertionError: 'PASS' != 'FAIL'
+- PASS
++ FAIL
+
+
+======================================================================
+FAIL: test_wrong_python_version_is_rejected_even_if_every_label_says_pass (test_target_checks.TargetEvidenceControls.test_wrong_python_version_is_rejected_even_if_every_label_says_pass)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/2cd898e3d2ec/consilium_audit_project/tests/test_target_checks.py", line 177, in test_wrong_python_version_is_rejected_even_if_every_label_says_pass
+    self.assertEqual(inspect_matrix(self.root)["targets"][1]["status"], "FAIL")
+AssertionError: 'PASS' != 'FAIL'
+- PASS
++ FAIL
+
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.014s
+
+FAILED (failures=3)

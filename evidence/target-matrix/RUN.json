@@ -1,0 +1,23 @@
+{
+  "phase": "P01",
+  "scope": "SELECTED_OS_FOUNDATION_GATE_NOT_FULL_V1_ACCEPTANCE",
+  "source_digest": "ea9746a49a419270f326e56f4f89ad2a14113f33e63a0ad04ba50a027d3fc309",
+  "targets": [
+    {
+      "target": "Windows",
+      "status": "NOT_RUN",
+      "reason": "Native target execution has not been supplied"
+    },
+    {
+      "target": "Linux",
+      "status": "PASS",
+      "control_tests": 78,
+      "foundation_tests": 60,
+      "evidence": {
+        "path": "evidence/targets/Linux/20261006T094101Z_c0ed933a/RUN.json",
+        "sha256": "760c15e0945fdee8621f4d242a4f806ac7c981209702c3afb12fe565dd26a4e0"
+      }
+    }
+  ],
+  "status": "BLOCKED"
+}

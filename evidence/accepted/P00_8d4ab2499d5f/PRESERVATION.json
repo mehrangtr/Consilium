@@ -1,0 +1,15 @@
+{
+  "phase": "P00",
+  "current_phase": "P01",
+  "phase_advanced": false,
+  "reason": "Preserve the same validated historical bytes; do not recertify newer source",
+  "original_review": {
+    "path": "evidence/reviews/P00.json",
+    "sha256": "1a606d5bec0649ff55b8b7ad739bb6ed9a6b366ab8ea0c38c2b98fa11a2c1b1e"
+  },
+  "preserved_review": {
+    "path": "evidence/accepted/P00_8d4ab2499d5f/REVIEW.json",
+    "sha256": "e2cde09fc186926307a32007f5cdadade6346acdf51c4209bc595d22042ef1c4"
+  },
+  "accepted_source_digest_unchanged": "9df2fdd6eb6a23f746475a14f136e62e43b5cf0ea0b15c61e88c4ee6fb30c4fc"
+}

@@ -1,0 +1,53 @@
+{
+  "source_digest": "fb34f887f09901955f3c131cbaff1ba18c1d228c79923da980d50fa38fd07d3f",
+  "phase": "P01",
+  "archive_sha256": "718f40294a2daeb6bbc3ac97d761cd882f48fbc4801c02f47bfa1692032f922f",
+  "accepted_p00": {
+    "id": "P00",
+    "status": "COMPLETED",
+    "actual_engineering_hours": null,
+    "external_wait_hours": 0,
+    "source_commit": null,
+    "outputs": [
+      "SCOPE.json",
+      "INVENTORY.json",
+      "docs/SCOPE_AND_INVENTORY_FA.md"
+    ],
+    "tests": [
+      "evidence/runs/20261005T214708Z_55e989cfdc/RUN.json"
+    ],
+    "exit_evidence": [
+      "evidence/accepted/P00_8d4ab2499d5f/REVIEW.json"
+    ],
+    "blockers": [],
+    "notes": [
+      "انتخاب‌های مستقیم کاربر ثبت شده‌اند؛ دسترسی زنده با وضعیت UNKNOWN حفظ شده است."
+    ],
+    "accepted_source_digest": "9df2fdd6eb6a23f746475a14f136e62e43b5cf0ea0b15c61e88c4ee6fb30c4fc",
+    "accepted_receipt_sha256": "300571ad538ca95de3653becafcecf3dcb51844c937534c049d2c1fddcd80f26",
+    "accepted_review_sha256": "e2cde09fc186926307a32007f5cdadade6346acdf51c4209bc595d22042ef1c4",
+    "evidence_preservation_record": {
+      "path": "evidence/accepted/P00_8d4ab2499d5f/PRESERVATION.json",
+      "sha256": "1d7a9011b3dd08f1a7add4e0dd6beea2ac105576d7ac88426b31b6240555b601"
+    }
+  },
+  "phase_order": [
+    "P00",
+    "P01",
+    "P02",
+    "P03",
+    "P04",
+    "P05",
+    "P06",
+    "P07",
+    "P08",
+    "P09",
+    "P10",
+    "P11",
+    "P12",
+    "P13",
+    "P14",
+    "P15",
+    "P16"
+  ]
+}

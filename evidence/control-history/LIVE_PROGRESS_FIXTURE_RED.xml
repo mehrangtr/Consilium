@@ -1,0 +1,656 @@
+<?xml version='1.0' encoding='utf-8'?>
+<testsuite tests="52" failures="0" errors="39" skipped="0"><testcase name="test_qualityctl.QualityControls.test_accepted_phase_advances_only_one_step"><error>Traceback (most recent call last):
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tests/test_qualityctl.py", line 179, in test_accepted_phase_advances_only_one_step
+    receipt, review = self.ready()
+                      ^^^^^^^^^^^^
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tests/test_qualityctl.py", line 59, in ready
+    path, receipt = q.run(self.root, "P00")
+                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 195, in run
+    plan, progress, checks = selected(root, phase)
+                             ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 135, in selected
+    plan, progress, current = state(root)
+                              ^^^^^^^^^^^
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 107, in state
+    artifact(root, {"path": p["tests"][0], "sha256": p["accepted_receipt_sha256"]})
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 266, in artifact
+    require(path.is_file() and digest(path.read_bytes()) == entry["sha256"],
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 37, in require
+    raise Blocked(reason)
+qualityctl.Blocked: Evidence missing or changed: evidence/runs/20261005T214708Z_55e989cfdc/RUN.json
+</error></testcase><testcase name="test_qualityctl.QualityControls.test_archive_byte_tampering_is_rejected"><error>Traceback (most recent call last):
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tests/test_qualityctl.py", line 337, in test_archive_byte_tampering_is_rejected
+    q.handoff(self.root, out)
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 495, in handoff
+    plan, progress, current = state(root)
+                              ^^^^^^^^^^^
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 107, in state
+    artifact(root, {"path": p["tests"][0], "sha256": p["accepted_receipt_sha256"]})
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 266, in artifact
+    require(path.is_file() and digest(path.read_bytes()) == entry["sha256"],
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 37, in require
+    raise Blocked(reason)
+qualityctl.Blocked: Evidence missing or changed: evidence/runs/20261005T214708Z_55e989cfdc/RUN.json
+</error></testcase><testcase name="test_qualityctl.QualityControls.test_archive_case_collisions_are_rejected" /><testcase name="test_qualityctl.QualityControls.test_archive_unsafe_member_is_rejected" /><testcase name="test_qualityctl.QualityControls.test_changed_baseline_is_rejected" /><testcase name="test_qualityctl.QualityControls.test_changed_criterion_text_blocks"><error>Traceback (most recent call last):
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tests/test_qualityctl.py", line 148, in test_changed_criterion_text_blocks
+    receipt, review = self.ready()
+                      ^^^^^^^^^^^^
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tests/test_qualityctl.py", line 59, in ready
+    path, receipt = q.run(self.root, "P00")
+                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 195, in run
+    plan, progress, checks = selected(root, phase)
+                             ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 135, in selected
+    plan, progress, current = state(root)
+                              ^^^^^^^^^^^
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 107, in state
+    artifact(root, {"path": p["tests"][0], "sha256": p["accepted_receipt_sha256"]})
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 266, in artifact
+    require(path.is_file() and digest(path.read_bytes()) == entry["sha256"],
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 37, in require
+    raise Blocked(reason)
+qualityctl.Blocked: Evidence missing or changed: evidence/runs/20261005T214708Z_55e989cfdc/RUN.json
+</error></testcase><testcase name="test_qualityctl.QualityControls.test_current_failed_run_without_junit_keeps_error_and_log"><error>Traceback (most recent call last):
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tests/test_qualityctl.py", line 395, in test_current_failed_run_without_junit_keeps_error_and_log
+    path, record = q.run(self.root, "P00")
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 195, in run
+    plan, progress, checks = selected(root, phase)
+                             ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 135, in selected
+    plan, progress, current = state(root)
+                              ^^^^^^^^^^^
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 107, in state
+    artifact(root, {"path": p["tests"][0], "sha256": p["accepted_receipt_sha256"]})
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 266, in artifact
+    require(path.is_file() and digest(path.read_bytes()) == entry["sha256"],
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 37, in require
+    raise Blocked(reason)
+qualityctl.Blocked: Evidence missing or changed: evidence/runs/20261005T214708Z_55e989cfdc/RUN.json
+</error></testcase><testcase name="test_qualityctl.QualityControls.test_current_run_from_older_source_is_explicit"><error>Traceback (most recent call last):
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tests/test_qualityctl.py", line 406, in test_current_run_from_older_source_is_explicit
+    q.run(self.root, "P00")
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 195, in run
+    plan, progress, checks = selected(root, phase)
+                             ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 135, in selected
+    plan, progress, current = state(root)
+                              ^^^^^^^^^^^
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 107, in state
+    artifact(root, {"path": p["tests"][0], "sha256": p["accepted_receipt_sha256"]})
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 266, in artifact
+    require(path.is_file() and digest(path.read_bytes()) == entry["sha256"],
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 37, in require
+    raise Blocked(reason)
+qualityctl.Blocked: Evidence missing or changed: evidence/runs/20261005T214708Z_55e989cfdc/RUN.json
+</error></testcase><testcase name="test_qualityctl.QualityControls.test_current_run_junit_tampering_blocks_handoff"><error>Traceback (most recent call last):
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tests/test_qualityctl.py", line 431, in test_current_run_junit_tampering_blocks_handoff
+    _, record = q.run(self.root, "P00")
+                ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 195, in run
+    plan, progress, checks = selected(root, phase)
+                             ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 135, in selected
+    plan, progress, current = state(root)
+                              ^^^^^^^^^^^
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 107, in state
+    artifact(root, {"path": p["tests"][0], "sha256": p["accepted_receipt_sha256"]})
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 266, in artifact
+    require(path.is_file() and digest(path.read_bytes()) == entry["sha256"],
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 37, in require
+    raise Blocked(reason)
+qualityctl.Blocked: Evidence missing or changed: evidence/runs/20261005T214708Z_55e989cfdc/RUN.json
+</error></testcase><testcase name="test_qualityctl.QualityControls.test_current_run_log_tampering_blocks_handoff"><error>Traceback (most recent call last):
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tests/test_qualityctl.py", line 423, in test_current_run_log_tampering_blocks_handoff
+    _, record = q.run(self.root, "P00")
+                ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 195, in run
+    plan, progress, checks = selected(root, phase)
+                             ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 135, in selected
+    plan, progress, current = state(root)
+                              ^^^^^^^^^^^
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 107, in state
+    artifact(root, {"path": p["tests"][0], "sha256": p["accepted_receipt_sha256"]})
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 266, in artifact
+    require(path.is_file() and digest(path.read_bytes()) == entry["sha256"],
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 37, in require
+    raise Blocked(reason)
+qualityctl.Blocked: Evidence missing or changed: evidence/runs/20261005T214708Z_55e989cfdc/RUN.json
+</error></testcase><testcase name="test_qualityctl.QualityControls.test_current_run_receipt_tampering_blocks_handoff"><error>Traceback (most recent call last):
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tests/test_qualityctl.py", line 415, in test_current_run_receipt_tampering_blocks_handoff
+    path, _ = q.run(self.root, "P00")
+              ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 195, in run
+    plan, progress, checks = selected(root, phase)
+                             ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 135, in selected
+    plan, progress, current = state(root)
+                              ^^^^^^^^^^^
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 107, in state
+    artifact(root, {"path": p["tests"][0], "sha256": p["accepted_receipt_sha256"]})
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 266, in artifact
+    require(path.is_file() and digest(path.read_bytes()) == entry["sha256"],
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 37, in require
+    raise Blocked(reason)
+qualityctl.Blocked: Evidence missing or changed: evidence/runs/20261005T214708Z_55e989cfdc/RUN.json
+</error></testcase><testcase name="test_qualityctl.QualityControls.test_duplicate_check_ids_are_rejected" /><testcase name="test_qualityctl.QualityControls.test_expensive_acceptance_check_is_not_silently_repeated"><error>Traceback (most recent call last):
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tests/test_qualityctl.py", line 272, in test_expensive_acceptance_check_is_not_silently_repeated
+    _, _, checks = q.selected(self.root, "P00")
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 135, in selected
+    plan, progress, current = state(root)
+                              ^^^^^^^^^^^
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 107, in state
+    artifact(root, {"path": p["tests"][0], "sha256": p["accepted_receipt_sha256"]})
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 266, in artifact
+    require(path.is_file() and digest(path.read_bytes()) == entry["sha256"],
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 37, in require
+    raise Blocked(reason)
+qualityctl.Blocked: Evidence missing or changed: evidence/runs/20261005T214708Z_55e989cfdc/RUN.json
+</error></testcase><testcase name="test_qualityctl.QualityControls.test_fabricated_completed_status_is_rejected" /><testcase name="test_qualityctl.QualityControls.test_failed_work_in_progress_preserves_checkpoint_and_run"><error>Traceback (most recent call last):
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tests/test_qualityctl.py", line 370, in test_failed_work_in_progress_preserves_checkpoint_and_run
+    receipt, review = self.ready()
+                      ^^^^^^^^^^^^
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tests/test_qualityctl.py", line 59, in ready
+    path, receipt = q.run(self.root, "P00")
+                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 195, in run
+    plan, progress, checks = selected(root, phase)
+                             ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 135, in selected
+    plan, progress, current = state(root)
+                              ^^^^^^^^^^^
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 107, in state
+    artifact(root, {"path": p["tests"][0], "sha256": p["accepted_receipt_sha256"]})
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 266, in artifact
+    require(path.is_file() and digest(path.read_bytes()) == entry["sha256"],
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 37, in require
+    raise Blocked(reason)
+qualityctl.Blocked: Evidence missing or changed: evidence/runs/20261005T214708Z_55e989cfdc/RUN.json
+</error></testcase><testcase name="test_qualityctl.QualityControls.test_failing_junit_overrides_zero_exit"><error>Traceback (most recent call last):
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tests/test_qualityctl.py", line 115, in test_failing_junit_overrides_zero_exit
+    self.assertEqual(q.run(self.root, "P00")[1]["status"], "FAIL")
+                     ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 195, in run
+    plan, progress, checks = selected(root, phase)
+                             ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 135, in selected
+    plan, progress, current = state(root)
+                              ^^^^^^^^^^^
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 107, in state
+    artifact(root, {"path": p["tests"][0], "sha256": p["accepted_receipt_sha256"]})
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 266, in artifact
+    require(path.is_file() and digest(path.read_bytes()) == entry["sha256"],
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 37, in require
+    raise Blocked(reason)
+qualityctl.Blocked: Evidence missing or changed: evidence/runs/20261005T214708Z_55e989cfdc/RUN.json
+</error></testcase><testcase name="test_qualityctl.QualityControls.test_gate_lock_blocks_parallel_update"><error>Traceback (most recent call last):
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tests/test_qualityctl.py", line 201, in test_gate_lock_blocks_parallel_update
+    receipt, review = self.ready()
+                      ^^^^^^^^^^^^
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tests/test_qualityctl.py", line 59, in ready
+    path, receipt = q.run(self.root, "P00")
+                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 195, in run
+    plan, progress, checks = selected(root, phase)
+                             ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 135, in selected
+    plan, progress, current = state(root)
+                              ^^^^^^^^^^^
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 107, in state
+    artifact(root, {"path": p["tests"][0], "sha256": p["accepted_receipt_sha256"]})
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 266, in artifact
+    require(path.is_file() and digest(path.read_bytes()) == entry["sha256"],
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 37, in require
+    raise Blocked(reason)
+qualityctl.Blocked: Evidence missing or changed: evidence/runs/20261005T214708Z_55e989cfdc/RUN.json
+</error></testcase><testcase name="test_qualityctl.QualityControls.test_handoff_includes_accepted_evidence"><error>Traceback (most recent call last):
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tests/test_qualityctl.py", line 315, in test_handoff_includes_accepted_evidence
+    receipt, review = self.ready()
+                      ^^^^^^^^^^^^
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tests/test_qualityctl.py", line 59, in ready
+    path, receipt = q.run(self.root, "P00")
+                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 195, in run
+    plan, progress, checks = selected(root, phase)
+                             ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 135, in selected
+    plan, progress, current = state(root)
+                              ^^^^^^^^^^^
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 107, in state
+    artifact(root, {"path": p["tests"][0], "sha256": p["accepted_receipt_sha256"]})
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 266, in artifact
+    require(path.is_file() and digest(path.read_bytes()) == entry["sha256"],
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 37, in require
+    raise Blocked(reason)
+qualityctl.Blocked: Evidence missing or changed: evidence/runs/20261005T214708Z_55e989cfdc/RUN.json
+</error></testcase><testcase name="test_qualityctl.QualityControls.test_handoff_includes_generated_navigation"><error>Traceback (most recent call last):
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tests/test_qualityctl.py", line 470, in test_handoff_includes_generated_navigation
+    q.navigation(self.root)
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 447, in navigation
+    plan, progress, current = state(root)
+                              ^^^^^^^^^^^
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 107, in state
+    artifact(root, {"path": p["tests"][0], "sha256": p["accepted_receipt_sha256"]})
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 266, in artifact
+    require(path.is_file() and digest(path.read_bytes()) == entry["sha256"],
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 37, in require
+    raise Blocked(reason)
+qualityctl.Blocked: Evidence missing or changed: evidence/runs/20261005T214708Z_55e989cfdc/RUN.json
+</error></testcase><testcase name="test_qualityctl.QualityControls.test_handoff_keeps_precise_in_phase_resume_point"><error>Traceback (most recent call last):
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tests/test_qualityctl.py", line 301, in test_handoff_keeps_precise_in_phase_resume_point
+    info = q.handoff(self.root, out)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 495, in handoff
+    plan, progress, current = state(root)
+                              ^^^^^^^^^^^
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 107, in state
+    artifact(root, {"path": p["tests"][0], "sha256": p["accepted_receipt_sha256"]})
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 266, in artifact
+    require(path.is_file() and digest(path.read_bytes()) == entry["sha256"],
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 37, in require
+    raise Blocked(reason)
+qualityctl.Blocked: Evidence missing or changed: evidence/runs/20261005T214708Z_55e989cfdc/RUN.json
+</error></testcase><testcase name="test_qualityctl.QualityControls.test_handoff_roundtrip_preserves_source_fingerprint"><error>Traceback (most recent call last):
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tests/test_qualityctl.py", line 307, in test_handoff_roundtrip_preserves_source_fingerprint
+    info = q.handoff(self.root, out)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 495, in handoff
+    plan, progress, current = state(root)
+                              ^^^^^^^^^^^
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 107, in state
+    artifact(root, {"path": p["tests"][0], "sha256": p["accepted_receipt_sha256"]})
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 266, in artifact
+    require(path.is_file() and digest(path.read_bytes()) == entry["sha256"],
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 37, in require
+    raise Blocked(reason)
+qualityctl.Blocked: Evidence missing or changed: evidence/runs/20261005T214708Z_55e989cfdc/RUN.json
+</error></testcase><testcase name="test_qualityctl.QualityControls.test_incomplete_handoff_is_explicit"><error>Traceback (most recent call last):
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tests/test_qualityctl.py", line 289, in test_incomplete_handoff_is_explicit
+    info = q.handoff(self.root, out)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 495, in handoff
+    plan, progress, current = state(root)
+                              ^^^^^^^^^^^
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 107, in state
+    artifact(root, {"path": p["tests"][0], "sha256": p["accepted_receipt_sha256"]})
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 266, in artifact
+    require(path.is_file() and digest(path.read_bytes()) == entry["sha256"],
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 37, in require
+    raise Blocked(reason)
+qualityctl.Blocked: Evidence missing or changed: evidence/runs/20261005T214708Z_55e989cfdc/RUN.json
+</error></testcase><testcase name="test_qualityctl.QualityControls.test_inconsistent_junit_totals_fail"><error>Traceback (most recent call last):
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tests/test_qualityctl.py", line 123, in test_inconsistent_junit_totals_fail
+    self.assertEqual(q.run(self.root, "P00")[1]["status"], "FAIL")
+                     ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 195, in run
+    plan, progress, checks = selected(root, phase)
+                             ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 135, in selected
+    plan, progress, current = state(root)
+                              ^^^^^^^^^^^
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 107, in state
+    artifact(root, {"path": p["tests"][0], "sha256": p["accepted_receipt_sha256"]})
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 266, in artifact
+    require(path.is_file() and digest(path.read_bytes()) == entry["sha256"],
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 37, in require
+    raise Blocked(reason)
+qualityctl.Blocked: Evidence missing or changed: evidence/runs/20261005T214708Z_55e989cfdc/RUN.json
+</error></testcase><testcase name="test_qualityctl.QualityControls.test_independent_next_phase_blocker_is_preserved"><error>Traceback (most recent call last):
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tests/test_qualityctl.py", line 191, in test_independent_next_phase_blocker_is_preserved
+    receipt, review = self.ready()
+                      ^^^^^^^^^^^^
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tests/test_qualityctl.py", line 59, in ready
+    path, receipt = q.run(self.root, "P00")
+                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 195, in run
+    plan, progress, checks = selected(root, phase)
+                             ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 135, in selected
+    plan, progress, current = state(root)
+                              ^^^^^^^^^^^
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 107, in state
+    artifact(root, {"path": p["tests"][0], "sha256": p["accepted_receipt_sha256"]})
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 266, in artifact
+    require(path.is_file() and digest(path.read_bytes()) == entry["sha256"],
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 37, in require
+    raise Blocked(reason)
+qualityctl.Blocked: Evidence missing or changed: evidence/runs/20261005T214708Z_55e989cfdc/RUN.json
+</error></testcase><testcase name="test_qualityctl.QualityControls.test_initial_status_retains_unverified_application"><error>Traceback (most recent call last):
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tests/test_qualityctl.py", line 81, in test_initial_status_retains_unverified_application
+    _, progress, phase = q.state(self.root)
+                         ^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 107, in state
+    artifact(root, {"path": p["tests"][0], "sha256": p["accepted_receipt_sha256"]})
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 266, in artifact
+    require(path.is_file() and digest(path.read_bytes()) == entry["sha256"],
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 37, in require
+    raise Blocked(reason)
+qualityctl.Blocked: Evidence missing or changed: evidence/runs/20261005T214708Z_55e989cfdc/RUN.json
+</error></testcase><testcase name="test_qualityctl.QualityControls.test_invalid_timeout_is_rejected" /><testcase name="test_qualityctl.QualityControls.test_known_low_severity_defect_blocks"><error>Traceback (most recent call last):
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tests/test_qualityctl.py", line 164, in test_known_low_severity_defect_blocks
+    receipt, review = self.ready()
+                      ^^^^^^^^^^^^
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tests/test_qualityctl.py", line 59, in ready
+    path, receipt = q.run(self.root, "P00")
+                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 195, in run
+    plan, progress, checks = selected(root, phase)
+                             ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 135, in selected
+    plan, progress, current = state(root)
+                              ^^^^^^^^^^^
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 107, in state
+    artifact(root, {"path": p["tests"][0], "sha256": p["accepted_receipt_sha256"]})
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 266, in artifact
+    require(path.is_file() and digest(path.read_bytes()) == entry["sha256"],
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 37, in require
+    raise Blocked(reason)
+qualityctl.Blocked: Evidence missing or changed: evidence/runs/20261005T214708Z_55e989cfdc/RUN.json
+</error></testcase><testcase name="test_qualityctl.QualityControls.test_latest_pointer_cannot_reference_another_phase"><error>Traceback (most recent call last):
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tests/test_qualityctl.py", line 439, in test_latest_pointer_cannot_reference_another_phase
+    q.run(self.root, "P00")
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 195, in run
+    plan, progress, checks = selected(root, phase)
+                             ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 135, in selected
+    plan, progress, current = state(root)
+                              ^^^^^^^^^^^
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 107, in state
+    artifact(root, {"path": p["tests"][0], "sha256": p["accepted_receipt_sha256"]})
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 266, in artifact
+    require(path.is_file() and digest(path.read_bytes()) == entry["sha256"],
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 37, in require
+    raise Blocked(reason)
+qualityctl.Blocked: Evidence missing or changed: evidence/runs/20261005T214708Z_55e989cfdc/RUN.json
+</error></testcase><testcase name="test_qualityctl.QualityControls.test_manually_changed_navigation_is_not_a_second_truth"><error>Traceback (most recent call last):
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tests/test_qualityctl.py", line 487, in test_manually_changed_navigation_is_not_a_second_truth
+    q.navigation(self.root)
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 447, in navigation
+    plan, progress, current = state(root)
+                              ^^^^^^^^^^^
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 107, in state
+    artifact(root, {"path": p["tests"][0], "sha256": p["accepted_receipt_sha256"]})
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 266, in artifact
+    require(path.is_file() and digest(path.read_bytes()) == entry["sha256"],
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 37, in require
+    raise Blocked(reason)
+qualityctl.Blocked: Evidence missing or changed: evidence/runs/20261005T214708Z_55e989cfdc/RUN.json
+</error></testcase><testcase name="test_qualityctl.QualityControls.test_missing_exit_criterion_blocks"><error>Traceback (most recent call last):
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tests/test_qualityctl.py", line 140, in test_missing_exit_criterion_blocks
+    receipt, review = self.ready()
+                      ^^^^^^^^^^^^
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tests/test_qualityctl.py", line 59, in ready
+    path, receipt = q.run(self.root, "P00")
+                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 195, in run
+    plan, progress, checks = selected(root, phase)
+                             ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 135, in selected
+    plan, progress, current = state(root)
+                              ^^^^^^^^^^^
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 107, in state
+    artifact(root, {"path": p["tests"][0], "sha256": p["accepted_receipt_sha256"]})
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 266, in artifact
+    require(path.is_file() and digest(path.read_bytes()) == entry["sha256"],
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 37, in require
+    raise Blocked(reason)
+qualityctl.Blocked: Evidence missing or changed: evidence/runs/20261005T214708Z_55e989cfdc/RUN.json
+</error></testcase><testcase name="test_qualityctl.QualityControls.test_missing_review_does_not_advance_progress"><error>Traceback (most recent call last):
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tests/test_qualityctl.py", line 364, in test_missing_review_does_not_advance_progress
+    path, _ = q.run(self.root, "P00")
+              ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 195, in run
+    plan, progress, checks = selected(root, phase)
+                             ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 135, in selected
+    plan, progress, current = state(root)
+                              ^^^^^^^^^^^
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 107, in state
+    artifact(root, {"path": p["tests"][0], "sha256": p["accepted_receipt_sha256"]})
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 266, in artifact
+    require(path.is_file() and digest(path.read_bytes()) == entry["sha256"],
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 37, in require
+    raise Blocked(reason)
+qualityctl.Blocked: Evidence missing or changed: evidence/runs/20261005T214708Z_55e989cfdc/RUN.json
+</error></testcase><testcase name="test_qualityctl.QualityControls.test_navigation_detects_changed_progress_and_refreshes"><error>Traceback (most recent call last):
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tests/test_qualityctl.py", line 460, in test_navigation_detects_changed_progress_and_refreshes
+    q.navigation(self.root)
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 447, in navigation
+    plan, progress, current = state(root)
+                              ^^^^^^^^^^^
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 107, in state
+    artifact(root, {"path": p["tests"][0], "sha256": p["accepted_receipt_sha256"]})
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 266, in artifact
+    require(path.is_file() and digest(path.read_bytes()) == entry["sha256"],
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 37, in require
+    raise Blocked(reason)
+qualityctl.Blocked: Evidence missing or changed: evidence/runs/20261005T214708Z_55e989cfdc/RUN.json
+</error></testcase><testcase name="test_qualityctl.QualityControls.test_navigation_detects_changes_to_acceptance_checks"><error>Traceback (most recent call last):
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tests/test_qualityctl.py", line 494, in test_navigation_detects_changes_to_acceptance_checks
+    q.navigation(self.root)
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 447, in navigation
+    plan, progress, current = state(root)
+                              ^^^^^^^^^^^
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 107, in state
+    artifact(root, {"path": p["tests"][0], "sha256": p["accepted_receipt_sha256"]})
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 266, in artifact
+    require(path.is_file() and digest(path.read_bytes()) == entry["sha256"],
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 37, in require
+    raise Blocked(reason)
+qualityctl.Blocked: Evidence missing or changed: evidence/runs/20261005T214708Z_55e989cfdc/RUN.json
+</error></testcase><testcase name="test_qualityctl.QualityControls.test_navigation_does_not_advance_or_change_canonical_data"><error>Traceback (most recent call last):
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tests/test_qualityctl.py", line 450, in test_navigation_does_not_advance_or_change_canonical_data
+    q.navigation(self.root)
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 447, in navigation
+    plan, progress, current = state(root)
+                              ^^^^^^^^^^^
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 107, in state
+    artifact(root, {"path": p["tests"][0], "sha256": p["accepted_receipt_sha256"]})
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 266, in artifact
+    require(path.is_file() and digest(path.read_bytes()) == entry["sha256"],
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 37, in require
+    raise Blocked(reason)
+qualityctl.Blocked: Evidence missing or changed: evidence/runs/20261005T214708Z_55e989cfdc/RUN.json
+</error></testcase><testcase name="test_qualityctl.QualityControls.test_no_registered_checks_blocks_phase" /><testcase name="test_qualityctl.QualityControls.test_nonzero_exit_overrides_passing_junit"><error>Traceback (most recent call last):
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tests/test_qualityctl.py", line 119, in test_nonzero_exit_overrides_passing_junit
+    self.assertEqual(q.run(self.root, "P00")[1]["status"], "FAIL")
+                     ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 195, in run
+    plan, progress, checks = selected(root, phase)
+                             ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 135, in selected
+    plan, progress, current = state(root)
+                              ^^^^^^^^^^^
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 107, in state
+    artifact(root, {"path": p["tests"][0], "sha256": p["accepted_receipt_sha256"]})
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 266, in artifact
+    require(path.is_file() and digest(path.read_bytes()) == entry["sha256"],
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 37, in require
+    raise Blocked(reason)
+qualityctl.Blocked: Evidence missing or changed: evidence/runs/20261005T214708Z_55e989cfdc/RUN.json
+</error></testcase><testcase name="test_qualityctl.QualityControls.test_old_junit_is_not_reused"><error>Traceback (most recent call last):
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tests/test_qualityctl.py", line 103, in test_old_junit_is_not_reused
+    self.assertEqual(q.run(self.root, "P00")[1]["status"], "FAIL")
+                     ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 195, in run
+    plan, progress, checks = selected(root, phase)
+                             ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 135, in selected
+    plan, progress, current = state(root)
+                              ^^^^^^^^^^^
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 107, in state
+    artifact(root, {"path": p["tests"][0], "sha256": p["accepted_receipt_sha256"]})
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 266, in artifact
+    require(path.is_file() and digest(path.read_bytes()) == entry["sha256"],
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 37, in require
+    raise Blocked(reason)
+qualityctl.Blocked: Evidence missing or changed: evidence/runs/20261005T214708Z_55e989cfdc/RUN.json
+</error></testcase><testcase name="test_qualityctl.QualityControls.test_omitted_source_is_rejected" /><testcase name="test_qualityctl.QualityControls.test_out_of_order_phase_is_blocked" /><testcase name="test_qualityctl.QualityControls.test_path_traversal_is_rejected" /><testcase name="test_qualityctl.QualityControls.test_progress_change_invalidates_receipt"><error>Traceback (most recent call last):
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tests/test_qualityctl.py", line 132, in test_progress_change_invalidates_receipt
+    receipt, review = self.ready()
+                      ^^^^^^^^^^^^
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tests/test_qualityctl.py", line 59, in ready
+    path, receipt = q.run(self.root, "P00")
+                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 195, in run
+    plan, progress, checks = selected(root, phase)
+                             ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 135, in selected
+    plan, progress, current = state(root)
+                              ^^^^^^^^^^^
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 107, in state
+    artifact(root, {"path": p["tests"][0], "sha256": p["accepted_receipt_sha256"]})
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 266, in artifact
+    require(path.is_file() and digest(path.read_bytes()) == entry["sha256"],
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 37, in require
+    raise Blocked(reason)
+qualityctl.Blocked: Evidence missing or changed: evidence/runs/20261005T214708Z_55e989cfdc/RUN.json
+</error></testcase><testcase name="test_qualityctl.QualityControls.test_regression_checks_are_included"><error>Traceback (most recent call last):
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tests/test_qualityctl.py", line 251, in test_regression_checks_are_included
+    receipt, review = self.ready()
+                      ^^^^^^^^^^^^
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tests/test_qualityctl.py", line 59, in ready
+    path, receipt = q.run(self.root, "P00")
+                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 195, in run
+    plan, progress, checks = selected(root, phase)
+                             ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 135, in selected
+    plan, progress, current = state(root)
+                              ^^^^^^^^^^^
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 107, in state
+    artifact(root, {"path": p["tests"][0], "sha256": p["accepted_receipt_sha256"]})
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 266, in artifact
+    require(path.is_file() and digest(path.read_bytes()) == entry["sha256"],
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 37, in require
+    raise Blocked(reason)
+qualityctl.Blocked: Evidence missing or changed: evidence/runs/20261005T214708Z_55e989cfdc/RUN.json
+</error></testcase><testcase name="test_qualityctl.QualityControls.test_sensitive_file_is_rejected" /><testcase name="test_qualityctl.QualityControls.test_shared_junit_output_is_rejected" /><testcase name="test_qualityctl.QualityControls.test_skipped_test_fails"><error>Traceback (most recent call last):
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tests/test_qualityctl.py", line 111, in test_skipped_test_fails
+    self.assertEqual(q.run(self.root, "P00")[1]["status"], "FAIL")
+                     ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 195, in run
+    plan, progress, checks = selected(root, phase)
+                             ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 135, in selected
+    plan, progress, current = state(root)
+                              ^^^^^^^^^^^
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 107, in state
+    artifact(root, {"path": p["tests"][0], "sha256": p["accepted_receipt_sha256"]})
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 266, in artifact
+    require(path.is_file() and digest(path.read_bytes()) == entry["sha256"],
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 37, in require
+    raise Blocked(reason)
+qualityctl.Blocked: Evidence missing or changed: evidence/runs/20261005T214708Z_55e989cfdc/RUN.json
+</error></testcase><testcase name="test_qualityctl.QualityControls.test_source_change_invalidates_receipt"><error>Traceback (most recent call last):
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tests/test_qualityctl.py", line 126, in test_source_change_invalidates_receipt
+    receipt, review = self.ready()
+                      ^^^^^^^^^^^^
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tests/test_qualityctl.py", line 59, in ready
+    path, receipt = q.run(self.root, "P00")
+                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 195, in run
+    plan, progress, checks = selected(root, phase)
+                             ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 135, in selected
+    plan, progress, current = state(root)
+                              ^^^^^^^^^^^
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 107, in state
+    artifact(root, {"path": p["tests"][0], "sha256": p["accepted_receipt_sha256"]})
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 266, in artifact
+    require(path.is_file() and digest(path.read_bytes()) == entry["sha256"],
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 37, in require
+    raise Blocked(reason)
+qualityctl.Blocked: Evidence missing or changed: evidence/runs/20261005T214708Z_55e989cfdc/RUN.json
+</error></testcase><testcase name="test_qualityctl.QualityControls.test_stale_navigation_blocks_handoff"><error>Traceback (most recent call last):
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tests/test_qualityctl.py", line 478, in test_stale_navigation_blocks_handoff
+    q.navigation(self.root)
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 447, in navigation
+    plan, progress, current = state(root)
+                              ^^^^^^^^^^^
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 107, in state
+    artifact(root, {"path": p["tests"][0], "sha256": p["accepted_receipt_sha256"]})
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 266, in artifact
+    require(path.is_file() and digest(path.read_bytes()) == entry["sha256"],
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 37, in require
+    raise Blocked(reason)
+qualityctl.Blocked: Evidence missing or changed: evidence/runs/20261005T214708Z_55e989cfdc/RUN.json
+</error></testcase><testcase name="test_qualityctl.QualityControls.test_successful_command_without_junit_fails"><error>Traceback (most recent call last):
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tests/test_qualityctl.py", line 96, in test_successful_command_without_junit_fails
+    self.assertEqual(q.run(self.root, "P00")[1]["status"], "FAIL")
+                     ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 195, in run
+    plan, progress, checks = selected(root, phase)
+                             ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 135, in selected
+    plan, progress, current = state(root)
+                              ^^^^^^^^^^^
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 107, in state
+    artifact(root, {"path": p["tests"][0], "sha256": p["accepted_receipt_sha256"]})
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 266, in artifact
+    require(path.is_file() and digest(path.read_bytes()) == entry["sha256"],
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 37, in require
+    raise Blocked(reason)
+qualityctl.Blocked: Evidence missing or changed: evidence/runs/20261005T214708Z_55e989cfdc/RUN.json
+</error></testcase><testcase name="test_qualityctl.QualityControls.test_symlink_is_rejected" /><testcase name="test_qualityctl.QualityControls.test_tampered_log_blocks"><error>Traceback (most recent call last):
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tests/test_qualityctl.py", line 172, in test_tampered_log_blocks
+    receipt, review = self.ready()
+                      ^^^^^^^^^^^^
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tests/test_qualityctl.py", line 59, in ready
+    path, receipt = q.run(self.root, "P00")
+                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 195, in run
+    plan, progress, checks = selected(root, phase)
+                             ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 135, in selected
+    plan, progress, current = state(root)
+                              ^^^^^^^^^^^
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 107, in state
+    artifact(root, {"path": p["tests"][0], "sha256": p["accepted_receipt_sha256"]})
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 266, in artifact
+    require(path.is_file() and digest(path.read_bytes()) == entry["sha256"],
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 37, in require
+    raise Blocked(reason)
+qualityctl.Blocked: Evidence missing or changed: evidence/runs/20261005T214708Z_55e989cfdc/RUN.json
+</error></testcase><testcase name="test_qualityctl.QualityControls.test_unknown_finding_type_cannot_hide_a_defect"><error>Traceback (most recent call last):
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tests/test_qualityctl.py", line 156, in test_unknown_finding_type_cannot_hide_a_defect
+    receipt, review = self.ready()
+                      ^^^^^^^^^^^^
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tests/test_qualityctl.py", line 59, in ready
+    path, receipt = q.run(self.root, "P00")
+                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 195, in run
+    plan, progress, checks = selected(root, phase)
+                             ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 135, in selected
+    plan, progress, current = state(root)
+                              ^^^^^^^^^^^
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 107, in state
+    artifact(root, {"path": p["tests"][0], "sha256": p["accepted_receipt_sha256"]})
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 266, in artifact
+    require(path.is_file() and digest(path.read_bytes()) == entry["sha256"],
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 37, in require
+    raise Blocked(reason)
+qualityctl.Blocked: Evidence missing or changed: evidence/runs/20261005T214708Z_55e989cfdc/RUN.json
+</error></testcase><testcase name="test_qualityctl.QualityControls.test_zero_tests_fails"><error>Traceback (most recent call last):
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tests/test_qualityctl.py", line 107, in test_zero_tests_fails
+    self.assertEqual(q.run(self.root, "P00")[1]["status"], "FAIL")
+                     ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 195, in run
+    plan, progress, checks = selected(root, phase)
+                             ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 135, in selected
+    plan, progress, current = state(root)
+                              ^^^^^^^^^^^
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 107, in state
+    artifact(root, {"path": p["tests"][0], "sha256": p["accepted_receipt_sha256"]})
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 266, in artifact
+    require(path.is_file() and digest(path.read_bytes()) == entry["sha256"],
+  File "/workspace/scratch/2cd898e3d2ec/consilium_project/tools/qualityctl.py", line 37, in require
+    raise Blocked(reason)
+qualityctl.Blocked: Evidence missing or changed: evidence/runs/20261005T214708Z_55e989cfdc/RUN.json
+</error></testcase></testsuite>

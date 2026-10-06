@@ -1,0 +1,98 @@
+{
+  "status": "PASS",
+  "scope": "REVIEW_OF_CONTROL_UPDATES_AND_TESTED_P01_CODE_NOT_PHASE_ACCEPTANCE",
+  "source_digest": "fb34f887f09901955f3c131cbaff1ba18c1d228c79923da980d50fa38fd07d3f",
+  "reviewer": "Codex; same author, separate review pass",
+  "independent": false,
+  "method": "Inspect schemas, immutable identities, transport outcomes, request-bound probes, credential fields, profile resolution, fixture isolation, historical proof snapshots, canonical path order and native-report graph transfer; inspect fresh negative-case and success reports.",
+  "date_utc": "2026-10-05T22:32:22.436847+00:00",
+  "checks": {
+    "control_tests": {
+      "tests": 66,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "expected_failures": 0,
+      "unexpected_successes": 0
+    },
+    "foundation_tests": {
+      "tests": 57,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  },
+  "limitations": [
+    "Native Windows execution is NOT_RUN; no P01 acceptance.",
+    "Static type check and visual rendering are NOT_RUN.",
+    "No live provider, durable storage or Council runtime has been tested."
+  ],
+  "findings": [
+    {
+      "id": "P01-D01",
+      "kind": "DEFECT",
+      "state": "CLOSED",
+      "reason": "Probe cannot rebind an attempt to another connection."
+    },
+    {
+      "id": "P01-D02",
+      "kind": "DEFECT",
+      "state": "CLOSED",
+      "reason": "Probe cannot rebind an attempt to another frozen input."
+    },
+    {
+      "id": "P01-D03",
+      "kind": "DEFECT",
+      "state": "CLOSED",
+      "reason": "DeliveryObservation carries the frozen request hash."
+    },
+    {
+      "id": "P01-D04",
+      "kind": "DEFECT",
+      "state": "CLOSED",
+      "reason": "Boolean schema versions are rejected."
+    },
+    {
+      "id": "P01-D05",
+      "kind": "DEFECT",
+      "state": "CLOSED",
+      "reason": "Resolved profile paths cannot enter the source tree."
+    },
+    {
+      "id": "DEV-D03",
+      "kind": "DEFECT",
+      "state": "CLOSED",
+      "reason": "Synthetic fixtures reset acceptance and preservation references independently of real progress."
+    },
+    {
+      "id": "DEV-D04",
+      "kind": "DEFECT",
+      "state": "CLOSED",
+      "reason": "Accepted criterion bytes and original review survive later source/report changes."
+    },
+    {
+      "id": "DEV-D05",
+      "kind": "DEFECT",
+      "state": "CLOSED",
+      "reason": "Canonical textual path order is independent of native Windows case-fold ordering."
+    },
+    {
+      "id": "DEV-D06",
+      "kind": "DEFECT",
+      "state": "CLOSED",
+      "reason": "Native report graphs are preserved without changing source allowlist for each generated run ID."
+    },
+    {
+      "id": "DEV-D07",
+      "kind": "DEFECT",
+      "state": "CLOSED",
+      "reason": "Empty multiline env templates are accepted while recognizable nonempty credentials remain refused."
+    },
+    {
+      "id": "DEV-D08",
+      "kind": "DEFECT",
+      "state": "CLOSED",
+      "reason": "Capture the complete subprocess log before writing and binding immutable native evidence; validate every stored artifact before publishing the report."
+    }
+  ]
+}

@@ -1,0 +1,232 @@
+{
+  "scope": "DEVELOPMENT_CONTROL_TOOLING_ONLY",
+  "application_runtime_tests": "NOT_RUN",
+  "verified_application_requirements": 0,
+  "status": "FAIL",
+  "counts": {
+    "tests": 49,
+    "failures": 2,
+    "errors": 8,
+    "skipped": 0,
+    "expected_failures": 0,
+    "unexpected_successes": 0
+  },
+  "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+  "date": "2026-10-05T21:08:28.782445+00:00",
+  "platform": "Linux-6.18.44-x86_64-with-glibc2.39",
+  "source_files_before": {
+    "tools/qualityctl.py": "cd8bf7d6b873e23e03aa8ef3b881ef77655497d5e887d09bb62ef44e94921b78",
+    "tools/run_control_tests.py": "443ca37319dd476f768a56cec2321529a0c9ab7abf456a604fcb76a03181b185",
+    "tests/test_qualityctl.py": "725a472dd8f61ab2b07342c6fcc967df8e144a6d4b396f0315d38374bcf78b7e",
+    "ROADMAP.json": "3fbe1d54d911145481d37547aa284337f99ccdad4daa1e8302df53aafb83fd53",
+    "PROGRESS.json": "ded0389655150921926086cddeb1d9872e271c3b5e550ea365e3f396ff28d1f1",
+    "baseline/Consilium_User_Guarded_Governance_v1.3_Reviewed.zip": "8f898b60627c07ec9c4028ff4bfa510c1b5578c2dd1141fa8f2f16ed648fd742"
+  },
+  "source_files_after": {
+    "tools/qualityctl.py": "cd8bf7d6b873e23e03aa8ef3b881ef77655497d5e887d09bb62ef44e94921b78",
+    "tools/run_control_tests.py": "443ca37319dd476f768a56cec2321529a0c9ab7abf456a604fcb76a03181b185",
+    "tests/test_qualityctl.py": "725a472dd8f61ab2b07342c6fcc967df8e144a6d4b396f0315d38374bcf78b7e",
+    "ROADMAP.json": "3fbe1d54d911145481d37547aa284337f99ccdad4daa1e8302df53aafb83fd53",
+    "PROGRESS.json": "ded0389655150921926086cddeb1d9872e271c3b5e550ea365e3f396ff28d1f1",
+    "baseline/Consilium_User_Guarded_Governance_v1.3_Reviewed.zip": "8f898b60627c07ec9c4028ff4bfa510c1b5578c2dd1141fa8f2f16ed648fd742"
+  },
+  "source_unchanged": true,
+  "cases": [
+    {
+      "id": "test_qualityctl.QualityControls.test_accepted_phase_advances_only_one_step",
+      "status": "PASS"
+    },
+    {
+      "id": "test_qualityctl.QualityControls.test_archive_byte_tampering_is_rejected",
+      "status": "PASS"
+    },
+    {
+      "id": "test_qualityctl.QualityControls.test_archive_case_collisions_are_rejected",
+      "status": "PASS"
+    },
+    {
+      "id": "test_qualityctl.QualityControls.test_archive_unsafe_member_is_rejected",
+      "status": "PASS"
+    },
+    {
+      "id": "test_qualityctl.QualityControls.test_changed_baseline_is_rejected",
+      "status": "PASS"
+    },
+    {
+      "id": "test_qualityctl.QualityControls.test_changed_criterion_text_blocks",
+      "status": "PASS"
+    },
+    {
+      "id": "test_qualityctl.QualityControls.test_current_failed_run_without_junit_keeps_error_and_log",
+      "status": "ERROR"
+    },
+    {
+      "id": "test_qualityctl.QualityControls.test_current_run_from_older_source_is_explicit",
+      "status": "ERROR"
+    },
+    {
+      "id": "test_qualityctl.QualityControls.test_current_run_log_tampering_blocks_handoff",
+      "status": "FAILURE"
+    },
+    {
+      "id": "test_qualityctl.QualityControls.test_current_run_receipt_tampering_blocks_handoff",
+      "status": "FAILURE"
+    },
+    {
+      "id": "test_qualityctl.QualityControls.test_duplicate_check_ids_are_rejected",
+      "status": "PASS"
+    },
+    {
+      "id": "test_qualityctl.QualityControls.test_expensive_acceptance_check_is_not_silently_repeated",
+      "status": "PASS"
+    },
+    {
+      "id": "test_qualityctl.QualityControls.test_fabricated_completed_status_is_rejected",
+      "status": "PASS"
+    },
+    {
+      "id": "test_qualityctl.QualityControls.test_failed_work_in_progress_preserves_checkpoint_and_run",
+      "status": "ERROR"
+    },
+    {
+      "id": "test_qualityctl.QualityControls.test_failing_junit_overrides_zero_exit",
+      "status": "PASS"
+    },
+    {
+      "id": "test_qualityctl.QualityControls.test_gate_lock_blocks_parallel_update",
+      "status": "PASS"
+    },
+    {
+      "id": "test_qualityctl.QualityControls.test_handoff_includes_accepted_evidence",
+      "status": "PASS"
+    },
+    {
+      "id": "test_qualityctl.QualityControls.test_handoff_includes_generated_navigation",
+      "status": "ERROR"
+    },
+    {
+      "id": "test_qualityctl.QualityControls.test_handoff_keeps_precise_in_phase_resume_point",
+      "status": "PASS"
+    },
+    {
+      "id": "test_qualityctl.QualityControls.test_handoff_roundtrip_preserves_source_fingerprint",
+      "status": "PASS"
+    },
+    {
+      "id": "test_qualityctl.QualityControls.test_incomplete_handoff_is_explicit",
+      "status": "PASS"
+    },
+    {
+      "id": "test_qualityctl.QualityControls.test_inconsistent_junit_totals_fail",
+      "status": "PASS"
+    },
+    {
+      "id": "test_qualityctl.QualityControls.test_independent_next_phase_blocker_is_preserved",
+      "status": "PASS"
+    },
+    {
+      "id": "test_qualityctl.QualityControls.test_initial_status_retains_unverified_application",
+      "status": "PASS"
+    },
+    {
+      "id": "test_qualityctl.QualityControls.test_invalid_timeout_is_rejected",
+      "status": "PASS"
+    },
+    {
+      "id": "test_qualityctl.QualityControls.test_known_low_severity_defect_blocks",
+      "status": "PASS"
+    },
+    {
+      "id": "test_qualityctl.QualityControls.test_manually_changed_navigation_is_not_a_second_truth",
+      "status": "ERROR"
+    },
+    {
+      "id": "test_qualityctl.QualityControls.test_missing_exit_criterion_blocks",
+      "status": "PASS"
+    },
+    {
+      "id": "test_qualityctl.QualityControls.test_missing_review_does_not_advance_progress",
+      "status": "PASS"
+    },
+    {
+      "id": "test_qualityctl.QualityControls.test_navigation_detects_changed_progress_and_refreshes",
+      "status": "ERROR"
+    },
+    {
+      "id": "test_qualityctl.QualityControls.test_navigation_does_not_advance_or_change_canonical_data",
+      "status": "ERROR"
+    },
+    {
+      "id": "test_qualityctl.QualityControls.test_no_registered_checks_blocks_phase",
+      "status": "PASS"
+    },
+    {
+      "id": "test_qualityctl.QualityControls.test_nonzero_exit_overrides_passing_junit",
+      "status": "PASS"
+    },
+    {
+      "id": "test_qualityctl.QualityControls.test_old_junit_is_not_reused",
+      "status": "PASS"
+    },
+    {
+      "id": "test_qualityctl.QualityControls.test_omitted_source_is_rejected",
+      "status": "PASS"
+    },
+    {
+      "id": "test_qualityctl.QualityControls.test_out_of_order_phase_is_blocked",
+      "status": "PASS"
+    },
+    {
+      "id": "test_qualityctl.QualityControls.test_path_traversal_is_rejected",
+      "status": "PASS"
+    },
+    {
+      "id": "test_qualityctl.QualityControls.test_progress_change_invalidates_receipt",
+      "status": "PASS"
+    },
+    {
+      "id": "test_qualityctl.QualityControls.test_regression_checks_are_included",
+      "status": "PASS"
+    },
+    {
+      "id": "test_qualityctl.QualityControls.test_sensitive_file_is_rejected",
+      "status": "PASS"
+    },
+    {
+      "id": "test_qualityctl.QualityControls.test_shared_junit_output_is_rejected",
+      "status": "PASS"
+    },
+    {
+      "id": "test_qualityctl.QualityControls.test_skipped_test_fails",
+      "status": "PASS"
+    },
+    {
+      "id": "test_qualityctl.QualityControls.test_source_change_invalidates_receipt",
+      "status": "PASS"
+    },
+    {
+      "id": "test_qualityctl.QualityControls.test_stale_navigation_blocks_handoff",
+      "status": "ERROR"
+    },
+    {
+      "id": "test_qualityctl.QualityControls.test_successful_command_without_junit_fails",
+      "status": "PASS"
+    },
+    {
+      "id": "test_qualityctl.QualityControls.test_symlink_is_rejected",
+      "status": "PASS"
+    },
+    {
+      "id": "test_qualityctl.QualityControls.test_tampered_log_blocks",
+      "status": "PASS"
+    },
+    {
+      "id": "test_qualityctl.QualityControls.test_unknown_finding_type_cannot_hide_a_defect",
+      "status": "PASS"
+    },
+    {
+      "id": "test_qualityctl.QualityControls.test_zero_tests_fails",
+      "status": "PASS"
+    }
+  ]
+}

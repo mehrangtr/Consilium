@@ -1,0 +1,58 @@
+test_failure_before_reports_exist_still_publishes_a_failed_checkpoint (test_native_recording.NativeRecordingControls.test_failure_before_reports_exist_still_publishes_a_failed_checkpoint) ... ERROR
+test_old_mutable_reports_cannot_be_reused_as_a_fresh_native_run (test_native_recording.NativeRecordingControls.test_old_mutable_reports_cannot_be_reused_as_a_fresh_native_run) ... FAIL
+test_timed_out_check_preserves_partial_log_and_failed_checkpoint (test_native_recording.NativeRecordingControls.test_timed_out_check_preserves_partial_log_and_failed_checkpoint) ... ERROR
+
+======================================================================
+ERROR: test_failure_before_reports_exist_still_publishes_a_failed_checkpoint (test_native_recording.NativeRecordingControls.test_failure_before_reports_exist_still_publishes_a_failed_checkpoint)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/2cd898e3d2ec/consilium_audit_project/tests/test_native_recording.py", line 64, in test_failure_before_reports_exist_still_publishes_a_failed_checkpoint
+    self.assertEqual(self.invoke(execution), 1)
+                     ^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/2cd898e3d2ec/consilium_audit_project/tests/test_native_recording.py", line 30, in invoke
+    return recorder.main()
+           ^^^^^^^^^^^^^^^
+  File "/workspace/scratch/2cd898e3d2ec/consilium_audit_project/tools/record_target_checks.py", line 45, in main
+    q.require(source.is_file(), "Check did not write its report: " + original)
+  File "/workspace/scratch/2cd898e3d2ec/consilium_audit_project/tools/qualityctl.py", line 37, in require
+    raise Blocked(reason)
+qualityctl.Blocked: Check did not write its report: evidence/maintenance-check/RUN.json
+
+======================================================================
+ERROR: test_timed_out_check_preserves_partial_log_and_failed_checkpoint (test_native_recording.NativeRecordingControls.test_timed_out_check_preserves_partial_log_and_failed_checkpoint)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/2cd898e3d2ec/consilium_audit_project/tests/test_native_recording.py", line 72, in test_timed_out_check_preserves_partial_log_and_failed_checkpoint
+    self.assertEqual(self.invoke(execution), 1)
+                     ^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/2cd898e3d2ec/consilium_audit_project/tests/test_native_recording.py", line 30, in invoke
+    return recorder.main()
+           ^^^^^^^^^^^^^^^
+  File "/workspace/scratch/2cd898e3d2ec/consilium_audit_project/tools/record_target_checks.py", line 27, in main
+    execution = subprocess.run([sys.executable, "tools/check.py"], cwd=ROOT, stdin=subprocess.DEVNULL,
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/mock.py", line 1139, in __call__
+    return self._mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/mock.py", line 1143, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/mock.py", line 1204, in _execute_mock_call
+    result = effect(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/2cd898e3d2ec/consilium_audit_project/tests/test_native_recording.py", line 70, in execution
+    raise subprocess.TimeoutExpired(argv, 60, output=b"synthetic partial check log")
+subprocess.TimeoutExpired: Command '['/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python', 'tools/check.py']' timed out after 60 seconds
+
+======================================================================
+FAIL: test_old_mutable_reports_cannot_be_reused_as_a_fresh_native_run (test_native_recording.NativeRecordingControls.test_old_mutable_reports_cannot_be_reused_as_a_fresh_native_run)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/2cd898e3d2ec/consilium_audit_project/tests/test_native_recording.py", line 54, in test_old_mutable_reports_cannot_be_reused_as_a_fresh_native_run
+    self.assertEqual(self.invoke(execution), 1)
+AssertionError: 0 != 1
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.013s
+
+FAILED (failures=1, errors=2)

@@ -1,0 +1,76 @@
+{
+  "schema_version": 1,
+  "scope": "SUPPLIED_INPUTS_AND_CURRENT_WORKSPACE",
+  "application_source_supplied": true,
+  "application_runtime_tests": "P01_FOUNDATION_LINUX_ONLY",
+  "real_browser_tests": "NOT_RUN",
+  "protected_requirements": 30,
+  "governance_version": "1.3.0",
+  "declared_weekly_hours": 70,
+  "confirmed_existing_assets": [
+    "governance package v1.3",
+    "development roadmap",
+    "phase and handoff control tooling",
+    "derived navigation and recorded decisions",
+    "portable development check"
+  ],
+  "unresolved_for_p00": [],
+  "control_tooling_tests": {
+    "status": "SEE_FRESH_REPORT",
+    "report": "evidence/control-tests/RUN.json",
+    "scope": "CONTROL_TOOLING_NOT_APPLICATION_CONFORMANCE"
+  },
+  "starting_application_source": {
+    "status": "NOT_FOUND_IN_REVIEWED_INPUTS",
+    "reviewed": [
+      "دو مشخصات اولیهٔ پروژه",
+      "پیشنهادهای DEEP، GL و CL",
+      "بستهٔ حاکمیت 1.3 و بستهٔ اجرای نقشه 1.2",
+      "فایل‌های مرتبط موجود در محیط"
+    ],
+    "limitations": "این موجودی دربارهٔ منابع بررسی‌شده است؛ نبودن مخزن در جای دیگر را ادعا نمی‌کند.",
+    "continuation_basis": "User instructed to start continuation; create application source after P00 acceptance."
+  },
+  "scope_file": "SCOPE.json",
+  "target_platforms": [
+    "Windows",
+    "Linux"
+  ],
+  "test_host": {
+    "os": "Linux",
+    "python": "3.12.14"
+  },
+  "live_account_access": "UNKNOWN",
+  "evaluation_budget": {
+    "current_amount": 0,
+    "paid_calls_authorized": false,
+    "free_api_access": "UNKNOWN",
+    "real_manual_evaluation_allowed": true
+  },
+  "unresolved_live_access": [
+    "هویت مدل‌های زنده و حساب‌های مجاز بعداً توسط کاربر انتخاب و در زمان اجرا تأیید می‌شوند.",
+    "توانایی مرورگر و تشخیص ارسال هر سرویس فقط با آزمون واقعی تأیید می‌شود؛ مستند API شاهد ورود به حساب نیست.",
+    "مقدار اعتبار رایگان، سهمیه و دسترسی منطقه‌ای هیچ سرویس تأیید نشده است.",
+    "اجرای بومی Windows هنوز انجام نشده؛ پذیرش انتشار هر دو محیط لازم است."
+  ],
+  "application_source_path": "src/consilium",
+  "application_source_origin": "CREATED_AFTER_P00_ACCEPTANCE",
+  "application_foundation_tests": {
+    "report": "evidence/foundation-tests/RUN.json",
+    "scope": "P01_OFFLINE_FOUNDATION",
+    "release_acceptance": "NOT_RUN"
+  },
+  "windows_execution": "NOT_RUN",
+  "remote_ci": "AUTOMATION_PREPARED_NOT_EXECUTED_PUBLICATION_PERMISSION_PENDING",
+  "application_source_commit_reference": "PROGRESS.json.application_source_commit",
+  "fresh_environment_installation": "SEE_evidence/audit/installation/RUN.json_LINUX_ONLY",
+  "development_execution_policy": {
+    "windows_user_assistance_allowed": false,
+    "execution_responsibility": "ASSISTANT",
+    "remote_repository": "mehrangtr/Consilium",
+    "remote_visibility": "public",
+    "repository_state_observed": "EMPTY",
+    "remote_mutations_performed": false,
+    "public_publication_permission": "NOT_GRANTED"
+  }
+}

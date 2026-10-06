@@ -1,0 +1,122 @@
+{
+  "phase": "P01",
+  "source_digest": "fb34f887f09901955f3c131cbaff1ba18c1d228c79923da980d50fa38fd07d3f",
+  "status": "BLOCKED",
+  "reviewer": "Codex; same author, separate review pass",
+  "independent": false,
+  "method": "Review current code and negative tests; inspect source-bound native Linux report and missing Windows entry. Refuse final phase acceptance without both selected OS runs.",
+  "impact_assessment": "Protected baseline and phase order unchanged. Starting inventory is now an immutable historical criterion snapshot. Control fixtures and native path order repaired; control tests remain separate from application tests. No paid API, real Browser, ledger or Council is claimed.",
+  "findings": [
+    {
+      "id": "P01-D01",
+      "kind": "DEFECT",
+      "state": "CLOSED",
+      "reason": "Probe cannot rebind an attempt to another connection."
+    },
+    {
+      "id": "P01-D02",
+      "kind": "DEFECT",
+      "state": "CLOSED",
+      "reason": "Probe cannot rebind an attempt to another frozen input."
+    },
+    {
+      "id": "P01-D03",
+      "kind": "DEFECT",
+      "state": "CLOSED",
+      "reason": "DeliveryObservation carries the frozen request hash."
+    },
+    {
+      "id": "P01-D04",
+      "kind": "DEFECT",
+      "state": "CLOSED",
+      "reason": "Boolean schema versions are rejected."
+    },
+    {
+      "id": "P01-D05",
+      "kind": "DEFECT",
+      "state": "CLOSED",
+      "reason": "Resolved profile paths cannot enter the source tree."
+    },
+    {
+      "id": "DEV-D03",
+      "kind": "DEFECT",
+      "state": "CLOSED",
+      "reason": "Synthetic fixtures reset acceptance and preservation references independently of real progress."
+    },
+    {
+      "id": "DEV-D04",
+      "kind": "DEFECT",
+      "state": "CLOSED",
+      "reason": "Accepted criterion bytes and original review survive later source/report changes."
+    },
+    {
+      "id": "DEV-D05",
+      "kind": "DEFECT",
+      "state": "CLOSED",
+      "reason": "Canonical textual path order is independent of native Windows case-fold ordering."
+    },
+    {
+      "id": "DEV-D06",
+      "kind": "DEFECT",
+      "state": "CLOSED",
+      "reason": "Native report graphs are preserved without changing source allowlist for each generated run ID."
+    },
+    {
+      "id": "DEV-D07",
+      "kind": "DEFECT",
+      "state": "CLOSED",
+      "reason": "Empty multiline env templates are accepted while recognizable nonempty credentials remain refused."
+    },
+    {
+      "id": "DEV-D08",
+      "kind": "DEFECT",
+      "state": "CLOSED",
+      "reason": "Capture the complete subprocess log before writing and binding immutable native evidence; validate every stored artifact before publishing the report."
+    }
+  ],
+  "blockers": [
+    "Native Windows execution evidence for this exact source is NOT_RUN."
+  ],
+  "criteria": [
+    {
+      "id": "P01.E01",
+      "criterion": "اجرای پایه و اتصال ساختگی کار می‌کنند و قرارداد داده قابل اعتبارسنجی است.",
+      "status": "BLOCKED",
+      "notes": "Data contracts and offline execution pass on Linux. The selected Windows execution is still missing; a configured CI workflow does not satisfy it.",
+      "evidence": [
+        {
+          "path": "evidence/foundation-tests/RUN.json",
+          "sha256": "23b439573050df6f740bf2aae6fc3d2f31d6c1cba9d43f594c18d77a2602bf34"
+        },
+        {
+          "path": "evidence/target-matrix/RUN.json",
+          "sha256": "7189ef19e8f3155020012f5bbfaa87e5272fd51e2c565f9906c1f3305a28ed34"
+        },
+        {
+          "path": "evidence/runs/20261005T224933Z_4572a96428/RUN.json",
+          "sha256": "c2f1d14deb31596c29a78ca62362b40e0010255a6c30b71e3d7163562c5a6f98"
+        }
+      ]
+    },
+    {
+      "id": "P01.E02",
+      "criterion": "هویت عملیات از هش محتوا جدا است؛ محرمانه‌ها مسیر ذخیره و خروج مشخص دارند.",
+      "status": "PASS_ON_TESTED_HOST",
+      "notes": "Logical operation, attempt and generation IDs are distinct from content hashes. Public credential fields are rejected; known private material and resolved inside-source profile paths are rejected. Native Windows remains unexecuted.",
+      "evidence": [
+        {
+          "path": "evidence/contracts/SCHEMAS.json",
+          "sha256": "95e4699157d66e72ac5c2a4e4bf9badb81efd6d670b7fc362d9c407516cc1e36"
+        },
+        {
+          "path": "evidence/foundation-tests/RUN.json",
+          "sha256": "23b439573050df6f740bf2aae6fc3d2f31d6c1cba9d43f594c18d77a2602bf34"
+        },
+        {
+          "path": "evidence/control-review/P01_UPDATES.json",
+          "sha256": "f44bc92293376cd5800f95e0fe19a0820d039945ea1a693e14d4f99a251eb9d2"
+        }
+      ]
+    }
+  ]
+}

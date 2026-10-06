@@ -1,0 +1,200 @@
+{
+  "phase": "P01",
+  "date_utc": "2026-10-06T08:55:36.922336+00:00",
+  "source_digest": "e5c868d5d2ab0dd56d21f7873f9f23d876a5fd4ac60e45b2989ec7167ac94087",
+  "status": "BLOCKED",
+  "reviewer": "Codex; same author, separate review pass",
+  "independent": false,
+  "method": "Read all changed code and test cases in a separate pass, verify actual immutable native Linux artifacts and negative checks, inspect installed-package import and preserve original historical review.",
+  "impact_assessment": "P00 acceptance bytes and phase order remain unchanged. Three foundation tests and twelve control tests added. Existing foundation, governance/control regressions pass in isolated Linux environment. No live provider calls, product ledger, Council or Windows acceptance claimed.",
+  "findings": [
+    {
+      "id": "P01-D01",
+      "kind": "DEFECT",
+      "state": "CLOSED",
+      "reason": "Probe cannot rebind an attempt to another connection."
+    },
+    {
+      "id": "P01-D02",
+      "kind": "DEFECT",
+      "state": "CLOSED",
+      "reason": "Probe cannot rebind an attempt to another frozen input."
+    },
+    {
+      "id": "P01-D03",
+      "kind": "DEFECT",
+      "state": "CLOSED",
+      "reason": "DeliveryObservation carries the frozen request hash."
+    },
+    {
+      "id": "P01-D04",
+      "kind": "DEFECT",
+      "state": "CLOSED",
+      "reason": "Boolean schema versions are rejected."
+    },
+    {
+      "id": "P01-D05",
+      "kind": "DEFECT",
+      "state": "CLOSED",
+      "reason": "Resolved profile paths cannot enter the source tree."
+    },
+    {
+      "id": "DEV-D03",
+      "kind": "DEFECT",
+      "state": "CLOSED",
+      "reason": "Synthetic fixtures reset acceptance and preservation references independently of real progress."
+    },
+    {
+      "id": "DEV-D04",
+      "kind": "DEFECT",
+      "state": "CLOSED",
+      "reason": "Accepted criterion bytes and original review survive later source/report changes."
+    },
+    {
+      "id": "DEV-D05",
+      "kind": "DEFECT",
+      "state": "CLOSED",
+      "reason": "Canonical textual path order is independent of native Windows case-fold ordering."
+    },
+    {
+      "id": "DEV-D06",
+      "kind": "DEFECT",
+      "state": "CLOSED",
+      "reason": "Native report graphs are preserved without changing source allowlist for each generated run ID."
+    },
+    {
+      "id": "DEV-D07",
+      "kind": "DEFECT",
+      "state": "CLOSED",
+      "reason": "Empty multiline env templates are accepted while recognizable nonempty credentials remain refused."
+    },
+    {
+      "id": "DEV-D08",
+      "kind": "DEFECT",
+      "state": "CLOSED",
+      "reason": "Capture the complete subprocess log before writing and binding immutable native evidence; validate every stored artifact before publishing the report."
+    },
+    {
+      "id": "RA01",
+      "kind": "DEFECT",
+      "state": "CLOSED",
+      "reason": "Private field spelling aliases are rejected.",
+      "evidence_hint": "test_private_field_aliases_cannot_escape_the_public_boundary"
+    },
+    {
+      "id": "RA02",
+      "kind": "DEFECT",
+      "state": "CLOSED",
+      "reason": "Invalid-response failure requires an invalid received response.",
+      "evidence_hint": "test_invalid_response_failure_requires_an_invalid_received_response"
+    },
+    {
+      "id": "RA03",
+      "kind": "DEFECT",
+      "state": "CLOSED",
+      "reason": "Mock does not advertise unimplemented streaming or conversation continuation.",
+      "evidence_hint": "test_mock_does_not_advertise_unimplemented_operations"
+    },
+    {
+      "id": "RA04",
+      "kind": "DEFECT",
+      "state": "CLOSED",
+      "reason": "Smoke evidence requires four distinct cases and actual matching outcomes.",
+      "evidence_hint": "test_duplicate_smoke_scenarios_are_not_complete_evidence"
+    },
+    {
+      "id": "RA05",
+      "kind": "DEFECT",
+      "state": "CLOSED",
+      "reason": "Recorded counts, Python environment, dependency lock and full logs are validated.",
+      "evidence_hint": "test_native_report_test_counts_must_match_junit"
+    },
+    {
+      "id": "RA06",
+      "kind": "DEFECT",
+      "state": "CLOSED",
+      "reason": "Mutable previous reports cannot substitute for reports from a new invocation.",
+      "evidence_hint": "test_old_mutable_reports_cannot_be_reused_as_a_fresh_native_run"
+    },
+    {
+      "id": "RA07",
+      "kind": "DEFECT",
+      "state": "CLOSED",
+      "reason": "Early failure and timeout preserve failed checkpoints and available logs.",
+      "evidence_hint": "test_timed_out_check_preserves_partial_log_and_failed_checkpoint"
+    },
+    {
+      "id": "RA08",
+      "kind": "DEFECT",
+      "state": "CLOSED",
+      "reason": "All root test modules are discovered; new failure-recorder tests execute.",
+      "evidence_hint": "test_failure_before_reports_exist_still_publishes_a_failed_checkpoint"
+    },
+    {
+      "id": "RA09",
+      "kind": "DEFECT",
+      "state": "CLOSED",
+      "reason": "Packaging outputs are excluded without excluding actual source changes.",
+      "evidence_hint": "test_build_products_do_not_change_source_but_real_code_does"
+    },
+    {
+      "id": "RA10",
+      "kind": "DEFECT",
+      "state": "CLOSED",
+      "reason": "Canonical progress distinguishes tested foundation from untested full V1 conformance.",
+      "evidence_hint": "PROGRESS.json"
+    },
+    {
+      "id": "RA11",
+      "kind": "DEFECT",
+      "state": "CLOSED",
+      "reason": "Previous review and original criterion bytes are retained; new review references immutable evidence.",
+      "evidence_hint": "evidence/audit/history/P01_review_snapshot.json"
+    }
+  ],
+  "blockers": [
+    "Native Windows execution evidence for this exact source is NOT_RUN."
+  ],
+  "criteria": [
+    {
+      "id": "P01.E01",
+      "criterion": "اجرای پایه و اتصال ساختگی کار می‌کنند و قرارداد داده قابل اعتبارسنجی است.",
+      "status": "BLOCKED",
+      "notes": "60 foundation and 78 control tests and four offline CLI cases pass on native Linux in isolated venv. Native Windows remains missing; final phase acceptance is blocked.",
+      "evidence": [
+        {
+          "path": "evidence/targets/Linux/20261006T085341Z_fa709cdf/RUN.json",
+          "sha256": "6755d824e7fc8b82e7a3c1390a345bde42c572bdfa9b2bba76425f0918dc6c22"
+        },
+        {
+          "path": "evidence/audit/review/TARGET_MATRIX.json",
+          "sha256": "985d9b4c8c8890a10f77ffdb2ebfba91fcfc5d764db88dc33fa177299c3eb695"
+        },
+        {
+          "path": "evidence/runs/20261006T085412Z_b934912dbd/RUN.json",
+          "sha256": "51c1dc6a22d37821030b03f3d64af49761792dcac6d20ace2357885b30e49f7f"
+        }
+      ]
+    },
+    {
+      "id": "P01.E02",
+      "criterion": "هویت عملیات از هش محتوا جدا است؛ محرمانه‌ها مسیر ذخیره و خروج مشخص دارند.",
+      "status": "PASS_ON_TESTED_HOST",
+      "notes": "Identity remains independent of content hash. Known secret field aliases are rejected; transport observation consistency and mock capability honesty are validated. Windows remains unexecuted.",
+      "evidence": [
+        {
+          "path": "evidence/targets/Linux/20261006T085341Z_fa709cdf/RUN.json",
+          "sha256": "6755d824e7fc8b82e7a3c1390a345bde42c572bdfa9b2bba76425f0918dc6c22"
+        },
+        {
+          "path": "evidence/audit/review/SCHEMAS.json",
+          "sha256": "4a1844f72c9414072b213e674ea0aa5f44704d3b475401ea840b84371988ceaa"
+        }
+      ]
+    }
+  ],
+  "supersedes": {
+    "path": "evidence/audit/history/P01_review_snapshot.json",
+    "sha256": "9d4cdf4feb6224aa133cd58a9f2247135c1a1fbd69567957acb739262ac3739a"
+  }
+}

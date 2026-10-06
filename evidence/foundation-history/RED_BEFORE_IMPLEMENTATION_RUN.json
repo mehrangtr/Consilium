@@ -1,0 +1,27 @@
+{
+  "phase": "P01",
+  "scope": "APPLICATION_FOUNDATION_OFFLINE_NOT_FULL_V1_CONFORMANCE",
+  "status": "FAIL",
+  "counts": {
+    "tests": 1,
+    "failures": 0,
+    "errors": 1,
+    "skipped": 0
+  },
+  "source_digest_before": "c4c734561e37bbc826686984f53f4e6b5b9849a4fe5eae2d7b7aa1aa512865f6",
+  "source_digest_after": "c4c734561e37bbc826686984f53f4e6b5b9849a4fe5eae2d7b7aa1aa512865f6",
+  "date_utc": "2026-10-05T21:51:26.686040+00:00",
+  "host": {
+    "system": "Linux",
+    "python": "3.12.14"
+  },
+  "windows_execution": "NOT_RUN",
+  "live_provider_calls": 0,
+  "verified_application_requirements": 0,
+  "cases": [
+    {
+      "id": "unittest.loader._FailedTest.test_foundation",
+      "status": "ERROR"
+    }
+  ]
+}

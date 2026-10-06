@@ -1,0 +1,102 @@
+{
+  "status": "PASS",
+  "scope": "MARKDOWN_PARSE_AND_TABLE_SHAPE_NOT_VISUAL_RENDERING",
+  "source_digest": "e5c868d5d2ab0dd56d21f7873f9f23d876a5fd4ac60e45b2989ec7167ac94087",
+  "date_utc": "2026-10-06T08:57:51.120757+00:00",
+  "documents": 18,
+  "tables": 23,
+  "table_rows": 307,
+  "visual_rendering": "NOT_RUN",
+  "files": [
+    {
+      "path": "AGENTS.md",
+      "status": "PASS",
+      "tables": 0
+    },
+    {
+      "path": "CONSILIUM_DEEP_GL_CL_COMPARISON_FA.md",
+      "status": "PASS",
+      "tables": 7
+    },
+    {
+      "path": "CONSILIUM_HANDOFF_AND_QUALITY_PROTOCOL_FA.md",
+      "status": "PASS",
+      "tables": 3
+    },
+    {
+      "path": "CONSILIUM_MASTER_ROADMAP_FA.md",
+      "status": "PASS",
+      "tables": 6
+    },
+    {
+      "path": "CONSILIUM_PROGRESS_P01_FA.md",
+      "status": "PASS",
+      "tables": 2
+    },
+    {
+      "path": "HANDOFF_TEMPLATE_FA.md",
+      "status": "PASS",
+      "tables": 1
+    },
+    {
+      "path": "README_FA.md",
+      "status": "PASS",
+      "tables": 0
+    },
+    {
+      "path": "START_HERE_FA.md",
+      "status": "PASS",
+      "tables": 0
+    },
+    {
+      "path": "docs/DATA_CONTRACTS_FA.md",
+      "status": "PASS",
+      "tables": 1
+    },
+    {
+      "path": "docs/MODEL_EVALUATION_PLAN_FA.md",
+      "status": "PASS",
+      "tables": 1
+    },
+    {
+      "path": "docs/RUNBOOK_FA.md",
+      "status": "PASS",
+      "tables": 0
+    },
+    {
+      "path": "docs/SCOPE_AND_INVENTORY_FA.md",
+      "status": "PASS",
+      "tables": 1
+    },
+    {
+      "path": "docs/decisions/ADR-001-TRUTH_AND_HANDOFF_FA.md",
+      "status": "PASS",
+      "tables": 0
+    },
+    {
+      "path": "docs/decisions/ADR-002-DEVELOPMENT_CHECK_AND_MODEL_SELECTION_FA.md",
+      "status": "PASS",
+      "tables": 0
+    },
+    {
+      "path": "docs/decisions/ADR-003-P01_FOUNDATION_FA.md",
+      "status": "PASS",
+      "tables": 0
+    },
+    {
+      "path": "docs/decisions/ADR-004-P01_REAUDIT_FA.md",
+      "status": "PASS",
+      "tables": 0
+    },
+    {
+      "path": "evidence/navigation/STATUS_FA.md",
+      "status": "PASS",
+      "tables": 1
+    },
+    {
+      "path": "evidence/navigation/BACKLOG_FA.md",
+      "status": "PASS",
+      "tables": 0
+    }
+  ]
+}

@@ -1,0 +1,75 @@
+{
+  "status": "PASS",
+  "date_utc": "2026-10-06T08:51:27.067113+00:00",
+  "host": "Linux",
+  "scope": "FRESH_ISOLATED_VENV_LOCK_INSTALL_AND_PACKAGE_BUILD_IMPORT_NOT_WINDOWS_PROOF",
+  "environment_creation": {
+    "command": "python -m venv .venv",
+    "result": "PASS",
+    "isolated_system_site_packages": true
+  },
+  "lock_installation": {
+    "command": ".venv/bin/python -m pip install -r requirements.lock",
+    "result": "PASS",
+    "packages": [
+      {
+        "package": "setuptools",
+        "required": "84.0.0",
+        "installed": "84.0.0",
+        "status": "PASS"
+      },
+      {
+        "package": "pydantic",
+        "required": "2.13.5",
+        "installed": "2.13.5",
+        "status": "PASS"
+      },
+      {
+        "package": "pydantic-core",
+        "required": "2.46.5",
+        "installed": "2.46.5",
+        "status": "PASS"
+      },
+      {
+        "package": "annotated-types",
+        "required": "0.8.0",
+        "installed": "0.8.0",
+        "status": "PASS"
+      },
+      {
+        "package": "typing-extensions",
+        "required": "4.16.0",
+        "installed": "4.16.0",
+        "status": "PASS"
+      },
+      {
+        "package": "typing-inspection",
+        "required": "0.4.4",
+        "installed": "0.4.4",
+        "status": "PASS"
+      }
+    ]
+  },
+  "pip_check": {
+    "command": ".venv/bin/python -m pip check",
+    "returncode": 0
+  },
+  "package_build_and_install": {
+    "command": ".venv/bin/python -m pip install --no-build-isolation --no-deps --no-cache-dir --target EXTERNAL_INSTALL_PATH .",
+    "result": "PASS",
+    "wheel_name": "consilium_local-0.1.0.dev1-py3-none-any.whl"
+  },
+  "installed_package_import": {
+    "result": "PASS",
+    "cwd": "OUTSIDE_SOURCE",
+    "imports": [
+      "consilium.adapters.mock.MockAdapter",
+      "consilium.core.contracts.FrozenInput",
+      "consilium.core.contracts.Message"
+    ],
+    "verification": "DECLARED_MOCK"
+  },
+  "live_provider_calls": 0,
+  "windows_execution": "NOT_RUN",
+  "note": "Initial isolated dependency install and package build/import occurred during re-audit; final source-bound native check and archive reproduction are separate artifacts."
+}

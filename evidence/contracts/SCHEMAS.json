@@ -1,0 +1,1419 @@
+{
+  "schema_version": 1,
+  "source_digest": "e5c868d5d2ab0dd56d21f7873f9f23d876a5fd4ac60e45b2989ec7167ac94087",
+  "scope": "P01_VALIDATION_SCHEMAS_NOT_BUSINESS_INVARIANTS",
+  "models": {
+    "Participant": {
+      "additionalProperties": false,
+      "properties": {
+        "participant_id": {
+          "format": "uuid",
+          "title": "Participant Id",
+          "type": "string"
+        },
+        "alias": {
+          "pattern": "^[A-Z][A-Z0-9]{0,11}$",
+          "title": "Alias",
+          "type": "string"
+        }
+      },
+      "required": [
+        "participant_id",
+        "alias"
+      ],
+      "title": "Participant",
+      "type": "object"
+    },
+    "ConnectionSpec": {
+      "additionalProperties": false,
+      "properties": {
+        "connection_id": {
+          "format": "uuid",
+          "title": "Connection Id",
+          "type": "string"
+        },
+        "provider_id": {
+          "title": "Provider Id",
+          "type": "string"
+        },
+        "model_id": {
+          "title": "Model Id",
+          "type": "string"
+        },
+        "mode": {
+          "enum": [
+            "API",
+            "BROWSER",
+            "MANUAL"
+          ],
+          "title": "Mode",
+          "type": "string"
+        },
+        "account_binding_id": {
+          "anyOf": [
+            {
+              "format": "uuid",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Account Binding Id"
+        }
+      },
+      "required": [
+        "connection_id",
+        "provider_id",
+        "model_id",
+        "mode"
+      ],
+      "title": "ConnectionSpec",
+      "type": "object"
+    },
+    "DebateSpec": {
+      "additionalProperties": false,
+      "properties": {
+        "debate_id": {
+          "format": "uuid",
+          "title": "Debate Id",
+          "type": "string"
+        },
+        "original_request": {
+          "title": "Original Request",
+          "type": "string"
+        },
+        "participant_ids": {
+          "items": {
+            "format": "uuid",
+            "type": "string"
+          },
+          "title": "Participant Ids",
+          "type": "array"
+        },
+        "constraints": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Constraints",
+          "type": "array"
+        },
+        "revision": {
+          "default": 0,
+          "minimum": 0,
+          "title": "Revision",
+          "type": "integer"
+        },
+        "review_visibility": {
+          "default": "BLIND",
+          "enum": [
+            "BLIND",
+            "NAMED"
+          ],
+          "title": "Review Visibility",
+          "type": "string"
+        }
+      },
+      "required": [
+        "debate_id",
+        "original_request",
+        "participant_ids"
+      ],
+      "title": "DebateSpec",
+      "type": "object"
+    },
+    "RoundSpec": {
+      "additionalProperties": false,
+      "properties": {
+        "round_id": {
+          "format": "uuid",
+          "title": "Round Id",
+          "type": "string"
+        },
+        "debate_id": {
+          "format": "uuid",
+          "title": "Debate Id",
+          "type": "string"
+        },
+        "number": {
+          "minimum": 1,
+          "title": "Number",
+          "type": "integer"
+        },
+        "kind": {
+          "enum": [
+            "INDEPENDENT",
+            "REVIEW",
+            "TARGETED",
+            "SYNTHESIS"
+          ],
+          "title": "Kind",
+          "type": "string"
+        },
+        "participant_ids": {
+          "items": {
+            "format": "uuid",
+            "type": "string"
+          },
+          "title": "Participant Ids",
+          "type": "array"
+        },
+        "targets": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Targets",
+          "type": "array"
+        }
+      },
+      "required": [
+        "round_id",
+        "debate_id",
+        "number",
+        "kind",
+        "participant_ids"
+      ],
+      "title": "RoundSpec",
+      "type": "object"
+    },
+    "Answer": {
+      "additionalProperties": false,
+      "properties": {
+        "answer_id": {
+          "format": "uuid",
+          "title": "Answer Id",
+          "type": "string"
+        },
+        "debate_id": {
+          "format": "uuid",
+          "title": "Debate Id",
+          "type": "string"
+        },
+        "round_id": {
+          "format": "uuid",
+          "title": "Round Id",
+          "type": "string"
+        },
+        "participant_id": {
+          "format": "uuid",
+          "title": "Participant Id",
+          "type": "string"
+        },
+        "content": {
+          "title": "Content",
+          "type": "string"
+        },
+        "provenance": {
+          "enum": [
+            "LIVE_GENERATED",
+            "MANUAL",
+            "MOCK"
+          ],
+          "title": "Provenance",
+          "type": "string"
+        },
+        "used_prompt": {
+          "title": "Used Prompt",
+          "type": "string"
+        },
+        "round_seen": {
+          "title": "Round Seen",
+          "type": "boolean"
+        },
+        "logical_operation_id": {
+          "anyOf": [
+            {
+              "format": "uuid",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Logical Operation Id"
+        }
+      },
+      "required": [
+        "answer_id",
+        "debate_id",
+        "round_id",
+        "participant_id",
+        "content",
+        "provenance",
+        "used_prompt",
+        "round_seen"
+      ],
+      "title": "Answer",
+      "type": "object"
+    },
+    "PeerPoint": {
+      "additionalProperties": false,
+      "properties": {
+        "verdict": {
+          "enum": [
+            "ACCEPT",
+            "PARTIALLY_ACCEPT",
+            "REJECT"
+          ],
+          "title": "Verdict",
+          "type": "string"
+        },
+        "reference": {
+          "title": "Reference",
+          "type": "string"
+        },
+        "reason": {
+          "title": "Reason",
+          "type": "string"
+        }
+      },
+      "required": [
+        "verdict",
+        "reference",
+        "reason"
+      ],
+      "title": "PeerPoint",
+      "type": "object"
+    },
+    "Critique": {
+      "$defs": {
+        "PeerPoint": {
+          "additionalProperties": false,
+          "properties": {
+            "verdict": {
+              "enum": [
+                "ACCEPT",
+                "PARTIALLY_ACCEPT",
+                "REJECT"
+              ],
+              "title": "Verdict",
+              "type": "string"
+            },
+            "reference": {
+              "title": "Reference",
+              "type": "string"
+            },
+            "reason": {
+              "title": "Reason",
+              "type": "string"
+            }
+          },
+          "required": [
+            "verdict",
+            "reference",
+            "reason"
+          ],
+          "title": "PeerPoint",
+          "type": "object"
+        }
+      },
+      "additionalProperties": false,
+      "properties": {
+        "critique_id": {
+          "format": "uuid",
+          "title": "Critique Id",
+          "type": "string"
+        },
+        "debate_id": {
+          "format": "uuid",
+          "title": "Debate Id",
+          "type": "string"
+        },
+        "round_id": {
+          "format": "uuid",
+          "title": "Round Id",
+          "type": "string"
+        },
+        "reviewer_id": {
+          "format": "uuid",
+          "title": "Reviewer Id",
+          "type": "string"
+        },
+        "target_answer_id": {
+          "format": "uuid",
+          "title": "Target Answer Id",
+          "type": "string"
+        },
+        "points": {
+          "items": {
+            "$ref": "#/$defs/PeerPoint"
+          },
+          "minItems": 1,
+          "title": "Points",
+          "type": "array"
+        },
+        "score": {
+          "maximum": 10,
+          "minimum": 1,
+          "title": "Score",
+          "type": "integer"
+        },
+        "scoring_reason": {
+          "title": "Scoring Reason",
+          "type": "string"
+        },
+        "rubric_version": {
+          "title": "Rubric Version",
+          "type": "string"
+        },
+        "strengths": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Strengths",
+          "type": "array"
+        },
+        "weaknesses": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Weaknesses",
+          "type": "array"
+        }
+      },
+      "required": [
+        "critique_id",
+        "debate_id",
+        "round_id",
+        "reviewer_id",
+        "target_answer_id",
+        "points",
+        "score",
+        "scoring_reason",
+        "rubric_version"
+      ],
+      "title": "Critique",
+      "type": "object"
+    },
+    "UserDecision": {
+      "additionalProperties": false,
+      "properties": {
+        "decision_id": {
+          "format": "uuid",
+          "title": "Decision Id",
+          "type": "string"
+        },
+        "debate_id": {
+          "format": "uuid",
+          "title": "Debate Id",
+          "type": "string"
+        },
+        "round_id": {
+          "format": "uuid",
+          "title": "Round Id",
+          "type": "string"
+        },
+        "expected_revision": {
+          "minimum": 0,
+          "title": "Expected Revision",
+          "type": "integer"
+        },
+        "kind": {
+          "enum": [
+            "FINISH",
+            "CONTINUE",
+            "CUSTOM",
+            "PAUSE"
+          ],
+          "title": "Kind",
+          "type": "string"
+        },
+        "instruction": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Instruction"
+        }
+      },
+      "required": [
+        "decision_id",
+        "debate_id",
+        "round_id",
+        "expected_revision",
+        "kind"
+      ],
+      "title": "UserDecision",
+      "type": "object"
+    },
+    "OperationIdentity": {
+      "additionalProperties": false,
+      "properties": {
+        "logical_operation_id": {
+          "format": "uuid",
+          "title": "Logical Operation Id",
+          "type": "string"
+        },
+        "attempt_id": {
+          "format": "uuid",
+          "title": "Attempt Id",
+          "type": "string"
+        },
+        "generation_id": {
+          "anyOf": [
+            {
+              "format": "uuid",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Generation Id"
+        }
+      },
+      "required": [
+        "logical_operation_id",
+        "attempt_id"
+      ],
+      "title": "OperationIdentity",
+      "type": "object"
+    },
+    "Message": {
+      "additionalProperties": false,
+      "properties": {
+        "role": {
+          "enum": [
+            "SYSTEM",
+            "USER",
+            "ASSISTANT"
+          ],
+          "title": "Role",
+          "type": "string"
+        },
+        "content": {
+          "title": "Content",
+          "type": "string"
+        }
+      },
+      "required": [
+        "role",
+        "content"
+      ],
+      "title": "Message",
+      "type": "object"
+    },
+    "GenerationParameters": {
+      "additionalProperties": false,
+      "properties": {
+        "temperature": {
+          "anyOf": [
+            {
+              "maximum": 2.0,
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Temperature"
+        },
+        "max_output_tokens": {
+          "anyOf": [
+            {
+              "minimum": 1,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Max Output Tokens"
+        },
+        "seed": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Seed"
+        }
+      },
+      "title": "GenerationParameters",
+      "type": "object"
+    },
+    "FrozenInput": {
+      "$defs": {
+        "GenerationParameters": {
+          "additionalProperties": false,
+          "properties": {
+            "temperature": {
+              "anyOf": [
+                {
+                  "maximum": 2.0,
+                  "minimum": 0.0,
+                  "type": "number"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Temperature"
+            },
+            "max_output_tokens": {
+              "anyOf": [
+                {
+                  "minimum": 1,
+                  "type": "integer"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Max Output Tokens"
+            },
+            "seed": {
+              "anyOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Seed"
+            }
+          },
+          "title": "GenerationParameters",
+          "type": "object"
+        },
+        "Message": {
+          "additionalProperties": false,
+          "properties": {
+            "role": {
+              "enum": [
+                "SYSTEM",
+                "USER",
+                "ASSISTANT"
+              ],
+              "title": "Role",
+              "type": "string"
+            },
+            "content": {
+              "title": "Content",
+              "type": "string"
+            }
+          },
+          "required": [
+            "role",
+            "content"
+          ],
+          "title": "Message",
+          "type": "object"
+        }
+      },
+      "additionalProperties": false,
+      "properties": {
+        "schema_version": {
+          "const": 1,
+          "default": 1,
+          "title": "Schema Version",
+          "type": "integer"
+        },
+        "messages": {
+          "items": {
+            "$ref": "#/$defs/Message"
+          },
+          "minItems": 1,
+          "title": "Messages",
+          "type": "array"
+        },
+        "parameters": {
+          "$ref": "#/$defs/GenerationParameters"
+        }
+      },
+      "required": [
+        "messages"
+      ],
+      "title": "FrozenInput",
+      "type": "object"
+    },
+    "OperationIntent": {
+      "$defs": {
+        "FrozenInput": {
+          "additionalProperties": false,
+          "properties": {
+            "schema_version": {
+              "const": 1,
+              "default": 1,
+              "title": "Schema Version",
+              "type": "integer"
+            },
+            "messages": {
+              "items": {
+                "$ref": "#/$defs/Message"
+              },
+              "minItems": 1,
+              "title": "Messages",
+              "type": "array"
+            },
+            "parameters": {
+              "$ref": "#/$defs/GenerationParameters"
+            }
+          },
+          "required": [
+            "messages"
+          ],
+          "title": "FrozenInput",
+          "type": "object"
+        },
+        "GenerationParameters": {
+          "additionalProperties": false,
+          "properties": {
+            "temperature": {
+              "anyOf": [
+                {
+                  "maximum": 2.0,
+                  "minimum": 0.0,
+                  "type": "number"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Temperature"
+            },
+            "max_output_tokens": {
+              "anyOf": [
+                {
+                  "minimum": 1,
+                  "type": "integer"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Max Output Tokens"
+            },
+            "seed": {
+              "anyOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Seed"
+            }
+          },
+          "title": "GenerationParameters",
+          "type": "object"
+        },
+        "Message": {
+          "additionalProperties": false,
+          "properties": {
+            "role": {
+              "enum": [
+                "SYSTEM",
+                "USER",
+                "ASSISTANT"
+              ],
+              "title": "Role",
+              "type": "string"
+            },
+            "content": {
+              "title": "Content",
+              "type": "string"
+            }
+          },
+          "required": [
+            "role",
+            "content"
+          ],
+          "title": "Message",
+          "type": "object"
+        },
+        "OperationIdentity": {
+          "additionalProperties": false,
+          "properties": {
+            "logical_operation_id": {
+              "format": "uuid",
+              "title": "Logical Operation Id",
+              "type": "string"
+            },
+            "attempt_id": {
+              "format": "uuid",
+              "title": "Attempt Id",
+              "type": "string"
+            },
+            "generation_id": {
+              "anyOf": [
+                {
+                  "format": "uuid",
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Generation Id"
+            }
+          },
+          "required": [
+            "logical_operation_id",
+            "attempt_id"
+          ],
+          "title": "OperationIdentity",
+          "type": "object"
+        }
+      },
+      "additionalProperties": false,
+      "properties": {
+        "identity": {
+          "$ref": "#/$defs/OperationIdentity"
+        },
+        "debate_id": {
+          "format": "uuid",
+          "title": "Debate Id",
+          "type": "string"
+        },
+        "round_id": {
+          "format": "uuid",
+          "title": "Round Id",
+          "type": "string"
+        },
+        "participant_id": {
+          "format": "uuid",
+          "title": "Participant Id",
+          "type": "string"
+        },
+        "connection_id": {
+          "format": "uuid",
+          "title": "Connection Id",
+          "type": "string"
+        },
+        "expected_revision": {
+          "minimum": 0,
+          "title": "Expected Revision",
+          "type": "integer"
+        },
+        "connection_revision": {
+          "minimum": 0,
+          "title": "Connection Revision",
+          "type": "integer"
+        },
+        "frozen_input": {
+          "$ref": "#/$defs/FrozenInput"
+        },
+        "request_hash": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Request Hash",
+          "type": "string"
+        },
+        "state": {
+          "const": "PREPARED",
+          "default": "PREPARED",
+          "title": "State",
+          "type": "string"
+        }
+      },
+      "required": [
+        "identity",
+        "debate_id",
+        "round_id",
+        "participant_id",
+        "connection_id",
+        "expected_revision",
+        "connection_revision",
+        "frozen_input",
+        "request_hash"
+      ],
+      "title": "OperationIntent",
+      "type": "object"
+    },
+    "AdapterCapabilities": {
+      "additionalProperties": false,
+      "properties": {
+        "mode": {
+          "enum": [
+            "API",
+            "BROWSER",
+            "MANUAL"
+          ],
+          "title": "Mode",
+          "type": "string"
+        },
+        "verification": {
+          "default": "UNVERIFIED",
+          "enum": [
+            "UNVERIFIED",
+            "DECLARED_MOCK",
+            "LIVE_VERIFIED"
+          ],
+          "title": "Verification",
+          "type": "string"
+        },
+        "delivery_probe": {
+          "default": false,
+          "title": "Delivery Probe",
+          "type": "boolean"
+        },
+        "idempotency": {
+          "default": false,
+          "title": "Idempotency",
+          "type": "boolean"
+        },
+        "continuation": {
+          "default": false,
+          "title": "Continuation",
+          "type": "boolean"
+        },
+        "streaming": {
+          "default": false,
+          "title": "Streaming",
+          "type": "boolean"
+        },
+        "structured_output": {
+          "default": false,
+          "title": "Structured Output",
+          "type": "boolean"
+        },
+        "verification_evidence": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Verification Evidence",
+          "type": "array"
+        }
+      },
+      "required": [
+        "mode"
+      ],
+      "title": "AdapterCapabilities",
+      "type": "object"
+    },
+    "AdapterRequest": {
+      "$defs": {
+        "ConnectionSpec": {
+          "additionalProperties": false,
+          "properties": {
+            "connection_id": {
+              "format": "uuid",
+              "title": "Connection Id",
+              "type": "string"
+            },
+            "provider_id": {
+              "title": "Provider Id",
+              "type": "string"
+            },
+            "model_id": {
+              "title": "Model Id",
+              "type": "string"
+            },
+            "mode": {
+              "enum": [
+                "API",
+                "BROWSER",
+                "MANUAL"
+              ],
+              "title": "Mode",
+              "type": "string"
+            },
+            "account_binding_id": {
+              "anyOf": [
+                {
+                  "format": "uuid",
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Account Binding Id"
+            }
+          },
+          "required": [
+            "connection_id",
+            "provider_id",
+            "model_id",
+            "mode"
+          ],
+          "title": "ConnectionSpec",
+          "type": "object"
+        },
+        "FrozenInput": {
+          "additionalProperties": false,
+          "properties": {
+            "schema_version": {
+              "const": 1,
+              "default": 1,
+              "title": "Schema Version",
+              "type": "integer"
+            },
+            "messages": {
+              "items": {
+                "$ref": "#/$defs/Message"
+              },
+              "minItems": 1,
+              "title": "Messages",
+              "type": "array"
+            },
+            "parameters": {
+              "$ref": "#/$defs/GenerationParameters"
+            }
+          },
+          "required": [
+            "messages"
+          ],
+          "title": "FrozenInput",
+          "type": "object"
+        },
+        "GenerationParameters": {
+          "additionalProperties": false,
+          "properties": {
+            "temperature": {
+              "anyOf": [
+                {
+                  "maximum": 2.0,
+                  "minimum": 0.0,
+                  "type": "number"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Temperature"
+            },
+            "max_output_tokens": {
+              "anyOf": [
+                {
+                  "minimum": 1,
+                  "type": "integer"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Max Output Tokens"
+            },
+            "seed": {
+              "anyOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Seed"
+            }
+          },
+          "title": "GenerationParameters",
+          "type": "object"
+        },
+        "Message": {
+          "additionalProperties": false,
+          "properties": {
+            "role": {
+              "enum": [
+                "SYSTEM",
+                "USER",
+                "ASSISTANT"
+              ],
+              "title": "Role",
+              "type": "string"
+            },
+            "content": {
+              "title": "Content",
+              "type": "string"
+            }
+          },
+          "required": [
+            "role",
+            "content"
+          ],
+          "title": "Message",
+          "type": "object"
+        },
+        "OperationIdentity": {
+          "additionalProperties": false,
+          "properties": {
+            "logical_operation_id": {
+              "format": "uuid",
+              "title": "Logical Operation Id",
+              "type": "string"
+            },
+            "attempt_id": {
+              "format": "uuid",
+              "title": "Attempt Id",
+              "type": "string"
+            },
+            "generation_id": {
+              "anyOf": [
+                {
+                  "format": "uuid",
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Generation Id"
+            }
+          },
+          "required": [
+            "logical_operation_id",
+            "attempt_id"
+          ],
+          "title": "OperationIdentity",
+          "type": "object"
+        },
+        "OperationIntent": {
+          "additionalProperties": false,
+          "properties": {
+            "identity": {
+              "$ref": "#/$defs/OperationIdentity"
+            },
+            "debate_id": {
+              "format": "uuid",
+              "title": "Debate Id",
+              "type": "string"
+            },
+            "round_id": {
+              "format": "uuid",
+              "title": "Round Id",
+              "type": "string"
+            },
+            "participant_id": {
+              "format": "uuid",
+              "title": "Participant Id",
+              "type": "string"
+            },
+            "connection_id": {
+              "format": "uuid",
+              "title": "Connection Id",
+              "type": "string"
+            },
+            "expected_revision": {
+              "minimum": 0,
+              "title": "Expected Revision",
+              "type": "integer"
+            },
+            "connection_revision": {
+              "minimum": 0,
+              "title": "Connection Revision",
+              "type": "integer"
+            },
+            "frozen_input": {
+              "$ref": "#/$defs/FrozenInput"
+            },
+            "request_hash": {
+              "pattern": "^[0-9a-f]{64}$",
+              "title": "Request Hash",
+              "type": "string"
+            },
+            "state": {
+              "const": "PREPARED",
+              "default": "PREPARED",
+              "title": "State",
+              "type": "string"
+            }
+          },
+          "required": [
+            "identity",
+            "debate_id",
+            "round_id",
+            "participant_id",
+            "connection_id",
+            "expected_revision",
+            "connection_revision",
+            "frozen_input",
+            "request_hash"
+          ],
+          "title": "OperationIntent",
+          "type": "object"
+        }
+      },
+      "additionalProperties": false,
+      "properties": {
+        "intent": {
+          "$ref": "#/$defs/OperationIntent"
+        },
+        "connection": {
+          "$ref": "#/$defs/ConnectionSpec"
+        },
+        "timeout_seconds": {
+          "exclusiveMinimum": 0.0,
+          "title": "Timeout Seconds",
+          "type": "number"
+        }
+      },
+      "required": [
+        "intent",
+        "connection",
+        "timeout_seconds"
+      ],
+      "title": "AdapterRequest",
+      "type": "object"
+    },
+    "TransportResult": {
+      "$defs": {
+        "Delivery": {
+          "enum": [
+            "NOT_SENT",
+            "UNKNOWN_DELIVERY",
+            "CONFIRMED_DELIVERY"
+          ],
+          "title": "Delivery",
+          "type": "string"
+        },
+        "Failure": {
+          "enum": [
+            "NONE",
+            "TIMEOUT",
+            "SESSION_EXPIRED",
+            "QUOTA",
+            "SEND_REJECTED",
+            "INVALID_RESPONSE"
+          ],
+          "title": "Failure",
+          "type": "string"
+        },
+        "OperationIdentity": {
+          "additionalProperties": false,
+          "properties": {
+            "logical_operation_id": {
+              "format": "uuid",
+              "title": "Logical Operation Id",
+              "type": "string"
+            },
+            "attempt_id": {
+              "format": "uuid",
+              "title": "Attempt Id",
+              "type": "string"
+            },
+            "generation_id": {
+              "anyOf": [
+                {
+                  "format": "uuid",
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Generation Id"
+            }
+          },
+          "required": [
+            "logical_operation_id",
+            "attempt_id"
+          ],
+          "title": "OperationIdentity",
+          "type": "object"
+        },
+        "ResponseState": {
+          "enum": [
+            "NONE",
+            "PARTIAL",
+            "COMPLETE",
+            "INVALID"
+          ],
+          "title": "ResponseState",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false,
+      "properties": {
+        "identity": {
+          "$ref": "#/$defs/OperationIdentity"
+        },
+        "request_hash": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Request Hash",
+          "type": "string"
+        },
+        "connection_id": {
+          "format": "uuid",
+          "title": "Connection Id",
+          "type": "string"
+        },
+        "connection_revision": {
+          "minimum": 0,
+          "title": "Connection Revision",
+          "type": "integer"
+        },
+        "delivery": {
+          "$ref": "#/$defs/Delivery"
+        },
+        "response_state": {
+          "$ref": "#/$defs/ResponseState"
+        },
+        "content": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Content"
+        },
+        "failure": {
+          "$ref": "#/$defs/Failure",
+          "default": "NONE"
+        },
+        "response_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Response Id"
+        },
+        "evidence": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Evidence",
+          "type": "array"
+        },
+        "elapsed_seconds": {
+          "default": 0.0,
+          "minimum": 0.0,
+          "title": "Elapsed Seconds",
+          "type": "number"
+        }
+      },
+      "required": [
+        "identity",
+        "request_hash",
+        "connection_id",
+        "connection_revision",
+        "delivery",
+        "response_state"
+      ],
+      "title": "TransportResult",
+      "type": "object"
+    },
+    "DeliveryObservation": {
+      "$defs": {
+        "Delivery": {
+          "enum": [
+            "NOT_SENT",
+            "UNKNOWN_DELIVERY",
+            "CONFIRMED_DELIVERY"
+          ],
+          "title": "Delivery",
+          "type": "string"
+        },
+        "OperationIdentity": {
+          "additionalProperties": false,
+          "properties": {
+            "logical_operation_id": {
+              "format": "uuid",
+              "title": "Logical Operation Id",
+              "type": "string"
+            },
+            "attempt_id": {
+              "format": "uuid",
+              "title": "Attempt Id",
+              "type": "string"
+            },
+            "generation_id": {
+              "anyOf": [
+                {
+                  "format": "uuid",
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "title": "Generation Id"
+            }
+          },
+          "required": [
+            "logical_operation_id",
+            "attempt_id"
+          ],
+          "title": "OperationIdentity",
+          "type": "object"
+        }
+      },
+      "additionalProperties": false,
+      "properties": {
+        "identity": {
+          "$ref": "#/$defs/OperationIdentity"
+        },
+        "request_hash": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Request Hash",
+          "type": "string"
+        },
+        "connection_id": {
+          "format": "uuid",
+          "title": "Connection Id",
+          "type": "string"
+        },
+        "connection_revision": {
+          "minimum": 0,
+          "title": "Connection Revision",
+          "type": "integer"
+        },
+        "delivery": {
+          "$ref": "#/$defs/Delivery"
+        },
+        "evidence": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Evidence",
+          "type": "array"
+        }
+      },
+      "required": [
+        "identity",
+        "request_hash",
+        "connection_id",
+        "connection_revision",
+        "delivery",
+        "evidence"
+      ],
+      "title": "DeliveryObservation",
+      "type": "object"
+    }
+  }
+}

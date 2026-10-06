@@ -1,0 +1,117 @@
+{
+  "schema_version": 1,
+  "plan_version": "1.2",
+  "source_snapshot_digest": "fb34f887f09901955f3c131cbaff1ba18c1d228c79923da980d50fa38fd07d3f",
+  "current_phase": "P01",
+  "last_accepted_phase": "P00",
+  "latest_current_phase_run": {
+    "receipt": "evidence/runs/20261005T224933Z_4572a96428/RUN.json",
+    "sha256": "c2f1d14deb31596c29a78ca62362b40e0010255a6c30b71e3d7163562c5a6f98",
+    "status": "FAIL",
+    "source_matches_current": true,
+    "checks": [
+      {
+        "id": "scope_inventory",
+        "status": "PASS",
+        "counts": null,
+        "error": null
+      },
+      {
+        "id": "development_regression",
+        "status": "PASS",
+        "counts": {
+          "tests": 66,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        "error": null
+      },
+      {
+        "id": "foundation_behavior",
+        "status": "PASS",
+        "counts": {
+          "tests": 57,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        "error": null
+      },
+      {
+        "id": "environment_lock",
+        "status": "PASS",
+        "counts": null,
+        "error": null
+      },
+      {
+        "id": "native_target_matrix",
+        "status": "FAIL",
+        "counts": null,
+        "error": null
+      }
+    ],
+    "scope": "LATEST_COMPLETED_CONFIGURED_RUN; NOT_PHASE_ACCEPTANCE"
+  },
+  "native_target_runs": [
+    {
+      "target": "Linux",
+      "report": {
+        "path": "evidence/targets/Linux/20261005T224654Z_f6102eaf/RUN.json",
+        "sha256": "ac14c7a28af37426d9f12445391d91caa5a0a6edf9e23dff8f7c953f3d7440d8"
+      },
+      "status": "PASS",
+      "source_matches_current": true,
+      "scope": "RECORDED_TARGET_ARTIFACTS_NOT_PHASE_ACCEPTANCE"
+    }
+  ],
+  "last_acceptance_matches_current_source": false,
+  "application_source_supplied": true,
+  "application_source_commit": "893919cd45c4ecbcd311142a80a1a91c0f7c75d2",
+  "verified_application_requirements": 0,
+  "state_label": "INCOMPLETE",
+  "next_action": "همین بسته را در Windows با Python 3.12 و requirements.lock اجرا کنید؛ گزارش record_target_checks را منتقل، هر دو محیط را راستی‌آزمایی و بازبینی مرحله یک را تکمیل کنید. سپس گیت P01؛ پیش از پذیرش آن P02 شروع نشود.",
+  "resume": {
+    "phase": "P01",
+    "last_verified_checkpoint": "P00",
+    "completed_work": [
+      "دامنه و موجودی مرحلهٔ صفر پذیرفته شدند.",
+      "قراردادهای داده، اتصال ساختگی و مرز خصوصی پیاده و در لینوکس آزموده شدند."
+    ],
+    "working_changes": [
+      "بستن P01 نیازمند اجرای بومی Windows، گزارش نسخهٔ یکسان و بازبینی نهایی است."
+    ],
+    "next_action": "همین بسته را در Windows با Python 3.12 و requirements.lock اجرا کنید؛ گزارش record_target_checks را منتقل، هر دو محیط را راستی‌آزمایی و بازبینی مرحله یک را تکمیل کنید. سپس گیت P01؛ پیش از پذیرش آن P02 شروع نشود.",
+    "next_command": "python tools/record_target_checks.py",
+    "inputs_missing": [
+      "Native Windows execution evidence for this exact source snapshot"
+    ],
+    "known_quirks": [
+      {
+        "id": "DEV-003",
+        "note": "شواهد پذیرش معیار به‌صورت تصویر ثابت حفظ می‌شوند؛ فایل جاری در مرحله بعد می‌تواند تغییر کند.",
+        "references": [
+          "tools/qualityctl.py::freeze_review_evidence",
+          "tests/test_qualityctl.py::test_accepted_criterion_bytes_survive_later_changes"
+        ]
+      },
+      {
+        "id": "P01-001",
+        "note": "DELIVERY و RESPONSE دو محور جدا هستند؛ مشاهده به ورودی و اتصال قبلی وابسته است.",
+        "references": [
+          "src/consilium/core/contracts.py",
+          "src/consilium/adapters/mock.py"
+        ]
+      },
+      {
+        "id": "P01-002",
+        "note": "موفقیت check یا دادهٔ ساختگی، پذیرش بومی Windows نیست. نبود شاهد، کد خروج 2 برای گیت دارد.",
+        "references": [
+          "tools/check_target_matrix.py",
+          "docs/RUNBOOK_FA.md"
+        ]
+      }
+    ]
+  },
+  "security_note": "Allowlist and basic patterns only; manually review before sharing."
+}

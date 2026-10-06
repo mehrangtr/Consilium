@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "scope": "FRESH_ARCHIVE_BYTE_PATH_SOURCE_METADATA_AND_FROZEN_PROOF_VERIFICATION; NO_NEW_NATIVE_TEST_EXECUTION",
+  "archive": "Consilium_Project_P02_Handoff_v1.2.zip",
+  "archive_sha256": "131ad58f1ca66131f7e97be4a208601208d822dfe03e05a7faa9968a6323615a",
+  "files": 517,
+  "source_digest": "a26532121e6eea90b6e6bae3bc5d3e5af6f49257ab453cd0472f49389b63fb51",
+  "extraction": "/workspace/scratch/2cd898e3d2ec/consilium_p02_v12_ncwxdajh",
+  "source_rows_match_tested_tree": true,
+  "accepted_phase": "P02",
+  "current_phase": "P03",
+  "phase_started": false,
+  "accepted_criterion_proof_artifacts_checked": 37,
+  "native_test_evidence": "Existing exact-source Windows and Linux evidence retained; 222 tests per OS and 12 real process-exit cases. No fresh native run was needed for metadata-only edits.",
+  "source_bundle_verify": "PASS",
+  "standing_github_access": "GRANTED_UNTIL_EXPLICIT_REVOCATION",
+  "standing_authorization_commit": "003dc87f3bd733985696c46e1bc79e28b4600293",
+  "full_p02_publication": "BLOCKED_BY_AUTO_REVIEW",
+  "independent_review": false,
+  "full_v1_requirements_verified": 0
+}

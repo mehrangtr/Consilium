@@ -1,17 +1,17 @@
 {
   "phase": "P01",
   "scope": "SELECTED_OS_FOUNDATION_GATE_NOT_FULL_V1_ACCEPTANCE",
-  "source_digest": "55d63fd7ef2c5696b383df3464a0aec2c275acf7321c545a1ca3ac8aa8aa2736",
+  "source_digest": "a26532121e6eea90b6e6bae3bc5d3e5af6f49257ab453cd0472f49389b63fb51",
   "targets": [
     {
       "target": "Windows",
       "status": "PASS",
       "control_tests": 82,
       "foundation_tests": 60,
-      "persistence_tests": 29,
+      "persistence_tests": 80,
       "evidence": {
-        "path": "evidence/targets/Windows/20261006T103539Z_ba0293b8/RUN.json",
-        "sha256": "79a7825f9811b484eb7f78177a8091c44474525443d212b9ba276e549221307e"
+        "path": "evidence/targets/Windows/20261006T112358Z_33fd4703/RUN.json",
+        "sha256": "37f17786e7395d4a6cfd45394cad71e3623189df7f9183f34fb4c0121711f95c"
       }
     },
     {
@@ -19,10 +19,10 @@
       "status": "PASS",
       "control_tests": 82,
       "foundation_tests": 60,
-      "persistence_tests": 29,
+      "persistence_tests": 80,
       "evidence": {
-        "path": "evidence/targets/Linux/20261006T103527Z_de3cfae8/RUN.json",
-        "sha256": "fccc94e7757f6868574565fe9de15c19b7fc634f337729ea763aa11780b355f4"
+        "path": "evidence/targets/Linux/20261006T112350Z_f861d0c4/RUN.json",
+        "sha256": "a4fb9794c583132b8817e933efc78d7a63d378c824bd88b300713bcd000c35c4"
       }
     }
   ],

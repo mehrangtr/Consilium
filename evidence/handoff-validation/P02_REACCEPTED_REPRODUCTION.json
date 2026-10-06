@@ -1,0 +1,42 @@
+{
+  "status": "PASS",
+  "scope": "ACTUAL_FRESH_ARCHIVE_LINUX_REPRODUCTION_NOT_NEW_WINDOWS_RUN_OR_P03_VERIFICATION",
+  "at_utc": "2026-10-06T12:52:34.019401+00:00",
+  "archive_name": "Consilium_Project_P02_Reaccepted_v0.8.zip",
+  "archive_sha256": "bdaf40e027460e788bda18056faf4cbc8afde098e0be31ef353921c0bdc01e61",
+  "archive_files": 517,
+  "isolated_extraction_directory": "/workspace/scratch/2cd898e3d2ec/consilium_p02_reaccepted_p0_031y0",
+  "command": [
+    "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+    "tools/check.py"
+  ],
+  "returncode": 0,
+  "host": "Linux",
+  "source_digest": "a26532121e6eea90b6e6bae3bc5d3e5af6f49257ab453cd0472f49389b63fb51",
+  "counts": {
+    "control": {
+      "tests": 82,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "expected_failures": 0,
+      "unexpected_successes": 0
+    },
+    "foundation": {
+      "tests": 60,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "persistence": {
+      "tests": 80,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  },
+  "process_exit_cases": 12,
+  "p02_acceptance_bytes_preserved": true,
+  "p03_started": false,
+  "log_sha256": "4d4fa9f47e817ab1452b4ccc3d87e02d6272080b90941d24cbefed72c5ba08ee"
+}

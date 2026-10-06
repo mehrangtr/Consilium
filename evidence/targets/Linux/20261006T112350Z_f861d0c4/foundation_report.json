@@ -1,0 +1,263 @@
+{
+  "phase": "P01",
+  "scope": "APPLICATION_FOUNDATION_OFFLINE_NOT_FULL_V1_CONFORMANCE",
+  "status": "PASS",
+  "counts": {
+    "tests": 60,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "source_digest_before": "a26532121e6eea90b6e6bae3bc5d3e5af6f49257ab453cd0472f49389b63fb51",
+  "source_digest_after": "a26532121e6eea90b6e6bae3bc5d3e5af6f49257ab453cd0472f49389b63fb51",
+  "date_utc": "2026-10-06T11:23:54.005537+00:00",
+  "host": {
+    "system": "Linux",
+    "python": "3.12.14"
+  },
+  "windows_execution": "NOT_RUN",
+  "live_provider_calls": 0,
+  "verified_application_requirements": 0,
+  "cases": [
+    {
+      "id": "test_foundation.AdapterTests.test_all_scenarios_execute_without_network",
+      "status": "PASS"
+    },
+    {
+      "id": "test_foundation.AdapterTests.test_api_success_binds_result_to_request",
+      "status": "PASS"
+    },
+    {
+      "id": "test_foundation.AdapterTests.test_browser_success_has_browser_capabilities",
+      "status": "PASS"
+    },
+    {
+      "id": "test_foundation.AdapterTests.test_delayed_response_past_deadline_is_pending",
+      "status": "PASS"
+    },
+    {
+      "id": "test_foundation.AdapterTests.test_delayed_response_uses_virtual_time",
+      "status": "PASS"
+    },
+    {
+      "id": "test_foundation.AdapterTests.test_expired_session_does_not_send",
+      "status": "PASS"
+    },
+    {
+      "id": "test_foundation.AdapterTests.test_invalid_json_is_a_received_but_invalid_response",
+      "status": "PASS"
+    },
+    {
+      "id": "test_foundation.AdapterTests.test_mock_does_not_advertise_unimplemented_operations",
+      "status": "PASS"
+    },
+    {
+      "id": "test_foundation.AdapterTests.test_mock_satisfies_the_adapter_protocol",
+      "status": "PASS"
+    },
+    {
+      "id": "test_foundation.AdapterTests.test_partial_response_does_not_become_complete",
+      "status": "PASS"
+    },
+    {
+      "id": "test_foundation.AdapterTests.test_probe_cannot_rebind_a_recorded_attempt_to_a_new_connection",
+      "status": "PASS"
+    },
+    {
+      "id": "test_foundation.AdapterTests.test_probe_cannot_rebind_a_recorded_attempt_to_new_input",
+      "status": "PASS"
+    },
+    {
+      "id": "test_foundation.AdapterTests.test_probe_keeps_frozen_request_hash",
+      "status": "PASS"
+    },
+    {
+      "id": "test_foundation.AdapterTests.test_quota_rejection_does_not_send",
+      "status": "PASS"
+    },
+    {
+      "id": "test_foundation.AdapterTests.test_same_attempt_cannot_be_sent_twice",
+      "status": "PASS"
+    },
+    {
+      "id": "test_foundation.AdapterTests.test_timeout_after_delivery_preserves_confirmed_delivery",
+      "status": "PASS"
+    },
+    {
+      "id": "test_foundation.AdapterTests.test_timeout_after_send_stays_unknown",
+      "status": "PASS"
+    },
+    {
+      "id": "test_foundation.AdapterTests.test_timeout_before_send_is_provably_not_sent",
+      "status": "PASS"
+    },
+    {
+      "id": "test_foundation.AdapterTests.test_unknown_observation_does_not_trigger_retry",
+      "status": "PASS"
+    },
+    {
+      "id": "test_foundation.AdapterTests.test_unseen_attempt_cannot_be_proved_not_sent",
+      "status": "PASS"
+    },
+    {
+      "id": "test_foundation.AdapterTests.test_wrong_transport_mode_is_rejected_before_recording_send",
+      "status": "PASS"
+    },
+    {
+      "id": "test_foundation.ContractTests.test_blank_prompt_is_rejected_without_echoing_input",
+      "status": "PASS"
+    },
+    {
+      "id": "test_foundation.ContractTests.test_blind_review_is_default",
+      "status": "PASS"
+    },
+    {
+      "id": "test_foundation.ContractTests.test_capabilities_cannot_silently_claim_live_verification",
+      "status": "PASS"
+    },
+    {
+      "id": "test_foundation.ContractTests.test_complete_result_cannot_claim_unknown_delivery",
+      "status": "PASS"
+    },
+    {
+      "id": "test_foundation.ContractTests.test_critique_requires_reason_and_real_numeric_score",
+      "status": "PASS"
+    },
+    {
+      "id": "test_foundation.ContractTests.test_custom_decision_requires_instruction",
+      "status": "PASS"
+    },
+    {
+      "id": "test_foundation.ContractTests.test_duplicate_debate_participants_are_rejected",
+      "status": "PASS"
+    },
+    {
+      "id": "test_foundation.ContractTests.test_empty_complete_response_is_rejected",
+      "status": "PASS"
+    },
+    {
+      "id": "test_foundation.ContractTests.test_empty_messages_are_rejected",
+      "status": "PASS"
+    },
+    {
+      "id": "test_foundation.ContractTests.test_frozen_input_cannot_be_mutated",
+      "status": "PASS"
+    },
+    {
+      "id": "test_foundation.ContractTests.test_generation_identity_is_independent",
+      "status": "PASS"
+    },
+    {
+      "id": "test_foundation.ContractTests.test_hash_changes_when_generation_parameters_change",
+      "status": "PASS"
+    },
+    {
+      "id": "test_foundation.ContractTests.test_hash_is_reproducible_after_json_round_trip",
+      "status": "PASS"
+    },
+    {
+      "id": "test_foundation.ContractTests.test_hash_preserves_exact_prompt_bytes",
+      "status": "PASS"
+    },
+    {
+      "id": "test_foundation.ContractTests.test_invalid_response_failure_requires_an_invalid_received_response",
+      "status": "PASS"
+    },
+    {
+      "id": "test_foundation.ContractTests.test_manual_answer_records_actual_prompt_and_round_visibility",
+      "status": "PASS"
+    },
+    {
+      "id": "test_foundation.ContractTests.test_mismatched_request_hash_is_rejected",
+      "status": "PASS"
+    },
+    {
+      "id": "test_foundation.ContractTests.test_model_copy_does_not_bypass_validation",
+      "status": "PASS"
+    },
+    {
+      "id": "test_foundation.ContractTests.test_nil_identity_is_rejected",
+      "status": "PASS"
+    },
+    {
+      "id": "test_foundation.ContractTests.test_non_custom_decision_cannot_smuggle_instruction",
+      "status": "PASS"
+    },
+    {
+      "id": "test_foundation.ContractTests.test_non_finite_generation_parameter_is_rejected",
+      "status": "PASS"
+    },
+    {
+      "id": "test_foundation.ContractTests.test_operation_identity_is_not_content_hash",
+      "status": "PASS"
+    },
+    {
+      "id": "test_foundation.ContractTests.test_retry_preserves_logical_identity_and_changes_attempt",
+      "status": "PASS"
+    },
+    {
+      "id": "test_foundation.ContractTests.test_reused_identity_fields_are_rejected",
+      "status": "PASS"
+    },
+    {
+      "id": "test_foundation.ContractTests.test_schema_generation_for_all_contracts",
+      "status": "PASS"
+    },
+    {
+      "id": "test_foundation.ContractTests.test_schema_version_cannot_be_boolean",
+      "status": "PASS"
+    },
+    {
+      "id": "test_foundation.ContractTests.test_strings_and_booleans_are_not_revision_numbers",
+      "status": "PASS"
+    },
+    {
+      "id": "test_foundation.ContractTests.test_targeted_round_requires_target",
+      "status": "PASS"
+    },
+    {
+      "id": "test_foundation.ContractTests.test_unrelated_connection_cannot_receive_intent",
+      "status": "PASS"
+    },
+    {
+      "id": "test_foundation.PrivateBoundaryTests.test_credentials_are_not_fields_in_public_connection",
+      "status": "PASS"
+    },
+    {
+      "id": "test_foundation.PrivateBoundaryTests.test_environment_secret_is_not_in_repr_or_public_spec",
+      "status": "PASS"
+    },
+    {
+      "id": "test_foundation.PrivateBoundaryTests.test_existing_profile_cannot_resolve_back_into_source",
+      "status": "PASS"
+    },
+    {
+      "id": "test_foundation.PrivateBoundaryTests.test_private_field_aliases_cannot_escape_the_public_boundary",
+      "status": "PASS"
+    },
+    {
+      "id": "test_foundation.PrivateBoundaryTests.test_private_profile_must_be_outside_source",
+      "status": "PASS"
+    },
+    {
+      "id": "test_foundation.PrivateBoundaryTests.test_public_boundary_accepts_nonsecret_report",
+      "status": "PASS"
+    },
+    {
+      "id": "test_foundation.PrivateBoundaryTests.test_public_boundary_rejects_known_secret_without_echo",
+      "status": "PASS"
+    },
+    {
+      "id": "test_foundation.PrivateBoundaryTests.test_public_boundary_rejects_multiline_known_secret",
+      "status": "PASS"
+    },
+    {
+      "id": "test_foundation.PrivateBoundaryTests.test_public_boundary_rejects_secret_field_even_with_short_value",
+      "status": "PASS"
+    },
+    {
+      "id": "test_foundation.PrivateBoundaryTests.test_pure_core_does_not_import_transport_or_storage",
+      "status": "PASS"
+    }
+  ]
+}

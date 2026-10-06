@@ -1,0 +1,19 @@
+{
+  "status": "PASS",
+  "archive_name": "Consilium_Project_P02_Final_Handoff_v0.9.zip",
+  "archive_sha256": "8d40b73673a9aac460a0e2282288dfb94b1ba555be3c37ee388ef9034a529964",
+  "files": 517,
+  "source_digest": "a26532121e6eea90b6e6bae3bc5d3e5af6f49257ab453cd0472f49389b63fb51",
+  "checks": [
+    "SAFE_ZIP_BYTES_AND_PATHS",
+    "ACTUAL_FRESH_EXTRACTION",
+    "STATE_AND_ORDER",
+    "NAVIGATION",
+    "VALIDATION_REFERENCE",
+    "IMMUTABLE_P02_CRITERION_PROOFS",
+    "EXACT_SOURCE_MATCH_TO_PREVIOUS_SUCCESSFUL_222_TEST_ARCHIVE_REPRODUCTION"
+  ],
+  "runtime_repeated": false,
+  "runtime_reuse_reason": "Only mutable handoff/policy metadata changed since v0.8 actual isolated 222-test execution; code and all source/lock/contract bytes are identical.",
+  "p03_started": false
+}

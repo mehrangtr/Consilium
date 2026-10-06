@@ -1,9 +1,11 @@
 {
   "schema_version": 1,
-  "status": "STANDING_GITHUB_ACCESS_GRANTED",
+  "status": "STANDING_GITHUB_ACCESS_AND_PUBLICATION_GRANTED",
   "repository": "mehrangtr/Consilium",
-  "granted_at": "2026-10-06T18:03:11+03:30",
+  "visibility": "public",
+  "granted_at": "2026-10-06T18:50:57+03:30",
+  "scope": "GitHub access and public publication of reviewed Consilium source, documents and non-secret test evidence",
   "valid_until": "Explicit later user stop or revocation",
-  "scope": "GitHub access and routine Consilium repository maintenance",
-  "public_evidence_publication": "Separately blocked by automatic review; no new source or detailed test evidence is published by this record"
+  "reconfirm_routine_authorized_work": false,
+  "direct_user_message": "بله دسترسی کامل به گیت هاب و انتشار را تا زمانی که متوقف نکردم برای همیشه داری"
 }

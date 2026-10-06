@@ -12,7 +12,7 @@
     "unexpected_successes": 0
   },
   "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
-  "date": "2026-10-06T11:21:20.055956+00:00",
+  "date": "2026-10-06T12:47:35.154194+00:00",
   "platform": "Linux-6.18.44-x86_64-with-glibc2.39",
   "source_files_before": {
     "tools/qualityctl.py": "6e6720263ad59ed623d3f966e2edff8cfb25ee8e59456bec973c8dcd36171ba3",
@@ -21,7 +21,7 @@
     "tools/check_target_matrix.py": "0301f34823643d752f930d4299e4c3b7878dfb9dc509b06bec7864ddf123b750",
     "tools/record_target_checks.py": "40420339b4bc855022480f435fd0006350320c5a323f91824616750650be8247",
     "ROADMAP.json": "ee444b7e89a9b7724e970e1ed11e50b9762833587823fc01c331425480433cfd",
-    "PROGRESS.json": "a1bf47089dd0fa73605b9b3f4c7592f29be420049a8896d04a28d899440133ba",
+    "PROGRESS.json": "6c2138c783a66e2b38527dee93cf7a8d37277bb003961162976ef1fceca42b8d",
     "baseline/Consilium_User_Guarded_Governance_v1.3_Reviewed.zip": "8f898b60627c07ec9c4028ff4bfa510c1b5578c2dd1141fa8f2f16ed648fd742",
     "tests/test_git_preservation.py": "ed93431b625d3ffd8f96207bec66775466202d3142b1b378c8709d8221801526",
     "tests/test_native_recording.py": "9179cf8656c75eee5c68f200d7c95001d739cd3c9c5949c21dbd2568de83ec0a",
@@ -41,7 +41,7 @@
     "tools/check_target_matrix.py": "0301f34823643d752f930d4299e4c3b7878dfb9dc509b06bec7864ddf123b750",
     "tools/record_target_checks.py": "40420339b4bc855022480f435fd0006350320c5a323f91824616750650be8247",
     "ROADMAP.json": "ee444b7e89a9b7724e970e1ed11e50b9762833587823fc01c331425480433cfd",
-    "PROGRESS.json": "a1bf47089dd0fa73605b9b3f4c7592f29be420049a8896d04a28d899440133ba",
+    "PROGRESS.json": "6c2138c783a66e2b38527dee93cf7a8d37277bb003961162976ef1fceca42b8d",
     "baseline/Consilium_User_Guarded_Governance_v1.3_Reviewed.zip": "8f898b60627c07ec9c4028ff4bfa510c1b5578c2dd1141fa8f2f16ed648fd742",
     "tests/test_git_preservation.py": "ed93431b625d3ffd8f96207bec66775466202d3142b1b378c8709d8221801526",
     "tests/test_native_recording.py": "9179cf8656c75eee5c68f200d7c95001d739cd3c9c5949c21dbd2568de83ec0a",

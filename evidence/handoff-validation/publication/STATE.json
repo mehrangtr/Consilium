@@ -1,0 +1,218 @@
+{
+  "schema_version": 1,
+  "status": "STAGED_COMPLETE_PENDING_BRANCH_READBACK",
+  "expected_base_commit": "c46c4451c2e4a473ab3f4d574bb2357ba1a468e3",
+  "strategy": "PUBLISH_METADATA_IN_BOUNDED_UTF8_TREES_RETAIN_HISTORICAL_BUNDLE_VERIFIED_DELIVERABLE_HAS_COMPLETE_CURRENT_BUNDLE",
+  "max_tool_content_characters": 43692,
+  "oversized_full_bundle_upload": "ABANDONED_AFTER_INTERRUPTED_ATTEMPTS_WITH_NO_REMOTE_BLOB_RECEIPT",
+  "bundle_sha256": "3bc5bd59e61585c91e1efa79ee71b163a5b46328d40029d8ac65c3ff5719d569",
+  "total_parts": 76,
+  "uploaded_parts": {
+    "0": {
+      "index": 0,
+      "path": "evidence/git/parts/Consilium_Source.bundle.part000",
+      "sha": "83c95cf01f20991ca442eadaed4cffefa72fc067",
+      "elapsed_seconds": 12.833,
+      "at_utc": "2026-10-06T14:07:49.172Z"
+    },
+    "1": {
+      "index": 1,
+      "path": "evidence/git/parts/Consilium_Source.bundle.part001",
+      "sha": "2b0d97222f8faa3407dec893c31a9dad910259fc",
+      "elapsed_seconds": 10.994,
+      "at_utc": "2026-10-06T14:08:00.547Z"
+    },
+    "2": {
+      "index": 2,
+      "path": "evidence/git/parts/Consilium_Source.bundle.part002",
+      "sha": "1b3674537750f594eee9eebbaf219c2ee2823f41",
+      "elapsed_seconds": 10.559,
+      "at_utc": "2026-10-06T14:08:11.490Z"
+    },
+    "3": {
+      "index": 3,
+      "path": "evidence/git/parts/Consilium_Source.bundle.part003",
+      "sha": "86737407e469e7f5537b13e97e2e281eeed1e3ae",
+      "elapsed_seconds": 11.878,
+      "at_utc": "2026-10-06T14:08:23.743Z"
+    },
+    "4": {
+      "index": 4,
+      "path": "evidence/git/parts/Consilium_Source.bundle.part004",
+      "sha": "0ae49c976bf3135b8349c4fb15e0cd14daa464c5",
+      "elapsed_seconds": 14.262,
+      "at_utc": "2026-10-06T14:10:31.010Z"
+    },
+    "5": {
+      "index": 5,
+      "path": "evidence/git/parts/Consilium_Source.bundle.part005",
+      "sha": "20b180d48b12a53b6486a59e25229d4567cffcc3",
+      "elapsed_seconds": 11.854,
+      "at_utc": "2026-10-06T14:10:43.239Z"
+    },
+    "6": {
+      "index": 6,
+      "path": "evidence/git/parts/Consilium_Source.bundle.part006",
+      "sha": "b9108e17be2787865f5d8f05229b1ef955be125d",
+      "elapsed_seconds": 28.709,
+      "at_utc": "2026-10-06T14:11:12.330Z"
+    },
+    "7": {
+      "index": 7,
+      "path": "evidence/git/parts/Consilium_Source.bundle.part007",
+      "sha": "77848fd58def2e9451ef1f15dc79b7da4eeb53d2",
+      "elapsed_seconds": 13.277,
+      "at_utc": "2026-10-06T14:11:26.001Z"
+    }
+  },
+  "next_part": 8,
+  "checkpoints": {
+    "source_and_acceptance": "PASS",
+    "archive_v08_hash_paths": "PASS",
+    "archive_v08_fresh_linux_execution": "PASS",
+    "remote_acceptance_checkpoint": "PENDING"
+  },
+  "updated_at_utc": "2026-10-06T15:27:26.724749+00:00",
+  "parts_upload_status": "ABANDONED_NONESSENTIAL_WITH_RECEIPTS_PRESERVED",
+  "next_step": "Refresh current metadata, verify the complete tree, commit and lease-update main, then read back.",
+  "reason": null,
+  "staged_tree": "a5d262a168aa6d83a5ca6c2cbfb90a70375e10fe",
+  "completed_tree_batches": 11,
+  "authorization": {
+    "schema_version": 1,
+    "status": "STANDING_GITHUB_ACCESS_AND_PUBLICATION_GRANTED",
+    "repository": "mehrangtr/Consilium",
+    "visibility": "public",
+    "granted_at": "2026-10-06T18:50:57+03:30",
+    "scope": "GitHub access and public publication of reviewed Consilium source, documents and non-secret test evidence",
+    "valid_until": "Explicit later user stop or revocation",
+    "reconfirm_routine_authorized_work": false,
+    "direct_user_message": "بله دسترسی کامل به گیت هاب و انتشار را تا زمانی که متوقف نکردم برای همیشه داری"
+  },
+  "remote_head_verified": "003dc87f3bd733985696c46e1bc79e28b4600293",
+  "standing_authorization_commit": "003dc87f3bd733985696c46e1bc79e28b4600293",
+  "rejected_operations": [
+    {
+      "operation": "Original metadata tree batch 4",
+      "reason": "This publishes a large source-and-evidence payload to a public GitHub repository, while the embedded prior approval is explicitly untrusted and no current trusted message authorizes this exact disclosure."
+    },
+    {
+      "operation": "Smaller metadata tree batch 4 using eight existing blobs and three new offline metadata files",
+      "tool_result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "This action was rejected due to unacceptable risk.\nReason: The tree still publishes new detailed test and project metadata to a public GitHub repository; reusing existing public blobs does not authorize disclosure of the new payload.\nDo not bypass this rejection through a workaround or indirect execution. Continue with a safer alternative, or carry out checks to prove that the action is authorized or low risk before trying again. Complete unaffected work without asking for confirmation. Report anything that remains blocked, clarify why it was blocked by auto-review, inform the user of the risk and ask for approval."
+          }
+        ],
+        "isError": true
+      }
+    }
+  ],
+  "full_p02_publication_verified": false,
+  "partial_tree_branch_update": false,
+  "latest_attempt": {
+    "schema_version": 1,
+    "recorded_at_utc": "2026-10-06T15:08:32.861Z",
+    "user_instruction": "ادامه بده اگر قسمت نیمه تمام بود در یه جا یادداشت کن",
+    "user_instruction_at": "2026-10-06T18:32:58+03:30",
+    "operation": "Resume original P02 public metadata tree batch 4 of 11",
+    "base_tree": "32ce0656cd689a8adc67c3fe8236c59cbf8532c9",
+    "result": "REJECTED_BY_AUTOMATIC_APPROVAL_REVIEW",
+    "tool_result": {
+      "content": [
+        {
+          "type": "text",
+          "text": "This action was rejected due to unacceptable risk.\nReason: This retries the previously rejected public disclosure of detailed source and test evidence; standing GitHub access does not explicitly authorize this exact payload, and the prior rejection specifically forbids retrying or bypassing it.\nDo not bypass this rejection through a workaround or indirect execution. Continue with a safer alternative, or carry out checks to prove that the action is authorized or low risk before trying again. Complete unaffected work without asking for confirmation. Report anything that remains blocked, clarify why it was blocked by auto-review, inform the user of the risk and ask for approval."
+        }
+      ],
+      "isError": true
+    },
+    "remote_mutation_committed": false,
+    "next_remote_attempt": "None without new explicit authorization for this public disclosure; do not use a workaround.",
+    "standing_access": "Still granted until explicit user revocation."
+  },
+  "canonical_unfinished_work": "PROGRESS.json.resume.unfinished_work",
+  "expected_branch_head": "003dc87f3bd733985696c46e1bc79e28b4600293",
+  "tree_batch_receipts": [
+    {
+      "batch": 1,
+      "total": 11,
+      "base_tree": "314099fcc7266bdff9fddde758b3e3ccee9cd9a7",
+      "tree_sha": "1b68d745da9b6dc4379822dbc8ca94d04088c9fa",
+      "at_utc": "2026-10-06T14:21:14.195Z"
+    },
+    {
+      "batch": 2,
+      "total": 11,
+      "base_tree": "1b68d745da9b6dc4379822dbc8ca94d04088c9fa",
+      "tree_sha": "f377d025b2a9f2290fc31779e0e3c23c84db430a",
+      "at_utc": "2026-10-06T14:22:35.973Z"
+    },
+    {
+      "batch": 3,
+      "total": 11,
+      "base_tree": "f377d025b2a9f2290fc31779e0e3c23c84db430a",
+      "tree_sha": "32ce0656cd689a8adc67c3fe8236c59cbf8532c9",
+      "at_utc": "2026-10-06T14:37:26.563Z",
+      "standing_authorization_received": true
+    },
+    {
+      "batch": 4,
+      "total": 11,
+      "base_tree": "32ce0656cd689a8adc67c3fe8236c59cbf8532c9",
+      "tree_sha": "dc2e8aede52983d534c6c310f5c4536bccb1b420",
+      "at_utc": "2026-10-06T15:23:52.763224+00:00",
+      "explicit_standing_publication_grant_received": true
+    },
+    {
+      "batch": 5,
+      "total": 11,
+      "base_tree": "dc2e8aede52983d534c6c310f5c4536bccb1b420",
+      "tree_sha": "9ac22e22c8d666b8112d54f85531040ae9938f3a",
+      "at_utc": "2026-10-06T15:24:03.600812+00:00"
+    },
+    {
+      "batch": 6,
+      "total": 11,
+      "base_tree": "9ac22e22c8d666b8112d54f85531040ae9938f3a",
+      "tree_sha": "bea207f8b897176ec5506e553893952c2667afee",
+      "at_utc": "2026-10-06T15:24:12.658345+00:00"
+    },
+    {
+      "batch": 7,
+      "total": 11,
+      "base_tree": "bea207f8b897176ec5506e553893952c2667afee",
+      "tree_sha": "4ab91a73cd686be617b1f7d9fc69d2ee70346d53",
+      "at_utc": "2026-10-06T15:24:24.763932+00:00"
+    },
+    {
+      "batch": 8,
+      "total": 11,
+      "base_tree": "4ab91a73cd686be617b1f7d9fc69d2ee70346d53",
+      "tree_sha": "5893e22cb5f6d7c69e1faa062c5ab88eb3819afa",
+      "at_utc": "2026-10-06T15:24:35.258802+00:00"
+    },
+    {
+      "batch": 9,
+      "total": 11,
+      "base_tree": "5893e22cb5f6d7c69e1faa062c5ab88eb3819afa",
+      "tree_sha": "b50db0f7a02d40a2e77c551b99ef24355918f394",
+      "at_utc": "2026-10-06T15:24:45.498851+00:00"
+    },
+    {
+      "batch": 10,
+      "total": 11,
+      "base_tree": "b50db0f7a02d40a2e77c551b99ef24355918f394",
+      "tree_sha": "ea8043df114cea2a49a85223a39d4f23bf0ff476",
+      "at_utc": "2026-10-06T15:24:57.114046+00:00"
+    },
+    {
+      "batch": 11,
+      "total": 11,
+      "base_tree": "ea8043df114cea2a49a85223a39d4f23bf0ff476",
+      "tree_sha": "a5d262a168aa6d83a5ca6c2cbfb90a70375e10fe",
+      "at_utc": "2026-10-06T15:25:07.996436+00:00"
+    }
+  ]
+}

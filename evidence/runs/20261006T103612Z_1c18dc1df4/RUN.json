@@ -1,0 +1,120 @@
+{
+  "schema_version": 1,
+  "phase": "P02",
+  "plan_version": "1.2",
+  "source_digest_before": "55d63fd7ef2c5696b383df3464a0aec2c275acf7321c545a1ca3ac8aa8aa2736",
+  "source_digest_after": "55d63fd7ef2c5696b383df3464a0aec2c275acf7321c545a1ca3ac8aa8aa2736",
+  "progress_sha256": "aab9374187c9a39c9425f6345e3490a041d5ec33d0e2e6a00c2162e6e9bbbcbc",
+  "checks": [
+    {
+      "id": "scope_inventory",
+      "kind": "static",
+      "argv": [
+        "/opt/hostedtoolcache/Python/3.12.14/x64/bin/python",
+        "tools/check_scope.py"
+      ],
+      "returncode": 0,
+      "log": "evidence/runs/20261006T103612Z_1c18dc1df4/scope_inventory.log",
+      "log_sha256": "ca8b0b8a98075742887dd76c26a03dc40da1a52e3e868453ad0a6eda7eccec80",
+      "counts": null,
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "id": "development_regression",
+      "kind": "test",
+      "argv": [
+        "/opt/hostedtoolcache/Python/3.12.14/x64/bin/python",
+        "tools/check.py"
+      ],
+      "returncode": 0,
+      "log": "evidence/runs/20261006T103612Z_1c18dc1df4/development_regression.log",
+      "log_sha256": "8bdce0c5f11c90a1c15cefd48af22c9224611b67b07288b19bfe442bb0c0b34b",
+      "counts": {
+        "tests": 82,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "junit": "evidence/runs/20261006T103612Z_1c18dc1df4/development_regression.xml",
+      "junit_input": "evidence/control-tests/JUNIT.xml",
+      "junit_sha256": "a417c913cac1f8def3b18a9ecef93286a88d418829e45e8ec266e148091c421b",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "id": "foundation_behavior",
+      "kind": "test",
+      "argv": [
+        "/opt/hostedtoolcache/Python/3.12.14/x64/bin/python",
+        "tools/run_foundation_tests.py"
+      ],
+      "returncode": 0,
+      "log": "evidence/runs/20261006T103612Z_1c18dc1df4/foundation_behavior.log",
+      "log_sha256": "567ba3d79d7e676816257d676159f6c7d57c23b95c5631c3cf8967a7de03a843",
+      "counts": {
+        "tests": 60,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "junit": "evidence/runs/20261006T103612Z_1c18dc1df4/foundation_behavior.xml",
+      "junit_input": "evidence/foundation-tests/JUNIT.xml",
+      "junit_sha256": "8d407155e6b1dc1ca1a1e921d0e9a05eafbc0bc1f2ae07f4b67e55f664a99949",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "id": "environment_lock",
+      "kind": "static",
+      "argv": [
+        "/opt/hostedtoolcache/Python/3.12.14/x64/bin/python",
+        "tools/check_environment.py"
+      ],
+      "returncode": 0,
+      "log": "evidence/runs/20261006T103612Z_1c18dc1df4/environment_lock.log",
+      "log_sha256": "d483169b60e63849270f8eff398d77e6a63bd69a8a83f685541a7a9ed2e037b3",
+      "counts": null,
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "id": "native_target_matrix",
+      "kind": "static",
+      "argv": [
+        "/opt/hostedtoolcache/Python/3.12.14/x64/bin/python",
+        "tools/check_target_matrix.py"
+      ],
+      "returncode": 0,
+      "log": "evidence/runs/20261006T103612Z_1c18dc1df4/native_target_matrix.log",
+      "log_sha256": "592cd79a1d3cadcde29d4690a73443659ba850e9fd6f30c20a821c5f36df23ac",
+      "counts": null,
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "id": "persistence_storage_slice",
+      "kind": "test",
+      "argv": [
+        "/opt/hostedtoolcache/Python/3.12.14/x64/bin/python",
+        "tools/run_persistence_tests.py"
+      ],
+      "returncode": 0,
+      "log": "evidence/runs/20261006T103612Z_1c18dc1df4/persistence_storage_slice.log",
+      "log_sha256": "24385cf4a94a836639e0308df0884b4d69c5764ae7ce4fe75ca2fa9bfc615b95",
+      "counts": {
+        "tests": 29,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "junit": "evidence/runs/20261006T103612Z_1c18dc1df4/persistence_storage_slice.xml",
+      "junit_input": "evidence/persistence-tests/JUNIT.xml",
+      "junit_sha256": "541f7d3d971461ff29d49c6cccd383f10eca089d9e6da7b973b6ace631a3417c",
+      "status": "PASS",
+      "error": null
+    }
+  ],
+  "status": "PASS",
+  "scope": "CONFIGURED_CHECKS_NOT_PROOF_OF_CORRECTNESS"
+}

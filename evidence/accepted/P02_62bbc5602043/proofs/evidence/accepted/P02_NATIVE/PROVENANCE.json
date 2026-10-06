@@ -1,0 +1,78 @@
+{
+  "phase": "P02",
+  "source_digest": "a26532121e6eea90b6e6bae3bc5d3e5af6f49257ab453cd0472f49389b63fb51",
+  "code_commit": "c46c4451c2e4a473ab3f4d574bb2357ba1a468e3",
+  "workflow_run_id": 37456091319,
+  "workflow_url": "https://github.com/mehrangtr/Consilium/actions/runs/37456091319",
+  "workflow_conclusion": "success",
+  "artifact_id": 11409178181,
+  "artifact_sha256": "d29d65c412306a2b302bb076bf64fb9aa0c7f5fa76aa148f41a18993d56111d1",
+  "artifact_scope": "ACTUAL_NATIVE_WINDOWS_LINUX_AND_CONFIGURED_P02_REPORT_GRAPHS_NOT_FULL_V1",
+  "restore_instruction": "Extract GRAPH.zip beneath an isolated project/evidence directory; native artifact references use paths relative to the project root. Never overwrite a newer LATEST pointer blindly.",
+  "native_targets": [
+    {
+      "target": "Windows",
+      "report": {
+        "path": "evidence/targets/Windows/20261006T112358Z_33fd4703/RUN.json",
+        "sha256": "37f17786e7395d4a6cfd45394cad71e3623189df7f9183f34fb4c0121711f95c"
+      },
+      "status": "PASS",
+      "counts": {
+        "foundation_report": {
+          "tests": 60,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        "control_report": {
+          "tests": 82,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0,
+          "expected_failures": 0,
+          "unexpected_successes": 0
+        },
+        "persistence_report": {
+          "tests": 80,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        }
+      },
+      "process_exit_cases": 12,
+      "live_provider_calls": 0
+    },
+    {
+      "target": "Linux",
+      "report": {
+        "path": "evidence/targets/Linux/20261006T112350Z_f861d0c4/RUN.json",
+        "sha256": "a4fb9794c583132b8817e933efc78d7a63d378c824bd88b300713bcd000c35c4"
+      },
+      "status": "PASS",
+      "counts": {
+        "foundation_report": {
+          "tests": 60,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        "control_report": {
+          "tests": 82,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0,
+          "expected_failures": 0,
+          "unexpected_successes": 0
+        },
+        "persistence_report": {
+          "tests": 80,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        }
+      },
+      "process_exit_cases": 12,
+      "live_provider_calls": 0
+    }
+  ]
+}

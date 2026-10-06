@@ -1,0 +1,274 @@
+{
+  "phase": "P02",
+  "source_digest": "a26532121e6eea90b6e6bae3bc5d3e5af6f49257ab453cd0472f49389b63fb51",
+  "status": "PASS",
+  "reviewer": "Codex, same author in separate final P02 criterion review",
+  "method": "Separate review of protected P02 criteria, append-only migrations, transport transaction boundaries, immutable raw/canonical records, negative revision/decision/retry cases and real child-process exits. Downloaded actual GitHub Windows/Linux graphs, checked archive digest and every linked artifact, host/dependency/source/JUnit agreement; inspected the test bodies and closed all six reproduced continuation defects.",
+  "impact_assessment": "P00/P01 acceptance snapshots and all 30 protected requirement bytes remain unchanged. V1 migration checksum cab17ab34b0eec71991cedb6a945cb9c8743cde08c67891b4a04fe291709d700 is unchanged. Exact source a26532121e6eea90b6e6bae3bc5d3e5af6f49257ab453cd0472f49389b63fb51 passed actual Windows and Linux: 60 foundation + 82 control + 80 persistence tests, zero failure/error/skip, 12 process exits per OS and four foundation CLI scenarios. Offline mock dispatch/JSON restart are proven; this is P02 acceptance, not live-provider, full Council, power-loss or full V1 acceptance. P03 is not implemented.",
+  "findings": [
+    {
+      "id": "P02-S01",
+      "kind": "DEFECT",
+      "state": "CLOSED",
+      "reason": "Older-round intent is rejected before any persistent write."
+    },
+    {
+      "id": "P02-S02",
+      "kind": "DEFECT",
+      "state": "CLOSED",
+      "reason": "Checkpoint must match the complete latest committed event history."
+    },
+    {
+      "id": "P02-S03",
+      "kind": "DEFECT",
+      "state": "CLOSED",
+      "reason": "Backup destination connection is always closed before failed output cleanup."
+    },
+    {
+      "id": "P02-S04",
+      "kind": "DEFECT",
+      "state": "CLOSED",
+      "reason": "Native evidence is exempt from Git newline normalization; actual staging/checkout roundtrip preserves exact CRLF bytes."
+    },
+    {
+      "id": "P02-S05",
+      "kind": "DEFECT",
+      "state": "CLOSED",
+      "reason": "Real Windows run exposed three test-helper connection leaks; explicit closing preserves assertions and permits cleanup. Fresh Windows/Linux verification is required."
+    },
+    {
+      "id": "P02-L01",
+      "kind": "DEFECT",
+      "state": "CLOSED",
+      "reason": "Next round requires a persisted current CONTINUE/CUSTOM decision.",
+      "regression_case": "test_no_next_round_without_a_current_continue_decision"
+    },
+    {
+      "id": "P02-L02",
+      "kind": "DEFECT",
+      "state": "CLOSED",
+      "reason": "New intents are blocked after Finish or a wait gate.",
+      "regression_case": "test_prepare_and_resume_cannot_authorize_work_after_finish"
+    },
+    {
+      "id": "P02-L03",
+      "kind": "DEFECT",
+      "state": "CLOSED",
+      "reason": "A serial debate cannot dispatch while another operation is unresolved.",
+      "regression_case": "test_a_second_dispatch_waits_for_the_first_operation_to_be_resolved"
+    },
+    {
+      "id": "P02-L04",
+      "kind": "DEFECT",
+      "state": "CLOSED",
+      "reason": "Populated V1 data survives transactional V2 migration; failed V2 restores V1.",
+      "regression_case": "test_v1_data_and_immutable_migration_hash_survive_upgrade"
+    },
+    {
+      "id": "P02-L05",
+      "kind": "DEFECT",
+      "state": "CLOSED",
+      "reason": "Binding changes invalidate unconsumed continuation decisions.",
+      "regression_case": "test_connection_change_invalidates_an_unconsumed_continue_decision"
+    },
+    {
+      "id": "P02-L06",
+      "kind": "DEFECT",
+      "state": "CLOSED",
+      "reason": "Resume cannot call a second prepared attempt ready while dispatch is unresolved.",
+      "regression_case": "test_resume_does_not_call_another_prepared_attempt_ready_while_send_is_unresolved"
+    }
+  ],
+  "criteria": [
+    {
+      "id": "P02.E01",
+      "criterion": "قصد ثبت‌شده، نتیجه و نقطهٔ ادامه پس از خرابی قابل تشخیص‌اند.",
+      "status": "PASS",
+      "notes": "PASS: 12 real process-exit cases distinguish intent-only, dispatch-start ambiguity, raw-result durability, validated output and canonical confirmation. Reopen checks exact frozen input, checkpoint revisions, raw content and simulated external receipt counts. Populated V1 migration and rollback tests pass. The fresh-process CLI persists, reopens and exports the same debate.",
+      "evidence": [
+        {
+          "path": "evidence/accepted/P02_NATIVE/GRAPH.zip",
+          "sha256": "d29d65c412306a2b302bb076bf64fb9aa0c7f5fa76aa148f41a18993d56111d1"
+        },
+        {
+          "path": "evidence/accepted/P02_NATIVE/PROVENANCE.json",
+          "sha256": "7a111313c423bf114b85254919d6e75827495af868bf0e1157b56aa63052c75a"
+        },
+        {
+          "path": "docs/decisions/ADR-007-P02_DURABLE_DISPATCH_FA.md",
+          "sha256": "e78d4e70a386ea3baa7dc135fbbbe1f2eee89a877e72bc3660771faaf0edb3b3"
+        },
+        {
+          "path": "evidence/targets/Windows/20261006T112358Z_33fd4703/RUN.json",
+          "sha256": "37f17786e7395d4a6cfd45394cad71e3623189df7f9183f34fb4c0121711f95c"
+        },
+        {
+          "path": "evidence/targets/Windows/20261006T112358Z_33fd4703/persistence_report.json",
+          "sha256": "491eccfd5fdf139c11c07f4ca6065792da7d8e1a23d259e63be10eaf396cd516"
+        },
+        {
+          "path": "evidence/targets/Windows/20261006T112358Z_33fd4703/persistence_junit.xml",
+          "sha256": "5cd1552b18f130d7b707bb43c28d6bcc66506d51f9a582ac6f3c244ec606ad57"
+        },
+        {
+          "path": "evidence/targets/Linux/20261006T112350Z_f861d0c4/RUN.json",
+          "sha256": "a4fb9794c583132b8817e933efc78d7a63d378c824bd88b300713bcd000c35c4"
+        },
+        {
+          "path": "evidence/targets/Linux/20261006T112350Z_f861d0c4/persistence_report.json",
+          "sha256": "97ded457871764cba28630cc4db09326f523b4ed3296636711bc991b55244dcb"
+        },
+        {
+          "path": "evidence/targets/Linux/20261006T112350Z_f861d0c4/persistence_junit.xml",
+          "sha256": "e7036cde446d2adba65acaf62d19b0abaaf454e3786469915e6b33e598fc4a78"
+        },
+        {
+          "path": "src/consilium/shell/storage.py",
+          "sha256": "5997c56c10784f4850212bcb989c691711b39ac277e6028a76585d7eea4aa116"
+        },
+        {
+          "path": "src/consilium/shell/schema_v2.py",
+          "sha256": "9db2aa1251ef37a644eec71020c2c6bab0f1d0a92eeda81b8510e1095edd33f2"
+        },
+        {
+          "path": "tests/persistence/dispatch_crash_worker.py",
+          "sha256": "ec4d1ed9a36727788a4f44142ff419bbffdc98c3f4798d991b8bd39199d4a531"
+        },
+        {
+          "path": "tests/persistence/test_durable_cli.py",
+          "sha256": "e0175adf19a78fec8761bc464bf128c7e89357d926c4b60ec11979620aef161b"
+        }
+      ]
+    },
+    {
+      "id": "P02.E02",
+      "criterion": "ارسال مبهم خودکار تکرار نمی‌شود؛ نتیجهٔ ثبت‌شده دوباره تولید نمی‌شود.",
+      "status": "PASS",
+      "notes": "PASS: no resume path calls an adapter. SENT/UNKNOWN_DELIVERY stay unresolved; attempts cannot send twice; a canonical response is never silently replaced. Exact repeated results are no-ops. A verified-unsent policy keeps logical/generation/input identity and gives a fresh attempt, with actor/reason and binding-scoped capability evidence. Ambiguous retry is denied even with a supplied unsent claim; fixtures do not claim live service verification.",
+      "evidence": [
+        {
+          "path": "evidence/accepted/P02_NATIVE/GRAPH.zip",
+          "sha256": "d29d65c412306a2b302bb076bf64fb9aa0c7f5fa76aa148f41a18993d56111d1"
+        },
+        {
+          "path": "evidence/accepted/P02_NATIVE/PROVENANCE.json",
+          "sha256": "7a111313c423bf114b85254919d6e75827495af868bf0e1157b56aa63052c75a"
+        },
+        {
+          "path": "docs/decisions/ADR-007-P02_DURABLE_DISPATCH_FA.md",
+          "sha256": "e78d4e70a386ea3baa7dc135fbbbe1f2eee89a877e72bc3660771faaf0edb3b3"
+        },
+        {
+          "path": "evidence/targets/Windows/20261006T112358Z_33fd4703/RUN.json",
+          "sha256": "37f17786e7395d4a6cfd45394cad71e3623189df7f9183f34fb4c0121711f95c"
+        },
+        {
+          "path": "evidence/targets/Windows/20261006T112358Z_33fd4703/persistence_report.json",
+          "sha256": "491eccfd5fdf139c11c07f4ca6065792da7d8e1a23d259e63be10eaf396cd516"
+        },
+        {
+          "path": "evidence/targets/Windows/20261006T112358Z_33fd4703/persistence_junit.xml",
+          "sha256": "5cd1552b18f130d7b707bb43c28d6bcc66506d51f9a582ac6f3c244ec606ad57"
+        },
+        {
+          "path": "evidence/targets/Linux/20261006T112350Z_f861d0c4/RUN.json",
+          "sha256": "a4fb9794c583132b8817e933efc78d7a63d378c824bd88b300713bcd000c35c4"
+        },
+        {
+          "path": "evidence/targets/Linux/20261006T112350Z_f861d0c4/persistence_report.json",
+          "sha256": "97ded457871764cba28630cc4db09326f523b4ed3296636711bc991b55244dcb"
+        },
+        {
+          "path": "evidence/targets/Linux/20261006T112350Z_f861d0c4/persistence_junit.xml",
+          "sha256": "e7036cde446d2adba65acaf62d19b0abaaf454e3786469915e6b33e598fc4a78"
+        },
+        {
+          "path": "src/consilium/shell/ledger.py",
+          "sha256": "859632846b66ac142bd7cef06672d2789f1727194efa6b225bccac06404d703e"
+        },
+        {
+          "path": "src/consilium/shell/runner.py",
+          "sha256": "72bd40f2160a375fba72b3bb073854f8fa21f97df26c574d85181bc025145d74"
+        },
+        {
+          "path": "src/consilium/core/operation_states.py",
+          "sha256": "c68e27555cadf62eb5ea6c2a5413cf53425ad7a7f6541c6e8d07d077231aad8f"
+        },
+        {
+          "path": "tests/persistence/test_ledger.py",
+          "sha256": "23489db45af822ccdd85047484746ce1df75e23cbc17097103c126a49d1e0d42"
+        }
+      ]
+    },
+    {
+      "id": "P02.E03",
+      "criterion": "آزمون‌های کوچک خرابی و رد نتیجهٔ قدیمی روی کد فعلی موفق‌اند.",
+      "status": "PASS",
+      "notes": "PASS: actual process-cut tests and stale revision/connection/result/decision tests pass on the exact source on both native OSs. Late/conflicting results commit only quarantine/audit, not replacement. Old decisions cannot consume a new round or a new connection binding. Partial/invalid responses cannot authorize Finish or canonical success.",
+      "evidence": [
+        {
+          "path": "evidence/accepted/P02_NATIVE/GRAPH.zip",
+          "sha256": "d29d65c412306a2b302bb076bf64fb9aa0c7f5fa76aa148f41a18993d56111d1"
+        },
+        {
+          "path": "evidence/accepted/P02_NATIVE/PROVENANCE.json",
+          "sha256": "7a111313c423bf114b85254919d6e75827495af868bf0e1157b56aa63052c75a"
+        },
+        {
+          "path": "docs/decisions/ADR-007-P02_DURABLE_DISPATCH_FA.md",
+          "sha256": "e78d4e70a386ea3baa7dc135fbbbe1f2eee89a877e72bc3660771faaf0edb3b3"
+        },
+        {
+          "path": "evidence/targets/Windows/20261006T112358Z_33fd4703/RUN.json",
+          "sha256": "37f17786e7395d4a6cfd45394cad71e3623189df7f9183f34fb4c0121711f95c"
+        },
+        {
+          "path": "evidence/targets/Windows/20261006T112358Z_33fd4703/persistence_report.json",
+          "sha256": "491eccfd5fdf139c11c07f4ca6065792da7d8e1a23d259e63be10eaf396cd516"
+        },
+        {
+          "path": "evidence/targets/Windows/20261006T112358Z_33fd4703/persistence_junit.xml",
+          "sha256": "5cd1552b18f130d7b707bb43c28d6bcc66506d51f9a582ac6f3c244ec606ad57"
+        },
+        {
+          "path": "evidence/targets/Linux/20261006T112350Z_f861d0c4/RUN.json",
+          "sha256": "a4fb9794c583132b8817e933efc78d7a63d378c824bd88b300713bcd000c35c4"
+        },
+        {
+          "path": "evidence/targets/Linux/20261006T112350Z_f861d0c4/persistence_report.json",
+          "sha256": "97ded457871764cba28630cc4db09326f523b4ed3296636711bc991b55244dcb"
+        },
+        {
+          "path": "evidence/targets/Linux/20261006T112350Z_f861d0c4/persistence_junit.xml",
+          "sha256": "e7036cde446d2adba65acaf62d19b0abaaf454e3786469915e6b33e598fc4a78"
+        },
+        {
+          "path": "tests/persistence/test_ledger.py",
+          "sha256": "23489db45af822ccdd85047484746ce1df75e23cbc17097103c126a49d1e0d42"
+        },
+        {
+          "path": "evidence/persistence-history/ledger-review-red/RUN.json",
+          "sha256": "0e65d243043ff850789daccfd7477af33c76fee07b430fe0f7850140a01d2ef4"
+        },
+        {
+          "path": "evidence/persistence-history/migration-populated-red/RUN.json",
+          "sha256": "f912a280d0f54bcfc4cb092ee759b78e96eb514899f3e538a2f5abd2216be415"
+        },
+        {
+          "path": "evidence/persistence-history/decision-resume-review-red/RUN.json",
+          "sha256": "7e394caed5fcac2cacb62fa123254e9af34660d2c98debcaedad66dbcfb9a821"
+        }
+      ]
+    }
+  ],
+  "independent": false,
+  "source_commit": "c46c4451c2e4a473ab3f4d574bb2357ba1a468e3",
+  "native_workflow_url": "https://github.com/mehrangtr/Consilium/actions/runs/37456091319",
+  "limitations": [
+    "Serial offline P02 kernel; no actual provider behavior was certified.",
+    "CapabilityBinding must be supplied by a trusted future capability verification layer, not model output.",
+    "Ambiguous retry, continued streaming, cross-account Recovery and complete Council are future roadmap phases.",
+    "Review was performed by the author in separate passes, not by an independent researcher.",
+    "Static typing and hardware power-loss tests are not claimed."
+  ]
+}

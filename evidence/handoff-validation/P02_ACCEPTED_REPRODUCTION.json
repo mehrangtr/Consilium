@@ -1,0 +1,32 @@
+{
+  "scope": "ACTUAL_EXTRACTED_ARCHIVE_EXECUTION_LINUX_NOT_NEW_WINDOWS_PROOF",
+  "status": "PASS",
+  "archive_sha256": "605d9e04dcbe66b358e6c4c238d798a13a5a8d53a60e1c955d381247a79647fb",
+  "source_digest": "a26532121e6eea90b6e6bae3bc5d3e5af6f49257ab453cd0472f49389b63fb51",
+  "returncode": 0,
+  "counts": {
+    "control-tests": {
+      "tests": 82,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "expected_failures": 0,
+      "unexpected_successes": 0
+    },
+    "foundation-tests": {
+      "tests": 60,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "persistence-tests": {
+      "tests": 80,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  },
+  "phase_advanced": false,
+  "archive_name": "Consilium_Project_P02_Accepted_v0.6.zip",
+  "native_windows_evidence": "evidence/targets/Windows/20261006T112358Z_33fd4703/RUN.json"
+}

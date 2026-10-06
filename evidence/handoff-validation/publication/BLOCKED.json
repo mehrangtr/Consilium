@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "status": "BLOCKED_BY_AUTO_REVIEW",
+  "action": "Publish final P02 acceptance, handoff and offline native test evidence",
+  "destination": "https://github.com/mehrangtr/Consilium",
+  "repository_public": true,
+  "remote_head_unchanged": "c46c4451c2e4a473ab3f4d574bb2357ba1a468e3",
+  "verified_staged_tree": "f377d025b2a9f2290fc31779e0e3c23c84db430a",
+  "completed_tree_batches": 2,
+  "next_original_tree_batch": 3,
+  "original_batch_count": 11,
+  "reason": "Auto-review rejected public source/evidence publication: retrieved prior authorization and repository ownership were not accepted as trusted user text. Explicit user approval for this concrete public payload is required. Do not retry or bypass the rejected remote mutation.",
+  "reviewable_payload": "Consilium_Project_P02_Ready_For_Publication_v1.0.zip",
+  "code_or_protected_requirements_changed": false,
+  "native_source_digest": "a26532121e6eea90b6e6bae3bc5d3e5af6f49257ab453cd0472f49389b63fb51",
+  "local_handoff_verification": "PASS",
+  "approval_required_for": "Public repository update only; local checkpoint and checked handoff are completed.",
+  "at_utc": "2026-10-06T14:29:09.054091+00:00"
+}

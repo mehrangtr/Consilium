@@ -1,0 +1,14 @@
+{
+  "status": "PASS",
+  "archive_name": "Consilium_Project_P02_Ready_For_Publication_v1.0.zip",
+  "archive_sha256": "8ae4884c0318a9ea1a1f32a601b0f8afd55eec6202507add373e730f4adad4d4",
+  "files": 517,
+  "isolated_extraction": "/workspace/scratch/2cd898e3d2ec/consilium_p02_v10_al797l0p",
+  "source_digest": "a26532121e6eea90b6e6bae3bc5d3e5af6f49257ab453cd0472f49389b63fb51",
+  "exact_code_and_contract_match_to_actual_v08_222_test_reproduction": true,
+  "P00_P01_P02_acceptance_and_all_criterion_bytes": "PASS",
+  "current_phase": "P03_READY_NOT_STARTED",
+  "remote_publication": "BLOCKED_BY_AUTO_REVIEW",
+  "runtime_repeated": false,
+  "scope": "FINAL_HANDOFF_INTEGRITY_AND_RESUMABILITY_NOT_NEW_OS_EXECUTION_OR_FULL_V1"
+}

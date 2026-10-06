@@ -1,0 +1,120 @@
+{
+  "schema_version": 1,
+  "phase": "P02",
+  "plan_version": "1.2",
+  "source_digest_before": "a26532121e6eea90b6e6bae3bc5d3e5af6f49257ab453cd0472f49389b63fb51",
+  "source_digest_after": "a26532121e6eea90b6e6bae3bc5d3e5af6f49257ab453cd0472f49389b63fb51",
+  "progress_sha256": "a32c1ec612d1711426a80652b38adb4c0eb39764e5367bdff49cf00c9438f5a8",
+  "checks": [
+    {
+      "id": "scope_inventory",
+      "kind": "static",
+      "argv": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "tools/check_scope.py"
+      ],
+      "returncode": 0,
+      "log": "evidence/runs/20261006T113007Z_40c803d3b8/scope_inventory.log",
+      "log_sha256": "45a803c384ea1249c3b91a97a9b8f7d8c543320f71293ae52b0db872f52f8740",
+      "counts": null,
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "id": "development_regression",
+      "kind": "test",
+      "argv": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "tools/check.py"
+      ],
+      "returncode": 0,
+      "log": "evidence/runs/20261006T113007Z_40c803d3b8/development_regression.log",
+      "log_sha256": "9e0bec015e7f8d2225c69b8d06260213bffd0d35f76a01e2ea21a3063c3e25d7",
+      "counts": {
+        "tests": 82,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "junit": "evidence/runs/20261006T113007Z_40c803d3b8/development_regression.xml",
+      "junit_input": "evidence/control-tests/JUNIT.xml",
+      "junit_sha256": "a417c913cac1f8def3b18a9ecef93286a88d418829e45e8ec266e148091c421b",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "id": "foundation_behavior",
+      "kind": "test",
+      "argv": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "tools/run_foundation_tests.py"
+      ],
+      "returncode": 0,
+      "log": "evidence/runs/20261006T113007Z_40c803d3b8/foundation_behavior.log",
+      "log_sha256": "4c28296a1b1ecbb3e8177e17ead2032869041232f9fc6fd7ad528e2690ddd805",
+      "counts": {
+        "tests": 60,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "junit": "evidence/runs/20261006T113007Z_40c803d3b8/foundation_behavior.xml",
+      "junit_input": "evidence/foundation-tests/JUNIT.xml",
+      "junit_sha256": "8d407155e6b1dc1ca1a1e921d0e9a05eafbc0bc1f2ae07f4b67e55f664a99949",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "id": "environment_lock",
+      "kind": "static",
+      "argv": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "tools/check_environment.py"
+      ],
+      "returncode": 0,
+      "log": "evidence/runs/20261006T113007Z_40c803d3b8/environment_lock.log",
+      "log_sha256": "d483169b60e63849270f8eff398d77e6a63bd69a8a83f685541a7a9ed2e037b3",
+      "counts": null,
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "id": "native_target_matrix",
+      "kind": "static",
+      "argv": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "tools/check_target_matrix.py"
+      ],
+      "returncode": 0,
+      "log": "evidence/runs/20261006T113007Z_40c803d3b8/native_target_matrix.log",
+      "log_sha256": "9abb416487499274a2da4e421cec3bdeada87f727cecdcd408f1829b86886cdc",
+      "counts": null,
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "id": "persistence_durable_kernel",
+      "kind": "test",
+      "argv": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "tools/run_persistence_tests.py"
+      ],
+      "returncode": 0,
+      "log": "evidence/runs/20261006T113007Z_40c803d3b8/persistence_durable_kernel.log",
+      "log_sha256": "4f031fdaf9c37bf95fe410b83b9779ee98c076ba11cee9877c2a3906f58c750b",
+      "counts": {
+        "tests": 80,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "junit": "evidence/runs/20261006T113007Z_40c803d3b8/persistence_durable_kernel.xml",
+      "junit_input": "evidence/persistence-tests/JUNIT.xml",
+      "junit_sha256": "e7036cde446d2adba65acaf62d19b0abaaf454e3786469915e6b33e598fc4a78",
+      "status": "PASS",
+      "error": null
+    }
+  ],
+  "status": "PASS",
+  "scope": "CONFIGURED_CHECKS_NOT_PROOF_OF_CORRECTNESS"
+}

@@ -2,7 +2,7 @@
 
 این نما خودکار از `ROADMAP.json`، `PROGRESS.json` و `CHECKS.json` ساخته شده است. ویرایش دستی مرجع نیست؛ پس از تغییر مبنا فرمان تولید را دوباره اجرا کنید.
 
-شناسهٔ مبنای نما: `3e9efee0f1f57d94da94c02cbbc31a1fc532906447666320d07a4687712e585f`.
+شناسهٔ مبنای نما: `a03d9ee13bb1ae4acd475d89af3d8258dccda2c66b40cbf3331c0c5f142ee0c5`.
 
 مرحلهٔ فعلی: `P02`. آخرین مرحلهٔ پذیرفته‌شده: `P01`.
 
@@ -15,11 +15,12 @@
   "phase": "P02",
   "last_verified_checkpoint": "P01",
   "completed_work": [
-    "P01 accepted with actual Windows/Linux evidence.",
-    "P02 storage and prepared-intent slice implemented and locally tested."
+    "P00 and P01 accepted; original acceptance evidence preserved.",
+    "P02 storage/prepared-intent slice passed 29 persistence, 60 foundation and 82 control tests on actual Windows and Linux.",
+    "Three real process-exit cases passed on each OS; Windows test-helper leaks and Git evidence normalization were repaired."
   ],
   "working_changes": [
-    "Native verification of the new P02 slice is pending."
+    "Full P02 send-start, result recording, ambiguity-safe resume, stale-result/decision rejection and remaining crash points are not implemented."
   ],
   "next_action": "Implement the send-start ledger boundary, result persistence and guarded resume with real process-exit tests; no automatic retry for ambiguous delivery.",
   "next_command": "python tools/run_persistence_tests.py",

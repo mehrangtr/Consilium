@@ -1,59 +1,35 @@
 {
-  "status": "PARTIAL",
-  "scope": "P01_AUTOMATION_PREPARED_LINUX_CHECKED_WINDOWS_NOT_RUN",
-  "source_digest": "ea9746a49a419270f326e56f4f89ad2a14113f33e63a0ad04ba50a027d3fc309",
-  "date_utc": "2026-10-06T09:41:49.081487+00:00",
-  "checks": {
-    "protected_baseline_hash": true,
-    "phase_order_and_dependencies": true,
-    "control_tests": {
-      "tests": 78,
-      "failures": 0,
-      "errors": 0,
-      "skipped": 0,
-      "expected_failures": 0,
-      "unexpected_successes": 0
+  "schema_version": 1,
+  "source_digest": "55d63fd7ef2c5696b383df3464a0aec2c275acf7321c545a1ca3ac8aa8aa2736",
+  "scope": "P02_STORAGE_SLICE_AND_DEVELOPMENT_CHECKS_NOT_FULL_PRODUCT_ACCEPTANCE",
+  "status": "PASS_FOR_COMPLETED_SLICE",
+  "current_phase": "P02",
+  "phase_status": "IN_PROGRESS",
+  "accepted_phases": [
+    "P00",
+    "P01"
+  ],
+  "native_report_references": [
+    {
+      "path": "evidence/targets/Windows/20261006T103539Z_ba0293b8/RUN.json",
+      "sha256": "79a7825f9811b484eb7f78177a8091c44474525443d212b9ba276e549221307e"
     },
-    "foundation_tests": {
-      "tests": 60,
-      "failures": 0,
-      "errors": 0,
-      "skipped": 0
-    },
-    "environment": "PASS",
-    "markdown_parse": "PASS",
-    "native_targets": [
-      {
-        "target": "Windows",
-        "status": "NOT_RUN",
-        "reason": "Native target execution has not been supplied"
-      },
-      {
-        "target": "Linux",
-        "status": "PASS",
-        "control_tests": 78,
-        "foundation_tests": 60,
-        "evidence": {
-          "path": "evidence/targets/Linux/20261006T094101Z_c0ed933a/RUN.json",
-          "sha256": "760c15e0945fdee8621f4d242a4f806ac7c981209702c3afb12fe565dd26a4e0"
-        }
-      }
-    ],
-    "phase_p01_accepted": false,
-    "workflow_static_review": "PASS_NOT_NATIVE_EXECUTION"
+    {
+      "path": "evidence/targets/Linux/20261006T103527Z_de3cfae8/RUN.json",
+      "sha256": "fccc94e7757f6868574565fe9de15c19b7fc634f337729ea763aa11780b355f4"
+    }
+  ],
+  "tests_per_os": {
+    "foundation": 60,
+    "control": 82,
+    "persistence": 29,
+    "process_exit_cases_within_persistence": 3
   },
-  "verified_application_requirements": 0,
-  "windows_execution": "NOT_RUN",
-  "real_provider_execution": "NOT_RUN",
-  "static_type_check": "NOT_RUN",
-  "visual_rendering": "NOT_RUN",
-  "fresh_directory_reproduction": "PASS_CURRENT_SOURCE_FRESH_DIRECTORY_LINUX_REUSING_VERIFIED_LOCKED_VENV",
-  "fresh_isolated_venv_install": "PRIOR_VERIFIED_LINUX_INSTALL; SAME_UNCHANGED_LOCK; NOT_REPEATED_THIS_CHANGE",
-  "package_build_and_import": "PRIOR_VERIFIED_LINUX_BUILD; PRODUCT_SOURCE_UNCHANGED; NOT_REPEATED_THIS_CHANGE",
-  "review": "SEPARATE_PASS_SAME_AUTHOR_NOT_INDEPENDENT",
-  "remote_workflow_execution": "NOT_RUN",
-  "public_publication_permission": "NOT_GRANTED",
-  "user_windows_assistance_required": false,
-  "prior_installation_evidence": "evidence/audit/installation/RUN.json",
-  "fresh_directory_reproduction_report": "evidence/reproduction/RUN.json"
+  "review_independent": false,
+  "known_open_defects_in_completed_slice": 0,
+  "full_v1_verified_requirements": 0,
+  "paid_model_calls": 0,
+  "remaining": [
+    "ارسال، ثبت نتیجه، حالت تحویل نامعلوم، تصمیم قدیمی و آزمون قطع پس از ارسال هنوز در این مرحله پیاده نشده‌اند."
+  ]
 }

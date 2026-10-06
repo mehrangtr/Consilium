@@ -2,7 +2,7 @@
   "schema_version": 1,
   "plan_version": "1.2",
   "updated_at": "2026-10-06",
-  "application_source_commit": "1f8191cac322f15e6118cf62b8f0c6f5b636595a",
+  "application_source_commit": "109782c0358bc6ba499c97d3d084a7b320d0da43",
   "current_phase": "P02",
   "verified_application_requirements": 0,
   "governance_check_note": "پذیرش مرحلهٔ صفر محفوظ است. آزمون پایهٔ P01 روی لینوکس انجام شده؛ پذیرش کامل ۳۰ خواسته و اجرای ویندوز هنوز انجام نشده‌اند.",
@@ -79,7 +79,7 @@
       "status": "IN_PROGRESS",
       "actual_engineering_hours": null,
       "external_wait_hours": 0,
-      "source_commit": null,
+      "source_commit": "109782c0358bc6ba499c97d3d084a7b320d0da43",
       "outputs": [
         "src/consilium/shell/storage.py",
         "src/consilium/core/storage_contracts.py",
@@ -92,8 +92,25 @@
         "ارسال، ثبت نتیجه، حالت تحویل نامعلوم، تصمیم قدیمی و آزمون قطع پس از ارسال هنوز در این مرحله پیاده نشده‌اند."
       ],
       "notes": [
-        "بخش اول پس از پذیرش واقعی P01 آغاز شد: مهاجرت اتمیک، ثبت بحث و اتصال و قصد تثبیت‌شده، رویداد، نقطهٔ ادامه، پشتیبان و سه قطع واقعی پردازه. کل P02 پذیرفته نشده است."
-      ]
+        "بخش اول پس از پذیرش واقعی P01 آغاز شد: مهاجرت اتمیک، ثبت بحث و اتصال و قصد تثبیت‌شده، رویداد، نقطهٔ ادامه، پشتیبان و سه قطع واقعی پردازه. کل P02 پذیرفته نشده است.",
+        "بخش ذخیره‌سازی روی هر دو محیط بومی تأیید شد: ۲۹ آزمون ذخیره‌سازی، ۶۰ آزمون پایه و ۸۲ آزمون کنترل و چهار دمو در هر محیط موفق بودند. سه خطای واقعی ویندوز در آزمون‌های کمکی اصلاح و گزارش شکست حفظ شد؛ کل P02 باز است."
+      ],
+      "work_in_progress_evidence": {
+        "scope": "VERIFIED_STORAGE_SLICE_NOT_COMPLETE_PHASE_ACCEPTANCE",
+        "native_reports": [
+          {
+            "path": "evidence/targets/Windows/20261006T103539Z_ba0293b8/RUN.json",
+            "sha256": "79a7825f9811b484eb7f78177a8091c44474525443d212b9ba276e549221307e"
+          },
+          {
+            "path": "evidence/targets/Linux/20261006T103527Z_de3cfae8/RUN.json",
+            "sha256": "fccc94e7757f6868574565fe9de15c19b7fc634f337729ea763aa11780b355f4"
+          }
+        ],
+        "review": "evidence/reviews/P02-partial.json",
+        "source_digest": "55d63fd7ef2c5696b383df3464a0aec2c275acf7321c545a1ca3ac8aa8aa2736",
+        "ci_run": "https://github.com/mehrangtr/Consilium/actions/runs/37450763686"
+      }
     },
     {
       "id": "P03",
@@ -524,11 +541,12 @@
     "phase": "P02",
     "last_verified_checkpoint": "P01",
     "completed_work": [
-      "P01 accepted with actual Windows/Linux evidence.",
-      "P02 storage and prepared-intent slice implemented and locally tested."
+      "P00 and P01 accepted; original acceptance evidence preserved.",
+      "P02 storage/prepared-intent slice passed 29 persistence, 60 foundation and 82 control tests on actual Windows and Linux.",
+      "Three real process-exit cases passed on each OS; Windows test-helper leaks and Git evidence normalization were repaired."
     ],
     "working_changes": [
-      "Native verification of the new P02 slice is pending."
+      "Full P02 send-start, result recording, ambiguity-safe resume, stale-result/decision rejection and remaining crash points are not implemented."
     ],
     "next_action": "Implement the send-start ledger boundary, result persistence and guarded resume with real process-exit tests; no automatic retry for ambiguous delivery.",
     "next_command": "python tools/run_persistence_tests.py",

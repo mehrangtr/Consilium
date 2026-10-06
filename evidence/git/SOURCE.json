@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "local_source_commit": "ae9df6fb72376f5ba5f9aab4f57c5f3c66400f7e",
-  "remote_base_commit": "1f8191cac322f15e6118cf62b8f0c6f5b636595a",
-  "source_digest": "1aac3e2d28c5d668cfbf07baf2c58ffd1245e55cd6f5d7ea95d25b6f4bb3ffcc",
-  "bundle_sha256": "be4a201b24d2274668a2723f0ef4c2f02466fa1995a42330239031fd77170e8c",
-  "note": "Git bundle is a generated checkpoint. Current source and evidence are also supplied directly; generated handoff metadata may be newer than bundled metadata."
+  "local_source_commit": "109782c0358bc6ba499c97d3d084a7b320d0da43",
+  "public_source_commit": "109782c0358bc6ba499c97d3d084a7b320d0da43",
+  "source_digest": "55d63fd7ef2c5696b383df3464a0aec2c275acf7321c545a1ca3ac8aa8aa2736",
+  "bundle_sha256": "367844086b8b8d3832386b354befaf81909612a8d544b5aeb8cc626f77e8fe11",
+  "note": "The bundle includes the published code checkpoint and preserved prior history. Current handoff/progress/evidence metadata may be newer than bundled metadata."
 }

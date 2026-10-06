@@ -4,7 +4,7 @@
   "status": "BLOCKED",
   "reviewer": "Codex, same author in a separate P02 storage review pass",
   "method": "Inspected transactional migration, exact frozen input persistence, revision checks, latest-round guard, checkpoint history, backup error cleanup and genuine child-process exit tests. Three behavioral failures were confirmed and repaired. This reviews only the completed storage slice.",
-  "impact_assessment": "P00/P01 accepted evidence and protected baseline are retained unchanged. New persistence checks run beside foundation/control regressions. The current source needs fresh native reports; full P02 remains incomplete regardless of suite success.",
+  "impact_assessment": "Actual Windows/Linux native checks passed for the exact current source and locked packages after the Windows test-resource repair. P00/P01 immutable acceptance and the protected governance bytes are unchanged. P02 remains IN_PROGRESS because send/result/resume/stale-result/decision work and its crash points remain unimplemented.",
   "findings": [
     {
       "id": "P02-S01",
@@ -43,23 +43,131 @@
       "criterion": "قصد ثبت‌شده، نتیجه و نقطهٔ ادامه پس از خرابی قابل تشخیص‌اند.",
       "status": "BLOCKED",
       "notes": "Prepared-intent storage slice is implemented. Send-start, persisted responses, ambiguous-delivery resume, stale-result/decision tests and remaining crash points are not implemented. No full-phase acceptance is claimed.",
-      "evidence": []
+      "evidence": [
+        {
+          "path": "evidence/targets/Windows/20261006T103539Z_ba0293b8/RUN.json",
+          "sha256": "79a7825f9811b484eb7f78177a8091c44474525443d212b9ba276e549221307e"
+        },
+        {
+          "path": "evidence/targets/Linux/20261006T103527Z_de3cfae8/RUN.json",
+          "sha256": "fccc94e7757f6868574565fe9de15c19b7fc634f337729ea763aa11780b355f4"
+        }
+      ]
     },
     {
       "id": "P02.E02",
       "criterion": "ارسال مبهم خودکار تکرار نمی‌شود؛ نتیجهٔ ثبت‌شده دوباره تولید نمی‌شود.",
       "status": "BLOCKED",
       "notes": "Prepared-intent storage slice is implemented. Send-start, persisted responses, ambiguous-delivery resume, stale-result/decision tests and remaining crash points are not implemented. No full-phase acceptance is claimed.",
-      "evidence": []
+      "evidence": [
+        {
+          "path": "evidence/targets/Windows/20261006T103539Z_ba0293b8/RUN.json",
+          "sha256": "79a7825f9811b484eb7f78177a8091c44474525443d212b9ba276e549221307e"
+        },
+        {
+          "path": "evidence/targets/Linux/20261006T103527Z_de3cfae8/RUN.json",
+          "sha256": "fccc94e7757f6868574565fe9de15c19b7fc634f337729ea763aa11780b355f4"
+        }
+      ]
     },
     {
       "id": "P02.E03",
       "criterion": "آزمون‌های کوچک خرابی و رد نتیجهٔ قدیمی روی کد فعلی موفق‌اند.",
       "status": "BLOCKED",
       "notes": "Prepared-intent storage slice is implemented. Send-start, persisted responses, ambiguous-delivery resume, stale-result/decision tests and remaining crash points are not implemented. No full-phase acceptance is claimed.",
-      "evidence": []
+      "evidence": [
+        {
+          "path": "evidence/targets/Windows/20261006T103539Z_ba0293b8/RUN.json",
+          "sha256": "79a7825f9811b484eb7f78177a8091c44474525443d212b9ba276e549221307e"
+        },
+        {
+          "path": "evidence/targets/Linux/20261006T103527Z_de3cfae8/RUN.json",
+          "sha256": "fccc94e7757f6868574565fe9de15c19b7fc634f337729ea763aa11780b355f4"
+        }
+      ]
     }
   ],
-  "date_utc": "2026-10-06T10:24:34.435480+00:00",
-  "independent": false
+  "date_utc": "2026-10-06T10:39:04.194897+00:00",
+  "independent": false,
+  "completed_slice": {
+    "status": "PASS",
+    "scope": "STORAGE_AND_PREPARED_INTENT_ONLY_NOT_COMPLETE_P02",
+    "native_reports": [
+      {
+        "path": "evidence/targets/Windows/20261006T103539Z_ba0293b8/RUN.json",
+        "sha256": "79a7825f9811b484eb7f78177a8091c44474525443d212b9ba276e549221307e"
+      },
+      {
+        "path": "evidence/targets/Linux/20261006T103527Z_de3cfae8/RUN.json",
+        "sha256": "fccc94e7757f6868574565fe9de15c19b7fc634f337729ea763aa11780b355f4"
+      }
+    ],
+    "observed_ci": {
+      "schema_version": 1,
+      "scope": "OBSERVED_NATIVE_P02_STORAGE_SLICE_EXECUTION",
+      "source_digest": "55d63fd7ef2c5696b383df3464a0aec2c275acf7321c545a1ca3ac8aa8aa2736",
+      "public_source_commit": "109782c0358bc6ba499c97d3d084a7b320d0da43",
+      "successful_run": {
+        "id": 37450763686,
+        "attempt": 1,
+        "status": "completed",
+        "conclusion": "success",
+        "url": "https://github.com/mehrangtr/Consilium/actions/runs/37450763686"
+      },
+      "jobs": [
+        {
+          "id": 112226492244,
+          "name": "Native Linux",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "id": 112226492547,
+          "name": "Native Windows",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "id": 112226746943,
+          "name": "Validate both native report graphs",
+          "status": "completed",
+          "conclusion": "success"
+        }
+      ],
+      "artifacts": [
+        {
+          "id": 11407041866,
+          "name": "native-target-Windows",
+          "digest": "sha256:e0dca2090174717b662810d5074b437d398184ada372224f2d07fe7ec2160bd1",
+          "size_bytes": 21592
+        },
+        {
+          "id": 11406622025,
+          "name": "native-target-Linux",
+          "digest": "sha256:b919bed14a9e08510eace9ebe2cfc0bbb79a0011b6c75906919fbe26fa72bffd",
+          "size_bytes": 21524
+        },
+        {
+          "id": 11406412229,
+          "name": "combined-phase-evidence",
+          "digest": "sha256:1989f150015928d2ca90c3eebe0bf8d651555d6b43dbd36763fb0c4c1bf5140b",
+          "size_bytes": 196748
+        }
+      ],
+      "earlier_failed_run": {
+        "id": 37450275438,
+        "source_commit": "8415800522978672f4d2642c1a4c02ea9d8c4364",
+        "reason": "Three test-helper SQLite connections were not closed; Windows refused temporary file deletion.",
+        "preserved_windows_report": "evidence/targets/Windows/20261006T103112Z_ddcf1c75/RUN.json"
+      }
+    },
+    "foundation_tests_per_os": 60,
+    "control_tests_per_os": 82,
+    "persistence_tests_per_os": 29,
+    "actual_process_exit_cases_per_os": 3,
+    "configured_receipt": {
+      "path": "evidence/runs/20261006T103904Z_ddd32846a3/RUN.json",
+      "sha256": "26cc3487eea8c1d61e16c65a6b63a37651b47908c2ddf1a483c5c036989d3ed3"
+    }
+  }
 }

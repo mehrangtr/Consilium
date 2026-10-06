@@ -1,13 +1,13 @@
 {
   "schema_version": 1,
   "plan_version": "1.2",
-  "source_snapshot_digest": "ea9746a49a419270f326e56f4f89ad2a14113f33e63a0ad04ba50a027d3fc309",
-  "current_phase": "P01",
-  "last_accepted_phase": "P00",
+  "source_snapshot_digest": "55d63fd7ef2c5696b383df3464a0aec2c275acf7321c545a1ca3ac8aa8aa2736",
+  "current_phase": "P02",
+  "last_accepted_phase": "P01",
   "latest_current_phase_run": {
-    "receipt": "evidence/runs/20261006T094325Z_faad696fb1/RUN.json",
-    "sha256": "a6ea8ad4a59a4879afb1b50bb85e5d1ba8e1d2449a23d6df62a918bee4f74485",
-    "status": "FAIL",
+    "receipt": "evidence/runs/20261006T103904Z_ddd32846a3/RUN.json",
+    "sha256": "26cc3487eea8c1d61e16c65a6b63a37651b47908c2ddf1a483c5c036989d3ed3",
+    "status": "PASS",
     "source_matches_current": true,
     "checks": [
       {
@@ -20,7 +20,7 @@
         "id": "development_regression",
         "status": "PASS",
         "counts": {
-          "tests": 78,
+          "tests": 82,
           "failures": 0,
           "errors": 0,
           "skipped": 0
@@ -46,8 +46,19 @@
       },
       {
         "id": "native_target_matrix",
-        "status": "FAIL",
+        "status": "PASS",
         "counts": null,
+        "error": null
+      },
+      {
+        "id": "persistence_storage_slice",
+        "status": "PASS",
+        "counts": {
+          "tests": 29,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
         "error": null
       }
     ],
@@ -55,10 +66,20 @@
   },
   "native_target_runs": [
     {
+      "target": "Windows",
+      "report": {
+        "path": "evidence/targets/Windows/20261006T103539Z_ba0293b8/RUN.json",
+        "sha256": "79a7825f9811b484eb7f78177a8091c44474525443d212b9ba276e549221307e"
+      },
+      "status": "PASS",
+      "source_matches_current": true,
+      "scope": "RECORDED_TARGET_ARTIFACTS_NOT_PHASE_ACCEPTANCE"
+    },
+    {
       "target": "Linux",
       "report": {
-        "path": "evidence/targets/Linux/20261006T094101Z_c0ed933a/RUN.json",
-        "sha256": "760c15e0945fdee8621f4d242a4f806ac7c981209702c3afb12fe565dd26a4e0"
+        "path": "evidence/targets/Linux/20261006T103527Z_de3cfae8/RUN.json",
+        "sha256": "fccc94e7757f6868574565fe9de15c19b7fc634f337729ea763aa11780b355f4"
       },
       "status": "PASS",
       "source_matches_current": true,
@@ -67,76 +88,31 @@
   ],
   "last_acceptance_matches_current_source": false,
   "application_source_supplied": true,
-  "application_source_commit": "1438db67acd94bd9fcd40e9c997994b7b43dd954",
+  "application_source_commit": "109782c0358bc6ba499c97d3d084a7b320d0da43",
   "verified_application_requirements": 0,
   "state_label": "INCOMPLETE",
-  "next_action": "دستیار پس از اجازهٔ انتشار عمومی همین بسته در مخزن متصل mehrangtr/Consilium، گردش‌کار دو محیط را اجرا و گزارش‌های واقعی را دریافت کند؛ کار ویندوز به کاربر واگذار نشود. پس از بررسی شواهد و بازبینی نهایی، گیت P01 بررسی شود؛ پیش از پذیرش P02 شروع نشود.",
+  "next_action": "Implement the send-start ledger boundary, result persistence and guarded resume with real process-exit tests; no automatic retry for ambiguous delivery.",
   "resume": {
-    "phase": "P01",
-    "last_verified_checkpoint": "P00",
+    "phase": "P02",
+    "last_verified_checkpoint": "P01",
     "completed_work": [
-      "دامنه و موجودی مرحلهٔ صفر پذیرفته شدند.",
-      "قراردادهای داده، اتصال ساختگی و مرز خصوصی پیاده و در لینوکس آزموده شدند.",
-      "نقص‌های بازبینی پایان مرحله با آزمون قرمز اصلاح شدند؛ نصب وابستگی در محیط مجازی تازه و ساخت و ورود بستهٔ نصب‌شده روی لینوکس موفق بود."
+      "P00 and P01 accepted; original acceptance evidence preserved.",
+      "P02 storage/prepared-intent slice passed 29 persistence, 60 foundation and 82 control tests on actual Windows and Linux.",
+      "Three real process-exit cases passed on each OS; Windows test-helper leaks and Git evidence normalization were repaired."
     ],
     "working_changes": [
-      "گردش‌کار بومی دو محیط و بررسی تجمیعی آماده است؛ انتشار عمومی هنوز مجاز نشده و آزمون واقعی ویندوز انجام نشده است."
+      "Full P02 send-start, result recording, ambiguity-safe resume, stale-result/decision rejection and remaining crash points are not implemented."
     ],
-    "next_action": "دستیار پس از اجازهٔ انتشار عمومی همین بسته در مخزن متصل mehrangtr/Consilium، گردش‌کار دو محیط را اجرا و گزارش‌های واقعی را دریافت کند؛ کار ویندوز به کاربر واگذار نشود. پس از بررسی شواهد و بازبینی نهایی، گیت P01 بررسی شود؛ پیش از پذیرش P02 شروع نشود.",
-    "next_command": "REMOTE_ACTION: Publish approved checkpoint; run .github/workflows/check.yml; download combined-P01-evidence",
-    "inputs_missing": [
-      "Permission to publish this checkpoint publicly in mehrangtr/Consilium",
-      "Native Windows execution evidence for this exact source snapshot"
-    ],
+    "next_action": "Implement the send-start ledger boundary, result persistence and guarded resume with real process-exit tests; no automatic retry for ambiguous delivery.",
+    "next_command": "python tools/run_persistence_tests.py",
+    "inputs_missing": [],
     "known_quirks": [
       {
-        "id": "DEV-003",
-        "note": "شواهد پذیرش معیار به‌صورت تصویر ثابت حفظ می‌شوند؛ فایل جاری در مرحله بعد می‌تواند تغییر کند.",
+        "id": "P02-001",
+        "note": "Schema v1 supports PREPARED intents only; adding attempt states and retry attempts requires migration v2, never editing the checksum of v1.",
         "references": [
-          "tools/qualityctl.py::freeze_review_evidence",
-          "tests/test_qualityctl.py::test_accepted_criterion_bytes_survive_later_changes"
-        ]
-      },
-      {
-        "id": "P01-001",
-        "note": "DELIVERY و RESPONSE دو محور جدا هستند؛ مشاهده به ورودی و اتصال قبلی وابسته است.",
-        "references": [
-          "src/consilium/core/contracts.py",
-          "src/consilium/adapters/mock.py"
-        ]
-      },
-      {
-        "id": "P01-002",
-        "note": "موفقیت check یا دادهٔ ساختگی، پذیرش بومی Windows نیست. نبود شاهد، کد خروج 2 برای گیت دارد.",
-        "references": [
-          "tools/check_target_matrix.py",
-          "docs/RUNBOOK_FA.md"
-        ]
-      },
-      {
-        "id": "DEV-004",
-        "note": "ثبت‌کنندهٔ بومی خروجی‌های قابل بازنویسی را پیش از اجرا پاک و شکست یا پایان مهلت را ثبت می‌کند. چهار سناریو و جزئیات گزارش باید سازگار باشند.",
-        "references": [
-          "tools/record_target_checks.py",
-          "tools/check_target_matrix.py",
-          "tests/test_native_recording.py"
-        ]
-      },
-      {
-        "id": "DEV-005",
-        "note": "آزمون‌های کنترل از test_*.py کشف می‌شوند؛ خروجی‌های build و dist و egg-info وارد هش منبع نمی‌شوند.",
-        "references": [
-          "tools/run_control_tests.py",
-          "tools/qualityctl.py"
-        ]
-      },
-      {
-        "id": "DEV-006",
-        "note": "کار ویندوز به کاربر واگذار نمی‌شود. مخزن متصل عمومی و خالی است؛ داشتن دسترسی فنی، اجازهٔ انتشار این بسته نیست. گردش‌کار شواهد کهنه را در پوشهٔ موقت کنار می‌گذارد و مرحله را خودکار نمی‌پذیرد.",
-        "references": [
-          "docs/AUTOMATED_WINDOWS_FA.md",
-          ".github/workflows/check.yml",
-          "docs/decisions/ADR-005-AUTONOMOUS_NATIVE_TESTS_FA.md"
+          "src/consilium/shell/storage.py",
+          "docs/decisions/ADR-006-P02_STORAGE_SLICE_FA.md"
         ]
       }
     ]

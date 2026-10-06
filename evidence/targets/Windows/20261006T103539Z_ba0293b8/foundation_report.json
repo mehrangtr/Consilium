@@ -10,12 +10,12 @@
   },
   "source_digest_before": "55d63fd7ef2c5696b383df3464a0aec2c275acf7321c545a1ca3ac8aa8aa2736",
   "source_digest_after": "55d63fd7ef2c5696b383df3464a0aec2c275acf7321c545a1ca3ac8aa8aa2736",
-  "date_utc": "2026-10-06T10:39:11.991762+00:00",
+  "date_utc": "2026-10-06T10:35:47.007464+00:00",
   "host": {
-    "system": "Linux",
-    "python": "3.12.14"
+    "system": "Windows",
+    "python": "3.12.10"
   },
-  "windows_execution": "NOT_RUN",
+  "windows_execution": "THIS_RUN",
   "live_provider_calls": 0,
   "verified_application_requirements": 0,
   "cases": [

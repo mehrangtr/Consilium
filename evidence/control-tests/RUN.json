@@ -12,41 +12,41 @@
     "unexpected_successes": 0
   },
   "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
-  "date": "2026-10-06T10:39:08.743735+00:00",
+  "date": "2026-10-06T11:21:20.055956+00:00",
   "platform": "Linux-6.18.44-x86_64-with-glibc2.39",
   "source_files_before": {
     "tools/qualityctl.py": "6e6720263ad59ed623d3f966e2edff8cfb25ee8e59456bec973c8dcd36171ba3",
     "tools/run_control_tests.py": "c2844ce3de623d84c514784702a7ff861e8f60ec60f40a1aaee54fad4dcb73cf",
-    "tools/check.py": "6e406b5c8c9e451745f9106211170aa6577514eee53c95a8df8a7ad0f8e45fa7",
-    "tools/check_target_matrix.py": "daf46ff134628c555b07421d023da70281b2b71650906ebdeb4df9c6e2eba70c",
+    "tools/check.py": "c05d277f850ba202bf45c95da47a27890ac3097bff2a501ef7d3cd5609fcf9bf",
+    "tools/check_target_matrix.py": "0301f34823643d752f930d4299e4c3b7878dfb9dc509b06bec7864ddf123b750",
     "tools/record_target_checks.py": "40420339b4bc855022480f435fd0006350320c5a323f91824616750650be8247",
     "ROADMAP.json": "ee444b7e89a9b7724e970e1ed11e50b9762833587823fc01c331425480433cfd",
-    "PROGRESS.json": "cbeefe6f826184d74d86adb89313b8c672e63131ebf297c57a0611886a64e05d",
+    "PROGRESS.json": "a1bf47089dd0fa73605b9b3f4c7592f29be420049a8896d04a28d899440133ba",
     "baseline/Consilium_User_Guarded_Governance_v1.3_Reviewed.zip": "8f898b60627c07ec9c4028ff4bfa510c1b5578c2dd1141fa8f2f16ed648fd742",
     "tests/test_git_preservation.py": "ed93431b625d3ffd8f96207bec66775466202d3142b1b378c8709d8221801526",
     "tests/test_native_recording.py": "9179cf8656c75eee5c68f200d7c95001d739cd3c9c5949c21dbd2568de83ec0a",
     "tests/test_qualityctl.py": "07495ef5b1b462ab3292cfa1cbf3c6de7005d9b8e9c777b20503ebd41daae659",
-    "tests/test_target_checks.py": "91e65b07bc98960222c0137fdb359e7e8d9d091e25588efd7c770164b20f6bd0"
+    "tests/test_target_checks.py": "3d9f0a8af2a22d5bd51f5bcddeffff544d4077f79c0f377665b5f81720057412"
   },
   "host": {
     "system": "Linux",
     "python": "3.12.14"
   },
-  "source_digest_before": "55d63fd7ef2c5696b383df3464a0aec2c275acf7321c545a1ca3ac8aa8aa2736",
-  "source_digest_after": "55d63fd7ef2c5696b383df3464a0aec2c275acf7321c545a1ca3ac8aa8aa2736",
+  "source_digest_before": "a26532121e6eea90b6e6bae3bc5d3e5af6f49257ab453cd0472f49389b63fb51",
+  "source_digest_after": "a26532121e6eea90b6e6bae3bc5d3e5af6f49257ab453cd0472f49389b63fb51",
   "source_files_after": {
     "tools/qualityctl.py": "6e6720263ad59ed623d3f966e2edff8cfb25ee8e59456bec973c8dcd36171ba3",
     "tools/run_control_tests.py": "c2844ce3de623d84c514784702a7ff861e8f60ec60f40a1aaee54fad4dcb73cf",
-    "tools/check.py": "6e406b5c8c9e451745f9106211170aa6577514eee53c95a8df8a7ad0f8e45fa7",
-    "tools/check_target_matrix.py": "daf46ff134628c555b07421d023da70281b2b71650906ebdeb4df9c6e2eba70c",
+    "tools/check.py": "c05d277f850ba202bf45c95da47a27890ac3097bff2a501ef7d3cd5609fcf9bf",
+    "tools/check_target_matrix.py": "0301f34823643d752f930d4299e4c3b7878dfb9dc509b06bec7864ddf123b750",
     "tools/record_target_checks.py": "40420339b4bc855022480f435fd0006350320c5a323f91824616750650be8247",
     "ROADMAP.json": "ee444b7e89a9b7724e970e1ed11e50b9762833587823fc01c331425480433cfd",
-    "PROGRESS.json": "cbeefe6f826184d74d86adb89313b8c672e63131ebf297c57a0611886a64e05d",
+    "PROGRESS.json": "a1bf47089dd0fa73605b9b3f4c7592f29be420049a8896d04a28d899440133ba",
     "baseline/Consilium_User_Guarded_Governance_v1.3_Reviewed.zip": "8f898b60627c07ec9c4028ff4bfa510c1b5578c2dd1141fa8f2f16ed648fd742",
     "tests/test_git_preservation.py": "ed93431b625d3ffd8f96207bec66775466202d3142b1b378c8709d8221801526",
     "tests/test_native_recording.py": "9179cf8656c75eee5c68f200d7c95001d739cd3c9c5949c21dbd2568de83ec0a",
     "tests/test_qualityctl.py": "07495ef5b1b462ab3292cfa1cbf3c6de7005d9b8e9c777b20503ebd41daae659",
-    "tests/test_target_checks.py": "91e65b07bc98960222c0137fdb359e7e8d9d091e25588efd7c770164b20f6bd0"
+    "tests/test_target_checks.py": "3d9f0a8af2a22d5bd51f5bcddeffff544d4077f79c0f377665b5f81720057412"
   },
   "source_unchanged": true,
   "cases": [

@@ -1,16 +1,16 @@
 {
   "phase": "P02",
-  "scope": "P02_DURABILITY_OFFLINE_NOT_FULL_V1_ACCEPTANCE",
-  "status": "PASS",
+  "scope": "P02_STORAGE_AND_PREPARED_INTENT_SLICE_NOT_PHASE_ACCEPTANCE",
+  "status": "FAIL",
   "counts": {
-    "tests": 80,
-    "failures": 0,
+    "tests": 71,
+    "failures": 3,
     "errors": 0,
     "skipped": 0
   },
-  "source_digest_before": "a26532121e6eea90b6e6bae3bc5d3e5af6f49257ab453cd0472f49389b63fb51",
-  "source_digest_after": "a26532121e6eea90b6e6bae3bc5d3e5af6f49257ab453cd0472f49389b63fb51",
-  "date_utc": "2026-10-06T11:21:24.555674+00:00",
+  "source_digest_before": "483c76d65e68efe1d74f9ac19a1ca8a3265a5e061f3cdd46f72eb11852f130c3",
+  "source_digest_after": "483c76d65e68efe1d74f9ac19a1ca8a3265a5e061f3cdd46f72eb11852f130c3",
+  "date_utc": "2026-10-06T11:06:48.527800+00:00",
   "host": {
     "system": "Linux",
     "python": "3.12.14",
@@ -18,46 +18,14 @@
   },
   "live_provider_calls": 0,
   "phase_accepted": false,
-  "process_exit_cases": [
-    "test_ledger.ProcessCrashTests.test_process_exit_before_send",
-    "test_ledger.ProcessCrashTests.test_process_exit_after_send_start_before_transport",
-    "test_ledger.ProcessCrashTests.test_process_exit_after_external_mock_send",
-    "test_ledger.ProcessCrashTests.test_process_exit_before_result_persistence",
-    "test_ledger.ProcessCrashTests.test_process_exit_inside_result_transaction",
-    "test_ledger.ProcessCrashTests.test_process_exit_after_result_persistence",
-    "test_ledger.ProcessCrashTests.test_process_exit_after_validation",
-    "test_ledger.ProcessCrashTests.test_process_exit_inside_confirmation_transaction",
-    "test_ledger.ProcessCrashTests.test_process_exit_after_confirmation",
-    "test_storage.StorageTests.test_actual_process_exit_after_intent_preserves_frozen_input_and_checkpoint",
-    "test_storage.StorageTests.test_actual_process_exit_before_intent_keeps_previous_checkpoint",
-    "test_storage.StorageTests.test_actual_process_exit_inside_intent_rolls_back_all_partial_writes"
-  ],
-  "process_exit_case_count": 12,
-  "external_transport": "MOCK_ONLY_SIMULATED_RECEIPTS_NOT_LIVE_PROVIDER_PROOF",
   "cases": [
-    {
-      "id": "test_durable_cli.DurableCliTests.test_browser_mock_ambiguous_resume_keeps_the_same_attempt_and_never_resends",
-      "status": "PASS"
-    },
-    {
-      "id": "test_durable_cli.DurableCliTests.test_new_demo_cannot_overwrite_or_send_again_to_an_existing_database",
-      "status": "PASS"
-    },
-    {
-      "id": "test_durable_cli.DurableCliTests.test_persist_restart_and_resume_keep_original_question_and_one_canonical_result",
-      "status": "PASS"
-    },
-    {
-      "id": "test_durable_cli.DurableCliTests.test_resume_missing_database_does_not_create_a_blank_one",
-      "status": "PASS"
-    },
     {
       "id": "test_ledger.LedgerTests.test_a_conflicting_second_result_is_quarantined_without_replacing_canonical",
       "status": "PASS"
     },
     {
       "id": "test_ledger.LedgerTests.test_a_second_dispatch_waits_for_the_first_operation_to_be_resolved",
-      "status": "PASS"
+      "status": "FAILURE"
     },
     {
       "id": "test_ledger.LedgerTests.test_ambiguous_retry_is_denied_even_if_somebody_supplies_an_unsent_claim",
@@ -69,10 +37,6 @@
     },
     {
       "id": "test_ledger.LedgerTests.test_confirmed_result_resume_uses_no_provider_calls",
-      "status": "PASS"
-    },
-    {
-      "id": "test_ledger.LedgerTests.test_connection_change_invalidates_an_unconsumed_continue_decision",
       "status": "PASS"
     },
     {
@@ -89,10 +53,6 @@
     },
     {
       "id": "test_ledger.LedgerTests.test_duplicate_json_keys_and_wrong_response_shape_are_rejected",
-      "status": "PASS"
-    },
-    {
-      "id": "test_ledger.LedgerTests.test_exclusive_new_store_refuses_an_existing_database",
       "status": "PASS"
     },
     {
@@ -117,15 +77,11 @@
     },
     {
       "id": "test_ledger.LedgerTests.test_no_next_round_without_a_current_continue_decision",
-      "status": "PASS"
-    },
-    {
-      "id": "test_ledger.LedgerTests.test_partial_response_does_not_authorize_a_finish_decision",
-      "status": "PASS"
+      "status": "FAILURE"
     },
     {
       "id": "test_ledger.LedgerTests.test_prepare_and_resume_cannot_authorize_work_after_finish",
-      "status": "PASS"
+      "status": "FAILURE"
     },
     {
       "id": "test_ledger.LedgerTests.test_provider_is_called_outside_transaction_and_can_open_a_second_connection",
@@ -145,10 +101,6 @@
     },
     {
       "id": "test_ledger.LedgerTests.test_result_with_known_secret_is_not_persisted",
-      "status": "PASS"
-    },
-    {
-      "id": "test_ledger.LedgerTests.test_resume_does_not_call_another_prepared_attempt_ready_while_send_is_unresolved",
       "status": "PASS"
     },
     {
@@ -193,10 +145,6 @@
     },
     {
       "id": "test_ledger.LedgerTests.test_verified_unsent_retry_has_a_new_attempt_but_preserves_logical_generation_and_input",
-      "status": "PASS"
-    },
-    {
-      "id": "test_ledger.MigrationTests.test_failed_v2_upgrade_preserves_populated_v1_data_and_version",
       "status": "PASS"
     },
     {

@@ -59,7 +59,7 @@ class TargetEvidenceControls(unittest.TestCase):
                               "environment_report": "CURRENT_HOST_DEPENDENCY_LOCK_NOT_OTHER_OS_PROOF",
                               "control_report": "DEVELOPMENT_CONTROL_TOOLING_ONLY",
                               "foundation_report": "APPLICATION_FOUNDATION_OFFLINE_NOT_FULL_V1_CONFORMANCE",
-                              "persistence_report": "P02_STORAGE_AND_PREPARED_INTENT_SLICE_NOT_PHASE_ACCEPTANCE"}[role]
+                              "persistence_report": "P02_DURABILITY_OFFLINE_NOT_FULL_V1_ACCEPTANCE"}[role]
             if role == "environment_report":
                 value["dependencies"] = [{"package": "synthetic-package", "required": "1.0",
                                           "installed": "1.0", "status": "PASS"}]

@@ -2,7 +2,7 @@
   "schema_version": 1,
   "scope": "SUPPLIED_INPUTS_AND_CURRENT_WORKSPACE",
   "application_source_supplied": true,
-  "application_runtime_tests": "P01_ACCEPTED_OFFLINE_FOUNDATION_AND_P02_STORAGE_SLICE",
+  "application_runtime_tests": "P01_FOUNDATION_AND_P02_DURABLE_KERNEL",
   "real_browser_tests": "NOT_RUN",
   "protected_requirements": 30,
   "governance_version": "1.3.0",
@@ -85,7 +85,7 @@
   ],
   "application_persistence_tests": {
     "report": "evidence/persistence-tests/RUN.json",
-    "scope": "P02_STORAGE_SLICE",
-    "phase_acceptance": "NOT_ACCEPTED"
+    "scope": "P02_DURABLE_KERNEL",
+    "phase_acceptance": "SEE_PROGRESS_AND_ACCEPTED_EVIDENCE"
   }
 }

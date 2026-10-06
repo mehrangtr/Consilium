@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Execute the P02 storage slice, including actual child-process exits."""
+"""Execute P02 storage/dispatch/resume, including actual child-process exits."""
 from __future__ import annotations
 
 import datetime as dt
@@ -27,13 +27,16 @@ def main():
     after = q.source_digest(ROOT)
     passed = result.wasSuccessful() and counts["tests"] > 0 and before == after and not any(
         counts[x] for x in ("failures", "errors", "skipped")) and not result.expectedFailures
-    report = {"phase": "P02", "scope": "P02_STORAGE_AND_PREPARED_INTENT_SLICE_NOT_PHASE_ACCEPTANCE",
+    process_cases = [x["id"] for x in result.rows if ".test_actual_process_exit_" in x["id"] or ".test_process_exit_" in x["id"]]
+    report = {"phase": "P02", "scope": "P02_DURABILITY_OFFLINE_NOT_FULL_V1_ACCEPTANCE",
               "status": "PASS" if passed else "FAIL", "counts": counts,
               "source_digest_before": before, "source_digest_after": after,
               "date_utc": dt.datetime.now(dt.timezone.utc).isoformat(),
               "host": {"system": platform.system(), "python": platform.python_version(),
                        "sqlite": sqlite3.sqlite_version},
               "live_provider_calls": 0, "phase_accepted": False,
+              "process_exit_cases": process_cases, "process_exit_case_count": len(process_cases),
+              "external_transport": "MOCK_ONLY_SIMULATED_RECEIPTS_NOT_LIVE_PROVIDER_PROOF",
               "cases": [{"id": x["id"], "status": x["kind"].upper() if x["kind"] else "PASS"}
                         for x in result.rows]}
     folder = ROOT / "evidence/persistence-tests"

@@ -1,14 +1,14 @@
 {
   "schema_version": 1,
   "plan_version": "1.2",
-  "source_snapshot_digest": "55d63fd7ef2c5696b383df3464a0aec2c275acf7321c545a1ca3ac8aa8aa2736",
+  "source_snapshot_digest": "a26532121e6eea90b6e6bae3bc5d3e5af6f49257ab453cd0472f49389b63fb51",
   "current_phase": "P02",
   "last_accepted_phase": "P01",
   "latest_current_phase_run": {
     "receipt": "evidence/runs/20261006T103904Z_ddd32846a3/RUN.json",
     "sha256": "26cc3487eea8c1d61e16c65a6b63a37651b47908c2ddf1a483c5c036989d3ed3",
     "status": "PASS",
-    "source_matches_current": true,
+    "source_matches_current": false,
     "checks": [
       {
         "id": "scope_inventory",
@@ -72,7 +72,7 @@
         "sha256": "79a7825f9811b484eb7f78177a8091c44474525443d212b9ba276e549221307e"
       },
       "status": "PASS",
-      "source_matches_current": true,
+      "source_matches_current": false,
       "scope": "RECORDED_TARGET_ARTIFACTS_NOT_PHASE_ACCEPTANCE"
     },
     {
@@ -82,7 +82,7 @@
         "sha256": "fccc94e7757f6868574565fe9de15c19b7fc634f337729ea763aa11780b355f4"
       },
       "status": "PASS",
-      "source_matches_current": true,
+      "source_matches_current": false,
       "scope": "RECORDED_TARGET_ARTIFACTS_NOT_PHASE_ACCEPTANCE"
     }
   ],
@@ -91,28 +91,28 @@
   "application_source_commit": "109782c0358bc6ba499c97d3d084a7b320d0da43",
   "verified_application_requirements": 0,
   "state_label": "INCOMPLETE",
-  "next_action": "Implement the send-start ledger boundary, result persistence and guarded resume with real process-exit tests; no automatic retry for ambiguous delivery.",
+  "next_action": "Execute current-source native Windows/Linux checks, inspect actual evidence and finalize the P02 criterion review; do not start P03 before its gate passes.",
   "resume": {
     "phase": "P02",
     "last_verified_checkpoint": "P01",
     "completed_work": [
-      "P00 and P01 accepted; original acceptance evidence preserved.",
-      "P02 storage/prepared-intent slice passed 29 persistence, 60 foundation and 82 control tests on actual Windows and Linux.",
-      "Three real process-exit cases passed on each OS; Windows test-helper leaks and Git evidence normalization were repaired."
+      "Published P00/P01 acceptance preserved.",
+      "P02 durable dispatch, result validation/confirmation, guarded decisions/retry, restart and JSON path implemented.",
+      "Local suite passed; six review defects reproduced and repaired."
     ],
     "working_changes": [
-      "Full P02 send-start, result recording, ambiguity-safe resume, stale-result/decision rejection and remaining crash points are not implemented."
+      "Current-source native Windows/Linux execution and final acceptance review are pending."
     ],
-    "next_action": "Implement the send-start ledger boundary, result persistence and guarded resume with real process-exit tests; no automatic retry for ambiguous delivery.",
+    "next_action": "Execute current-source native Windows/Linux checks, inspect actual evidence and finalize the P02 criterion review; do not start P03 before its gate passes.",
     "next_command": "python tools/run_persistence_tests.py",
     "inputs_missing": [],
     "known_quirks": [
       {
         "id": "P02-001",
-        "note": "Schema v1 supports PREPARED intents only; adding attempt states and retry attempts requires migration v2, never editing the checksum of v1.",
+        "note": "Migrations V1 and V2 are append-only after publication. P02 is serial; ambiguous retry and live continuation are deliberately blocked. Capability schemas cannot certify actual provider behavior.",
         "references": [
-          "src/consilium/shell/storage.py",
-          "docs/decisions/ADR-006-P02_STORAGE_SLICE_FA.md"
+          "docs/decisions/ADR-007-P02_DURABLE_DISPATCH_FA.md",
+          "src/consilium/shell/schema_v2.py"
         ]
       }
     ]

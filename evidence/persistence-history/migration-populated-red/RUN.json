@@ -1,16 +1,16 @@
 {
   "phase": "P02",
-  "scope": "P02_DURABILITY_OFFLINE_NOT_FULL_V1_ACCEPTANCE",
-  "status": "PASS",
+  "scope": "P02_STORAGE_AND_PREPARED_INTENT_SLICE_NOT_PHASE_ACCEPTANCE",
+  "status": "FAIL",
   "counts": {
-    "tests": 80,
+    "tests": 72,
     "failures": 0,
-    "errors": 0,
+    "errors": 1,
     "skipped": 0
   },
-  "source_digest_before": "a26532121e6eea90b6e6bae3bc5d3e5af6f49257ab453cd0472f49389b63fb51",
-  "source_digest_after": "a26532121e6eea90b6e6bae3bc5d3e5af6f49257ab453cd0472f49389b63fb51",
-  "date_utc": "2026-10-06T11:21:24.555674+00:00",
+  "source_digest_before": "1d1f0908767a42c3138f2b4fd82b7b79f96b00f848a26686be931efdf931d841",
+  "source_digest_after": "1d1f0908767a42c3138f2b4fd82b7b79f96b00f848a26686be931efdf931d841",
+  "date_utc": "2026-10-06T11:09:03.103646+00:00",
   "host": {
     "system": "Linux",
     "python": "3.12.14",
@@ -18,39 +18,7 @@
   },
   "live_provider_calls": 0,
   "phase_accepted": false,
-  "process_exit_cases": [
-    "test_ledger.ProcessCrashTests.test_process_exit_before_send",
-    "test_ledger.ProcessCrashTests.test_process_exit_after_send_start_before_transport",
-    "test_ledger.ProcessCrashTests.test_process_exit_after_external_mock_send",
-    "test_ledger.ProcessCrashTests.test_process_exit_before_result_persistence",
-    "test_ledger.ProcessCrashTests.test_process_exit_inside_result_transaction",
-    "test_ledger.ProcessCrashTests.test_process_exit_after_result_persistence",
-    "test_ledger.ProcessCrashTests.test_process_exit_after_validation",
-    "test_ledger.ProcessCrashTests.test_process_exit_inside_confirmation_transaction",
-    "test_ledger.ProcessCrashTests.test_process_exit_after_confirmation",
-    "test_storage.StorageTests.test_actual_process_exit_after_intent_preserves_frozen_input_and_checkpoint",
-    "test_storage.StorageTests.test_actual_process_exit_before_intent_keeps_previous_checkpoint",
-    "test_storage.StorageTests.test_actual_process_exit_inside_intent_rolls_back_all_partial_writes"
-  ],
-  "process_exit_case_count": 12,
-  "external_transport": "MOCK_ONLY_SIMULATED_RECEIPTS_NOT_LIVE_PROVIDER_PROOF",
   "cases": [
-    {
-      "id": "test_durable_cli.DurableCliTests.test_browser_mock_ambiguous_resume_keeps_the_same_attempt_and_never_resends",
-      "status": "PASS"
-    },
-    {
-      "id": "test_durable_cli.DurableCliTests.test_new_demo_cannot_overwrite_or_send_again_to_an_existing_database",
-      "status": "PASS"
-    },
-    {
-      "id": "test_durable_cli.DurableCliTests.test_persist_restart_and_resume_keep_original_question_and_one_canonical_result",
-      "status": "PASS"
-    },
-    {
-      "id": "test_durable_cli.DurableCliTests.test_resume_missing_database_does_not_create_a_blank_one",
-      "status": "PASS"
-    },
     {
       "id": "test_ledger.LedgerTests.test_a_conflicting_second_result_is_quarantined_without_replacing_canonical",
       "status": "PASS"
@@ -72,10 +40,6 @@
       "status": "PASS"
     },
     {
-      "id": "test_ledger.LedgerTests.test_connection_change_invalidates_an_unconsumed_continue_decision",
-      "status": "PASS"
-    },
-    {
       "id": "test_ledger.LedgerTests.test_current_revision_cannot_reopen_an_old_decision_after_next_round",
       "status": "PASS"
     },
@@ -89,10 +53,6 @@
     },
     {
       "id": "test_ledger.LedgerTests.test_duplicate_json_keys_and_wrong_response_shape_are_rejected",
-      "status": "PASS"
-    },
-    {
-      "id": "test_ledger.LedgerTests.test_exclusive_new_store_refuses_an_existing_database",
       "status": "PASS"
     },
     {
@@ -120,10 +80,6 @@
       "status": "PASS"
     },
     {
-      "id": "test_ledger.LedgerTests.test_partial_response_does_not_authorize_a_finish_decision",
-      "status": "PASS"
-    },
-    {
       "id": "test_ledger.LedgerTests.test_prepare_and_resume_cannot_authorize_work_after_finish",
       "status": "PASS"
     },
@@ -145,10 +101,6 @@
     },
     {
       "id": "test_ledger.LedgerTests.test_result_with_known_secret_is_not_persisted",
-      "status": "PASS"
-    },
-    {
-      "id": "test_ledger.LedgerTests.test_resume_does_not_call_another_prepared_attempt_ready_while_send_is_unresolved",
       "status": "PASS"
     },
     {
@@ -201,7 +153,7 @@
     },
     {
       "id": "test_ledger.MigrationTests.test_v1_data_and_immutable_migration_hash_survive_upgrade",
-      "status": "PASS"
+      "status": "ERROR"
     },
     {
       "id": "test_ledger.ProcessCrashTests.test_process_exit_before_send",

@@ -54,14 +54,14 @@
     ],
     "P02": [
       {
-        "id": "persistence_storage_slice",
+        "id": "persistence_durable_kernel",
         "kind": "test",
         "argv": [
           "{python}",
           "tools/run_persistence_tests.py"
         ],
         "junit": "evidence/persistence-tests/JUNIT.xml",
-        "scope": "P02_STORAGE_SLICE_NOT_COMPLETE_PHASE_ACCEPTANCE"
+        "scope": "P02_DURABLE_KERNEL_BEHAVIOR_NOT_FULL_V1_CONFORMANCE"
       }
     ],
     "P03": [],

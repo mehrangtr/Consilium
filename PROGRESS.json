@@ -5,7 +5,7 @@
   "application_source_commit": "109782c0358bc6ba499c97d3d084a7b320d0da43",
   "current_phase": "P02",
   "verified_application_requirements": 0,
-  "governance_check_note": "پذیرش مرحلهٔ صفر محفوظ است. آزمون پایهٔ P01 روی لینوکس انجام شده؛ پذیرش کامل ۳۰ خواسته و اجرای ویندوز هنوز انجام نشده‌اند.",
+  "governance_check_note": "پذیرش P00 و P01 محفوظ است؛ هستهٔ P02 پیاده شده و پذیرش آن به شواهد بومی تازه و بازبینی و گیت وابسته است. پذیرش کامل ۳۰ خواسته هنوز انجام نشده است.",
   "phases": [
     {
       "id": "P00",
@@ -84,32 +84,29 @@
         "src/consilium/shell/storage.py",
         "src/consilium/core/storage_contracts.py",
         "tests/persistence/test_storage.py",
-        "tests/persistence/crash_worker.py"
+        "tests/persistence/crash_worker.py",
+        "src/consilium/core/operation_states.py",
+        "src/consilium/shell/schema_v2.py",
+        "src/consilium/shell/ledger.py",
+        "src/consilium/shell/runner.py",
+        "tests/persistence/test_ledger.py",
+        "tests/persistence/test_durable_cli.py",
+        "tests/persistence/dispatch_crash_worker.py",
+        "docs/decisions/ADR-007-P02_DURABLE_DISPATCH_FA.md"
       ],
       "tests": [],
       "exit_evidence": [],
       "blockers": [
-        "ارسال، ثبت نتیجه، حالت تحویل نامعلوم، تصمیم قدیمی و آزمون قطع پس از ارسال هنوز در این مرحله پیاده نشده‌اند."
+        "اجرای بومی تازهٔ هر دو محیط و بازبینی نهایی و گیت P02 برای منبع جاری هنوز تکمیل نشده‌اند."
       ],
       "notes": [
         "بخش اول پس از پذیرش واقعی P01 آغاز شد: مهاجرت اتمیک، ثبت بحث و اتصال و قصد تثبیت‌شده، رویداد، نقطهٔ ادامه، پشتیبان و سه قطع واقعی پردازه. کل P02 پذیرفته نشده است.",
         "بخش ذخیره‌سازی روی هر دو محیط بومی تأیید شد: ۲۹ آزمون ذخیره‌سازی، ۶۰ آزمون پایه و ۸۲ آزمون کنترل و چهار دمو در هر محیط موفق بودند. سه خطای واقعی ویندوز در آزمون‌های کمکی اصلاح و گزارش شکست حفظ شد؛ کل P02 باز است."
       ],
       "work_in_progress_evidence": {
-        "scope": "VERIFIED_STORAGE_SLICE_NOT_COMPLETE_PHASE_ACCEPTANCE",
-        "native_reports": [
-          {
-            "path": "evidence/targets/Windows/20261006T103539Z_ba0293b8/RUN.json",
-            "sha256": "79a7825f9811b484eb7f78177a8091c44474525443d212b9ba276e549221307e"
-          },
-          {
-            "path": "evidence/targets/Linux/20261006T103527Z_de3cfae8/RUN.json",
-            "sha256": "fccc94e7757f6868574565fe9de15c19b7fc634f337729ea763aa11780b355f4"
-          }
-        ],
-        "review": "evidence/reviews/P02-partial.json",
-        "source_digest": "55d63fd7ef2c5696b383df3464a0aec2c275acf7321c545a1ca3ac8aa8aa2736",
-        "ci_run": "https://github.com/mehrangtr/Consilium/actions/runs/37450763686"
+        "status": "IMPLEMENTED_LOCAL_PASS_AWAITING_CURRENT_NATIVE_MATRIX_AND_GATE",
+        "local_persistence_report": "evidence/persistence-tests/RUN.json",
+        "full_v1_conformance": "NOT_RUN"
       }
     },
     {
@@ -345,6 +342,12 @@
       "reason": "پس از پذیرش واقعی P01، بخش ذخیره‌سازی P02 ساخته و با قطع واقعی پردازه بررسی شد؛ ارسال و نتیجه و گیت کل P02 باقی‌اند.",
       "phase_order_changed": false,
       "protected_requirements_changed": false
+    },
+    {
+      "date": "2026-10-06",
+      "reason": "تکمیل مسیر ارسال و نتیجه و تصمیم و ادامهٔ P02، مهاجرت محافظت‌شدهٔ نسخهٔ دوم و دوازده آزمون قطع واقعی پردازه؛ پذیرش مرحله منتظر شواهد و گیت واقعی است.",
+      "phase_order_changed": false,
+      "protected_requirements_changed": false
     }
   ],
   "runtime_conformance": [
@@ -532,7 +535,7 @@
   "control_tooling_status": {
     "status": "SEE_EVIDENCE_REPORT",
     "report": "evidence/control-tests/RUN.json",
-    "application_runtime_tests": "FOUNDATION_AND_P02_STORAGE_SLICE; FULL_V1_NOT_RUN",
+    "application_runtime_tests": "FOUNDATION_AND_P02_DURABLE_KERNEL; FULL_V1_NOT_RUN",
     "actual_manual_hours": null,
     "foundation_report": "evidence/foundation-tests/RUN.json",
     "persistence_report": "evidence/persistence-tests/RUN.json"
@@ -541,23 +544,23 @@
     "phase": "P02",
     "last_verified_checkpoint": "P01",
     "completed_work": [
-      "P00 and P01 accepted; original acceptance evidence preserved.",
-      "P02 storage/prepared-intent slice passed 29 persistence, 60 foundation and 82 control tests on actual Windows and Linux.",
-      "Three real process-exit cases passed on each OS; Windows test-helper leaks and Git evidence normalization were repaired."
+      "Published P00/P01 acceptance preserved.",
+      "P02 durable dispatch, result validation/confirmation, guarded decisions/retry, restart and JSON path implemented.",
+      "Local suite passed; six review defects reproduced and repaired."
     ],
     "working_changes": [
-      "Full P02 send-start, result recording, ambiguity-safe resume, stale-result/decision rejection and remaining crash points are not implemented."
+      "Current-source native Windows/Linux execution and final acceptance review are pending."
     ],
-    "next_action": "Implement the send-start ledger boundary, result persistence and guarded resume with real process-exit tests; no automatic retry for ambiguous delivery.",
+    "next_action": "Execute current-source native Windows/Linux checks, inspect actual evidence and finalize the P02 criterion review; do not start P03 before its gate passes.",
     "next_command": "python tools/run_persistence_tests.py",
     "inputs_missing": [],
     "known_quirks": [
       {
         "id": "P02-001",
-        "note": "Schema v1 supports PREPARED intents only; adding attempt states and retry attempts requires migration v2, never editing the checksum of v1.",
+        "note": "Migrations V1 and V2 are append-only after publication. P02 is serial; ambiguous retry and live continuation are deliberately blocked. Capability schemas cannot certify actual provider behavior.",
         "references": [
-          "src/consilium/shell/storage.py",
-          "docs/decisions/ADR-006-P02_STORAGE_SLICE_FA.md"
+          "docs/decisions/ADR-007-P02_DURABLE_DISPATCH_FA.md",
+          "src/consilium/shell/schema_v2.py"
         ]
       }
     ]

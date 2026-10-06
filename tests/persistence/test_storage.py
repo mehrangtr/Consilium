@@ -53,7 +53,7 @@ class StorageTests(unittest.TestCase):
         return value.model_copy(update=changes)
 
     def test_new_database_has_durable_settings_and_valid_schema(self):
-        self.assertEqual(self.store._db.execute("PRAGMA user_version").fetchone()[0], 1)
+        self.assertEqual(self.store._db.execute("PRAGMA user_version").fetchone()[0], 2)
         self.assertEqual(self.store._db.execute("PRAGMA journal_mode").fetchone()[0], "wal")
         self.assertEqual(self.store._db.execute("PRAGMA synchronous").fetchone()[0], 2)
         self.assertEqual(self.store._db.execute("PRAGMA foreign_keys").fetchone()[0], 1)
@@ -63,7 +63,7 @@ class StorageTests(unittest.TestCase):
         self.seeded(); original = self.store.export_debate(self.debate.debate_id)
         self.store.close(); self.store = SQLiteStore(self.path)
         self.assertEqual(self.store.export_debate(self.debate.debate_id), original)
-        self.assertEqual(self.store._db.execute("SELECT count(*) FROM schema_migrations").fetchone()[0], 1)
+        self.assertEqual(self.store._db.execute("SELECT count(*) FROM schema_migrations").fetchone()[0], 2)
 
     def test_future_schema_is_refused_without_downgrading_it(self):
         other = self.path.with_name("future.sqlite3")
@@ -140,7 +140,8 @@ class StorageTests(unittest.TestCase):
         self.seeded()
         replacement = self.connection.model_copy(update={"connection_id": uuid4()})
         self.store.bind_connection(self.debate.debate_id, self.participant, replacement,
-                                   expected_revision=2, expected_connection_revision=0)
+                                   expected_revision=2, expected_connection_revision=0,
+                                   actor="test-user", reason="explicit connection replacement")
         with self.assertRaises(Conflict): self.store.prepare_intent(self.intent(expected_revision=3))
         self.assertEqual(self.store.checkpoint(self.debate.debate_id).revision, 3)
         self.assertEqual(self.store.prepared_intents(self.debate.debate_id), ())
@@ -219,9 +220,19 @@ class StorageTests(unittest.TestCase):
 
     def test_intent_for_an_older_registered_round_is_refused(self):
         self.seeded()
+        from consilium.adapters.mock import MockAdapter
+        from consilium.core.contracts import AdapterRequest, UserDecision
+        from consilium.shell.runner import DurableRunner
+        first = self.intent(); self.store.prepare_intent(first)
+        DurableRunner(self.store).execute(AdapterRequest(intent=first, connection=self.connection, timeout_seconds=2.0),
+                                         MockAdapter(), expected_revision=3)
+        checkpoint = self.store.ledger.wait_for_decision(self.debate.debate_id, self.round.round_id,
+                                                        expected_revision=self.store.checkpoint(self.debate.debate_id).revision)
+        checkpoint = self.store.ledger.record_decision(UserDecision(decision_id=uuid4(), debate_id=self.debate.debate_id,
+            round_id=self.round.round_id, expected_revision=checkpoint.revision, kind="CONTINUE"), actor="test-user")
         next_round = self.round.model_copy(update={"round_id": uuid4(), "number": 2, "kind": "REVIEW"})
-        self.store.register_round(next_round, expected_revision=2)
-        with self.assertRaises(Conflict): self.store.prepare_intent(self.intent(expected_revision=3))
+        checkpoint = self.store.register_round(next_round, expected_revision=checkpoint.revision)
+        with self.assertRaises(Conflict): self.store.prepare_intent(self.intent(expected_revision=checkpoint.revision))
         self.assertEqual(self.store.prepared_intents(self.debate.debate_id), ())
 
     def test_checkpoint_cannot_be_rewound_while_newer_events_exist(self):

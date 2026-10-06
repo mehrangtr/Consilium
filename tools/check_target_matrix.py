@@ -88,7 +88,7 @@ def inspect_matrix(root):
                       "control_report": "DEVELOPMENT_CONTROL_TOOLING_ONLY",
                       "foundation_report": "APPLICATION_FOUNDATION_OFFLINE_NOT_FULL_V1_CONFORMANCE"}
             if persistence_required:
-                scopes["persistence_report"] = "P02_STORAGE_AND_PREPARED_INTENT_SLICE_NOT_PHASE_ACCEPTANCE"
+                scopes["persistence_report"] = "P02_DURABILITY_OFFLINE_NOT_FULL_V1_ACCEPTANCE"
             for role, expected_scope in scopes.items():
                 q.require(q.load(q.artifact(root, artifacts[role]))["scope"] == expected_scope,
                           "Incorrect target subcheck scope")

@@ -2,7 +2,7 @@
 
 این نما خودکار از `ROADMAP.json`، `PROGRESS.json` و `CHECKS.json` ساخته شده است. ویرایش دستی مرجع نیست؛ پس از تغییر مبنا فرمان تولید را دوباره اجرا کنید.
 
-شناسهٔ مبنای نما: `a03d9ee13bb1ae4acd475d89af3d8258dccda2c66b40cbf3331c0c5f142ee0c5`.
+شناسهٔ مبنای نما: `3954f437d22121ca748d1f13fd4887cf01492210660dc7c630da8ee230af38b2`.
 
 مرحلهٔ فعلی: `P02`. آخرین مرحلهٔ پذیرفته‌شده: `P01`.
 
@@ -15,23 +15,23 @@
   "phase": "P02",
   "last_verified_checkpoint": "P01",
   "completed_work": [
-    "P00 and P01 accepted; original acceptance evidence preserved.",
-    "P02 storage/prepared-intent slice passed 29 persistence, 60 foundation and 82 control tests on actual Windows and Linux.",
-    "Three real process-exit cases passed on each OS; Windows test-helper leaks and Git evidence normalization were repaired."
+    "Published P00/P01 acceptance preserved.",
+    "P02 durable dispatch, result validation/confirmation, guarded decisions/retry, restart and JSON path implemented.",
+    "Local suite passed; six review defects reproduced and repaired."
   ],
   "working_changes": [
-    "Full P02 send-start, result recording, ambiguity-safe resume, stale-result/decision rejection and remaining crash points are not implemented."
+    "Current-source native Windows/Linux execution and final acceptance review are pending."
   ],
-  "next_action": "Implement the send-start ledger boundary, result persistence and guarded resume with real process-exit tests; no automatic retry for ambiguous delivery.",
+  "next_action": "Execute current-source native Windows/Linux checks, inspect actual evidence and finalize the P02 criterion review; do not start P03 before its gate passes.",
   "next_command": "python tools/run_persistence_tests.py",
   "inputs_missing": [],
   "known_quirks": [
     {
       "id": "P02-001",
-      "note": "Schema v1 supports PREPARED intents only; adding attempt states and retry attempts requires migration v2, never editing the checksum of v1.",
+      "note": "Migrations V1 and V2 are append-only after publication. P02 is serial; ambiguous retry and live continuation are deliberately blocked. Capability schemas cannot certify actual provider behavior.",
       "references": [
-        "src/consilium/shell/storage.py",
-        "docs/decisions/ADR-006-P02_STORAGE_SLICE_FA.md"
+        "docs/decisions/ADR-007-P02_DURABLE_DISPATCH_FA.md",
+        "src/consilium/shell/schema_v2.py"
       ]
     }
   ]

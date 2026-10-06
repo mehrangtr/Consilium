@@ -10,4 +10,6 @@ class StorageCheckpoint(Contract):
     debate_id: Identifier
     revision: Revision
     event_sequence: Annotated[int, Field(ge=1)]
-    event_kind: Literal["DEBATE_CREATED", "ROUND_REGISTERED", "CONNECTION_BOUND", "OPERATION_PREPARED"]
+    event_kind: Literal["DEBATE_CREATED", "ROUND_REGISTERED", "CONNECTION_BOUND", "OPERATION_PREPARED",
+                        "SEND_STARTED", "SEND_INTERRUPTED", "RESULT_RECORDED", "RESULT_REJECTED",
+                        "RESPONSE_VALIDATED", "RESULT_CONFIRMED", "WAITING_DECISION", "USER_DECISION", "RETRY_PREPARED"]

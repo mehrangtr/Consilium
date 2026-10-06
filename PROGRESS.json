@@ -218,7 +218,8 @@
       "blockers": [],
       "notes": [
         "Design draft and 12-behavior test matrix created after corrected P03 acceptance; Python implementation and P04 tests not started.",
-        "Handoff allowlist maintenance fixed two omitted new source paths; current-source native tests required, without re-executing browser sends."
+        "Handoff allowlist maintenance fixed two omitted new source paths; current-source native tests required, without re-executing browser sends.",
+        "CURRENT: transfer allowlist maintenance and its current source passed 272 tests on each actual native OS. P04 Python implementation is still not started; source and reviewed evidence on main verified."
       ]
     },
     {
@@ -675,9 +676,7 @@
       "P03 actual positive/observer-loss/controlled sign-out evidence and corrected five-provider estimate accepted",
       "P04 contract draft and adversarial test matrix prepared; no P04 implementation yet"
     ],
-    "working_changes": [
-      "Reviewed final main publication pending; source and transfer allowlist validated on both actual native OSs"
-    ],
+    "working_changes": [],
     "next_action": "از P04-001 ادامه بده: آزمون‌های قرارداد حفظ دقیق پرسش و قیود و رد پیشنهاد ناسازگار را بنویس؛ سپس مدل‌های خالص و سختگیرانه را با استفاده از Contract موجود بساز. اصل درخواست جایگزین نشود. ثبت CHECKS مرحله و شاهد بومی منبع تغییرکرده پیش از پذیرش لازم‌اند.",
     "next_command": "python tools/qualityctl.py status",
     "startup_commands": [
@@ -692,7 +691,8 @@
       "Natural expiration, quota and full recovery uncertified; preserve UNKNOWN_DELIVERY without resend",
       "P03 acceptance-only evidence check validates historical records; exclude it from P04 regressions, keep offline safety tests",
       "Prior estimate 294-502 excluded extra scoped connections and is superseded; current scoped reserve estimate 420-718 hours",
-      "P03 immutable accepted source is 70e86a...; current cb9928... differs only in transfer allowlist maintenance and is independently native-tested. Do not rewrite historical live evidence source stamps."
+      "P03 immutable accepted source is 70e86a...; current cb9928... differs only in transfer allowlist maintenance and is independently native-tested. Do not rewrite historical live evidence source stamps.",
+      "Local checkpoint ancestry can differ from public main because source was committed through GitHub API. Use verified public head as API parent/lease; never force-push this checkout."
     ],
     "next_task": {
       "id": "P04-001",
@@ -779,6 +779,16 @@
             "full_driver_and_recovery": "NOT_IMPLEMENTED_OR_CERTIFIED"
           },
           "preserve_policy": "Keep two confirmed operations and one unknown attempt; no automatic resend; private raw trace stays private; current session signed out."
+        },
+        {
+          "id": "PUB-P03-001",
+          "phase": "P03_DELIVERY",
+          "status": "COMPLETED",
+          "title_fa": "ثبت پذیرش و تحویل مرحلهٔ سه و طرح آغاز مرحلهٔ چهار روی شاخهٔ اصلی",
+          "verified_commit": "baceaf1291818be695b65565756c948c81e43651",
+          "verified_files": 194,
+          "source_digest": "cb99286e53059e175bb409da98be8e0805efe7ac1dc327430f2cae8c201a2d4f",
+          "remaining_fa": "هیچ کار باز در این انتشار باقی نمانده است؛ اجرای کد مرحلهٔ چهار در P04-001 ثبت است."
         }
       ],
       "future_phases": {
@@ -881,11 +891,17 @@
       "phase_barrier": "P02 accepted and publication verified. P03 is blocked by declined authentication; P04 remains blocked until genuine P03 criteria pass."
     },
     "public_publication": {
-      "status": "FINAL_MAIN_UPDATE_PENDING",
+      "status": "COMPLETED_REVIEWED_SOURCE_AND_EVIDENCE_ON_MAIN",
       "tested_source_commit": "dead9ed58ee8bbefe7d2a425021dacc051aeb4d8",
       "tested_source_digest": "cb99286e53059e175bb409da98be8e0805efe7ac1dc327430f2cae8c201a2d4f",
       "standing_authorization": "ACTIVE",
-      "private_raw_evidence_publication": "WITHHELD; prior automatic rejection retained"
+      "private_raw_evidence_publication": "WITHHELD; prior automatic rejection retained",
+      "verified_artifact_commit": "baceaf1291818be695b65565756c948c81e43651",
+      "verified_file_count": 194,
+      "verification": "Exact remote UTF-8 content and Git blob SHA for every changed file; main head matched; source unchanged after publication",
+      "verified_at_utc": "2026-10-06T23:41:32.996372+00:00",
+      "target_branch": "main",
+      "unfinished_publication_work": false
     },
     "historical_resume_source": {
       "repository": "mehrangtr/Consilium",

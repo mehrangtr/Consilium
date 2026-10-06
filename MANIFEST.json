@@ -58,8 +58,8 @@
     },
     {
       "path": "HANDOFF.json",
-      "bytes": 17100,
-      "sha256": "c9de3be1fa4884b11b8df89024660000d14a172bc0139b6e5fa01ed214317083"
+      "bytes": 18221,
+      "sha256": "c9ee9dd1406a373f32d06bfec3cebdc9761cbe21d74bc77ccda96626762fbd96"
     },
     {
       "path": "HANDOFF_TEMPLATE_FA.md",
@@ -73,8 +73,8 @@
     },
     {
       "path": "PROGRESS.json",
-      "bytes": 44345,
-      "sha256": "5d762639b7213d19e2e6eb92de0a371334f98224fa710ef5ada35f0f4e58c592"
+      "bytes": 45678,
+      "sha256": "42863f36c2e2f4cc447d6ddfa860ce8d994e0115ccedb5e2033dcaf8e009b0b8"
     },
     {
       "path": "README_FA.md",
@@ -969,12 +969,12 @@
     {
       "path": "evidence/navigation/BACKLOG_FA.md",
       "bytes": 29902,
-      "sha256": "879c8052f54dbf8222e3f098b3975e1e27c372b688d535cd4beb49593883e85a"
+      "sha256": "3cd9c6b4559d704bc3b25095af63fe7902387dffbc5edd3150e34c41b1f8f7e0"
     },
     {
       "path": "evidence/navigation/STATUS_FA.md",
-      "bytes": 16047,
-      "sha256": "3908e1efa2f3be76c34ffa714d1890c92b62021b78d43ea7838e76e4b556049d"
+      "bytes": 17138,
+      "sha256": "f080b4515b917629d13be5c3854e074e986100172629ee5cc68dc4f5c10c7cf7"
     },
     {
       "path": "evidence/navigation/UNFINISHED_FA.md",

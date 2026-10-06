@@ -1,6 +1,6 @@
 {
   "phase": "P02",
-  "source_digest": "1aac3e2d28c5d668cfbf07baf2c58ffd1245e55cd6f5d7ea95d25b6f4bb3ffcc",
+  "source_digest": "55d63fd7ef2c5696b383df3464a0aec2c275acf7321c545a1ca3ac8aa8aa2736",
   "status": "BLOCKED",
   "reviewer": "Codex, same author in a separate P02 storage review pass",
   "method": "Inspected transactional migration, exact frozen input persistence, revision checks, latest-round guard, checkpoint history, backup error cleanup and genuine child-process exit tests. Three behavioral failures were confirmed and repaired. This reviews only the completed storage slice.",
@@ -29,6 +29,12 @@
       "kind": "DEFECT",
       "state": "CLOSED",
       "reason": "Native evidence is exempt from Git newline normalization; actual staging/checkout roundtrip preserves exact CRLF bytes."
+    },
+    {
+      "id": "P02-S05",
+      "kind": "DEFECT",
+      "state": "CLOSED",
+      "reason": "Real Windows run exposed three test-helper connection leaks; explicit closing preserves assertions and permits cleanup. Fresh Windows/Linux verification is required."
     }
   ],
   "criteria": [

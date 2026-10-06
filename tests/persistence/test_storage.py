@@ -1,6 +1,7 @@
 """Behavioral storage tests; test names do not imply full P02 acceptance."""
 from __future__ import annotations
 
+from contextlib import closing
 import json
 from pathlib import Path
 import sqlite3
@@ -66,18 +67,18 @@ class StorageTests(unittest.TestCase):
 
     def test_future_schema_is_refused_without_downgrading_it(self):
         other = self.path.with_name("future.sqlite3")
-        with sqlite3.connect(other) as db:
+        with closing(sqlite3.connect(other)) as db:
             db.execute("PRAGMA user_version=999")
         with self.assertRaises(SchemaError): SQLiteStore(other)
-        with sqlite3.connect(other) as db:
+        with closing(sqlite3.connect(other)) as db:
             self.assertEqual(db.execute("PRAGMA user_version").fetchone()[0], 999)
             self.assertEqual(db.execute("PRAGMA journal_mode").fetchone()[0], "delete")
 
     def test_unowned_database_is_not_adopted(self):
         other = self.path.with_name("foreign.sqlite3")
-        with sqlite3.connect(other) as db: db.execute("CREATE TABLE unrelated(value TEXT)")
+        with closing(sqlite3.connect(other)) as db: db.execute("CREATE TABLE unrelated(value TEXT)")
         with self.assertRaises(SchemaError): SQLiteStore(other)
-        with sqlite3.connect(other) as db:
+        with closing(sqlite3.connect(other)) as db:
             self.assertEqual(db.execute("PRAGMA user_version").fetchone()[0], 0)
             self.assertEqual(db.execute("SELECT name FROM sqlite_master WHERE type='table'").fetchall(), [("unrelated",)])
 
@@ -85,7 +86,7 @@ class StorageTests(unittest.TestCase):
         other = self.path.with_name("failed.sqlite3")
         with patch.object(storage, "V1_STATEMENTS", storage.V1_STATEMENTS + ("INVALID SQL",)):
             with self.assertRaises(SchemaError): SQLiteStore(other)
-        with sqlite3.connect(other) as db:
+        with closing(sqlite3.connect(other)) as db:
             self.assertEqual(db.execute("PRAGMA user_version").fetchone()[0], 0)
             self.assertEqual(db.execute("SELECT name FROM sqlite_master WHERE name NOT LIKE 'sqlite_%'").fetchall(), [])
 

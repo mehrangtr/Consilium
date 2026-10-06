@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "plan_version": "1.2",
-  "updated_at": "2026-10-06T21:51:20.848144+00:00",
+  "updated_at": "2026-10-06",
   "application_source_commit": "db2ef3073d84d560de00738cd9878df47e4f6dc4",
   "current_phase": "P03",
   "verified_application_requirements": 0,
@@ -156,12 +156,17 @@
         "evidence/browser-probe/P03_AUTH_CONFIRMED_REQUEST_TIMEOUT.json",
         "evidence/browser-probe/P03_MANUAL_AUTH_HANDOFF_PREPARATION.json",
         "evidence/browser-probe/P03_CLAUDE_MANUAL_AUTH_PREPARATION.json",
-        "evidence/browser-probe/P03_CLAUDE_SIGN_IN_PAGE.jpg"
+        "evidence/browser-probe/P03_CLAUDE_SIGN_IN_PAGE.jpg",
+        "evidence/browser-probe/P03_CLAUDE_LIVE_PUBLIC_SUMMARY.json",
+        "evidence/browser-probe/P03_CLAUDE_LIVE_PUBLIC_REVIEW.json",
+        "evidence/browser-probe/P03_CLAUDE_LIVE_FINDINGS_FA.md",
+        "evidence/browser-probe/P03_CLAUDE_LIVE_NEXT_ACTION_FA.md",
+        "evidence/browser-probe/P03_PRIVATE_TRACE_PUBLICATION_REVIEW_BLOCK.json"
       ],
       "tests": [],
       "exit_evidence": [],
       "blockers": [
-        "تکمیل ورود کاربر به Claude در مرورگر ابری و تأیید نشست معتبر هنوز انجام نشده‌اند؛ مجوز کاربر موجود و مسیر تحویل دستی کنترل آماده است."
+        "شاهد واقعی انقضای نشست پس از احراز هویت معتبر هنوز مشاهده نشده؛ معیار دوم و گیت P03 کامل نیستند."
       ],
       "notes": [
         "بررسی واقعی دسترسی DeepSeek در مرورگر ابری به صفحهٔ ورود هدایت شد. هیچ پیام، آزمون انقضا یا بررسی سهمیه اجرا نشده؛ همهٔ قابلیت‌های اتصال همچنان تأییدنشده‌اند.",
@@ -170,7 +175,9 @@
         "زمان واقعی مهندسی و انتظار با دقت اندازه‌گیری نشده‌اند؛ صفر قبلی مقدار پیش‌فرض بود و اکنون نامعلوم ثبت شده است.",
         "متن اجازهٔ تازهٔ کاربر و رد بررسی خودکار جدا از declined قبلی ثبت شدند. رد جدید، خطای سایت یا رد تازهٔ browserAuth معرفی نمی‌شود؛ راه جایگزین یا ارسال مدل اجرا نشده است.",
         "تأیید صریح بعدی کاربر دریافت شد. درخواست امنِ مجاز به مهلت ابزار رسید؛ این رویداد رد مجوز یا رد تازهٔ کاربر نیست. صفحهٔ تازه هنوز ورود می‌خواهد و هیچ پیام مدل ارسال نشده است. تحویل دستی کنترل آماده است؛ اجرای کورکورانه یا تکرار پشت‌سرهم مجاز نیست.",
-        "کاربر به‌علت نداشتن اطلاعات ورود DeepSeek، سرویس دیگر را خواست. Claude از دامنهٔ مصوب انتخاب شد؛ صفحهٔ ورود واقعی آن آماده است. این تغییر انتخاب اجرای آزمون است و هیچ خواسته، ترتیب مرحله یا قابلیت تأییدنشده را تغییر نمی‌دهد."
+        "کاربر به‌علت نداشتن اطلاعات ورود DeepSeek، سرویس دیگر را خواست. Claude از دامنهٔ مصوب انتخاب شد؛ صفحهٔ ورود واقعی آن آماده است. این تغییر انتخاب اجرای آزمون است و هیچ خواسته، ترتیب مرحله یا قابلیت تأییدنشده را تغییر نمی‌دهد.",
+        "Current live checkpoint supersedes earlier waiting-login notes: three actual Claude sends, two confirmed results, same conversation continued, one real observer interruption/no resend. Session remained authenticated after reopening; live expiration and full recovery not certified. P03 stays BLOCKED; source unchanged.",
+        "Automatic review rejected public upload of authenticated private conversation screenshot. Safer findings-only public reports prepared; complete trace and test ledger saved privately for owner. No raw trace appears in public update; gate still blocked by live expiration evidence."
       ]
     },
     {
@@ -428,6 +435,12 @@
       "reason": "مجوز مستقیم و مستمر کاربر برای گیت‌هاب تا زمان لغو صریح ثبت و مانع مجوز انتشار P02 رفع شد؛ کد و سوابق پذیرش و ترتیب مراحل تغییر نکردند.",
       "phase_order_changed": false,
       "protected_requirements_changed": false
+    },
+    {
+      "date": "2026-10-06",
+      "reason": "ورود دستی و آزمون واقعی Claude تأیید شدند؛ دو پاسخ و ادامهٔ گفتگو و قطع مشاهده با دفتر عملیات ثبت شدند. گیت به‌علت نبود شاهد واقعی انقضا بسته ماند.",
+      "phase_order_changed": false,
+      "protected_requirements_changed": false
     }
   ],
   "runtime_conformance": [
@@ -630,14 +643,14 @@
       "Full P02 source and acceptance evidence were published and verified on public main at 3bdf3f366bcc72679ae18480901b59d19c51ebe5. All 614 Git blob fingerprints and critical file contents matched. Standing GitHub access and publication authorization remain in force.",
       "P03 access preflight reached the actual DeepSeek sign-in page. No model prompt was sent; account, model, conversation and provider capabilities remain unverified.",
       "P03 offline observation recorder, binding hash, unique attempt marker and CLI implemented; 38 synthetic observation tests including 3 actual process exits passed locally. No live capability or phase acceptance claimed.",
-      "Current P03 preparation source db2ef3073d84d560de00738cd9878df47e4f6dc4 passed actual Linux and Windows: 60 foundation + 88 control + 80 persistence + 38 probe tests per OS, 15 process-exit cases per OS. GitHub run 37495758865 and both report graphs verified. Browser authentication was not retried; no live prompt sent."
+      "Current P03 preparation source db2ef3073d84d560de00738cd9878df47e4f6dc4 passed actual Linux and Windows: 60 foundation + 88 control + 80 persistence + 38 probe tests per OS, 15 process-exit cases per OS. GitHub run 37495758865 and both report graphs verified. Browser authentication was not retried; no live prompt sent.",
+      "Claude manual login verified; three real free send actions recorded. Two complete JSON answers confirmed in one actual conversation; second recovered prior token without repeating it. One controlled observer interruption persisted UNKNOWN_DELIVERY and reopened read-only with one matching user message and no resend. Live session expiration remains unobserved; P03 not accepted."
     ],
     "working_changes": [],
-    "next_action": "کاربر به‌علت نداشتن اطلاعات ورود DeepSeek، آزمون مرورگر را به Claude یا Qwen هدایت کرد. صفحهٔ واقعی ورود Claude در همان مرورگر ابری باز شد؛ گزینه‌های Google و Apple و ایمیل دیده شدند و تحویل دستی کنترل آماده است. مجوز ورود موجود است. پس از پایان ورود کاربر و بازگشت کنترل، ابتدا نشست معتبر را با شاهد مثبت بررسی کن؛ سپس آزمون محدود از دفتر عملیات با هویت دقیق حساب و مدل و همان گفتگو اجرا شود. اطلاعات ورود و پیوند تحویل در چت یا مخزن ثبت نشوند؛ P04 همچنان بسته است.",
+    "next_action": "ورود Claude و دو پاسخ واقعی تأیید شده‌اند؛ آن‌ها را تکرار نکن. قطع مشاهدهٔ واقعی، UNKNOWN_DELIVERY و بازکردن همان گفتگو بدون ارسال مجدد ثبت شدند. شاهد واقعی انقضای نشست هنوز موجود نیست: مشاهدهٔ کوتاه فقط خواندنی انجام بده، اگر نشست معتبر ماند نتیجه را ثبت و بدون انتظار حلقه‌ای checkpoint کن؛ هنگام انقضای واقعاً مشاهده‌شده ارسال را متوقف و مسیر امن ورود را اجرا کن. تلاش سوم دوباره ارسال یا با شاهد دیرتر بی‌صدا جایگزین نشود. سپس بررسی‌ها و بازبینی و گیت P03 تکمیل شوند؛ P04 بسته بماند.",
     "next_command": "python tools/qualityctl.py status",
     "inputs_missing": [
-      "Completion of user-requested manual Claude sign-in in the project cloud browser.",
-      "Positive account/model/conversation evidence followed by an actual ledger-backed browser probe."
+      "Live expiration/rejected-session evidence after prior positive authentication; bounded observation only, no fabricated expiration."
     ],
     "known_quirks": [
       {
@@ -662,6 +675,13 @@
           "evidence/git/Consilium_Source.bundle",
           "HANDOFF.json"
         ]
+      },
+      {
+        "id": "P03-PRIVATE-EVIDENCE",
+        "note": "Raw live conversation evidence was rejected for public publication by automatic review. Full private trace is preserved in owner evidence package identified by hash; public repo contains findings only. Do not bypass rejection through encoding, text conversion, encryption or indirect upload.",
+        "references": [
+          "evidence/browser-probe/P03_PRIVATE_TRACE_PUBLICATION_REVIEW_BLOCK.json"
+        ]
       }
     ],
     "startup_commands": [
@@ -672,7 +692,7 @@
     "next_task": {
       "id": "P03-FIRST-PROBE",
       "title": "بررسی محدود یک اتصال مرورگر منتخب از دامنهٔ مصوب",
-      "status": "WAITING_USER_CLAUDE_AUTHENTICATION_IN_CLOUD_BROWSER",
+      "status": "LIVE_CLAUDE_PROBE_COMPLETED_SESSION_EXPIRATION_EVIDENCE_PENDING",
       "order": [
         "قواعد AGENTS و HANDOFF و PROGRESS و SCOPE و معیارهای P03 در ROADMAP را بخوان؛ وضعیت و بررسی توسعه را راستی‌آزمایی کن.",
         "برای یک سرویس مصوب مسیر مرورگر مجاز را تعیین کن؛ دسترسی، هویت حساب و گفتگو و انقضای نشست را UNKNOWN نگه دار تا مشاهدهٔ واقعی ثبت شود.",
@@ -886,43 +906,61 @@
         "schema_version": 1,
         "phase": "P03",
         "provider_id": "anthropic",
-        "service_name": "Claude",
-        "recorded_at_utc": "2026-10-06T21:51:20.848144+00:00",
-        "user_request_at_local": "2026-10-07T01:18:28+03:30",
-        "provider_selection": "USER_REQUESTED_CHANGE_FROM_DEEPSEEK_TO_CLAUDE_OR_QWEN; CLAUDE_SELECTED_WITHIN_APPROVED_SCOPE",
-        "previous_provider_id": "deepseek",
-        "reason": "User has no DeepSeek username/password and explicitly requested another service and manual cloud browser login.",
-        "target_origin": "https://claude.ai",
-        "observed_url": "https://claude.ai/login",
-        "browser_id": "1",
-        "browser_tab_id": "3",
-        "visible_methods": [
-          "Continue with Google",
-          "Continue with Apple",
-          "Continue with email"
-        ],
-        "cookie_action": "Rejected optional cookies to expose the sign-in form.",
-        "login_page_screenshot": {
-          "path": "evidence/browser-probe/P03_CLAUDE_SIGN_IN_PAGE.jpg",
-          "sha256": "ce2d9b9cfe28853c86da85d62baf35a220cf80bf7177e8c07e26eaed0ac2212f",
-          "credential_fields_blank": true
-        },
-        "manual_control": "EXPLICITLY_REQUESTED_BY_USER; HANDOFF_PREPARED; REQUEST_NOT_YET_CONFIRMED",
-        "authentication_success": "NOT_CONFIRMED",
-        "account_identity": "UNVERIFIED",
-        "model_identity": "UNVERIFIED",
-        "conversation_identity": "NOT_CREATED",
+        "recorded_at_utc": "2026-10-06T22:43:47.444937+00:00",
+        "authentication_success": "CONFIRMED_BY_POSITIVE_UI_EVIDENCE",
+        "manual_login_completed_by_user": true,
+        "manual_handoff_status": "COMPLETED_AND_VERIFIED",
         "credential_values_read_or_logged": false,
-        "provider_prompt_sent": false,
-        "paid_calls": 0,
-        "bot_detection": "NOT_OBSERVED",
-        "session_expiration": "NOT_TESTED",
-        "next_action": "Request manual cloud browser control once on this Claude sign-in tab, then end the turn. After the user completes login and returns control, verify a positive signed-in signal before any ledger-backed model probe.",
-        "phase_accepted": false,
-        "source_changed": false,
-        "handoff_url_saved_or_published": false
+        "historical_preparation_record": "evidence/browser-probe/P03_CLAUDE_MANUAL_AUTH_PREPARATION.json",
+        "server_account_id_verified": false,
+        "authentication_evidence": "Positive UI observation preserved in private user evidence package; no account/conversation identity or raw text published",
+        "private_evidence_package_sha256": "d4fdf66374eb7bcc52ad8c2185a573b11286febc96e120355add78b93514ee16"
       },
-      "selected_provider_id": "anthropic"
+      "selected_provider_id": "anthropic",
+      "live_browser_checkpoint": {
+        "schema_version": 1,
+        "recorded_at_utc": "2026-10-06T22:51:01.629027+00:00",
+        "status": "LIVE_CLAUDE_PROBE_COMPLETED_SESSION_EXPIRATION_EVIDENCE_PENDING",
+        "provider_id": "anthropic",
+        "authentication": "AUTHENTICATED_VERIFIED",
+        "live_model_send_actions": 3,
+        "confirmed_operations": 2,
+        "unknown_delivery_operations": 1,
+        "same_conversation_verified": true,
+        "expiration_live": "NOT_OBSERVED",
+        "phase_accepted": false,
+        "summary": {
+          "path": "evidence/browser-probe/P03_CLAUDE_LIVE_PUBLIC_SUMMARY.json",
+          "sha256": "82a65800e5bd3a35e55136858a9601f84b358b93c709d8d5583650fdcc968d5d"
+        },
+        "criterion_review": {
+          "path": "evidence/browser-probe/P03_CLAUDE_LIVE_PUBLIC_REVIEW.json",
+          "sha256": "ef02b02bac04e4b912e682d81b70e45cfa183042be994e06b108a4d47bb831c5"
+        },
+        "report": {
+          "path": "evidence/browser-probe/P03_CLAUDE_LIVE_FINDINGS_FA.md",
+          "sha256": "fec0b8f85122ac1a2101912dd901d582e184a87b64221784efcbea08afd3e4e5"
+        },
+        "handoff": {
+          "path": "evidence/browser-probe/P03_CLAUDE_LIVE_NEXT_ACTION_FA.md",
+          "sha256": "dc0cd0771fe4bc51d2f36aea25762282ec485623d843cebeb20a2096fb4b979f"
+        },
+        "private_evidence_package": {
+          "filename": "Consilium_P03_Claude_Private_Evidence_20261006.zip",
+          "sha256": "d4fdf66374eb7bcc52ad8c2185a573b11286febc96e120355add78b93514ee16",
+          "bytes": 66382,
+          "status": "SAVED_PRIVATELY_FOR_USER",
+          "verified_zip_integrity": true,
+          "contents_scope": "PRIVATE_TEST_CONVERSATION_TRACE_AND_TEST_ONLY_LEDGER; NO_LOGIN_SECRETS_OR_AUTH_STATE",
+          "publicly_published": false
+        },
+        "public_raw_trace": "WITHHELD_AFTER_AUTO_REVIEW_REJECTION",
+        "publication_review": {
+          "path": "evidence/browser-probe/P03_PRIVATE_TRACE_PUBLICATION_REVIEW_BLOCK.json",
+          "sha256": "360a9f8465726a05bcba5b0e11135dd972bf739d7cea0ba59cf529eff9458f07"
+        },
+        "source_digest_unchanged": "a14e4bcfaf7cd9f982bb52d96037d099608e12c1d541855041a4491e25723c19"
+      }
     },
     "acceptance_revalidation": {
       "path": "VALIDATION_REPORT.json",
@@ -1085,23 +1123,23 @@
     },
     "unfinished_work": {
       "schema_version": 1,
-      "updated_at_utc": "2026-10-06T21:51:20.848144+00:00",
+      "updated_at_utc": "2026-10-06T22:43:47.444937+00:00",
       "canonical_location": "PROGRESS.json.resume.unfinished_work",
       "continuation_instruction": "کاربر به‌علت نداشتن اطلاعات ورود DeepSeek، آزمون مرورگر را به Claude یا Qwen هدایت کرد. صفحهٔ واقعی ورود Claude در همان مرورگر ابری باز شد؛ گزینه‌های Google و Apple و ایمیل دیده شدند و تحویل دستی کنترل آماده است. مجوز ورود موجود است. پس از پایان ورود کاربر و بازگشت کنترل، ابتدا نشست معتبر را با شاهد مثبت بررسی کن؛ سپس آزمون محدود از دفتر عملیات با هویت دقیق حساب و مدل و همان گفتگو اجرا شود. اطلاعات ورود و پیوند تحویل در چت یا مخزن ثبت نشوند؛ P04 همچنان بسته است.",
       "items": [
         {
           "id": "P03-001",
           "phase": "P03",
-          "status": "WAITING_USER_CLAUDE_AUTHENTICATION_IN_CLOUD_BROWSER",
+          "status": "LIVE_CLAUDE_PROBE_COMPLETED_SESSION_EXPIRATION_EVIDENCE_PENDING",
           "title_fa": "آزمون واقعی یک اتصال مرورگر از دامنهٔ مصوب",
-          "completed_fa": "آماده‌سازی آفلاین و شواهد بومی دو محیط حفظ شده‌اند. کاربر مسیر ورود را از DeepSeek به سرویس دیگر تغییر داد. صفحهٔ ورود واقعی Claude باز شد و گزینه‌های Google و Apple و ایمیل مشاهده شدند؛ تصویر فرم خالی و اقدام ادامه ثبت شدند. ورود موفق و پیام زنده هنوز تأیید نشده‌اند.",
-          "remaining_fa": "تعیین مسیر مرورگر مجاز و حساب و مدل منتخب، ثبت ارسال و پاسخ و ادامهٔ همان گفتگو، مشاهدهٔ انقضای نشست و ارسال نامطمئن، جدول قابلیت‌ها و بازبرآورد زمان، و ثبت بررسی‌های واقعی و بازبینی سه معیار.",
-          "live_observation": "CLAUDE_SIGN_IN_PAGE_OBSERVED; USER_REQUESTED_MANUAL_CONTROL; NO_MODEL_PROMPT_SENT",
+          "completed_fa": "ورود دستی Claude تأیید شد. دو پیام زنده با پاسخ JSON واقعی در همان گفتگو از دفتر عملیات عبور و تأیید شدند. قطع واقعی مشاهده پس از پیام سوم، ثبت تحویل نامعلوم و بازکردن فقط خواندنی بدون پیام تکراری بررسی شد. جدول قابلیت‌ها و برآورد و محدودیت‌ها ثبت شدند.",
+          "remaining_fa": "شاهد واقعی انقضا پس از نشست معتبر، تکمیل بررسی معیار دوم و ثبت بررسی‌های معتبر و گیت رسمی P03. نتیجهٔ سوم مبهم حفظ شود؛ بازیابی کامل و تعویض حساب ادعا نشوند.",
+          "live_observation": "ACTUAL_CLAUDE_SEND_RECEIVE_CONTINUATION_AND_OBSERVER_LOSS; NOT_EXPIRATION_OR_COMPLETE_PRODUCT",
           "registered_phase_checks": [],
           "prerequisites_unknown": [
-            "Authorized live account and selected model identity",
-            "Actual browser conversation and delivery evidence",
-            "Expiration and quota observations"
+            "Live expired/rejected session after prior authentication",
+            "Quota ceiling/reset; not certified",
+            "Server account identity and cross-account recovery; not certified"
           ],
           "integration_contracts": [
             {
@@ -1133,7 +1171,7 @@
             "Partial and complete response observations are distinct; continuation must refer to the same verified conversation.",
             "Use zero paid provider calls. Windows execution remains the assistant responsibility."
           ],
-          "next_action_fa": "کاربر به‌علت نداشتن اطلاعات ورود DeepSeek، آزمون مرورگر را به Claude یا Qwen هدایت کرد. صفحهٔ واقعی ورود Claude در همان مرورگر ابری باز شد؛ گزینه‌های Google و Apple و ایمیل دیده شدند و تحویل دستی کنترل آماده است. مجوز ورود موجود است. پس از پایان ورود کاربر و بازگشت کنترل، ابتدا نشست معتبر را با شاهد مثبت بررسی کن؛ سپس آزمون محدود از دفتر عملیات با هویت دقیق حساب و مدل و همان گفتگو اجرا شود. اطلاعات ورود و پیوند تحویل در چت یا مخزن ثبت نشوند؛ P04 همچنان بسته است.",
+          "next_action_fa": "ورود Claude و دو پاسخ واقعی تأیید شده‌اند؛ آن‌ها را تکرار نکن. قطع مشاهدهٔ واقعی، UNKNOWN_DELIVERY و بازکردن همان گفتگو بدون ارسال مجدد ثبت شدند. شاهد واقعی انقضای نشست هنوز موجود نیست: مشاهدهٔ کوتاه فقط خواندنی انجام بده، اگر نشست معتبر ماند نتیجه را ثبت و بدون انتظار حلقه‌ای checkpoint کن؛ هنگام انقضای واقعاً مشاهده‌شده ارسال را متوقف و مسیر امن ورود را اجرا کن. تلاش سوم دوباره ارسال یا با شاهد دیرتر بی‌صدا جایگزین نشود. سپس بررسی‌ها و بازبینی و گیت P03 تکمیل شوند؛ P04 بسته بماند.",
           "done_when_fa": "هر سه معیار خروج `P03` در `ROADMAP.json` با شاهد واقعی پاس شده و گیت پذیرش اجرا شده باشد.",
           "access_preflight": {
             "schema_version": 1,
@@ -1289,7 +1327,7 @@
               "next_action": "Await explicit new authentication request before live browser test. Do not advance P04."
             }
           },
-          "future_impact_fa": "پذیرش معتبر مرحلهٔ دو و دادهٔ آن از بین نمی‌روند. نبود شاهد زنده، پذیرش P03 و شروع P04 را متوقف می‌کند؛ زمان و قابلیت‌های مرورگر هنوز به دادهٔ واقعی نیاز دارند. ادامه بدون این گیت خطر ادعای اتصال و بازیابی اثبات‌نشده دارد.",
+          "future_impact_fa": "شواهد دو پاسخ و ثبت مبهم قابل ادامه‌اند و پذیرش P02 آسیب ندیده است. نکتهٔ باز انقضا، گیت P03 و آغاز P04 را متوقف می‌کند؛ ارسال خودکار مجددِ تلاش سوم می‌تواند پیام تکراری بسازد و ممنوع است. حفظ UNKNOWN و شاهد دیرتر جدا از هم از ادعای بازیابی اثبات‌نشده جلوگیری می‌کند.",
           "authentication_renewal_attempt": {
             "schema_version": 1,
             "phase": "P03",
@@ -1334,41 +1372,59 @@
             "schema_version": 1,
             "phase": "P03",
             "provider_id": "anthropic",
-            "service_name": "Claude",
-            "recorded_at_utc": "2026-10-06T21:51:20.848144+00:00",
-            "user_request_at_local": "2026-10-07T01:18:28+03:30",
-            "provider_selection": "USER_REQUESTED_CHANGE_FROM_DEEPSEEK_TO_CLAUDE_OR_QWEN; CLAUDE_SELECTED_WITHIN_APPROVED_SCOPE",
-            "previous_provider_id": "deepseek",
-            "reason": "User has no DeepSeek username/password and explicitly requested another service and manual cloud browser login.",
-            "target_origin": "https://claude.ai",
-            "observed_url": "https://claude.ai/login",
-            "browser_id": "1",
-            "browser_tab_id": "3",
-            "visible_methods": [
-              "Continue with Google",
-              "Continue with Apple",
-              "Continue with email"
-            ],
-            "cookie_action": "Rejected optional cookies to expose the sign-in form.",
-            "login_page_screenshot": {
-              "path": "evidence/browser-probe/P03_CLAUDE_SIGN_IN_PAGE.jpg",
-              "sha256": "ce2d9b9cfe28853c86da85d62baf35a220cf80bf7177e8c07e26eaed0ac2212f",
-              "credential_fields_blank": true
-            },
-            "manual_control": "EXPLICITLY_REQUESTED_BY_USER; HANDOFF_PREPARED; REQUEST_NOT_YET_CONFIRMED",
-            "authentication_success": "NOT_CONFIRMED",
-            "account_identity": "UNVERIFIED",
-            "model_identity": "UNVERIFIED",
-            "conversation_identity": "NOT_CREATED",
+            "recorded_at_utc": "2026-10-06T22:43:47.444937+00:00",
+            "authentication_success": "CONFIRMED_BY_POSITIVE_UI_EVIDENCE",
+            "manual_login_completed_by_user": true,
+            "manual_handoff_status": "COMPLETED_AND_VERIFIED",
             "credential_values_read_or_logged": false,
-            "provider_prompt_sent": false,
-            "paid_calls": 0,
-            "bot_detection": "NOT_OBSERVED",
-            "session_expiration": "NOT_TESTED",
-            "next_action": "Request manual cloud browser control once on this Claude sign-in tab, then end the turn. After the user completes login and returns control, verify a positive signed-in signal before any ledger-backed model probe.",
+            "historical_preparation_record": "evidence/browser-probe/P03_CLAUDE_MANUAL_AUTH_PREPARATION.json",
+            "server_account_id_verified": false,
+            "authentication_evidence": "Positive UI observation preserved in private user evidence package; no account/conversation identity or raw text published",
+            "private_evidence_package_sha256": "d4fdf66374eb7bcc52ad8c2185a573b11286febc96e120355add78b93514ee16"
+          },
+          "live_browser_checkpoint": {
+            "schema_version": 1,
+            "recorded_at_utc": "2026-10-06T22:51:01.629027+00:00",
+            "status": "LIVE_CLAUDE_PROBE_COMPLETED_SESSION_EXPIRATION_EVIDENCE_PENDING",
+            "provider_id": "anthropic",
+            "authentication": "AUTHENTICATED_VERIFIED",
+            "live_model_send_actions": 3,
+            "confirmed_operations": 2,
+            "unknown_delivery_operations": 1,
+            "same_conversation_verified": true,
+            "expiration_live": "NOT_OBSERVED",
             "phase_accepted": false,
-            "source_changed": false,
-            "handoff_url_saved_or_published": false
+            "summary": {
+              "path": "evidence/browser-probe/P03_CLAUDE_LIVE_PUBLIC_SUMMARY.json",
+              "sha256": "82a65800e5bd3a35e55136858a9601f84b358b93c709d8d5583650fdcc968d5d"
+            },
+            "criterion_review": {
+              "path": "evidence/browser-probe/P03_CLAUDE_LIVE_PUBLIC_REVIEW.json",
+              "sha256": "ef02b02bac04e4b912e682d81b70e45cfa183042be994e06b108a4d47bb831c5"
+            },
+            "report": {
+              "path": "evidence/browser-probe/P03_CLAUDE_LIVE_FINDINGS_FA.md",
+              "sha256": "fec0b8f85122ac1a2101912dd901d582e184a87b64221784efcbea08afd3e4e5"
+            },
+            "handoff": {
+              "path": "evidence/browser-probe/P03_CLAUDE_LIVE_NEXT_ACTION_FA.md",
+              "sha256": "dc0cd0771fe4bc51d2f36aea25762282ec485623d843cebeb20a2096fb4b979f"
+            },
+            "private_evidence_package": {
+              "filename": "Consilium_P03_Claude_Private_Evidence_20261006.zip",
+              "sha256": "d4fdf66374eb7bcc52ad8c2185a573b11286febc96e120355add78b93514ee16",
+              "bytes": 66382,
+              "status": "SAVED_PRIVATELY_FOR_USER",
+              "verified_zip_integrity": true,
+              "contents_scope": "PRIVATE_TEST_CONVERSATION_TRACE_AND_TEST_ONLY_LEDGER; NO_LOGIN_SECRETS_OR_AUTH_STATE",
+              "publicly_published": false
+            },
+            "public_raw_trace": "WITHHELD_AFTER_AUTO_REVIEW_REJECTION",
+            "publication_review": {
+              "path": "evidence/browser-probe/P03_PRIVATE_TRACE_PUBLICATION_REVIEW_BLOCK.json",
+              "sha256": "360a9f8465726a05bcba5b0e11135dd972bf739d7cea0ba59cf529eff9458f07"
+            },
+            "source_digest_unchanged": "a14e4bcfaf7cd9f982bb52d96037d099608e12c1d541855041a4491e25723c19"
           }
         }
       ],
@@ -1636,41 +1692,15 @@
       "schema_version": 1,
       "phase": "P03",
       "provider_id": "anthropic",
-      "service_name": "Claude",
-      "recorded_at_utc": "2026-10-06T21:51:20.848144+00:00",
-      "user_request_at_local": "2026-10-07T01:18:28+03:30",
-      "provider_selection": "USER_REQUESTED_CHANGE_FROM_DEEPSEEK_TO_CLAUDE_OR_QWEN; CLAUDE_SELECTED_WITHIN_APPROVED_SCOPE",
-      "previous_provider_id": "deepseek",
-      "reason": "User has no DeepSeek username/password and explicitly requested another service and manual cloud browser login.",
-      "target_origin": "https://claude.ai",
-      "observed_url": "https://claude.ai/login",
-      "browser_id": "1",
-      "browser_tab_id": "3",
-      "visible_methods": [
-        "Continue with Google",
-        "Continue with Apple",
-        "Continue with email"
-      ],
-      "cookie_action": "Rejected optional cookies to expose the sign-in form.",
-      "login_page_screenshot": {
-        "path": "evidence/browser-probe/P03_CLAUDE_SIGN_IN_PAGE.jpg",
-        "sha256": "ce2d9b9cfe28853c86da85d62baf35a220cf80bf7177e8c07e26eaed0ac2212f",
-        "credential_fields_blank": true
-      },
-      "manual_control": "EXPLICITLY_REQUESTED_BY_USER; HANDOFF_PREPARED; REQUEST_NOT_YET_CONFIRMED",
-      "authentication_success": "NOT_CONFIRMED",
-      "account_identity": "UNVERIFIED",
-      "model_identity": "UNVERIFIED",
-      "conversation_identity": "NOT_CREATED",
+      "recorded_at_utc": "2026-10-06T22:43:47.444937+00:00",
+      "authentication_success": "CONFIRMED_BY_POSITIVE_UI_EVIDENCE",
+      "manual_login_completed_by_user": true,
+      "manual_handoff_status": "COMPLETED_AND_VERIFIED",
       "credential_values_read_or_logged": false,
-      "provider_prompt_sent": false,
-      "paid_calls": 0,
-      "bot_detection": "NOT_OBSERVED",
-      "session_expiration": "NOT_TESTED",
-      "next_action": "Request manual cloud browser control once on this Claude sign-in tab, then end the turn. After the user completes login and returns control, verify a positive signed-in signal before any ledger-backed model probe.",
-      "phase_accepted": false,
-      "source_changed": false,
-      "handoff_url_saved_or_published": false
+      "historical_preparation_record": "evidence/browser-probe/P03_CLAUDE_MANUAL_AUTH_PREPARATION.json",
+      "server_account_id_verified": false,
+      "authentication_evidence": "Positive UI observation preserved in private user evidence package; no account/conversation identity or raw text published",
+      "private_evidence_package_sha256": "d4fdf66374eb7bcc52ad8c2185a573b11286febc96e120355add78b93514ee16"
     },
     "browser_probe_provider_selection": {
       "provider_id": "anthropic",
@@ -1679,8 +1709,59 @@
       "user_requested": true,
       "approved_scope": true,
       "model_id": "UNVERIFIED",
-      "evidence": "evidence/browser-probe/P03_CLAUDE_MANUAL_AUTH_PREPARATION.json"
+      "evidence": "evidence/browser-probe/P03_CLAUDE_MANUAL_AUTH_PREPARATION.json",
+      "current_authentication": "AUTHENTICATED_VERIFIED",
+      "model_label": "Sonnet 5.5 Medium",
+      "model_identity_scope": "VISIBLE_UI_LABEL",
+      "latest_evidence": {
+        "path": "evidence/browser-probe/P03_CLAUDE_LIVE_PUBLIC_SUMMARY.json",
+        "sha256": "82a65800e5bd3a35e55136858a9601f84b358b93c709d8d5583650fdcc968d5d"
+      }
+    },
+    "live_browser_checkpoint": {
+      "schema_version": 1,
+      "recorded_at_utc": "2026-10-06T22:51:01.629027+00:00",
+      "status": "LIVE_CLAUDE_PROBE_COMPLETED_SESSION_EXPIRATION_EVIDENCE_PENDING",
+      "provider_id": "anthropic",
+      "authentication": "AUTHENTICATED_VERIFIED",
+      "live_model_send_actions": 3,
+      "confirmed_operations": 2,
+      "unknown_delivery_operations": 1,
+      "same_conversation_verified": true,
+      "expiration_live": "NOT_OBSERVED",
+      "phase_accepted": false,
+      "summary": {
+        "path": "evidence/browser-probe/P03_CLAUDE_LIVE_PUBLIC_SUMMARY.json",
+        "sha256": "82a65800e5bd3a35e55136858a9601f84b358b93c709d8d5583650fdcc968d5d"
+      },
+      "criterion_review": {
+        "path": "evidence/browser-probe/P03_CLAUDE_LIVE_PUBLIC_REVIEW.json",
+        "sha256": "ef02b02bac04e4b912e682d81b70e45cfa183042be994e06b108a4d47bb831c5"
+      },
+      "report": {
+        "path": "evidence/browser-probe/P03_CLAUDE_LIVE_FINDINGS_FA.md",
+        "sha256": "fec0b8f85122ac1a2101912dd901d582e184a87b64221784efcbea08afd3e4e5"
+      },
+      "handoff": {
+        "path": "evidence/browser-probe/P03_CLAUDE_LIVE_NEXT_ACTION_FA.md",
+        "sha256": "dc0cd0771fe4bc51d2f36aea25762282ec485623d843cebeb20a2096fb4b979f"
+      },
+      "private_evidence_package": {
+        "filename": "Consilium_P03_Claude_Private_Evidence_20261006.zip",
+        "sha256": "d4fdf66374eb7bcc52ad8c2185a573b11286febc96e120355add78b93514ee16",
+        "bytes": 66382,
+        "status": "SAVED_PRIVATELY_FOR_USER",
+        "verified_zip_integrity": true,
+        "contents_scope": "PRIVATE_TEST_CONVERSATION_TRACE_AND_TEST_ONLY_LEDGER; NO_LOGIN_SECRETS_OR_AUTH_STATE",
+        "publicly_published": false
+      },
+      "public_raw_trace": "WITHHELD_AFTER_AUTO_REVIEW_REJECTION",
+      "publication_review": {
+        "path": "evidence/browser-probe/P03_PRIVATE_TRACE_PUBLICATION_REVIEW_BLOCK.json",
+        "sha256": "360a9f8465726a05bcba5b0e11135dd972bf739d7cea0ba59cf529eff9458f07"
+      },
+      "source_digest_unchanged": "a14e4bcfaf7cd9f982bb52d96037d099608e12c1d541855041a4491e25723c19"
     }
   },
-  "updated_at_utc": "2026-10-06T21:51:20.848144+00:00"
+  "updated_at_utc": "2026-10-06T22:51:01.629027+00:00"
 }

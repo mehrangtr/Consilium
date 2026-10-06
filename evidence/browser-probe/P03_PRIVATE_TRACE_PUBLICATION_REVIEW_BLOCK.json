@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "phase": "P03",
+  "recorded_at_utc": "2026-10-06T22:51:01.629027+00:00",
+  "status": "AUTOMATIC_APPROVAL_REVIEW_REJECTED",
+  "action": "Upload screenshot of authenticated private Claude conversation to public mehrangtr/Consilium repository",
+  "stated_reason": "Standing GitHub publication permission did not authorize public disclosure of the private authenticated conversation screenshot. Do not bypass by indirect execution.",
+  "public_branch_updated_by_rejected_action": false,
+  "raw_evidence_publication": "NOT_PERFORMED; no raw data included in replacement public tree",
+  "safer_alternative": "Findings-only sanitized public status/report; complete raw evidence saved privately for the owner",
+  "retry_raw_publication_without_specific_authorization": false,
+  "phase_accepted": false
+}

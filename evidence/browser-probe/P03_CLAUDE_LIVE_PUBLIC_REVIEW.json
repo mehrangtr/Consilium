@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "phase": "P03",
+  "reviewed_at_utc": "2026-10-06T22:51:01.629027+00:00",
+  "status": "INCOMPLETE",
+  "review_independent": false,
+  "review_kind": "SAME_AUTHOR_SEPARATE_PASS",
+  "source_digest": "a14e4bcfaf7cd9f982bb52d96037d099608e12c1d541855041a4491e25723c19",
+  "criteria": [
+    {
+      "id": "P03-E1",
+      "status": "PASS_SCOPED",
+      "basis": "Manual authentication, actual ledger-backed send/complete receive and same-conversation context continuation; account evidence limited to profile/UI continuity."
+    },
+    {
+      "id": "P03-E2",
+      "status": "INCOMPLETE",
+      "basis": "Actual observer loss and preserved UNKNOWN_DELIVERY/no resend verified. Genuine session expiration after prior authentication has not been observed."
+    },
+    {
+      "id": "P03-E3",
+      "status": "PASS_SCOPED_ESTIMATE",
+      "basis": "Sanitized capability findings and revised active-work estimate recorded; external expiration wait and quota remain unknown."
+    }
+  ],
+  "public_summary": {
+    "path": "evidence/browser-probe/P03_CLAUDE_LIVE_PUBLIC_SUMMARY.json",
+    "sha256": "82a65800e5bd3a35e55136858a9601f84b358b93c709d8d5583650fdcc968d5d"
+  },
+  "private_evidence_package": {
+    "filename": "Consilium_P03_Claude_Private_Evidence_20261006.zip",
+    "sha256": "d4fdf66374eb7bcc52ad8c2185a573b11286febc96e120355add78b93514ee16",
+    "bytes": 66382,
+    "status": "SAVED_PRIVATELY_FOR_USER",
+    "verified_zip_integrity": true,
+    "contents_scope": "PRIVATE_TEST_CONVERSATION_TRACE_AND_TEST_ONLY_LEDGER; NO_LOGIN_SECRETS_OR_AUTH_STATE",
+    "publicly_published": false
+  },
+  "local_private_evidence_checks": "PASS: database copy integrity, exact saved request/result classifications, canonical count two, unknown result preserved, evidence hashes and 60-second budgets",
+  "development_check": "PASS; exact source unchanged; existing Linux and Windows reports still match",
+  "gate_run": false,
+  "phase_accepted": false,
+  "phase_order_changed": false,
+  "protected_requirements_changed": false
+}

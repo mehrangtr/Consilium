@@ -741,7 +741,8 @@
       "scope": "PRESERVED_HISTORICAL_CHECKPOINT_NOT_CURRENT_SOURCE"
     },
     "current_source_authority": "Public Git main/code commit c46c4451c2e4a473ab3f4d574bb2357ba1a468e3 and the unchanged source digest; historical bundle is not the working state.",
-    "manifest_policy": "Delivered ZIP manifest covers its complete current-code bundle. Repository MANIFEST covers the preserved historical repository bundle. Both locations explicitly identify their bundle hashes; source and acceptance proof bytes are identical."
+    "manifest_policy": "Delivered ZIP manifest covers its complete current-code bundle. Repository MANIFEST covers the preserved historical repository bundle. Both locations explicitly identify their bundle hashes; source and acceptance proof bytes are identical.",
+    "p03_history_note": "The existing bundle archives P02 tested history. Current P03 source files and GitHub code commit db2ef3073d84d560de00738cd9878df47e4f6dc4 are the continuation source; do not replace them from the older bundle."
   },
   "public_publication": {
     "status": "VERIFIED_COMPLETE",
@@ -979,12 +980,84 @@
     "limits": "Existing P02 tests support the serial offline kernel only; they do not prove full product reliability or real browser recovery."
   },
   "p03_preparation": {
-    "status": "LOCAL_TESTS_PASS_NATIVE_CI_PENDING",
-    "source_digest": "a14e4bcfaf7cd9f982bb52d96037d099608e12c1d541855041a4491e25723c19",
-    "local_tests": 266,
-    "provider_calls": 0,
-    "phase_accepted": false,
+    "schema_version": 1,
+    "phase": "P03",
+    "scope": "OFFLINE_PREPARATION_NOT_LIVE_BROWSER_ACCEPTANCE",
+    "status": "PASS",
     "review_independent": false,
-    "historical_P02_acceptance_preserved": true
+    "source_digest": "a14e4bcfaf7cd9f982bb52d96037d099608e12c1d541855041a4491e25723c19",
+    "code_commit": "db2ef3073d84d560de00738cd9878df47e4f6dc4",
+    "ci_run": {
+      "id": 37495758865,
+      "url": "https://github.com/mehrangtr/Consilium/actions/runs/37495758865",
+      "conclusion": "success",
+      "head_sha": "db2ef3073d84d560de00738cd9878df47e4f6dc4",
+      "artifact_id": 11426909298,
+      "artifact_sha256": "a1814fa94de957d761d4da6dabd6a36db86bd471103dd2e41bed5b6d9b16355f",
+      "jobs": {
+        "Linux": 112379751770,
+        "Windows": 112379752189,
+        "validate": 112380217555
+      }
+    },
+    "targets": [
+      {
+        "target": "Windows",
+        "host": {
+          "system": "Windows",
+          "python": "3.12.10"
+        },
+        "report": {
+          "path": "evidence/targets/Windows/20261006T162712Z_439a49ca/RUN.json",
+          "sha256": "4c042a6c29ad23d7884d0566e259604239275fe2e681be0338cea0bab6aeaa2b"
+        },
+        "counts": {
+          "foundation": 60,
+          "control": 88,
+          "persistence": 80,
+          "browser_probe": 38
+        },
+        "process_exit_cases": {
+          "persistence": 12,
+          "browser_probe": 3
+        },
+        "total": 266
+      },
+      {
+        "target": "Linux",
+        "host": {
+          "system": "Linux",
+          "python": "3.12.14"
+        },
+        "report": {
+          "path": "evidence/targets/Linux/20261006T162657Z_2464e048/RUN.json",
+          "sha256": "2a726c41dd4cb6ea790c12d48966cff317a6dcc9e29708f92785f6bdff15a409"
+        },
+        "counts": {
+          "foundation": 60,
+          "control": 88,
+          "persistence": 80,
+          "browser_probe": 38
+        },
+        "process_exit_cases": {
+          "persistence": 12,
+          "browser_probe": 3
+        },
+        "total": 266
+      }
+    ],
+    "live_provider_calls": 0,
+    "phase_accepted": false,
+    "all_three_live_criteria": "NOT_PASSED",
+    "review_checks": [
+      "Exact transport binding frozen in durable request; altered ticket rejected",
+      "Unique attempt marker rejects reuse of old matching prompt",
+      "Click or absent observation cannot prove delivery or non-delivery",
+      "Incomplete output persists without canonical confirmation",
+      "3 actual process-exit cases for recorder plus 12 kernel cases on each OS",
+      "Default phase gate remains blocked; development reporting does not accept phase"
+    ],
+    "auth_decline_respected": true,
+    "next_action": "Await explicit new authentication request before live browser test. Do not advance P04."
   }
 }

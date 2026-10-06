@@ -9,30 +9,30 @@
     {
       "target": "Windows",
       "report": {
-        "path": "evidence/targets/Windows/20261006T112358Z_33fd4703/RUN.json",
-        "sha256": "37f17786e7395d4a6cfd45394cad71e3623189df7f9183f34fb4c0121711f95c"
+        "path": "evidence/targets/Windows/20261006T162712Z_439a49ca/RUN.json",
+        "sha256": "4c042a6c29ad23d7884d0566e259604239275fe2e681be0338cea0bab6aeaa2b"
       },
       "status": "PASS",
-      "source_matches_current": false,
+      "source_matches_current": true,
       "scope": "RECORDED_TARGET_ARTIFACTS_NOT_PHASE_ACCEPTANCE"
     },
     {
       "target": "Linux",
       "report": {
-        "path": "evidence/targets/Linux/20261006T112350Z_f861d0c4/RUN.json",
-        "sha256": "a4fb9794c583132b8817e933efc78d7a63d378c824bd88b300713bcd000c35c4"
+        "path": "evidence/targets/Linux/20261006T162657Z_2464e048/RUN.json",
+        "sha256": "2a726c41dd4cb6ea790c12d48966cff317a6dcc9e29708f92785f6bdff15a409"
       },
       "status": "PASS",
-      "source_matches_current": false,
+      "source_matches_current": true,
       "scope": "RECORDED_TARGET_ARTIFACTS_NOT_PHASE_ACCEPTANCE"
     }
   ],
   "last_acceptance_matches_current_source": false,
   "application_source_supplied": true,
-  "application_source_commit": "c46c4451c2e4a473ab3f4d574bb2357ba1a468e3",
+  "application_source_commit": "db2ef3073d84d560de00738cd9878df47e4f6dc4",
   "verified_application_requirements": 0,
   "state_label": "INCOMPLETE",
-  "next_action": "ابزار ثبت آزمون مرورگر در P03 آماده و ۲۶۶ آزمون محلی پاس شده‌اند؛ بررسی بومی ویندوز و لینوکس و ثبت نهایی این آماده‌سازی در جریان است. آزمون زنده به نشست مجاز نیاز دارد؛ ورود ردشده بدون درخواست تازهٔ صریح تکرار نشود. P04 باز نمی‌شود.",
+  "next_action": "آماده‌سازی آفلاین P03 و بررسی بومی هر دو محیط کامل است. تنها کار باز، آزمون واقعی مرورگر پس از نشست مجاز است؛ درخواست ورود ردشده بدون درخواست تازهٔ صریح کاربر تکرار نشود. سپس سه معیار واقعی، جدول قابلیت‌ها و بازبرآورد تکمیل شوند. P04 همچنان بسته است.",
   "resume": {
     "phase": "P03",
     "last_verified_checkpoint": "P02",
@@ -42,17 +42,12 @@
       "Repeat P02 acceptance audit passed; original acceptance hashes and source remain unchanged; fresh Linux tests and existing exact-source native evidence revalidated.",
       "Full P02 source and acceptance evidence were published and verified on public main at 3bdf3f366bcc72679ae18480901b59d19c51ebe5. All 614 Git blob fingerprints and critical file contents matched. Standing GitHub access and publication authorization remain in force.",
       "P03 access preflight reached the actual DeepSeek sign-in page. No model prompt was sent; account, model, conversation and provider capabilities remain unverified.",
-      "P03 offline observation recorder, binding hash, unique attempt marker and CLI implemented; 38 synthetic observation tests including 3 actual process exits passed locally. No live capability or phase acceptance claimed."
+      "P03 offline observation recorder, binding hash, unique attempt marker and CLI implemented; 38 synthetic observation tests including 3 actual process exits passed locally. No live capability or phase acceptance claimed.",
+      "Current P03 preparation source db2ef3073d84d560de00738cd9878df47e4f6dc4 passed actual Linux and Windows: 60 foundation + 88 control + 80 persistence + 38 probe tests per OS, 15 process-exit cases per OS. GitHub run 37495758865 and both report graphs verified. Browser authentication was not retried; no live prompt sent."
     ],
-    "working_changes": [
-      "src/consilium/core/browser_probe.py",
-      "src/consilium/shell/browser_probe.py",
-      "tools/run_browser_probe.py",
-      "docs/P03_PROBE_RUNBOOK_FA.md",
-      "docs/decisions/ADR-008-P03_PROBE_RECORDER_FA.md"
-    ],
-    "next_action": "ابزار ثبت آزمون مرورگر در P03 آماده و ۲۶۶ آزمون محلی پاس شده‌اند؛ بررسی بومی ویندوز و لینوکس و ثبت نهایی این آماده‌سازی در جریان است. آزمون زنده به نشست مجاز نیاز دارد؛ ورود ردشده بدون درخواست تازهٔ صریح تکرار نشود. P04 باز نمی‌شود.",
-    "next_command": "python tools/check.py",
+    "working_changes": [],
+    "next_action": "آماده‌سازی آفلاین P03 و بررسی بومی هر دو محیط کامل است. تنها کار باز، آزمون واقعی مرورگر پس از نشست مجاز است؛ درخواست ورود ردشده بدون درخواست تازهٔ صریح کاربر تکرار نشود. سپس سه معیار واقعی، جدول قابلیت‌ها و بازبرآورد تکمیل شوند. P04 همچنان بسته است.",
+    "next_command": "python tools/qualityctl.py status",
     "inputs_missing": [
       "P03 authenticated session remains unverified. The secure authentication request was declined; do not re-request authentication unless the user explicitly asks."
     ],
@@ -143,6 +138,121 @@
         "provider_prompt_sent": false,
         "retry_without_new_user_authentication_request": false,
         "continuation_rule": "Respect the declined secure authentication request; do not retry credentials, switch sign-in method or offer another takeover unless the user requests authentication again."
+      },
+      "offline_preparation": {
+        "status": "OFFLINE_PREPARATION_COMPLETED_NATIVE_BOTH_OS_VERIFIED",
+        "phase_acceptance": false,
+        "live_provider_calls": 0,
+        "source_changed": true,
+        "files": [
+          "src/consilium/core/browser_probe.py",
+          "src/consilium/shell/browser_probe.py",
+          "tools/run_browser_probe.py",
+          "docs/P03_PROBE_RUNBOOK_FA.md",
+          "docs/decisions/ADR-008-P03_PROBE_RECORDER_FA.md"
+        ],
+        "local_counts": {
+          "foundation": 60,
+          "control": 88,
+          "persistence": 80,
+          "browser_probe": 38,
+          "total": 266
+        },
+        "real_process_exit_cases": {
+          "persistence": 12,
+          "browser_probe": 3
+        },
+        "review_independent": false,
+        "limitations": [
+          "No browser driver or provider call",
+          "Observation schema and hashes do not prove live evidence authenticity",
+          "Complete transport response is not product validation",
+          "Partial or ambiguous results cannot be replaced; full recovery remains future work"
+        ],
+        "native_verification": "PASS: actual Linux and Windows plus report graph validation",
+        "source_digest": "a14e4bcfaf7cd9f982bb52d96037d099608e12c1d541855041a4491e25723c19",
+        "code_commit": "db2ef3073d84d560de00738cd9878df47e4f6dc4",
+        "native_review": {
+          "schema_version": 1,
+          "phase": "P03",
+          "scope": "OFFLINE_PREPARATION_NOT_LIVE_BROWSER_ACCEPTANCE",
+          "status": "PASS",
+          "review_independent": false,
+          "source_digest": "a14e4bcfaf7cd9f982bb52d96037d099608e12c1d541855041a4491e25723c19",
+          "code_commit": "db2ef3073d84d560de00738cd9878df47e4f6dc4",
+          "ci_run": {
+            "id": 37495758865,
+            "url": "https://github.com/mehrangtr/Consilium/actions/runs/37495758865",
+            "conclusion": "success",
+            "head_sha": "db2ef3073d84d560de00738cd9878df47e4f6dc4",
+            "artifact_id": 11426909298,
+            "artifact_sha256": "a1814fa94de957d761d4da6dabd6a36db86bd471103dd2e41bed5b6d9b16355f",
+            "jobs": {
+              "Linux": 112379751770,
+              "Windows": 112379752189,
+              "validate": 112380217555
+            }
+          },
+          "targets": [
+            {
+              "target": "Windows",
+              "host": {
+                "system": "Windows",
+                "python": "3.12.10"
+              },
+              "report": {
+                "path": "evidence/targets/Windows/20261006T162712Z_439a49ca/RUN.json",
+                "sha256": "4c042a6c29ad23d7884d0566e259604239275fe2e681be0338cea0bab6aeaa2b"
+              },
+              "counts": {
+                "foundation": 60,
+                "control": 88,
+                "persistence": 80,
+                "browser_probe": 38
+              },
+              "process_exit_cases": {
+                "persistence": 12,
+                "browser_probe": 3
+              },
+              "total": 266
+            },
+            {
+              "target": "Linux",
+              "host": {
+                "system": "Linux",
+                "python": "3.12.14"
+              },
+              "report": {
+                "path": "evidence/targets/Linux/20261006T162657Z_2464e048/RUN.json",
+                "sha256": "2a726c41dd4cb6ea790c12d48966cff317a6dcc9e29708f92785f6bdff15a409"
+              },
+              "counts": {
+                "foundation": 60,
+                "control": 88,
+                "persistence": 80,
+                "browser_probe": 38
+              },
+              "process_exit_cases": {
+                "persistence": 12,
+                "browser_probe": 3
+              },
+              "total": 266
+            }
+          ],
+          "live_provider_calls": 0,
+          "phase_accepted": false,
+          "all_three_live_criteria": "NOT_PASSED",
+          "review_checks": [
+            "Exact transport binding frozen in durable request; altered ticket rejected",
+            "Unique attempt marker rejects reuse of old matching prompt",
+            "Click or absent observation cannot prove delivery or non-delivery",
+            "Incomplete output persists without canonical confirmation",
+            "3 actual process-exit cases for recorder plus 12 kernel cases on each OS",
+            "Default phase gate remains blocked; development reporting does not accept phase"
+          ],
+          "auth_decline_respected": true,
+          "next_action": "Await explicit new authentication request before live browser test. Do not advance P04."
+        }
       }
     },
     "acceptance_revalidation": {
@@ -306,7 +416,7 @@
     },
     "unfinished_work": {
       "schema_version": 1,
-      "updated_at_utc": "2026-10-06T16:22:48.561345+00:00",
+      "updated_at_utc": "2026-10-06T16:32:30.536505+00:00",
       "canonical_location": "PROGRESS.json.resume.unfinished_work",
       "continuation_instruction": "Continue with standing access and publication permission; evaluate future impact of unfinished work.",
       "items": [
@@ -315,7 +425,7 @@
           "phase": "P03",
           "status": "BLOCKED_AUTHENTICATION_DECLINED",
           "title_fa": "آزمون واقعی یک اتصال مرورگر از دامنهٔ مصوب",
-          "completed_fa": "بررسی واقعی صفحهٔ ورود و نتیجهٔ ردشدهٔ درخواست امن ورود حفظ شد. ابزار ثبت مشاهده و اتصال به دفتر عملیات، حفاظت اتصال گفتگو و نشانگر یکتای تلاش ساخته شد؛ ۲۶۶ آزمون محلی از جمله ۳۸ آزمون آماده‌سازی و سه قطع پردازهٔ جدید پاس شدند. بررسی بومی تازه در جریان است؛ پیام زنده ارسال نشده است.",
+          "completed_fa": "ابزار ثبت آزمون مرورگر با اتصال دقیق و نشانگر یکتای تلاش ساخته و بازبینی شد. روی میزبان واقعی ویندوز و لینوکس، در هر محیط ۲۶۶ آزمون و ۱۵ مورد قطع واقعی پردازه پاس شدند؛ گراف گزارش‌ها با منبع تطبیق داشت. صفحهٔ ورود واقعی و رد درخواست امن ورود محفوظ‌اند؛ هیچ پیام زنده‌ای ارسال نشده است.",
           "remaining_fa": "تعیین مسیر مرورگر مجاز و حساب و مدل منتخب، ثبت ارسال و پاسخ و ادامهٔ همان گفتگو، مشاهدهٔ انقضای نشست و ارسال نامطمئن، جدول قابلیت‌ها و بازبرآورد زمان، و ثبت بررسی‌های واقعی و بازبینی سه معیار.",
           "live_observation": "SIGN_IN_PAGE_OBSERVED; NO_SIGNED_IN_ACCOUNT_OR_MODEL_CALL",
           "registered_phase_checks": [],
@@ -354,7 +464,7 @@
             "Partial and complete response observations are distinct; continuation must refer to the same verified conversation.",
             "Use zero paid provider calls. Windows execution remains the assistant responsibility."
           ],
-          "next_action_fa": "ابزار ثبت آزمون مرورگر در P03 آماده و ۲۶۶ آزمون محلی پاس شده‌اند؛ بررسی بومی ویندوز و لینوکس و ثبت نهایی این آماده‌سازی در جریان است. آزمون زنده به نشست مجاز نیاز دارد؛ ورود ردشده بدون درخواست تازهٔ صریح تکرار نشود. P04 باز نمی‌شود.",
+          "next_action_fa": "آماده‌سازی آفلاین P03 و بررسی بومی هر دو محیط کامل است. تنها کار باز، آزمون واقعی مرورگر پس از نشست مجاز است؛ درخواست ورود ردشده بدون درخواست تازهٔ صریح کاربر تکرار نشود. سپس سه معیار واقعی، جدول قابلیت‌ها و بازبرآورد تکمیل شوند. P04 همچنان بسته است.",
           "done_when_fa": "هر سه معیار خروج `P03` در `ROADMAP.json` با شاهد واقعی پاس شده و گیت پذیرش اجرا شده باشد.",
           "access_preflight": {
             "schema_version": 1,
@@ -396,7 +506,7 @@
             "continuation_rule": "Respect the declined secure authentication request; do not retry credentials, switch sign-in method or offer another takeover unless the user requests authentication again."
           },
           "offline_preparation": {
-            "status": "OFFLINE_IMPLEMENTATION_TESTED; NATIVE_CI_PENDING",
+            "status": "OFFLINE_PREPARATION_COMPLETED_NATIVE_BOTH_OS_VERIFIED",
             "phase_acceptance": false,
             "live_provider_calls": 0,
             "source_changed": true,
@@ -425,8 +535,92 @@
               "Complete transport response is not product validation",
               "Partial or ambiguous results cannot be replaced; full recovery remains future work"
             ],
-            "native_verification": "PENDING on separate branch; do not claim Windows from local Linux"
-          }
+            "native_verification": "PASS: actual Linux and Windows plus report graph validation",
+            "source_digest": "a14e4bcfaf7cd9f982bb52d96037d099608e12c1d541855041a4491e25723c19",
+            "code_commit": "db2ef3073d84d560de00738cd9878df47e4f6dc4",
+            "native_review": {
+              "schema_version": 1,
+              "phase": "P03",
+              "scope": "OFFLINE_PREPARATION_NOT_LIVE_BROWSER_ACCEPTANCE",
+              "status": "PASS",
+              "review_independent": false,
+              "source_digest": "a14e4bcfaf7cd9f982bb52d96037d099608e12c1d541855041a4491e25723c19",
+              "code_commit": "db2ef3073d84d560de00738cd9878df47e4f6dc4",
+              "ci_run": {
+                "id": 37495758865,
+                "url": "https://github.com/mehrangtr/Consilium/actions/runs/37495758865",
+                "conclusion": "success",
+                "head_sha": "db2ef3073d84d560de00738cd9878df47e4f6dc4",
+                "artifact_id": 11426909298,
+                "artifact_sha256": "a1814fa94de957d761d4da6dabd6a36db86bd471103dd2e41bed5b6d9b16355f",
+                "jobs": {
+                  "Linux": 112379751770,
+                  "Windows": 112379752189,
+                  "validate": 112380217555
+                }
+              },
+              "targets": [
+                {
+                  "target": "Windows",
+                  "host": {
+                    "system": "Windows",
+                    "python": "3.12.10"
+                  },
+                  "report": {
+                    "path": "evidence/targets/Windows/20261006T162712Z_439a49ca/RUN.json",
+                    "sha256": "4c042a6c29ad23d7884d0566e259604239275fe2e681be0338cea0bab6aeaa2b"
+                  },
+                  "counts": {
+                    "foundation": 60,
+                    "control": 88,
+                    "persistence": 80,
+                    "browser_probe": 38
+                  },
+                  "process_exit_cases": {
+                    "persistence": 12,
+                    "browser_probe": 3
+                  },
+                  "total": 266
+                },
+                {
+                  "target": "Linux",
+                  "host": {
+                    "system": "Linux",
+                    "python": "3.12.14"
+                  },
+                  "report": {
+                    "path": "evidence/targets/Linux/20261006T162657Z_2464e048/RUN.json",
+                    "sha256": "2a726c41dd4cb6ea790c12d48966cff317a6dcc9e29708f92785f6bdff15a409"
+                  },
+                  "counts": {
+                    "foundation": 60,
+                    "control": 88,
+                    "persistence": 80,
+                    "browser_probe": 38
+                  },
+                  "process_exit_cases": {
+                    "persistence": 12,
+                    "browser_probe": 3
+                  },
+                  "total": 266
+                }
+              ],
+              "live_provider_calls": 0,
+              "phase_accepted": false,
+              "all_three_live_criteria": "NOT_PASSED",
+              "review_checks": [
+                "Exact transport binding frozen in durable request; altered ticket rejected",
+                "Unique attempt marker rejects reuse of old matching prompt",
+                "Click or absent observation cannot prove delivery or non-delivery",
+                "Incomplete output persists without canonical confirmation",
+                "3 actual process-exit cases for recorder plus 12 kernel cases on each OS",
+                "Default phase gate remains blocked; development reporting does not accept phase"
+              ],
+              "auth_decline_respected": true,
+              "next_action": "Await explicit new authentication request before live browser test. Do not advance P04."
+            }
+          },
+          "future_impact_fa": "پذیرش معتبر مرحلهٔ دو و دادهٔ آن از بین نمی‌روند. نبود شاهد زنده، پذیرش P03 و شروع P04 را متوقف می‌کند؛ زمان و قابلیت‌های مرورگر هنوز به دادهٔ واقعی نیاز دارند. ادامه بدون این گیت خطر ادعای اتصال و بازیابی اثبات‌نشده دارد."
         }
       ],
       "future_phases": {
@@ -492,11 +686,21 @@
           "next_action_fa": "برای انتشار مرحلهٔ دو دوباره از ابتدا شروع نکن؛ مرحلهٔ سه را از شاهد دسترسی واقعی ادامه بده.",
           "done_when_fa": "تمام کد و شواهد مورد نظر روی شاخهٔ مقصد ثبت و بایت فایل‌های دوردست با بستهٔ نهایی تطبیق داده شده باشد.",
           "verified_publication_commit": "3bdf3f366bcc72679ae18480901b59d19c51ebe5"
+        },
+        {
+          "id": "P03-PREP-001",
+          "phase": "P03_PREPARATION",
+          "status": "COMPLETED",
+          "title_fa": "ابزار ثبت و بررسی آفلاین آزمون مرورگر",
+          "completed_fa": "کد و راهنمای اجرا و آزمون‌های منفی و قطع پردازه تکمیل شدند؛ بررسی واقعی ویندوز و لینوکس و گراف گزارش‌ها پاس شد. این نتیجه پذیرش مرورگر زنده نیست.",
+          "remaining_fa": "هیچ کار باز در این برش آماده‌سازی باقی نمانده است؛ اجرای زنده در P03-001 حفظ شده است.",
+          "code_commit": "db2ef3073d84d560de00738cd9878df47e4f6dc4",
+          "source_digest": "a14e4bcfaf7cd9f982bb52d96037d099608e12c1d541855041a4491e25723c19"
         }
       ]
     },
     "p03_probe_preparation": {
-      "status": "OFFLINE_IMPLEMENTATION_TESTED; NATIVE_CI_PENDING",
+      "status": "OFFLINE_PREPARATION_COMPLETED_NATIVE_BOTH_OS_VERIFIED",
       "phase_acceptance": false,
       "live_provider_calls": 0,
       "source_changed": true,
@@ -525,7 +729,119 @@
         "Complete transport response is not product validation",
         "Partial or ambiguous results cannot be replaced; full recovery remains future work"
       ],
-      "native_verification": "PENDING on separate branch; do not claim Windows from local Linux"
+      "native_verification": "PASS: actual Linux and Windows plus report graph validation",
+      "source_digest": "a14e4bcfaf7cd9f982bb52d96037d099608e12c1d541855041a4491e25723c19",
+      "code_commit": "db2ef3073d84d560de00738cd9878df47e4f6dc4",
+      "native_review": {
+        "schema_version": 1,
+        "phase": "P03",
+        "scope": "OFFLINE_PREPARATION_NOT_LIVE_BROWSER_ACCEPTANCE",
+        "status": "PASS",
+        "review_independent": false,
+        "source_digest": "a14e4bcfaf7cd9f982bb52d96037d099608e12c1d541855041a4491e25723c19",
+        "code_commit": "db2ef3073d84d560de00738cd9878df47e4f6dc4",
+        "ci_run": {
+          "id": 37495758865,
+          "url": "https://github.com/mehrangtr/Consilium/actions/runs/37495758865",
+          "conclusion": "success",
+          "head_sha": "db2ef3073d84d560de00738cd9878df47e4f6dc4",
+          "artifact_id": 11426909298,
+          "artifact_sha256": "a1814fa94de957d761d4da6dabd6a36db86bd471103dd2e41bed5b6d9b16355f",
+          "jobs": {
+            "Linux": 112379751770,
+            "Windows": 112379752189,
+            "validate": 112380217555
+          }
+        },
+        "targets": [
+          {
+            "target": "Windows",
+            "host": {
+              "system": "Windows",
+              "python": "3.12.10"
+            },
+            "report": {
+              "path": "evidence/targets/Windows/20261006T162712Z_439a49ca/RUN.json",
+              "sha256": "4c042a6c29ad23d7884d0566e259604239275fe2e681be0338cea0bab6aeaa2b"
+            },
+            "counts": {
+              "foundation": 60,
+              "control": 88,
+              "persistence": 80,
+              "browser_probe": 38
+            },
+            "process_exit_cases": {
+              "persistence": 12,
+              "browser_probe": 3
+            },
+            "total": 266
+          },
+          {
+            "target": "Linux",
+            "host": {
+              "system": "Linux",
+              "python": "3.12.14"
+            },
+            "report": {
+              "path": "evidence/targets/Linux/20261006T162657Z_2464e048/RUN.json",
+              "sha256": "2a726c41dd4cb6ea790c12d48966cff317a6dcc9e29708f92785f6bdff15a409"
+            },
+            "counts": {
+              "foundation": 60,
+              "control": 88,
+              "persistence": 80,
+              "browser_probe": 38
+            },
+            "process_exit_cases": {
+              "persistence": 12,
+              "browser_probe": 3
+            },
+            "total": 266
+          }
+        ],
+        "live_provider_calls": 0,
+        "phase_accepted": false,
+        "all_three_live_criteria": "NOT_PASSED",
+        "review_checks": [
+          "Exact transport binding frozen in durable request; altered ticket rejected",
+          "Unique attempt marker rejects reuse of old matching prompt",
+          "Click or absent observation cannot prove delivery or non-delivery",
+          "Incomplete output persists without canonical confirmation",
+          "3 actual process-exit cases for recorder plus 12 kernel cases on each OS",
+          "Default phase gate remains blocked; development reporting does not accept phase"
+        ],
+        "auth_decline_respected": true,
+        "next_action": "Await explicit new authentication request before live browser test. Do not advance P04."
+      }
+    },
+    "last_tested_source_checkpoint": {
+      "phase": "P03_PREPARATION_NOT_ACCEPTANCE",
+      "code_commit": "db2ef3073d84d560de00738cd9878df47e4f6dc4",
+      "source_digest": "a14e4bcfaf7cd9f982bb52d96037d099608e12c1d541855041a4491e25723c19",
+      "ci_run": {
+        "id": 37495758865,
+        "url": "https://github.com/mehrangtr/Consilium/actions/runs/37495758865",
+        "conclusion": "success",
+        "head_sha": "db2ef3073d84d560de00738cd9878df47e4f6dc4",
+        "artifact_id": 11426909298,
+        "artifact_sha256": "a1814fa94de957d761d4da6dabd6a36db86bd471103dd2e41bed5b6d9b16355f",
+        "jobs": {
+          "Linux": 112379751770,
+          "Windows": 112379752189,
+          "validate": 112380217555
+        }
+      },
+      "status": "PASS"
+    },
+    "p03_source_publication": {
+      "status": "TESTED_SOURCE_BRANCH_VERIFIED",
+      "repository": "mehrangtr/Consilium",
+      "code_commit": "db2ef3073d84d560de00738cd9878df47e4f6dc4",
+      "code_tree": "edef591036ccd0e1fc8c501fcabbee5648326fae",
+      "source_digest": "a14e4bcfaf7cd9f982bb52d96037d099608e12c1d541855041a4491e25723c19",
+      "verified_branch": "p03/browser-probe-recorder",
+      "verified_blob_count": 626,
+      "main_release_policy": "Fast-forward tested source and non-secret metadata only; no force; exact expected-head lease. Verify final main ref and files after publication."
     }
   },
   "security_note": "Allowlist and basic patterns only; manually review before sharing."

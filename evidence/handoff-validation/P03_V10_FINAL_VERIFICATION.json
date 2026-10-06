@@ -1,0 +1,19 @@
+{
+  "status": "PASS",
+  "archive": "/workspace/scratch/2cd898e3d2ec/Consilium_P03_Preparation_Handoff_v1.0.zip",
+  "archive_sha256": "9b2558e8547c4ef9b3dc90f123c0acc31d4f5d68caf791791f00f48e13477edd",
+  "files": 530,
+  "extracted": "/workspace/scratch/2cd898e3d2ec/consilium_p03_final_jv64dcof",
+  "source_digest": "a14e4bcfaf7cd9f982bb52d96037d099608e12c1d541855041a4491e25723c19",
+  "source_files": 79,
+  "native_matrix": "PASS_ACTUAL_BOTH_OS_SOURCE_BOUND",
+  "accepted_criterion_proofs_verified": 37,
+  "phase": "P03",
+  "phase_status": "BLOCKED_AUTH_DECLINED",
+  "phase_accepted": false,
+  "old_P02_acceptance_preserved": true,
+  "old_acceptance_matches_current_source": false,
+  "native_current_source_matches": true,
+  "live_provider_calls": 0,
+  "code_commit": "db2ef3073d84d560de00738cd9878df47e4f6dc4"
+}

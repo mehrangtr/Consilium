@@ -1,0 +1,22 @@
+test_storage (unittest.loader._FailedTest.test_storage) ... ERROR
+
+======================================================================
+ERROR: test_storage (unittest.loader._FailedTest.test_storage)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_storage
+Traceback (most recent call last):
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/loader.py", line 396, in _find_test_path
+    module = self._get_module_from_name(name)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/loader.py", line 339, in _get_module_from_name
+    __import__(name)
+  File "/workspace/scratch/2cd898e3d2ec/consilium_audit_project/tests/persistence/test_storage.py", line 19, in <module>
+    from consilium.shell import storage
+ImportError: cannot import name 'storage' from 'consilium.shell' (/workspace/scratch/2cd898e3d2ec/consilium_audit_project/src/consilium/shell/__init__.py)
+
+
+----------------------------------------------------------------------
+Ran 1 test in 0.000s
+
+FAILED (errors=1)
+{"phase": "P02", "scope": "P02_STORAGE_AND_PREPARED_INTENT_SLICE_NOT_PHASE_ACCEPTANCE", "status": "FAIL", "counts": {"tests": 1, "failures": 0, "errors": 1, "skipped": 0}}

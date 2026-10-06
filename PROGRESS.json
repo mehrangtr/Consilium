@@ -2,8 +2,8 @@
   "schema_version": 1,
   "plan_version": "1.2",
   "updated_at": "2026-10-06",
-  "application_source_commit": "1438db67acd94bd9fcd40e9c997994b7b43dd954",
-  "current_phase": "P01",
+  "application_source_commit": "1f8191cac322f15e6118cf62b8f0c6f5b636595a",
+  "current_phase": "P02",
   "verified_application_requirements": 0,
   "governance_check_note": "پذیرش مرحلهٔ صفر محفوظ است. آزمون پایهٔ P01 روی لینوکس انجام شده؛ پذیرش کامل ۳۰ خواسته و اجرای ویندوز هنوز انجام نشده‌اند.",
   "phases": [
@@ -38,49 +38,62 @@
     },
     {
       "id": "P01",
-      "status": "IN_PROGRESS",
+      "status": "COMPLETED",
       "actual_engineering_hours": null,
       "external_wait_hours": null,
-      "source_commit": "1438db67acd94bd9fcd40e9c997994b7b43dd954",
+      "source_commit": "1f8191cac322f15e6118cf62b8f0c6f5b636595a",
       "outputs": [
         "src/consilium",
         "tests/foundation/test_foundation.py",
         "requirements.lock",
         "docs/decisions/ADR-003-P01_FOUNDATION_FA.md"
       ],
-      "tests": [],
-      "exit_evidence": [],
-      "blockers": [
-        "شاهد اجرای بومی آزمون‌های P01 روی Windows برای همین نسخهٔ منبع هنوز وجود ندارد.",
-        "انتشار بسته در مخزن عمومی متصل هنوز مجاز نشده است؛ پس از مجوز، آزمون ویندوز را دستیار خودکار اجرا می‌کند."
+      "tests": [
+        "evidence/runs/20261006T100240Z_810f5e7bb0/RUN.json"
       ],
+      "exit_evidence": [
+        "evidence/accepted/P01_b73b74f8fbce/REVIEW.json"
+      ],
+      "blockers": [],
       "notes": [
         "کد پایه و اصلاح‌های بازبینی آماده‌اند؛ تا شاهد واقعی دو محیط، پذیرش مرحله انجام نمی‌شود.",
         "بازبینی دوبارهٔ پایان مرحله: اصلاح قرارداد، قابلیت ساختگی، کنترل اسرار، سازگاری شواهد بومی، ثبت شکست و نصب تازه؛ هنوز بدون پذیرش P01.",
-        "طبق الزام کاربر، اجرای ویندوز و دریافت گزارش بر عهدهٔ دستیار است؛ مسیر CI آماده و دسترسی مخزن عمومی تأیید شد، انتشار عمومی هنوز مجاز نشده است."
+        "طبق الزام کاربر، اجرای ویندوز و دریافت گزارش بر عهدهٔ دستیار است؛ مسیر CI آماده و دسترسی مخزن عمومی تأیید شد، انتشار عمومی هنوز مجاز نشده است.",
+        "مجوز صریح انتشار دریافت و بستهٔ تأییدشده در مخزن عمومی ثبت شد. اجرای واقعی Windows و Linux و بررسی تجمیعی موفق بودند؛ شواهد دریافت و هش‌ها بررسی شدند."
       ],
-      "work_in_progress_evidence": {
+      "accepted_source_digest": "ea9746a49a419270f326e56f4f89ad2a14113f33e63a0ad04ba50a027d3fc309",
+      "accepted_receipt_sha256": "e29da1cdf1e375668752780eef818257295ed29d6aec2255f4f6dcc8980d77c8",
+      "accepted_review_sha256": "47f917e0825caaba551bcca9fb9313f1f44d3394d95587c7db1a9897ffa44617",
+      "historical_preacceptance_evidence": {
         "scope": "P01_PARTIAL_VERIFICATION_NOT_ACCEPTANCE",
         "application_report": "evidence/foundation-tests/RUN.json",
         "control_report": "evidence/control-tests/RUN.json",
         "latest_linux_run": "evidence/targets/Linux/LATEST.json",
         "current_review": "evidence/reviews/P01-partial.json",
-        "reaudit_report": "evidence/audit/review/RUN.json"
+        "reaudit_report": "evidence/audit/review/RUN.json",
+        "latest_windows_run": "evidence/targets/Windows/LATEST.json"
       }
     },
     {
       "id": "P02",
-      "status": "BLOCKED",
-      "actual_engineering_hours": 0,
+      "status": "IN_PROGRESS",
+      "actual_engineering_hours": null,
       "external_wait_hours": 0,
       "source_commit": null,
-      "outputs": [],
+      "outputs": [
+        "src/consilium/shell/storage.py",
+        "src/consilium/core/storage_contracts.py",
+        "tests/persistence/test_storage.py",
+        "tests/persistence/crash_worker.py"
+      ],
       "tests": [],
       "exit_evidence": [],
       "blockers": [
-        "پیش‌نیاز P01 کامل نشده است."
+        "ارسال، ثبت نتیجه، حالت تحویل نامعلوم، تصمیم قدیمی و آزمون قطع پس از ارسال هنوز در این مرحله پیاده نشده‌اند."
       ],
-      "notes": []
+      "notes": [
+        "بخش اول پس از پذیرش واقعی P01 آغاز شد: مهاجرت اتمیک، ثبت بحث و اتصال و قصد تثبیت‌شده، رویداد، نقطهٔ ادامه، پشتیبان و سه قطع واقعی پردازه. کل P02 پذیرفته نشده است."
+      ]
     },
     {
       "id": "P03",
@@ -303,6 +316,18 @@
       "reason": "الزام اجرای خودکار بدون کمک کاربر در ویندوز؛ تکمیل CI دو محیط و جمع‌آوری شواهد؛ انتشار عمومی و اجرای واقعی Windows هنوز انجام نشده‌اند.",
       "phase_order_changed": false,
       "protected_requirements_changed": false
+    },
+    {
+      "date": "2026-10-06",
+      "reason": "مجوز صریح کاربر برای انتشار؛ اجرای واقعی و خودکار هر دو محیط و رفع مانع ویندوز براساس شواهد دریافتی، بدون تغییر ترتیب و خواسته‌ها.",
+      "phase_order_changed": false,
+      "protected_requirements_changed": false
+    },
+    {
+      "date": "2026-10-06",
+      "reason": "پس از پذیرش واقعی P01، بخش ذخیره‌سازی P02 ساخته و با قطع واقعی پردازه بررسی شد؛ ارسال و نتیجه و گیت کل P02 باقی‌اند.",
+      "phase_order_changed": false,
+      "protected_requirements_changed": false
     }
   ],
   "runtime_conformance": [
@@ -490,76 +515,31 @@
   "control_tooling_status": {
     "status": "SEE_EVIDENCE_REPORT",
     "report": "evidence/control-tests/RUN.json",
-    "application_runtime_tests": "SEE_SEPARATE_FOUNDATION_REPORT_LINUX_ONLY",
+    "application_runtime_tests": "FOUNDATION_AND_P02_STORAGE_SLICE; FULL_V1_NOT_RUN",
     "actual_manual_hours": null,
-    "foundation_report": "evidence/foundation-tests/RUN.json"
+    "foundation_report": "evidence/foundation-tests/RUN.json",
+    "persistence_report": "evidence/persistence-tests/RUN.json"
   },
   "resume": {
-    "phase": "P01",
-    "last_verified_checkpoint": "P00",
+    "phase": "P02",
+    "last_verified_checkpoint": "P01",
     "completed_work": [
-      "دامنه و موجودی مرحلهٔ صفر پذیرفته شدند.",
-      "قراردادهای داده، اتصال ساختگی و مرز خصوصی پیاده و در لینوکس آزموده شدند.",
-      "نقص‌های بازبینی پایان مرحله با آزمون قرمز اصلاح شدند؛ نصب وابستگی در محیط مجازی تازه و ساخت و ورود بستهٔ نصب‌شده روی لینوکس موفق بود."
+      "P01 accepted with actual Windows/Linux evidence.",
+      "P02 storage and prepared-intent slice implemented and locally tested."
     ],
     "working_changes": [
-      "گردش‌کار بومی دو محیط و بررسی تجمیعی آماده است؛ انتشار عمومی هنوز مجاز نشده و آزمون واقعی ویندوز انجام نشده است."
+      "Native verification of the new P02 slice is pending."
     ],
-    "next_action": "دستیار پس از اجازهٔ انتشار عمومی همین بسته در مخزن متصل mehrangtr/Consilium، گردش‌کار دو محیط را اجرا و گزارش‌های واقعی را دریافت کند؛ کار ویندوز به کاربر واگذار نشود. پس از بررسی شواهد و بازبینی نهایی، گیت P01 بررسی شود؛ پیش از پذیرش P02 شروع نشود.",
-    "next_command": "REMOTE_ACTION: Publish approved checkpoint; run .github/workflows/check.yml; download combined-P01-evidence",
-    "inputs_missing": [
-      "Permission to publish this checkpoint publicly in mehrangtr/Consilium",
-      "Native Windows execution evidence for this exact source snapshot"
-    ],
+    "next_action": "Implement the send-start ledger boundary, result persistence and guarded resume with real process-exit tests; no automatic retry for ambiguous delivery.",
+    "next_command": "python tools/run_persistence_tests.py",
+    "inputs_missing": [],
     "known_quirks": [
       {
-        "id": "DEV-003",
-        "note": "شواهد پذیرش معیار به‌صورت تصویر ثابت حفظ می‌شوند؛ فایل جاری در مرحله بعد می‌تواند تغییر کند.",
+        "id": "P02-001",
+        "note": "Schema v1 supports PREPARED intents only; adding attempt states and retry attempts requires migration v2, never editing the checksum of v1.",
         "references": [
-          "tools/qualityctl.py::freeze_review_evidence",
-          "tests/test_qualityctl.py::test_accepted_criterion_bytes_survive_later_changes"
-        ]
-      },
-      {
-        "id": "P01-001",
-        "note": "DELIVERY و RESPONSE دو محور جدا هستند؛ مشاهده به ورودی و اتصال قبلی وابسته است.",
-        "references": [
-          "src/consilium/core/contracts.py",
-          "src/consilium/adapters/mock.py"
-        ]
-      },
-      {
-        "id": "P01-002",
-        "note": "موفقیت check یا دادهٔ ساختگی، پذیرش بومی Windows نیست. نبود شاهد، کد خروج 2 برای گیت دارد.",
-        "references": [
-          "tools/check_target_matrix.py",
-          "docs/RUNBOOK_FA.md"
-        ]
-      },
-      {
-        "id": "DEV-004",
-        "note": "ثبت‌کنندهٔ بومی خروجی‌های قابل بازنویسی را پیش از اجرا پاک و شکست یا پایان مهلت را ثبت می‌کند. چهار سناریو و جزئیات گزارش باید سازگار باشند.",
-        "references": [
-          "tools/record_target_checks.py",
-          "tools/check_target_matrix.py",
-          "tests/test_native_recording.py"
-        ]
-      },
-      {
-        "id": "DEV-005",
-        "note": "آزمون‌های کنترل از test_*.py کشف می‌شوند؛ خروجی‌های build و dist و egg-info وارد هش منبع نمی‌شوند.",
-        "references": [
-          "tools/run_control_tests.py",
-          "tools/qualityctl.py"
-        ]
-      },
-      {
-        "id": "DEV-006",
-        "note": "کار ویندوز به کاربر واگذار نمی‌شود. مخزن متصل عمومی و خالی است؛ داشتن دسترسی فنی، اجازهٔ انتشار این بسته نیست. گردش‌کار شواهد کهنه را در پوشهٔ موقت کنار می‌گذارد و مرحله را خودکار نمی‌پذیرد.",
-        "references": [
-          "docs/AUTOMATED_WINDOWS_FA.md",
-          ".github/workflows/check.yml",
-          "docs/decisions/ADR-005-AUTONOMOUS_NATIVE_TESTS_FA.md"
+          "src/consilium/shell/storage.py",
+          "docs/decisions/ADR-006-P02_STORAGE_SLICE_FA.md"
         ]
       }
     ]

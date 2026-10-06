@@ -33,6 +33,9 @@ def main():
         "foundation_report": "evidence/foundation-tests/RUN.json",
         "foundation_junit": "evidence/foundation-tests/JUNIT.xml",
     }
+    if (ROOT / "tools/run_persistence_tests.py").is_file():
+        inputs.update(persistence_report="evidence/persistence-tests/RUN.json",
+                      persistence_junit="evidence/persistence-tests/JUNIT.xml")
     # Historical immutable reports remain intact; mutable outputs must be fresh.
     for original in inputs.values():
         (ROOT / original).unlink(missing_ok=True)

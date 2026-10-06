@@ -52,7 +52,18 @@
         "scope": "BOTH_SELECTED_TARGETS_REQUIRED; NO_MOCK_SUBSTITUTION"
       }
     ],
-    "P02": [],
+    "P02": [
+      {
+        "id": "persistence_storage_slice",
+        "kind": "test",
+        "argv": [
+          "{python}",
+          "tools/run_persistence_tests.py"
+        ],
+        "junit": "evidence/persistence-tests/JUNIT.xml",
+        "scope": "P02_STORAGE_SLICE_NOT_COMPLETE_PHASE_ACCEPTANCE"
+      }
+    ],
     "P03": [],
     "P04": [],
     "P05": [],

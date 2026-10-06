@@ -1,0 +1,27 @@
+{
+  "phase": "P02",
+  "scope": "P02_STORAGE_AND_PREPARED_INTENT_SLICE_NOT_PHASE_ACCEPTANCE",
+  "status": "FAIL",
+  "counts": {
+    "tests": 1,
+    "failures": 0,
+    "errors": 1,
+    "skipped": 0
+  },
+  "source_digest_before": "b3c33cc271fe2e214402f374dc1339151f75b225d589081419709267bcdf0c41",
+  "source_digest_after": "b3c33cc271fe2e214402f374dc1339151f75b225d589081419709267bcdf0c41",
+  "date_utc": "2026-10-06T10:08:42.216043+00:00",
+  "host": {
+    "system": "Linux",
+    "python": "3.12.14",
+    "sqlite": "3.53.1"
+  },
+  "live_provider_calls": 0,
+  "phase_accepted": false,
+  "cases": [
+    {
+      "id": "unittest.loader._FailedTest.test_storage",
+      "status": "ERROR"
+    }
+  ]
+}

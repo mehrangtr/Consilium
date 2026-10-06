@@ -1,0 +1,274 @@
+{
+  "phase": "P01",
+  "source_digest": "ea9746a49a419270f326e56f4f89ad2a14113f33e63a0ad04ba50a027d3fc309",
+  "status": "PASS",
+  "reviewer": "Codex, same author in a separate final review pass",
+  "method": "Separate inspection of the current contracts, transport identity and frozen input boundaries, negative-test cases, private storage/public output rules, protected baseline, byte-for-byte remote publication, completed native Windows/Linux jobs, all downloaded artifact digests, JUnit cases and configured regression receipt. No independent researcher review is claimed.",
+  "impact_assessment": "No source changed during publication or acceptance preparation. Native Python 3.12.10 Windows and 3.12.14 Linux use the same locked packages and exact source digest. Protected 30 requirements and preserved P00 acceptance bytes remain unchanged. This closes only offline P01 foundation; council, persistence, live providers, recovery and full V1 conformance remain unverified.",
+  "findings": [
+    {
+      "id": "P01-D01",
+      "kind": "DEFECT",
+      "state": "CLOSED",
+      "reason": "Probe cannot rebind an attempt to another connection."
+    },
+    {
+      "id": "P01-D02",
+      "kind": "DEFECT",
+      "state": "CLOSED",
+      "reason": "Probe cannot rebind an attempt to another frozen input."
+    },
+    {
+      "id": "P01-D03",
+      "kind": "DEFECT",
+      "state": "CLOSED",
+      "reason": "DeliveryObservation carries the frozen request hash."
+    },
+    {
+      "id": "P01-D04",
+      "kind": "DEFECT",
+      "state": "CLOSED",
+      "reason": "Boolean schema versions are rejected."
+    },
+    {
+      "id": "P01-D05",
+      "kind": "DEFECT",
+      "state": "CLOSED",
+      "reason": "Resolved profile paths cannot enter the source tree."
+    },
+    {
+      "id": "DEV-D03",
+      "kind": "DEFECT",
+      "state": "CLOSED",
+      "reason": "Synthetic fixtures reset acceptance and preservation references independently of real progress."
+    },
+    {
+      "id": "DEV-D04",
+      "kind": "DEFECT",
+      "state": "CLOSED",
+      "reason": "Accepted criterion bytes and original review survive later source/report changes."
+    },
+    {
+      "id": "DEV-D05",
+      "kind": "DEFECT",
+      "state": "CLOSED",
+      "reason": "Canonical textual path order is independent of native Windows case-fold ordering."
+    },
+    {
+      "id": "DEV-D06",
+      "kind": "DEFECT",
+      "state": "CLOSED",
+      "reason": "Native report graphs are preserved without changing source allowlist for each generated run ID."
+    },
+    {
+      "id": "DEV-D07",
+      "kind": "DEFECT",
+      "state": "CLOSED",
+      "reason": "Empty multiline env templates are accepted while recognizable nonempty credentials remain refused."
+    },
+    {
+      "id": "DEV-D08",
+      "kind": "DEFECT",
+      "state": "CLOSED",
+      "reason": "Capture the complete subprocess log before writing and binding immutable native evidence; validate every stored artifact before publishing the report."
+    },
+    {
+      "id": "RA01",
+      "kind": "DEFECT",
+      "state": "CLOSED",
+      "reason": "Private field spelling aliases are rejected.",
+      "evidence_hint": "test_private_field_aliases_cannot_escape_the_public_boundary"
+    },
+    {
+      "id": "RA02",
+      "kind": "DEFECT",
+      "state": "CLOSED",
+      "reason": "Invalid-response failure requires an invalid received response.",
+      "evidence_hint": "test_invalid_response_failure_requires_an_invalid_received_response"
+    },
+    {
+      "id": "RA03",
+      "kind": "DEFECT",
+      "state": "CLOSED",
+      "reason": "Mock does not advertise unimplemented streaming or conversation continuation.",
+      "evidence_hint": "test_mock_does_not_advertise_unimplemented_operations"
+    },
+    {
+      "id": "RA04",
+      "kind": "DEFECT",
+      "state": "CLOSED",
+      "reason": "Smoke evidence requires four distinct cases and actual matching outcomes.",
+      "evidence_hint": "test_duplicate_smoke_scenarios_are_not_complete_evidence"
+    },
+    {
+      "id": "RA05",
+      "kind": "DEFECT",
+      "state": "CLOSED",
+      "reason": "Recorded counts, Python environment, dependency lock and full logs are validated.",
+      "evidence_hint": "test_native_report_test_counts_must_match_junit"
+    },
+    {
+      "id": "RA06",
+      "kind": "DEFECT",
+      "state": "CLOSED",
+      "reason": "Mutable previous reports cannot substitute for reports from a new invocation.",
+      "evidence_hint": "test_old_mutable_reports_cannot_be_reused_as_a_fresh_native_run"
+    },
+    {
+      "id": "RA07",
+      "kind": "DEFECT",
+      "state": "CLOSED",
+      "reason": "Early failure and timeout preserve failed checkpoints and available logs.",
+      "evidence_hint": "test_timed_out_check_preserves_partial_log_and_failed_checkpoint"
+    },
+    {
+      "id": "RA08",
+      "kind": "DEFECT",
+      "state": "CLOSED",
+      "reason": "All root test modules are discovered; new failure-recorder tests execute.",
+      "evidence_hint": "test_failure_before_reports_exist_still_publishes_a_failed_checkpoint"
+    },
+    {
+      "id": "RA09",
+      "kind": "DEFECT",
+      "state": "CLOSED",
+      "reason": "Packaging outputs are excluded without excluding actual source changes.",
+      "evidence_hint": "test_build_products_do_not_change_source_but_real_code_does"
+    },
+    {
+      "id": "RA10",
+      "kind": "DEFECT",
+      "state": "CLOSED",
+      "reason": "Canonical progress distinguishes tested foundation from untested full V1 conformance.",
+      "evidence_hint": "PROGRESS.json"
+    },
+    {
+      "id": "RA11",
+      "kind": "DEFECT",
+      "state": "CLOSED",
+      "reason": "Previous review and original criterion bytes are retained; new review references immutable evidence.",
+      "evidence_hint": "evidence/audit/history/P01_review_snapshot.json"
+    },
+    {
+      "id": "CI-001",
+      "kind": "DEFECT",
+      "state": "CLOSED",
+      "reason": "Unsupported setup-python Windows 3.12.14 was rejected using the official distribution manifest; Windows test pins available 3.12.10 and Linux test pins 3.12.14."
+    }
+  ],
+  "criteria": [
+    {
+      "id": "P01.E01",
+      "criterion": "اجرای پایه و اتصال ساختگی کار می‌کنند و قرارداد داده قابل اعتبارسنجی است.",
+      "status": "PASS",
+      "notes": "Each selected native OS passed 60 foundation tests, 78 control tests and four distinct offline CLI cases; zero failure/error/skip, matching source hashes and dependency locks. Downloaded graph and configured regression checks pass. Actual signed-in provider or product completion is not inferred.",
+      "evidence": [
+        {
+          "path": "evidence/accepted/P01_b73b74f8fbce/proofs/evidence/automation/CI_PUBLICATION.json",
+          "sha256": "e98e6dad8d43071aa79fe7b4f932c3315b2ccbeabdb10dea0712ff55413e1357",
+          "original_path": "evidence/automation/CI_PUBLICATION.json"
+        },
+        {
+          "path": "evidence/accepted/P01_b73b74f8fbce/proofs/evidence/automation/CI_JOBS_FINAL.json",
+          "sha256": "050a6a280814df501c4df07fe2fc7a0d10e43fa2d4f4834c4f87c8350c8653e6",
+          "original_path": "evidence/automation/CI_JOBS_FINAL.json"
+        },
+        {
+          "path": "evidence/accepted/P01_b73b74f8fbce/proofs/evidence/target-matrix/RUN.json",
+          "sha256": "1043fb4e7e4a9506a7028a5d6cac826eb60d7edfbb2c0d019f1cf001ebcef498",
+          "original_path": "evidence/target-matrix/RUN.json"
+        },
+        {
+          "path": "evidence/accepted/P01_b73b74f8fbce/proofs/evidence/runs/20261006T100240Z_810f5e7bb0/RUN.json",
+          "sha256": "e29da1cdf1e375668752780eef818257295ed29d6aec2255f4f6dcc8980d77c8",
+          "original_path": "evidence/runs/20261006T100240Z_810f5e7bb0/RUN.json"
+        },
+        {
+          "path": "evidence/accepted/P01_b73b74f8fbce/proofs/evidence/targets/Windows/20261006T100034Z_e16fb40e/RUN.json",
+          "sha256": "d85003cdf26b1b0eb1ea6233a70c575533852dc60a906a33a2aec980948dea19",
+          "original_path": "evidence/targets/Windows/20261006T100034Z_e16fb40e/RUN.json"
+        },
+        {
+          "path": "evidence/accepted/P01_b73b74f8fbce/proofs/evidence/targets/Linux/20261006T100015Z_00570697/RUN.json",
+          "sha256": "e1bf585de300246ed7d5f3b036b97553f1bd79a39ea2b19264e258e8040cafc5",
+          "original_path": "evidence/targets/Linux/20261006T100015Z_00570697/RUN.json"
+        },
+        {
+          "path": "evidence/accepted/P01_b73b74f8fbce/proofs/src/consilium/ports/adapter.py",
+          "sha256": "6b6daa72976d73ab1aa5c054d5b6ab5b4f121d0c87f3eed0cad9a706cc51aa94",
+          "original_path": "src/consilium/ports/adapter.py"
+        },
+        {
+          "path": "evidence/accepted/P01_b73b74f8fbce/proofs/src/consilium/adapters/mock.py",
+          "sha256": "1f5c2f2e06e20f0d99d5fd550bcfd69f83174f9924735ec3de1f6f2f8f52bfc6",
+          "original_path": "src/consilium/adapters/mock.py"
+        }
+      ]
+    },
+    {
+      "id": "P01.E02",
+      "criterion": "هویت عملیات از هش محتوا جدا است؛ محرمانه‌ها مسیر ذخیره و خروج مشخص دارند.",
+      "status": "PASS",
+      "notes": "Both native foundation suites verify separate logical/attempt/generation identities, content-hash reuse across distinct logical operations, validated frozen inputs, private profile paths outside source, credential references and rejection of private fields/material at the public boundary. Only the defined offline boundary is accepted; detection of every unknown secret is not claimed.",
+      "evidence": [
+        {
+          "path": "evidence/accepted/P01_b73b74f8fbce/proofs/evidence/automation/CI_PUBLICATION.json",
+          "sha256": "e98e6dad8d43071aa79fe7b4f932c3315b2ccbeabdb10dea0712ff55413e1357",
+          "original_path": "evidence/automation/CI_PUBLICATION.json"
+        },
+        {
+          "path": "evidence/accepted/P01_b73b74f8fbce/proofs/evidence/automation/CI_JOBS_FINAL.json",
+          "sha256": "050a6a280814df501c4df07fe2fc7a0d10e43fa2d4f4834c4f87c8350c8653e6",
+          "original_path": "evidence/automation/CI_JOBS_FINAL.json"
+        },
+        {
+          "path": "evidence/accepted/P01_b73b74f8fbce/proofs/evidence/target-matrix/RUN.json",
+          "sha256": "1043fb4e7e4a9506a7028a5d6cac826eb60d7edfbb2c0d019f1cf001ebcef498",
+          "original_path": "evidence/target-matrix/RUN.json"
+        },
+        {
+          "path": "evidence/accepted/P01_b73b74f8fbce/proofs/evidence/runs/20261006T100240Z_810f5e7bb0/RUN.json",
+          "sha256": "e29da1cdf1e375668752780eef818257295ed29d6aec2255f4f6dcc8980d77c8",
+          "original_path": "evidence/runs/20261006T100240Z_810f5e7bb0/RUN.json"
+        },
+        {
+          "path": "evidence/accepted/P01_b73b74f8fbce/proofs/evidence/targets/Windows/20261006T100034Z_e16fb40e/RUN.json",
+          "sha256": "d85003cdf26b1b0eb1ea6233a70c575533852dc60a906a33a2aec980948dea19",
+          "original_path": "evidence/targets/Windows/20261006T100034Z_e16fb40e/RUN.json"
+        },
+        {
+          "path": "evidence/accepted/P01_b73b74f8fbce/proofs/evidence/targets/Linux/20261006T100015Z_00570697/RUN.json",
+          "sha256": "e1bf585de300246ed7d5f3b036b97553f1bd79a39ea2b19264e258e8040cafc5",
+          "original_path": "evidence/targets/Linux/20261006T100015Z_00570697/RUN.json"
+        },
+        {
+          "path": "evidence/accepted/P01_b73b74f8fbce/proofs/src/consilium/core/contracts.py",
+          "sha256": "01a632f121d571161bf5a36d581daa138465c258a9860324cd36561330d42a4c",
+          "original_path": "src/consilium/core/contracts.py"
+        },
+        {
+          "path": "evidence/accepted/P01_b73b74f8fbce/proofs/src/consilium/shell/private.py",
+          "sha256": "a289e8a5c6240c1a1cc34d082fc23c9a0ee9f859514ff3673073cd6daeecd0a0",
+          "original_path": "src/consilium/shell/private.py"
+        },
+        {
+          "path": "evidence/accepted/P01_b73b74f8fbce/proofs/tests/foundation/test_foundation.py",
+          "sha256": "a94253e31e4183186c43ada0dd07172f105c3661fd5d25bf594d93b0cbc6e377",
+          "original_path": "tests/foundation/test_foundation.py"
+        }
+      ]
+    }
+  ],
+  "date_utc": "2026-10-06T10:03:51.245273+00:00",
+  "independent": false,
+  "blockers": [],
+  "supersedes": {
+    "path": "evidence/reviews/P01-partial.json",
+    "sha256": "21fa7ee8ec551ac1f09491b011a011c36217c04b11dac101cf0f4f35f24d9256"
+  },
+  "original_review": {
+    "path": "evidence/reviews/P01-final.json",
+    "sha256": "d47d29ec036948be63c7afbd68a31e059f632f830e3891736881c8f5db2d8884"
+  },
+  "evidence_preservation": "IMMUTABLE_CRITERION_SNAPSHOTS"
+}

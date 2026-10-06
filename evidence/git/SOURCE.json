@@ -1,9 +1,8 @@
 {
-  "application_source_commit": "1438db67acd94bd9fcd40e9c997994b7b43dd954",
-  "checkpoint_commit": "160a6114a3ce0abd7af2af6f7bd970b3dcbebf0d",
-  "source_digest": "ea9746a49a419270f326e56f4f89ad2a14113f33e63a0ad04ba50a027d3fc309",
-  "scope": "LOCAL_GIT_HISTORY_NOT_PHASE_ACCEPTANCE",
-  "remote_repository": "mehrangtr/Consilium observed; empty; not configured or modified",
-  "bundle_sha256": "27956a7f40e97dbbcb8e589967da37b3bdca91b4083f65d96029dafbf0204755",
-  "note": "Archive metadata and immutable evidence are authoritative; generated bundle/manifest metadata may be newer than their stored Git versions."
+  "schema_version": 1,
+  "local_source_commit": "ae9df6fb72376f5ba5f9aab4f57c5f3c66400f7e",
+  "remote_base_commit": "1f8191cac322f15e6118cf62b8f0c6f5b636595a",
+  "source_digest": "1aac3e2d28c5d668cfbf07baf2c58ffd1245e55cd6f5d7ea95d25b6f4bb3ffcc",
+  "bundle_sha256": "be4a201b24d2274668a2723f0ef4c2f02466fa1995a42330239031fd77170e8c",
+  "note": "Git bundle is a generated checkpoint. Current source and evidence are also supplied directly; generated handoff metadata may be newer than bundled metadata."
 }

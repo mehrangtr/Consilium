@@ -1,4 +1,4 @@
-name: Native P01 foundation checks
+name: Native development checks
 'on': [push, pull_request, workflow_dispatch]
 permissions:
   contents: read
@@ -68,15 +68,15 @@ jobs:
         run: python tools/check_target_matrix.py
       - name: Record configured phase checks without accepting the phase
         if: always()
-        run: python tools/qualityctl.py run P01
+        run: python tools/run_current_phase.py
       - uses: actions/upload-artifact@v7
         if: always()
         with:
-          name: combined-P01-evidence
+          name: combined-phase-evidence
           path: |
             evidence/targets/
             evidence/target-matrix/
             evidence/runs/
-            evidence/latest/P01.json
+            evidence/latest/
           if-no-files-found: error
           retention-days: 7

@@ -45,17 +45,21 @@ class TargetEvidenceControls(unittest.TestCase):
         path.write_bytes(value if isinstance(value, bytes) else q.encoded(value))
         return {"path": name, "sha256": q.digest(path.read_bytes())}
 
-    def target(self, name, *, source=None, skipped=False, host=None):
+    def target(self, name, *, source=None, skipped=False, host=None, persistence=False):
         prefix = "evidence/targets/" + name + "/synthetic"
         artifacts = {}
-        for role in ("maintenance_report", "environment_report", "control_report", "foundation_report"):
+        reports = ["maintenance_report", "environment_report", "control_report", "foundation_report"]
+        if persistence:
+            reports.append("persistence_report")
+        for role in reports:
             value = {"status": "PASS", "host": {"system": host or name, "python": "3.12.14"},
                      "counts": {"tests": 1, "failures": 0, "errors": 0, "skipped": int(skipped)},
                      "source_digest_before": source or self.source, "source_digest_after": source or self.source}
             value["scope"] = {"maintenance_report": "DEVELOPMENT_CHECK_WITH_SEPARATE_FOUNDATION_TESTS",
                               "environment_report": "CURRENT_HOST_DEPENDENCY_LOCK_NOT_OTHER_OS_PROOF",
                               "control_report": "DEVELOPMENT_CONTROL_TOOLING_ONLY",
-                              "foundation_report": "APPLICATION_FOUNDATION_OFFLINE_NOT_FULL_V1_CONFORMANCE"}[role]
+                              "foundation_report": "APPLICATION_FOUNDATION_OFFLINE_NOT_FULL_V1_CONFORMANCE",
+                              "persistence_report": "P02_STORAGE_AND_PREPARED_INTENT_SLICE_NOT_PHASE_ACCEPTANCE"}[role]
             if role == "environment_report":
                 value["dependencies"] = [{"package": "synthetic-package", "required": "1.0",
                                           "installed": "1.0", "status": "PASS"}]
@@ -63,7 +67,7 @@ class TargetEvidenceControls(unittest.TestCase):
         artifacts["check_log"] = self.write(prefix + "/CHECK.log", b"Synthetic validator fixture; not an OS run\n")
         xml = b'<testsuite tests="1"><testcase name="synthetic-validator-case">' + \
               (b'<skipped/>' if skipped else b'') + b'</testcase></testsuite>'
-        for role in ("control_junit", "foundation_junit"):
+        for role in ["control_junit", "foundation_junit"] + (["persistence_junit"] if persistence else []):
             artifacts[role] = self.write(prefix + "/" + role + ".xml", xml)
         report = {"phase": "P01", "scope": "NATIVE_TARGET_OFFLINE_EXECUTION", "host": {"system": host or name, "python": "3.12.14"},
                   "status": "PASS", "source_digest_before": source or self.source,
@@ -173,6 +177,35 @@ class TargetEvidenceControls(unittest.TestCase):
                 child = q.load(self.root / item["path"])
                 child["host"]["python"] = "3.11.9"
                 report["artifacts"][role] = self.write(item["path"], child)
+        self.change_report(reference, edit)
+        self.assertEqual(inspect_matrix(self.root)["targets"][1]["status"], "FAIL")
+
+    def require_persistence(self):
+        path = self.root / "tools/run_persistence_tests.py"
+        path.parent.mkdir()
+        path.write_text("# Synthetic validator fixture only\n", encoding="utf-8")
+        self.source = q.source_digest(self.root)
+
+    def test_persistence_source_requires_native_persistence_artifacts(self):
+        self.require_persistence()
+        self.target("Windows"); self.target("Linux")
+        self.assertEqual([r["status"] for r in inspect_matrix(self.root)["targets"]], ["FAIL", "FAIL"])
+
+    def test_complete_persistence_fixture_exercises_both_hosts_without_claiming_execution(self):
+        self.require_persistence()
+        self.target("Windows", persistence=True); self.target("Linux", persistence=True)
+        report = inspect_matrix(self.root)
+        self.assertEqual(report["status"], "PASS")
+        self.assertEqual([r["persistence_tests"] for r in report["targets"]], [1, 1])
+
+    def test_persistence_report_from_another_host_is_refused(self):
+        self.require_persistence()
+        reference = self.target("Linux", persistence=True)
+        def edit(report):
+            item = report["artifacts"]["persistence_report"]
+            child = q.load(self.root / item["path"])
+            child["host"]["system"] = "Windows"
+            report["artifacts"]["persistence_report"] = self.write(item["path"], child)
         self.change_report(reference, edit)
         self.assertEqual(inspect_matrix(self.root)["targets"][1]["status"], "FAIL")
 

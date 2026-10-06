@@ -1,0 +1,120 @@
+{
+  "schema_version": 1,
+  "phase": "P02",
+  "plan_version": "1.2",
+  "source_digest_before": "b6b36636d7c4e26aebffe5e4be8f3960289d19208607760c757df28af1597c89",
+  "source_digest_after": "b6b36636d7c4e26aebffe5e4be8f3960289d19208607760c757df28af1597c89",
+  "progress_sha256": "aab9374187c9a39c9425f6345e3490a041d5ec33d0e2e6a00c2162e6e9bbbcbc",
+  "checks": [
+    {
+      "id": "scope_inventory",
+      "kind": "static",
+      "argv": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "tools/check_scope.py"
+      ],
+      "returncode": 0,
+      "log": "evidence/runs/20261006T102545Z_6b85718e73/scope_inventory.log",
+      "log_sha256": "d62067698ce6d229273c470b8b750adfa10464da7944fef5fc425a1619e7b31e",
+      "counts": null,
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "id": "development_regression",
+      "kind": "test",
+      "argv": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "tools/check.py"
+      ],
+      "returncode": 0,
+      "log": "evidence/runs/20261006T102545Z_6b85718e73/development_regression.log",
+      "log_sha256": "2fe7b1ac5958d9c8d1342a9175b2353291fb64112e3a9b46a660eade371e0fe9",
+      "counts": {
+        "tests": 81,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "junit": "evidence/runs/20261006T102545Z_6b85718e73/development_regression.xml",
+      "junit_input": "evidence/control-tests/JUNIT.xml",
+      "junit_sha256": "e3e6316e16fbf5a61c28f82776320170e82263651c9d4b3c0927d7f42f1f52c8",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "id": "foundation_behavior",
+      "kind": "test",
+      "argv": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "tools/run_foundation_tests.py"
+      ],
+      "returncode": 0,
+      "log": "evidence/runs/20261006T102545Z_6b85718e73/foundation_behavior.log",
+      "log_sha256": "c8253f6bcc1bf330aac5d84886f36c7fa5ed4b0eea9efa914c0b841c31ffb62e",
+      "counts": {
+        "tests": 60,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "junit": "evidence/runs/20261006T102545Z_6b85718e73/foundation_behavior.xml",
+      "junit_input": "evidence/foundation-tests/JUNIT.xml",
+      "junit_sha256": "8d407155e6b1dc1ca1a1e921d0e9a05eafbc0bc1f2ae07f4b67e55f664a99949",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "id": "environment_lock",
+      "kind": "static",
+      "argv": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "tools/check_environment.py"
+      ],
+      "returncode": 0,
+      "log": "evidence/runs/20261006T102545Z_6b85718e73/environment_lock.log",
+      "log_sha256": "d483169b60e63849270f8eff398d77e6a63bd69a8a83f685541a7a9ed2e037b3",
+      "counts": null,
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "id": "native_target_matrix",
+      "kind": "static",
+      "argv": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "tools/check_target_matrix.py"
+      ],
+      "returncode": 2,
+      "log": "evidence/runs/20261006T102545Z_6b85718e73/native_target_matrix.log",
+      "log_sha256": "a2236ac5998956592745314eede08073099a1a76409f06050e6b026dc79c5e55",
+      "counts": null,
+      "status": "FAIL",
+      "error": null
+    },
+    {
+      "id": "persistence_storage_slice",
+      "kind": "test",
+      "argv": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "tools/run_persistence_tests.py"
+      ],
+      "returncode": 0,
+      "log": "evidence/runs/20261006T102545Z_6b85718e73/persistence_storage_slice.log",
+      "log_sha256": "efccbae5115cc517fb69b02841df7fdfabf4a888a557f04ca39b5d0528f6626f",
+      "counts": {
+        "tests": 29,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "junit": "evidence/runs/20261006T102545Z_6b85718e73/persistence_storage_slice.xml",
+      "junit_input": "evidence/persistence-tests/JUNIT.xml",
+      "junit_sha256": "541f7d3d971461ff29d49c6cccd383f10eca089d9e6da7b973b6ace631a3417c",
+      "status": "PASS",
+      "error": null
+    }
+  ],
+  "status": "FAIL",
+  "scope": "CONFIGURED_CHECKS_NOT_PROOF_OF_CORRECTNESS"
+}

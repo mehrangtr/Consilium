@@ -37,6 +37,9 @@ def main():
             ("environment_lock", [sys.executable, "tools/check_environment.py"]),
             ("foundation_tests", [sys.executable, "tools/run_foundation_tests.py"]),
         ]
+    has_persistence = (ROOT / "tools/run_persistence_tests.py").is_file()
+    if has_persistence:
+        commands.append(("persistence_tests", [sys.executable, "tools/run_persistence_tests.py"]))
     for name, argv in commands:
         try:
             code = subprocess.run(argv, cwd=ROOT, stdin=subprocess.DEVNULL,
@@ -49,7 +52,7 @@ def main():
     report = {"schema_version": 1, "scope": "DEVELOPMENT_CHECK_WITH_SEPARATE_FOUNDATION_TESTS" if has_application else "DEVELOPMENT_CONTROL_TOOLING_ONLY",
               "status": "PASS" if passed else "FAIL", "checks": results,
               "source_digest_before": before, "source_digest_after": after,
-              "application_runtime_tests": "FOUNDATION_ONLY" if has_application else "NOT_RUN", "application_phase_accepted": False,
+              "application_runtime_tests": "FOUNDATION_AND_P02_STORAGE_SLICE" if has_persistence else "FOUNDATION_ONLY" if has_application else "NOT_RUN", "application_phase_accepted": False,
               "static_type_check": "NOT_RUN", "visual_rendering": "NOT_RUN"}
     destination = ROOT / "evidence/maintenance-check/RUN.json"
     destination.parent.mkdir(parents=True, exist_ok=True)

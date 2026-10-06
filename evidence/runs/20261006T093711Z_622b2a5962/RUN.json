@@ -1,0 +1,98 @@
+{
+  "schema_version": 1,
+  "phase": "P01",
+  "plan_version": "1.2",
+  "source_digest_before": "ea9746a49a419270f326e56f4f89ad2a14113f33e63a0ad04ba50a027d3fc309",
+  "source_digest_after": "ea9746a49a419270f326e56f4f89ad2a14113f33e63a0ad04ba50a027d3fc309",
+  "progress_sha256": "28c902309e6818289d6f02458e4ffdb4fe56a19104527761b9b40a93df05f55d",
+  "checks": [
+    {
+      "id": "scope_inventory",
+      "kind": "static",
+      "argv": [
+        "/workspace/scratch/2cd898e3d2ec/consilium_audit_project/.venv/bin/python",
+        "tools/check_scope.py"
+      ],
+      "returncode": 0,
+      "log": "evidence/runs/20261006T093711Z_622b2a5962/scope_inventory.log",
+      "log_sha256": "70bdccc74bf98f7c6f8c0e17cefd384156c5111a21d5e786f5eb91fc56b71497",
+      "counts": null,
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "id": "development_regression",
+      "kind": "test",
+      "argv": [
+        "/workspace/scratch/2cd898e3d2ec/consilium_audit_project/.venv/bin/python",
+        "tools/check.py"
+      ],
+      "returncode": 0,
+      "log": "evidence/runs/20261006T093711Z_622b2a5962/development_regression.log",
+      "log_sha256": "17647a3604b2e5e851373b0b74c514e07fe8656a66012716f1f554c2e61e49d7",
+      "counts": {
+        "tests": 78,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "junit": "evidence/runs/20261006T093711Z_622b2a5962/development_regression.xml",
+      "junit_input": "evidence/control-tests/JUNIT.xml",
+      "junit_sha256": "511e7f5179f667f2fb4a226785b979ff9e47d1e65488a8d71b3e66025ae22413",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "id": "foundation_behavior",
+      "kind": "test",
+      "argv": [
+        "/workspace/scratch/2cd898e3d2ec/consilium_audit_project/.venv/bin/python",
+        "tools/run_foundation_tests.py"
+      ],
+      "returncode": 0,
+      "log": "evidence/runs/20261006T093711Z_622b2a5962/foundation_behavior.log",
+      "log_sha256": "82dae2381aadfa68d261e891e4704c3b908333dbd590d79a2538108a60654cb0",
+      "counts": {
+        "tests": 60,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "junit": "evidence/runs/20261006T093711Z_622b2a5962/foundation_behavior.xml",
+      "junit_input": "evidence/foundation-tests/JUNIT.xml",
+      "junit_sha256": "8d407155e6b1dc1ca1a1e921d0e9a05eafbc0bc1f2ae07f4b67e55f664a99949",
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "id": "environment_lock",
+      "kind": "static",
+      "argv": [
+        "/workspace/scratch/2cd898e3d2ec/consilium_audit_project/.venv/bin/python",
+        "tools/check_environment.py"
+      ],
+      "returncode": 0,
+      "log": "evidence/runs/20261006T093711Z_622b2a5962/environment_lock.log",
+      "log_sha256": "d483169b60e63849270f8eff398d77e6a63bd69a8a83f685541a7a9ed2e037b3",
+      "counts": null,
+      "status": "PASS",
+      "error": null
+    },
+    {
+      "id": "native_target_matrix",
+      "kind": "static",
+      "argv": [
+        "/workspace/scratch/2cd898e3d2ec/consilium_audit_project/.venv/bin/python",
+        "tools/check_target_matrix.py"
+      ],
+      "returncode": 2,
+      "log": "evidence/runs/20261006T093711Z_622b2a5962/native_target_matrix.log",
+      "log_sha256": "deb6196a2abfc6f77bc6b8dd1ccb02f743a79873d7455b25482f24c6d497b798",
+      "counts": null,
+      "status": "FAIL",
+      "error": null
+    }
+  ],
+  "status": "FAIL",
+  "scope": "CONFIGURED_CHECKS_NOT_PROOF_OF_CORRECTNESS"
+}

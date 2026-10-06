@@ -1,0 +1,139 @@
+{
+  "phase": "P02",
+  "scope": "P02_STORAGE_AND_PREPARED_INTENT_SLICE_NOT_PHASE_ACCEPTANCE",
+  "status": "FAIL",
+  "counts": {
+    "tests": 29,
+    "failures": 3,
+    "errors": 0,
+    "skipped": 0
+  },
+  "source_digest_before": "557e554c8917fc0044b7b49800f77c2486e2a4329ded95aefea232e89f2c55f5",
+  "source_digest_after": "557e554c8917fc0044b7b49800f77c2486e2a4329ded95aefea232e89f2c55f5",
+  "date_utc": "2026-10-06T10:13:08.374234+00:00",
+  "host": {
+    "system": "Linux",
+    "python": "3.12.14",
+    "sqlite": "3.53.1"
+  },
+  "live_provider_calls": 0,
+  "phase_accepted": false,
+  "cases": [
+    {
+      "id": "test_storage.StorageTests.test_actual_process_exit_after_intent_preserves_frozen_input_and_checkpoint",
+      "status": "PASS"
+    },
+    {
+      "id": "test_storage.StorageTests.test_actual_process_exit_before_intent_keeps_previous_checkpoint",
+      "status": "PASS"
+    },
+    {
+      "id": "test_storage.StorageTests.test_actual_process_exit_inside_intent_rolls_back_all_partial_writes",
+      "status": "PASS"
+    },
+    {
+      "id": "test_storage.StorageTests.test_backup_contains_committed_intent_and_can_be_reopened",
+      "status": "PASS"
+    },
+    {
+      "id": "test_storage.StorageTests.test_backup_does_not_overwrite_existing_file_or_database",
+      "status": "PASS"
+    },
+    {
+      "id": "test_storage.StorageTests.test_checkpoint_cannot_be_rewound_while_newer_events_exist",
+      "status": "FAILURE"
+    },
+    {
+      "id": "test_storage.StorageTests.test_connection_cannot_be_bound_to_a_foreign_participant",
+      "status": "PASS"
+    },
+    {
+      "id": "test_storage.StorageTests.test_connection_revision_changes_and_stale_intent_is_refused",
+      "status": "PASS"
+    },
+    {
+      "id": "test_storage.StorageTests.test_debate_cannot_be_created_with_an_imported_revision",
+      "status": "PASS"
+    },
+    {
+      "id": "test_storage.StorageTests.test_duplicate_debate_is_not_silently_replaced",
+      "status": "PASS"
+    },
+    {
+      "id": "test_storage.StorageTests.test_duplicate_logical_operation_does_not_create_another_attempt",
+      "status": "PASS"
+    },
+    {
+      "id": "test_storage.StorageTests.test_exception_late_in_intent_transaction_leaves_no_half_commit",
+      "status": "PASS"
+    },
+    {
+      "id": "test_storage.StorageTests.test_failed_backup_closes_destination_and_removes_partial_file",
+      "status": "FAILURE"
+    },
+    {
+      "id": "test_storage.StorageTests.test_failed_migration_rolls_back_all_ddl",
+      "status": "PASS"
+    },
+    {
+      "id": "test_storage.StorageTests.test_future_schema_is_refused_without_downgrading_it",
+      "status": "PASS"
+    },
+    {
+      "id": "test_storage.StorageTests.test_intent_for_an_older_registered_round_is_refused",
+      "status": "FAILURE"
+    },
+    {
+      "id": "test_storage.StorageTests.test_known_private_material_is_refused_before_persistence",
+      "status": "PASS"
+    },
+    {
+      "id": "test_storage.StorageTests.test_migration_is_idempotent_on_reopen",
+      "status": "PASS"
+    },
+    {
+      "id": "test_storage.StorageTests.test_missing_schema_table_is_refused",
+      "status": "PASS"
+    },
+    {
+      "id": "test_storage.StorageTests.test_modified_migration_checksum_is_refused",
+      "status": "PASS"
+    },
+    {
+      "id": "test_storage.StorageTests.test_new_database_has_durable_settings_and_valid_schema",
+      "status": "PASS"
+    },
+    {
+      "id": "test_storage.StorageTests.test_old_debate_revision_or_wrong_round_cannot_prepare_intent",
+      "status": "PASS"
+    },
+    {
+      "id": "test_storage.StorageTests.test_original_request_and_constraints_survive_reopen_exactly",
+      "status": "PASS"
+    },
+    {
+      "id": "test_storage.StorageTests.test_prepare_persists_exact_frozen_input_event_and_checkpoint_together",
+      "status": "PASS"
+    },
+    {
+      "id": "test_storage.StorageTests.test_reused_attempt_id_rolls_back_new_operation_and_event",
+      "status": "PASS"
+    },
+    {
+      "id": "test_storage.StorageTests.test_round_cannot_reference_another_debate_or_participant",
+      "status": "PASS"
+    },
+    {
+      "id": "test_storage.StorageTests.test_same_input_hash_allows_two_intentional_logical_operations",
+      "status": "PASS"
+    },
+    {
+      "id": "test_storage.StorageTests.test_two_writers_cannot_both_apply_the_same_old_revision",
+      "status": "PASS"
+    },
+    {
+      "id": "test_storage.StorageTests.test_unowned_database_is_not_adopted",
+      "status": "PASS"
+    }
+  ]
+}

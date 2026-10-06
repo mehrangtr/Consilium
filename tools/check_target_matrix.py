@@ -48,6 +48,7 @@ def validate_smoke(rows):
 def inspect_matrix(root):
     source = q.source_digest(root)
     targets = q.load(root / "SCOPE.json")["target_platforms"]
+    persistence_required = (root / "tools/run_persistence_tests.py").is_file()
     rows = []
     for target in targets:
         row = {"target": target, "status": "NOT_RUN"}
@@ -67,17 +68,27 @@ def inspect_matrix(root):
                       "Offline report cannot contain live calls")
             validate_smoke(run["smoke"])
             artifacts = run["artifacts"]
-            q.require({"check_log", "maintenance_report", "environment_report", "control_report",
-                       "control_junit", "foundation_report", "foundation_junit"}.issubset(artifacts),
+            required_roles = {"check_log", "maintenance_report", "environment_report", "control_report",
+                              "control_junit", "foundation_report", "foundation_junit"}
+            if persistence_required:
+                required_roles.update({"persistence_report", "persistence_junit"})
+            q.require(required_roles.issubset(artifacts),
                       "Missing native artifacts")
             for reference_item in artifacts.values():
                 q.artifact(root, reference_item)
-            for role in ("maintenance_report", "environment_report", "control_report", "foundation_report"):
+            report_roles = ["maintenance_report", "environment_report", "control_report", "foundation_report"]
+            junit_roles = ["control_junit", "foundation_junit"]
+            if persistence_required:
+                report_roles.append("persistence_report")
+                junit_roles.append("persistence_junit")
+            for role in report_roles:
                 q.require(q.load(q.artifact(root, artifacts[role]))["status"] == "PASS", "Failed target subcheck")
             scopes = {"maintenance_report": "DEVELOPMENT_CHECK_WITH_SEPARATE_FOUNDATION_TESTS",
                       "environment_report": "CURRENT_HOST_DEPENDENCY_LOCK_NOT_OTHER_OS_PROOF",
                       "control_report": "DEVELOPMENT_CONTROL_TOOLING_ONLY",
                       "foundation_report": "APPLICATION_FOUNDATION_OFFLINE_NOT_FULL_V1_CONFORMANCE"}
+            if persistence_required:
+                scopes["persistence_report"] = "P02_STORAGE_AND_PREPARED_INTENT_SLICE_NOT_PHASE_ACCEPTANCE"
             for role, expected_scope in scopes.items():
                 q.require(q.load(q.artifact(root, artifacts[role]))["scope"] == expected_scope,
                           "Incorrect target subcheck scope")
@@ -88,7 +99,7 @@ def inspect_matrix(root):
             python_version = run["host"]["python"]
             q.require(isinstance(python_version, str) and python_version.startswith("3.12."),
                       "Target execution used another Python version")
-            for role in ("environment_report", "foundation_report", "control_report"):
+            for role in [r for r in report_roles if r != "maintenance_report"]:
                 host = q.load(q.artifact(root, artifacts[role]))["host"]
                 q.require(host["system"] == target and host["python"] == python_version,
                           "Target subchecks used different environments")
@@ -99,11 +110,11 @@ def inspect_matrix(root):
                       and {x["package"] for x in dependencies} == set(locked), "Target dependency inventory differs from lock")
             q.require(all(x["status"] == "PASS" and x["required"] == x["installed"] == locked[x["package"]]
                           for x in dependencies), "Target dependencies do not match the lock")
-            for role in ("maintenance_report", "foundation_report", "control_report"):
+            for role in [r for r in report_roles if r != "environment_report"]:
                 subcheck = q.load(q.artifact(root, artifacts[role]))
                 q.require(subcheck["source_digest_before"] == subcheck["source_digest_after"] == source,
                           "Target subcheck is stale")
-            for role in ("control_junit", "foundation_junit"):
+            for role in junit_roles:
                 counts = q.junit_counts(q.artifact(root, artifacts[role]))
                 q.require(not any(counts[x] for x in ("failures", "errors", "skipped")), "Unsuccessful target JUnit")
                 recorded = q.load(q.artifact(root, artifacts[role.replace("_junit", "_report")]))["counts"]

@@ -1,21 +1,22 @@
 {
   "phase": "P01",
   "scope": "SELECTED_OS_FOUNDATION_GATE_NOT_FULL_V1_ACCEPTANCE",
-  "source_digest": "ea9746a49a419270f326e56f4f89ad2a14113f33e63a0ad04ba50a027d3fc309",
+  "source_digest": "b6b36636d7c4e26aebffe5e4be8f3960289d19208607760c757df28af1597c89",
   "targets": [
     {
       "target": "Windows",
-      "status": "NOT_RUN",
-      "reason": "Native target execution has not been supplied"
+      "status": "FAIL",
+      "reason": "Target checks failed or were run on different source"
     },
     {
       "target": "Linux",
       "status": "PASS",
-      "control_tests": 78,
+      "control_tests": 81,
       "foundation_tests": 60,
+      "persistence_tests": 29,
       "evidence": {
-        "path": "evidence/targets/Linux/20261006T094101Z_c0ed933a/RUN.json",
-        "sha256": "760c15e0945fdee8621f4d242a4f806ac7c981209702c3afb12fe565dd26a4e0"
+        "path": "evidence/targets/Linux/20261006T102435Z_f62960e7/RUN.json",
+        "sha256": "d82c24dd663413fd8e194d541fb7740500087a4fea0984746e579f7dda9c76f0"
       }
     }
   ],

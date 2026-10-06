@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "phase": "P03",
+  "status": "PASS_RECORDED_ARITHMETIC_NOT_TIME_GUARANTEE",
+  "baseline_remaining_hours": [
+    270,
+    442
+  ],
+  "scope_additional_connection_hours": [
+    66,
+    132
+  ],
+  "scoped_remaining_hours": [
+    336,
+    574
+  ],
+  "risk_buffer_fraction": 0.25,
+  "buffered_remaining_hours": [
+    420,
+    718
+  ],
+  "confirmed_connection_counts": {
+    "API": 5,
+    "BROWSER": 5,
+    "MANUAL": 1
+  },
+  "remaining_connection_implementations": "NOT_IMPLEMENTED; scope extras not double-counted in baseline",
+  "external_wait": "UNKNOWN",
+  "scope": {
+    "path": "SCOPE.json",
+    "sha256": "ab31ca52d0638ad44f1c67c2699c87beb236dd46ce9d9eb06d85be40a9633ba4"
+  },
+  "roadmap": {
+    "path": "ROADMAP.json",
+    "sha256": "ee444b7e89a9b7724e970e1ed11e50b9762833587823fc01c331425480433cfd"
+  }
+}

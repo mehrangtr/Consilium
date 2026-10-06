@@ -1,0 +1,24 @@
+{
+  "phase": "P04",
+  "status": "PASS_DESIGN_ALIGNMENT_ONLY",
+  "review_independent": false,
+  "source_digest": "70e86ab5179e978f8d0dcdc387647689412493f05ac750569bd3d764c1d22118",
+  "draft": {
+    "path": "evidence/p04/CONTRACT_DRAFT.json",
+    "sha256": "b4371eb96a4d20b59909338b523a398bbc9bfe6b4f73c1acc55adae642b56920"
+  },
+  "implementation_plan": {
+    "path": "evidence/p04/IMPLEMENTATION_PLAN_FA.md",
+    "sha256": "f9a8759cb4d1f712a4dac25136aeb70c9c1cf29115d4705239904f4f0cf6e711"
+  },
+  "checks": [
+    "P03 accepted before design creation",
+    "Exact original requirement refs and criterion texts",
+    "12 unique planned behaviors, no false executed status",
+    "Existing reused contract symbols found in source",
+    "No live/paid call or runtime acceptance claim"
+  ],
+  "runtime_tests": "NOT_IMPLEMENTED_NOT_RUN",
+  "phase_accepted": false,
+  "recorded_at_utc": "2026-10-06T23:29:58.896226+00:00"
+}

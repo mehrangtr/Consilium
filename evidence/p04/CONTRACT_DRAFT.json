@@ -1,0 +1,154 @@
+{
+  "schema_version": 1,
+  "phase": "P04",
+  "status": "DESIGN_DRAFT_NOT_RUNTIME_IMPLEMENTATION",
+  "requires_completed_phase": "P03",
+  "requirement_refs": [
+    "UR-004",
+    "UR-005",
+    "UR-008",
+    "UR-010",
+    "UR-013",
+    "UR-017",
+    "UR-018",
+    "UR-020"
+  ],
+  "existing_contracts_reused": [
+    "DebateSpec",
+    "RoundSpec",
+    "FrozenInput",
+    "OperationIntent",
+    "Contract"
+  ],
+  "planned_contracts": {
+    "QuestionSnapshot": [
+      "debate_id",
+      "original_request_exact",
+      "constraints_exact",
+      "source_revision",
+      "source_hash"
+    ],
+    "ArchitectProposal": [
+      "snapshot_hash",
+      "proposal_version",
+      "optimized_request",
+      "constraint_coverage",
+      "assumptions",
+      "visible_changes",
+      "origin"
+    ],
+    "PromptAdoption": [
+      "proposal_hash",
+      "trusted_user_action_id",
+      "adopted_revision"
+    ],
+    "AuthorizedView": [
+      "debate_id",
+      "round_id",
+      "role",
+      "allowed_items",
+      "provenance",
+      "visibility",
+      "privacy_authorization",
+      "revision",
+      "view_hash"
+    ],
+    "CompiledContext": [
+      "snapshot_hash",
+      "proposal_hash",
+      "view_hash",
+      "budget_policy",
+      "frozen_input"
+    ]
+  },
+  "schema_note": "Draft fields only; no Python models created yet. Final names and domain validation must match existing ledger contracts. Schemas validate structure, not semantic equivalence or freshness of remote history.",
+  "build_order": [
+    "Implement snapshot/proposal/adoption contract tests and minimal pure validation",
+    "Implement authorized-view derivation; isolation and recovery tests before rendering",
+    "Implement explicit privacy/budget policy and adversarial tests",
+    "Integrate deterministic request freezer with current operation ledger",
+    "Register meaningful P04 acceptance checks; native both-OS proof; separate three-criterion review and gate"
+  ],
+  "planned_tests": [
+    {
+      "id": "P04.T01",
+      "name": "Original request exact preservation",
+      "expectation": "UTF-8 text, whitespace, Persian and constraints remain byte-identical; proposal cannot replace DebateSpec.original_request.",
+      "execution_status": "NOT_RUN"
+    },
+    {
+      "id": "P04.T02",
+      "name": "Proposal validity",
+      "expectation": "Strict immutable models reject unknown fields, altered source hash, missing or duplicate constraint coverage, invalid version and nonsensical schema. Valid schema alone does not prove semantic intent preservation.",
+      "execution_status": "NOT_RUN"
+    },
+    {
+      "id": "P04.T03",
+      "name": "Explicit adoption",
+      "expectation": "Changes, assumptions and constraint coverage are visible; unadopted proposal cannot supply Round 1 input. Only trusted user action adopts a proposal; provider text cannot approve itself.",
+      "execution_status": "NOT_RUN"
+    },
+    {
+      "id": "P04.T04",
+      "name": "Independent view isolation",
+      "expectation": "Use distinct sentinel content for each peer. Independent context must exclude all peers, critiques and private judge/control data, even if canonical state stores them.",
+      "execution_status": "NOT_RUN"
+    },
+    {
+      "id": "P04.T05",
+      "name": "Independent recovery equivalence",
+      "expectation": "Same authorized snapshot and versions reconstruct exact frozen independent request; corrupted or stale inputs fail instead of importing later-round peer answers.",
+      "execution_status": "NOT_RUN"
+    },
+    {
+      "id": "P04.T06",
+      "name": "Privacy before dispatch",
+      "expectation": "Explicitly secret-tagged content and unapproved cross-account/provider items never render or log. Unknown transfer authorization blocks assembly; masking heuristics are not complete secret detection.",
+      "execution_status": "NOT_RUN"
+    },
+    {
+      "id": "P04.T07",
+      "name": "Constraint and dissent budget",
+      "expectation": "If essential constraints/dissent cannot fit declared budget, stop with a typed reason; no silent deletion. Token measurement policy must be explicit; unverified token counts cannot certify fitting.",
+      "execution_status": "NOT_RUN"
+    },
+    {
+      "id": "P04.T08",
+      "name": "Untrusted peer data",
+      "expectation": "Adversarial peer text, fabricated role/delimiter/JSON fields and prompt instructions cannot alter selected judge, user decision, transport or local permissions; no claim of perfectly eliminating model prompt injection.",
+      "execution_status": "NOT_RUN"
+    },
+    {
+      "id": "P04.T09",
+      "name": "Blind and targeted views",
+      "expectation": "Stable alias mapping omits provider/account/model identity by default; targeted view includes explicit unresolved targets and preserves relevant dissent. Explicit named mode requires authorized control state.",
+      "execution_status": "NOT_RUN"
+    },
+    {
+      "id": "P04.T10",
+      "name": "Topic and conversation binding",
+      "expectation": "New topic binds a new Debate and conversation intent. Reuse requires valid matching debate/account/provider/conversation and authorized history; contaminated or unknown remote history blocks reuse instead of assuming local filtering removes provider history.",
+      "execution_status": "NOT_RUN"
+    },
+    {
+      "id": "P04.T11",
+      "name": "Ledger integration",
+      "expectation": "Compiled input is frozen once and bound to revision/view/proposal hashes. Integration uses existing P02 ledger; stale revision fails without send and repeated content is not the identity of logical work.",
+      "execution_status": "NOT_RUN"
+    },
+    {
+      "id": "P04.T12",
+      "name": "Deterministic and portable",
+      "expectation": "Core takes time/IDs/token accounting as explicit inputs with no hidden I/O or randomness. Offline model fixtures clearly marked MOCK; current source passes all regression checks on both native OSs before phase acceptance.",
+      "execution_status": "NOT_RUN"
+    }
+  ],
+  "exit_criteria": [
+    "معمار پیش از دور اول اجرا می‌شود و اصل پرسش و محدودیت‌ها قابل مقایسه و بازیابی‌اند.",
+    "آزمون ورودی دور مستقل، بازیابی آن و جلوگیری از نشت همتا موفق است.",
+    "بستهٔ زمینهٔ مجاز، نسخه و منشأ روشن دارد."
+  ],
+  "live_provider_calls": 0,
+  "paid_calls": 0,
+  "phase_accepted": false
+}

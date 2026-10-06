@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "phase": "P03",
+  "recorded_at_utc": "2026-10-06T23:23:39.168982+00:00",
+  "source_digest": "70e86ab5179e978f8d0dcdc387647689412493f05ac750569bd3d764c1d22118",
+  "code_commit": "21bb52523072bd6f0193602b94ffb1387d5bc2ea",
+  "positive_live_report": {
+    "path": "evidence/browser-probe/P03_CLAUDE_LIVE_PUBLIC_SUMMARY.json",
+    "sha256": "82a65800e5bd3a35e55136858a9601f84b358b93c709d8d5583650fdcc968d5d"
+  },
+  "controlled_authloss_report": {
+    "path": "evidence/browser-probe/P03_AUTHLOSS_RESULT.json",
+    "sha256": "7e7b48ae922f15ee8b9283d5a47272458f424614f60438feabe886d17a2b5ac0"
+  },
+  "capability_and_estimate_report": {
+    "path": "evidence/browser-probe/P03_CAPABILITIES_AND_ESTIMATE_FA.md",
+    "sha256": "ecd2e93f6dded620f73001cdc6137c057f9191977bd4503ce27ad3759f6b0f35"
+  },
+  "natural_expiration_verification": "UNKNOWN_NOT_CERTIFIED",
+  "expired_state_test_scope": "SYNTHETIC_CONTRACT_TEST_NOT_PROVIDER_EXPIRATION",
+  "unknown_operation_policy": "PRESERVE_UNKNOWN_NO_AUTOMATIC_RESEND",
+  "private_evidence_package": {
+    "filename": "Consilium_P03_Claude_Private_Evidence_20261006.zip",
+    "sha256": "4fb4cf7ce4960d55e6a33edc15f3b7a73b5b1da3f27595f112d088c93db476fa",
+    "bytes": 166807,
+    "verified_zip_integrity": true,
+    "publicly_published": false,
+    "status": "SAVED_PRIVATELY_FOR_USER"
+  },
+  "native_validation": {
+    "run_id": 37546090450,
+    "url": "https://github.com/mehrangtr/Consilium/actions/runs/37546090450",
+    "code_commit": "21bb52523072bd6f0193602b94ffb1387d5bc2ea",
+    "matrix": {
+      "path": "evidence/target-matrix/RUN.json",
+      "sha256": "65e4c4d02c9b5109a4c691d87e9fee736c856298c074ccac011292966357cb54"
+    },
+    "artifact_id": 11451007463,
+    "artifact_sha256": "0b00ed9e039dc8da89dce9e16146c2014f5332124d48ab6fbd8e7361740dbe62"
+  },
+  "scope": "EARLY_BROWSER_FEASIBILITY_NOT_FULL_PRODUCT_DRIVER_OR_RECOVERY",
+  "phase_accepted": false
+}

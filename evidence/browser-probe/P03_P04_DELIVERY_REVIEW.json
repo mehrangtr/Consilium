@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "status": "PASS_NATIVE_CURRENT_SOURCE_AND_P03_ACCEPTANCE",
+  "current_phase": "P04",
+  "source_digest": "cb99286e53059e175bb409da98be8e0805efe7ac1dc327430f2cae8c201a2d4f",
+  "code_commit": "dead9ed58ee8bbefe7d2a425021dacc051aeb4d8",
+  "native_run": {
+    "id": 37547041855,
+    "url": "https://github.com/mehrangtr/Consilium/actions/runs/37547041855",
+    "artifact_id": 11451240918,
+    "artifact_sha256": "b691dcaceaa09d27b6054a5feae5a993754f6867a3254a7c83f65dc669152a69"
+  },
+  "matrix": {
+    "path": "evidence/target-matrix/RUN.json",
+    "sha256": "bc899c3b3a1d9be2995772eefd2641faa23fe795c14224b8bc1a891263e98dc2"
+  },
+  "accepted_p03_receipt": {
+    "path": "evidence/runs/20261006T232625Z_9d9f3ac539/RUN.json",
+    "sha256": "e8a177f7a9ff3ea6e9ed2285429c64d6f07db581d653868bf26a5417784ed256"
+  },
+  "accepted_p03_review": {
+    "path": "evidence/accepted/P03_a1134261e9ea/REVIEW.json",
+    "sha256": "b9e731c218467e7ab0755bba011ce49369efac921d63da08b92931f61b05304b"
+  },
+  "accepted_p03_source_digest": "70e86ab5179e978f8d0dcdc387647689412493f05ac750569bd3d764c1d22118",
+  "source_delta_since_acceptance": [
+    "TRANSFER_FILES.json"
+  ],
+  "p04_design_review": {
+    "path": "evidence/p04/DESIGN_REVIEW.json",
+    "sha256": "6663fba7152cf9167d321afe2f3c087901fa9a0e41d10e7a74a6cf2e4e9b14a9"
+  },
+  "p04_runtime_tests": "NOT_IMPLEMENTED_NOT_RUN",
+  "protected_requirements": 30,
+  "full_runtime_requirements_verified": 0,
+  "private_evidence_package": {
+    "filename": "Consilium_P03_Claude_Private_Evidence_20261006.zip",
+    "sha256": "4fb4cf7ce4960d55e6a33edc15f3b7a73b5b1da3f27595f112d088c93db476fa",
+    "bytes": 166807,
+    "verified_zip_integrity": true,
+    "publicly_published": false,
+    "status": "SAVED_PRIVATELY_FOR_USER"
+  },
+  "public_raw_trace": "NOT_PUBLISHED",
+  "natural_expiration": "UNKNOWN_NOT_CERTIFIED",
+  "recorded_at_utc": "2026-10-06T23:33:31.343257+00:00"
+}

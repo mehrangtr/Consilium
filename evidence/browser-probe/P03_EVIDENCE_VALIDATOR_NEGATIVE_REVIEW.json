@@ -1,0 +1,33 @@
+{
+  "phase": "P03",
+  "scope": "NEGATIVE_RECORDED_EVIDENCE_VALIDATION_NOT_LIVE_PROVIDER_TEST",
+  "source_digest": "b92d2a890ba6271f993e7ba38aeda7040961fca431bdebba7984e56b76c75f3d",
+  "cases": [
+    {
+      "case": "changed_source",
+      "status": "REJECTED_AS_REQUIRED"
+    },
+    {
+      "case": "false_natural_expiration_claim",
+      "status": "REJECTED_AS_REQUIRED"
+    },
+    {
+      "case": "unpublished_private_package",
+      "status": "REJECTED_AS_REQUIRED"
+    },
+    {
+      "case": "invalid_expired_test_scope",
+      "status": "REJECTED_AS_REQUIRED"
+    },
+    {
+      "case": "missing_current_positive_evidence",
+      "status": "REJECTED_AS_REQUIRED"
+    },
+    {
+      "case": "advanced_ledger_with_valid_reference_hash",
+      "status": "REJECTED_AS_REQUIRED"
+    }
+  ],
+  "status": "PASS",
+  "recorded_at_utc": "2026-10-06T23:18:32.410531+00:00"
+}

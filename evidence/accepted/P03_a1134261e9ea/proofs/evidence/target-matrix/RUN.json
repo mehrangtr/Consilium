@@ -1,0 +1,32 @@
+{
+  "phase": "P01",
+  "scope": "SELECTED_OS_FOUNDATION_GATE_NOT_FULL_V1_ACCEPTANCE",
+  "source_digest": "70e86ab5179e978f8d0dcdc387647689412493f05ac750569bd3d764c1d22118",
+  "targets": [
+    {
+      "target": "Windows",
+      "status": "PASS",
+      "control_tests": 88,
+      "foundation_tests": 60,
+      "persistence_tests": 80,
+      "browser_probe_tests": 44,
+      "evidence": {
+        "path": "evidence/targets/Windows/20261006T232153Z_a318e567/RUN.json",
+        "sha256": "770fa7785d38e3730cb6a2758262fcddcb49dfad37653d9c5c35795bc9e4a792"
+      }
+    },
+    {
+      "target": "Linux",
+      "status": "PASS",
+      "control_tests": 88,
+      "foundation_tests": 60,
+      "persistence_tests": 80,
+      "browser_probe_tests": 44,
+      "evidence": {
+        "path": "evidence/targets/Linux/20261006T232129Z_e8bd377e/RUN.json",
+        "sha256": "56c9886259870cccf6aab52ffaeb6ecfae180abb486e78fc19a988ab301f2afb"
+      }
+    }
+  ],
+  "status": "PASS"
+}

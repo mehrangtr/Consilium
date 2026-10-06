@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "phase": "P03",
+  "first_gate_attempt_status": "BLOCKED_BEFORE_COMMAND_EXECUTION",
+  "first_gate_reason": "Required execution mode missing for P03",
+  "cause": "Actual live findings were recorded but acceptance check did not register its LIVE_BROWSER evidence mode.",
+  "correction": "Register existing captured actual live evidence validation as static, acceptance-only LIVE_BROWSER evidence check with explicit no-new-UI-action scope and mandatory separate authenticity review; keep offline safety test separately registered.",
+  "source_digest": "70e86ab5179e978f8d0dcdc387647689412493f05ac750569bd3d764c1d22118",
+  "governance_rule_changed": false,
+  "roadmap_changed": false,
+  "new_model_sends": 0,
+  "source_revalidation": "NEW_NATIVE_MATRIX_REQUIRED"
+}

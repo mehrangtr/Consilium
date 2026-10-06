@@ -1,0 +1,67 @@
+{
+  "phase": {
+    "id": "P03",
+    "status": "COMPLETED",
+    "actual_engineering_hours": null,
+    "external_wait_hours": null,
+    "source_commit": "21bb52523072bd6f0193602b94ffb1387d5bc2ea",
+    "outputs": [
+      "docs/P03_PROBE_RUNBOOK_FA.md",
+      "docs/decisions/ADR-008-P03_PROBE_RECORDER_FA.md",
+      "evidence/browser-probe/P03_ACCESS.json",
+      "evidence/browser-probe/P03_AUTH_REAUTH_REVIEW_BLOCK.json",
+      "evidence/browser-probe/P03_AUTH_REQUEST.json",
+      "evidence/browser-probe/P03_NATIVE_MATRIX.json",
+      "evidence/browser-probe/P03_PREPARATION_REVIEW.json",
+      "src/consilium/core/browser_probe.py",
+      "src/consilium/shell/browser_probe.py",
+      "tools/run_browser_probe.py",
+      "tools/run_browser_probe_tests.py",
+      "evidence/browser-probe/P03_AUTH_CONFIRMED_REQUEST_TIMEOUT.json",
+      "evidence/browser-probe/P03_MANUAL_AUTH_HANDOFF_PREPARATION.json",
+      "evidence/browser-probe/P03_CLAUDE_MANUAL_AUTH_PREPARATION.json",
+      "evidence/browser-probe/P03_CLAUDE_SIGN_IN_PAGE.jpg",
+      "evidence/browser-probe/P03_CLAUDE_LIVE_PUBLIC_SUMMARY.json",
+      "evidence/browser-probe/P03_CLAUDE_LIVE_PUBLIC_REVIEW.json",
+      "evidence/browser-probe/P03_CLAUDE_LIVE_FINDINGS_FA.md",
+      "evidence/browser-probe/P03_CLAUDE_LIVE_NEXT_ACTION_FA.md",
+      "evidence/browser-probe/P03_PRIVATE_TRACE_PUBLICATION_REVIEW_BLOCK.json",
+      "docs/decisions/ADR-009-P03_CURRENT_AUTH_PREFLIGHT_FA.md",
+      "tools/check_p03_feasibility.py",
+      "evidence/browser-probe/P03_AUTHLOSS_BEFORE.json",
+      "evidence/browser-probe/P03_AUTHLOSS_AFTER.json",
+      "evidence/browser-probe/P03_AUTHLOSS_RESULT.json",
+      "evidence/browser-probe/P03_CAPABILITIES_AND_ESTIMATE_FA.md",
+      "evidence/browser-probe/P03_FEASIBILITY_CHECKPOINT.json",
+      "evidence/browser-probe/P03_EVIDENCE_VALIDATOR_NEGATIVE_REVIEW.json",
+      "evidence/target-matrix/RUN.json",
+      "evidence/browser-probe/P03_FEASIBILITY_REVIEW_FINAL.json",
+      "evidence/browser-probe/P03_GATE_REGISTRATION_CORRECTION.json"
+    ],
+    "tests": [
+      "evidence/runs/20261006T232340Z_7230062561/RUN.json"
+    ],
+    "exit_evidence": [
+      "evidence/accepted/P03_699610743bcb/REVIEW.json"
+    ],
+    "blockers": [],
+    "notes": [
+      "بررسی واقعی دسترسی DeepSeek در مرورگر ابری به صفحهٔ ورود هدایت شد. هیچ پیام، آزمون انقضا یا بررسی سهمیه اجرا نشده؛ همهٔ قابلیت‌های اتصال همچنان تأییدنشده‌اند.",
+      "درخواست امن انتخاب روش ورود اجرا شد و نتیجهٔ آن declined بود. موفقیت ورود تأیید نشده؛ پیام مدل و آزمون ارسال یا انقضا انجام نشده‌اند.",
+      "آماده‌سازی آفلاین با اجرای واقعی هر دو محیط و ۲۶۶ آزمون در هر محیط کامل شد. این نتیجه اتصال واقعی مرورگر را تأیید نمی‌کند؛ سه معیار زنده هنوز پاس نشده‌اند.",
+      "زمان واقعی مهندسی و انتظار با دقت اندازه‌گیری نشده‌اند؛ صفر قبلی مقدار پیش‌فرض بود و اکنون نامعلوم ثبت شده است.",
+      "متن اجازهٔ تازهٔ کاربر و رد بررسی خودکار جدا از declined قبلی ثبت شدند. رد جدید، خطای سایت یا رد تازهٔ browserAuth معرفی نمی‌شود؛ راه جایگزین یا ارسال مدل اجرا نشده است.",
+      "تأیید صریح بعدی کاربر دریافت شد. درخواست امنِ مجاز به مهلت ابزار رسید؛ این رویداد رد مجوز یا رد تازهٔ کاربر نیست. صفحهٔ تازه هنوز ورود می‌خواهد و هیچ پیام مدل ارسال نشده است. تحویل دستی کنترل آماده است؛ اجرای کورکورانه یا تکرار پشت‌سرهم مجاز نیست.",
+      "کاربر به‌علت نداشتن اطلاعات ورود DeepSeek، سرویس دیگر را خواست. Claude از دامنهٔ مصوب انتخاب شد؛ صفحهٔ ورود واقعی آن آماده است. این تغییر انتخاب اجرای آزمون است و هیچ خواسته، ترتیب مرحله یا قابلیت تأییدنشده را تغییر نمی‌دهد.",
+      "Current live checkpoint supersedes earlier waiting-login notes: three actual Claude sends, two confirmed results, same conversation continued, one real observer interruption/no resend. Session remained authenticated after reopening; live expiration and full recovery not certified. P03 stays BLOCKED; source unchanged.",
+      "Automatic review rejected public upload of authenticated private conversation screenshot. Safer findings-only public reports prepared; complete trace and test ledger saved privately for owner. No raw trace appears in public update; gate still blocked by live expiration evidence.",
+      "Controlled sign-out and refusal of cached-ticket dispatch verified. Natural expiration not observed or claimed. Artificial waiting condition clarified without changing roadmap/URs; new mandatory current-context guard requires fresh native matrix before acceptance.",
+      "Current checkpoint supersedes earlier expiration-wait notes: actual controlled sign-out and unknown-observation barrier verified; EXPIRED input synthetic, natural expiration unknown. Both native OSs passed current source with 272 tests each. All three original criteria ready for separate review and gate; not accepted yet."
+    ],
+    "accepted_source_digest": "70e86ab5179e978f8d0dcdc387647689412493f05ac750569bd3d764c1d22118",
+    "accepted_receipt_sha256": "2027cbdfa12d5aa063db8164284940d98473ae5357234e9ea3b803286d4c9a46",
+    "accepted_review_sha256": "236cd67e2a74e56acbe859769f03f22e39009614f06af4efe22ac3ef796ad825"
+  },
+  "status": "SUPERSEDED_BEFORE_NEXT_PHASE_IMPLEMENTATION",
+  "reason": "Remaining planning total omitted additional connections required by confirmed five-provider SCOPE; original frozen evidence retained; metadata-only correction; no source or provider behavior changed."
+}

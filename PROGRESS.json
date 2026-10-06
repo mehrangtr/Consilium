@@ -2,8 +2,8 @@
   "schema_version": 1,
   "plan_version": "1.2",
   "updated_at": "2026-10-06",
-  "application_source_commit": "db2ef3073d84d560de00738cd9878df47e4f6dc4",
-  "current_phase": "P03",
+  "application_source_commit": "dead9ed58ee8bbefe7d2a425021dacc051aeb4d8",
+  "current_phase": "P04",
   "verified_application_requirements": 0,
   "governance_check_note": "مرحله‌های P00 و P01 و P02 پذیرفته‌اند. P03 آماده است و هنوز بررسی مرورگر واقعی انجام نشده. ۳۰ خواسته محفوظ‌اند و پذیرش کامل اجرایی محصول 0/30 است.",
   "phases": [
@@ -137,10 +137,10 @@
     },
     {
       "id": "P03",
-      "status": "BLOCKED",
+      "status": "COMPLETED",
       "actual_engineering_hours": null,
       "external_wait_hours": null,
-      "source_commit": "db2ef3073d84d560de00738cd9878df47e4f6dc4",
+      "source_commit": "21bb52523072bd6f0193602b94ffb1387d5bc2ea",
       "outputs": [
         "docs/P03_PROBE_RUNBOOK_FA.md",
         "docs/decisions/ADR-008-P03_PROBE_RECORDER_FA.md",
@@ -161,13 +161,30 @@
         "evidence/browser-probe/P03_CLAUDE_LIVE_PUBLIC_REVIEW.json",
         "evidence/browser-probe/P03_CLAUDE_LIVE_FINDINGS_FA.md",
         "evidence/browser-probe/P03_CLAUDE_LIVE_NEXT_ACTION_FA.md",
-        "evidence/browser-probe/P03_PRIVATE_TRACE_PUBLICATION_REVIEW_BLOCK.json"
+        "evidence/browser-probe/P03_PRIVATE_TRACE_PUBLICATION_REVIEW_BLOCK.json",
+        "docs/decisions/ADR-009-P03_CURRENT_AUTH_PREFLIGHT_FA.md",
+        "tools/check_p03_feasibility.py",
+        "evidence/browser-probe/P03_AUTHLOSS_BEFORE.json",
+        "evidence/browser-probe/P03_AUTHLOSS_AFTER.json",
+        "evidence/browser-probe/P03_AUTHLOSS_RESULT.json",
+        "evidence/browser-probe/P03_CAPABILITIES_AND_ESTIMATE_FA.md",
+        "evidence/browser-probe/P03_FEASIBILITY_CHECKPOINT.json",
+        "evidence/browser-probe/P03_EVIDENCE_VALIDATOR_NEGATIVE_REVIEW.json",
+        "evidence/target-matrix/RUN.json",
+        "evidence/browser-probe/P03_FEASIBILITY_REVIEW_FINAL.json",
+        "evidence/browser-probe/P03_GATE_REGISTRATION_CORRECTION.json",
+        "evidence/browser-probe/P03_CAPABILITIES_AND_ESTIMATE_FINAL_FA.md",
+        "evidence/browser-probe/P03_SCOPE_ESTIMATE_CALCULATION.json",
+        "evidence/browser-probe/P03_FEASIBILITY_REVIEW_CORRECTED.json",
+        "evidence/browser-probe/P03_ACCEPTANCE_ATTEMPT_1.json"
       ],
-      "tests": [],
-      "exit_evidence": [],
-      "blockers": [
-        "شاهد واقعی انقضای نشست پس از احراز هویت معتبر هنوز مشاهده نشده؛ معیار دوم و گیت P03 کامل نیستند."
+      "tests": [
+        "evidence/runs/20261006T232625Z_9d9f3ac539/RUN.json"
       ],
+      "exit_evidence": [
+        "evidence/accepted/P03_a1134261e9ea/REVIEW.json"
+      ],
+      "blockers": [],
       "notes": [
         "بررسی واقعی دسترسی DeepSeek در مرورگر ابری به صفحهٔ ورود هدایت شد. هیچ پیام، آزمون انقضا یا بررسی سهمیه اجرا نشده؛ همهٔ قابلیت‌های اتصال همچنان تأییدنشده‌اند.",
         "درخواست امن انتخاب روش ورود اجرا شد و نتیجهٔ آن declined بود. موفقیت ورود تأیید نشده؛ پیام مدل و آزمون ارسال یا انقضا انجام نشده‌اند.",
@@ -177,22 +194,32 @@
         "تأیید صریح بعدی کاربر دریافت شد. درخواست امنِ مجاز به مهلت ابزار رسید؛ این رویداد رد مجوز یا رد تازهٔ کاربر نیست. صفحهٔ تازه هنوز ورود می‌خواهد و هیچ پیام مدل ارسال نشده است. تحویل دستی کنترل آماده است؛ اجرای کورکورانه یا تکرار پشت‌سرهم مجاز نیست.",
         "کاربر به‌علت نداشتن اطلاعات ورود DeepSeek، سرویس دیگر را خواست. Claude از دامنهٔ مصوب انتخاب شد؛ صفحهٔ ورود واقعی آن آماده است. این تغییر انتخاب اجرای آزمون است و هیچ خواسته، ترتیب مرحله یا قابلیت تأییدنشده را تغییر نمی‌دهد.",
         "Current live checkpoint supersedes earlier waiting-login notes: three actual Claude sends, two confirmed results, same conversation continued, one real observer interruption/no resend. Session remained authenticated after reopening; live expiration and full recovery not certified. P03 stays BLOCKED; source unchanged.",
-        "Automatic review rejected public upload of authenticated private conversation screenshot. Safer findings-only public reports prepared; complete trace and test ledger saved privately for owner. No raw trace appears in public update; gate still blocked by live expiration evidence."
-      ]
+        "Automatic review rejected public upload of authenticated private conversation screenshot. Safer findings-only public reports prepared; complete trace and test ledger saved privately for owner. No raw trace appears in public update; gate still blocked by live expiration evidence.",
+        "Controlled sign-out and refusal of cached-ticket dispatch verified. Natural expiration not observed or claimed. Artificial waiting condition clarified without changing roadmap/URs; new mandatory current-context guard requires fresh native matrix before acceptance.",
+        "Current checkpoint supersedes earlier expiration-wait notes: actual controlled sign-out and unknown-observation barrier verified; EXPIRED input synthetic, natural expiration unknown. Both native OSs passed current source with 272 tests each. All three original criteria ready for separate review and gate; not accepted yet.",
+        "FINAL CURRENT STATUS: P03 accepted after correction for five-provider scope; full original phase order/30 URs preserved. Actual controlled authentication loss is verified; natural expiration, quota, real partial recovery and full browser driver remain uncertified future product work. Prior acceptance estimate was superseded before P04 implementation."
+      ],
+      "accepted_source_digest": "70e86ab5179e978f8d0dcdc387647689412493f05ac750569bd3d764c1d22118",
+      "accepted_receipt_sha256": "e8a177f7a9ff3ea6e9ed2285429c64d6f07db581d653868bf26a5417784ed256",
+      "accepted_review_sha256": "b9e731c218467e7ab0755bba011ce49369efac921d63da08b92931f61b05304b"
     },
     {
       "id": "P04",
-      "status": "BLOCKED",
-      "actual_engineering_hours": 0,
+      "status": "IN_PROGRESS",
+      "actual_engineering_hours": null,
       "external_wait_hours": 0,
       "source_commit": null,
-      "outputs": [],
+      "outputs": [
+        "evidence/p04/CONTRACT_DRAFT.json",
+        "evidence/p04/IMPLEMENTATION_PLAN_FA.md"
+      ],
       "tests": [],
       "exit_evidence": [],
-      "blockers": [
-        "پیش‌نیاز P03 کامل نشده است."
-      ],
-      "notes": []
+      "blockers": [],
+      "notes": [
+        "Design draft and 12-behavior test matrix created after corrected P03 acceptance; Python implementation and P04 tests not started.",
+        "Handoff allowlist maintenance fixed two omitted new source paths; current-source native tests required, without re-executing browser sends."
+      ]
     },
     {
       "id": "P05",
@@ -441,6 +468,12 @@
       "reason": "ورود دستی و آزمون واقعی Claude تأیید شدند؛ دو پاسخ و ادامهٔ گفتگو و قطع مشاهده با دفتر عملیات ثبت شدند. گیت به‌علت نبود شاهد واقعی انقضا بسته ماند.",
       "phase_order_changed": false,
       "protected_requirements_changed": false
+    },
+    {
+      "date": "2026-10-06",
+      "reason": "کنترل شاهد تازهٔ نشست و آزمون منفی واقعی افزوده شد؛ شرط انتظار نامحدودِ افزودهٔ دستیار با ADR-009 روشن شد. نقشه و خواسته‌های محفوظ تغییر نکردند.",
+      "phase_order_changed": false,
+      "protected_requirements_changed": false
     }
   ],
   "runtime_conformance": [
@@ -634,844 +667,60 @@
     "persistence_report": "evidence/persistence-tests/RUN.json"
   },
   "resume": {
-    "phase": "P03",
-    "last_verified_checkpoint": "P02",
+    "phase": "P04",
+    "last_verified_checkpoint": "P03",
     "completed_work": [
-      "P02 accepted through the actual criterion gate; immutable source, original review, receipts and native graphs preserved.",
-      "Exact code commit c46c4451c2e4a473ab3f4d574bb2357ba1a468e3 passed both selected OSs: 60 foundation, 82 control, 80 persistence tests, 12 real process-exit cases and 4 foundation CLI scenarios.",
-      "Repeat P02 acceptance audit passed; original acceptance hashes and source remain unchanged; fresh Linux tests and existing exact-source native evidence revalidated.",
-      "Full P02 source and acceptance evidence were published and verified on public main at 3bdf3f366bcc72679ae18480901b59d19c51ebe5. All 614 Git blob fingerprints and critical file contents matched. Standing GitHub access and publication authorization remain in force.",
-      "P03 access preflight reached the actual DeepSeek sign-in page. No model prompt was sent; account, model, conversation and provider capabilities remain unverified.",
-      "P03 offline observation recorder, binding hash, unique attempt marker and CLI implemented; 38 synthetic observation tests including 3 actual process exits passed locally. No live capability or phase acceptance claimed.",
-      "Current P03 preparation source db2ef3073d84d560de00738cd9878df47e4f6dc4 passed actual Linux and Windows: 60 foundation + 88 control + 80 persistence + 38 probe tests per OS, 15 process-exit cases per OS. GitHub run 37495758865 and both report graphs verified. Browser authentication was not retried; no live prompt sent.",
-      "Claude manual login verified; three real free send actions recorded. Two complete JSON answers confirmed in one actual conversation; second recovered prior token without repeating it. One controlled observer interruption persisted UNKNOWN_DELIVERY and reopened read-only with one matching user message and no resend. Live session expiration remains unobserved; P03 not accepted."
+      "P00-P02 acceptance preserved",
+      "P03 current-context defect fixed; 44 probe tests and 272 total per actual native OS",
+      "P03 actual positive/observer-loss/controlled sign-out evidence and corrected five-provider estimate accepted",
+      "P04 contract draft and adversarial test matrix prepared; no P04 implementation yet"
     ],
-    "working_changes": [],
-    "next_action": "ورود Claude و دو پاسخ واقعی تأیید شده‌اند؛ آن‌ها را تکرار نکن. قطع مشاهدهٔ واقعی، UNKNOWN_DELIVERY و بازکردن همان گفتگو بدون ارسال مجدد ثبت شدند. شاهد واقعی انقضای نشست هنوز موجود نیست: مشاهدهٔ کوتاه فقط خواندنی انجام بده، اگر نشست معتبر ماند نتیجه را ثبت و بدون انتظار حلقه‌ای checkpoint کن؛ هنگام انقضای واقعاً مشاهده‌شده ارسال را متوقف و مسیر امن ورود را اجرا کن. تلاش سوم دوباره ارسال یا با شاهد دیرتر بی‌صدا جایگزین نشود. سپس بررسی‌ها و بازبینی و گیت P03 تکمیل شوند؛ P04 بسته بماند.",
+    "working_changes": [
+      "Reviewed final main publication pending; source and transfer allowlist validated on both actual native OSs"
+    ],
+    "next_action": "از P04-001 ادامه بده: آزمون‌های قرارداد حفظ دقیق پرسش و قیود و رد پیشنهاد ناسازگار را بنویس؛ سپس مدل‌های خالص و سختگیرانه را با استفاده از Contract موجود بساز. اصل درخواست جایگزین نشود. ثبت CHECKS مرحله و شاهد بومی منبع تغییرکرده پیش از پذیرش لازم‌اند.",
     "next_command": "python tools/qualityctl.py status",
-    "inputs_missing": [
-      "Live expiration/rejected-session evidence after prior positive authentication; bounded observation only, no fabricated expiration."
-    ],
-    "known_quirks": [
-      {
-        "id": "P02-001",
-        "note": "V1/V2 migrations are append-only. The P02 runner is serial and resume is read-only: ambiguous retry, continuing partial output and cross-account Recovery are not implemented. Capability schemas alone cannot certify a service.",
-        "references": [
-          "docs/decisions/ADR-007-P02_DURABLE_DISPATCH_FA.md"
-        ]
-      },
-      {
-        "id": "P03-001",
-        "note": "P03 has no registered phase checks yet. Do not treat a successful development check or old P02 native report as P03 browser feasibility evidence. Register only genuine P03 checks when the probe exists.",
-        "references": [
-          "CHECKS.json",
-          "ROADMAP.json"
-        ]
-      },
-      {
-        "id": "GIT-001",
-        "note": "The final ZIP has the complete tested-code bundle. The repository preserves its earlier historical bundle; public main and code commit c46c4451c2e4a473ab3f4d574bb2357ba1a468e3 carry current code. See VALIDATION_REPORT.git_bundle_locations. Never replace final source/progress with a historical bundled snapshot.",
-        "references": [
-          "evidence/git/Consilium_Source.bundle",
-          "HANDOFF.json"
-        ]
-      },
-      {
-        "id": "P03-PRIVATE-EVIDENCE",
-        "note": "Raw live conversation evidence was rejected for public publication by automatic review. Full private trace is preserved in owner evidence package identified by hash; public repo contains findings only. Do not bypass rejection through encoding, text conversion, encryption or indirect upload.",
-        "references": [
-          "evidence/browser-probe/P03_PRIVATE_TRACE_PUBLICATION_REVIEW_BLOCK.json"
-        ]
-      }
-    ],
     "startup_commands": [
-      "python tools/qualityctl.py navigation",
-      "python tools/check.py",
-      "python tools/qualityctl.py status"
+      "python tools/qualityctl.py status",
+      "python tools/qualityctl.py navigation --check",
+      "python tools/check.py"
+    ],
+    "inputs_missing": [],
+    "known_quirks": [
+      "start() now requires current_context; CLI start requires --current-context; never use cached initial_context as live proof",
+      "Current Claude session signed out by controlled test; offline P04 needs no login",
+      "Natural expiration, quota and full recovery uncertified; preserve UNKNOWN_DELIVERY without resend",
+      "P03 acceptance-only evidence check validates historical records; exclude it from P04 regressions, keep offline safety tests",
+      "Prior estimate 294-502 excluded extra scoped connections and is superseded; current scoped reserve estimate 420-718 hours",
+      "P03 immutable accepted source is 70e86a...; current cb9928... differs only in transfer allowlist maintenance and is independently native-tested. Do not rewrite historical live evidence source stamps."
     ],
     "next_task": {
-      "id": "P03-FIRST-PROBE",
-      "title": "بررسی محدود یک اتصال مرورگر منتخب از دامنهٔ مصوب",
-      "status": "LIVE_CLAUDE_PROBE_COMPLETED_SESSION_EXPIRATION_EVIDENCE_PENDING",
-      "order": [
-        "قواعد AGENTS و HANDOFF و PROGRESS و SCOPE و معیارهای P03 در ROADMAP را بخوان؛ وضعیت و بررسی توسعه را راستی‌آزمایی کن.",
-        "برای یک سرویس مصوب مسیر مرورگر مجاز را تعیین کن؛ دسترسی، هویت حساب و گفتگو و انقضای نشست را UNKNOWN نگه دار تا مشاهدهٔ واقعی ثبت شود.",
-        "آزمایش ارسال از دفتر عملیات عبور کند؛ شاهد ارسال، پاسخ جزئی/کامل و ادامهٔ همان گفتگو ثبت شود؛ ارسال مبهم خودکار تکرار نشود.",
-        "گزارش بدون راز، جدول قابلیت‌ها و محدودیت مشاهده، و بازبرآورد زمان را با شاهد واقعی بنویس؛ بررسی‌های معتبر P03 و بازبینی سه معیار را ثبت کن."
-      ],
-      "definition_of_done": [
-        "یک مسیر مرورگر واقعی با ورود کاربر، ارسال، دریافت پاسخ و ادامهٔ گفتگو شاهد دارد.",
-        "حالت ورود منقضی و مشاهدهٔ نامطمئن روشن است؛ راه‌حل مانع احتمالی پیش از ادامه تعیین شده است.",
-        "برآورد و جدول قابلیت‌های اتصال به‌روز شده‌اند."
-      ],
-      "blocked_next_phase": "P04",
-      "budget": "Zero paid provider calls; no paid call authorization.",
-      "windows_execution_responsibility": "Assistant; never delegate to user.",
-      "uncertainty_policy": "No real capability certification from mock results; record access barriers explicitly.",
-      "access_preflight": {
-        "schema_version": 1,
-        "phase": "P03",
-        "status": "AUTHENTICATION_REQUIRED",
-        "observation_kind": "LIVE_BROWSER_ACCESS_PREFLIGHT; NOT_PROVIDER_CAPABILITY_ACCEPTANCE",
-        "observed_at_utc": "2026-10-06T15:39:42.627190+00:00",
-        "provider_id": "deepseek",
-        "target_url": "https://chat.deepseek.com",
-        "observed_url": "https://chat.deepseek.com/sign_in",
-        "browser": "Cloud Chrome CDP",
-        "browser_tab_id": "1",
-        "visible_state": "DeepSeek sign-in page with Log in, Log in with Google and Login with Apple controls; no signed-in conversation visible.",
-        "account_identity": "UNVERIFIED",
-        "model_identity": "UNVERIFIED",
-        "conversation_identity": "NOT_CREATED",
-        "delivery": "NOT_ATTEMPTED",
-        "prompt_sent": false,
-        "credentials_entered": false,
-        "paid_calls": 0,
-        "session_expiration": "NOT_TESTED; sign-in page alone does not prove expiration",
-        "quota": "NOT_TESTED",
-        "bot_detection": "NOT_OBSERVED; ordinary sign-in is not bot detection",
-        "capabilities": "UNVERIFIED",
-        "phase_acceptance": "NOT_RUN",
-        "all_three_p03_criteria": "NOT_PASSED",
-        "next_step": "Use the advertised secure browserAuth method choice and credential handoff if the user elects to authenticate; never ask for secrets in chat or infer capabilities before a real ledger-backed send."
-      },
-      "authentication_request": {
-        "schema_version": 1,
-        "phase": "P03",
-        "provider_id": "deepseek",
-        "recorded_at_utc": "2026-10-06T15:57:43.863378+00:00",
-        "secure_browser_auth_result": "declined",
-        "authentication_success": "NOT_CONFIRMED",
-        "credential_values_read_or_logged": false,
-        "provider_prompt_sent": false,
-        "retry_without_new_user_authentication_request": false,
-        "continuation_rule": "Respect the declined secure authentication request; do not retry credentials, switch sign-in method or offer another takeover unless the user requests authentication again."
-      },
-      "offline_preparation": {
-        "status": "OFFLINE_PREPARATION_COMPLETED_NATIVE_BOTH_OS_VERIFIED",
-        "phase_acceptance": false,
-        "live_provider_calls": 0,
-        "source_changed": true,
-        "files": [
-          "src/consilium/core/browser_probe.py",
-          "src/consilium/shell/browser_probe.py",
-          "tools/run_browser_probe.py",
-          "docs/P03_PROBE_RUNBOOK_FA.md",
-          "docs/decisions/ADR-008-P03_PROBE_RECORDER_FA.md"
-        ],
-        "local_counts": {
-          "foundation": 60,
-          "control": 88,
-          "persistence": 80,
-          "browser_probe": 38,
-          "total": 266
-        },
-        "real_process_exit_cases": {
-          "persistence": 12,
-          "browser_probe": 3
-        },
-        "review_independent": false,
-        "limitations": [
-          "No browser driver or provider call",
-          "Observation schema and hashes do not prove live evidence authenticity",
-          "Complete transport response is not product validation",
-          "Partial or ambiguous results cannot be replaced; full recovery remains future work"
-        ],
-        "native_verification": "PASS: actual Linux and Windows plus report graph validation",
-        "source_digest": "a14e4bcfaf7cd9f982bb52d96037d099608e12c1d541855041a4491e25723c19",
-        "code_commit": "db2ef3073d84d560de00738cd9878df47e4f6dc4",
-        "native_review": {
-          "schema_version": 1,
-          "phase": "P03",
-          "scope": "OFFLINE_PREPARATION_NOT_LIVE_BROWSER_ACCEPTANCE",
-          "status": "PASS",
-          "review_independent": false,
-          "source_digest": "a14e4bcfaf7cd9f982bb52d96037d099608e12c1d541855041a4491e25723c19",
-          "code_commit": "db2ef3073d84d560de00738cd9878df47e4f6dc4",
-          "ci_run": {
-            "id": 37495758865,
-            "url": "https://github.com/mehrangtr/Consilium/actions/runs/37495758865",
-            "conclusion": "success",
-            "head_sha": "db2ef3073d84d560de00738cd9878df47e4f6dc4",
-            "artifact_id": 11426909298,
-            "artifact_sha256": "a1814fa94de957d761d4da6dabd6a36db86bd471103dd2e41bed5b6d9b16355f",
-            "jobs": {
-              "Linux": 112379751770,
-              "Windows": 112379752189,
-              "validate": 112380217555
-            }
-          },
-          "targets": [
-            {
-              "target": "Windows",
-              "host": {
-                "system": "Windows",
-                "python": "3.12.10"
-              },
-              "report": {
-                "path": "evidence/targets/Windows/20261006T162712Z_439a49ca/RUN.json",
-                "sha256": "4c042a6c29ad23d7884d0566e259604239275fe2e681be0338cea0bab6aeaa2b"
-              },
-              "counts": {
-                "foundation": 60,
-                "control": 88,
-                "persistence": 80,
-                "browser_probe": 38
-              },
-              "process_exit_cases": {
-                "persistence": 12,
-                "browser_probe": 3
-              },
-              "total": 266
-            },
-            {
-              "target": "Linux",
-              "host": {
-                "system": "Linux",
-                "python": "3.12.14"
-              },
-              "report": {
-                "path": "evidence/targets/Linux/20261006T162657Z_2464e048/RUN.json",
-                "sha256": "2a726c41dd4cb6ea790c12d48966cff317a6dcc9e29708f92785f6bdff15a409"
-              },
-              "counts": {
-                "foundation": 60,
-                "control": 88,
-                "persistence": 80,
-                "browser_probe": 38
-              },
-              "process_exit_cases": {
-                "persistence": 12,
-                "browser_probe": 3
-              },
-              "total": 266
-            }
-          ],
-          "live_provider_calls": 0,
-          "phase_accepted": false,
-          "all_three_live_criteria": "NOT_PASSED",
-          "review_checks": [
-            "Exact transport binding frozen in durable request; altered ticket rejected",
-            "Unique attempt marker rejects reuse of old matching prompt",
-            "Click or absent observation cannot prove delivery or non-delivery",
-            "Incomplete output persists without canonical confirmation",
-            "3 actual process-exit cases for recorder plus 12 kernel cases on each OS",
-            "Default phase gate remains blocked; development reporting does not accept phase"
-          ],
-          "auth_decline_respected": true,
-          "next_action": "Await explicit new authentication request before live browser test. Do not advance P04."
-        }
-      },
-      "authentication_renewal_attempt": {
-        "schema_version": 1,
-        "phase": "P03",
-        "provider_id": "deepseek",
-        "target_origin": "https://chat.deepseek.com",
-        "recorded_at_utc": "2026-10-06T17:05:54.618770+00:00",
-        "user_request_at_local": "2026-10-06T20:32:26+03:30",
-        "user_message_fa": "راهکار برای نشست مجاز چیست؟اگر از من تاییدی میخوای مجاز هستی",
-        "assistant_interpretation": "New user authorization to restart secure authentication; no credential values provided or accessed.",
-        "current_page_observed": "Existing DeepSeek sign-in page; visible password, Google and Apple methods.",
-        "request_outcome": "BLOCKED_BY_AUTOMATIC_APPROVAL_REVIEW; NOT_A_NEW_BROWSERAUTH_DECLINE",
-        "automatic_review_reason": "This retries the secure sign-in request after the user previously declined it, but no new user-authored approval after that decline is present; sign-in is consequential and the authorization prerequisite is unmet.",
-        "authentication_success": "NOT_CONFIRMED",
-        "credential_values_read_or_logged": false,
-        "provider_prompt_sent": false,
-        "alternate_method_or_manual_bypass_attempted": false,
-        "next_step": "Obtain a fresh explicit user confirmation naming DeepSeek and secure sign-in in the project cloud browser, then re-inspect the page and use browserAuth; never collect passwords or OTPs in chat."
-      },
-      "authentication_confirmed_request_timeout": {
-        "schema_version": 1,
-        "phase": "P03",
-        "provider_id": "deepseek",
-        "target_origin": "https://chat.deepseek.com",
-        "user_confirmation_at_local": "2026-10-06T20:36:56+03:30",
-        "user_confirmation_fa": "تایید می کنم",
-        "confirmation_context": "Explicit reply confirming secure sign-in to DeepSeek in the project cloud browser.",
-        "request_outcome": "TOOL_RPC_TIMEOUT; NO_STRUCTURED_BROWSERAUTH_RESULT",
-        "configured_tool_timeout_ms": 60000,
-        "tool_reported_wall_seconds": 1874.314,
-        "tool_error": "timed out awaiting tools/call after 300s",
-        "authentication_success": "NOT_CONFIRMED",
-        "credential_submission": "UNKNOWN; interrupted request does not prove no input occurred",
-        "credential_values_read_or_logged": false,
-        "post_timeout_recovery": "Runtime bindings were reset. Fresh target-origin verification tab showed the ordinary sign-in page.",
-        "post_timeout_observed_url": "https://chat.deepseek.com/sign_in",
-        "provider_prompt_sent": false,
-        "paid_calls": 0,
-        "phase_accepted": false,
-        "retry_policy": "No blind or repeated secure-request loop. User authorization is present; authentication completion is unconfirmed."
-      },
-      "current_authentication_handoff": {
-        "schema_version": 1,
-        "phase": "P03",
-        "provider_id": "anthropic",
-        "recorded_at_utc": "2026-10-06T22:43:47.444937+00:00",
-        "authentication_success": "CONFIRMED_BY_POSITIVE_UI_EVIDENCE",
-        "manual_login_completed_by_user": true,
-        "manual_handoff_status": "COMPLETED_AND_VERIFIED",
-        "credential_values_read_or_logged": false,
-        "historical_preparation_record": "evidence/browser-probe/P03_CLAUDE_MANUAL_AUTH_PREPARATION.json",
-        "server_account_id_verified": false,
-        "authentication_evidence": "Positive UI observation preserved in private user evidence package; no account/conversation identity or raw text published",
-        "private_evidence_package_sha256": "d4fdf66374eb7bcc52ad8c2185a573b11286febc96e120355add78b93514ee16"
-      },
-      "selected_provider_id": "anthropic",
-      "live_browser_checkpoint": {
-        "schema_version": 1,
-        "recorded_at_utc": "2026-10-06T22:51:01.629027+00:00",
-        "status": "LIVE_CLAUDE_PROBE_COMPLETED_SESSION_EXPIRATION_EVIDENCE_PENDING",
-        "provider_id": "anthropic",
-        "authentication": "AUTHENTICATED_VERIFIED",
-        "live_model_send_actions": 3,
-        "confirmed_operations": 2,
-        "unknown_delivery_operations": 1,
-        "same_conversation_verified": true,
-        "expiration_live": "NOT_OBSERVED",
-        "phase_accepted": false,
-        "summary": {
-          "path": "evidence/browser-probe/P03_CLAUDE_LIVE_PUBLIC_SUMMARY.json",
-          "sha256": "82a65800e5bd3a35e55136858a9601f84b358b93c709d8d5583650fdcc968d5d"
-        },
-        "criterion_review": {
-          "path": "evidence/browser-probe/P03_CLAUDE_LIVE_PUBLIC_REVIEW.json",
-          "sha256": "ef02b02bac04e4b912e682d81b70e45cfa183042be994e06b108a4d47bb831c5"
-        },
-        "report": {
-          "path": "evidence/browser-probe/P03_CLAUDE_LIVE_FINDINGS_FA.md",
-          "sha256": "fec0b8f85122ac1a2101912dd901d582e184a87b64221784efcbea08afd3e4e5"
-        },
-        "handoff": {
-          "path": "evidence/browser-probe/P03_CLAUDE_LIVE_NEXT_ACTION_FA.md",
-          "sha256": "dc0cd0771fe4bc51d2f36aea25762282ec485623d843cebeb20a2096fb4b979f"
-        },
-        "private_evidence_package": {
-          "filename": "Consilium_P03_Claude_Private_Evidence_20261006.zip",
-          "sha256": "d4fdf66374eb7bcc52ad8c2185a573b11286febc96e120355add78b93514ee16",
-          "bytes": 66382,
-          "status": "SAVED_PRIVATELY_FOR_USER",
-          "verified_zip_integrity": true,
-          "contents_scope": "PRIVATE_TEST_CONVERSATION_TRACE_AND_TEST_ONLY_LEDGER; NO_LOGIN_SECRETS_OR_AUTH_STATE",
-          "publicly_published": false
-        },
-        "public_raw_trace": "WITHHELD_AFTER_AUTO_REVIEW_REJECTION",
-        "publication_review": {
-          "path": "evidence/browser-probe/P03_PRIVATE_TRACE_PUBLICATION_REVIEW_BLOCK.json",
-          "sha256": "360a9f8465726a05bcba5b0e11135dd972bf739d7cea0ba59cf529eff9458f07"
-        },
-        "source_digest_unchanged": "a14e4bcfaf7cd9f982bb52d96037d099608e12c1d541855041a4491e25723c19"
-      }
-    },
-    "acceptance_revalidation": {
-      "path": "VALIDATION_REPORT.json",
-      "sha256": "b1142013c2e3f23a7e08a27f2d27cb9633238b247e510479880bd36cd585e643",
-      "section": "repeat_acceptance_review"
-    },
-    "execution_recovery_policy": {
-      "task_step_timeout_seconds": 45,
-      "shell_test_timeout_seconds": 60,
-      "progress_report_interval_seconds": 60,
-      "same_failure_retry_limit": 1,
-      "checkpoint_after_confirmed_operation": true,
-      "reconcile_remote_before_retry": true,
-      "do_not_restart_passed_phases_without_changed_source_or_failed_evidence": true,
-      "immutable_acceptance_records": true,
-      "distinguish_execution_from_verified_result": true,
-      "external_tool_timeout_caveat": "A local timer cannot guarantee cancellation of the external connector. An unresponsive operation must be abandoned/reconciled; it must not block already valid source or acceptance metadata.",
-      "large_transfer_policy": "Keep large optional history artifacts in the verified deliverable. Publish code and acceptance metadata independently. Do not repeatedly submit multi-megabyte connector arguments.",
-      "phase_barrier": "P02 accepted and publication verified. P03 is blocked by declined authentication; P04 remains blocked until genuine P03 criteria pass."
-    },
-    "public_publication": {
-      "status": "VERIFIED_COMPLETE",
-      "repository": "mehrangtr/Consilium",
-      "destination": "https://github.com/mehrangtr/Consilium",
-      "source_digest": "a26532121e6eea90b6e6bae3bc5d3e5af6f49257ab453cd0472f49389b63fb51",
-      "source_code_commit": "c46c4451c2e4a473ab3f4d574bb2357ba1a468e3",
-      "staged_base_commit": "c46c4451c2e4a473ab3f4d574bb2357ba1a468e3",
-      "remote_head_verified": "3bdf3f366bcc72679ae18480901b59d19c51ebe5",
-      "standing_authorization_commit": "3bdf3f366bcc72679ae18480901b59d19c51ebe5",
-      "standing_authorization_url": "https://github.com/mehrangtr/Consilium/blob/3bdf3f366bcc72679ae18480901b59d19c51ebe5/evidence/automation/GITHUB_AUTHORIZATION.json",
-      "standing_authorization_readback_verified": true,
-      "completed_tree_batches": 11,
-      "original_batch_count": 11,
-      "staged_tree": "97c82c825ed7d12d9b9fa29ee234f73856dafd42",
-      "pending_original_tree_batch": null,
-      "branch_points_to_partial_tree": false,
-      "actual_publication_verified": true,
-      "standing_access_authorization": {
-        "schema_version": 1,
-        "status": "STANDING_GITHUB_ACCESS_AND_PUBLICATION_GRANTED",
-        "repository": "mehrangtr/Consilium",
-        "visibility": "public",
-        "granted_at": "2026-10-06T18:50:57+03:30",
-        "scope": "GitHub access and public publication of reviewed Consilium source, documents and non-secret test evidence",
-        "valid_until": "Explicit later user stop or revocation",
-        "reconfirm_routine_authorized_work": false,
-        "direct_user_message": "بله دسترسی کامل به گیت هاب و انتشار را تا زمانی که متوقف نکردم برای همیشه داری"
-      },
-      "block_reason": null,
-      "rejected_operations": [
-        {
-          "operation": "Original metadata tree batch 4",
-          "reason": "This publishes a large source-and-evidence payload to a public GitHub repository, while the embedded prior approval is explicitly untrusted and no current trusted message authorizes this exact disclosure."
-        },
-        {
-          "operation": "Smaller metadata tree batch 4 using eight existing blobs and three new offline metadata files",
-          "tool_result": {
-            "content": [
-              {
-                "type": "text",
-                "text": "This action was rejected due to unacceptable risk.\nReason: The tree still publishes new detailed test and project metadata to a public GitHub repository; reusing existing public blobs does not authorize disclosure of the new payload.\nDo not bypass this rejection through a workaround or indirect execution. Continue with a safer alternative, or carry out checks to prove that the action is authorized or low risk before trying again. Complete unaffected work without asking for confirmation. Report anything that remains blocked, clarify why it was blocked by auto-review, inform the user of the risk and ask for approval."
-              }
-            ],
-            "isError": true
-          }
-        }
-      ],
-      "updated_at_utc": "2026-10-06T15:39:42.627190+00:00",
-      "resume_requirement": "No pending P02 delivery work; continue only P03 actual browser feasibility.",
-      "latest_attempt_at_utc": "2026-10-06T15:08:32.861Z",
-      "further_same_payload_retries": 0,
-      "expected_branch_head": "003dc87f3bd733985696c46e1bc79e28b4600293",
-      "prior_latest_rejection": {
-        "schema_version": 1,
-        "recorded_at_utc": "2026-10-06T15:08:32.861Z",
-        "user_instruction": "ادامه بده اگر قسمت نیمه تمام بود در یه جا یادداشت کن",
-        "user_instruction_at": "2026-10-06T18:32:58+03:30",
-        "operation": "Resume original P02 public metadata tree batch 4 of 11",
-        "base_tree": "32ce0656cd689a8adc67c3fe8236c59cbf8532c9",
-        "result": "REJECTED_BY_AUTOMATIC_APPROVAL_REVIEW",
-        "tool_result": {
-          "content": [
-            {
-              "type": "text",
-              "text": "This action was rejected due to unacceptable risk.\nReason: This retries the previously rejected public disclosure of detailed source and test evidence; standing GitHub access does not explicitly authorize this exact payload, and the prior rejection specifically forbids retrying or bypassing it.\nDo not bypass this rejection through a workaround or indirect execution. Continue with a safer alternative, or carry out checks to prove that the action is authorized or low risk before trying again. Complete unaffected work without asking for confirmation. Report anything that remains blocked, clarify why it was blocked by auto-review, inform the user of the risk and ask for approval."
-            }
-          ],
-          "isError": true
-        },
-        "remote_mutation_committed": false,
-        "next_remote_attempt": "None without new explicit authorization for this public disclosure; do not use a workaround.",
-        "standing_access": "Still granted until explicit user revocation."
-      },
-      "latest_attempt": {
-        "status": "ALL_11_ORIGINAL_TREE_BATCHES_STAGED",
-        "standing_publication_grant": {
-          "schema_version": 1,
-          "status": "STANDING_GITHUB_ACCESS_AND_PUBLICATION_GRANTED",
-          "repository": "mehrangtr/Consilium",
-          "visibility": "public",
-          "granted_at": "2026-10-06T18:50:57+03:30",
-          "scope": "GitHub access and public publication of reviewed Consilium source, documents and non-secret test evidence",
-          "valid_until": "Explicit later user stop or revocation",
-          "reconfirm_routine_authorized_work": false,
-          "direct_user_message": "بله دسترسی کامل به گیت هاب و انتشار را تا زمانی که متوقف نکردم برای همیشه داری"
-        },
-        "staged_tree": "a5d262a168aa6d83a5ca6c2cbfb90a70375e10fe"
-      },
-      "pending_action": null,
-      "verified_commit": "3bdf3f366bcc72679ae18480901b59d19c51ebe5",
-      "verified_tree": "97c82c825ed7d12d9b9fa29ee234f73856dafd42",
-      "verification": {
-        "schema_version": 1,
-        "status": "PASS",
-        "repository": "mehrangtr/Consilium",
-        "verified_at_utc": "2026-10-06T15:33:11.938Z",
-        "verified_commit": "3bdf3f366bcc72679ae18480901b59d19c51ebe5",
-        "verified_tree": "97c82c825ed7d12d9b9fa29ee234f73856dafd42",
-        "ref_readback": "PASS",
-        "expected_files": 614,
-        "git_blob_mismatches": 0,
-        "critical_file_content_readback": [
-          {
-            "path": "PROGRESS.json",
-            "match": true
-          },
-          {
-            "path": "evidence/accepted/P02_62bbc5602043/REVIEW.json",
-            "match": true
-          },
-          {
-            "path": "evidence/automation/GITHUB_AUTHORIZATION.json",
-            "match": true
-          }
-        ],
-        "tested_source_commit": "c46c4451c2e4a473ab3f4d574bb2357ba1a468e3",
-        "source_digest": "a26532121e6eea90b6e6bae3bc5d3e5af6f49257ab453cd0472f49389b63fb51",
-        "native_tests": "Existing exact-source Windows/Linux 222 tests per OS; no new native run for metadata-only publication",
-        "publication_authorization": "Standing GitHub access and public publication granted directly by user until explicit revocation",
-        "repository_bundle": "Preserved historical bundle; public Git history and tested commit are the current code authority"
-      },
-      "record_scope": "Post-verification status cites the immutable content commit read back successfully; later status-only commits preserve its code and acceptance proofs."
-    },
-    "github_authorization": {
-      "schema_version": 1,
-      "status": "STANDING_GITHUB_ACCESS_AND_PUBLICATION_GRANTED",
-      "repository": "mehrangtr/Consilium",
-      "visibility": "public",
-      "granted_at": "2026-10-06T18:50:57+03:30",
-      "scope": "GitHub access and public publication of reviewed Consilium source, documents and non-secret test evidence",
-      "valid_until": "Explicit later user stop or revocation",
-      "reconfirm_routine_authorized_work": false,
-      "direct_user_message": "بله دسترسی کامل به گیت هاب و انتشار را تا زمانی که متوقف نکردم برای همیشه داری"
-    },
-    "github_user_authorization_evidence": {
-      "exact_user_message": "بله دسترسی کامل به گیت هاب و انتشار را تا زمانی که متوقف نکردم برای همیشه داری",
-      "at": "2026-10-06T18:50:57+03:30",
-      "access_and_publication_expires": "Only explicit later user revocation",
-      "automatic_review_status": "AUTHORIZED_TREE_TRANSFERS_SUCCEEDED"
+      "id": "P04-001",
+      "phase": "P04",
+      "status": "DESIGN_COMPLETE_IMPLEMENTATION_AND_TESTS_NOT_STARTED",
+      "title_fa": "قرارداد اصل پرسش، پیشنهاد معمار و پذیرش نسخهٔ جدید",
+      "completed_fa": "طرح اولیه و ماتریس دوازده رفتار آماده است؛ اینها شاهد اجرای برنامه نیستند.",
+      "remaining_fa": "مدل‌های Python، آزمون‌های مثبت و منفی و اتصال به دفتر موجود پیاده نشده‌اند.",
+      "next_action_fa": "از P04-001 ادامه بده: آزمون‌های قرارداد حفظ دقیق پرسش و قیود و رد پیشنهاد ناسازگار را بنویس؛ سپس مدل‌های خالص و سختگیرانه را با استفاده از Contract موجود بساز. اصل درخواست جایگزین نشود. ثبت CHECKS مرحله و شاهد بومی منبع تغییرکرده پیش از پذیرش لازم‌اند.",
+      "done_when_fa": "اصل متن و قیود دقیق محفوظ؛ پیشنهاد ناسازگار و پذیرش نامعتبر رد؛ تغییرهای مجاز قابل مقایسه؛ آزمون‌های واقعی و رگرسیون سبز؛ تحویل به‌روز."
     },
     "unfinished_work": {
       "schema_version": 1,
-      "updated_at_utc": "2026-10-06T22:43:47.444937+00:00",
-      "canonical_location": "PROGRESS.json.resume.unfinished_work",
-      "continuation_instruction": "کاربر به‌علت نداشتن اطلاعات ورود DeepSeek، آزمون مرورگر را به Claude یا Qwen هدایت کرد. صفحهٔ واقعی ورود Claude در همان مرورگر ابری باز شد؛ گزینه‌های Google و Apple و ایمیل دیده شدند و تحویل دستی کنترل آماده است. مجوز ورود موجود است. پس از پایان ورود کاربر و بازگشت کنترل، ابتدا نشست معتبر را با شاهد مثبت بررسی کن؛ سپس آزمون محدود از دفتر عملیات با هویت دقیق حساب و مدل و همان گفتگو اجرا شود. اطلاعات ورود و پیوند تحویل در چت یا مخزن ثبت نشوند؛ P04 همچنان بسته است.",
+      "updated_at_utc": "2026-10-06T23:29:08.363475+00:00",
+      "canonical_location": "PROGRESS.json:resume.unfinished_work",
+      "continuation_instruction": "Read current record and accepted review; do not replay P03 sends or repeat historical login requests. Implement only P04-001 next.",
       "items": [
         {
-          "id": "P03-001",
-          "phase": "P03",
-          "status": "LIVE_CLAUDE_PROBE_COMPLETED_SESSION_EXPIRATION_EVIDENCE_PENDING",
-          "title_fa": "آزمون واقعی یک اتصال مرورگر از دامنهٔ مصوب",
-          "completed_fa": "ورود دستی Claude تأیید شد. دو پیام زنده با پاسخ JSON واقعی در همان گفتگو از دفتر عملیات عبور و تأیید شدند. قطع واقعی مشاهده پس از پیام سوم، ثبت تحویل نامعلوم و بازکردن فقط خواندنی بدون پیام تکراری بررسی شد. جدول قابلیت‌ها و برآورد و محدودیت‌ها ثبت شدند.",
-          "remaining_fa": "شاهد واقعی انقضا پس از نشست معتبر، تکمیل بررسی معیار دوم و ثبت بررسی‌های معتبر و گیت رسمی P03. نتیجهٔ سوم مبهم حفظ شود؛ بازیابی کامل و تعویض حساب ادعا نشوند.",
-          "live_observation": "ACTUAL_CLAUDE_SEND_RECEIVE_CONTINUATION_AND_OBSERVER_LOSS; NOT_EXPIRATION_OR_COMPLETE_PRODUCT",
-          "registered_phase_checks": [],
-          "prerequisites_unknown": [
-            "Live expired/rejected session after prior authentication",
-            "Quota ceiling/reset; not certified",
-            "Server account identity and cross-account recovery; not certified"
-          ],
-          "integration_contracts": [
-            {
-              "file": "src/consilium/ports/adapter.py",
-              "api": "Adapter.capabilities, send(AdapterRequest), probe(AdapterRequest)"
-            },
-            {
-              "file": "src/consilium/core/contracts.py",
-              "api": "ConnectionSpec, OperationIntent, AdapterRequest, TransportResult, DeliveryObservation"
-            },
-            {
-              "file": "src/consilium/shell/storage.py",
-              "api": "SQLiteStore.prepare_intent"
-            },
-            {
-              "file": "src/consilium/shell/runner.py",
-              "api": "DurableRunner.execute(request, adapter, expected_revision=...)"
-            },
-            {
-              "file": "src/consilium/shell/ledger.py",
-              "api": "begin_send, record_result, mark_interrupted, resume"
-            }
-          ],
-          "required_behaviors": [
-            "Keep real browser capabilities UNVERIFIED until genuine evidence is recorded; Mock does not certify a provider.",
-            "Prepare and freeze intent before dispatch; remote browser I/O remains outside the database transaction.",
-            "Classify an ambiguous attempt as UNKNOWN_DELIVERY and do not retry automatically.",
-            "Identify account and conversation without persisting cookies, credentials, tokens or raw session data.",
-            "Partial and complete response observations are distinct; continuation must refer to the same verified conversation.",
-            "Use zero paid provider calls. Windows execution remains the assistant responsibility."
-          ],
-          "next_action_fa": "ورود Claude و دو پاسخ واقعی تأیید شده‌اند؛ آن‌ها را تکرار نکن. قطع مشاهدهٔ واقعی، UNKNOWN_DELIVERY و بازکردن همان گفتگو بدون ارسال مجدد ثبت شدند. شاهد واقعی انقضای نشست هنوز موجود نیست: مشاهدهٔ کوتاه فقط خواندنی انجام بده، اگر نشست معتبر ماند نتیجه را ثبت و بدون انتظار حلقه‌ای checkpoint کن؛ هنگام انقضای واقعاً مشاهده‌شده ارسال را متوقف و مسیر امن ورود را اجرا کن. تلاش سوم دوباره ارسال یا با شاهد دیرتر بی‌صدا جایگزین نشود. سپس بررسی‌ها و بازبینی و گیت P03 تکمیل شوند؛ P04 بسته بماند.",
-          "done_when_fa": "هر سه معیار خروج `P03` در `ROADMAP.json` با شاهد واقعی پاس شده و گیت پذیرش اجرا شده باشد.",
-          "access_preflight": {
-            "schema_version": 1,
-            "phase": "P03",
-            "status": "AUTHENTICATION_REQUIRED",
-            "observation_kind": "LIVE_BROWSER_ACCESS_PREFLIGHT; NOT_PROVIDER_CAPABILITY_ACCEPTANCE",
-            "observed_at_utc": "2026-10-06T15:39:42.627190+00:00",
-            "provider_id": "deepseek",
-            "target_url": "https://chat.deepseek.com",
-            "observed_url": "https://chat.deepseek.com/sign_in",
-            "browser": "Cloud Chrome CDP",
-            "browser_tab_id": "1",
-            "visible_state": "DeepSeek sign-in page with Log in, Log in with Google and Login with Apple controls; no signed-in conversation visible.",
-            "account_identity": "UNVERIFIED",
-            "model_identity": "UNVERIFIED",
-            "conversation_identity": "NOT_CREATED",
-            "delivery": "NOT_ATTEMPTED",
-            "prompt_sent": false,
-            "credentials_entered": false,
-            "paid_calls": 0,
-            "session_expiration": "NOT_TESTED; sign-in page alone does not prove expiration",
-            "quota": "NOT_TESTED",
-            "bot_detection": "NOT_OBSERVED; ordinary sign-in is not bot detection",
-            "capabilities": "UNVERIFIED",
-            "phase_acceptance": "NOT_RUN",
-            "all_three_p03_criteria": "NOT_PASSED",
-            "next_step": "Use the advertised secure browserAuth method choice and credential handoff if the user elects to authenticate; never ask for secrets in chat or infer capabilities before a real ledger-backed send."
-          },
-          "authentication_request": {
-            "schema_version": 1,
-            "phase": "P03",
-            "provider_id": "deepseek",
-            "recorded_at_utc": "2026-10-06T15:57:43.863378+00:00",
-            "secure_browser_auth_result": "declined",
-            "authentication_success": "NOT_CONFIRMED",
-            "credential_values_read_or_logged": false,
-            "provider_prompt_sent": false,
-            "retry_without_new_user_authentication_request": false,
-            "continuation_rule": "Respect the declined secure authentication request; do not retry credentials, switch sign-in method or offer another takeover unless the user requests authentication again."
-          },
-          "offline_preparation": {
-            "status": "OFFLINE_PREPARATION_COMPLETED_NATIVE_BOTH_OS_VERIFIED",
-            "phase_acceptance": false,
-            "live_provider_calls": 0,
-            "source_changed": true,
-            "files": [
-              "src/consilium/core/browser_probe.py",
-              "src/consilium/shell/browser_probe.py",
-              "tools/run_browser_probe.py",
-              "docs/P03_PROBE_RUNBOOK_FA.md",
-              "docs/decisions/ADR-008-P03_PROBE_RECORDER_FA.md"
-            ],
-            "local_counts": {
-              "foundation": 60,
-              "control": 88,
-              "persistence": 80,
-              "browser_probe": 38,
-              "total": 266
-            },
-            "real_process_exit_cases": {
-              "persistence": 12,
-              "browser_probe": 3
-            },
-            "review_independent": false,
-            "limitations": [
-              "No browser driver or provider call",
-              "Observation schema and hashes do not prove live evidence authenticity",
-              "Complete transport response is not product validation",
-              "Partial or ambiguous results cannot be replaced; full recovery remains future work"
-            ],
-            "native_verification": "PASS: actual Linux and Windows plus report graph validation",
-            "source_digest": "a14e4bcfaf7cd9f982bb52d96037d099608e12c1d541855041a4491e25723c19",
-            "code_commit": "db2ef3073d84d560de00738cd9878df47e4f6dc4",
-            "native_review": {
-              "schema_version": 1,
-              "phase": "P03",
-              "scope": "OFFLINE_PREPARATION_NOT_LIVE_BROWSER_ACCEPTANCE",
-              "status": "PASS",
-              "review_independent": false,
-              "source_digest": "a14e4bcfaf7cd9f982bb52d96037d099608e12c1d541855041a4491e25723c19",
-              "code_commit": "db2ef3073d84d560de00738cd9878df47e4f6dc4",
-              "ci_run": {
-                "id": 37495758865,
-                "url": "https://github.com/mehrangtr/Consilium/actions/runs/37495758865",
-                "conclusion": "success",
-                "head_sha": "db2ef3073d84d560de00738cd9878df47e4f6dc4",
-                "artifact_id": 11426909298,
-                "artifact_sha256": "a1814fa94de957d761d4da6dabd6a36db86bd471103dd2e41bed5b6d9b16355f",
-                "jobs": {
-                  "Linux": 112379751770,
-                  "Windows": 112379752189,
-                  "validate": 112380217555
-                }
-              },
-              "targets": [
-                {
-                  "target": "Windows",
-                  "host": {
-                    "system": "Windows",
-                    "python": "3.12.10"
-                  },
-                  "report": {
-                    "path": "evidence/targets/Windows/20261006T162712Z_439a49ca/RUN.json",
-                    "sha256": "4c042a6c29ad23d7884d0566e259604239275fe2e681be0338cea0bab6aeaa2b"
-                  },
-                  "counts": {
-                    "foundation": 60,
-                    "control": 88,
-                    "persistence": 80,
-                    "browser_probe": 38
-                  },
-                  "process_exit_cases": {
-                    "persistence": 12,
-                    "browser_probe": 3
-                  },
-                  "total": 266
-                },
-                {
-                  "target": "Linux",
-                  "host": {
-                    "system": "Linux",
-                    "python": "3.12.14"
-                  },
-                  "report": {
-                    "path": "evidence/targets/Linux/20261006T162657Z_2464e048/RUN.json",
-                    "sha256": "2a726c41dd4cb6ea790c12d48966cff317a6dcc9e29708f92785f6bdff15a409"
-                  },
-                  "counts": {
-                    "foundation": 60,
-                    "control": 88,
-                    "persistence": 80,
-                    "browser_probe": 38
-                  },
-                  "process_exit_cases": {
-                    "persistence": 12,
-                    "browser_probe": 3
-                  },
-                  "total": 266
-                }
-              ],
-              "live_provider_calls": 0,
-              "phase_accepted": false,
-              "all_three_live_criteria": "NOT_PASSED",
-              "review_checks": [
-                "Exact transport binding frozen in durable request; altered ticket rejected",
-                "Unique attempt marker rejects reuse of old matching prompt",
-                "Click or absent observation cannot prove delivery or non-delivery",
-                "Incomplete output persists without canonical confirmation",
-                "3 actual process-exit cases for recorder plus 12 kernel cases on each OS",
-                "Default phase gate remains blocked; development reporting does not accept phase"
-              ],
-              "auth_decline_respected": true,
-              "next_action": "Await explicit new authentication request before live browser test. Do not advance P04."
-            }
-          },
-          "future_impact_fa": "شواهد دو پاسخ و ثبت مبهم قابل ادامه‌اند و پذیرش P02 آسیب ندیده است. نکتهٔ باز انقضا، گیت P03 و آغاز P04 را متوقف می‌کند؛ ارسال خودکار مجددِ تلاش سوم می‌تواند پیام تکراری بسازد و ممنوع است. حفظ UNKNOWN و شاهد دیرتر جدا از هم از ادعای بازیابی اثبات‌نشده جلوگیری می‌کند.",
-          "authentication_renewal_attempt": {
-            "schema_version": 1,
-            "phase": "P03",
-            "provider_id": "deepseek",
-            "target_origin": "https://chat.deepseek.com",
-            "recorded_at_utc": "2026-10-06T17:05:54.618770+00:00",
-            "user_request_at_local": "2026-10-06T20:32:26+03:30",
-            "user_message_fa": "راهکار برای نشست مجاز چیست؟اگر از من تاییدی میخوای مجاز هستی",
-            "assistant_interpretation": "New user authorization to restart secure authentication; no credential values provided or accessed.",
-            "current_page_observed": "Existing DeepSeek sign-in page; visible password, Google and Apple methods.",
-            "request_outcome": "BLOCKED_BY_AUTOMATIC_APPROVAL_REVIEW; NOT_A_NEW_BROWSERAUTH_DECLINE",
-            "automatic_review_reason": "This retries the secure sign-in request after the user previously declined it, but no new user-authored approval after that decline is present; sign-in is consequential and the authorization prerequisite is unmet.",
-            "authentication_success": "NOT_CONFIRMED",
-            "credential_values_read_or_logged": false,
-            "provider_prompt_sent": false,
-            "alternate_method_or_manual_bypass_attempted": false,
-            "next_step": "Obtain a fresh explicit user confirmation naming DeepSeek and secure sign-in in the project cloud browser, then re-inspect the page and use browserAuth; never collect passwords or OTPs in chat."
-          },
-          "authentication_confirmed_request_timeout": {
-            "schema_version": 1,
-            "phase": "P03",
-            "provider_id": "deepseek",
-            "target_origin": "https://chat.deepseek.com",
-            "user_confirmation_at_local": "2026-10-06T20:36:56+03:30",
-            "user_confirmation_fa": "تایید می کنم",
-            "confirmation_context": "Explicit reply confirming secure sign-in to DeepSeek in the project cloud browser.",
-            "request_outcome": "TOOL_RPC_TIMEOUT; NO_STRUCTURED_BROWSERAUTH_RESULT",
-            "configured_tool_timeout_ms": 60000,
-            "tool_reported_wall_seconds": 1874.314,
-            "tool_error": "timed out awaiting tools/call after 300s",
-            "authentication_success": "NOT_CONFIRMED",
-            "credential_submission": "UNKNOWN; interrupted request does not prove no input occurred",
-            "credential_values_read_or_logged": false,
-            "post_timeout_recovery": "Runtime bindings were reset. Fresh target-origin verification tab showed the ordinary sign-in page.",
-            "post_timeout_observed_url": "https://chat.deepseek.com/sign_in",
-            "provider_prompt_sent": false,
-            "paid_calls": 0,
-            "phase_accepted": false,
-            "retry_policy": "No blind or repeated secure-request loop. User authorization is present; authentication completion is unconfirmed."
-          },
-          "current_authentication_handoff": {
-            "schema_version": 1,
-            "phase": "P03",
-            "provider_id": "anthropic",
-            "recorded_at_utc": "2026-10-06T22:43:47.444937+00:00",
-            "authentication_success": "CONFIRMED_BY_POSITIVE_UI_EVIDENCE",
-            "manual_login_completed_by_user": true,
-            "manual_handoff_status": "COMPLETED_AND_VERIFIED",
-            "credential_values_read_or_logged": false,
-            "historical_preparation_record": "evidence/browser-probe/P03_CLAUDE_MANUAL_AUTH_PREPARATION.json",
-            "server_account_id_verified": false,
-            "authentication_evidence": "Positive UI observation preserved in private user evidence package; no account/conversation identity or raw text published",
-            "private_evidence_package_sha256": "d4fdf66374eb7bcc52ad8c2185a573b11286febc96e120355add78b93514ee16"
-          },
-          "live_browser_checkpoint": {
-            "schema_version": 1,
-            "recorded_at_utc": "2026-10-06T22:51:01.629027+00:00",
-            "status": "LIVE_CLAUDE_PROBE_COMPLETED_SESSION_EXPIRATION_EVIDENCE_PENDING",
-            "provider_id": "anthropic",
-            "authentication": "AUTHENTICATED_VERIFIED",
-            "live_model_send_actions": 3,
-            "confirmed_operations": 2,
-            "unknown_delivery_operations": 1,
-            "same_conversation_verified": true,
-            "expiration_live": "NOT_OBSERVED",
-            "phase_accepted": false,
-            "summary": {
-              "path": "evidence/browser-probe/P03_CLAUDE_LIVE_PUBLIC_SUMMARY.json",
-              "sha256": "82a65800e5bd3a35e55136858a9601f84b358b93c709d8d5583650fdcc968d5d"
-            },
-            "criterion_review": {
-              "path": "evidence/browser-probe/P03_CLAUDE_LIVE_PUBLIC_REVIEW.json",
-              "sha256": "ef02b02bac04e4b912e682d81b70e45cfa183042be994e06b108a4d47bb831c5"
-            },
-            "report": {
-              "path": "evidence/browser-probe/P03_CLAUDE_LIVE_FINDINGS_FA.md",
-              "sha256": "fec0b8f85122ac1a2101912dd901d582e184a87b64221784efcbea08afd3e4e5"
-            },
-            "handoff": {
-              "path": "evidence/browser-probe/P03_CLAUDE_LIVE_NEXT_ACTION_FA.md",
-              "sha256": "dc0cd0771fe4bc51d2f36aea25762282ec485623d843cebeb20a2096fb4b979f"
-            },
-            "private_evidence_package": {
-              "filename": "Consilium_P03_Claude_Private_Evidence_20261006.zip",
-              "sha256": "d4fdf66374eb7bcc52ad8c2185a573b11286febc96e120355add78b93514ee16",
-              "bytes": 66382,
-              "status": "SAVED_PRIVATELY_FOR_USER",
-              "verified_zip_integrity": true,
-              "contents_scope": "PRIVATE_TEST_CONVERSATION_TRACE_AND_TEST_ONLY_LEDGER; NO_LOGIN_SECRETS_OR_AUTH_STATE",
-              "publicly_published": false
-            },
-            "public_raw_trace": "WITHHELD_AFTER_AUTO_REVIEW_REJECTION",
-            "publication_review": {
-              "path": "evidence/browser-probe/P03_PRIVATE_TRACE_PUBLICATION_REVIEW_BLOCK.json",
-              "sha256": "360a9f8465726a05bcba5b0e11135dd972bf739d7cea0ba59cf529eff9458f07"
-            },
-            "source_digest_unchanged": "a14e4bcfaf7cd9f982bb52d96037d099608e12c1d541855041a4491e25723c19"
-          }
+          "id": "P04-001",
+          "phase": "P04",
+          "status": "DESIGN_COMPLETE_IMPLEMENTATION_AND_TESTS_NOT_STARTED",
+          "title_fa": "قرارداد اصل پرسش، پیشنهاد معمار و پذیرش نسخهٔ جدید",
+          "completed_fa": "طرح اولیه و ماتریس دوازده رفتار آماده است؛ اینها شاهد اجرای برنامه نیستند.",
+          "remaining_fa": "مدل‌های Python، آزمون‌های مثبت و منفی و اتصال به دفتر موجود پیاده نشده‌اند.",
+          "next_action_fa": "از P04-001 ادامه بده: آزمون‌های قرارداد حفظ دقیق پرسش و قیود و رد پیشنهاد ناسازگار را بنویس؛ سپس مدل‌های خالص و سختگیرانه را با استفاده از Contract موجود بساز. اصل درخواست جایگزین نشود. ثبت CHECKS مرحله و شاهد بومی منبع تغییرکرده پیش از پذیرش لازم‌اند.",
+          "done_when_fa": "اصل متن و قیود دقیق محفوظ؛ پیشنهاد ناسازگار و پذیرش نامعتبر رد؛ تغییرهای مجاز قابل مقایسه؛ آزمون‌های واقعی و رگرسیون سبز؛ تحویل به‌روز."
         }
       ],
-      "future_phases": {
-        "ids": [
-          "P04",
-          "P05",
-          "P06",
-          "P07",
-          "P08",
-          "P09",
-          "P10",
-          "P11",
-          "P12",
-          "P13",
-          "P14",
-          "P15",
-          "P16"
-        ],
-        "status": "NOT_STARTED; BLOCKED_BY_PREVIOUS_PHASE",
-        "note_fa": "این مرحله‌ها کار آینده‌اند؛ کار نیمه‌انجام‌شده یا نقص مرحلهٔ دو محسوب نمی‌شوند."
-      },
-      "preserve_completed_work": {
-        "phases": [
-          "P00",
-          "P01",
-          "P02"
-        ],
-        "source_digest": "a26532121e6eea90b6e6bae3bc5d3e5af6f49257ab453cd0472f49389b63fb51",
-        "source_changed": true,
-        "native_test_counts_per_os": {
-          "foundation": 60,
-          "control": 82,
-          "persistence": 80
-        },
-        "rerun_policy_fa": "مرحلهٔ پذیرفته‌شده را فقط در صورت تغییر منبع یا شکست و ناسازگاری شاهد دوباره اجرا کن.",
-        "source_digest_meaning": "Historical accepted P02 source anchor; P03 preparation changes source without rewriting that acceptance."
-      },
-      "execution_rules": {
-        "external_step_seconds": 45,
-        "shell_test_seconds": 60,
-        "progress_update_seconds": 60,
-        "same_failure_retry_limit": 1,
-        "checkpoint_after_confirmed_step": true,
-        "automatic_rejection_retry_allowed": false,
-        "report_unknown_as_success": false
-      },
       "completed_items": [
         {
           "id": "PUB-P02-001",
@@ -1501,267 +750,160 @@
           "remaining_fa": "هیچ کار باز در این برش آماده‌سازی باقی نمانده است؛ اجرای زنده در P03-001 حفظ شده است.",
           "code_commit": "db2ef3073d84d560de00738cd9878df47e4f6dc4",
           "source_digest": "a14e4bcfaf7cd9f982bb52d96037d099608e12c1d541855041a4491e25723c19"
-        }
-      ]
-    },
-    "p03_probe_preparation": {
-      "status": "OFFLINE_PREPARATION_COMPLETED_NATIVE_BOTH_OS_VERIFIED",
-      "phase_acceptance": false,
-      "live_provider_calls": 0,
-      "source_changed": true,
-      "files": [
-        "src/consilium/core/browser_probe.py",
-        "src/consilium/shell/browser_probe.py",
-        "tools/run_browser_probe.py",
-        "docs/P03_PROBE_RUNBOOK_FA.md",
-        "docs/decisions/ADR-008-P03_PROBE_RECORDER_FA.md"
-      ],
-      "local_counts": {
-        "foundation": 60,
-        "control": 88,
-        "persistence": 80,
-        "browser_probe": 38,
-        "total": 266
-      },
-      "real_process_exit_cases": {
-        "persistence": 12,
-        "browser_probe": 3
-      },
-      "review_independent": false,
-      "limitations": [
-        "No browser driver or provider call",
-        "Observation schema and hashes do not prove live evidence authenticity",
-        "Complete transport response is not product validation",
-        "Partial or ambiguous results cannot be replaced; full recovery remains future work"
-      ],
-      "native_verification": "PASS: actual Linux and Windows plus report graph validation",
-      "source_digest": "a14e4bcfaf7cd9f982bb52d96037d099608e12c1d541855041a4491e25723c19",
-      "code_commit": "db2ef3073d84d560de00738cd9878df47e4f6dc4",
-      "native_review": {
-        "schema_version": 1,
-        "phase": "P03",
-        "scope": "OFFLINE_PREPARATION_NOT_LIVE_BROWSER_ACCEPTANCE",
-        "status": "PASS",
-        "review_independent": false,
-        "source_digest": "a14e4bcfaf7cd9f982bb52d96037d099608e12c1d541855041a4491e25723c19",
-        "code_commit": "db2ef3073d84d560de00738cd9878df47e4f6dc4",
-        "ci_run": {
-          "id": 37495758865,
-          "url": "https://github.com/mehrangtr/Consilium/actions/runs/37495758865",
-          "conclusion": "success",
-          "head_sha": "db2ef3073d84d560de00738cd9878df47e4f6dc4",
-          "artifact_id": 11426909298,
-          "artifact_sha256": "a1814fa94de957d761d4da6dabd6a36db86bd471103dd2e41bed5b6d9b16355f",
-          "jobs": {
-            "Linux": 112379751770,
-            "Windows": 112379752189,
-            "validate": 112380217555
-          }
         },
-        "targets": [
-          {
-            "target": "Windows",
-            "host": {
-              "system": "Windows",
-              "python": "3.12.10"
+        {
+          "id": "P03-001",
+          "phase": "P03",
+          "status": "COMPLETED_LIMITED_FEASIBILITY",
+          "title_fa": "پذیرش مستند امکان‌سنجی مرورگر و اصلاح آغاز با شاهد تازه",
+          "acceptance": {
+            "source_digest": "70e86ab5179e978f8d0dcdc387647689412493f05ac750569bd3d764c1d22118",
+            "receipt": {
+              "path": "evidence/runs/20261006T232625Z_9d9f3ac539/RUN.json",
+              "sha256": "e8a177f7a9ff3ea6e9ed2285429c64d6f07db581d653868bf26a5417784ed256"
             },
-            "report": {
-              "path": "evidence/targets/Windows/20261006T162712Z_439a49ca/RUN.json",
-              "sha256": "4c042a6c29ad23d7884d0566e259604239275fe2e681be0338cea0bab6aeaa2b"
+            "review": {
+              "path": "evidence/accepted/P03_a1134261e9ea/REVIEW.json",
+              "sha256": "b9e731c218467e7ab0755bba011ce49369efac921d63da08b92931f61b05304b"
             },
-            "counts": {
-              "foundation": 60,
-              "control": 88,
-              "persistence": 80,
-              "browser_probe": 38
+            "checkpoint": {
+              "path": "evidence/browser-probe/P03_FEASIBILITY_CHECKPOINT.json",
+              "sha256": "eb3a8dd9a24b420b4830030cdce7bf40babaefb766f28a404a22d3c591a48b20"
             },
-            "process_exit_cases": {
-              "persistence": 12,
-              "browser_probe": 3
+            "native_matrix": {
+              "path": "evidence/target-matrix/RUN.json",
+              "sha256": "65e4c4d02c9b5109a4c691d87e9fee736c856298c074ccac011292966357cb54"
             },
-            "total": 266
+            "code_commit": "21bb52523072bd6f0193602b94ffb1387d5bc2ea",
+            "natural_expiration": "UNKNOWN_NOT_CERTIFIED",
+            "full_driver_and_recovery": "NOT_IMPLEMENTED_OR_CERTIFIED"
           },
-          {
-            "target": "Linux",
-            "host": {
-              "system": "Linux",
-              "python": "3.12.14"
-            },
-            "report": {
-              "path": "evidence/targets/Linux/20261006T162657Z_2464e048/RUN.json",
-              "sha256": "2a726c41dd4cb6ea790c12d48966cff317a6dcc9e29708f92785f6bdff15a409"
-            },
-            "counts": {
-              "foundation": 60,
-              "control": 88,
-              "persistence": 80,
-              "browser_probe": 38
-            },
-            "process_exit_cases": {
-              "persistence": 12,
-              "browser_probe": 3
-            },
-            "total": 266
-          }
+          "preserve_policy": "Keep two confirmed operations and one unknown attempt; no automatic resend; private raw trace stays private; current session signed out."
+        }
+      ],
+      "future_phases": {
+        "ids": [
+          "P05",
+          "P06",
+          "P07",
+          "P08",
+          "P09",
+          "P10",
+          "P11",
+          "P12",
+          "P13",
+          "P14",
+          "P15",
+          "P16"
         ],
-        "live_provider_calls": 0,
-        "phase_accepted": false,
-        "all_three_live_criteria": "NOT_PASSED",
-        "review_checks": [
-          "Exact transport binding frozen in durable request; altered ticket rejected",
-          "Unique attempt marker rejects reuse of old matching prompt",
-          "Click or absent observation cannot prove delivery or non-delivery",
-          "Incomplete output persists without canonical confirmation",
-          "3 actual process-exit cases for recorder plus 12 kernel cases on each OS",
-          "Default phase gate remains blocked; development reporting does not accept phase"
-        ],
-        "auth_decline_respected": true,
-        "next_action": "Await explicit new authentication request before live browser test. Do not advance P04."
+        "status": "NOT_STARTED; BLOCKED_BY_PREVIOUS_PHASE"
+      },
+      "execution_rules": {
+        "external_step_seconds": 45,
+        "shell_test_seconds": 60,
+        "progress_update_seconds": 60,
+        "same_failure_retry_limit": 1,
+        "checkpoint_after_confirmed_step": true,
+        "automatic_rejection_retry_allowed": false,
+        "report_unknown_as_success": false
       }
     },
-    "last_tested_source_checkpoint": {
-      "phase": "P03_PREPARATION_NOT_ACCEPTANCE",
-      "code_commit": "db2ef3073d84d560de00738cd9878df47e4f6dc4",
-      "source_digest": "a14e4bcfaf7cd9f982bb52d96037d099608e12c1d541855041a4491e25723c19",
-      "ci_run": {
-        "id": 37495758865,
-        "url": "https://github.com/mehrangtr/Consilium/actions/runs/37495758865",
-        "conclusion": "success",
-        "head_sha": "db2ef3073d84d560de00738cd9878df47e4f6dc4",
-        "artifact_id": 11426909298,
-        "artifact_sha256": "a1814fa94de957d761d4da6dabd6a36db86bd471103dd2e41bed5b6d9b16355f",
-        "jobs": {
-          "Linux": 112379751770,
-          "Windows": 112379752189,
-          "validate": 112380217555
-        }
+    "p03_acceptance": {
+      "source_digest": "70e86ab5179e978f8d0dcdc387647689412493f05ac750569bd3d764c1d22118",
+      "receipt": {
+        "path": "evidence/runs/20261006T232625Z_9d9f3ac539/RUN.json",
+        "sha256": "e8a177f7a9ff3ea6e9ed2285429c64d6f07db581d653868bf26a5417784ed256"
       },
-      "status": "PASS"
-    },
-    "p03_source_publication": {
-      "status": "TESTED_SOURCE_BRANCH_VERIFIED",
-      "repository": "mehrangtr/Consilium",
-      "code_commit": "db2ef3073d84d560de00738cd9878df47e4f6dc4",
-      "code_tree": "edef591036ccd0e1fc8c501fcabbee5648326fae",
-      "source_digest": "a14e4bcfaf7cd9f982bb52d96037d099608e12c1d541855041a4491e25723c19",
-      "verified_branch": "p03/browser-probe-recorder",
-      "verified_blob_count": 626,
-      "main_release_policy": "Fast-forward tested source and non-secret metadata only; no force; exact expected-head lease. Verify final main ref and files after publication."
-    },
-    "authentication_renewal_attempt": {
-      "schema_version": 1,
-      "phase": "P03",
-      "provider_id": "deepseek",
-      "target_origin": "https://chat.deepseek.com",
-      "recorded_at_utc": "2026-10-06T17:05:54.618770+00:00",
-      "user_request_at_local": "2026-10-06T20:32:26+03:30",
-      "user_message_fa": "راهکار برای نشست مجاز چیست؟اگر از من تاییدی میخوای مجاز هستی",
-      "assistant_interpretation": "New user authorization to restart secure authentication; no credential values provided or accessed.",
-      "current_page_observed": "Existing DeepSeek sign-in page; visible password, Google and Apple methods.",
-      "request_outcome": "BLOCKED_BY_AUTOMATIC_APPROVAL_REVIEW; NOT_A_NEW_BROWSERAUTH_DECLINE",
-      "automatic_review_reason": "This retries the secure sign-in request after the user previously declined it, but no new user-authored approval after that decline is present; sign-in is consequential and the authorization prerequisite is unmet.",
-      "authentication_success": "NOT_CONFIRMED",
-      "credential_values_read_or_logged": false,
-      "provider_prompt_sent": false,
-      "alternate_method_or_manual_bypass_attempted": false,
-      "next_step": "Obtain a fresh explicit user confirmation naming DeepSeek and secure sign-in in the project cloud browser, then re-inspect the page and use browserAuth; never collect passwords or OTPs in chat."
-    },
-    "authentication_confirmed_request_timeout": {
-      "schema_version": 1,
-      "phase": "P03",
-      "provider_id": "deepseek",
-      "target_origin": "https://chat.deepseek.com",
-      "user_confirmation_at_local": "2026-10-06T20:36:56+03:30",
-      "user_confirmation_fa": "تایید می کنم",
-      "confirmation_context": "Explicit reply confirming secure sign-in to DeepSeek in the project cloud browser.",
-      "request_outcome": "TOOL_RPC_TIMEOUT; NO_STRUCTURED_BROWSERAUTH_RESULT",
-      "configured_tool_timeout_ms": 60000,
-      "tool_reported_wall_seconds": 1874.314,
-      "tool_error": "timed out awaiting tools/call after 300s",
-      "authentication_success": "NOT_CONFIRMED",
-      "credential_submission": "UNKNOWN; interrupted request does not prove no input occurred",
-      "credential_values_read_or_logged": false,
-      "post_timeout_recovery": "Runtime bindings were reset. Fresh target-origin verification tab showed the ordinary sign-in page.",
-      "post_timeout_observed_url": "https://chat.deepseek.com/sign_in",
-      "provider_prompt_sent": false,
-      "paid_calls": 0,
-      "phase_accepted": false,
-      "retry_policy": "No blind or repeated secure-request loop. User authorization is present; authentication completion is unconfirmed."
+      "review": {
+        "path": "evidence/accepted/P03_a1134261e9ea/REVIEW.json",
+        "sha256": "b9e731c218467e7ab0755bba011ce49369efac921d63da08b92931f61b05304b"
+      },
+      "checkpoint": {
+        "path": "evidence/browser-probe/P03_FEASIBILITY_CHECKPOINT.json",
+        "sha256": "eb3a8dd9a24b420b4830030cdce7bf40babaefb766f28a404a22d3c591a48b20"
+      },
+      "native_matrix": {
+        "path": "evidence/target-matrix/RUN.json",
+        "sha256": "65e4c4d02c9b5109a4c691d87e9fee736c856298c074ccac011292966357cb54"
+      },
+      "code_commit": "21bb52523072bd6f0193602b94ffb1387d5bc2ea",
+      "natural_expiration": "UNKNOWN_NOT_CERTIFIED",
+      "full_driver_and_recovery": "NOT_IMPLEMENTED_OR_CERTIFIED"
     },
     "current_authentication_handoff": {
       "schema_version": 1,
       "phase": "P03",
       "provider_id": "anthropic",
-      "recorded_at_utc": "2026-10-06T22:43:47.444937+00:00",
-      "authentication_success": "CONFIRMED_BY_POSITIVE_UI_EVIDENCE",
+      "recorded_at_utc": "2026-10-06T23:21:34.886Z",
+      "authentication_success": "SIGNED_OUT_AFTER_CONTROLLED_AUTHENTICATION_LOSS_TEST",
       "manual_login_completed_by_user": true,
       "manual_handoff_status": "COMPLETED_AND_VERIFIED",
       "credential_values_read_or_logged": false,
       "historical_preparation_record": "evidence/browser-probe/P03_CLAUDE_MANUAL_AUTH_PREPARATION.json",
       "server_account_id_verified": false,
       "authentication_evidence": "Positive UI observation preserved in private user evidence package; no account/conversation identity or raw text published",
-      "private_evidence_package_sha256": "d4fdf66374eb7bcc52ad8c2185a573b11286febc96e120355add78b93514ee16"
+      "private_evidence_package_sha256": "4fb4cf7ce4960d55e6a33edc15f3b7a73b5b1da3f27595f112d088c93db476fa",
+      "current_evidence": {
+        "path": "evidence/browser-probe/P03_AUTHLOSS_AFTER.json",
+        "sha256": "92170baca991a19dca7f8df9a99093a378f79f517fdfcc3cf1df2327b9392c35"
+      },
+      "offline_p04_requires_login": false
     },
-    "browser_probe_provider_selection": {
-      "provider_id": "anthropic",
-      "service_name": "Claude",
-      "previous_provider_id": "deepseek",
-      "user_requested": true,
-      "approved_scope": true,
-      "model_id": "UNVERIFIED",
-      "evidence": "evidence/browser-probe/P03_CLAUDE_MANUAL_AUTH_PREPARATION.json",
-      "current_authentication": "AUTHENTICATED_VERIFIED",
-      "model_label": "Sonnet 5.5 Medium",
-      "model_identity_scope": "VISIBLE_UI_LABEL",
-      "latest_evidence": {
-        "path": "evidence/browser-probe/P03_CLAUDE_LIVE_PUBLIC_SUMMARY.json",
-        "sha256": "82a65800e5bd3a35e55136858a9601f84b358b93c709d8d5583650fdcc968d5d"
-      }
-    },
-    "live_browser_checkpoint": {
+    "github_authorization": {
       "schema_version": 1,
-      "recorded_at_utc": "2026-10-06T22:51:01.629027+00:00",
-      "status": "LIVE_CLAUDE_PROBE_COMPLETED_SESSION_EXPIRATION_EVIDENCE_PENDING",
-      "provider_id": "anthropic",
-      "authentication": "AUTHENTICATED_VERIFIED",
-      "live_model_send_actions": 3,
-      "confirmed_operations": 2,
-      "unknown_delivery_operations": 1,
-      "same_conversation_verified": true,
-      "expiration_live": "NOT_OBSERVED",
-      "phase_accepted": false,
-      "summary": {
-        "path": "evidence/browser-probe/P03_CLAUDE_LIVE_PUBLIC_SUMMARY.json",
-        "sha256": "82a65800e5bd3a35e55136858a9601f84b358b93c709d8d5583650fdcc968d5d"
+      "status": "STANDING_GITHUB_ACCESS_AND_PUBLICATION_GRANTED",
+      "repository": "mehrangtr/Consilium",
+      "visibility": "public",
+      "granted_at": "2026-10-06T18:50:57+03:30",
+      "scope": "GitHub access and public publication of reviewed Consilium source, documents and non-secret test evidence",
+      "valid_until": "Explicit later user stop or revocation",
+      "reconfirm_routine_authorized_work": false,
+      "direct_user_message": "بله دسترسی کامل به گیت هاب و انتشار را تا زمانی که متوقف نکردم برای همیشه داری"
+    },
+    "github_user_authorization_evidence": {
+      "exact_user_message": "بله دسترسی کامل به گیت هاب و انتشار را تا زمانی که متوقف نکردم برای همیشه داری",
+      "at": "2026-10-06T18:50:57+03:30",
+      "access_and_publication_expires": "Only explicit later user revocation",
+      "automatic_review_status": "AUTHORIZED_TREE_TRANSFERS_SUCCEEDED"
+    },
+    "execution_recovery_policy": {
+      "task_step_timeout_seconds": 45,
+      "shell_test_timeout_seconds": 60,
+      "progress_report_interval_seconds": 60,
+      "same_failure_retry_limit": 1,
+      "checkpoint_after_confirmed_operation": true,
+      "reconcile_remote_before_retry": true,
+      "do_not_restart_passed_phases_without_changed_source_or_failed_evidence": true,
+      "immutable_acceptance_records": true,
+      "distinguish_execution_from_verified_result": true,
+      "external_tool_timeout_caveat": "A local timer cannot guarantee cancellation of the external connector. An unresponsive operation must be abandoned/reconciled; it must not block already valid source or acceptance metadata.",
+      "large_transfer_policy": "Keep large optional history artifacts in the verified deliverable. Publish code and acceptance metadata independently. Do not repeatedly submit multi-megabyte connector arguments.",
+      "phase_barrier": "P02 accepted and publication verified. P03 is blocked by declined authentication; P04 remains blocked until genuine P03 criteria pass."
+    },
+    "public_publication": {
+      "status": "FINAL_MAIN_UPDATE_PENDING",
+      "tested_source_commit": "dead9ed58ee8bbefe7d2a425021dacc051aeb4d8",
+      "tested_source_digest": "cb99286e53059e175bb409da98be8e0805efe7ac1dc327430f2cae8c201a2d4f",
+      "standing_authorization": "ACTIVE",
+      "private_raw_evidence_publication": "WITHHELD; prior automatic rejection retained"
+    },
+    "historical_resume_source": {
+      "repository": "mehrangtr/Consilium",
+      "commit": "c44e6352c0b45c6a81b0e7ba30b492e3089a2a28",
+      "path": "PROGRESS.json",
+      "meaning": "Historical login attempts and preflight checkpoint; current record supersedes pending-login/natural-wait instructions"
+    },
+    "last_tested_source_checkpoint": {
+      "source_digest": "cb99286e53059e175bb409da98be8e0805efe7ac1dc327430f2cae8c201a2d4f",
+      "code_commit": "dead9ed58ee8bbefe7d2a425021dacc051aeb4d8",
+      "native_run_id": 37547041855,
+      "native_matrix": {
+        "path": "evidence/target-matrix/RUN.json",
+        "sha256": "bc899c3b3a1d9be2995772eefd2641faa23fe795c14224b8bc1a891263e98dc2"
       },
-      "criterion_review": {
-        "path": "evidence/browser-probe/P03_CLAUDE_LIVE_PUBLIC_REVIEW.json",
-        "sha256": "ef02b02bac04e4b912e682d81b70e45cfa183042be994e06b108a4d47bb831c5"
-      },
-      "report": {
-        "path": "evidence/browser-probe/P03_CLAUDE_LIVE_FINDINGS_FA.md",
-        "sha256": "fec0b8f85122ac1a2101912dd901d582e184a87b64221784efcbea08afd3e4e5"
-      },
-      "handoff": {
-        "path": "evidence/browser-probe/P03_CLAUDE_LIVE_NEXT_ACTION_FA.md",
-        "sha256": "dc0cd0771fe4bc51d2f36aea25762282ec485623d843cebeb20a2096fb4b979f"
-      },
-      "private_evidence_package": {
-        "filename": "Consilium_P03_Claude_Private_Evidence_20261006.zip",
-        "sha256": "d4fdf66374eb7bcc52ad8c2185a573b11286febc96e120355add78b93514ee16",
-        "bytes": 66382,
-        "status": "SAVED_PRIVATELY_FOR_USER",
-        "verified_zip_integrity": true,
-        "contents_scope": "PRIVATE_TEST_CONVERSATION_TRACE_AND_TEST_ONLY_LEDGER; NO_LOGIN_SECRETS_OR_AUTH_STATE",
-        "publicly_published": false
-      },
-      "public_raw_trace": "WITHHELD_AFTER_AUTO_REVIEW_REJECTION",
-      "publication_review": {
-        "path": "evidence/browser-probe/P03_PRIVATE_TRACE_PUBLICATION_REVIEW_BLOCK.json",
-        "sha256": "360a9f8465726a05bcba5b0e11135dd972bf739d7cea0ba59cf529eff9458f07"
-      },
-      "source_digest_unchanged": "a14e4bcfaf7cd9f982bb52d96037d099608e12c1d541855041a4491e25723c19"
+      "tests_per_os": 272,
+      "scope": "NATIVE_OFFLINE_REGRESSION; P04_IMPLEMENTATION_NOT_STARTED"
     }
   },
-  "updated_at_utc": "2026-10-06T22:51:01.629027+00:00"
+  "updated_at_utc": "2026-10-06T23:09:35.140545+00:00"
 }

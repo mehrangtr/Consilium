@@ -1,0 +1,165 @@
+{
+  "phase": "P03",
+  "source_digest": "70e86ab5179e978f8d0dcdc387647689412493f05ac750569bd3d764c1d22118",
+  "status": "PASS",
+  "reviewer": "Codex; same author in a separate review pass",
+  "review_independent": false,
+  "method": "Manual comparison with unchanged roadmap exit text, real UI observations and private test evidence; current native report graph and regression tests; six negative evidence-validation mutations. Metadata checker does not authenticate the provider. Final registered acceptance-only check validates already captured genuine live findings; it is static and makes no new UI call. Natural expiration is never certified. Final fresh sign-out observation and rejection were rechecked; both final native OS reports were downloaded and verified.",
+  "impact_assessment": "Only dispatch preflight/CLI contract changed: current_context is mandatory and has no cached fallback. SQLite schema, frozen request and observation classification remain unchanged; historical positive evidence is explicitly old source and is corroborated by current regression tests, not relabeled as a new send. Exact current source passed 272 tests on actual Windows and Linux. No unknown attempt was resent or confirmed and no new provider message was sent. Prior accepted P00-P02 receipts are unchanged. Before any P04 implementation, accepted estimate omission was discovered; P03 reopened for metadata-only correction. Guard source, both current native OS results and original URs/phase order unchanged.",
+  "findings": [
+    {
+      "id": "P03-D01",
+      "kind": "DEFECT",
+      "state": "CLOSED",
+      "description": "Prepared ticket used only historical authentication context. Mandatory current observed context now rejects sign-out/expiry/unknown or identity mismatch before ticket/ledger mutation; six new tests and real signed-out context checked."
+    },
+    {
+      "id": "P03-I01",
+      "kind": "IMPROVEMENT",
+      "state": "CLOSED",
+      "description": "Unbounded wait for natural expiry was an assistant-added condition. ADR-009 makes the original feasibility scope explicit without changing roadmap, protected requirements or phase order."
+    },
+    {
+      "id": "P03-I02",
+      "kind": "IMPROVEMENT",
+      "state": "OPEN",
+      "description": "Natural expiration timing, real partial response recovery, quota and cross-account behavior are not certified. These remain mandatory product verification work in P09-P11, with planning contingency; no feasibility claim promotes them to PASS."
+    },
+    {
+      "id": "P03-D02",
+      "kind": "DEFECT",
+      "state": "CLOSED",
+      "description": "First formal run was blocked before check execution because LIVE_BROWSER evidence mode was unregistered. Registration now explicitly associates this acceptance-only static validation with actual live evidence; mandatory separate review and original governance requirement retained. Final source revalidated on both OSs."
+    },
+    {
+      "id": "P03-D03",
+      "kind": "DEFECT",
+      "state": "CLOSED",
+      "description": "Initial remaining estimate omitted four additional Browser and three additional API adapters already required by SCOPE. Corrected formula: baseline 270-442 + scoped extras 66-132 = 336-574 active hours; 25% reserve yields 420-718. Earlier frozen acceptance retained and superseded before starting P04."
+    }
+  ],
+  "criteria": [
+    {
+      "id": "P03.E01",
+      "criterion": "یک مسیر مرورگر واقعی با ورود کاربر، ارسال، دریافت پاسخ و ادامهٔ گفتگو شاهد دارد.",
+      "status": "PASS",
+      "notes": "Actual manual user login, three ledger-backed sends, two confirmed complete responses and same-conversation continuation are preserved in historical private evidence and sanitized public findings. Account/model scope is visible UI continuity only; full server identity certification is not claimed.",
+      "evidence": [
+        {
+          "path": "evidence/accepted/P03_a1134261e9ea/proofs/evidence/browser-probe/P03_CLAUDE_LIVE_PUBLIC_SUMMARY.json",
+          "sha256": "82a65800e5bd3a35e55136858a9601f84b358b93c709d8d5583650fdcc968d5d",
+          "original_path": "evidence/browser-probe/P03_CLAUDE_LIVE_PUBLIC_SUMMARY.json"
+        },
+        {
+          "path": "evidence/accepted/P03_a1134261e9ea/proofs/evidence/browser-probe/P03_FEASIBILITY_CHECKPOINT.json",
+          "sha256": "eb3a8dd9a24b420b4830030cdce7bf40babaefb766f28a404a22d3c591a48b20",
+          "original_path": "evidence/browser-probe/P03_FEASIBILITY_CHECKPOINT.json"
+        }
+      ]
+    },
+    {
+      "id": "P03.E02",
+      "criterion": "حالت ورود منقضی و مشاهدهٔ نامطمئن روشن است؛ راه‌حل مانع احتمالی پیش از ادامه تعیین شده است.",
+      "status": "PASS",
+      "notes": "Expired/invalid/unknown authentication handling is explicit: true controlled logout was observed after a prepared intent; both start interfaces reject its fresh SIGNED_OUT context without dispatch. EXPIRED is separately synthetic contract coverage; natural/server-timed expiry remains UNKNOWN. Real observer loss preserved UNKNOWN_DELIVERY with no automatic resend. Barriers are addressed by stop-before-dispatch, secure/manual reauthentication and exact fresh binding verification; unclear post-send state requires read-only verification, not resend. Original roadmap does not require waiting indefinitely for natural expiry. This PASS is for limited feasibility and an established barrier solution, not real natural-expiration certification.",
+      "evidence": [
+        {
+          "path": "evidence/accepted/P03_a1134261e9ea/proofs/docs/decisions/ADR-009-P03_CURRENT_AUTH_PREFLIGHT_FA.md",
+          "sha256": "25b2caa0e00ac872f4e484bdedbba85f4df4e0172943ca89c7a0580deab3fcbb",
+          "original_path": "docs/decisions/ADR-009-P03_CURRENT_AUTH_PREFLIGHT_FA.md"
+        },
+        {
+          "path": "evidence/accepted/P03_a1134261e9ea/proofs/evidence/browser-probe/P03_AUTHLOSS_BEFORE.json",
+          "sha256": "4b8ac55f769cf06a50160007caa62429713c507b0d742e71de17e7d91360a428",
+          "original_path": "evidence/browser-probe/P03_AUTHLOSS_BEFORE.json"
+        },
+        {
+          "path": "evidence/accepted/P03_a1134261e9ea/proofs/evidence/browser-probe/P03_AUTHLOSS_AFTER.json",
+          "sha256": "92170baca991a19dca7f8df9a99093a378f79f517fdfcc3cf1df2327b9392c35",
+          "original_path": "evidence/browser-probe/P03_AUTHLOSS_AFTER.json"
+        },
+        {
+          "path": "evidence/accepted/P03_a1134261e9ea/proofs/evidence/browser-probe/P03_AUTHLOSS_RESULT.json",
+          "sha256": "7e7b48ae922f15ee8b9283d5a47272458f424614f60438feabe886d17a2b5ac0",
+          "original_path": "evidence/browser-probe/P03_AUTHLOSS_RESULT.json"
+        },
+        {
+          "path": "evidence/accepted/P03_a1134261e9ea/proofs/evidence/browser-probe/P03_CLAUDE_LIVE_PUBLIC_SUMMARY.json",
+          "sha256": "82a65800e5bd3a35e55136858a9601f84b358b93c709d8d5583650fdcc968d5d",
+          "original_path": "evidence/browser-probe/P03_CLAUDE_LIVE_PUBLIC_SUMMARY.json"
+        },
+        {
+          "path": "evidence/accepted/P03_a1134261e9ea/proofs/evidence/browser-probe/P03_EVIDENCE_VALIDATOR_NEGATIVE_REVIEW.json",
+          "sha256": "77fb6e3c7f54240c7fa416844a906dc3d42dadaf0d67013338fff47e053c936d",
+          "original_path": "evidence/browser-probe/P03_EVIDENCE_VALIDATOR_NEGATIVE_REVIEW.json"
+        },
+        {
+          "path": "evidence/accepted/P03_a1134261e9ea/proofs/evidence/target-matrix/RUN.json",
+          "sha256": "65e4c4d02c9b5109a4c691d87e9fee736c856298c074ccac011292966357cb54",
+          "original_path": "evidence/target-matrix/RUN.json"
+        },
+        {
+          "path": "evidence/accepted/P03_a1134261e9ea/proofs/src/consilium/shell/browser_probe.py",
+          "sha256": "1f5d333b6af9fa1dc0a40d21ab68abab30c087c8b715603594aeb1fc76fdd8ed",
+          "original_path": "src/consilium/shell/browser_probe.py"
+        },
+        {
+          "path": "evidence/accepted/P03_a1134261e9ea/proofs/tools/run_browser_probe.py",
+          "sha256": "2bccb7d958ddc884545123a8670bf9b8548ce8e7b04d2bb2a3a53b170e3a10ea",
+          "original_path": "tools/run_browser_probe.py"
+        },
+        {
+          "path": "evidence/accepted/P03_a1134261e9ea/proofs/evidence/browser-probe/P03_GATE_REGISTRATION_CORRECTION.json",
+          "sha256": "c7b0b0d5ccd9aeb551b3b9f5663fc0a2ffe36617092c8db9d0eb9ac4744f75d8",
+          "original_path": "evidence/browser-probe/P03_GATE_REGISTRATION_CORRECTION.json"
+        }
+      ]
+    },
+    {
+      "id": "P03.E03",
+      "criterion": "برآورد و جدول قابلیت‌های اتصال به‌روز شده‌اند.",
+      "status": "PASS",
+      "notes": "Final capability table and transparent arithmetic reflect all five providers in both modes: remaining base 270-442 plus 66-132 additional connection hours = 336-574; existing 25% risk reserve yields 420-718 active hours. External waits unknown; no budget or capability guarantee, browser remains mandatory. Corrected before P04 implementation; roadmap and user scope unchanged.",
+      "evidence": [
+        {
+          "path": "evidence/accepted/P03_a1134261e9ea/proofs/evidence/browser-probe/P03_FEASIBILITY_CHECKPOINT.json",
+          "sha256": "eb3a8dd9a24b420b4830030cdce7bf40babaefb766f28a404a22d3c591a48b20",
+          "original_path": "evidence/browser-probe/P03_FEASIBILITY_CHECKPOINT.json"
+        },
+        {
+          "path": "evidence/accepted/P03_a1134261e9ea/proofs/evidence/target-matrix/RUN.json",
+          "sha256": "65e4c4d02c9b5109a4c691d87e9fee736c856298c074ccac011292966357cb54",
+          "original_path": "evidence/target-matrix/RUN.json"
+        },
+        {
+          "path": "evidence/accepted/P03_a1134261e9ea/proofs/evidence/browser-probe/P03_CAPABILITIES_AND_ESTIMATE_FINAL_FA.md",
+          "sha256": "8658c1ce80e198f4f0a64ef6563c89a40d248b7ebdf1b920961206d737ec4408",
+          "original_path": "evidence/browser-probe/P03_CAPABILITIES_AND_ESTIMATE_FINAL_FA.md"
+        },
+        {
+          "path": "evidence/accepted/P03_a1134261e9ea/proofs/evidence/browser-probe/P03_SCOPE_ESTIMATE_CALCULATION.json",
+          "sha256": "c5e633018f8363d1051652c44553b16ff1101e003a83b72cdf9be8eed1cc6146",
+          "original_path": "evidence/browser-probe/P03_SCOPE_ESTIMATE_CALCULATION.json"
+        },
+        {
+          "path": "evidence/accepted/P03_a1134261e9ea/proofs/SCOPE.json",
+          "sha256": "ab31ca52d0638ad44f1c67c2699c87beb236dd46ce9d9eb06d85be40a9633ba4",
+          "original_path": "SCOPE.json"
+        },
+        {
+          "path": "evidence/accepted/P03_a1134261e9ea/proofs/ROADMAP.json",
+          "sha256": "ee444b7e89a9b7724e970e1ed11e50b9762833587823fc01c331425480433cfd",
+          "original_path": "ROADMAP.json"
+        }
+      ]
+    }
+  ],
+  "scope": "EARLY_BROWSER_FEASIBILITY_ONLY; NOT_FULL_DRIVER_OR_RECOVERY",
+  "recorded_at_utc": "2026-10-06T23:26:24.281603+00:00",
+  "prior_unaccepted_review": "evidence/accepted/P03_699610743bcb/REVIEW.json",
+  "original_review": {
+    "path": "evidence/browser-probe/P03_FEASIBILITY_REVIEW_CORRECTED.json",
+    "sha256": "e04a89b91b39e1233ebaafa490ef5c5dd6ac6ae04348fc0cdd8d8288c9607e39"
+  },
+  "evidence_preservation": "IMMUTABLE_CRITERION_SNAPSHOTS"
+}

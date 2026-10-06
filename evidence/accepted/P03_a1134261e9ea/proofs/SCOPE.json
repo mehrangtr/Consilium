@@ -1,0 +1,186 @@
+{
+  "schema_version": 1,
+  "project": "Consilium",
+  "release_target": "V1",
+  "declared_at_utc": "2026-10-05",
+  "user_decision_evidence": [
+    "پاسخ مستقیم کاربر در همین جلسه: ویندوز و لینوکس",
+    "پاسخ مستقیم کاربر در همین جلسه: پنج سرویس؛ API و Browser طبق قابلیت واقعی و Manual افزوده",
+    "پاسخ مستقیم کاربر در همین جلسه: فعلاً بدون هزینه"
+  ],
+  "target_platforms": [
+    "Windows",
+    "Linux"
+  ],
+  "interface": {
+    "final": "LOCAL_USER_INTERFACE_PER_EXISTING_CONTRACT",
+    "early_development": "CLI",
+    "framework": "UNSELECTED_UNTIL_P12"
+  },
+  "evaluation_budget": {
+    "current_amount": 0,
+    "paid_calls_authorized": false,
+    "free_api_access": "UNKNOWN",
+    "real_manual_evaluation_allowed": true
+  },
+  "required_connection_modes": [
+    "API",
+    "BROWSER",
+    "MANUAL"
+  ],
+  "manual_replaces_browser": false,
+  "planned_connection_counts": {
+    "API": 5,
+    "BROWSER": 5,
+    "MANUAL": 1
+  },
+  "providers": [
+    {
+      "id": "openai",
+      "service_name": "ChatGPT",
+      "release_target": "V1",
+      "model_id": null,
+      "account_access": "UNKNOWN",
+      "official_api_docs": "https://developers.openai.com/api/docs/quickstart",
+      "docs_checked_utc": "2026-10-05",
+      "connections": [
+        {
+          "mode": "API",
+          "implementation_status": "PLANNED",
+          "live_verification": "NOT_RUN",
+          "capabilities": "UNKNOWN"
+        },
+        {
+          "mode": "BROWSER",
+          "implementation_status": "PLANNED",
+          "live_verification": "NOT_RUN",
+          "capabilities": "UNKNOWN"
+        }
+      ]
+    },
+    {
+      "id": "anthropic",
+      "service_name": "Claude",
+      "release_target": "V1",
+      "model_id": null,
+      "account_access": "UNKNOWN",
+      "official_api_docs": "https://platform.claude.com/docs/en/api/overview",
+      "docs_checked_utc": "2026-10-05",
+      "connections": [
+        {
+          "mode": "API",
+          "implementation_status": "PLANNED",
+          "live_verification": "NOT_RUN",
+          "capabilities": "UNKNOWN"
+        },
+        {
+          "mode": "BROWSER",
+          "implementation_status": "PLANNED",
+          "live_verification": "NOT_RUN",
+          "capabilities": "UNKNOWN"
+        }
+      ]
+    },
+    {
+      "id": "google",
+      "service_name": "Gemini",
+      "release_target": "V1",
+      "model_id": null,
+      "account_access": "UNKNOWN",
+      "official_api_docs": "https://ai.google.dev/gemini-api/docs/get-started",
+      "docs_checked_utc": "2026-10-05",
+      "connections": [
+        {
+          "mode": "API",
+          "implementation_status": "PLANNED",
+          "live_verification": "NOT_RUN",
+          "capabilities": "UNKNOWN"
+        },
+        {
+          "mode": "BROWSER",
+          "implementation_status": "PLANNED",
+          "live_verification": "NOT_RUN",
+          "capabilities": "UNKNOWN"
+        }
+      ]
+    },
+    {
+      "id": "deepseek",
+      "service_name": "DeepSeek",
+      "release_target": "V1",
+      "model_id": null,
+      "account_access": "UNKNOWN",
+      "official_api_docs": "https://api-docs.deepseek.com/quick_start/pricing/",
+      "docs_checked_utc": "2026-10-05",
+      "connections": [
+        {
+          "mode": "API",
+          "implementation_status": "PLANNED",
+          "live_verification": "NOT_RUN",
+          "capabilities": "UNKNOWN"
+        },
+        {
+          "mode": "BROWSER",
+          "implementation_status": "PLANNED",
+          "live_verification": "NOT_RUN",
+          "capabilities": "UNKNOWN"
+        }
+      ]
+    },
+    {
+      "id": "qwen",
+      "service_name": "Qwen",
+      "release_target": "V1",
+      "model_id": null,
+      "account_access": "UNKNOWN",
+      "official_api_docs": "https://www.alibabacloud.com/help/en/model-studio/qwen-api-reference",
+      "docs_checked_utc": "2026-10-05",
+      "connections": [
+        {
+          "mode": "API",
+          "implementation_status": "PLANNED",
+          "live_verification": "NOT_RUN",
+          "capabilities": "UNKNOWN"
+        },
+        {
+          "mode": "BROWSER",
+          "implementation_status": "PLANNED",
+          "live_verification": "NOT_RUN",
+          "capabilities": "UNKNOWN"
+        }
+      ]
+    }
+  ],
+  "protected_baseline": {
+    "version": "1.3.0",
+    "package_sha256": "8f898b60627c07ec9c4028ff4bfa510c1b5578c2dd1141fa8f2f16ed648fd742",
+    "requirements_member": "consilium-governance/requirements/USER_CONSTRAINTS.yaml",
+    "requirements_sha256": "e6463ac45e8503158a5c3b12e0c93f1282e0605c848cd0df6818ca537497ee2c",
+    "count": 30,
+    "modified": false
+  },
+  "unknowns": [
+    "هویت مدل‌های زنده و حساب‌های مجاز بعداً توسط کاربر انتخاب و در زمان اجرا تأیید می‌شوند.",
+    "توانایی مرورگر و تشخیص ارسال هر سرویس فقط با آزمون واقعی تأیید می‌شود؛ مستند API شاهد ورود به حساب نیست.",
+    "مقدار اعتبار رایگان، سهمیه و دسترسی منطقه‌ای هیچ سرویس تأیید نشده است."
+  ],
+  "estimation": {
+    "scope_connections": {
+      "browser": 5,
+      "api": 5
+    },
+    "base_engineering_hours": [
+      402,
+      676
+    ],
+    "basis": "336–544 baseline + four additional Browser adapters (48–96) + three additional API adapters (18–36). Counts are planned; reestimate after live feasibility.",
+    "additional_dual_platform_work": "NOT_YET_QUANTIFIED; reestimate during setup and browser probe",
+    "risk_buffer_fraction": 0.25,
+    "buffered_hours_before_platform_extra": [
+      503,
+      845
+    ],
+    "calendar_commitment": false,
+    "zero_budget_live_gate_wait": "UNKNOWN; external access cannot be scheduled as guaranteed"
+  }
+}

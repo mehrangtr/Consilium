@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "phase": "P03",
+  "provider_id": "anthropic",
+  "observed_at_utc": "2026-10-06T23:03:58.143Z",
+  "authentication": "AUTHENTICATED",
+  "account_profile_matches_prior": true,
+  "model_label": "Sonnet 5.5 Medium",
+  "model_visible": true,
+  "same_test_conversation": true,
+  "message_count": 6,
+  "credential_values_read": false,
+  "model_send_actions": 0
+}

@@ -1,0 +1,124 @@
+{
+  "phase": "P03",
+  "source_digest": "70e86ab5179e978f8d0dcdc387647689412493f05ac750569bd3d764c1d22118",
+  "status": "PASS",
+  "reviewer": "Codex; same author in a separate review pass",
+  "review_independent": false,
+  "method": "Manual comparison with unchanged roadmap exit text, real UI observations and private test evidence; current native report graph and regression tests; six negative evidence-validation mutations. Metadata checker does not authenticate the provider. Final registered acceptance-only check validates already captured genuine live findings; it is static and makes no new UI call. Natural expiration is never certified. Final fresh sign-out observation and rejection were rechecked; both final native OS reports were downloaded and verified.",
+  "impact_assessment": "Only dispatch preflight/CLI contract changed: current_context is mandatory and has no cached fallback. SQLite schema, frozen request and observation classification remain unchanged; historical positive evidence is explicitly old source and is corroborated by current regression tests, not relabeled as a new send. Exact current source passed 272 tests on actual Windows and Linux. No unknown attempt was resent or confirmed and no new provider message was sent. Prior accepted P00-P02 receipts are unchanged.",
+  "findings": [
+    {
+      "id": "P03-D01",
+      "kind": "DEFECT",
+      "state": "CLOSED",
+      "description": "Prepared ticket used only historical authentication context. Mandatory current observed context now rejects sign-out/expiry/unknown or identity mismatch before ticket/ledger mutation; six new tests and real signed-out context checked."
+    },
+    {
+      "id": "P03-I01",
+      "kind": "IMPROVEMENT",
+      "state": "CLOSED",
+      "description": "Unbounded wait for natural expiry was an assistant-added condition. ADR-009 makes the original feasibility scope explicit without changing roadmap, protected requirements or phase order."
+    },
+    {
+      "id": "P03-I02",
+      "kind": "IMPROVEMENT",
+      "state": "OPEN",
+      "description": "Natural expiration timing, real partial response recovery, quota and cross-account behavior are not certified. These remain mandatory product verification work in P09-P11, with planning contingency; no feasibility claim promotes them to PASS."
+    },
+    {
+      "id": "P03-D02",
+      "kind": "DEFECT",
+      "state": "CLOSED",
+      "description": "First formal run was blocked before check execution because LIVE_BROWSER evidence mode was unregistered. Registration now explicitly associates this acceptance-only static validation with actual live evidence; mandatory separate review and original governance requirement retained. Final source revalidated on both OSs."
+    }
+  ],
+  "criteria": [
+    {
+      "id": "P03.E01",
+      "criterion": "یک مسیر مرورگر واقعی با ورود کاربر، ارسال، دریافت پاسخ و ادامهٔ گفتگو شاهد دارد.",
+      "status": "PASS",
+      "notes": "Actual manual user login, three ledger-backed sends, two confirmed complete responses and same-conversation continuation are preserved in historical private evidence and sanitized public findings. Account/model scope is visible UI continuity only; full server identity certification is not claimed.",
+      "evidence": [
+        {
+          "path": "evidence/browser-probe/P03_CLAUDE_LIVE_PUBLIC_SUMMARY.json",
+          "sha256": "82a65800e5bd3a35e55136858a9601f84b358b93c709d8d5583650fdcc968d5d"
+        },
+        {
+          "path": "evidence/browser-probe/P03_FEASIBILITY_CHECKPOINT.json",
+          "sha256": "9506316074185c0b045fe3230b95014e94c8a50d902e54924e6616f74dd3a0b1"
+        }
+      ]
+    },
+    {
+      "id": "P03.E02",
+      "criterion": "حالت ورود منقضی و مشاهدهٔ نامطمئن روشن است؛ راه‌حل مانع احتمالی پیش از ادامه تعیین شده است.",
+      "status": "PASS",
+      "notes": "Expired/invalid/unknown authentication handling is explicit: true controlled logout was observed after a prepared intent; both start interfaces reject its fresh SIGNED_OUT context without dispatch. EXPIRED is separately synthetic contract coverage; natural/server-timed expiry remains UNKNOWN. Real observer loss preserved UNKNOWN_DELIVERY with no automatic resend. Barriers are addressed by stop-before-dispatch, secure/manual reauthentication and exact fresh binding verification; unclear post-send state requires read-only verification, not resend. Original roadmap does not require waiting indefinitely for natural expiry. This PASS is for limited feasibility and an established barrier solution, not real natural-expiration certification.",
+      "evidence": [
+        {
+          "path": "docs/decisions/ADR-009-P03_CURRENT_AUTH_PREFLIGHT_FA.md",
+          "sha256": "25b2caa0e00ac872f4e484bdedbba85f4df4e0172943ca89c7a0580deab3fcbb"
+        },
+        {
+          "path": "evidence/browser-probe/P03_AUTHLOSS_BEFORE.json",
+          "sha256": "4b8ac55f769cf06a50160007caa62429713c507b0d742e71de17e7d91360a428"
+        },
+        {
+          "path": "evidence/browser-probe/P03_AUTHLOSS_AFTER.json",
+          "sha256": "92170baca991a19dca7f8df9a99093a378f79f517fdfcc3cf1df2327b9392c35"
+        },
+        {
+          "path": "evidence/browser-probe/P03_AUTHLOSS_RESULT.json",
+          "sha256": "7e7b48ae922f15ee8b9283d5a47272458f424614f60438feabe886d17a2b5ac0"
+        },
+        {
+          "path": "evidence/browser-probe/P03_CLAUDE_LIVE_PUBLIC_SUMMARY.json",
+          "sha256": "82a65800e5bd3a35e55136858a9601f84b358b93c709d8d5583650fdcc968d5d"
+        },
+        {
+          "path": "evidence/browser-probe/P03_EVIDENCE_VALIDATOR_NEGATIVE_REVIEW.json",
+          "sha256": "77fb6e3c7f54240c7fa416844a906dc3d42dadaf0d67013338fff47e053c936d"
+        },
+        {
+          "path": "evidence/target-matrix/RUN.json",
+          "sha256": "65e4c4d02c9b5109a4c691d87e9fee736c856298c074ccac011292966357cb54"
+        },
+        {
+          "path": "src/consilium/shell/browser_probe.py",
+          "sha256": "1f5d333b6af9fa1dc0a40d21ab68abab30c087c8b715603594aeb1fc76fdd8ed"
+        },
+        {
+          "path": "tools/run_browser_probe.py",
+          "sha256": "2bccb7d958ddc884545123a8670bf9b8548ce8e7b04d2bb2a3a53b170e3a10ea"
+        },
+        {
+          "path": "evidence/browser-probe/P03_GATE_REGISTRATION_CORRECTION.json",
+          "sha256": "c7b0b0d5ccd9aeb551b3b9f5663fc0a2ffe36617092c8db9d0eb9ac4744f75d8"
+        }
+      ]
+    },
+    {
+      "id": "P03.E03",
+      "criterion": "برآورد و جدول قابلیت‌های اتصال به‌روز شده‌اند.",
+      "status": "PASS",
+      "notes": "Capability table and first re-estimate now distinguish observed versus unknown behavior. Original remaining phase totals 270-442 active hours, plus explicitly judgment-based 24-60 risk reserve yields 294-502 active hours; external waits unknown. Browser remains mandatory in V1 and product verification phases are not removed or skipped.",
+      "evidence": [
+        {
+          "path": "evidence/browser-probe/P03_CAPABILITIES_AND_ESTIMATE_FA.md",
+          "sha256": "ecd2e93f6dded620f73001cdc6137c057f9191977bd4503ce27ad3759f6b0f35"
+        },
+        {
+          "path": "evidence/browser-probe/P03_FEASIBILITY_CHECKPOINT.json",
+          "sha256": "9506316074185c0b045fe3230b95014e94c8a50d902e54924e6616f74dd3a0b1"
+        },
+        {
+          "path": "evidence/target-matrix/RUN.json",
+          "sha256": "65e4c4d02c9b5109a4c691d87e9fee736c856298c074ccac011292966357cb54"
+        }
+      ]
+    }
+  ],
+  "scope": "EARLY_BROWSER_FEASIBILITY_ONLY; NOT_FULL_DRIVER_OR_RECOVERY",
+  "recorded_at_utc": "2026-10-06T23:23:39.169307+00:00",
+  "prior_unaccepted_review": "evidence/browser-probe/P03_FEASIBILITY_REVIEW.json"
+}

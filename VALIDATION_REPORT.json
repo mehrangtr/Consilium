@@ -1,7 +1,7 @@
 {
   "status": "P02_ACCEPTED",
   "current_phase": "P03",
-  "phase_status": "P02_ACCEPTED; P03_ACCESS_PREFLIGHT_IN_PROGRESS",
+  "phase_status": "P02_ACCEPTED_AND_PUBLISHED; P03_BLOCKED_AUTHENTICATION_DECLINED",
   "source_digest": "a26532121e6eea90b6e6bae3bc5d3e5af6f49257ab453cd0472f49389b63fb51",
   "code_commit": "c46c4451c2e4a473ab3f4d574bb2357ba1a468e3",
   "acceptance_review": "evidence/accepted/P02_62bbc5602043/REVIEW.json",
@@ -705,7 +705,7 @@
   },
   "revalidation_status": "PASS",
   "revalidation_at_utc": "2026-10-06T12:51:06.038999+00:00",
-  "next_action": "فقط مرحلهٔ P03 را ادامه بده: روش ورود امن را انتخاب و نشست مجاز را راستی‌آزمایی کن؛ سپس آزمون محدود از دفتر عملیات، مشاهدهٔ ارسال و پاسخ و ادامه، بررسی انقضا و ارسال نامطمئن، و بازبرآورد را تکمیل کن. P04 تا پذیرش سه معیار مسدود است.",
+  "next_action": "پذیرش و انتشار P02 کامل است. P03 تا فراهم‌شدن نشست مجاز و درخواست تازهٔ کاربر برای ورود مسدود است؛ درخواست امن ورود رد شد و نباید خودکار تکرار شود. سه معیار مرورگر واقعی باقی‌اند و P04 باز نمی‌شود.",
   "execution_recovery_policy": {
     "task_step_timeout_seconds": 45,
     "shell_test_timeout_seconds": 60,
@@ -934,7 +934,7 @@
       "risk": "The accepted code and evidence checkpoint is now public and verified; no unfinished P02 publication remains."
     },
     "P03_browser": {
-      "status": "AUTHENTICATION_REQUIRED_IN_OBSERVED_BROWSER",
+      "status": "BLOCKED_AUTHENTICATION_DECLINED",
       "future_impact": "Real browser access, identity observation, session expiration and ambiguous delivery may reveal integration limits. P04 remains blocked until genuine P03 evidence and reestimation pass.",
       "actual_observation": {
         "schema_version": 1,
@@ -962,6 +962,18 @@
         "phase_acceptance": "NOT_RUN",
         "all_three_p03_criteria": "NOT_PASSED",
         "next_step": "Use the advertised secure browserAuth method choice and credential handoff if the user elects to authenticate; never ask for secrets in chat or infer capabilities before a real ledger-backed send."
+      },
+      "authentication_request": {
+        "schema_version": 1,
+        "phase": "P03",
+        "provider_id": "deepseek",
+        "recorded_at_utc": "2026-10-06T15:57:43.863378+00:00",
+        "secure_browser_auth_result": "declined",
+        "authentication_success": "NOT_CONFIRMED",
+        "credential_values_read_or_logged": false,
+        "provider_prompt_sent": false,
+        "retry_without_new_user_authentication_request": false,
+        "continuation_rule": "Respect the declined secure authentication request; do not retry credentials, switch sign-in method or offer another takeover unless the user requests authentication again."
       }
     },
     "limits": "Existing P02 tests support the serial offline kernel only; they do not prove full product reliability or real browser recovery."

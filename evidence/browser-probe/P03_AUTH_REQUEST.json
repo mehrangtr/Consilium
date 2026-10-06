@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "phase": "P03",
+  "provider_id": "deepseek",
+  "recorded_at_utc": "2026-10-06T15:57:43.863378+00:00",
+  "secure_browser_auth_result": "declined",
+  "authentication_success": "NOT_CONFIRMED",
+  "credential_values_read_or_logged": false,
+  "provider_prompt_sent": false,
+  "retry_without_new_user_authentication_request": false,
+  "continuation_rule": "Respect the declined secure authentication request; do not retry credentials, switch sign-in method or offer another takeover unless the user requests authentication again."
+}

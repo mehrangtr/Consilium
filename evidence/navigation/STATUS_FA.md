@@ -2,7 +2,7 @@
 
 این نما خودکار از `ROADMAP.json`، `PROGRESS.json` و `CHECKS.json` ساخته شده است. ویرایش دستی مرجع نیست؛ پس از تغییر مبنا فرمان تولید را دوباره اجرا کنید.
 
-شناسهٔ مبنای نما: `45790cbf80c5fe619d30d2428c388df106d02d682121d5eb64bd3f8a908d8de1`.
+شناسهٔ مبنای نما: `7516664cb4e18496802c390b72fc5b3296e98fce5d47dd0f32a0cfb9e177168f`.
 
 مرحلهٔ فعلی: `P03`. آخرین مرحلهٔ پذیرفته‌شده: `P02`.
 
@@ -22,10 +22,10 @@
     "P03 access preflight reached the actual DeepSeek sign-in page. No model prompt was sent; account, model, conversation and provider capabilities remain unverified."
   ],
   "working_changes": [],
-  "next_action": "فقط مرحلهٔ P03 را ادامه بده: روش ورود امن را انتخاب و نشست مجاز را راستی‌آزمایی کن؛ سپس آزمون محدود از دفتر عملیات، مشاهدهٔ ارسال و پاسخ و ادامه، بررسی انقضا و ارسال نامطمئن، و بازبرآورد را تکمیل کن. P04 تا پذیرش سه معیار مسدود است.",
+  "next_action": "پذیرش و انتشار P02 کامل است. P03 تا فراهم‌شدن نشست مجاز و درخواست تازهٔ کاربر برای ورود مسدود است؛ درخواست امن ورود رد شد و نباید خودکار تکرار شود. سه معیار مرورگر واقعی باقی‌اند و P04 باز نمی‌شود.",
   "next_command": "python tools/qualityctl.py status",
   "inputs_missing": [
-    "P03 requires an authorized signed-in browser session and verified account/model identity; the current DeepSeek cloud tab shows the sign-in page."
+    "P03 authenticated session remains unverified. The secure authentication request was declined; do not re-request authentication unless the user explicitly asks."
   ],
   "known_quirks": [
     {
@@ -60,7 +60,7 @@
   "next_task": {
     "id": "P03-FIRST-PROBE",
     "title": "بررسی محدود یک اتصال مرورگر منتخب از دامنهٔ مصوب",
-    "status": "IN_PROGRESS_AUTHENTICATION_REQUIRED",
+    "status": "BLOCKED_AUTHENTICATION_DECLINED",
     "order": [
       "قواعد AGENTS و HANDOFF و PROGRESS و SCOPE و معیارهای P03 در ROADMAP را بخوان؛ وضعیت و بررسی توسعه را راستی‌آزمایی کن.",
       "برای یک سرویس مصوب مسیر مرورگر مجاز را تعیین کن؛ دسترسی، هویت حساب و گفتگو و انقضای نشست را UNKNOWN نگه دار تا مشاهدهٔ واقعی ثبت شود.",
@@ -102,11 +102,23 @@
       "phase_acceptance": "NOT_RUN",
       "all_three_p03_criteria": "NOT_PASSED",
       "next_step": "Use the advertised secure browserAuth method choice and credential handoff if the user elects to authenticate; never ask for secrets in chat or infer capabilities before a real ledger-backed send."
+    },
+    "authentication_request": {
+      "schema_version": 1,
+      "phase": "P03",
+      "provider_id": "deepseek",
+      "recorded_at_utc": "2026-10-06T15:57:43.863378+00:00",
+      "secure_browser_auth_result": "declined",
+      "authentication_success": "NOT_CONFIRMED",
+      "credential_values_read_or_logged": false,
+      "provider_prompt_sent": false,
+      "retry_without_new_user_authentication_request": false,
+      "continuation_rule": "Respect the declined secure authentication request; do not retry credentials, switch sign-in method or offer another takeover unless the user requests authentication again."
     }
   },
   "acceptance_revalidation": {
     "path": "VALIDATION_REPORT.json",
-    "sha256": "a5f5b26130991de70dfd07c85f8513f2388a75486fdbb1d5cd27a6713029fc1b",
+    "sha256": "b1142013c2e3f23a7e08a27f2d27cb9633238b247e510479880bd36cd585e643",
     "section": "repeat_acceptance_review"
   },
   "execution_recovery_policy": {
@@ -121,7 +133,7 @@
     "distinguish_execution_from_verified_result": true,
     "external_tool_timeout_caveat": "A local timer cannot guarantee cancellation of the external connector. An unresponsive operation must be abandoned/reconciled; it must not block already valid source or acceptance metadata.",
     "large_transfer_policy": "Keep large optional history artifacts in the verified deliverable. Publish code and acceptance metadata independently. Do not repeatedly submit multi-megabyte connector arguments.",
-    "phase_barrier": "P02 publication verified. Only P03 is in progress; P04 remains blocked until all three actual browser criteria pass."
+    "phase_barrier": "P02 accepted and publication verified. P03 is blocked by declined authentication; P04 remains blocked until genuine P03 criteria pass."
   },
   "public_publication": {
     "status": "VERIFIED_COMPLETE",
@@ -265,16 +277,16 @@
   },
   "unfinished_work": {
     "schema_version": 1,
-    "updated_at_utc": "2026-10-06T15:39:42.627190+00:00",
+    "updated_at_utc": "2026-10-06T15:57:43.863378+00:00",
     "canonical_location": "PROGRESS.json.resume.unfinished_work",
     "continuation_instruction": "Continue with standing access and publication permission; evaluate future impact of unfinished work.",
     "items": [
       {
         "id": "P03-001",
         "phase": "P03",
-        "status": "IN_PROGRESS_AUTHENTICATION_REQUIRED",
+        "status": "BLOCKED_AUTHENTICATION_DECLINED",
         "title_fa": "آزمون واقعی یک اتصال مرورگر از دامنهٔ مصوب",
-        "completed_fa": "قراردادها و مسیر دفتر عملیات بررسی شدند. دسترسی واقعی به صفحهٔ ورود DeepSeek در مرورگر ابری مشاهده شد؛ پیام آزمایشی هنوز ارسال نشده است.",
+        "completed_fa": "قراردادها و مسیر دفتر عملیات بررسی شدند. دسترسی واقعی به صفحهٔ ورود DeepSeek در مرورگر ابری مشاهده شد؛ پیام آزمایشی هنوز ارسال نشده است. درخواست امن انتخاب روش ورود نیز با نتیجهٔ ردشده پایان یافت؛ موفقیت ورود تأیید نشده است.",
         "remaining_fa": "تعیین مسیر مرورگر مجاز و حساب و مدل منتخب، ثبت ارسال و پاسخ و ادامهٔ همان گفتگو، مشاهدهٔ انقضای نشست و ارسال نامطمئن، جدول قابلیت‌ها و بازبرآورد زمان، و ثبت بررسی‌های واقعی و بازبینی سه معیار.",
         "live_observation": "SIGN_IN_PAGE_OBSERVED; NO_SIGNED_IN_ACCOUNT_OR_MODEL_CALL",
         "registered_phase_checks": [],
@@ -313,7 +325,7 @@
           "Partial and complete response observations are distinct; continuation must refer to the same verified conversation.",
           "Use zero paid provider calls. Windows execution remains the assistant responsibility."
         ],
-        "next_action_fa": "روش ورود امن و نشست مجاز را تعیین کن؛ سپس آزمون محدود واقعی را از دفتر عملیات انجام بده و برای هر سه معیار شاهد و بازبینی جدا ثبت کن.",
+        "next_action_fa": "درخواست ورود را تکرار نکن. اگر کاربر بعداً صریحاً ورود را خواست، وضعیت تازهٔ صفحه را بخوان و مسیر امن را ادامه بده؛ پس از نشست مجاز، آزمون واقعی دفتر عملیات و هر سه معیار تکمیل شوند.",
         "done_when_fa": "هر سه معیار خروج `P03` در `ROADMAP.json` با شاهد واقعی پاس شده و گیت پذیرش اجرا شده باشد.",
         "access_preflight": {
           "schema_version": 1,
@@ -341,6 +353,18 @@
           "phase_acceptance": "NOT_RUN",
           "all_three_p03_criteria": "NOT_PASSED",
           "next_step": "Use the advertised secure browserAuth method choice and credential handoff if the user elects to authenticate; never ask for secrets in chat or infer capabilities before a real ledger-backed send."
+        },
+        "authentication_request": {
+          "schema_version": 1,
+          "phase": "P03",
+          "provider_id": "deepseek",
+          "recorded_at_utc": "2026-10-06T15:57:43.863378+00:00",
+          "secure_browser_auth_result": "declined",
+          "authentication_success": "NOT_CONFIRMED",
+          "credential_values_read_or_logged": false,
+          "provider_prompt_sent": false,
+          "retry_without_new_user_authentication_request": false,
+          "continuation_rule": "Respect the declined secure authentication request; do not retry credentials, switch sign-in method or offer another takeover unless the user requests authentication again."
         }
       }
     ],
@@ -419,7 +443,7 @@
 | `P00` | `COMPLETED` | 0 |
 | `P01` | `COMPLETED` | 0 |
 | `P02` | `COMPLETED` | 0 |
-| `P03` | `IN_PROGRESS` | 0 |
+| `P03` | `BLOCKED` | 1 |
 | `P04` | `BLOCKED` | 1 |
 | `P05` | `BLOCKED` | 1 |
 | `P06` | `BLOCKED` | 1 |

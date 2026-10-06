@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "repository": "mehrangtr/Consilium",
+  "verified_at_utc": "2026-10-06T15:33:11.938Z",
+  "verified_commit": "3bdf3f366bcc72679ae18480901b59d19c51ebe5",
+  "verified_tree": "97c82c825ed7d12d9b9fa29ee234f73856dafd42",
+  "ref_readback": "PASS",
+  "expected_files": 614,
+  "git_blob_mismatches": 0,
+  "critical_file_content_readback": [
+    {
+      "path": "PROGRESS.json",
+      "match": true
+    },
+    {
+      "path": "evidence/accepted/P02_62bbc5602043/REVIEW.json",
+      "match": true
+    },
+    {
+      "path": "evidence/automation/GITHUB_AUTHORIZATION.json",
+      "match": true
+    }
+  ],
+  "tested_source_commit": "c46c4451c2e4a473ab3f4d574bb2357ba1a468e3",
+  "source_digest": "a26532121e6eea90b6e6bae3bc5d3e5af6f49257ab453cd0472f49389b63fb51",
+  "native_tests": "Existing exact-source Windows/Linux 222 tests per OS; no new native run for metadata-only publication",
+  "publication_authorization": "Standing GitHub access and public publication granted directly by user until explicit revocation",
+  "repository_bundle": "Preserved historical bundle; public Git history and tested commit are the current code authority"
+}

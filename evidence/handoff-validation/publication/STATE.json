@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "status": "STAGED_COMPLETE_PENDING_BRANCH_READBACK",
+  "status": "VERIFIED_COMPLETE",
   "expected_base_commit": "c46c4451c2e4a473ab3f4d574bb2357ba1a468e3",
   "strategy": "PUBLISH_METADATA_IN_BOUNDED_UTF8_TREES_RETAIN_HISTORICAL_BUNDLE_VERIFIED_DELIVERABLE_HAS_COMPLETE_CURRENT_BUNDLE",
   "max_tool_content_characters": 43692,
@@ -72,9 +72,9 @@
     "archive_v08_fresh_linux_execution": "PASS",
     "remote_acceptance_checkpoint": "PENDING"
   },
-  "updated_at_utc": "2026-10-06T15:27:26.724749+00:00",
+  "updated_at_utc": "2026-10-06T15:39:42.627190+00:00",
   "parts_upload_status": "ABANDONED_NONESSENTIAL_WITH_RECEIPTS_PRESERVED",
-  "next_step": "Refresh current metadata, verify the complete tree, commit and lease-update main, then read back.",
+  "next_step": "ONLY_P03_AUTHENTICATION_AND_LIVE_PROBE",
   "reason": null,
   "staged_tree": "a5d262a168aa6d83a5ca6c2cbfb90a70375e10fe",
   "completed_tree_batches": 11,
@@ -109,7 +109,7 @@
       }
     }
   ],
-  "full_p02_publication_verified": false,
+  "full_p02_publication_verified": true,
   "partial_tree_branch_update": false,
   "latest_attempt": {
     "schema_version": 1,
@@ -214,5 +214,37 @@
       "tree_sha": "a5d262a168aa6d83a5ca6c2cbfb90a70375e10fe",
       "at_utc": "2026-10-06T15:25:07.996436+00:00"
     }
-  ]
+  ],
+  "verified_commit": "3bdf3f366bcc72679ae18480901b59d19c51ebe5",
+  "verified_tree": "97c82c825ed7d12d9b9fa29ee234f73856dafd42",
+  "verification": {
+    "schema_version": 1,
+    "status": "PASS",
+    "repository": "mehrangtr/Consilium",
+    "verified_at_utc": "2026-10-06T15:33:11.938Z",
+    "verified_commit": "3bdf3f366bcc72679ae18480901b59d19c51ebe5",
+    "verified_tree": "97c82c825ed7d12d9b9fa29ee234f73856dafd42",
+    "ref_readback": "PASS",
+    "expected_files": 614,
+    "git_blob_mismatches": 0,
+    "critical_file_content_readback": [
+      {
+        "path": "PROGRESS.json",
+        "match": true
+      },
+      {
+        "path": "evidence/accepted/P02_62bbc5602043/REVIEW.json",
+        "match": true
+      },
+      {
+        "path": "evidence/automation/GITHUB_AUTHORIZATION.json",
+        "match": true
+      }
+    ],
+    "tested_source_commit": "c46c4451c2e4a473ab3f4d574bb2357ba1a468e3",
+    "source_digest": "a26532121e6eea90b6e6bae3bc5d3e5af6f49257ab453cd0472f49389b63fb51",
+    "native_tests": "Existing exact-source Windows/Linux 222 tests per OS; no new native run for metadata-only publication",
+    "publication_authorization": "Standing GitHub access and public publication granted directly by user until explicit revocation",
+    "repository_bundle": "Preserved historical bundle; public Git history and tested commit are the current code authority"
+  }
 }

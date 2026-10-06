@@ -2,7 +2,7 @@
 
 این نما خودکار از `ROADMAP.json`، `PROGRESS.json` و `CHECKS.json` ساخته شده است. ویرایش دستی مرجع نیست؛ پس از تغییر مبنا فرمان تولید را دوباره اجرا کنید.
 
-شناسهٔ مبنای نما: `7a61a6024126d134d055e950a15e175f959957a9c47430b473eab959cbf40ea6`.
+شناسهٔ مبنای نما: `45790cbf80c5fe619d30d2428c388df106d02d682121d5eb64bd3f8a908d8de1`.
 
 مرحلهٔ فعلی: `P03`. آخرین مرحلهٔ پذیرفته‌شده: `P02`.
 
@@ -18,14 +18,14 @@
     "P02 accepted through the actual criterion gate; immutable source, original review, receipts and native graphs preserved.",
     "Exact code commit c46c4451c2e4a473ab3f4d574bb2357ba1a468e3 passed both selected OSs: 60 foundation, 82 control, 80 persistence tests, 12 real process-exit cases and 4 foundation CLI scenarios.",
     "Repeat P02 acceptance audit passed; original acceptance hashes and source remain unchanged; fresh Linux tests and existing exact-source native evidence revalidated.",
-    "The accepted P02 source and evidence remain unchanged. All eleven publication tree batches are staged after explicit standing access and publication permission. Branch update and remote readback remain pending."
+    "Full P02 source and acceptance evidence were published and verified on public main at 3bdf3f366bcc72679ae18480901b59d19c51ebe5. All 614 Git blob fingerprints and critical file contents matched. Standing GitHub access and publication authorization remain in force.",
+    "P03 access preflight reached the actual DeepSeek sign-in page. No model prompt was sent; account, model, conversation and provider capabilities remain unverified."
   ],
   "working_changes": [],
-  "next_action": "ثبت شاخه و تطبیق نسخهٔ دوردست را تمام کن؛ سپس فقط آزمون محدود واقعی P03 را آغاز کن. مجوز مستمر دسترسی و انتشار برقرار است.",
+  "next_action": "فقط مرحلهٔ P03 را ادامه بده: روش ورود امن را انتخاب و نشست مجاز را راستی‌آزمایی کن؛ سپس آزمون محدود از دفتر عملیات، مشاهدهٔ ارسال و پاسخ و ادامه، بررسی انقضا و ارسال نامطمئن، و بازبرآورد را تکمیل کن. P04 تا پذیرش سه معیار مسدود است.",
   "next_command": "python tools/qualityctl.py status",
   "inputs_missing": [
-    "Automatic review requires explicit authorization naming public disclosure of the reviewed Consilium code, documents and non-secret offline test evidence in mehrangtr/Consilium. Standing GitHub access is already granted.",
-    "P03 live authorized browser/account/conversation and actual capability evidence remain UNKNOWN; Windows execution must not be delegated to the user."
+    "P03 requires an authorized signed-in browser session and verified account/model identity; the current DeepSeek cloud tab shows the sign-in page."
   ],
   "known_quirks": [
     {
@@ -60,7 +60,7 @@
   "next_task": {
     "id": "P03-FIRST-PROBE",
     "title": "بررسی محدود یک اتصال مرورگر منتخب از دامنهٔ مصوب",
-    "status": "NOT_STARTED",
+    "status": "IN_PROGRESS_AUTHENTICATION_REQUIRED",
     "order": [
       "قواعد AGENTS و HANDOFF و PROGRESS و SCOPE و معیارهای P03 در ROADMAP را بخوان؛ وضعیت و بررسی توسعه را راستی‌آزمایی کن.",
       "برای یک سرویس مصوب مسیر مرورگر مجاز را تعیین کن؛ دسترسی، هویت حساب و گفتگو و انقضای نشست را UNKNOWN نگه دار تا مشاهدهٔ واقعی ثبت شود.",
@@ -75,11 +75,38 @@
     "blocked_next_phase": "P04",
     "budget": "Zero paid provider calls; no paid call authorization.",
     "windows_execution_responsibility": "Assistant; never delegate to user.",
-    "uncertainty_policy": "No real capability certification from mock results; record access barriers explicitly."
+    "uncertainty_policy": "No real capability certification from mock results; record access barriers explicitly.",
+    "access_preflight": {
+      "schema_version": 1,
+      "phase": "P03",
+      "status": "AUTHENTICATION_REQUIRED",
+      "observation_kind": "LIVE_BROWSER_ACCESS_PREFLIGHT; NOT_PROVIDER_CAPABILITY_ACCEPTANCE",
+      "observed_at_utc": "2026-10-06T15:39:42.627190+00:00",
+      "provider_id": "deepseek",
+      "target_url": "https://chat.deepseek.com",
+      "observed_url": "https://chat.deepseek.com/sign_in",
+      "browser": "Cloud Chrome CDP",
+      "browser_tab_id": "1",
+      "visible_state": "DeepSeek sign-in page with Log in, Log in with Google and Login with Apple controls; no signed-in conversation visible.",
+      "account_identity": "UNVERIFIED",
+      "model_identity": "UNVERIFIED",
+      "conversation_identity": "NOT_CREATED",
+      "delivery": "NOT_ATTEMPTED",
+      "prompt_sent": false,
+      "credentials_entered": false,
+      "paid_calls": 0,
+      "session_expiration": "NOT_TESTED; sign-in page alone does not prove expiration",
+      "quota": "NOT_TESTED",
+      "bot_detection": "NOT_OBSERVED; ordinary sign-in is not bot detection",
+      "capabilities": "UNVERIFIED",
+      "phase_acceptance": "NOT_RUN",
+      "all_three_p03_criteria": "NOT_PASSED",
+      "next_step": "Use the advertised secure browserAuth method choice and credential handoff if the user elects to authenticate; never ask for secrets in chat or infer capabilities before a real ledger-backed send."
+    }
   },
   "acceptance_revalidation": {
     "path": "VALIDATION_REPORT.json",
-    "sha256": "8df6abc721db9e39f909d50311d8f33e557f1e5c6834003f0e3ec8635e120a05",
+    "sha256": "a5f5b26130991de70dfd07c85f8513f2388a75486fdbb1d5cd27a6713029fc1b",
     "section": "repeat_acceptance_review"
   },
   "execution_recovery_policy": {
@@ -94,25 +121,25 @@
     "distinguish_execution_from_verified_result": true,
     "external_tool_timeout_caveat": "A local timer cannot guarantee cancellation of the external connector. An unresponsive operation must be abandoned/reconciled; it must not block already valid source or acceptance metadata.",
     "large_transfer_policy": "Keep large optional history artifacts in the verified deliverable. Publish code and acceptance metadata independently. Do not repeatedly submit multi-megabyte connector arguments.",
-    "phase_barrier": "Finish P02 publication readback, then only P03; P04 remains blocked until actual P03 criteria pass."
+    "phase_barrier": "P02 publication verified. Only P03 is in progress; P04 remains blocked until all three actual browser criteria pass."
   },
   "public_publication": {
-    "status": "STAGED_COMPLETE_PENDING_BRANCH_READBACK",
+    "status": "VERIFIED_COMPLETE",
     "repository": "mehrangtr/Consilium",
     "destination": "https://github.com/mehrangtr/Consilium",
     "source_digest": "a26532121e6eea90b6e6bae3bc5d3e5af6f49257ab453cd0472f49389b63fb51",
     "source_code_commit": "c46c4451c2e4a473ab3f4d574bb2357ba1a468e3",
     "staged_base_commit": "c46c4451c2e4a473ab3f4d574bb2357ba1a468e3",
-    "remote_head_verified": "003dc87f3bd733985696c46e1bc79e28b4600293",
-    "standing_authorization_commit": "003dc87f3bd733985696c46e1bc79e28b4600293",
-    "standing_authorization_url": "https://github.com/mehrangtr/Consilium/blob/003dc87f3bd733985696c46e1bc79e28b4600293/evidence/automation/GITHUB_AUTHORIZATION.json",
+    "remote_head_verified": "3bdf3f366bcc72679ae18480901b59d19c51ebe5",
+    "standing_authorization_commit": "3bdf3f366bcc72679ae18480901b59d19c51ebe5",
+    "standing_authorization_url": "https://github.com/mehrangtr/Consilium/blob/3bdf3f366bcc72679ae18480901b59d19c51ebe5/evidence/automation/GITHUB_AUTHORIZATION.json",
     "standing_authorization_readback_verified": true,
     "completed_tree_batches": 11,
     "original_batch_count": 11,
-    "staged_tree": "a5d262a168aa6d83a5ca6c2cbfb90a70375e10fe",
-    "pending_original_tree_batch": 4,
+    "staged_tree": "97c82c825ed7d12d9b9fa29ee234f73856dafd42",
+    "pending_original_tree_batch": null,
     "branch_points_to_partial_tree": false,
-    "actual_publication_verified": false,
+    "actual_publication_verified": true,
     "standing_access_authorization": {
       "schema_version": 1,
       "status": "STANDING_GITHUB_ACCESS_AND_PUBLICATION_GRANTED",
@@ -143,8 +170,8 @@
         }
       }
     ],
-    "updated_at_utc": "2026-10-06T15:27:26.724749+00:00",
-    "resume_requirement": "Do not repeat the rejected public payload without new explicit public-disclosure authorization. After authorization, read the current branch head, preserve its standing-access record, resume from staged tree with refreshed metadata and update the ref only after complete verification.",
+    "updated_at_utc": "2026-10-06T15:39:42.627190+00:00",
+    "resume_requirement": "No pending P02 delivery work; continue only P03 actual browser feasibility.",
     "latest_attempt_at_utc": "2026-10-06T15:08:32.861Z",
     "further_same_payload_retries": 0,
     "expected_branch_head": "003dc87f3bd733985696c46e1bc79e28b4600293",
@@ -184,7 +211,40 @@
       },
       "staged_tree": "a5d262a168aa6d83a5ca6c2cbfb90a70375e10fe"
     },
-    "pending_action": "Refresh current metadata, verify the complete tree, commit and lease-update main, then read back."
+    "pending_action": null,
+    "verified_commit": "3bdf3f366bcc72679ae18480901b59d19c51ebe5",
+    "verified_tree": "97c82c825ed7d12d9b9fa29ee234f73856dafd42",
+    "verification": {
+      "schema_version": 1,
+      "status": "PASS",
+      "repository": "mehrangtr/Consilium",
+      "verified_at_utc": "2026-10-06T15:33:11.938Z",
+      "verified_commit": "3bdf3f366bcc72679ae18480901b59d19c51ebe5",
+      "verified_tree": "97c82c825ed7d12d9b9fa29ee234f73856dafd42",
+      "ref_readback": "PASS",
+      "expected_files": 614,
+      "git_blob_mismatches": 0,
+      "critical_file_content_readback": [
+        {
+          "path": "PROGRESS.json",
+          "match": true
+        },
+        {
+          "path": "evidence/accepted/P02_62bbc5602043/REVIEW.json",
+          "match": true
+        },
+        {
+          "path": "evidence/automation/GITHUB_AUTHORIZATION.json",
+          "match": true
+        }
+      ],
+      "tested_source_commit": "c46c4451c2e4a473ab3f4d574bb2357ba1a468e3",
+      "source_digest": "a26532121e6eea90b6e6bae3bc5d3e5af6f49257ab453cd0472f49389b63fb51",
+      "native_tests": "Existing exact-source Windows/Linux 222 tests per OS; no new native run for metadata-only publication",
+      "publication_authorization": "Standing GitHub access and public publication granted directly by user until explicit revocation",
+      "repository_bundle": "Preserved historical bundle; public Git history and tested commit are the current code authority"
+    },
+    "record_scope": "Post-verification status cites the immutable content commit read back successfully; later status-only commits preserve its code and acceptance proofs."
   },
   "github_authorization": {
     "schema_version": 1,
@@ -205,36 +265,18 @@
   },
   "unfinished_work": {
     "schema_version": 1,
-    "updated_at_utc": "2026-10-06T15:27:26.724749+00:00",
+    "updated_at_utc": "2026-10-06T15:39:42.627190+00:00",
     "canonical_location": "PROGRESS.json.resume.unfinished_work",
     "continuation_instruction": "Continue with standing access and publication permission; evaluate future impact of unfinished work.",
     "items": [
       {
-        "id": "PUB-P02-001",
-        "phase": "P02_DELIVERY",
-        "status": "STAGED_COMPLETE; READBACK_PENDING",
-        "title_fa": "ثبت کامل عمومی پذیرش و بستهٔ تحویل مرحلهٔ دو",
-        "completed_fa": "تمام یازده بخش در درخت آماده ثبت شده‌اند. مجوز مستمر دسترسی و انتشار دریافت و انتقال پذیرفته شد. پذیرش فنی مرحلهٔ دو و شواهد ثابت محفوظ‌اند.",
-        "remaining_fa": "تازه‌سازی وضعیت تحویل، تطبیق همهٔ فایل‌های درخت، ثبت نسخه و شاخه با کنترل نسخهٔ قبلی، و خواندن و تطبیق نسخهٔ دوردست.",
-        "reason_fa": "مانع قبلی با مجوز صریح تازه رفع شد؛ ثبت شاخه و راستی‌آزمایی نهایی هنوز باقی است.",
-        "checkpoint": {
-          "staged_tree": "a5d262a168aa6d83a5ca6c2cbfb90a70375e10fe",
-          "completed_batches": 11,
-          "total_batches": 11,
-          "remote_head_verified": "003dc87f3bd733985696c46e1bc79e28b4600293",
-          "source_digest": "a26532121e6eea90b6e6bae3bc5d3e5af6f49257ab453cd0472f49389b63fb51"
-        },
-        "next_action_fa": "درخت نهایی را بررسی و روی شاخه ثبت کن؛ پس از خواندن نسخهٔ دوردست، این کار را در فهرست مرجع ببند.",
-        "done_when_fa": "تمام کد و شواهد مورد نظر روی شاخهٔ مقصد ثبت و بایت فایل‌های دوردست با بستهٔ نهایی تطبیق داده شده باشد."
-      },
-      {
         "id": "P03-001",
         "phase": "P03",
-        "status": "NOT_STARTED; PREPARATION_REVIEWED",
+        "status": "IN_PROGRESS_AUTHENTICATION_REQUIRED",
         "title_fa": "آزمون واقعی یک اتصال مرورگر از دامنهٔ مصوب",
-        "completed_fa": "وابستگی به مرحلهٔ دو، قرارداد اتصال، مسیر ثبت قصد و ارسال و نتیجه، بودجهٔ صفر و سه معیار پذیرش با کد موجود بررسی شدند. این آماده‌سازی شاهد مرورگر واقعی نیست.",
+        "completed_fa": "قراردادها و مسیر دفتر عملیات بررسی شدند. دسترسی واقعی به صفحهٔ ورود DeepSeek در مرورگر ابری مشاهده شد؛ پیام آزمایشی هنوز ارسال نشده است.",
         "remaining_fa": "تعیین مسیر مرورگر مجاز و حساب و مدل منتخب، ثبت ارسال و پاسخ و ادامهٔ همان گفتگو، مشاهدهٔ انقضای نشست و ارسال نامطمئن، جدول قابلیت‌ها و بازبرآورد زمان، و ثبت بررسی‌های واقعی و بازبینی سه معیار.",
-        "live_observation": "NOT_RUN",
+        "live_observation": "SIGN_IN_PAGE_OBSERVED; NO_SIGNED_IN_ACCOUNT_OR_MODEL_CALL",
         "registered_phase_checks": [],
         "prerequisites_unknown": [
           "Authorized live account and selected model identity",
@@ -271,8 +313,35 @@
           "Partial and complete response observations are distinct; continuation must refer to the same verified conversation.",
           "Use zero paid provider calls. Windows execution remains the assistant responsibility."
         ],
-        "next_action_fa": "پس از تکمیل مانع تحویل مرحلهٔ دو، یک مسیر مرورگر واقعی مجاز از پنج سرویس مصوب را انتخاب و آزمون محدود را از دفتر عملیات اجرا کن؛ بازبینی جداگانهٔ شواهد هر سه معیار پیش از باز کردن مرحلهٔ چهار لازم است.",
-        "done_when_fa": "هر سه معیار خروج `P03` در `ROADMAP.json` با شاهد واقعی پاس شده و گیت پذیرش اجرا شده باشد."
+        "next_action_fa": "روش ورود امن و نشست مجاز را تعیین کن؛ سپس آزمون محدود واقعی را از دفتر عملیات انجام بده و برای هر سه معیار شاهد و بازبینی جدا ثبت کن.",
+        "done_when_fa": "هر سه معیار خروج `P03` در `ROADMAP.json` با شاهد واقعی پاس شده و گیت پذیرش اجرا شده باشد.",
+        "access_preflight": {
+          "schema_version": 1,
+          "phase": "P03",
+          "status": "AUTHENTICATION_REQUIRED",
+          "observation_kind": "LIVE_BROWSER_ACCESS_PREFLIGHT; NOT_PROVIDER_CAPABILITY_ACCEPTANCE",
+          "observed_at_utc": "2026-10-06T15:39:42.627190+00:00",
+          "provider_id": "deepseek",
+          "target_url": "https://chat.deepseek.com",
+          "observed_url": "https://chat.deepseek.com/sign_in",
+          "browser": "Cloud Chrome CDP",
+          "browser_tab_id": "1",
+          "visible_state": "DeepSeek sign-in page with Log in, Log in with Google and Login with Apple controls; no signed-in conversation visible.",
+          "account_identity": "UNVERIFIED",
+          "model_identity": "UNVERIFIED",
+          "conversation_identity": "NOT_CREATED",
+          "delivery": "NOT_ATTEMPTED",
+          "prompt_sent": false,
+          "credentials_entered": false,
+          "paid_calls": 0,
+          "session_expiration": "NOT_TESTED; sign-in page alone does not prove expiration",
+          "quota": "NOT_TESTED",
+          "bot_detection": "NOT_OBSERVED; ordinary sign-in is not bot detection",
+          "capabilities": "UNVERIFIED",
+          "phase_acceptance": "NOT_RUN",
+          "all_three_p03_criteria": "NOT_PASSED",
+          "next_step": "Use the advertised secure browserAuth method choice and credential handoff if the user elects to authenticate; never ask for secrets in chat or infer capabilities before a real ledger-backed send."
+        }
       }
     ],
     "future_phases": {
@@ -317,7 +386,28 @@
       "checkpoint_after_confirmed_step": true,
       "automatic_rejection_retry_allowed": false,
       "report_unknown_as_success": false
-    }
+    },
+    "completed_items": [
+      {
+        "id": "PUB-P02-001",
+        "phase": "P02_DELIVERY",
+        "status": "COMPLETED",
+        "title_fa": "ثبت کامل عمومی پذیرش و بستهٔ تحویل مرحلهٔ دو",
+        "completed_fa": "همهٔ بخش‌ها روی شاخهٔ اصلی منتشر شدند؛ اثرانگشت ۶۱۴ فایل، نسخهٔ شاخه و محتوای فایل‌های اصلی دوردست تطبیق داشتند.",
+        "remaining_fa": "هیچ کار باز در انتشار پذیرش مرحلهٔ دو باقی نمانده است.",
+        "reason_fa": "مجوز صریح انتشار دریافت شد و بررسی خودکار انتقال را پذیرفت.",
+        "checkpoint": {
+          "staged_tree": "a5d262a168aa6d83a5ca6c2cbfb90a70375e10fe",
+          "completed_batches": 11,
+          "total_batches": 11,
+          "remote_head_verified": "003dc87f3bd733985696c46e1bc79e28b4600293",
+          "source_digest": "a26532121e6eea90b6e6bae3bc5d3e5af6f49257ab453cd0472f49389b63fb51"
+        },
+        "next_action_fa": "برای انتشار مرحلهٔ دو دوباره از ابتدا شروع نکن؛ مرحلهٔ سه را از شاهد دسترسی واقعی ادامه بده.",
+        "done_when_fa": "تمام کد و شواهد مورد نظر روی شاخهٔ مقصد ثبت و بایت فایل‌های دوردست با بستهٔ نهایی تطبیق داده شده باشد.",
+        "verified_publication_commit": "3bdf3f366bcc72679ae18480901b59d19c51ebe5"
+      }
+    ]
   }
 }
 ```
@@ -329,7 +419,7 @@
 | `P00` | `COMPLETED` | 0 |
 | `P01` | `COMPLETED` | 0 |
 | `P02` | `COMPLETED` | 0 |
-| `P03` | `READY` | 0 |
+| `P03` | `IN_PROGRESS` | 0 |
 | `P04` | `BLOCKED` | 1 |
 | `P05` | `BLOCKED` | 1 |
 | `P06` | `BLOCKED` | 1 |

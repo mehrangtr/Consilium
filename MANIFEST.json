@@ -58,8 +58,8 @@
     },
     {
       "path": "HANDOFF.json",
-      "bytes": 21965,
-      "sha256": "159e549e6c8f6b8259878b7186a5459fa653f4a177644f033ba97121d7a91d34"
+      "bytes": 26561,
+      "sha256": "3dd80657783a64288555d9bceeb4e149a331c61c97585506c96bff77afcc6231"
     },
     {
       "path": "HANDOFF_TEMPLATE_FA.md",
@@ -73,8 +73,8 @@
     },
     {
       "path": "PROGRESS.json",
-      "bytes": 41760,
-      "sha256": "fd63144ab88763773151fa6ea5f3514f8b06ec78dfca792b11363384981fd040"
+      "bytes": 46523,
+      "sha256": "77e82f0e336509a34b05535a0f663927486b54eed28af057ed59fbeb849d3d50"
     },
     {
       "path": "README_FA.md",
@@ -103,8 +103,8 @@
     },
     {
       "path": "VALIDATION_REPORT.json",
-      "bytes": 45777,
-      "sha256": "8df6abc721db9e39f909d50311d8f33e557f1e5c6834003f0e3ec8635e120a05"
+      "bytes": 48790,
+      "sha256": "a5f5b26130991de70dfd07c85f8513f2388a75486fdbb1d5cd27a6713029fc1b"
     },
     {
       "path": "baseline/Consilium_User_Guarded_Governance_v1.3_Reviewed.zip",
@@ -728,13 +728,13 @@
     },
     {
       "path": "evidence/navigation/BACKLOG_FA.md",
-      "bytes": 29894,
-      "sha256": "ccacb583e47d091ffbe71aa8b6630d41b19ee2e8524421ea0cc76de4fbbf4d68"
+      "bytes": 29900,
+      "sha256": "aaf2a106c62539898b4a6a3ebd8584b7a38fb28e69a79fa1e300bec31ae6e687"
     },
     {
       "path": "evidence/navigation/STATUS_FA.md",
-      "bytes": 20988,
-      "sha256": "8dec5b14031145ca9cce09bb2331cddd85a23b6dcd69fef6b86bc21cc034dcdf"
+      "bytes": 25214,
+      "sha256": "7244f8323afe63d3caea6876fe8cc789ef0dc0320d16973850141e220aeb4c29"
     },
     {
       "path": "evidence/persistence-history/decision-resume-review-red/JUNIT.xml",

@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "phase": "P03",
+  "provider_id": "anthropic",
+  "service_name": "Claude",
+  "recorded_at_utc": "2026-10-06T21:51:20.848144+00:00",
+  "user_request_at_local": "2026-10-07T01:18:28+03:30",
+  "provider_selection": "USER_REQUESTED_CHANGE_FROM_DEEPSEEK_TO_CLAUDE_OR_QWEN; CLAUDE_SELECTED_WITHIN_APPROVED_SCOPE",
+  "previous_provider_id": "deepseek",
+  "reason": "User has no DeepSeek username/password and explicitly requested another service and manual cloud browser login.",
+  "target_origin": "https://claude.ai",
+  "observed_url": "https://claude.ai/login",
+  "browser_id": "1",
+  "browser_tab_id": "3",
+  "visible_methods": [
+    "Continue with Google",
+    "Continue with Apple",
+    "Continue with email"
+  ],
+  "cookie_action": "Rejected optional cookies to expose the sign-in form.",
+  "login_page_screenshot": {
+    "path": "evidence/browser-probe/P03_CLAUDE_SIGN_IN_PAGE.jpg",
+    "sha256": "ce2d9b9cfe28853c86da85d62baf35a220cf80bf7177e8c07e26eaed0ac2212f",
+    "credential_fields_blank": true
+  },
+  "manual_control": "EXPLICITLY_REQUESTED_BY_USER; HANDOFF_PREPARED; REQUEST_NOT_YET_CONFIRMED",
+  "authentication_success": "NOT_CONFIRMED",
+  "account_identity": "UNVERIFIED",
+  "model_identity": "UNVERIFIED",
+  "conversation_identity": "NOT_CREATED",
+  "credential_values_read_or_logged": false,
+  "provider_prompt_sent": false,
+  "paid_calls": 0,
+  "bot_detection": "NOT_OBSERVED",
+  "session_expiration": "NOT_TESTED",
+  "next_action": "Request manual cloud browser control once on this Claude sign-in tab, then end the turn. After the user completes login and returns control, verify a positive signed-in signal before any ledger-backed model probe.",
+  "phase_accepted": false,
+  "source_changed": false,
+  "handoff_url_saved_or_published": false
+}

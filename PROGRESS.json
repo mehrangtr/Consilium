@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "plan_version": "1.2",
-  "updated_at": "2026-10-06T21:11:03.815555+00:00",
+  "updated_at": "2026-10-06T21:51:20.848144+00:00",
   "application_source_commit": "db2ef3073d84d560de00738cd9878df47e4f6dc4",
   "current_phase": "P03",
   "verified_application_requirements": 0,
@@ -154,12 +154,14 @@
         "tools/run_browser_probe.py",
         "tools/run_browser_probe_tests.py",
         "evidence/browser-probe/P03_AUTH_CONFIRMED_REQUEST_TIMEOUT.json",
-        "evidence/browser-probe/P03_MANUAL_AUTH_HANDOFF_PREPARATION.json"
+        "evidence/browser-probe/P03_MANUAL_AUTH_HANDOFF_PREPARATION.json",
+        "evidence/browser-probe/P03_CLAUDE_MANUAL_AUTH_PREPARATION.json",
+        "evidence/browser-probe/P03_CLAUDE_SIGN_IN_PAGE.jpg"
       ],
       "tests": [],
       "exit_evidence": [],
       "blockers": [
-        "مجوز صریح ورود موجود است؛ تکمیل ورود حساب در مرورگر ابری و شاهد مثبت نشست معتبر هنوز تأیید نشده‌اند. درخواست امن قبلی به مهلت ابزار رسید؛ مسیر تحویل دستی کنترل آماده است."
+        "تکمیل ورود کاربر به Claude در مرورگر ابری و تأیید نشست معتبر هنوز انجام نشده‌اند؛ مجوز کاربر موجود و مسیر تحویل دستی کنترل آماده است."
       ],
       "notes": [
         "بررسی واقعی دسترسی DeepSeek در مرورگر ابری به صفحهٔ ورود هدایت شد. هیچ پیام، آزمون انقضا یا بررسی سهمیه اجرا نشده؛ همهٔ قابلیت‌های اتصال همچنان تأییدنشده‌اند.",
@@ -167,7 +169,8 @@
         "آماده‌سازی آفلاین با اجرای واقعی هر دو محیط و ۲۶۶ آزمون در هر محیط کامل شد. این نتیجه اتصال واقعی مرورگر را تأیید نمی‌کند؛ سه معیار زنده هنوز پاس نشده‌اند.",
         "زمان واقعی مهندسی و انتظار با دقت اندازه‌گیری نشده‌اند؛ صفر قبلی مقدار پیش‌فرض بود و اکنون نامعلوم ثبت شده است.",
         "متن اجازهٔ تازهٔ کاربر و رد بررسی خودکار جدا از declined قبلی ثبت شدند. رد جدید، خطای سایت یا رد تازهٔ browserAuth معرفی نمی‌شود؛ راه جایگزین یا ارسال مدل اجرا نشده است.",
-        "تأیید صریح بعدی کاربر دریافت شد. درخواست امنِ مجاز به مهلت ابزار رسید؛ این رویداد رد مجوز یا رد تازهٔ کاربر نیست. صفحهٔ تازه هنوز ورود می‌خواهد و هیچ پیام مدل ارسال نشده است. تحویل دستی کنترل آماده است؛ اجرای کورکورانه یا تکرار پشت‌سرهم مجاز نیست."
+        "تأیید صریح بعدی کاربر دریافت شد. درخواست امنِ مجاز به مهلت ابزار رسید؛ این رویداد رد مجوز یا رد تازهٔ کاربر نیست. صفحهٔ تازه هنوز ورود می‌خواهد و هیچ پیام مدل ارسال نشده است. تحویل دستی کنترل آماده است؛ اجرای کورکورانه یا تکرار پشت‌سرهم مجاز نیست.",
+        "کاربر به‌علت نداشتن اطلاعات ورود DeepSeek، سرویس دیگر را خواست. Claude از دامنهٔ مصوب انتخاب شد؛ صفحهٔ ورود واقعی آن آماده است. این تغییر انتخاب اجرای آزمون است و هیچ خواسته، ترتیب مرحله یا قابلیت تأییدنشده را تغییر نمی‌دهد."
       ]
     },
     {
@@ -630,11 +633,11 @@
       "Current P03 preparation source db2ef3073d84d560de00738cd9878df47e4f6dc4 passed actual Linux and Windows: 60 foundation + 88 control + 80 persistence + 38 probe tests per OS, 15 process-exit cases per OS. GitHub run 37495758865 and both report graphs verified. Browser authentication was not retried; no live prompt sent."
     ],
     "working_changes": [],
-    "next_action": "تأیید صریح ورود DeepSeek در مرورگر ابری دریافت شده است؛ مجوز دوباره لازم نیست. درخواست امن قبلی به مهلت ابزار رسید و نتیجهٔ ورود نامعلوم ماند؛ صفحهٔ تازه هنوز ورود می‌خواهد. مسیر مستند تحویل دستی کنترل همین مرورگر آماده است. پس از پایان ورود و بازگشت کنترل، ابتدا شاهد مثبت نشست معتبر را بررسی کن و سپس آزمون محدود از دفتر عملیات را ادامه بده. رمز، کد، کوکی و پیوند تحویل در مخزن یا چت ثبت نشوند. درخواست بی‌پاسخ کورکورانه تکرار نشود؛ P04 بسته می‌ماند.",
+    "next_action": "کاربر به‌علت نداشتن اطلاعات ورود DeepSeek، آزمون مرورگر را به Claude یا Qwen هدایت کرد. صفحهٔ واقعی ورود Claude در همان مرورگر ابری باز شد؛ گزینه‌های Google و Apple و ایمیل دیده شدند و تحویل دستی کنترل آماده است. مجوز ورود موجود است. پس از پایان ورود کاربر و بازگشت کنترل، ابتدا نشست معتبر را با شاهد مثبت بررسی کن؛ سپس آزمون محدود از دفتر عملیات با هویت دقیق حساب و مدل و همان گفتگو اجرا شود. اطلاعات ورود و پیوند تحویل در چت یا مخزن ثبت نشوند؛ P04 همچنان بسته است.",
     "next_command": "python tools/qualityctl.py status",
     "inputs_missing": [
-      "Authentication completion in the project cloud browser; existing explicit user authorization is sufficient.",
-      "Positive signed-in account/model/conversation evidence and a live ledger-backed probe."
+      "Completion of user-requested manual Claude sign-in in the project cloud browser.",
+      "Positive account/model/conversation evidence followed by an actual ledger-backed browser probe."
     ],
     "known_quirks": [
       {
@@ -669,7 +672,7 @@
     "next_task": {
       "id": "P03-FIRST-PROBE",
       "title": "بررسی محدود یک اتصال مرورگر منتخب از دامنهٔ مصوب",
-      "status": "WAITING_USER_AUTHENTICATION_IN_CLOUD_BROWSER",
+      "status": "WAITING_USER_CLAUDE_AUTHENTICATION_IN_CLOUD_BROWSER",
       "order": [
         "قواعد AGENTS و HANDOFF و PROGRESS و SCOPE و معیارهای P03 در ROADMAP را بخوان؛ وضعیت و بررسی توسعه را راستی‌آزمایی کن.",
         "برای یک سرویس مصوب مسیر مرورگر مجاز را تعیین کن؛ دسترسی، هویت حساب و گفتگو و انقضای نشست را UNKNOWN نگه دار تا مشاهدهٔ واقعی ثبت شود.",
@@ -882,33 +885,44 @@
       "current_authentication_handoff": {
         "schema_version": 1,
         "phase": "P03",
-        "provider_id": "deepseek",
-        "recorded_at_utc": "2026-10-06T21:11:03.815555+00:00",
-        "user_request_at_local": "2026-10-07T00:35:31+03:30",
-        "user_requested": "Repeat this stage and explain whether credentials are needed and how to access the cloud browser.",
-        "authorization": "EXPLICIT_USER_CONFIRMATION_ALREADY_PRESENT; DO_NOT_REQUEST_AGAIN",
-        "previous_timeout_record": "evidence/browser-probe/P03_AUTH_CONFIRMED_REQUEST_TIMEOUT.json",
-        "existing_tab_recovery": "Previous tab was unavailable; fresh tab created in the same selected Cloud Chrome browser.",
+        "provider_id": "anthropic",
+        "service_name": "Claude",
+        "recorded_at_utc": "2026-10-06T21:51:20.848144+00:00",
+        "user_request_at_local": "2026-10-07T01:18:28+03:30",
+        "provider_selection": "USER_REQUESTED_CHANGE_FROM_DEEPSEEK_TO_CLAUDE_OR_QWEN; CLAUDE_SELECTED_WITHIN_APPROVED_SCOPE",
+        "previous_provider_id": "deepseek",
+        "reason": "User has no DeepSeek username/password and explicitly requested another service and manual cloud browser login.",
+        "target_origin": "https://claude.ai",
+        "observed_url": "https://claude.ai/login",
         "browser_id": "1",
-        "current_tab_id": "2",
-        "observed_url": "https://chat.deepseek.com/sign_in",
+        "browser_tab_id": "3",
         "visible_methods": [
-          "Phone number / email address and password",
-          "Google",
-          "Apple"
+          "Continue with Google",
+          "Continue with Apple",
+          "Continue with email"
         ],
+        "cookie_action": "Rejected optional cookies to expose the sign-in form.",
+        "login_page_screenshot": {
+          "path": "evidence/browser-probe/P03_CLAUDE_SIGN_IN_PAGE.jpg",
+          "sha256": "ce2d9b9cfe28853c86da85d62baf35a220cf80bf7177e8c07e26eaed0ac2212f",
+          "credential_fields_blank": true
+        },
+        "manual_control": "EXPLICITLY_REQUESTED_BY_USER; HANDOFF_PREPARED; REQUEST_NOT_YET_CONFIRMED",
         "authentication_success": "NOT_CONFIRMED",
+        "account_identity": "UNVERIFIED",
+        "model_identity": "UNVERIFIED",
+        "conversation_identity": "NOT_CREATED",
         "credential_values_read_or_logged": false,
         "provider_prompt_sent": false,
         "paid_calls": 0,
-        "bot_detection": "NOT_OBSERVED; ordinary sign-in page is not evidence of bot detection",
-        "session_expiration": "NOT_TESTED; no prior authenticated session was established",
-        "next_action": "Request the documented manual control handoff once on the accessible sign-in tab. Do not inspect intermediate credential entry. Resume only after the user returns control, then verify a positive signed-in signal.",
-        "manual_handoff_state": "PREPARED; REQUEST_NOT_YET_CONFIRMED",
-        "handoff_url_saved_or_published": false,
+        "bot_detection": "NOT_OBSERVED",
+        "session_expiration": "NOT_TESTED",
+        "next_action": "Request manual cloud browser control once on this Claude sign-in tab, then end the turn. After the user completes login and returns control, verify a positive signed-in signal before any ledger-backed model probe.",
         "phase_accepted": false,
-        "source_changed": false
-      }
+        "source_changed": false,
+        "handoff_url_saved_or_published": false
+      },
+      "selected_provider_id": "anthropic"
     },
     "acceptance_revalidation": {
       "path": "VALIDATION_REPORT.json",
@@ -1071,18 +1085,18 @@
     },
     "unfinished_work": {
       "schema_version": 1,
-      "updated_at_utc": "2026-10-06T21:11:03.815555+00:00",
+      "updated_at_utc": "2026-10-06T21:51:20.848144+00:00",
       "canonical_location": "PROGRESS.json.resume.unfinished_work",
-      "continuation_instruction": "تأیید صریح ورود DeepSeek در مرورگر ابری دریافت شده است؛ مجوز دوباره لازم نیست. درخواست امن قبلی به مهلت ابزار رسید و نتیجهٔ ورود نامعلوم ماند؛ صفحهٔ تازه هنوز ورود می‌خواهد. مسیر مستند تحویل دستی کنترل همین مرورگر آماده است. پس از پایان ورود و بازگشت کنترل، ابتدا شاهد مثبت نشست معتبر را بررسی کن و سپس آزمون محدود از دفتر عملیات را ادامه بده. رمز، کد، کوکی و پیوند تحویل در مخزن یا چت ثبت نشوند. درخواست بی‌پاسخ کورکورانه تکرار نشود؛ P04 بسته می‌ماند.",
+      "continuation_instruction": "کاربر به‌علت نداشتن اطلاعات ورود DeepSeek، آزمون مرورگر را به Claude یا Qwen هدایت کرد. صفحهٔ واقعی ورود Claude در همان مرورگر ابری باز شد؛ گزینه‌های Google و Apple و ایمیل دیده شدند و تحویل دستی کنترل آماده است. مجوز ورود موجود است. پس از پایان ورود کاربر و بازگشت کنترل، ابتدا نشست معتبر را با شاهد مثبت بررسی کن؛ سپس آزمون محدود از دفتر عملیات با هویت دقیق حساب و مدل و همان گفتگو اجرا شود. اطلاعات ورود و پیوند تحویل در چت یا مخزن ثبت نشوند؛ P04 همچنان بسته است.",
       "items": [
         {
           "id": "P03-001",
           "phase": "P03",
-          "status": "WAITING_USER_AUTHENTICATION_IN_CLOUD_BROWSER",
+          "status": "WAITING_USER_CLAUDE_AUTHENTICATION_IN_CLOUD_BROWSER",
           "title_fa": "آزمون واقعی یک اتصال مرورگر از دامنهٔ مصوب",
-          "completed_fa": "آماده‌سازی آفلاین و بررسی بومی دو محیط تکمیل است. کاربر ورود امن را صریح تأیید کرد؛ درخواست امن به مهلت ابزار رسید و نتیجهٔ ورود نامعلوم ماند. صفحهٔ تازه در همان مرورگر ابری هنوز صفحهٔ ورود عادی است؛ مسیر تحویل کنترل آماده شد. هیچ پیام زندهٔ مدل توسط دستیار ارسال نشده است.",
+          "completed_fa": "آماده‌سازی آفلاین و شواهد بومی دو محیط حفظ شده‌اند. کاربر مسیر ورود را از DeepSeek به سرویس دیگر تغییر داد. صفحهٔ ورود واقعی Claude باز شد و گزینه‌های Google و Apple و ایمیل مشاهده شدند؛ تصویر فرم خالی و اقدام ادامه ثبت شدند. ورود موفق و پیام زنده هنوز تأیید نشده‌اند.",
           "remaining_fa": "تعیین مسیر مرورگر مجاز و حساب و مدل منتخب، ثبت ارسال و پاسخ و ادامهٔ همان گفتگو، مشاهدهٔ انقضای نشست و ارسال نامطمئن، جدول قابلیت‌ها و بازبرآورد زمان، و ثبت بررسی‌های واقعی و بازبینی سه معیار.",
-          "live_observation": "FRESH_SIGN_IN_PAGE_OBSERVED; AUTHENTICATION_NOT_CONFIRMED; NO_MODEL_PROMPT_SENT",
+          "live_observation": "CLAUDE_SIGN_IN_PAGE_OBSERVED; USER_REQUESTED_MANUAL_CONTROL; NO_MODEL_PROMPT_SENT",
           "registered_phase_checks": [],
           "prerequisites_unknown": [
             "Authorized live account and selected model identity",
@@ -1119,7 +1133,7 @@
             "Partial and complete response observations are distinct; continuation must refer to the same verified conversation.",
             "Use zero paid provider calls. Windows execution remains the assistant responsibility."
           ],
-          "next_action_fa": "تأیید صریح ورود DeepSeek در مرورگر ابری دریافت شده است؛ مجوز دوباره لازم نیست. درخواست امن قبلی به مهلت ابزار رسید و نتیجهٔ ورود نامعلوم ماند؛ صفحهٔ تازه هنوز ورود می‌خواهد. مسیر مستند تحویل دستی کنترل همین مرورگر آماده است. پس از پایان ورود و بازگشت کنترل، ابتدا شاهد مثبت نشست معتبر را بررسی کن و سپس آزمون محدود از دفتر عملیات را ادامه بده. رمز، کد، کوکی و پیوند تحویل در مخزن یا چت ثبت نشوند. درخواست بی‌پاسخ کورکورانه تکرار نشود؛ P04 بسته می‌ماند.",
+          "next_action_fa": "کاربر به‌علت نداشتن اطلاعات ورود DeepSeek، آزمون مرورگر را به Claude یا Qwen هدایت کرد. صفحهٔ واقعی ورود Claude در همان مرورگر ابری باز شد؛ گزینه‌های Google و Apple و ایمیل دیده شدند و تحویل دستی کنترل آماده است. مجوز ورود موجود است. پس از پایان ورود کاربر و بازگشت کنترل، ابتدا نشست معتبر را با شاهد مثبت بررسی کن؛ سپس آزمون محدود از دفتر عملیات با هویت دقیق حساب و مدل و همان گفتگو اجرا شود. اطلاعات ورود و پیوند تحویل در چت یا مخزن ثبت نشوند؛ P04 همچنان بسته است.",
           "done_when_fa": "هر سه معیار خروج `P03` در `ROADMAP.json` با شاهد واقعی پاس شده و گیت پذیرش اجرا شده باشد.",
           "access_preflight": {
             "schema_version": 1,
@@ -1319,32 +1333,42 @@
           "current_authentication_handoff": {
             "schema_version": 1,
             "phase": "P03",
-            "provider_id": "deepseek",
-            "recorded_at_utc": "2026-10-06T21:11:03.815555+00:00",
-            "user_request_at_local": "2026-10-07T00:35:31+03:30",
-            "user_requested": "Repeat this stage and explain whether credentials are needed and how to access the cloud browser.",
-            "authorization": "EXPLICIT_USER_CONFIRMATION_ALREADY_PRESENT; DO_NOT_REQUEST_AGAIN",
-            "previous_timeout_record": "evidence/browser-probe/P03_AUTH_CONFIRMED_REQUEST_TIMEOUT.json",
-            "existing_tab_recovery": "Previous tab was unavailable; fresh tab created in the same selected Cloud Chrome browser.",
+            "provider_id": "anthropic",
+            "service_name": "Claude",
+            "recorded_at_utc": "2026-10-06T21:51:20.848144+00:00",
+            "user_request_at_local": "2026-10-07T01:18:28+03:30",
+            "provider_selection": "USER_REQUESTED_CHANGE_FROM_DEEPSEEK_TO_CLAUDE_OR_QWEN; CLAUDE_SELECTED_WITHIN_APPROVED_SCOPE",
+            "previous_provider_id": "deepseek",
+            "reason": "User has no DeepSeek username/password and explicitly requested another service and manual cloud browser login.",
+            "target_origin": "https://claude.ai",
+            "observed_url": "https://claude.ai/login",
             "browser_id": "1",
-            "current_tab_id": "2",
-            "observed_url": "https://chat.deepseek.com/sign_in",
+            "browser_tab_id": "3",
             "visible_methods": [
-              "Phone number / email address and password",
-              "Google",
-              "Apple"
+              "Continue with Google",
+              "Continue with Apple",
+              "Continue with email"
             ],
+            "cookie_action": "Rejected optional cookies to expose the sign-in form.",
+            "login_page_screenshot": {
+              "path": "evidence/browser-probe/P03_CLAUDE_SIGN_IN_PAGE.jpg",
+              "sha256": "ce2d9b9cfe28853c86da85d62baf35a220cf80bf7177e8c07e26eaed0ac2212f",
+              "credential_fields_blank": true
+            },
+            "manual_control": "EXPLICITLY_REQUESTED_BY_USER; HANDOFF_PREPARED; REQUEST_NOT_YET_CONFIRMED",
             "authentication_success": "NOT_CONFIRMED",
+            "account_identity": "UNVERIFIED",
+            "model_identity": "UNVERIFIED",
+            "conversation_identity": "NOT_CREATED",
             "credential_values_read_or_logged": false,
             "provider_prompt_sent": false,
             "paid_calls": 0,
-            "bot_detection": "NOT_OBSERVED; ordinary sign-in page is not evidence of bot detection",
-            "session_expiration": "NOT_TESTED; no prior authenticated session was established",
-            "next_action": "Request the documented manual control handoff once on the accessible sign-in tab. Do not inspect intermediate credential entry. Resume only after the user returns control, then verify a positive signed-in signal.",
-            "manual_handoff_state": "PREPARED; REQUEST_NOT_YET_CONFIRMED",
-            "handoff_url_saved_or_published": false,
+            "bot_detection": "NOT_OBSERVED",
+            "session_expiration": "NOT_TESTED",
+            "next_action": "Request manual cloud browser control once on this Claude sign-in tab, then end the turn. After the user completes login and returns control, verify a positive signed-in signal before any ledger-backed model probe.",
             "phase_accepted": false,
-            "source_changed": false
+            "source_changed": false,
+            "handoff_url_saved_or_published": false
           }
         }
       ],
@@ -1611,33 +1635,52 @@
     "current_authentication_handoff": {
       "schema_version": 1,
       "phase": "P03",
-      "provider_id": "deepseek",
-      "recorded_at_utc": "2026-10-06T21:11:03.815555+00:00",
-      "user_request_at_local": "2026-10-07T00:35:31+03:30",
-      "user_requested": "Repeat this stage and explain whether credentials are needed and how to access the cloud browser.",
-      "authorization": "EXPLICIT_USER_CONFIRMATION_ALREADY_PRESENT; DO_NOT_REQUEST_AGAIN",
-      "previous_timeout_record": "evidence/browser-probe/P03_AUTH_CONFIRMED_REQUEST_TIMEOUT.json",
-      "existing_tab_recovery": "Previous tab was unavailable; fresh tab created in the same selected Cloud Chrome browser.",
+      "provider_id": "anthropic",
+      "service_name": "Claude",
+      "recorded_at_utc": "2026-10-06T21:51:20.848144+00:00",
+      "user_request_at_local": "2026-10-07T01:18:28+03:30",
+      "provider_selection": "USER_REQUESTED_CHANGE_FROM_DEEPSEEK_TO_CLAUDE_OR_QWEN; CLAUDE_SELECTED_WITHIN_APPROVED_SCOPE",
+      "previous_provider_id": "deepseek",
+      "reason": "User has no DeepSeek username/password and explicitly requested another service and manual cloud browser login.",
+      "target_origin": "https://claude.ai",
+      "observed_url": "https://claude.ai/login",
       "browser_id": "1",
-      "current_tab_id": "2",
-      "observed_url": "https://chat.deepseek.com/sign_in",
+      "browser_tab_id": "3",
       "visible_methods": [
-        "Phone number / email address and password",
-        "Google",
-        "Apple"
+        "Continue with Google",
+        "Continue with Apple",
+        "Continue with email"
       ],
+      "cookie_action": "Rejected optional cookies to expose the sign-in form.",
+      "login_page_screenshot": {
+        "path": "evidence/browser-probe/P03_CLAUDE_SIGN_IN_PAGE.jpg",
+        "sha256": "ce2d9b9cfe28853c86da85d62baf35a220cf80bf7177e8c07e26eaed0ac2212f",
+        "credential_fields_blank": true
+      },
+      "manual_control": "EXPLICITLY_REQUESTED_BY_USER; HANDOFF_PREPARED; REQUEST_NOT_YET_CONFIRMED",
       "authentication_success": "NOT_CONFIRMED",
+      "account_identity": "UNVERIFIED",
+      "model_identity": "UNVERIFIED",
+      "conversation_identity": "NOT_CREATED",
       "credential_values_read_or_logged": false,
       "provider_prompt_sent": false,
       "paid_calls": 0,
-      "bot_detection": "NOT_OBSERVED; ordinary sign-in page is not evidence of bot detection",
-      "session_expiration": "NOT_TESTED; no prior authenticated session was established",
-      "next_action": "Request the documented manual control handoff once on the accessible sign-in tab. Do not inspect intermediate credential entry. Resume only after the user returns control, then verify a positive signed-in signal.",
-      "manual_handoff_state": "PREPARED; REQUEST_NOT_YET_CONFIRMED",
-      "handoff_url_saved_or_published": false,
+      "bot_detection": "NOT_OBSERVED",
+      "session_expiration": "NOT_TESTED",
+      "next_action": "Request manual cloud browser control once on this Claude sign-in tab, then end the turn. After the user completes login and returns control, verify a positive signed-in signal before any ledger-backed model probe.",
       "phase_accepted": false,
-      "source_changed": false
+      "source_changed": false,
+      "handoff_url_saved_or_published": false
+    },
+    "browser_probe_provider_selection": {
+      "provider_id": "anthropic",
+      "service_name": "Claude",
+      "previous_provider_id": "deepseek",
+      "user_requested": true,
+      "approved_scope": true,
+      "model_id": "UNVERIFIED",
+      "evidence": "evidence/browser-probe/P03_CLAUDE_MANUAL_AUTH_PREPARATION.json"
     }
   },
-  "updated_at_utc": "2026-10-06T21:11:03.815555+00:00"
+  "updated_at_utc": "2026-10-06T21:51:20.848144+00:00"
 }

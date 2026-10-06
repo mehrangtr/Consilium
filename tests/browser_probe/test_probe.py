@@ -93,7 +93,44 @@ class BrowserProbeTests(unittest.TestCase):
         return BrowserObservation(**{**values, **changes})
 
     def start(self):
-        return self.recorder.start(self.ticket, self.path, expected_revision=self.revision)
+        return self.recorder.start(self.ticket, self.path, current_context=self.context,
+                                   expected_revision=self.revision)
+
+    def test_cached_authenticated_ticket_cannot_start_after_logout_expiry_or_observer_loss(self):
+        for authentication in ("SIGNED_OUT", "EXPIRED", "UNKNOWN"):
+            with self.subTest(authentication=authentication):
+                current = BrowserContext(authentication=authentication, evidence=(EVIDENCE,),
+                    prior_authenticated_evidence=(EVIDENCE,) if authentication == "EXPIRED" else ())
+                with self.assertRaises(Conflict):
+                    self.recorder.start(self.ticket, self.path, current_context=current,
+                                        expected_revision=self.revision)
+                self.assertFalse(self.path.exists())
+                self.assertEqual(self.revision, 3)
+                self.assertEqual(self.store.ledger.get_attempt(self.attempt_id).state, AttemptState.PREPARED)
+
+    def test_fresh_context_must_keep_account_conversation_and_model_binding(self):
+        for field, value in (("account_binding_id", uuid4()), ("conversation_binding_id", uuid4()),
+                              ("model_id", "changed-model")):
+            with self.subTest(field=field):
+                current = self.context.model_copy(update={field: value})
+                with self.assertRaises(Conflict):
+                    self.recorder.start(self.ticket, self.path, current_context=current,
+                                        expected_revision=self.revision)
+                self.assertFalse(self.path.exists())
+                self.assertEqual(self.revision, 3)
+
+    def test_new_observation_evidence_does_not_change_the_frozen_request(self):
+        current = self.context.model_copy(update={"evidence": ("a" * 64,)})
+        self.recorder.start(self.ticket, self.path, current_context=current,
+                            expected_revision=self.revision)
+        self.assertEqual(self.recorder.read_ticket(self.path), self.ticket)
+        self.assertEqual(self.store.ledger.get_attempt(self.attempt_id).request, self.request)
+
+    def test_current_context_cannot_be_omitted_or_replaced_with_ticket_default(self):
+        with self.assertRaises(TypeError):
+            self.recorder.start(self.ticket, self.path, expected_revision=self.revision)
+        self.assertFalse(self.path.exists())
+        self.assertEqual(self.revision, 3)
 
     def reopen(self):
         self.store.close()
@@ -308,8 +345,11 @@ class BrowserProbeTests(unittest.TestCase):
     def test_cli_single_step_start_inspect_record_works_without_account_or_ui(self):
         source = self.directory / "input.json"
         source.write_text(self.ticket.model_dump_json(), encoding="utf-8")
+        context_path = self.directory / "current_context.json"
+        context_path.write_text(self.context.model_dump_json(), encoding="utf-8")
         common = ("--database", str(self.database), "--ticket", str(self.path))
-        start = self.cli("start", *common, "--input", str(source), "--expected-revision", "3")
+        start = self.cli("start", *common, "--input", str(source), "--current-context", str(context_path),
+                         "--expected-revision", "3")
         self.assertEqual(start.returncode, 0, start.stderr)
         self.assertEqual(json.loads(start.stdout)["provider_prompt_sent"], "NOT_OBSERVED")
         source.write_text(self.observation().model_dump_json(), encoding="utf-8")
@@ -326,6 +366,29 @@ class BrowserProbeTests(unittest.TestCase):
                         "--input", str(source), "--expected-revision", "3")
         self.assertEqual(proc.returncode, 2)
         self.assertNotIn(b"synthetic-sensitive-marker", proc.stdout + proc.stderr)
+
+    def test_cli_logout_context_blocks_without_ticket_or_ledger_mutation(self):
+        source, context_path = self.directory / "input.json", self.directory / "context.json"
+        source.write_text(self.ticket.model_dump_json(), encoding="utf-8")
+        context_path.write_text(BrowserContext(authentication="SIGNED_OUT", evidence=(EVIDENCE,)).model_dump_json(),
+                                encoding="utf-8")
+        proc = self.cli("start", "--database", str(self.database), "--ticket", str(self.path),
+                        "--input", str(source), "--current-context", str(context_path), "--expected-revision", "3")
+        self.assertEqual(proc.returncode, 2)
+        self.assertEqual(json.loads(proc.stdout)["status"], "BLOCKED")
+        self.reopen()
+        self.assertEqual(self.revision, 3)
+        self.assertEqual(self.store.ledger.get_attempt(self.attempt_id).state, AttemptState.PREPARED)
+        self.assertFalse(self.path.exists())
+
+    def test_cli_start_requires_current_context_but_read_only_inspection_does_not(self):
+        source = self.directory / "input.json"
+        source.write_text(self.ticket.model_dump_json(), encoding="utf-8")
+        proc = self.cli("start", "--database", str(self.database), "--ticket", str(self.path),
+                        "--input", str(source), "--expected-revision", "3")
+        self.assertEqual(proc.returncode, 2)
+        self.assertFalse(self.path.exists())
+        self.assertEqual(self.revision, 3)
 
     def kill_worker(self, point):
         source, observed = self.directory / "input.json", self.directory / "observation.json"

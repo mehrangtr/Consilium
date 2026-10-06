@@ -10,7 +10,7 @@ import sys
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
 
-from consilium.core.browser_probe import BrowserObservation, ProbeTicket
+from consilium.core.browser_probe import BrowserContext, BrowserObservation, ProbeTicket
 from consilium.shell.browser_probe import BrowserProbeRecorder
 from consilium.shell.storage import SQLiteStore
 
@@ -21,17 +21,26 @@ def main():
     parser.add_argument("--database", type=Path, required=True)
     parser.add_argument("--ticket", type=Path, required=True)
     parser.add_argument("--input", type=Path)
+    parser.add_argument("--current-context", type=Path,
+                        help="Fresh observed context, required before start; never uses the frozen initial context as fallback")
     parser.add_argument("--expected-revision", type=int)
     args = parser.parse_args()
     if (not args.database.is_file() or args.database.is_symlink()
             or args.action != "inspect" and (args.input is None or args.expected_revision is None)):
         parser.error("Use an existing database; mutations need input and expected revision")
+    if (args.action == "start" and args.current_context is None
+            or args.action != "start" and args.current_context is not None):
+        parser.error("Start requires current context; record and inspect must not provide it")
     try:
         with SQLiteStore(args.database) as store:
             probe = BrowserProbeRecorder(store)
             if args.action == "start":
+                if args.current_context.is_symlink() or not args.current_context.is_file():
+                    raise ValueError("Current context must be a regular local file")
                 checkpoint = probe.start(ProbeTicket.model_validate_json(args.input.read_bytes()),
-                                         args.ticket, expected_revision=args.expected_revision)
+                                         args.ticket,
+                                         current_context=BrowserContext.model_validate_json(args.current_context.read_bytes()),
+                                         expected_revision=args.expected_revision)
                 data = {"state": "SENT", "revision": checkpoint.revision, "provider_prompt_sent": "NOT_OBSERVED"}
             else:
                 plan = probe.record(args.ticket, BrowserObservation.model_validate_json(args.input.read_bytes()),

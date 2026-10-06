@@ -7,7 +7,9 @@ from __future__ import annotations
 import os
 from pathlib import Path
 
-from consilium.core.browser_probe import BrowserObservation, ProbeTicket, classify_observation
+from consilium.core.browser_probe import (
+    BrowserContext, BrowserObservation, ProbeTicket, classify_observation, context_matches,
+)
 from consilium.core.operation_states import AttemptState
 from consilium.shell.storage import Conflict, SQLiteStore
 
@@ -22,8 +24,14 @@ class BrowserProbeRecorder:
             raise ValueError("Probe ticket must be a regular local file")
         return ProbeTicket.model_validate_json(path.read_bytes())
 
-    def start(self, ticket: ProbeTicket, path: Path, *, expected_revision: int):
+    def start(self, ticket: ProbeTicket, path: Path, *, current_context: BrowserContext,
+              expected_revision: int):
         ticket = ProbeTicket.model_validate(ticket.model_dump(mode="python"))
+        current_context = BrowserContext.model_validate(current_context.model_dump(mode="python"))
+        # The frozen initial observation is historical evidence, never a fallback
+        # for the caller's fresh observation immediately before dispatch.
+        if not context_matches(ticket.binding, current_context):
+            raise Conflict("Current browser context is not an authenticated exact binding")
         payload = self.store._public(ticket.model_dump(mode="json")).encode("utf-8")
         if path.is_symlink():
             raise ValueError("Probe ticket must not be a symlink")

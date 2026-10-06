@@ -17,8 +17,9 @@ probe = BrowserProbeRecorder(store)
 ticket = ProbeTicket.model_validate_json(Path(source).read_bytes())
 if point == "before_ledger":
     with patch.object(store.ledger, "begin_send", side_effect=lambda *args, **kwargs: os._exit(71)):
-        probe.start(ticket, Path(destination), expected_revision=3)
-probe.start(ticket, Path(destination), expected_revision=3)
+        probe.start(ticket, Path(destination), current_context=ticket.initial_context, expected_revision=3)
+# This worker uses a synthetic context fixture, never a live browser observation.
+probe.start(ticket, Path(destination), current_context=ticket.initial_context, expected_revision=3)
 if point == "after_result":
     probe.record(Path(destination), BrowserObservation.model_validate_json(Path(observation).read_bytes()), expected_revision=4)
 os._exit(71)

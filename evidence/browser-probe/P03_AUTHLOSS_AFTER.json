@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "phase": "P03",
+  "provider_id": "anthropic",
+  "observed_at_utc": "2026-10-06T23:05:43.559Z",
+  "authentication": "SIGNED_OUT",
+  "known_cause": "CONTROLLED_SIGN_OUT",
+  "sign_out_action_at_utc": "2026-10-06T23:05:04.917Z",
+  "target_origin": "https://claude.ai",
+  "observed_public_page": "/login",
+  "login_controls_visible": true,
+  "model_send_actions": 0,
+  "server_natural_expiration_observed": false,
+  "credential_values_read_or_logged": false
+}

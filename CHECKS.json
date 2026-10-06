@@ -68,15 +68,24 @@
       {
         "id": "browser_probe_preflight_and_durability",
         "kind": "test",
-        "argv": ["{python}", "tools/run_browser_probe_tests.py"],
+        "argv": [
+          "{python}",
+          "tools/run_browser_probe_tests.py"
+        ],
         "junit": "evidence/browser-probe-tests/JUNIT.xml",
         "scope": "P03_OFFLINE_SAFETY_TESTS; NOT_LIVE_PROVIDER_CERTIFICATION"
       },
       {
         "id": "p03_live_evidence_consistency",
         "kind": "static",
-        "argv": ["{python}", "tools/check_p03_feasibility.py"],
-        "scope": "RECORDED_LIVE_FINDINGS_AND_HASHES; MANUAL_REVIEW_REQUIRED_FOR_AUTHENTICITY"
+        "argv": [
+          "{python}",
+          "tools/check_p03_feasibility.py"
+        ],
+        "scope": "ACTUAL_LIVE_BROWSER_EVIDENCE_ACCEPTANCE_CHECK; COMMAND_VALIDATES_RECORDS_ONLY; NO_NEW_UI_ACTION",
+        "execution_mode": "LIVE_BROWSER",
+        "acceptance_only": true,
+        "reason": "Acceptance of already executed actual Claude UI probes and controlled sign-out. This static command validates captured live findings and hashes; it makes no browser call and does not independently authenticate observations. Separate manual review of original evidence is mandatory. Exclude it from future regression runs to prevent replaying live sends or relabeling old snapshots as current."
       }
     ],
     "P04": [],

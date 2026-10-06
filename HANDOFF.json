@@ -32,7 +32,7 @@
   "application_source_commit": "db2ef3073d84d560de00738cd9878df47e4f6dc4",
   "verified_application_requirements": 0,
   "state_label": "INCOMPLETE",
-  "next_action": "آماده‌سازی آفلاین P03 و بررسی بومی هر دو محیط کامل است. تنها کار باز، آزمون واقعی مرورگر پس از نشست مجاز است؛ درخواست ورود ردشده بدون درخواست تازهٔ صریح کاربر تکرار نشود. سپس سه معیار واقعی، جدول قابلیت‌ها و بازبرآورد تکمیل شوند. P04 همچنان بسته است.",
+  "next_action": "تأیید صریح ورود DeepSeek در مرورگر ابری دریافت شده است؛ مجوز دوباره لازم نیست. درخواست امن قبلی به مهلت ابزار رسید و نتیجهٔ ورود نامعلوم ماند؛ صفحهٔ تازه هنوز ورود می‌خواهد. مسیر مستند تحویل دستی کنترل همین مرورگر آماده است. پس از پایان ورود و بازگشت کنترل، ابتدا شاهد مثبت نشست معتبر را بررسی کن و سپس آزمون محدود از دفتر عملیات را ادامه بده. رمز، کد، کوکی و پیوند تحویل در مخزن یا چت ثبت نشوند. درخواست بی‌پاسخ کورکورانه تکرار نشود؛ P04 بسته می‌ماند.",
   "resume": {
     "phase": "P03",
     "last_verified_checkpoint": "P02",
@@ -46,10 +46,11 @@
       "Current P03 preparation source db2ef3073d84d560de00738cd9878df47e4f6dc4 passed actual Linux and Windows: 60 foundation + 88 control + 80 persistence + 38 probe tests per OS, 15 process-exit cases per OS. GitHub run 37495758865 and both report graphs verified. Browser authentication was not retried; no live prompt sent."
     ],
     "working_changes": [],
-    "next_action": "آماده‌سازی آفلاین P03 و بررسی بومی هر دو محیط کامل است. تنها کار باز، آزمون واقعی مرورگر پس از نشست مجاز است؛ درخواست ورود ردشده بدون درخواست تازهٔ صریح کاربر تکرار نشود. سپس سه معیار واقعی، جدول قابلیت‌ها و بازبرآورد تکمیل شوند. P04 همچنان بسته است.",
+    "next_action": "تأیید صریح ورود DeepSeek در مرورگر ابری دریافت شده است؛ مجوز دوباره لازم نیست. درخواست امن قبلی به مهلت ابزار رسید و نتیجهٔ ورود نامعلوم ماند؛ صفحهٔ تازه هنوز ورود می‌خواهد. مسیر مستند تحویل دستی کنترل همین مرورگر آماده است. پس از پایان ورود و بازگشت کنترل، ابتدا شاهد مثبت نشست معتبر را بررسی کن و سپس آزمون محدود از دفتر عملیات را ادامه بده. رمز، کد، کوکی و پیوند تحویل در مخزن یا چت ثبت نشوند. درخواست بی‌پاسخ کورکورانه تکرار نشود؛ P04 بسته می‌ماند.",
     "next_command": "python tools/qualityctl.py status",
     "inputs_missing": [
-      "P03 authenticated session remains unverified. The secure authentication request was declined; do not re-request authentication unless the user explicitly asks."
+      "Authentication completion in the project cloud browser; existing explicit user authorization is sufficient.",
+      "Positive signed-in account/model/conversation evidence and a live ledger-backed probe."
     ],
     "known_quirks": [
       {
@@ -84,7 +85,7 @@
     "next_task": {
       "id": "P03-FIRST-PROBE",
       "title": "بررسی محدود یک اتصال مرورگر منتخب از دامنهٔ مصوب",
-      "status": "BLOCKED_AUTHENTICATION_DECLINED",
+      "status": "WAITING_USER_AUTHENTICATION_IN_CLOUD_BROWSER",
       "order": [
         "قواعد AGENTS و HANDOFF و PROGRESS و SCOPE و معیارهای P03 در ROADMAP را بخوان؛ وضعیت و بررسی توسعه را راستی‌آزمایی کن.",
         "برای یک سرویس مصوب مسیر مرورگر مجاز را تعیین کن؛ دسترسی، هویت حساب و گفتگو و انقضای نشست را UNKNOWN نگه دار تا مشاهدهٔ واقعی ثبت شود.",
@@ -253,6 +254,76 @@
           "auth_decline_respected": true,
           "next_action": "Await explicit new authentication request before live browser test. Do not advance P04."
         }
+      },
+      "authentication_renewal_attempt": {
+        "schema_version": 1,
+        "phase": "P03",
+        "provider_id": "deepseek",
+        "target_origin": "https://chat.deepseek.com",
+        "recorded_at_utc": "2026-10-06T17:05:54.618770+00:00",
+        "user_request_at_local": "2026-10-06T20:32:26+03:30",
+        "user_message_fa": "راهکار برای نشست مجاز چیست؟اگر از من تاییدی میخوای مجاز هستی",
+        "assistant_interpretation": "New user authorization to restart secure authentication; no credential values provided or accessed.",
+        "current_page_observed": "Existing DeepSeek sign-in page; visible password, Google and Apple methods.",
+        "request_outcome": "BLOCKED_BY_AUTOMATIC_APPROVAL_REVIEW; NOT_A_NEW_BROWSERAUTH_DECLINE",
+        "automatic_review_reason": "This retries the secure sign-in request after the user previously declined it, but no new user-authored approval after that decline is present; sign-in is consequential and the authorization prerequisite is unmet.",
+        "authentication_success": "NOT_CONFIRMED",
+        "credential_values_read_or_logged": false,
+        "provider_prompt_sent": false,
+        "alternate_method_or_manual_bypass_attempted": false,
+        "next_step": "Obtain a fresh explicit user confirmation naming DeepSeek and secure sign-in in the project cloud browser, then re-inspect the page and use browserAuth; never collect passwords or OTPs in chat."
+      },
+      "authentication_confirmed_request_timeout": {
+        "schema_version": 1,
+        "phase": "P03",
+        "provider_id": "deepseek",
+        "target_origin": "https://chat.deepseek.com",
+        "user_confirmation_at_local": "2026-10-06T20:36:56+03:30",
+        "user_confirmation_fa": "تایید می کنم",
+        "confirmation_context": "Explicit reply confirming secure sign-in to DeepSeek in the project cloud browser.",
+        "request_outcome": "TOOL_RPC_TIMEOUT; NO_STRUCTURED_BROWSERAUTH_RESULT",
+        "configured_tool_timeout_ms": 60000,
+        "tool_reported_wall_seconds": 1874.314,
+        "tool_error": "timed out awaiting tools/call after 300s",
+        "authentication_success": "NOT_CONFIRMED",
+        "credential_submission": "UNKNOWN; interrupted request does not prove no input occurred",
+        "credential_values_read_or_logged": false,
+        "post_timeout_recovery": "Runtime bindings were reset. Fresh target-origin verification tab showed the ordinary sign-in page.",
+        "post_timeout_observed_url": "https://chat.deepseek.com/sign_in",
+        "provider_prompt_sent": false,
+        "paid_calls": 0,
+        "phase_accepted": false,
+        "retry_policy": "No blind or repeated secure-request loop. User authorization is present; authentication completion is unconfirmed."
+      },
+      "current_authentication_handoff": {
+        "schema_version": 1,
+        "phase": "P03",
+        "provider_id": "deepseek",
+        "recorded_at_utc": "2026-10-06T21:11:03.815555+00:00",
+        "user_request_at_local": "2026-10-07T00:35:31+03:30",
+        "user_requested": "Repeat this stage and explain whether credentials are needed and how to access the cloud browser.",
+        "authorization": "EXPLICIT_USER_CONFIRMATION_ALREADY_PRESENT; DO_NOT_REQUEST_AGAIN",
+        "previous_timeout_record": "evidence/browser-probe/P03_AUTH_CONFIRMED_REQUEST_TIMEOUT.json",
+        "existing_tab_recovery": "Previous tab was unavailable; fresh tab created in the same selected Cloud Chrome browser.",
+        "browser_id": "1",
+        "current_tab_id": "2",
+        "observed_url": "https://chat.deepseek.com/sign_in",
+        "visible_methods": [
+          "Phone number / email address and password",
+          "Google",
+          "Apple"
+        ],
+        "authentication_success": "NOT_CONFIRMED",
+        "credential_values_read_or_logged": false,
+        "provider_prompt_sent": false,
+        "paid_calls": 0,
+        "bot_detection": "NOT_OBSERVED; ordinary sign-in page is not evidence of bot detection",
+        "session_expiration": "NOT_TESTED; no prior authenticated session was established",
+        "next_action": "Request the documented manual control handoff once on the accessible sign-in tab. Do not inspect intermediate credential entry. Resume only after the user returns control, then verify a positive signed-in signal.",
+        "manual_handoff_state": "PREPARED; REQUEST_NOT_YET_CONFIRMED",
+        "handoff_url_saved_or_published": false,
+        "phase_accepted": false,
+        "source_changed": false
       }
     },
     "acceptance_revalidation": {
@@ -416,18 +487,18 @@
     },
     "unfinished_work": {
       "schema_version": 1,
-      "updated_at_utc": "2026-10-06T16:32:30.536505+00:00",
+      "updated_at_utc": "2026-10-06T21:11:03.815555+00:00",
       "canonical_location": "PROGRESS.json.resume.unfinished_work",
-      "continuation_instruction": "Continue with standing access and publication permission; evaluate future impact of unfinished work.",
+      "continuation_instruction": "تأیید صریح ورود DeepSeek در مرورگر ابری دریافت شده است؛ مجوز دوباره لازم نیست. درخواست امن قبلی به مهلت ابزار رسید و نتیجهٔ ورود نامعلوم ماند؛ صفحهٔ تازه هنوز ورود می‌خواهد. مسیر مستند تحویل دستی کنترل همین مرورگر آماده است. پس از پایان ورود و بازگشت کنترل، ابتدا شاهد مثبت نشست معتبر را بررسی کن و سپس آزمون محدود از دفتر عملیات را ادامه بده. رمز، کد، کوکی و پیوند تحویل در مخزن یا چت ثبت نشوند. درخواست بی‌پاسخ کورکورانه تکرار نشود؛ P04 بسته می‌ماند.",
       "items": [
         {
           "id": "P03-001",
           "phase": "P03",
-          "status": "BLOCKED_AUTHENTICATION_DECLINED",
+          "status": "WAITING_USER_AUTHENTICATION_IN_CLOUD_BROWSER",
           "title_fa": "آزمون واقعی یک اتصال مرورگر از دامنهٔ مصوب",
-          "completed_fa": "ابزار ثبت آزمون مرورگر با اتصال دقیق و نشانگر یکتای تلاش ساخته و بازبینی شد. روی میزبان واقعی ویندوز و لینوکس، در هر محیط ۲۶۶ آزمون و ۱۵ مورد قطع واقعی پردازه پاس شدند؛ گراف گزارش‌ها با منبع تطبیق داشت. صفحهٔ ورود واقعی و رد درخواست امن ورود محفوظ‌اند؛ هیچ پیام زنده‌ای ارسال نشده است.",
+          "completed_fa": "آماده‌سازی آفلاین و بررسی بومی دو محیط تکمیل است. کاربر ورود امن را صریح تأیید کرد؛ درخواست امن به مهلت ابزار رسید و نتیجهٔ ورود نامعلوم ماند. صفحهٔ تازه در همان مرورگر ابری هنوز صفحهٔ ورود عادی است؛ مسیر تحویل کنترل آماده شد. هیچ پیام زندهٔ مدل توسط دستیار ارسال نشده است.",
           "remaining_fa": "تعیین مسیر مرورگر مجاز و حساب و مدل منتخب، ثبت ارسال و پاسخ و ادامهٔ همان گفتگو، مشاهدهٔ انقضای نشست و ارسال نامطمئن، جدول قابلیت‌ها و بازبرآورد زمان، و ثبت بررسی‌های واقعی و بازبینی سه معیار.",
-          "live_observation": "SIGN_IN_PAGE_OBSERVED; NO_SIGNED_IN_ACCOUNT_OR_MODEL_CALL",
+          "live_observation": "FRESH_SIGN_IN_PAGE_OBSERVED; AUTHENTICATION_NOT_CONFIRMED; NO_MODEL_PROMPT_SENT",
           "registered_phase_checks": [],
           "prerequisites_unknown": [
             "Authorized live account and selected model identity",
@@ -464,7 +535,7 @@
             "Partial and complete response observations are distinct; continuation must refer to the same verified conversation.",
             "Use zero paid provider calls. Windows execution remains the assistant responsibility."
           ],
-          "next_action_fa": "آماده‌سازی آفلاین P03 و بررسی بومی هر دو محیط کامل است. تنها کار باز، آزمون واقعی مرورگر پس از نشست مجاز است؛ درخواست ورود ردشده بدون درخواست تازهٔ صریح کاربر تکرار نشود. سپس سه معیار واقعی، جدول قابلیت‌ها و بازبرآورد تکمیل شوند. P04 همچنان بسته است.",
+          "next_action_fa": "تأیید صریح ورود DeepSeek در مرورگر ابری دریافت شده است؛ مجوز دوباره لازم نیست. درخواست امن قبلی به مهلت ابزار رسید و نتیجهٔ ورود نامعلوم ماند؛ صفحهٔ تازه هنوز ورود می‌خواهد. مسیر مستند تحویل دستی کنترل همین مرورگر آماده است. پس از پایان ورود و بازگشت کنترل، ابتدا شاهد مثبت نشست معتبر را بررسی کن و سپس آزمون محدود از دفتر عملیات را ادامه بده. رمز، کد، کوکی و پیوند تحویل در مخزن یا چت ثبت نشوند. درخواست بی‌پاسخ کورکورانه تکرار نشود؛ P04 بسته می‌ماند.",
           "done_when_fa": "هر سه معیار خروج `P03` در `ROADMAP.json` با شاهد واقعی پاس شده و گیت پذیرش اجرا شده باشد.",
           "access_preflight": {
             "schema_version": 1,
@@ -620,7 +691,77 @@
               "next_action": "Await explicit new authentication request before live browser test. Do not advance P04."
             }
           },
-          "future_impact_fa": "پذیرش معتبر مرحلهٔ دو و دادهٔ آن از بین نمی‌روند. نبود شاهد زنده، پذیرش P03 و شروع P04 را متوقف می‌کند؛ زمان و قابلیت‌های مرورگر هنوز به دادهٔ واقعی نیاز دارند. ادامه بدون این گیت خطر ادعای اتصال و بازیابی اثبات‌نشده دارد."
+          "future_impact_fa": "پذیرش معتبر مرحلهٔ دو و دادهٔ آن از بین نمی‌روند. نبود شاهد زنده، پذیرش P03 و شروع P04 را متوقف می‌کند؛ زمان و قابلیت‌های مرورگر هنوز به دادهٔ واقعی نیاز دارند. ادامه بدون این گیت خطر ادعای اتصال و بازیابی اثبات‌نشده دارد.",
+          "authentication_renewal_attempt": {
+            "schema_version": 1,
+            "phase": "P03",
+            "provider_id": "deepseek",
+            "target_origin": "https://chat.deepseek.com",
+            "recorded_at_utc": "2026-10-06T17:05:54.618770+00:00",
+            "user_request_at_local": "2026-10-06T20:32:26+03:30",
+            "user_message_fa": "راهکار برای نشست مجاز چیست؟اگر از من تاییدی میخوای مجاز هستی",
+            "assistant_interpretation": "New user authorization to restart secure authentication; no credential values provided or accessed.",
+            "current_page_observed": "Existing DeepSeek sign-in page; visible password, Google and Apple methods.",
+            "request_outcome": "BLOCKED_BY_AUTOMATIC_APPROVAL_REVIEW; NOT_A_NEW_BROWSERAUTH_DECLINE",
+            "automatic_review_reason": "This retries the secure sign-in request after the user previously declined it, but no new user-authored approval after that decline is present; sign-in is consequential and the authorization prerequisite is unmet.",
+            "authentication_success": "NOT_CONFIRMED",
+            "credential_values_read_or_logged": false,
+            "provider_prompt_sent": false,
+            "alternate_method_or_manual_bypass_attempted": false,
+            "next_step": "Obtain a fresh explicit user confirmation naming DeepSeek and secure sign-in in the project cloud browser, then re-inspect the page and use browserAuth; never collect passwords or OTPs in chat."
+          },
+          "authentication_confirmed_request_timeout": {
+            "schema_version": 1,
+            "phase": "P03",
+            "provider_id": "deepseek",
+            "target_origin": "https://chat.deepseek.com",
+            "user_confirmation_at_local": "2026-10-06T20:36:56+03:30",
+            "user_confirmation_fa": "تایید می کنم",
+            "confirmation_context": "Explicit reply confirming secure sign-in to DeepSeek in the project cloud browser.",
+            "request_outcome": "TOOL_RPC_TIMEOUT; NO_STRUCTURED_BROWSERAUTH_RESULT",
+            "configured_tool_timeout_ms": 60000,
+            "tool_reported_wall_seconds": 1874.314,
+            "tool_error": "timed out awaiting tools/call after 300s",
+            "authentication_success": "NOT_CONFIRMED",
+            "credential_submission": "UNKNOWN; interrupted request does not prove no input occurred",
+            "credential_values_read_or_logged": false,
+            "post_timeout_recovery": "Runtime bindings were reset. Fresh target-origin verification tab showed the ordinary sign-in page.",
+            "post_timeout_observed_url": "https://chat.deepseek.com/sign_in",
+            "provider_prompt_sent": false,
+            "paid_calls": 0,
+            "phase_accepted": false,
+            "retry_policy": "No blind or repeated secure-request loop. User authorization is present; authentication completion is unconfirmed."
+          },
+          "current_authentication_handoff": {
+            "schema_version": 1,
+            "phase": "P03",
+            "provider_id": "deepseek",
+            "recorded_at_utc": "2026-10-06T21:11:03.815555+00:00",
+            "user_request_at_local": "2026-10-07T00:35:31+03:30",
+            "user_requested": "Repeat this stage and explain whether credentials are needed and how to access the cloud browser.",
+            "authorization": "EXPLICIT_USER_CONFIRMATION_ALREADY_PRESENT; DO_NOT_REQUEST_AGAIN",
+            "previous_timeout_record": "evidence/browser-probe/P03_AUTH_CONFIRMED_REQUEST_TIMEOUT.json",
+            "existing_tab_recovery": "Previous tab was unavailable; fresh tab created in the same selected Cloud Chrome browser.",
+            "browser_id": "1",
+            "current_tab_id": "2",
+            "observed_url": "https://chat.deepseek.com/sign_in",
+            "visible_methods": [
+              "Phone number / email address and password",
+              "Google",
+              "Apple"
+            ],
+            "authentication_success": "NOT_CONFIRMED",
+            "credential_values_read_or_logged": false,
+            "provider_prompt_sent": false,
+            "paid_calls": 0,
+            "bot_detection": "NOT_OBSERVED; ordinary sign-in page is not evidence of bot detection",
+            "session_expiration": "NOT_TESTED; no prior authenticated session was established",
+            "next_action": "Request the documented manual control handoff once on the accessible sign-in tab. Do not inspect intermediate credential entry. Resume only after the user returns control, then verify a positive signed-in signal.",
+            "manual_handoff_state": "PREPARED; REQUEST_NOT_YET_CONFIRMED",
+            "handoff_url_saved_or_published": false,
+            "phase_accepted": false,
+            "source_changed": false
+          }
         }
       ],
       "future_phases": {
@@ -842,7 +983,78 @@
       "verified_branch": "p03/browser-probe-recorder",
       "verified_blob_count": 626,
       "main_release_policy": "Fast-forward tested source and non-secret metadata only; no force; exact expected-head lease. Verify final main ref and files after publication."
+    },
+    "authentication_renewal_attempt": {
+      "schema_version": 1,
+      "phase": "P03",
+      "provider_id": "deepseek",
+      "target_origin": "https://chat.deepseek.com",
+      "recorded_at_utc": "2026-10-06T17:05:54.618770+00:00",
+      "user_request_at_local": "2026-10-06T20:32:26+03:30",
+      "user_message_fa": "راهکار برای نشست مجاز چیست؟اگر از من تاییدی میخوای مجاز هستی",
+      "assistant_interpretation": "New user authorization to restart secure authentication; no credential values provided or accessed.",
+      "current_page_observed": "Existing DeepSeek sign-in page; visible password, Google and Apple methods.",
+      "request_outcome": "BLOCKED_BY_AUTOMATIC_APPROVAL_REVIEW; NOT_A_NEW_BROWSERAUTH_DECLINE",
+      "automatic_review_reason": "This retries the secure sign-in request after the user previously declined it, but no new user-authored approval after that decline is present; sign-in is consequential and the authorization prerequisite is unmet.",
+      "authentication_success": "NOT_CONFIRMED",
+      "credential_values_read_or_logged": false,
+      "provider_prompt_sent": false,
+      "alternate_method_or_manual_bypass_attempted": false,
+      "next_step": "Obtain a fresh explicit user confirmation naming DeepSeek and secure sign-in in the project cloud browser, then re-inspect the page and use browserAuth; never collect passwords or OTPs in chat."
+    },
+    "authentication_confirmed_request_timeout": {
+      "schema_version": 1,
+      "phase": "P03",
+      "provider_id": "deepseek",
+      "target_origin": "https://chat.deepseek.com",
+      "user_confirmation_at_local": "2026-10-06T20:36:56+03:30",
+      "user_confirmation_fa": "تایید می کنم",
+      "confirmation_context": "Explicit reply confirming secure sign-in to DeepSeek in the project cloud browser.",
+      "request_outcome": "TOOL_RPC_TIMEOUT; NO_STRUCTURED_BROWSERAUTH_RESULT",
+      "configured_tool_timeout_ms": 60000,
+      "tool_reported_wall_seconds": 1874.314,
+      "tool_error": "timed out awaiting tools/call after 300s",
+      "authentication_success": "NOT_CONFIRMED",
+      "credential_submission": "UNKNOWN; interrupted request does not prove no input occurred",
+      "credential_values_read_or_logged": false,
+      "post_timeout_recovery": "Runtime bindings were reset. Fresh target-origin verification tab showed the ordinary sign-in page.",
+      "post_timeout_observed_url": "https://chat.deepseek.com/sign_in",
+      "provider_prompt_sent": false,
+      "paid_calls": 0,
+      "phase_accepted": false,
+      "retry_policy": "No blind or repeated secure-request loop. User authorization is present; authentication completion is unconfirmed."
+    },
+    "current_authentication_handoff": {
+      "schema_version": 1,
+      "phase": "P03",
+      "provider_id": "deepseek",
+      "recorded_at_utc": "2026-10-06T21:11:03.815555+00:00",
+      "user_request_at_local": "2026-10-07T00:35:31+03:30",
+      "user_requested": "Repeat this stage and explain whether credentials are needed and how to access the cloud browser.",
+      "authorization": "EXPLICIT_USER_CONFIRMATION_ALREADY_PRESENT; DO_NOT_REQUEST_AGAIN",
+      "previous_timeout_record": "evidence/browser-probe/P03_AUTH_CONFIRMED_REQUEST_TIMEOUT.json",
+      "existing_tab_recovery": "Previous tab was unavailable; fresh tab created in the same selected Cloud Chrome browser.",
+      "browser_id": "1",
+      "current_tab_id": "2",
+      "observed_url": "https://chat.deepseek.com/sign_in",
+      "visible_methods": [
+        "Phone number / email address and password",
+        "Google",
+        "Apple"
+      ],
+      "authentication_success": "NOT_CONFIRMED",
+      "credential_values_read_or_logged": false,
+      "provider_prompt_sent": false,
+      "paid_calls": 0,
+      "bot_detection": "NOT_OBSERVED; ordinary sign-in page is not evidence of bot detection",
+      "session_expiration": "NOT_TESTED; no prior authenticated session was established",
+      "next_action": "Request the documented manual control handoff once on the accessible sign-in tab. Do not inspect intermediate credential entry. Resume only after the user returns control, then verify a positive signed-in signal.",
+      "manual_handoff_state": "PREPARED; REQUEST_NOT_YET_CONFIRMED",
+      "handoff_url_saved_or_published": false,
+      "phase_accepted": false,
+      "source_changed": false
     }
   },
-  "security_note": "Allowlist and basic patterns only; manually review before sharing."
+  "security_note": "Allowlist and basic patterns only; manually review before sharing.",
+  "authentication_checkpoint_scope": "METADATA_UPDATE_ONLY; P03_LIVE_ACCEPTANCE_NOT_RUN"
 }

@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "phase": "P03",
+  "provider_id": "deepseek",
+  "target_origin": "https://chat.deepseek.com",
+  "user_confirmation_at_local": "2026-10-06T20:36:56+03:30",
+  "user_confirmation_fa": "تایید می کنم",
+  "confirmation_context": "Explicit reply confirming secure sign-in to DeepSeek in the project cloud browser.",
+  "request_outcome": "TOOL_RPC_TIMEOUT; NO_STRUCTURED_BROWSERAUTH_RESULT",
+  "configured_tool_timeout_ms": 60000,
+  "tool_reported_wall_seconds": 1874.314,
+  "tool_error": "timed out awaiting tools/call after 300s",
+  "authentication_success": "NOT_CONFIRMED",
+  "credential_submission": "UNKNOWN; interrupted request does not prove no input occurred",
+  "credential_values_read_or_logged": false,
+  "post_timeout_recovery": "Runtime bindings were reset. Fresh target-origin verification tab showed the ordinary sign-in page.",
+  "post_timeout_observed_url": "https://chat.deepseek.com/sign_in",
+  "provider_prompt_sent": false,
+  "paid_calls": 0,
+  "phase_accepted": false,
+  "retry_policy": "No blind or repeated secure-request loop. User authorization is present; authentication completion is unconfirmed."
+}

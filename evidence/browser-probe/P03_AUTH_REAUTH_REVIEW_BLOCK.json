@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "phase": "P03",
+  "provider_id": "deepseek",
+  "target_origin": "https://chat.deepseek.com",
+  "recorded_at_utc": "2026-10-06T17:05:54.618770+00:00",
+  "user_request_at_local": "2026-10-06T20:32:26+03:30",
+  "user_message_fa": "راهکار برای نشست مجاز چیست؟اگر از من تاییدی میخوای مجاز هستی",
+  "assistant_interpretation": "New user authorization to restart secure authentication; no credential values provided or accessed.",
+  "current_page_observed": "Existing DeepSeek sign-in page; visible password, Google and Apple methods.",
+  "request_outcome": "BLOCKED_BY_AUTOMATIC_APPROVAL_REVIEW; NOT_A_NEW_BROWSERAUTH_DECLINE",
+  "automatic_review_reason": "This retries the secure sign-in request after the user previously declined it, but no new user-authored approval after that decline is present; sign-in is consequential and the authorization prerequisite is unmet.",
+  "authentication_success": "NOT_CONFIRMED",
+  "credential_values_read_or_logged": false,
+  "provider_prompt_sent": false,
+  "alternate_method_or_manual_bypass_attempted": false,
+  "next_step": "Obtain a fresh explicit user confirmation naming DeepSeek and secure sign-in in the project cloud browser, then re-inspect the page and use browserAuth; never collect passwords or OTPs in chat."
+}

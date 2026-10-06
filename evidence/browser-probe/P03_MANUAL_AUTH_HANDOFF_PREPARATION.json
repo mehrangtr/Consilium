@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "phase": "P03",
+  "provider_id": "deepseek",
+  "recorded_at_utc": "2026-10-06T21:11:03.815555+00:00",
+  "user_request_at_local": "2026-10-07T00:35:31+03:30",
+  "user_requested": "Repeat this stage and explain whether credentials are needed and how to access the cloud browser.",
+  "authorization": "EXPLICIT_USER_CONFIRMATION_ALREADY_PRESENT; DO_NOT_REQUEST_AGAIN",
+  "previous_timeout_record": "evidence/browser-probe/P03_AUTH_CONFIRMED_REQUEST_TIMEOUT.json",
+  "existing_tab_recovery": "Previous tab was unavailable; fresh tab created in the same selected Cloud Chrome browser.",
+  "browser_id": "1",
+  "current_tab_id": "2",
+  "observed_url": "https://chat.deepseek.com/sign_in",
+  "visible_methods": [
+    "Phone number / email address and password",
+    "Google",
+    "Apple"
+  ],
+  "authentication_success": "NOT_CONFIRMED",
+  "credential_values_read_or_logged": false,
+  "provider_prompt_sent": false,
+  "paid_calls": 0,
+  "bot_detection": "NOT_OBSERVED; ordinary sign-in page is not evidence of bot detection",
+  "session_expiration": "NOT_TESTED; no prior authenticated session was established",
+  "next_action": "Request the documented manual control handoff once on the accessible sign-in tab. Do not inspect intermediate credential entry. Resume only after the user returns control, then verify a positive signed-in signal.",
+  "manual_handoff_state": "PREPARED; REQUEST_NOT_YET_CONFIRMED",
+  "handoff_url_saved_or_published": false,
+  "phase_accepted": false,
+  "source_changed": false
+}

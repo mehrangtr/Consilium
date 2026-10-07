@@ -104,7 +104,7 @@ def inspect_matrix(root):
             if probe_required:
                 scopes["browser_probe_report"] = "P03_PROBE_RECORDER_OFFLINE_NOT_LIVE_BROWSER_ACCEPTANCE"
             if architect_required:
-                scopes["architect_report"] = "P04_QUESTION_CONTRACTS_OFFLINE_NOT_FULL_PHASE_ACCEPTANCE"
+                scopes["architect_report"] = "P04_QUESTION_CONTEXT_AND_POLICY_OFFLINE_NOT_FULL_PHASE_ACCEPTANCE"
             for role, expected_scope in scopes.items():
                 q.require(q.load(q.artifact(root, artifacts[role]))["scope"] == expected_scope,
                           "Incorrect target subcheck scope")

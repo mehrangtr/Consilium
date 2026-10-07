@@ -78,6 +78,18 @@ class QuestionLedger:
                 str(debate_id), proposal_hash, str(user_action_id), actor, payload, checkpoint.event_sequence))
             return adopted
 
+    def review_snapshot(self, debate_id: UUID, proposal_hash: str, *, expected_revision: int):
+        """Read one immutable candidate at the revision the user will approve."""
+        with self.store._transaction(write=False):
+            self.store._checked_debate(debate_id, expected_revision)
+            self._before_rounds(debate_id)
+            if self.get_adopted(debate_id) is not None:
+                raise Conflict("Question is already adopted")
+            snapshot, proposal = self._candidate(debate_id, proposal_hash)
+            if snapshot.source_revision != expected_revision:
+                raise Conflict("Candidate belongs to a stale question revision")
+            return snapshot, proposal
+
     def get_adopted(self, debate_id: UUID) -> AdoptedQuestion | None:
         if not self._db.in_transaction:
             with self.store._transaction(write=False):

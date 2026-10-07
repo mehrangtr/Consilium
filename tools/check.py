@@ -45,6 +45,7 @@ def main():
         commands.append(("browser_probe_preparation_tests", [sys.executable, "tools/run_browser_probe_tests.py"]))
     if (ROOT / "tools/run_architect_tests.py").is_file():
         commands.append(("architect_contract_tests", [sys.executable, "tools/run_architect_tests.py"]))
+    has_architect = (ROOT / "tools/run_architect_tests.py").is_file()
     for name, argv in commands:
         try:
             code = subprocess.run(argv, cwd=ROOT, stdin=subprocess.DEVNULL,
@@ -57,7 +58,7 @@ def main():
     report = {"schema_version": 1, "scope": "DEVELOPMENT_CHECK_WITH_SEPARATE_FOUNDATION_TESTS" if has_application else "DEVELOPMENT_CONTROL_TOOLING_ONLY",
               "status": "PASS" if passed else "FAIL", "checks": results,
               "source_digest_before": before, "source_digest_after": after,
-              "application_runtime_tests": "FOUNDATION_P02_KERNEL_AND_P03_OFFLINE_PROBE" if has_probe else "FOUNDATION_AND_P02_DURABLE_KERNEL" if has_persistence else "FOUNDATION_ONLY" if has_application else "NOT_RUN", "application_phase_accepted": False,
+              "application_runtime_tests": "FOUNDATION_P02_KERNEL_P03_OFFLINE_PROBE_AND_P04_OFFLINE_SLICES" if has_architect else "FOUNDATION_P02_KERNEL_AND_P03_OFFLINE_PROBE" if has_probe else "FOUNDATION_AND_P02_DURABLE_KERNEL" if has_persistence else "FOUNDATION_ONLY" if has_application else "NOT_RUN", "application_phase_accepted": False,
               "static_type_check": "NOT_RUN", "visual_rendering": "NOT_RUN"}
     destination = ROOT / "evidence/maintenance-check/RUN.json"
     destination.parent.mkdir(parents=True, exist_ok=True)

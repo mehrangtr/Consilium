@@ -2,7 +2,7 @@
 
 این نما خودکار از `ROADMAP.json`، `PROGRESS.json` و `CHECKS.json` ساخته شده است. ویرایش دستی مرجع نیست؛ پس از تغییر مبنا فرمان تولید را دوباره اجرا کنید.
 
-شناسهٔ مبنای نما: `40d7cdce6db092782568816b2ce429eb3ee948e627bbe05d07e206e85416e93c`.
+شناسهٔ مبنای نما: `e49eef2260af0af40bacb63a87f78133d9baa51c6be33f150c7d750dd44926aa`.
 
 مرحلهٔ فعلی: `P04`. آخرین مرحلهٔ پذیرفته‌شده: `P03`.
 
@@ -21,9 +21,9 @@
     "P04 immutable question/adoption and initial independent context plus schema-v3 durable adoption tested: 305 tests on each actual native OS; phase not accepted."
   ],
   "working_changes": [
-    "P04 schema-v3 architect candidate storage and atomic user adoption; 33 slice tests"
+    "P04 interactive local architect review, bound privacy/budget/history validation, independent intent preparation; 61 slice tests"
   ],
-  "next_action": "پس از بررسی بومی منبع تازه، رابط تعاملی تأیید را به QuestionLedger متصل کن؛ سپس سیاست حریم خصوصی و بودجه و مجوز تاریخچه را قبل از هر ارسال پیاده کن. مرحلهٔ چهار هنوز کامل نیست.",
+  "next_action": "پس از بررسی بومی این منبع، شواهد ContextAdmission را در همان تراکنش ثبت قصد پایدار کن و هنگام بازیابی بررسی کن؛ سپس زمینهٔ مجاز سایر دورها را بساز. پیش از آن ارسال زنده فعال نشود.",
   "next_command": "python tools/qualityctl.py status",
   "startup_commands": [
     "python tools/qualityctl.py status",
@@ -44,11 +44,11 @@
   "next_task": {
     "id": "P04-001",
     "phase": "P04",
-    "status": "DURABLE_ADOPTION_AND_BOTH_NATIVE_TARGETS_VERIFIED_UI_AND_DISPATCH_POLICY_PENDING",
+    "status": "LOCAL_REVIEW_POLICY_AND_INTENT_BRIDGE_IMPLEMENTED_NATIVE_VALIDATION_PENDING",
     "title_fa": "قرارداد اصل پرسش، پیشنهاد معمار و پذیرش نسخهٔ جدید",
-    "completed_fa": "قرارداد پرسش و زمینهٔ مستقل و بازیابی و ثبت پایدار نامزد و تأیید کاربر پیاده شد؛ ۳۳ آزمون این برش شامل قطع واقعی پردازه و مهاجرت نسخهٔ دو پاس شده‌اند.",
-    "remaining_fa": "رابط تعاملی تأیید، سیاست حریم خصوصی و بودجه، اتصال امن به دفتر ارسال و تاریخچهٔ دوردست و پذیرش کامل مرحله باقی است. آزمون بومی این نسخه در هر دو محیط پاس شده است.",
-    "next_action_fa": "پس از بررسی بومی منبع تازه، رابط تعاملی تأیید را به QuestionLedger متصل کن؛ سپس سیاست حریم خصوصی و بودجه و مجوز تاریخچه را قبل از هر ارسال پیاده کن. مرحلهٔ چهار هنوز کامل نیست.",
+    "completed_fa": "رابط محلی تأیید، کنترل محلی مجوز و بودجه و تاریخچه، و اتصال زمینهٔ مستقل به قصد دفتر پیاده شدند. ۶۱ آزمون مرحلهٔ چهار پاس شده‌اند؛ هیچ ارسال زنده‌ای انجام نشده است.",
+    "remaining_fa": "بررسی کامل و شاهد بومی منبع تازه؛ ثبت پایدار شواهد کنترل کنار قصد و اعتبارسنجی پیش از ارسال؛ زمینهٔ دورهای بعد و پذیرش کامل مرحلهٔ چهار باقی است.",
+    "next_action_fa": "پس از بررسی بومی این منبع، شواهد ContextAdmission را در همان تراکنش ثبت قصد پایدار کن و هنگام بازیابی بررسی کن؛ سپس زمینهٔ مجاز سایر دورها را بساز. پیش از آن ارسال زنده فعال نشود.",
     "done_when_fa": "اصل متن و قیود دقیق محفوظ؛ پیشنهاد ناسازگار و پذیرش نامعتبر رد؛ تغییرهای مجاز قابل مقایسه؛ آزمون‌های واقعی و رگرسیون سبز؛ تحویل به‌روز."
   },
   "unfinished_work": {
@@ -60,11 +60,11 @@
       {
         "id": "P04-001",
         "phase": "P04",
-        "status": "DURABLE_ADOPTION_AND_BOTH_NATIVE_TARGETS_VERIFIED_UI_AND_DISPATCH_POLICY_PENDING",
+        "status": "LOCAL_REVIEW_POLICY_AND_INTENT_BRIDGE_IMPLEMENTED_NATIVE_VALIDATION_PENDING",
         "title_fa": "قرارداد اصل پرسش، پیشنهاد معمار و پذیرش نسخهٔ جدید",
-        "completed_fa": "قرارداد پرسش و زمینهٔ مستقل و بازیابی و ثبت پایدار نامزد و تأیید کاربر پیاده شد؛ ۳۳ آزمون این برش شامل قطع واقعی پردازه و مهاجرت نسخهٔ دو پاس شده‌اند.",
-        "remaining_fa": "رابط تعاملی تأیید، سیاست حریم خصوصی و بودجه، اتصال امن به دفتر ارسال و تاریخچهٔ دوردست و پذیرش کامل مرحله باقی است. آزمون بومی این نسخه در هر دو محیط پاس شده است.",
-        "next_action_fa": "پس از بررسی بومی منبع تازه، رابط تعاملی تأیید را به QuestionLedger متصل کن؛ سپس سیاست حریم خصوصی و بودجه و مجوز تاریخچه را قبل از هر ارسال پیاده کن. مرحلهٔ چهار هنوز کامل نیست.",
+        "completed_fa": "رابط محلی تأیید، کنترل محلی مجوز و بودجه و تاریخچه، و اتصال زمینهٔ مستقل به قصد دفتر پیاده شدند. ۶۱ آزمون مرحلهٔ چهار پاس شده‌اند؛ هیچ ارسال زنده‌ای انجام نشده است.",
+        "remaining_fa": "بررسی کامل و شاهد بومی منبع تازه؛ ثبت پایدار شواهد کنترل کنار قصد و اعتبارسنجی پیش از ارسال؛ زمینهٔ دورهای بعد و پذیرش کامل مرحلهٔ چهار باقی است.",
+        "next_action_fa": "پس از بررسی بومی این منبع، شواهد ContextAdmission را در همان تراکنش ثبت قصد پایدار کن و هنگام بازیابی بررسی کن؛ سپس زمینهٔ مجاز سایر دورها را بساز. پیش از آن ارسال زنده فعال نشود.",
         "done_when_fa": "اصل متن و قیود دقیق محفوظ؛ پیشنهاد ناسازگار و پذیرش نامعتبر رد؛ تغییرهای مجاز قابل مقایسه؛ آزمون‌های واقعی و رگرسیون سبز؛ تحویل به‌روز."
       }
     ],
@@ -271,59 +271,9 @@
     "scope": "NATIVE_OFFLINE_REGRESSION; P04_IMPLEMENTATION_NOT_STARTED"
   },
   "native_checkpoint": {
-    "schema_version": 1,
-    "phase": "P04",
-    "status": "DURABLE_ADOPTION_SLICE_VERIFIED_NOT_PHASE_ACCEPTED",
-    "source_digest": "d32bd2568f100a1e8917ca9cf5aaa0a149cca3d5eb76c3333d601af90ea729f6",
-    "code_commit": "baa1d4714d0ee1b72278127d58a48c11416743b4",
-    "workflow_run_id": 37573068803,
-    "workflow_url": "https://github.com/mehrangtr/Consilium/actions/runs/37573068803",
-    "native_targets": [
-      {
-        "target": "Windows",
-        "status": "PASS",
-        "control_tests": 88,
-        "foundation_tests": 60,
-        "persistence_tests": 80,
-        "browser_probe_tests": 44,
-        "architect_tests": 33,
-        "evidence": {
-          "path": "evidence/targets/Windows/20261007T044654Z_fab53c34/RUN.json",
-          "sha256": "d83623ca67d5347eb84539756ece53f617d23eb69ee85317d492ead82a1f2f03"
-        }
-      },
-      {
-        "target": "Linux",
-        "status": "PASS",
-        "control_tests": 88,
-        "foundation_tests": 60,
-        "persistence_tests": 80,
-        "browser_probe_tests": 44,
-        "architect_tests": 33,
-        "evidence": {
-          "path": "evidence/targets/Linux/20261007T044641Z_f1d0e3bd/RUN.json",
-          "sha256": "8d8bf43b2e2ca9347351ca3c235d85d3aa9523079104cf2a88f1e439feef9b9e"
-        }
-      }
-    ],
-    "phase_check_receipt": {
-      "phase": "P04",
-      "receipt": "evidence/runs/20261007T044809Z_977d5a601a/RUN.json",
-      "sha256": "ca9b125d2cbe5b5b961f26319dd525676ad744914938f55c761bf8b1224d305f"
-    },
-    "review": {
-      "independent": false,
-      "method": "Separate author review of immutable candidates, atomic adoption/event commit, schema history, two real process exits and native evidence graph.",
-      "result": "PASS_FOR_SLICE_ONLY"
-    },
-    "remaining": [
-      "interactive trusted-user confirmation interface",
-      "privacy and budget dispatch policy",
-      "remote conversation history authorization",
-      "distinguish adopted question revision from current operation-ledger revision",
-      "full P04 exit evidence and phase acceptance"
-    ],
-    "continuation": "Implement local interactive confirmation and policy validation before connecting the context to live sends."
+    "status": "NOT_RUN_FOR_NEW_REVIEW_POLICY_SOURCE",
+    "previous_proof": "evidence/p04/DURABLE_ADOPTION_CHECKPOINT.json",
+    "notice": "Previous 305-test source proof is historical; fresh source requires both native targets."
   },
   "native_checkpoint_history": [
     {
@@ -375,6 +325,61 @@
         "full P04 exits and acceptance review"
       ],
       "continuation": "Implement durable adoption before connecting this context to live dispatch. Do not replay P03 sends."
+    },
+    {
+      "schema_version": 1,
+      "phase": "P04",
+      "status": "DURABLE_ADOPTION_SLICE_VERIFIED_NOT_PHASE_ACCEPTED",
+      "source_digest": "d32bd2568f100a1e8917ca9cf5aaa0a149cca3d5eb76c3333d601af90ea729f6",
+      "code_commit": "baa1d4714d0ee1b72278127d58a48c11416743b4",
+      "workflow_run_id": 37573068803,
+      "workflow_url": "https://github.com/mehrangtr/Consilium/actions/runs/37573068803",
+      "native_targets": [
+        {
+          "target": "Windows",
+          "status": "PASS",
+          "control_tests": 88,
+          "foundation_tests": 60,
+          "persistence_tests": 80,
+          "browser_probe_tests": 44,
+          "architect_tests": 33,
+          "evidence": {
+            "path": "evidence/targets/Windows/20261007T044654Z_fab53c34/RUN.json",
+            "sha256": "d83623ca67d5347eb84539756ece53f617d23eb69ee85317d492ead82a1f2f03"
+          }
+        },
+        {
+          "target": "Linux",
+          "status": "PASS",
+          "control_tests": 88,
+          "foundation_tests": 60,
+          "persistence_tests": 80,
+          "browser_probe_tests": 44,
+          "architect_tests": 33,
+          "evidence": {
+            "path": "evidence/targets/Linux/20261007T044641Z_f1d0e3bd/RUN.json",
+            "sha256": "8d8bf43b2e2ca9347351ca3c235d85d3aa9523079104cf2a88f1e439feef9b9e"
+          }
+        }
+      ],
+      "phase_check_receipt": {
+        "phase": "P04",
+        "receipt": "evidence/runs/20261007T044809Z_977d5a601a/RUN.json",
+        "sha256": "ca9b125d2cbe5b5b961f26319dd525676ad744914938f55c761bf8b1224d305f"
+      },
+      "review": {
+        "independent": false,
+        "method": "Separate author review of immutable candidates, atomic adoption/event commit, schema history, two real process exits and native evidence graph.",
+        "result": "PASS_FOR_SLICE_ONLY"
+      },
+      "remaining": [
+        "interactive trusted-user confirmation interface",
+        "privacy and budget dispatch policy",
+        "remote conversation history authorization",
+        "distinguish adopted question revision from current operation-ledger revision",
+        "full P04 exit evidence and phase acceptance"
+      ],
+      "continuation": "Implement local interactive confirmation and policy validation before connecting the context to live sends."
     }
   ]
 }

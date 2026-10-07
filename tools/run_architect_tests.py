@@ -70,7 +70,7 @@ def main():
     after = q.source_digest(ROOT)
     passed = result.wasSuccessful() and counts["tests"] > 0 and before == after and not any(
         counts[x] for x in ("failures", "errors", "skipped")) and not result.expectedFailures
-    report = {"phase": "P04", "scope": "P04_QUESTION_CONTRACTS_OFFLINE_NOT_FULL_PHASE_ACCEPTANCE",
+    report = {"phase": "P04", "scope": "P04_QUESTION_CONTEXT_AND_POLICY_OFFLINE_NOT_FULL_PHASE_ACCEPTANCE",
               "status": "PASS" if passed else "FAIL", "counts": counts,
               "source_digest_before": before, "source_digest_after": after,
               "date_utc": dt.datetime.now(dt.timezone.utc).isoformat(),

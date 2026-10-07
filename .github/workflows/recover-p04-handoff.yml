@@ -1,0 +1,140 @@
+name: Recover verified P04 handoff
+'on':
+  push:
+    branches: [ops-p04-handoff-recovery-20261007]
+permissions:
+  contents: write
+  actions: read
+env:
+  PYTHONUTF8: '1'
+  PYTHONIOENCODING: utf-8
+jobs:
+  finalize:
+    name: Rebuild verified evidence without changing product source
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: 520bb5d5f321afbef744cd604438795737dccfe6
+          persist-credentials: true
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12.14'
+      - run: python -m pip install -r requirements.lock
+      - uses: actions/download-artifact@v8
+        with:
+          artifact-ids: '11471482559'
+          path: evidence/targets/Windows/
+          github-token: ${{ github.token }}
+          repository: ${{ github.repository }}
+          run-id: '37598676779'
+      - uses: actions/download-artifact@v8
+        with:
+          artifact-ids: '11471108903'
+          path: evidence/targets/Linux/
+          github-token: ${{ github.token }}
+          repository: ${{ github.repository }}
+          run-id: '37598676779'
+      - name: Validate and publish metadata and evidence to delivery branch
+        shell: bash
+        run: |
+          python - <<'PY'
+          import datetime,json,os,subprocess,sys,zipfile
+          from pathlib import Path
+          sys.path.insert(0,'tools')
+          import qualityctl as q
+          root=Path.cwd()
+          expected='bd3d5640089d4ee858090412dc0d3fd4dfde8a5e03bf449fde1c2ed8336b309b'
+          code='520bb5d5f321afbef744cd604438795737dccfe6'
+          assert subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip()==code
+          assert q.source_digest(root)==expected
+          subprocess.run(['python','tools/check_target_matrix.py'],check=True,timeout=60)
+          matrix=q.load(root/'evidence/target-matrix/RUN.json')
+          assert matrix['status']=='PASS'
+          assert len(matrix['targets'])==2
+          assert all(sum(t[k] for k in ['control_tests','foundation_tests','persistence_tests','browser_probe_tests','architect_tests'])==388 for t in matrix['targets'])
+          subprocess.run(['python','tools/qualityctl.py','run','P04'],check=True,timeout=120)
+          latest=q.load(root/'evidence/latest/P04.json')
+          assert q.load(root/latest['receipt'])['status']=='PASS'
+          now=datetime.datetime.now(datetime.timezone.utc).isoformat()
+          review_path='evidence/p04/CANONICAL_SOURCE_STORAGE_REVIEW.json'
+          review=q.load(root/review_path)
+          review.update(source_digest=expected,native_verification='PASS_BOTH_ACTUAL_OS',native_workflow_run_id=37598676779,native_tests_per_os=388,real_process_exit_cases_per_os=21)
+          review['known_limits'].append('Answer-only publication is not a multi-target critique collection; define a versioned contract before extending it.')
+          (root/review_path).write_bytes(q.encoded(review))
+          checkpoint={'schema_version':1,'phase':'P04','status':'CANONICAL_MOCK_SOURCE_STORAGE_VERIFIED_NOT_PHASE_ACCEPTED','source_digest':expected,'code_commit':code,'workflow_run_id':37598676779,'workflow_url':'https://github.com/mehrangtr/Consilium/actions/runs/37598676779','native_targets':matrix['targets'],'native_artifacts':[{'target':'Windows','artifact_id':11471482559,'sha256':'00a417ffaf5520a1aa09220f09d26583ba0db7f18bbf82f39b38adfda0d39602'},{'target':'Linux','artifact_id':11471108903,'sha256':'50e9fa04f890ab51c7658ae7d7d2feb973aa4fc43c64408ada1e717ac2a40ff2'}],'tests_per_os':388,'real_process_exit_cases_per_os':21,'focused_source_tests':21,'phase_check_receipt':latest,'review':{'path':review_path,'sha256':q.digest((root/review_path).read_bytes()),'independent':False,'result':'PASS_FOR_IMPLEMENTED_SLICE_ONLY'},'verified_scope':['Canonical P02 mock answer reconstructed from confirmed result, exact request, attempt and registered round.','Atomic source/event/checkpoint publication; two additional real process-exit boundaries.','Replacement, deletion, rehashed content tampering, stale writes and reclassification rejected.','Separate operations survive equal request hashes; historical sources survive binding changes.','V1-V4 checksums preserved; V5 rollback verified.','Aggregate native recorder bounded at 120 seconds; components retain 60-second cap.'],'limitations':review['known_limits'],'failed_previous_attempt':{'path':'evidence/p04/NATIVE_FAILURE_37597483032.json','sha256':q.digest((root/'evidence/p04/NATIVE_FAILURE_37597483032.json').read_bytes()),'superseded_by_successful_run':37598676779},'live_provider_calls':0,'paid_calls':0,'phase_accepted':False,'continuation':'Continue P04-002 source contracts and durable later-round admission; do not start P05 or enable live dispatch.'}
+          checkpoint_path='evidence/p04/CANONICAL_SOURCE_STORAGE_CHECKPOINT.json'
+          (root/checkpoint_path).write_bytes(q.encoded(checkpoint))
+          p=root/'PROGRESS.json';d=q.load(p);r=d['resume']
+          assert d['current_phase']=='P04' and d['verified_application_requirements']==0
+          original_phases=json.dumps(d['phases'],sort_keys=True)
+          r['native_checkpoint_history'].append(r['native_checkpoint'])
+          r['native_checkpoint']=checkpoint
+          r['last_tested_source_checkpoint']={'source_digest':expected,'code_commit':code,'native_run_id':37598676779,'native_matrix':{'path':'evidence/target-matrix/RUN.json','sha256':q.digest((root/'evidence/target-matrix/RUN.json').read_bytes())},'tests_per_os':388,'scope':'NATIVE_OFFLINE_P04_SLICE_NOT_PHASE_ACCEPTANCE'}
+          r['last_verified_in_phase_checkpoint']={'phase':'P04','path':checkpoint_path,'sha256':q.digest((root/checkpoint_path).read_bytes()),'source_digest':expected,'phase_accepted':False}
+          d['application_source_commit']=code;d['updated_at_utc']=now
+          r['completed_work'].append('P04-002 canonical mock-source storage and V5 migration verified: 388 tests and 21 real process exits per actual native OS; full phase remains open.')
+          r['working_changes']=[]
+          t=r['next_task']
+          t.update(status='PARTIAL_CANONICAL_MOCK_SOURCE_STORAGE_VERIFIED',completed_fa='ثبت کنترل اولیه و نماهای خالص حفظ شده‌اند. مخزن پاسخ ساختگی به نتیجهٔ رسمی و تلاش و ورودی و دور دقیق متصل است؛ ۲۱ آزمون جدید و مجموع ۳۸۸ آزمون با ۲۱ مورد قطع واقعی پردازه در هر محیط بومی موفق‌اند.',remaining_fa='قرارداد منبع نقد چندهدفه و پاسخ واقعی یا دستی، اتصال نمای دور بعد به قصد و شواهد مجوز و بودجه، معیارهای باز و پذیرش کامل مرحله.')
+          t['next_action_fa']='در همین P04-002 قرارداد نسخه‌دار منبع نقد چندهدفه و پاسخ واقعی یا دستی را با پیوند به تأیید روشن تعریف کن؛ قرارداد ذخیره پیش از گردش کامل شورا در P05 است. سپس نمای دورهای بعد را با منابع معتبر و مجوز و بودجه در همان تراکنش قصد ثبت کن. حفظ قیود و مخالفت و بازیابی را آزمون کن و بعد همهٔ معیارهای باز P04 را بازبینی کن. ارسال زنده فعال نشود.'
+          r['next_action']=t['next_action_fa']
+          r['unfinished_work']['items']=[t.copy()]
+          r['unfinished_work']['updated_at_utc']=now
+          r['unfinished_work']['continuation_instruction']='Old stalled publication completed at 2593abb0815bff62f1fd5e45766d55e40bbae6ad. New source '+expected+' is native-verified. Continue remaining P04-002 contracts and durable later-round admission; do not repeat old probes or successful tests without a source change or real defect.'
+          r['known_quirks'].append('Local executor stopped responding after verification; delivery was rebuilt on GitHub from exactly 520bb5d5f321afbef744cd604438795737dccfe6 and existing native artifacts. The helper workflow is not product source and must not be merged.')
+          r['known_quirks'].append('Current source publication is one mock Answer per confirmed operation; multi-target Critique storage needs an explicit versioned contract, not silent reuse or relabeling.')
+          r['execution_recovery_policy']['native_aggregate_check_timeout_seconds']=120
+          r['execution_recovery_policy']['native_aggregate_budget_reason']='Whole Windows check reached 60 seconds after all tests, before final report; each component retains 60 seconds while bounded aggregate is 120 seconds.'
+          r['native_validation_attempts'].append({'workflow_run_id':37597483032,'source_digest':'fff7e66ecfcf3a199f06533728aaa9748170422c62e0d3c2bcdf9895fc5df0c2','status':'FAILED_WINDOWS_AGGREGATE_DEADLINE','evidence':'evidence/p04/NATIVE_FAILURE_37597483032.json','repair_commit':code,'successful_retry_run_id':37598676779})
+          pub=r['public_publication']
+          pub.update(status='REVIEWED_SOURCE_AND_EVIDENCE_INCLUDED_IN_THIS_PUBLICATION',tested_source_commit=code,tested_source_digest=expected,unfinished_publication_work=False,verified_main_source_commit=code,scope='NATIVE_VERIFIED_P04_MOCK_SOURCE_SLICE_NOT_PHASE_ACCEPTANCE')
+          pub['transfer_execution'].update(status='REBUILT_ON_GITHUB_AFTER_LOCAL_EXECUTOR_TIMEOUT',method='Checkout exact native-tested code; import immutable artifact IDs; verify source and native report graphs; create metadata/evidence-only commit on a delivery branch; primary assistant performs leased main update.',per_call_deadline_seconds=45)
+          r['unfinished_work']['completed_items'].append({'id':'PUB-P04-DURABLE-001','phase':'P04_DELIVERY','status':'COMPLETED','verified_commit':'2593abb0815bff62f1fd5e45766d55e40bbae6ad','remaining_fa':'انتشار متوقف‌شدهٔ قبلی کامل است؛ دوباره از ابتدا تکرار نشود.'})
+          assert json.dumps(d['phases'],sort_keys=True)==original_phases
+          p.write_bytes(q.encoded(d))
+          journal={'schema_version':1,'status':'SOURCE_AND_NATIVE_EVIDENCE_VERIFIED_REBUILT_ON_GITHUB','prior_publication':'2593abb0815bff62f1fd5e45766d55e40bbae6ad','source_digest':expected,'code_commit':code,'native_workflow_run_id':37598676779,'tests_per_os':388,'real_process_exit_cases_per_os':21,'local_executor':'UNRESPONSIVE; bounded waits stopped; no blind mutation retries','local_import_error':'Earlier local import serialization error caused a failed configured run; corrected import and subsequent configured run passed. Final delivery revalidates original native artifacts on a fresh runner.','helper_run_id':os.environ['GITHUB_RUN_ID'],'phase_accepted':False,'remaining_publication_work':'Primary assistant must fetch delivery branch and verify it before leased main update.'}
+          (root/'evidence/publication/P04_SOURCE_TRANSFER_CHECKPOINT.json').write_bytes(q.encoded(journal))
+          subprocess.run(['python','tools/qualityctl.py','navigation'],check=True,timeout=60)
+          first=Path(os.environ['RUNNER_TEMP'])/'consilium-final-preview.zip'
+          subprocess.run(['python','tools/qualityctl.py','handoff','--out',str(first)],check=True,stdout=subprocess.DEVNULL,timeout=60)
+          with zipfile.ZipFile(first) as z: count=len(z.namelist())
+          pub['prior_portable_files_verified']=pub.get('portable_files_verified')
+          pub['portable_files_verified']=count
+          p.write_bytes(q.encoded(d))
+          subprocess.run(['python','tools/qualityctl.py','navigation'],check=True,timeout=60)
+          final=Path(os.environ['RUNNER_TEMP'])/'consilium-final-verified-handoff.zip'
+          subprocess.run(['python','tools/qualityctl.py','handoff','--out',str(final)],check=True,stdout=subprocess.DEVNULL,timeout=60)
+          subprocess.run(['python','tools/qualityctl.py','verify',str(final)],check=True,timeout=60)
+          with zipfile.ZipFile(final) as z:
+           assert len(z.namelist())==count
+           for name in ['HANDOFF.json','MANIFEST.json']: (root/name).write_bytes(z.read(name))
+           h=json.loads(z.read('HANDOFF.json'))
+           assert h['state_label']=='INCOMPLETE' and h['current_phase']=='P04' and h['last_accepted_phase']=='P03'
+           assert h['source_snapshot_digest']==expected
+           assert h['latest_current_phase_run']['status']=='PASS' and all(x['status']=='PASS' and x['source_matches_current'] for x in h['native_target_runs'])
+          assert q.source_digest(root)==expected
+          changed=subprocess.check_output(['git','diff','--name-only'],text=True).splitlines()
+          new=subprocess.check_output(['git','ls-files','--others','--exclude-standard'],text=True).splitlines()
+          allowed={'HANDOFF.json','MANIFEST.json','PROGRESS.json'}
+          assert all(x in allowed or x.startswith('evidence/') for x in changed+new)
+          subprocess.run(['git','add','--',*(changed+new)],check=True)
+          subprocess.run(['git','diff','--cached','--check','--','.',':!evidence/**'],check=True)
+          subprocess.run(['git','config','user.name','Consilium evidence finalizer'],check=True)
+          subprocess.run(['git','config','user.email','consilium-evidence@users.noreply.github.com'],check=True)
+          subprocess.run(['git','commit','-m','Record 388-test native P04 source slice and verified handoff'],check=True)
+          sha=subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip()
+          tree=subprocess.check_output(['git','rev-parse','HEAD^{tree}'],text=True).strip()
+          assert subprocess.check_output(['git','rev-parse','HEAD^'],text=True).strip()==code
+          subprocess.run(['git','push','origin','HEAD:refs/heads/p04-handoff-recovered-20261007'],check=True,timeout=45)
+          print(json.dumps({'status':'VERIFIED_DELIVERY_BRANCH_READY','commit':sha,'tree':tree,'source_digest':expected,'files':count,'tests_per_os':388,'phase_accepted':False}))
+          
+          PY
+      - uses: actions/upload-artifact@v7
+        if: always()
+        with:
+          name: recovered-p04-handoff
+          path: ${{ runner.temp }}/consilium-final-verified-handoff.zip
+          if-no-files-found: warn
+          retention-days: 7

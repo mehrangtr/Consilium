@@ -1,5 +1,9 @@
 name: Native development checks
-'on': [push, pull_request, workflow_dispatch]
+'on':
+  push:
+    branches-ignore: [ops-p04-finish-*]
+  pull_request:
+  workflow_dispatch:
 permissions:
   contents: read
 env:

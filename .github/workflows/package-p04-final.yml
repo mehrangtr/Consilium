@@ -1,0 +1,343 @@
+name: Accept P04 and verify its exact handoff
+'on':
+  push:
+    branches: [ops-p04-finish-20261007]
+permissions:
+  contents: write
+  actions: read
+env:
+  PYTHONUTF8: '1'
+  PYTHONIOENCODING: utf-8
+jobs:
+  package:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    outputs:
+      commit: ${{ steps.pack.outputs.commit }}
+    steps:
+      - uses: actions/checkout@v7
+        timeout-minutes: 5
+        with:
+          ref: 10c27c56187299120b2545ddca65014ec17bacff
+          path: payload
+          persist-credentials: true
+      - uses: actions/setup-python@v7
+        timeout-minutes: 5
+        with:
+          python-version: '3.12.14'
+      - run: python -m pip install -r payload/requirements.lock
+        timeout-minutes: 5
+      - uses: actions/download-artifact@v8
+        timeout-minutes: 5
+        with:
+          name: native-target-Linux
+          path: payload/evidence/targets/Linux
+          github-token: ${{ github.token }}
+          repository: mehrangtr/Consilium
+          run-id: 37689915269
+      - uses: actions/download-artifact@v8
+        timeout-minutes: 5
+        with:
+          name: development-supervisor-Linux
+          path: payload/evidence/development-supervisor
+          github-token: ${{ github.token }}
+          repository: mehrangtr/Consilium
+          run-id: 37689915269
+      - uses: actions/download-artifact@v8
+        timeout-minutes: 5
+        with:
+          name: native-target-Windows
+          path: payload/evidence/targets/Windows
+          github-token: ${{ github.token }}
+          repository: mehrangtr/Consilium
+          run-id: 37689915269
+      - uses: actions/download-artifact@v8
+        timeout-minutes: 5
+        with:
+          name: development-supervisor-Windows
+          path: payload/evidence/development-supervisor
+          github-token: ${{ github.token }}
+          repository: mehrangtr/Consilium
+          run-id: 37689915269
+      - name: Review all original exits, accept P04, and publish isolated delivery
+        id: pack
+        timeout-minutes: 8
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PAYLOAD_ROOT: ${{ github.workspace }}/payload
+          TESTED_CODE_SHA: 10c27c56187299120b2545ddca65014ec17bacff
+          TESTED_CODE_TREE: f339e896177240345bc1c6413635308fb94434b4
+          TESTED_SOURCE_DIGEST: a8cb0b5371a5cf89c917b2039e5756bdc4c9875d7aff8a69ed65ab8d1d5001a4
+          NATIVE_RUN_ID: '37689915269'
+          PUBLICATION_JOURNAL_SHA: ed036121ab6ced7dd1b6f4b87d70a9bf4d127482
+          DELIVERY_BRANCH: p04-completed-delivery-20261007
+        shell: bash
+        run: |
+          python - <<'PY'
+          import base64,datetime as dt,hashlib,json,os,subprocess,sys,urllib.request,zipfile
+          from pathlib import Path
+          ROOT=Path(os.environ['PAYLOAD_ROOT']).resolve();OUT=ROOT.parent/'delivery';OUT.mkdir(exist_ok=True)
+          CODE=os.environ['TESTED_CODE_SHA'];TREE=os.environ['TESTED_CODE_TREE'];SOURCE=os.environ['TESTED_SOURCE_DIGEST']
+          RUN=int(os.environ['NATIVE_RUN_ID']);BRANCH=os.environ['DELIVERY_BRANCH'];JOURNAL=os.environ['PUBLICATION_JOURNAL_SHA']
+          sys.path.insert(0,str(ROOT/'tools'));import qualityctl as q
+          from publication_guard import PublicationGuard
+
+          def command(args,timeout=180):
+              subprocess.run(args,cwd=ROOT,stdin=subprocess.DEVNULL,check=True,timeout=timeout)
+
+          def github(path):
+              request=urllib.request.Request('https://api.github.com/repos/mehrangtr/Consilium/'+path,
+                  headers={'Authorization':'Bearer '+os.environ['GH_TOKEN'],'Accept':'application/vnd.github+json'})
+              with urllib.request.urlopen(request,timeout=25) as response:return json.load(response)
+
+          def ref(name):return {'path':name,'sha256':q.digest((ROOT/name).read_bytes())}
+
+          assert subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT).decode().strip()==CODE
+          assert subprocess.check_output(['git','rev-parse','HEAD^{tree}'],cwd=ROOT).decode().strip()==TREE
+          assert q.source_digest(ROOT)==SOURCE
+          remote=github('actions/runs/'+str(RUN))
+          assert remote['head_sha']==CODE and remote['status']=='completed' and remote['conclusion']=='success'
+          command([sys.executable,'tools/check_target_matrix.py'])
+          native_names,native=q.target_evidence_files(ROOT)
+          assert {r['target'] for r in native}=={'Linux','Windows'}
+          assert all(r['status']=='PASS' and r['source_matches_current'] for r in native)
+          for target in native:
+              report=q.load(ROOT/target['report']['path'])
+              parts={role:q.load(q.artifact(ROOT,item)) for role,item in report['artifacts'].items()
+                     if role in {'control_report','foundation_report','persistence_report','browser_probe_report','architect_report'}}
+              assert {role:r['counts']['tests'] for role,r in parts.items()}=={
+                  'control_report':112,'foundation_report':60,'persistence_report':104,'browser_probe_report':44,'architect_report':259}
+              assert sum(r['counts']['tests'] for r in parts.values())==579
+              assert all(r['counts']['failures']==r['counts']['errors']==r['counts']['skipped']==0 for r in parts.values())
+              exits=[c for role,r in parts.items() if role!='control_report' for c in r['cases'] if 'process_exit' in c['id']]
+              assert len(exits)==33 and all(c['status']=='PASS' for c in exits)
+              for test in ('test_architect_request.ArchitectRequestTests.test_live_origin_cannot_be_self_certified',
+                           'test_context_observers.ContextObserverTests.test_observed_packet_persists_atomically_and_reconstructs_after_restart',
+                           'test_context_observers.ContextObserverTests.test_new_topic_has_new_debate_and_never_rewrites_prior_question',
+                           'test_context_observers.LaterContextObserverTests.test_sources_are_observed_from_actual_canonical_manual_records'):
+                  assert next(c['status'] for c in parts['architect_report']['cases'] if c['id']==test)=='PASS'
+
+          states=[]
+          for path in (ROOT/'evidence/development-supervisor').glob('*/STATE.json'):
+              state=q.load(path)
+              if state['source_digest']!=SOURCE or not state['steps'] or state['steps'][0]['step']!='native':continue
+              assert state['status']=='PASS' and not state['phase_advanced'] and not state['remaining_steps']
+              for step in state['steps']:
+                  assert step['status'] in {'COMPLETE','RECOVERED_COMPLETE'}
+                  proof=step['reconciliation'];assert proof['status']=='VERIFIED_COMPLETE'
+                  receipt=q.load(q.artifact(ROOT,{'path':proof['receipt'],'sha256':proof['sha256']}))
+                  assert receipt['development_step_id']==step['nonce'] and receipt['status']=='PASS'
+                  assert receipt['source_digest_before']==receipt['source_digest_after']==SOURCE
+                  assert not step['retained_proof']['errors']
+                  for item in step['retained_proof']['artifacts']:q.artifact(ROOT,{'path':item['path'],'sha256':item['sha256']})
+              states.append(ref(path.relative_to(ROOT).as_posix()))
+          assert len(states)==2
+          raw=base64.b64decode(github('git/blobs/'+JOURNAL)['content'])
+          assert hashlib.sha1(b'blob '+str(len(raw)).encode()+b'\0'+raw).hexdigest()==JOURNAL
+          journal=json.loads(raw);assert journal['code_commit']==CODE and journal['code_tree']==TREE and journal['source_digest']==SOURCE
+          assert all(r['state']=='VERIFIED_COMPLETE' for r in journal['operations'])
+          assert journal['commit_creation']['status']=='VERIFIED_COMPLETE' and journal['exact_branch_request']['status']=='VERIFIED_COMPLETE'
+          (ROOT/'evidence/publication/P04_COMPLETION_SOURCE_JOURNAL.json').write_bytes(raw)
+          progress=q.load(ROOT/'PROGRESS.json');assert progress['current_phase']=='P04' and progress['verified_application_requirements']==0
+          accepted={p['id']:q.encoded(p) for p in progress['phases'] if p['id'] in {'P00','P01','P02','P03'}}
+          previous_resume=progress['resume'];phase=next(p for p in progress['phases'] if p['id']=='P04');assert phase['status']=='IN_PROGRESS'
+          now=dt.datetime.now(dt.timezone.utc).isoformat()
+          progress['application_source_commit']=CODE;progress['updated_at_utc']=now;phase['source_commit']=CODE
+          phase['notes']=[('HISTORICAL: '+x) if x.startswith('CURRENT') else x for x in phase['notes']]
+          phase['notes'].append('Current P04 full context contracts: exact-source 579 tests and 33 product process exits pass on actual Windows and Linux. Real endpoint drivers remain in original P08/P09; no live calls.')
+          phase['outputs']=sorted(set(phase['outputs']+[
+              'src/consilium/core/architect_request.py','src/consilium/core/context_observations.py',
+              'src/consilium/shell/architect_candidates.py','src/consilium/shell/context_observers.py',
+              'tests/architect/test_architect_request.py','tests/architect/test_context_observers.py',
+              'tests/persistence/test_context_history_observer.py','tools/record_p04_context_examples.py',
+              'docs/P04_COMPLETION_RUNBOOK_FA.md','docs/decisions/ADR-025-P04-CONTEXT-OBSERVATION-BOUNDARY_FA.md']))
+          progress['resume']['working_changes']=[]
+          (ROOT/'PROGRESS.json').write_bytes(q.encoded(progress));q.navigation(ROOT)
+          command([sys.executable,'tools/development_supervisor.py','phase'],timeout=300)
+          latest,_=q.latest_phase_run(ROOT,'P04',progress['plan_version'])
+          assert latest['status']=='PASS' and latest['source_matches_current']
+          demo=q.load(ROOT/'evidence/p04/context-examples/RUN.json')
+          assert demo['status']=='PASS' and demo['source_digest_before']==demo['source_digest_after']==SOURCE
+          assert demo['live_provider_calls']==demo['paid_calls']==0
+          examples=demo['examples']
+          assert examples['architect_candidate_staged_before_first_round'] and examples['restart_exact'] and examples['dissent_preserved']
+          assert examples['independent_peer_leak'] is False and examples['policy_managed_live_send_enabled'] is False
+          assert [row['kind'] for row in examples['contexts']]==['INDEPENDENT','INDEPENDENT','REVIEW','TARGETED','SYNTHESIS']
+          review_path='evidence/p04/P04_FINAL_EXIT_REVIEW.json'
+          q.template(ROOT,'P04',review_path);review=q.load(ROOT/review_path)
+          review.update(status='PASS',reviewer='Codex author, separate review pass; not independent',reviewer_independent=False,
+              method='Separate author review of all original P04 tasks and unchanged exit criteria, actual exact-source Windows/Linux report graphs, negative cases and reproducible local examples. No simulated external history or byte fixture is certified as live provider capability.',
+              impact_assessment='All previous suites pass on both native targets. V1-V9 SQL/checksums are unchanged; historical admission hashes retain their old schemas. P00-P03 acceptance rows and protected 30-requirement baseline remain unchanged. No live calls, payments or production send authorization added.',
+              findings=[{'id':'P04-OBSERVERS','kind':'DEFECT','state':'CLOSED','reason':'Canonical source/history observation and bound, atomically stored receipts implemented; wrong model, stale evidence, secret, ambiguity and tampering rejected.'},
+                        {'id':'P04-ARCHITECT-INPUT','kind':'DEFECT','state':'CLOSED','reason':'Frozen architect request and strict output staging added; duplicate keys, changed constraints, self-approval and late staging rejected.'}],
+              live_provider_calls=0,paid_calls=0,native_run_id=RUN,tests_per_native_target=579,product_process_exit_cases_per_native_target=33,
+              scope='FULL_ORIGINAL_P04_CONTEXT_PHASE_ONLY; NOT_FULL_V1_OR_LIVE_ADAPTER_CERTIFICATION',
+              future_work_per_original_roadmap=['P05 complete council orchestration','P08 real API observer/tokenizer capabilities','P09 real browser history/capabilities','P11 complete cross-account recovery'])
+          notes=[
+              'Architect input is frozen from the unchanged original and exact ordered constraints, strict output is staged before round 1, and approval is a separate local user action with visible diff/version/assumptions. Durable original/candidate/adoption survive reopen. Offline scripted architect/manual examples do not claim live model optimization.',
+              'Two independent inputs contain no peers even after canonical peer answers exist. Exact reconstruction, wrong participant/round/revision, forged context and contaminated/incomplete history are tested. Atomic packet and 33 actual process-exit cases pass on each native host. No automatic resend follows recovery.',
+              'Independent, review, targeted and selected-judge views have explicit role/version/provenance and scoped grants. Canonical MANUAL/MOCK origins stay truthful, dissent and user instructions remain, known secrets and missing permission/measurement block. Observed receipts are atomically bound to destination/request/revision. Production observers are still required at the unchanged P08/P09 gates; byte tokens apply exclusively to the registered local mock codec.'
+          ]
+          common=['evidence/p04/context-examples/RUN.json','evidence/architect-tests/JUNIT.xml','evidence/persistence-tests/JUNIT.xml','evidence/target-matrix/RUN.json']
+          source_proofs=[
+              ['src/consilium/core/architect_request.py','src/consilium/shell/architect_candidates.py','src/consilium/shell/questions.py','src/consilium/shell/architect_review.py','tests/architect/test_architect_request.py','tests/architect/test_question_storage.py'],
+              ['src/consilium/core/independent_context.py','src/consilium/shell/context_observers.py','tests/architect/test_independent_context.py','tests/architect/test_context_observers.py','tests/persistence/test_context_history_observer.py'],
+              ['src/consilium/core/round_context.py','src/consilium/core/round_admission.py','src/consilium/shell/admissions.py','tests/architect/test_round_context.py','tests/architect/test_round_admission.py','docs/decisions/ADR-025-P04-CONTEXT-OBSERVATION-BOUNDARY_FA.md','evidence/publication/P04_COMPLETION_SOURCE_JOURNAL.json']]
+          for i,criterion in enumerate(review['criteria']):
+              criterion.update(status='PASS',notes=notes[i],evidence=[ref(n) for n in sorted(set(common+source_proofs[i]+native_names))])
+          (ROOT/review_path).write_bytes(q.encoded(review))
+          assert q.source_digest(ROOT)==SOURCE
+          q.gate(ROOT,'P04',latest['receipt'],review_path,commit=True)
+          progress=q.load(ROOT/'PROGRESS.json');phase=next(p for p in progress['phases'] if p['id']=='P04')
+          assert phase['status']=='COMPLETED' and progress['current_phase']=='P05'
+          assert accepted=={p['id']:q.encoded(p) for p in progress['phases'] if p['id'] in accepted}
+          next_action='در P05-001 مسیر کامل داخلی شورا با اتصال ساختگی و دستی را از معمار تا تصمیم کاربر، نقد، دور هدفمند و انتخاب داور طراحی و آزمون کن. ابتدا بررسی‌های P05 و معیار پایان برش را ثبت کن؛ هیچ ارسال زنده یا هزینه‌ای آغاز نشود.'
+          checkpoint={'phase':'P04','status':'FULL_PHASE_ACCEPTED','source_digest':SOURCE,'code_commit':CODE,
+              'native_run_id':RUN,'target_reports':native,'tests_per_native_target':579,'product_process_exit_cases_per_native_target':33,
+              'configured_receipt':latest['receipt'],'accepted_review':phase['exit_evidence'][0],'reviewer_independent':False,
+              'all_original_exit_criteria_pass':True,'phase_accepted':True,'live_provider_calls':0,'paid_calls':0,
+              'source_publication_journal_blob':JOURNAL,'native_supervisor_receipts':states,'next_phase':'P05','remaining_in_P04':[]}
+          progress['resume'].update(completed_work=previous_resume['completed_work']+['P04 full original context phase formally accepted: 579 tests/33 product process exits per actual native OS; immutable exit review preserved.'],
+              working_changes=[],next_action=next_action,next_command='python tools/development_supervisor.py check',
+              startup_commands=['python tools/qualityctl.py status','python tools/qualityctl.py navigation --check','python tools/development_supervisor.py check'],
+              next_task={'id':'P05-001','phase':'P05','status':'READY_NOT_STARTED','title_fa':'اولین مسیر کامل داخلی شورا','next_action_fa':next_action,'remaining_fa':'کار مرحلهٔ پنج هنوز آغاز نشده است.','done_when_fa':'یک بحث کامل و یک دور هدفمند با گیت‌های واقعی محلی و انتخاب داور و منشأ و خروجی و ادامهٔ پایدار آزموده شوند.'},
+              inputs_missing=[],unfinished_work={'phase':'P05','items':[],'note':'P04 has no unfinished scoped task; P05 is ready and not implemented.'},
+              native_evidence={'run_id':RUN,'source_digest':SOURCE,'tests_per_target':579,'process_exit_cases_per_target':33,'target_reports':native},
+              last_verified_in_phase_checkpoint={'phase':'P04',**ref(phase['exit_evidence'][0]),'phase_accepted':True},
+              known_quirks=['P05 checks are not yet configured; the phase portion of supervisor local reports BLOCKED until P05 defines meaningful checks. Supervisor check reproduces the accepted source regression.',
+                            'Policy-managed live sends remain blocked; only an offline mock observer exists. Real model IDs/tokenizers/history observers require original P08/P09 verification.',
+                            'Manual content preserves unverified external origin; user action is required for adoption/acceptance/reconciliation.',
+                            'P03 historical browser sends and controlled sign-out must not be replayed without a new scoped reason.',
+                            'Owned-process idle 300s/hard 900s watchdog cannot cancel ChatGPT/MCP; external mutations reconcile before any retry.'],
+              transfer_reviewed_file_count=None,final_p04_checkpoint=checkpoint)
+          (ROOT/'PROGRESS.json').write_bytes(q.encoded(progress));q.navigation(ROOT)
+          assert q.source_digest(ROOT)==SOURCE
+          preview=OUT/'P04_COMPLETED_PREVIEW.zip';q.handoff(ROOT,preview);v=q.verify(preview)
+          progress['resume']['transfer_reviewed_file_count']=v['files'];(ROOT/'PROGRESS.json').write_bytes(q.encoded(progress));q.navigation(ROOT)
+          archive=OUT/'P04_COMPLETED_HANDOFF.zip';info=q.handoff(ROOT,archive);verified=q.verify(archive)
+          assert info['source_snapshot_digest']==SOURCE and info['current_phase']=='P05' and info['last_accepted_phase']=='P04'
+          assert info['last_acceptance_matches_current_source'] and verified['files']==v['files']
+          with zipfile.ZipFile(archive) as z:
+              for name in ('HANDOFF.json','MANIFEST.json'):(ROOT/name).write_bytes(z.read(name))
+          command(['git','add','PROGRESS.json','HANDOFF.json','MANIFEST.json','evidence'])
+          changed=subprocess.check_output(['git','diff','--cached','--name-only'],cwd=ROOT).decode().splitlines()
+          assert all(n in {'PROGRESS.json','HANDOFF.json','MANIFEST.json'} or n.startswith('evidence/') for n in changed)
+          assert q.source_digest(ROOT)==SOURCE
+          command(['git','config','user.name','Consilium verified delivery']);command(['git','config','user.email','consilium-delivery@users.noreply.github.com'])
+          command(['git','commit','-m','Accept all P04 exits with native evidence and verified handoff'])
+          commit=subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT).decode().strip()
+          tree=subprocess.check_output(['git','rev-parse','HEAD^{tree}'],cwd=ROOT).decode().strip()
+          guard=PublicationGuard(OUT/'publication.sqlite3')
+          request={'branch':BRANCH,'commit':commit,'require_absent':True}
+          plan={'kind':'REF_UPDATE','resource':'refs/heads/'+BRANCH,'expected_sha':commit,'request_sha256':q.digest(q.encoded(request)),'source_digest':SOURCE}
+          record=guard.prepare(plan);permit=guard.begin(record['id'],wait_seconds=25)
+          (OUT/'REF_PUBLICATION_PLAN.json').write_bytes(q.encoded({'request':request,'plan':plan,'permit':permit,'automatic_retry':False}))
+          try:command(['git','push','--force-with-lease=refs/heads/'+BRANCH+':','origin','HEAD:refs/heads/'+BRANCH],timeout=25)
+          except (subprocess.TimeoutExpired,subprocess.CalledProcessError):guard.unknown(record['id'],permit['nonce'],reason='CONNECTOR_ERROR')
+          observed=github('git/ref/heads/'+BRANCH)['object']['sha'];assert observed==commit
+          final=guard.reconcile(record['id'],permit['nonce'],observed_sha=observed);guard.close()
+          result={'status':'P04_ACCEPTED_DELIVERY_BRANCH_VERIFIED','commit':commit,'tree':tree,'source_digest':SOURCE,'code_commit':CODE,
+              'native_run_id':RUN,'accepted_receipt':latest['receipt'],'accepted_review':phase['exit_evidence'][0],
+              'files':verified['files'],'zip_sha256':hashlib.sha256(archive.read_bytes()).hexdigest(),'tests_per_target':579,
+              'product_process_exit_cases_per_target':33,'phase_accepted':True,'current_phase':'P05','reviewer_independent':False,
+              'changed_paths':len(changed),'product_source_changes':0,'publication_journal_blob':JOURNAL,'delivery_ref_journal':final,
+              'primary_main_publication':'PENDING_PRIMARY_EXACT_REF_CHECK'}
+          (OUT/'PUBLICATION_RESULT.json').write_bytes(q.encoded(result))
+          with open(os.environ['GITHUB_OUTPUT'],'a') as f:f.write('commit='+commit+'\n')
+          print('P04_COMPLETED_PACKAGING_RESULT='+json.dumps(result))
+          PY
+      - uses: actions/upload-artifact@v7
+        timeout-minutes: 5
+        if: always()
+        with:
+          name: p04-completed-handoff
+          path: |
+            delivery/
+            payload/evidence/development-supervisor/
+          if-no-files-found: error
+          retention-days: 7
+  verify:
+    needs: package
+    permissions:
+      contents: read
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7
+        timeout-minutes: 5
+        with:
+          ref: ${{ needs.package.outputs.commit }}
+          path: verified-source
+          persist-credentials: false
+      - uses: actions/setup-python@v7
+        timeout-minutes: 5
+        with:
+          python-version: '3.12.14'
+      - run: python -m pip install -r verified-source/requirements.lock
+        timeout-minutes: 5
+      - uses: actions/download-artifact@v8
+        timeout-minutes: 5
+        with:
+          name: p04-completed-handoff
+          path: downloaded
+      - name: Compare every handoff Git blob, extract cleanly and rerun all regression
+        timeout-minutes: 8
+        env:
+          DELIVERY_COMMIT: ${{ needs.package.outputs.commit }}
+          TESTED_SOURCE_DIGEST: a8cb0b5371a5cf89c917b2039e5756bdc4c9875d7aff8a69ed65ab8d1d5001a4
+        shell: bash
+        run: |
+          python - <<'PY'
+          import hashlib,json,os,subprocess,sys,zipfile
+          from pathlib import Path
+          root=Path('verified-source').resolve();sys.path.insert(0,str(root/'tools'));import qualityctl as q
+          archive=next(Path('downloaded').rglob('P04_COMPLETED_HANDOFF.zip'))
+          result=q.load(next(Path('downloaded').rglob('PUBLICATION_RESULT.json')))
+          commit=os.environ['DELIVERY_COMMIT'];source=os.environ['TESTED_SOURCE_DIGEST']
+          assert result['commit']==commit and result['source_digest']==source
+          assert result['phase_accepted'] and result['tests_per_target']==579 and result['product_process_exit_cases_per_target']==33
+          assert hashlib.sha256(archive.read_bytes()).hexdigest()==result['zip_sha256']
+          verified=q.verify(archive);assert verified['files']==result['files']
+          assert subprocess.check_output(['git','rev-parse','HEAD'],cwd=root).decode().strip()==commit
+          assert subprocess.check_output(['git','rev-parse','HEAD^{tree}'],cwd=root).decode().strip()==result['tree']
+          assert q.source_digest(root)==source
+          entries=subprocess.check_output(['git','ls-tree','-r','HEAD'],cwd=root).decode().splitlines()
+          blobs={line.split('\t',1)[1]:line.split('\t',1)[0].split()[2] for line in entries}
+          with zipfile.ZipFile(archive) as z:
+              names=z.namelist()
+              for name in names:
+                  data=z.read(name);assert hashlib.sha1(b'blob '+str(len(data)).encode()+b'\0'+data).hexdigest()==blobs[name],name
+              info=json.loads(z.read('HANDOFF.json'))
+              assert info['source_snapshot_digest']==source and info['current_phase']=='P05' and info['last_accepted_phase']=='P04'
+              assert info['last_acceptance_matches_current_source'] and info['state_label']=='INCOMPLETE'
+              progress=json.loads(z.read('PROGRESS.json'))
+              phase=next(p for p in progress['phases'] if p['id']=='P04')
+              assert phase['status']=='COMPLETED' and phase['accepted_source_digest']==source
+              for path in [phase['tests'][0],phase['exit_evidence'][0],progress['resume']['last_verified_in_phase_checkpoint']['path']]:assert path in names
+              assert all(t['status']=='PASS' and t['source_matches_current'] for t in info['native_target_runs'])
+          subprocess.run([sys.executable,'tools/check_target_matrix.py'],cwd=root,stdin=subprocess.DEVNULL,check=True,timeout=120)
+          clean=Path('extracted').resolve();clean.mkdir()
+          with zipfile.ZipFile(archive) as z:z.extractall(clean)
+          assert q.source_digest(clean)==source
+          q.state(clean)
+          subprocess.run([sys.executable,'tools/development_supervisor.py','check'],cwd=clean,stdin=subprocess.DEVNULL,check=True,timeout=300)
+          assert q.source_digest(clean)==source
+          assert q.load(clean/'evidence/maintenance-check/RUN.json')['status']=='PASS'
+          count=sum(q.load(clean/'evidence'/folder/'RUN.json')['counts']['tests'] for folder in ('control-tests','foundation-tests','persistence-tests','browser-probe-tests','architect-tests'))
+          assert count==579
+          report={**result,'verification_status':'PASS','zip_git_blob_files_matched':len(names),'public_phase_accepted':True,
+              'clean_extracted_handoff_regression':'PASS','clean_extracted_tests':579,'same_author_separate_verification_job':True,
+              'reviewer_independent':False,'next_phase':'P05','next_phase_implemented':False}
+          Path('VERIFIED_PUBLICATION_RESULT.json').write_bytes(q.encoded(report))
+          print('VERIFIED_P04_ACCEPTANCE='+json.dumps(report))
+          PY
+      - uses: actions/upload-artifact@v7
+        timeout-minutes: 5
+        if: always()
+        with:
+          name: p04-completed-verification
+          path: |
+            VERIFIED_PUBLICATION_RESULT.json
+            extracted/evidence/development-supervisor/
+          if-no-files-found: error
+          retention-days: 7

@@ -3,14 +3,14 @@
   "scope": "P02_DURABILITY_OFFLINE_NOT_FULL_V1_ACCEPTANCE",
   "status": "PASS",
   "counts": {
-    "tests": 80,
+    "tests": 100,
     "failures": 0,
     "errors": 0,
     "skipped": 0
   },
-  "source_digest_before": "e97465f7dfe8c2977f1d2058021d41bc0040dffa4145cfff2c9776372b6d35be",
-  "source_digest_after": "e97465f7dfe8c2977f1d2058021d41bc0040dffa4145cfff2c9776372b6d35be",
-  "date_utc": "2026-10-07T18:07:02.687163+00:00",
+  "source_digest_before": "57fe47498c08bd6d1180a19b4e56564fdb388878ab8f5792487b7e9f4c628b1d",
+  "source_digest_after": "57fe47498c08bd6d1180a19b4e56564fdb388878ab8f5792487b7e9f4c628b1d",
+  "date_utc": "2026-10-07T20:25:13.499008+00:00",
   "host": {
     "system": "Linux",
     "python": "3.12.14",
@@ -28,11 +28,13 @@
     "test_ledger.ProcessCrashTests.test_process_exit_after_validation",
     "test_ledger.ProcessCrashTests.test_process_exit_inside_confirmation_transaction",
     "test_ledger.ProcessCrashTests.test_process_exit_after_confirmation",
+    "test_manual_reconciliation.ManualReconciliationTests.test_process_exit_after_commit_preserves_manual_reconciliation_and_prior_attempt",
+    "test_manual_reconciliation.ManualReconciliationTests.test_process_exit_before_record_commit_rolls_back_entire_manual_reconciliation",
     "test_storage.StorageTests.test_actual_process_exit_after_intent_preserves_frozen_input_and_checkpoint",
     "test_storage.StorageTests.test_actual_process_exit_before_intent_keeps_previous_checkpoint",
     "test_storage.StorageTests.test_actual_process_exit_inside_intent_rolls_back_all_partial_writes"
   ],
-  "process_exit_case_count": 12,
+  "process_exit_case_count": 14,
   "external_transport": "MOCK_ONLY_SIMULATED_RECEIPTS_NOT_LIVE_PROVIDER_PROOF",
   "cases": [
     {
@@ -237,6 +239,86 @@
     },
     {
       "id": "test_ledger.ProcessCrashTests.test_process_exit_after_confirmation",
+      "status": "PASS"
+    },
+    {
+      "id": "test_manual_reconciliation.ManualReconciliationTests.test_all_prior_operations_in_the_slot_are_reviewed_together",
+      "status": "PASS"
+    },
+    {
+      "id": "test_manual_reconciliation.ManualReconciliationTests.test_changed_attempt_after_review_requires_fresh_review",
+      "status": "PASS"
+    },
+    {
+      "id": "test_manual_reconciliation.ManualReconciliationTests.test_deleted_record_and_tampered_record_are_detected_on_restart",
+      "status": "PASS"
+    },
+    {
+      "id": "test_manual_reconciliation.ManualReconciliationTests.test_failed_v9_migration_rolls_back_without_changing_v8_history",
+      "status": "PASS"
+    },
+    {
+      "id": "test_manual_reconciliation.ManualReconciliationTests.test_final_insert_failure_rolls_back_binding_event_wait_state_and_record",
+      "status": "PASS"
+    },
+    {
+      "id": "test_manual_reconciliation.ManualReconciliationTests.test_hash_revision_actor_reason_and_confirmation_are_required_without_partial_write",
+      "status": "PASS"
+    },
+    {
+      "id": "test_manual_reconciliation.ManualReconciliationTests.test_late_response_is_quarantined_without_changing_retired_attempt",
+      "status": "PASS"
+    },
+    {
+      "id": "test_manual_reconciliation.ManualReconciliationTests.test_nonmanual_or_reused_connection_cannot_replace_the_binding",
+      "status": "PASS"
+    },
+    {
+      "id": "test_manual_reconciliation.ManualReconciliationTests.test_pending_login_allows_explicit_manual_choice_but_keeps_original_state",
+      "status": "PASS"
+    },
+    {
+      "id": "test_manual_reconciliation.ManualReconciliationTests.test_prepared_attempt_is_retired_without_becoming_not_sent_or_disappearing",
+      "status": "PASS"
+    },
+    {
+      "id": "test_manual_reconciliation.ManualReconciliationTests.test_process_exit_after_commit_preserves_manual_reconciliation_and_prior_attempt",
+      "status": "PASS"
+    },
+    {
+      "id": "test_manual_reconciliation.ManualReconciliationTests.test_process_exit_before_record_commit_rolls_back_entire_manual_reconciliation",
+      "status": "PASS"
+    },
+    {
+      "id": "test_manual_reconciliation.ManualReconciliationTests.test_received_validated_and_confirmed_results_cannot_be_replaced",
+      "status": "PASS"
+    },
+    {
+      "id": "test_manual_reconciliation.ManualReconciliationTests.test_second_attempt_or_generation_cannot_reopen_a_manually_retired_slot",
+      "status": "PASS"
+    },
+    {
+      "id": "test_manual_reconciliation.ManualReconciliationTests.test_terminal_cli_accepts_only_explicit_choice_at_the_current_hash_and_revision",
+      "status": "PASS"
+    },
+    {
+      "id": "test_manual_reconciliation.ManualReconciliationTests.test_terminal_eof_wrong_hash_and_blank_reason_cancel_without_mutation",
+      "status": "PASS"
+    },
+    {
+      "id": "test_manual_reconciliation.ManualReconciliationTests.test_terminal_explicit_choice_and_reason_create_no_transport_call",
+      "status": "PASS"
+    },
+    {
+      "id": "test_manual_reconciliation.ManualReconciliationTests.test_unknown_delivery_survives_manual_continuation_and_restart_without_resend",
+      "status": "PASS"
+    },
+    {
+      "id": "test_manual_reconciliation.ManualReconciliationTests.test_unrelated_wait_checkpoint_cannot_be_cleared",
+      "status": "PASS"
+    },
+    {
+      "id": "test_manual_reconciliation.ManualReconciliationTests.test_v8_upgrade_preserves_attempt_and_every_published_migration_record",
       "status": "PASS"
     },
     {

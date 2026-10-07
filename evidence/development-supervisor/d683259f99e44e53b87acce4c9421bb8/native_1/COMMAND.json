@@ -1,0 +1,9 @@
+{
+  "command": [
+    "/opt/hostedtoolcache/Python/3.12.14/x64/bin/python",
+    "tools/record_target_checks.py"
+  ],
+  "root": "/home/runner/work/Consilium/Consilium",
+  "nonce": "c43a621a4f8c497090cb0efd1a0b9798",
+  "supervisor_pid": 2344
+}

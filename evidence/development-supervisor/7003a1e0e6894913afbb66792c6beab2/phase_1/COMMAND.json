@@ -1,0 +1,10 @@
+{
+  "command": [
+    "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+    "tools/run_current_phase.py",
+    "--report-blocked"
+  ],
+  "root": "/workspace/scratch/2cd898e3d2ec/consilium_reconciliation",
+  "nonce": "073a06734f9c495294e235ea5f25d2d0",
+  "supervisor_pid": 2
+}

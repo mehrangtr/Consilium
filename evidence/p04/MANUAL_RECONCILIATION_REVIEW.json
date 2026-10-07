@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "status": "PASS_IMPLEMENTED_SLICE_PENDING_NATIVE",
+  "status": "PASS_IMPLEMENTED_SLICE_NATIVE_VERIFIED",
   "phase": "P04",
   "phase_accepted": false,
   "reviewer_independent": false,
@@ -33,13 +33,13 @@
     },
     {
       "id": "migration_and_crash",
-      "result": "PASS_LOCAL_PENDING_NATIVE",
-      "reason": "Published V1-V8 SQL unchanged; fresh V9 rollback and two true process exits tested."
+      "result": "PASS",
+      "reason": "Published V1-V8 SQL unchanged; fresh V9 rollback and two true process exits tested. Fresh exact-source Windows/Linux graphs verified."
     },
     {
       "id": "native_windows_linux",
-      "result": "PENDING",
-      "reason": "New-source real host runs must pass before publishing completion."
+      "result": "PASS",
+      "reason": "New-source real host runs must pass before publishing completion. Fresh exact-source Windows/Linux graphs verified."
     }
   ],
   "issues_found_and_resolved": [
@@ -52,5 +52,117 @@
     "Already started external work cannot be cancelled by local manual reconciliation.",
     "Policy-managed sends remain blocked pending trusted live observers.",
     "Full P04 and V1 remain unaccepted; GUI manual entry remains P12."
-  ]
+  ],
+  "local_native": {
+    "scope": "LOCAL_AUTHOR_RECORD_NOT_INCLUDED_AS_PUBLIC_NATIVE_PROOF"
+  },
+  "source_digest": "57fe47498c08bd6d1180a19b4e56564fdb388878ab8f5792487b7e9f4c628b1d",
+  "code_commit": "130b9129fd6bda681c07397015653dc32d26e040",
+  "native_run_id": "37681112313",
+  "target_reports": [
+    {
+      "target": "Windows",
+      "report": {
+        "path": "evidence/targets/Windows/20261007T201943Z_6e69b308/RUN.json",
+        "sha256": "32cde4db932c6c809fa0d6f465c01ace215bf083becf33a1e50d89210b43016a"
+      },
+      "status": "PASS",
+      "source_matches_current": true,
+      "scope": "RECORDED_TARGET_ARTIFACTS_NOT_PHASE_ACCEPTANCE"
+    },
+    {
+      "target": "Linux",
+      "report": {
+        "path": "evidence/targets/Linux/20261007T201930Z_e0312e6d/RUN.json",
+        "sha256": "2c5718cc4a8b29d1e1fc89fd6da9fc6e87191e4d7a799fecc0028445a96d9aef"
+      },
+      "status": "PASS",
+      "source_matches_current": true,
+      "scope": "RECORDED_TARGET_ARTIFACTS_NOT_PHASE_ACCEPTANCE"
+    }
+  ],
+  "configured_phase_run": {
+    "receipt": "evidence/runs/20261007T202423Z_09531bbfa6/RUN.json",
+    "sha256": "20b7b2817663c156e203d553659dfda3f43f8d037cb4c5e604d3fcbe76049a21",
+    "status": "PASS",
+    "source_matches_current": true,
+    "checks": [
+      {
+        "id": "scope_inventory",
+        "status": "PASS",
+        "counts": null,
+        "error": null
+      },
+      {
+        "id": "development_regression",
+        "status": "PASS",
+        "counts": {
+          "tests": 112,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        "error": null
+      },
+      {
+        "id": "foundation_behavior",
+        "status": "PASS",
+        "counts": {
+          "tests": 60,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        "error": null
+      },
+      {
+        "id": "environment_lock",
+        "status": "PASS",
+        "counts": null,
+        "error": null
+      },
+      {
+        "id": "native_target_matrix",
+        "status": "PASS",
+        "counts": null,
+        "error": null
+      },
+      {
+        "id": "persistence_durable_kernel",
+        "status": "PASS",
+        "counts": {
+          "tests": 100,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        "error": null
+      },
+      {
+        "id": "browser_probe_preflight_and_durability",
+        "status": "PASS",
+        "counts": {
+          "tests": 44,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        "error": null
+      },
+      {
+        "id": "architect_and_independent_context",
+        "status": "PASS",
+        "counts": {
+          "tests": 222,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        "error": null
+      }
+    ],
+    "scope": "LATEST_COMPLETED_CONFIGURED_RUN; NOT_PHASE_ACCEPTANCE"
+  },
+  "tests_per_native_target": 538,
+  "product_process_exit_cases_per_native_target": 31
 }

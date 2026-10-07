@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "status": "FULL_LOCAL_REGRESSION_PASS_PENDING_NATIVE",
+  "status": "EXPLICIT_MANUAL_RECONCILIATION_NATIVE_VERIFIED_NOT_PHASE_ACCEPTED",
   "phase": "P04",
   "phase_accepted": false,
   "focused_tests": 22,
@@ -9,10 +9,8 @@
   "full_v1_requirements_verified": 0,
   "prior_publication_journal_sync": "COMPLETE_WITHOUT_REPLAY",
   "remaining": [
-    "Full regression and separate author review",
-    "Actual Windows/Linux current-source checks",
-    "Publish exact delivery and verify clean extracted handoff",
-    "Trusted live source/history/token observers and full P04 exit review"
+    "Trusted live source/history/token observers",
+    "Full P04 exit review"
   ],
   "local_tests": {
     "control-tests": 112,
@@ -22,5 +20,1192 @@
     "architect-tests": 222
   },
   "total_local_tests": 538,
-  "product_process_exit_cases_expected_per_native_target": 31
+  "product_process_exit_cases_expected_per_native_target": 31,
+  "local_native": {
+    "scope": "LOCAL_AUTHOR_RECORD_NOT_INCLUDED_AS_PUBLIC_NATIVE_PROOF"
+  },
+  "source_digest": "57fe47498c08bd6d1180a19b4e56564fdb388878ab8f5792487b7e9f4c628b1d",
+  "code_commit": "130b9129fd6bda681c07397015653dc32d26e040",
+  "native_run_id": "37681112313",
+  "target_reports": [
+    {
+      "target": "Windows",
+      "report": {
+        "path": "evidence/targets/Windows/20261007T201943Z_6e69b308/RUN.json",
+        "sha256": "32cde4db932c6c809fa0d6f465c01ace215bf083becf33a1e50d89210b43016a"
+      },
+      "status": "PASS",
+      "source_matches_current": true,
+      "scope": "RECORDED_TARGET_ARTIFACTS_NOT_PHASE_ACCEPTANCE"
+    },
+    {
+      "target": "Linux",
+      "report": {
+        "path": "evidence/targets/Linux/20261007T201930Z_e0312e6d/RUN.json",
+        "sha256": "2c5718cc4a8b29d1e1fc89fd6da9fc6e87191e4d7a799fecc0028445a96d9aef"
+      },
+      "status": "PASS",
+      "source_matches_current": true,
+      "scope": "RECORDED_TARGET_ARTIFACTS_NOT_PHASE_ACCEPTANCE"
+    }
+  ],
+  "configured_phase_run": {
+    "receipt": "evidence/runs/20261007T202423Z_09531bbfa6/RUN.json",
+    "sha256": "20b7b2817663c156e203d553659dfda3f43f8d037cb4c5e604d3fcbe76049a21",
+    "status": "PASS",
+    "source_matches_current": true,
+    "checks": [
+      {
+        "id": "scope_inventory",
+        "status": "PASS",
+        "counts": null,
+        "error": null
+      },
+      {
+        "id": "development_regression",
+        "status": "PASS",
+        "counts": {
+          "tests": 112,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        "error": null
+      },
+      {
+        "id": "foundation_behavior",
+        "status": "PASS",
+        "counts": {
+          "tests": 60,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        "error": null
+      },
+      {
+        "id": "environment_lock",
+        "status": "PASS",
+        "counts": null,
+        "error": null
+      },
+      {
+        "id": "native_target_matrix",
+        "status": "PASS",
+        "counts": null,
+        "error": null
+      },
+      {
+        "id": "persistence_durable_kernel",
+        "status": "PASS",
+        "counts": {
+          "tests": 100,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        "error": null
+      },
+      {
+        "id": "browser_probe_preflight_and_durability",
+        "status": "PASS",
+        "counts": {
+          "tests": 44,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        "error": null
+      },
+      {
+        "id": "architect_and_independent_context",
+        "status": "PASS",
+        "counts": {
+          "tests": 222,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        "error": null
+      }
+    ],
+    "scope": "LATEST_COMPLETED_CONFIGURED_RUN; NOT_PHASE_ACCEPTANCE"
+  },
+  "tests_per_native_target": 538,
+  "product_process_exit_cases_per_native_target": 31,
+  "development_supervisor_snapshots": [
+    {
+      "path": "evidence/development-supervisor/b84bf2f964f14eb0ac8453811cf17300/STATE.json",
+      "sha256": "285aee73b0816eb6d0325486fa3ce8bd0e994cbe2df5625565f4f54c890c0780",
+      "state": {
+        "schema_version": 1,
+        "scope": "OWNED_OFFLINE_DEVELOPMENT_NOT_CHAT_SESSION_CONTROL",
+        "status": "PASS",
+        "idle_seconds": 300,
+        "hard_seconds": 900,
+        "phase_advanced": false,
+        "source_digest": "57fe47498c08bd6d1180a19b4e56564fdb388878ab8f5792487b7e9f4c628b1d",
+        "steps": [
+          {
+            "step": "phase",
+            "attempt": 1,
+            "nonce": "1fa298b91be041c6bff6de4cc3c4fd35",
+            "status": "COMPLETE",
+            "log": "evidence/development-supervisor/b84bf2f964f14eb0ac8453811cf17300/phase_1/OUTPUT.log",
+            "worker_pid": 2432,
+            "last_completed_milestone": "configured_phase_receipt_written",
+            "retained_proof": {
+              "artifacts": [
+                {
+                  "original_path": "evidence/runs/20261007T202423Z_09531bbfa6/RUN.json",
+                  "path": "evidence/development-supervisor/b84bf2f964f14eb0ac8453811cf17300/phase_1/proofs/evidence/runs/20261007T202423Z_09531bbfa6/RUN.json",
+                  "sha256": "20b7b2817663c156e203d553659dfda3f43f8d037cb4c5e604d3fcbe76049a21"
+                },
+                {
+                  "original_path": "evidence/runs/20261007T202423Z_09531bbfa6/scope_inventory.log",
+                  "path": "evidence/development-supervisor/b84bf2f964f14eb0ac8453811cf17300/phase_1/proofs/evidence/runs/20261007T202423Z_09531bbfa6/scope_inventory.log",
+                  "sha256": "2b695cad3c03f5d6e93a9dd309ca38a8e41ab36dbc4d22c0df511be0a9d40f15"
+                },
+                {
+                  "original_path": "evidence/runs/20261007T202423Z_09531bbfa6/development_regression.log",
+                  "path": "evidence/development-supervisor/b84bf2f964f14eb0ac8453811cf17300/phase_1/proofs/evidence/runs/20261007T202423Z_09531bbfa6/development_regression.log",
+                  "sha256": "a1fcefce1eb188153cbc217b017ea4f0eb2f84c195d733d621d1ee8df6096400"
+                },
+                {
+                  "original_path": "evidence/runs/20261007T202423Z_09531bbfa6/development_regression.xml",
+                  "path": "evidence/development-supervisor/b84bf2f964f14eb0ac8453811cf17300/phase_1/proofs/evidence/runs/20261007T202423Z_09531bbfa6/development_regression.xml",
+                  "sha256": "9960941d7f6f6b81fce061537e1e788f5dd9996f3b174873cf9fd0dd256c0b73"
+                },
+                {
+                  "original_path": "evidence/runs/20261007T202423Z_09531bbfa6/foundation_behavior.log",
+                  "path": "evidence/development-supervisor/b84bf2f964f14eb0ac8453811cf17300/phase_1/proofs/evidence/runs/20261007T202423Z_09531bbfa6/foundation_behavior.log",
+                  "sha256": "4ca8e1fe0153e6ed541594b35682a97dec65d1c5402c47652d4e45f6fbafc728"
+                },
+                {
+                  "original_path": "evidence/runs/20261007T202423Z_09531bbfa6/foundation_behavior.xml",
+                  "path": "evidence/development-supervisor/b84bf2f964f14eb0ac8453811cf17300/phase_1/proofs/evidence/runs/20261007T202423Z_09531bbfa6/foundation_behavior.xml",
+                  "sha256": "8d407155e6b1dc1ca1a1e921d0e9a05eafbc0bc1f2ae07f4b67e55f664a99949"
+                },
+                {
+                  "original_path": "evidence/runs/20261007T202423Z_09531bbfa6/environment_lock.log",
+                  "path": "evidence/development-supervisor/b84bf2f964f14eb0ac8453811cf17300/phase_1/proofs/evidence/runs/20261007T202423Z_09531bbfa6/environment_lock.log",
+                  "sha256": "d483169b60e63849270f8eff398d77e6a63bd69a8a83f685541a7a9ed2e037b3"
+                },
+                {
+                  "original_path": "evidence/runs/20261007T202423Z_09531bbfa6/native_target_matrix.log",
+                  "path": "evidence/development-supervisor/b84bf2f964f14eb0ac8453811cf17300/phase_1/proofs/evidence/runs/20261007T202423Z_09531bbfa6/native_target_matrix.log",
+                  "sha256": "bc47961dcf37272ce7a05be6889610706af849aec03ac15c3b363dc3fa9c2fb0"
+                },
+                {
+                  "original_path": "evidence/runs/20261007T202423Z_09531bbfa6/persistence_durable_kernel.log",
+                  "path": "evidence/development-supervisor/b84bf2f964f14eb0ac8453811cf17300/phase_1/proofs/evidence/runs/20261007T202423Z_09531bbfa6/persistence_durable_kernel.log",
+                  "sha256": "b2ec6859912b9abf61613bf909c8f35167465c61a1620a481b5f9c18f2166bc2"
+                },
+                {
+                  "original_path": "evidence/runs/20261007T202423Z_09531bbfa6/persistence_durable_kernel.xml",
+                  "path": "evidence/development-supervisor/b84bf2f964f14eb0ac8453811cf17300/phase_1/proofs/evidence/runs/20261007T202423Z_09531bbfa6/persistence_durable_kernel.xml",
+                  "sha256": "3e8056933b9493395caf1a140e5185c8a771ea7d37e2b135430a58b8c197c55a"
+                },
+                {
+                  "original_path": "evidence/runs/20261007T202423Z_09531bbfa6/browser_probe_preflight_and_durability.log",
+                  "path": "evidence/development-supervisor/b84bf2f964f14eb0ac8453811cf17300/phase_1/proofs/evidence/runs/20261007T202423Z_09531bbfa6/browser_probe_preflight_and_durability.log",
+                  "sha256": "17d1a88547e81dfea73da40d8148cbe9214849c3b018fa13cad2b06eddf5ade4"
+                },
+                {
+                  "original_path": "evidence/runs/20261007T202423Z_09531bbfa6/browser_probe_preflight_and_durability.xml",
+                  "path": "evidence/development-supervisor/b84bf2f964f14eb0ac8453811cf17300/phase_1/proofs/evidence/runs/20261007T202423Z_09531bbfa6/browser_probe_preflight_and_durability.xml",
+                  "sha256": "d8f4b9cf44201197e9b0abd379f0abe06283fecf6ebbcb10369218643d16e702"
+                },
+                {
+                  "original_path": "evidence/runs/20261007T202423Z_09531bbfa6/architect_and_independent_context.log",
+                  "path": "evidence/development-supervisor/b84bf2f964f14eb0ac8453811cf17300/phase_1/proofs/evidence/runs/20261007T202423Z_09531bbfa6/architect_and_independent_context.log",
+                  "sha256": "b8603429be21633f6a4954d9a7f212ef6156b70ae5b705d84d2ded2385ff4328"
+                },
+                {
+                  "original_path": "evidence/runs/20261007T202423Z_09531bbfa6/architect_and_independent_context.xml",
+                  "path": "evidence/development-supervisor/b84bf2f964f14eb0ac8453811cf17300/phase_1/proofs/evidence/runs/20261007T202423Z_09531bbfa6/architect_and_independent_context.xml",
+                  "sha256": "7174a3278ec1173310a8539229849a3e8cab9c46e37088a64390e9b9b49e76ea"
+                }
+              ],
+              "errors": []
+            },
+            "stop_reason": null,
+            "returncode": 0,
+            "reconciliation": {
+              "status": "VERIFIED_COMPLETE",
+              "receipt": "evidence/runs/20261007T202423Z_09531bbfa6/RUN.json",
+              "sha256": "20b7b2817663c156e203d553659dfda3f43f8d037cb4c5e604d3fcbe76049a21"
+            }
+          }
+        ],
+        "remaining_steps": [],
+        "next_action": "REVIEW_CURRENT_PHASE_EXIT_CRITERIA_NOT_AUTOMATIC_ACCEPTANCE"
+      }
+    },
+    {
+      "path": "evidence/development-supervisor/ba161eb7f6ff4c4a80b6515633a1bdc6/STATE.json",
+      "sha256": "b58db834050ffd788c4af2ea7d0cda9fcd9b594cc05721bfc01335423e3f72cd",
+      "state": {
+        "schema_version": 1,
+        "scope": "OWNED_OFFLINE_DEVELOPMENT_NOT_CHAT_SESSION_CONTROL",
+        "status": "PASS",
+        "idle_seconds": 300,
+        "hard_seconds": 900,
+        "phase_advanced": false,
+        "source_digest": "57fe47498c08bd6d1180a19b4e56564fdb388878ab8f5792487b7e9f4c628b1d",
+        "steps": [
+          {
+            "step": "native",
+            "attempt": 1,
+            "nonce": "31aab01416b04b4a80160e4d549a2108",
+            "status": "COMPLETE",
+            "log": "evidence/development-supervisor/ba161eb7f6ff4c4a80b6515633a1bdc6/native_1/OUTPUT.log",
+            "worker_pid": 3372,
+            "last_completed_milestone": "native_receipt_and_pointer_written",
+            "retained_proof": {
+              "artifacts": [
+                {
+                  "original_path": "evidence/targets/Windows/20261007T201943Z_6e69b308/RUN.json",
+                  "path": "evidence/development-supervisor/ba161eb7f6ff4c4a80b6515633a1bdc6/native_1/proofs/evidence/targets/Windows/20261007T201943Z_6e69b308/RUN.json",
+                  "sha256": "32cde4db932c6c809fa0d6f465c01ace215bf083becf33a1e50d89210b43016a"
+                },
+                {
+                  "original_path": "evidence/targets/Windows/20261007T201943Z_6e69b308/CHECK.log",
+                  "path": "evidence/development-supervisor/ba161eb7f6ff4c4a80b6515633a1bdc6/native_1/proofs/evidence/targets/Windows/20261007T201943Z_6e69b308/CHECK.log",
+                  "sha256": "71d5ad54ff018abc351d0d3713fa496920948af7fa66fa94e50f53b3b37d4418"
+                },
+                {
+                  "original_path": "evidence/targets/Windows/20261007T201943Z_6e69b308/maintenance_report.json",
+                  "path": "evidence/development-supervisor/ba161eb7f6ff4c4a80b6515633a1bdc6/native_1/proofs/evidence/targets/Windows/20261007T201943Z_6e69b308/maintenance_report.json",
+                  "sha256": "d9c4017b4fb0031d3e7d393379f06ffb233bd80bbf5add3e5be3d9065b77c5a3"
+                },
+                {
+                  "original_path": "evidence/targets/Windows/20261007T201943Z_6e69b308/environment_report.json",
+                  "path": "evidence/development-supervisor/ba161eb7f6ff4c4a80b6515633a1bdc6/native_1/proofs/evidence/targets/Windows/20261007T201943Z_6e69b308/environment_report.json",
+                  "sha256": "139206dccc8c5502356ea1222127683aef7437024b9bf1becbcc97494a5d9d62"
+                },
+                {
+                  "original_path": "evidence/targets/Windows/20261007T201943Z_6e69b308/control_report.json",
+                  "path": "evidence/development-supervisor/ba161eb7f6ff4c4a80b6515633a1bdc6/native_1/proofs/evidence/targets/Windows/20261007T201943Z_6e69b308/control_report.json",
+                  "sha256": "0383f00be2fe59261d99b049ddff7bb933fa5bbdbb5ae114a5fb32b194f9d31b"
+                },
+                {
+                  "original_path": "evidence/targets/Windows/20261007T201943Z_6e69b308/control_junit.xml",
+                  "path": "evidence/development-supervisor/ba161eb7f6ff4c4a80b6515633a1bdc6/native_1/proofs/evidence/targets/Windows/20261007T201943Z_6e69b308/control_junit.xml",
+                  "sha256": "f56ce28d44a33c2adc54291dbf812a570e0f2ee8ab130205f05156e55f24de5e"
+                },
+                {
+                  "original_path": "evidence/targets/Windows/20261007T201943Z_6e69b308/foundation_report.json",
+                  "path": "evidence/development-supervisor/ba161eb7f6ff4c4a80b6515633a1bdc6/native_1/proofs/evidence/targets/Windows/20261007T201943Z_6e69b308/foundation_report.json",
+                  "sha256": "60ead8807568f20c2826e332a2c309c622f12a0157ce089e08d455f387975949"
+                },
+                {
+                  "original_path": "evidence/targets/Windows/20261007T201943Z_6e69b308/foundation_junit.xml",
+                  "path": "evidence/development-supervisor/ba161eb7f6ff4c4a80b6515633a1bdc6/native_1/proofs/evidence/targets/Windows/20261007T201943Z_6e69b308/foundation_junit.xml",
+                  "sha256": "7c775438c51a685195abba490548262de4759e5d29d91293ad3bbf5bea68179d"
+                },
+                {
+                  "original_path": "evidence/targets/Windows/20261007T201943Z_6e69b308/persistence_report.json",
+                  "path": "evidence/development-supervisor/ba161eb7f6ff4c4a80b6515633a1bdc6/native_1/proofs/evidence/targets/Windows/20261007T201943Z_6e69b308/persistence_report.json",
+                  "sha256": "af520bc899368c921321dd0a45ba0cb347ed73e219e4a438d2b91f4dab92b1cc"
+                },
+                {
+                  "original_path": "evidence/targets/Windows/20261007T201943Z_6e69b308/persistence_junit.xml",
+                  "path": "evidence/development-supervisor/ba161eb7f6ff4c4a80b6515633a1bdc6/native_1/proofs/evidence/targets/Windows/20261007T201943Z_6e69b308/persistence_junit.xml",
+                  "sha256": "73f7389be0962e43342bbdab895229d261d69182bf05814670df97c4efc6ff27"
+                },
+                {
+                  "original_path": "evidence/targets/Windows/20261007T201943Z_6e69b308/browser_probe_report.json",
+                  "path": "evidence/development-supervisor/ba161eb7f6ff4c4a80b6515633a1bdc6/native_1/proofs/evidence/targets/Windows/20261007T201943Z_6e69b308/browser_probe_report.json",
+                  "sha256": "000e737d7fd32792e9a9b158b72430172e6d7138445a84be82169b027ec1720c"
+                },
+                {
+                  "original_path": "evidence/targets/Windows/20261007T201943Z_6e69b308/browser_probe_junit.xml",
+                  "path": "evidence/development-supervisor/ba161eb7f6ff4c4a80b6515633a1bdc6/native_1/proofs/evidence/targets/Windows/20261007T201943Z_6e69b308/browser_probe_junit.xml",
+                  "sha256": "cc96cd3d9eb9caaf9925bbf12a0aab6a3fb6e60c3968367ad7be5c7476ed39a9"
+                },
+                {
+                  "original_path": "evidence/targets/Windows/20261007T201943Z_6e69b308/architect_report.json",
+                  "path": "evidence/development-supervisor/ba161eb7f6ff4c4a80b6515633a1bdc6/native_1/proofs/evidence/targets/Windows/20261007T201943Z_6e69b308/architect_report.json",
+                  "sha256": "8a1b603d657917bb4a4a2a699baf8f438385c6809c08a9273abe1f26b6853829"
+                },
+                {
+                  "original_path": "evidence/targets/Windows/20261007T201943Z_6e69b308/architect_junit.xml",
+                  "path": "evidence/development-supervisor/ba161eb7f6ff4c4a80b6515633a1bdc6/native_1/proofs/evidence/targets/Windows/20261007T201943Z_6e69b308/architect_junit.xml",
+                  "sha256": "10ffb1058aafcaac220b5d7ba1fd558d900cf661b93d102b9669d12d58d034cf"
+                },
+                {
+                  "original_path": "evidence/targets/Windows/20261007T201943Z_6e69b308/smoke_1.log",
+                  "path": "evidence/development-supervisor/ba161eb7f6ff4c4a80b6515633a1bdc6/native_1/proofs/evidence/targets/Windows/20261007T201943Z_6e69b308/smoke_1.log",
+                  "sha256": "51b1be40c6cc4e3ec7bf11093ef2318d2452f69b4d667b5cbdcf9903e387ef6f"
+                },
+                {
+                  "original_path": "evidence/targets/Windows/20261007T201943Z_6e69b308/smoke_2.log",
+                  "path": "evidence/development-supervisor/ba161eb7f6ff4c4a80b6515633a1bdc6/native_1/proofs/evidence/targets/Windows/20261007T201943Z_6e69b308/smoke_2.log",
+                  "sha256": "3a7bc5d881dede7aa437ad7c9c214f6a4e8dd8d3a8237fc070e61c65f6df3077"
+                },
+                {
+                  "original_path": "evidence/targets/Windows/20261007T201943Z_6e69b308/smoke_3.log",
+                  "path": "evidence/development-supervisor/ba161eb7f6ff4c4a80b6515633a1bdc6/native_1/proofs/evidence/targets/Windows/20261007T201943Z_6e69b308/smoke_3.log",
+                  "sha256": "4c4df83baa25ae651f972058e43680413578f90044d4dcd14d0a3638782c1df6"
+                },
+                {
+                  "original_path": "evidence/targets/Windows/20261007T201943Z_6e69b308/smoke_4.log",
+                  "path": "evidence/development-supervisor/ba161eb7f6ff4c4a80b6515633a1bdc6/native_1/proofs/evidence/targets/Windows/20261007T201943Z_6e69b308/smoke_4.log",
+                  "sha256": "332568ed5a63ab4041c43d26ab24aa3d8456e930913636f1b64577b4a10db3ef"
+                }
+              ],
+              "errors": []
+            },
+            "stop_reason": null,
+            "returncode": 0,
+            "reconciliation": {
+              "status": "VERIFIED_COMPLETE",
+              "receipt": "evidence/targets/Windows/20261007T201943Z_6e69b308/RUN.json",
+              "sha256": "32cde4db932c6c809fa0d6f465c01ace215bf083becf33a1e50d89210b43016a"
+            }
+          }
+        ],
+        "remaining_steps": [],
+        "next_action": "REVIEW_CURRENT_PHASE_EXIT_CRITERIA_NOT_AUTOMATIC_ACCEPTANCE"
+      }
+    },
+    {
+      "path": "evidence/development-supervisor/d683259f99e44e53b87acce4c9421bb8/STATE.json",
+      "sha256": "c16a4ceb69aacae59e4f0f0ae26a75dc00637be1e3d891a86e85f1b27f1c78ca",
+      "state": {
+        "schema_version": 1,
+        "scope": "OWNED_OFFLINE_DEVELOPMENT_NOT_CHAT_SESSION_CONTROL",
+        "status": "PASS",
+        "idle_seconds": 300,
+        "hard_seconds": 900,
+        "phase_advanced": false,
+        "source_digest": "57fe47498c08bd6d1180a19b4e56564fdb388878ab8f5792487b7e9f4c628b1d",
+        "steps": [
+          {
+            "step": "native",
+            "attempt": 1,
+            "nonce": "c43a621a4f8c497090cb0efd1a0b9798",
+            "status": "COMPLETE",
+            "log": "evidence/development-supervisor/d683259f99e44e53b87acce4c9421bb8/native_1/OUTPUT.log",
+            "worker_pid": 2345,
+            "last_completed_milestone": "native_receipt_and_pointer_written",
+            "retained_proof": {
+              "artifacts": [
+                {
+                  "original_path": "evidence/targets/Linux/20261007T201930Z_e0312e6d/RUN.json",
+                  "path": "evidence/development-supervisor/d683259f99e44e53b87acce4c9421bb8/native_1/proofs/evidence/targets/Linux/20261007T201930Z_e0312e6d/RUN.json",
+                  "sha256": "2c5718cc4a8b29d1e1fc89fd6da9fc6e87191e4d7a799fecc0028445a96d9aef"
+                },
+                {
+                  "original_path": "evidence/targets/Linux/20261007T201930Z_e0312e6d/CHECK.log",
+                  "path": "evidence/development-supervisor/d683259f99e44e53b87acce4c9421bb8/native_1/proofs/evidence/targets/Linux/20261007T201930Z_e0312e6d/CHECK.log",
+                  "sha256": "aeb566629ec3f5b500b4bb28c6a116ca033231d0133d81810e9784a2ecaf9075"
+                },
+                {
+                  "original_path": "evidence/targets/Linux/20261007T201930Z_e0312e6d/maintenance_report.json",
+                  "path": "evidence/development-supervisor/d683259f99e44e53b87acce4c9421bb8/native_1/proofs/evidence/targets/Linux/20261007T201930Z_e0312e6d/maintenance_report.json",
+                  "sha256": "eb4c7b5a483190ca3c82a0f1904a728e70b58f9546780f12d7dcd7ca74ced5fd"
+                },
+                {
+                  "original_path": "evidence/targets/Linux/20261007T201930Z_e0312e6d/environment_report.json",
+                  "path": "evidence/development-supervisor/d683259f99e44e53b87acce4c9421bb8/native_1/proofs/evidence/targets/Linux/20261007T201930Z_e0312e6d/environment_report.json",
+                  "sha256": "3a88435f03074e8f4bcb8b2e14cd99c89e7f60680dcfed790edeaeda621b6321"
+                },
+                {
+                  "original_path": "evidence/targets/Linux/20261007T201930Z_e0312e6d/control_report.json",
+                  "path": "evidence/development-supervisor/d683259f99e44e53b87acce4c9421bb8/native_1/proofs/evidence/targets/Linux/20261007T201930Z_e0312e6d/control_report.json",
+                  "sha256": "3904253ce6c83cfdb86f50004cc5605ed778a9111e1402e802b83c2cdee66a02"
+                },
+                {
+                  "original_path": "evidence/targets/Linux/20261007T201930Z_e0312e6d/control_junit.xml",
+                  "path": "evidence/development-supervisor/d683259f99e44e53b87acce4c9421bb8/native_1/proofs/evidence/targets/Linux/20261007T201930Z_e0312e6d/control_junit.xml",
+                  "sha256": "9960941d7f6f6b81fce061537e1e788f5dd9996f3b174873cf9fd0dd256c0b73"
+                },
+                {
+                  "original_path": "evidence/targets/Linux/20261007T201930Z_e0312e6d/foundation_report.json",
+                  "path": "evidence/development-supervisor/d683259f99e44e53b87acce4c9421bb8/native_1/proofs/evidence/targets/Linux/20261007T201930Z_e0312e6d/foundation_report.json",
+                  "sha256": "7751ecddfec58075a9059f0b6b252ca2cda7a52ebeaf96d7adaa960a4119dafd"
+                },
+                {
+                  "original_path": "evidence/targets/Linux/20261007T201930Z_e0312e6d/foundation_junit.xml",
+                  "path": "evidence/development-supervisor/d683259f99e44e53b87acce4c9421bb8/native_1/proofs/evidence/targets/Linux/20261007T201930Z_e0312e6d/foundation_junit.xml",
+                  "sha256": "8d407155e6b1dc1ca1a1e921d0e9a05eafbc0bc1f2ae07f4b67e55f664a99949"
+                },
+                {
+                  "original_path": "evidence/targets/Linux/20261007T201930Z_e0312e6d/persistence_report.json",
+                  "path": "evidence/development-supervisor/d683259f99e44e53b87acce4c9421bb8/native_1/proofs/evidence/targets/Linux/20261007T201930Z_e0312e6d/persistence_report.json",
+                  "sha256": "fd9045f6b7464b781c757b443bdbd95fb363b82734f7674b8c3be3465c2d67d5"
+                },
+                {
+                  "original_path": "evidence/targets/Linux/20261007T201930Z_e0312e6d/persistence_junit.xml",
+                  "path": "evidence/development-supervisor/d683259f99e44e53b87acce4c9421bb8/native_1/proofs/evidence/targets/Linux/20261007T201930Z_e0312e6d/persistence_junit.xml",
+                  "sha256": "3e8056933b9493395caf1a140e5185c8a771ea7d37e2b135430a58b8c197c55a"
+                },
+                {
+                  "original_path": "evidence/targets/Linux/20261007T201930Z_e0312e6d/browser_probe_report.json",
+                  "path": "evidence/development-supervisor/d683259f99e44e53b87acce4c9421bb8/native_1/proofs/evidence/targets/Linux/20261007T201930Z_e0312e6d/browser_probe_report.json",
+                  "sha256": "af4c038e25997c48a01791ea23144f67ae4e74682883d7fbb9fe696c8d5ea71a"
+                },
+                {
+                  "original_path": "evidence/targets/Linux/20261007T201930Z_e0312e6d/browser_probe_junit.xml",
+                  "path": "evidence/development-supervisor/d683259f99e44e53b87acce4c9421bb8/native_1/proofs/evidence/targets/Linux/20261007T201930Z_e0312e6d/browser_probe_junit.xml",
+                  "sha256": "d8f4b9cf44201197e9b0abd379f0abe06283fecf6ebbcb10369218643d16e702"
+                },
+                {
+                  "original_path": "evidence/targets/Linux/20261007T201930Z_e0312e6d/architect_report.json",
+                  "path": "evidence/development-supervisor/d683259f99e44e53b87acce4c9421bb8/native_1/proofs/evidence/targets/Linux/20261007T201930Z_e0312e6d/architect_report.json",
+                  "sha256": "980e31c858460d3691e24ab952b9c03f170dd0c710f76c973ae9a91311e60ec4"
+                },
+                {
+                  "original_path": "evidence/targets/Linux/20261007T201930Z_e0312e6d/architect_junit.xml",
+                  "path": "evidence/development-supervisor/d683259f99e44e53b87acce4c9421bb8/native_1/proofs/evidence/targets/Linux/20261007T201930Z_e0312e6d/architect_junit.xml",
+                  "sha256": "7174a3278ec1173310a8539229849a3e8cab9c46e37088a64390e9b9b49e76ea"
+                },
+                {
+                  "original_path": "evidence/targets/Linux/20261007T201930Z_e0312e6d/smoke_1.log",
+                  "path": "evidence/development-supervisor/d683259f99e44e53b87acce4c9421bb8/native_1/proofs/evidence/targets/Linux/20261007T201930Z_e0312e6d/smoke_1.log",
+                  "sha256": "3a5799ee290b823aa5069efcc193b20c35114b9c8a96691a6a13f7a741e14d9e"
+                },
+                {
+                  "original_path": "evidence/targets/Linux/20261007T201930Z_e0312e6d/smoke_2.log",
+                  "path": "evidence/development-supervisor/d683259f99e44e53b87acce4c9421bb8/native_1/proofs/evidence/targets/Linux/20261007T201930Z_e0312e6d/smoke_2.log",
+                  "sha256": "1c38eb9d1a5bc408a939c6b0b816f8793a186d19b143cb1066921aec8f565959"
+                },
+                {
+                  "original_path": "evidence/targets/Linux/20261007T201930Z_e0312e6d/smoke_3.log",
+                  "path": "evidence/development-supervisor/d683259f99e44e53b87acce4c9421bb8/native_1/proofs/evidence/targets/Linux/20261007T201930Z_e0312e6d/smoke_3.log",
+                  "sha256": "81f578c1bad3cc7a4ab408972c5bbea092e341a6ed38e3f57d143a847c00e45c"
+                },
+                {
+                  "original_path": "evidence/targets/Linux/20261007T201930Z_e0312e6d/smoke_4.log",
+                  "path": "evidence/development-supervisor/d683259f99e44e53b87acce4c9421bb8/native_1/proofs/evidence/targets/Linux/20261007T201930Z_e0312e6d/smoke_4.log",
+                  "sha256": "5a29e0205570108df5335582a5455c71d62ace69ea222d076fda4667d72acbe1"
+                }
+              ],
+              "errors": []
+            },
+            "stop_reason": null,
+            "returncode": 0,
+            "reconciliation": {
+              "status": "VERIFIED_COMPLETE",
+              "receipt": "evidence/targets/Linux/20261007T201930Z_e0312e6d/RUN.json",
+              "sha256": "2c5718cc4a8b29d1e1fc89fd6da9fc6e87191e4d7a799fecc0028445a96d9aef"
+            }
+          }
+        ],
+        "remaining_steps": [],
+        "next_action": "REVIEW_CURRENT_PHASE_EXIT_CRITERIA_NOT_AUTOMATIC_ACCEPTANCE"
+      }
+    }
+  ],
+  "publication_journal": {
+    "blob": "c8fa0d8d2c3fe6969e7ac29686e905c7e41f3935",
+    "sha256": "ba1578c32b63527f6504886948b6ea3ad654d6269fbcdcc2d46d0ed3320d832e",
+    "snapshot": {
+      "schema_version": 1,
+      "status": "VERIFIED_COMPLETE",
+      "code_commit": "130b9129fd6bda681c07397015653dc32d26e040",
+      "code_tree": "7fec345a3af677cff5a0d9baca204dcb9c9a0fdb",
+      "source_digest": "57fe47498c08bd6d1180a19b4e56564fdb388878ab8f5792487b7e9f4c628b1d",
+      "operations": [
+        {
+          "id": "41c2443482f66e837532acc54ed6b5e5d2d0b779ea99de260643ae0e51971257",
+          "plan": {
+            "expected_sha": "3627f3db112320d3e2d70f8252b76c41e6cf6f24",
+            "kind": "GIT_OBJECT",
+            "request_sha256": "cd4f8a7bbf7bfa11eecbc82e14a5ec3cab66d3d8586724e07d49531762bed0f1",
+            "resource": "mehrangtr/Consilium/git/blobs/3627f3db112320d3e2d70f8252b76c41e6cf6f24",
+            "source_digest": "8f1dcfde74a62499756eaf4590621eba6794615e2a3177ba0a568c6bbf280816"
+          },
+          "state": "VERIFIED_COMPLETE",
+          "attempts": 1,
+          "nonce": "bb58f983dfd04a0390ae023a26160583",
+          "deadline": 1791403354.1797502,
+          "observed_sha": "3627f3db112320d3e2d70f8252b76c41e6cf6f24",
+          "reason": "WAIT_TIMEOUT"
+        },
+        {
+          "id": "c7d377430f9ec9beddc38ad00626910b4ebd3d877b3fc3353c0db3c9d3cfafb5",
+          "plan": {
+            "expected_sha": "7356809b1e22575ffdfc3bec0a7f990789c73809",
+            "kind": "GIT_OBJECT",
+            "request_sha256": "3a16446efd409b792e74d5c0cc4ec7cecb1cf5e7ffd2a1d7cebbb6b4b4328ad3",
+            "resource": "mehrangtr/Consilium/git/blobs/7356809b1e22575ffdfc3bec0a7f990789c73809",
+            "source_digest": "8f1dcfde74a62499756eaf4590621eba6794615e2a3177ba0a568c6bbf280816"
+          },
+          "state": "VERIFIED_COMPLETE",
+          "attempts": 1,
+          "nonce": "1d6112f41d6743e0a1629814ee008a97",
+          "deadline": 1791403354.179996,
+          "observed_sha": "7356809b1e22575ffdfc3bec0a7f990789c73809",
+          "reason": null
+        },
+        {
+          "id": "ea98898c569ba434f230dc1f876c4026e7cb123f697c003ea907f417e71fb4cf",
+          "plan": {
+            "expected_sha": "82ea04eb285db2605dae0066d4fe6ab15f818cf1",
+            "kind": "GIT_OBJECT",
+            "request_sha256": "b2c9cbae4e3268e10627de1d45e613c30b6c9673aa0a786fd3106e8da2cc16f9",
+            "resource": "mehrangtr/Consilium/git/blobs/82ea04eb285db2605dae0066d4fe6ab15f818cf1",
+            "source_digest": "8f1dcfde74a62499756eaf4590621eba6794615e2a3177ba0a568c6bbf280816"
+          },
+          "state": "VERIFIED_COMPLETE",
+          "attempts": 1,
+          "nonce": "b803f286e1e14c82a1d53f2e0ec8cc83",
+          "deadline": 1791403354.180095,
+          "observed_sha": "82ea04eb285db2605dae0066d4fe6ab15f818cf1",
+          "reason": null
+        },
+        {
+          "id": "e1df07e3f3f64ff13f0cb11c9ffb1503bc6b65a5c3964d24c464a31ac5ed7a23",
+          "plan": {
+            "expected_sha": "2a946e3756026c956a7f20827c8fda8054bae01e",
+            "kind": "GIT_OBJECT",
+            "request_sha256": "2543a615d6877689a93fbd5b8482c5496a0ae30c59047e93f958c52a73f0a016",
+            "resource": "mehrangtr/Consilium/git/blobs/2a946e3756026c956a7f20827c8fda8054bae01e",
+            "source_digest": "8f1dcfde74a62499756eaf4590621eba6794615e2a3177ba0a568c6bbf280816"
+          },
+          "state": "VERIFIED_COMPLETE",
+          "attempts": 1,
+          "nonce": "4f828547f3624375a2c595adf5545a55",
+          "deadline": 1791403354.1801815,
+          "observed_sha": "2a946e3756026c956a7f20827c8fda8054bae01e",
+          "reason": "WAIT_TIMEOUT"
+        },
+        {
+          "id": "d517e64435e149b58b7b7c1367034a53a9f089b9597fab237680fc95391b9392",
+          "plan": {
+            "expected_sha": "c30a683ba4929c542b9c1445804bbfd767686b7a",
+            "kind": "GIT_OBJECT",
+            "request_sha256": "2015a851a620fc675d18672b22437db535fb9f826e3d3d4e12451109888d0280",
+            "resource": "mehrangtr/Consilium/git/blobs/c30a683ba4929c542b9c1445804bbfd767686b7a",
+            "source_digest": "8f1dcfde74a62499756eaf4590621eba6794615e2a3177ba0a568c6bbf280816"
+          },
+          "state": "VERIFIED_COMPLETE",
+          "attempts": 1,
+          "nonce": "eaa1e6190f144cefad47137e5e321586",
+          "deadline": 1791403354.1802623,
+          "observed_sha": "c30a683ba4929c542b9c1445804bbfd767686b7a",
+          "reason": "WAIT_TIMEOUT"
+        },
+        {
+          "id": "cf37329ddee7851989234e96ba436184c1f01e40a91d1649e7f74bd19d1cfa26",
+          "plan": {
+            "expected_sha": "4342740099564092e1c4e9eeb59777bd3b15b36d",
+            "kind": "GIT_OBJECT",
+            "request_sha256": "f4c0d88c54c0807dd4b04b86bea0f96bfdb9383eb449c1fdb84256e543e34260",
+            "resource": "mehrangtr/Consilium/git/blobs/4342740099564092e1c4e9eeb59777bd3b15b36d",
+            "source_digest": "8f1dcfde74a62499756eaf4590621eba6794615e2a3177ba0a568c6bbf280816"
+          },
+          "state": "VERIFIED_COMPLETE",
+          "attempts": 1,
+          "nonce": "90615a3299ff4206af24cf7f29f2ede6",
+          "deadline": 1791403354.181437,
+          "observed_sha": "4342740099564092e1c4e9eeb59777bd3b15b36d",
+          "reason": "WAIT_TIMEOUT"
+        },
+        {
+          "id": "5b8efde8377b9c2afee8010ea31dd5e523d3c50c26a01f48dcd639bf742ef624",
+          "plan": {
+            "expected_sha": "61d5a0f7c60e870243f746cff9a7d7f81410118a",
+            "kind": "GIT_OBJECT",
+            "request_sha256": "3364526a6b293ce906d10b716f2ee74663dc7d1cd9a3745fc72fad96656cda38",
+            "resource": "mehrangtr/Consilium/git/blobs/61d5a0f7c60e870243f746cff9a7d7f81410118a",
+            "source_digest": "8f1dcfde74a62499756eaf4590621eba6794615e2a3177ba0a568c6bbf280816"
+          },
+          "state": "VERIFIED_COMPLETE",
+          "attempts": 1,
+          "nonce": "8ab23bd90ffb4882b2d9ea517787fac4",
+          "deadline": 1791403559.1390953,
+          "observed_sha": "61d5a0f7c60e870243f746cff9a7d7f81410118a",
+          "reason": null
+        },
+        {
+          "id": "eb1f64ab6eca804cf1088d2894adfa17071bda3139c848da2ed837d8d48ecce4",
+          "plan": {
+            "expected_sha": "dd0c6c8b0f450c0c1f9b1836af5e0f9be157f5c0",
+            "kind": "GIT_OBJECT",
+            "request_sha256": "45184da8b289b6c42b9457d45a68f17e95c34405942aadaf92b8126c101e6f01",
+            "resource": "mehrangtr/Consilium/git/blobs/dd0c6c8b0f450c0c1f9b1836af5e0f9be157f5c0",
+            "source_digest": "8f1dcfde74a62499756eaf4590621eba6794615e2a3177ba0a568c6bbf280816"
+          },
+          "state": "VERIFIED_COMPLETE",
+          "attempts": 1,
+          "nonce": "6778150d3e84410abb42a9cfcf499064",
+          "deadline": 1791403559.1394176,
+          "observed_sha": "dd0c6c8b0f450c0c1f9b1836af5e0f9be157f5c0",
+          "reason": null
+        },
+        {
+          "id": "de5790e61290da687ca2b31f165b351b07ea453c09251e118d6b6c54e34a020a",
+          "plan": {
+            "expected_sha": "9ed5a7359ffd4dbf0c98fb706558c13613992ab6",
+            "kind": "GIT_OBJECT",
+            "request_sha256": "7bef8873c6380cc2a63ef774ae16566e55d731614fb76ab025fb0169abee91ee",
+            "resource": "mehrangtr/Consilium/git/blobs/9ed5a7359ffd4dbf0c98fb706558c13613992ab6",
+            "source_digest": "8f1dcfde74a62499756eaf4590621eba6794615e2a3177ba0a568c6bbf280816"
+          },
+          "state": "VERIFIED_COMPLETE",
+          "attempts": 1,
+          "nonce": "adf3cfa7dbfe4dffb484159142d452a5",
+          "deadline": 1791403559.139524,
+          "observed_sha": "9ed5a7359ffd4dbf0c98fb706558c13613992ab6",
+          "reason": null
+        },
+        {
+          "id": "0f2bbaeffabbda523ec4cabdaa1dbee2ba5b3004b0b1494ce527ec0883523885",
+          "plan": {
+            "expected_sha": "6c818a45dc7252e94281d01e5d5bff0150aa8f14",
+            "kind": "GIT_OBJECT",
+            "request_sha256": "c851c5a38e9de9c9283018a26cc1d59c19f7dce6062883dc0b1ab9ede22d8d01",
+            "resource": "mehrangtr/Consilium/git/blobs/6c818a45dc7252e94281d01e5d5bff0150aa8f14",
+            "source_digest": "8f1dcfde74a62499756eaf4590621eba6794615e2a3177ba0a568c6bbf280816"
+          },
+          "state": "VERIFIED_COMPLETE",
+          "attempts": 1,
+          "nonce": "01e972f59a974ba4994ce91e29d179cc",
+          "deadline": 1791403559.1396112,
+          "observed_sha": "6c818a45dc7252e94281d01e5d5bff0150aa8f14",
+          "reason": null
+        },
+        {
+          "id": "09250b1ca82dcb98c4b9a22d884cf757ca4924ac5bc65ce55ce61f70b3e82a8f",
+          "plan": {
+            "expected_sha": "8a500da55854b58b830777a5f4df85d7c41e12d4",
+            "kind": "GIT_OBJECT",
+            "request_sha256": "f65da9af8e88c8e245e02903bd9a7d9037e06b7d17134da3d0d2b84b112adff1",
+            "resource": "mehrangtr/Consilium/git/blobs/8a500da55854b58b830777a5f4df85d7c41e12d4",
+            "source_digest": "8f1dcfde74a62499756eaf4590621eba6794615e2a3177ba0a568c6bbf280816"
+          },
+          "state": "VERIFIED_COMPLETE",
+          "attempts": 1,
+          "nonce": "8f069bc9a899404eb62e951d744faa7b",
+          "deadline": 1791403588.9670022,
+          "observed_sha": "8a500da55854b58b830777a5f4df85d7c41e12d4",
+          "reason": null
+        },
+        {
+          "id": "af1e047ba51dc142ffbd852209f45bc83cbbb75d52d6d146c6a76aff37d30b14",
+          "plan": {
+            "expected_sha": "b70fbbca87e868a45903a70bbc5ff396c113a0e3",
+            "kind": "GIT_OBJECT",
+            "request_sha256": "7c3768b4d7c7e64ee9bb7170791980ff6218cf0ec8c762416ef3e79435c5643f",
+            "resource": "mehrangtr/Consilium/git/blobs/b70fbbca87e868a45903a70bbc5ff396c113a0e3",
+            "source_digest": "8f1dcfde74a62499756eaf4590621eba6794615e2a3177ba0a568c6bbf280816"
+          },
+          "state": "VERIFIED_COMPLETE",
+          "attempts": 1,
+          "nonce": "e2dcb87106d6420fa55873e495dd6835",
+          "deadline": 1791403588.9672062,
+          "observed_sha": "b70fbbca87e868a45903a70bbc5ff396c113a0e3",
+          "reason": null
+        },
+        {
+          "id": "0325ce6a2307cca7423252560df5bb8c5b0049cf97a50f045758abdf58a489c6",
+          "plan": {
+            "expected_sha": "cc96f5953d8af5b19fd9f83231872bf11f73602c",
+            "kind": "GIT_OBJECT",
+            "request_sha256": "0768b8fde42ac3b126343b09aa0d4616d7a4e12555f076166a42ac754da5a1c0",
+            "resource": "mehrangtr/Consilium/git/blobs/cc96f5953d8af5b19fd9f83231872bf11f73602c",
+            "source_digest": "8f1dcfde74a62499756eaf4590621eba6794615e2a3177ba0a568c6bbf280816"
+          },
+          "state": "VERIFIED_COMPLETE",
+          "attempts": 1,
+          "nonce": "42606e6d383347d2b715b2e578279a82",
+          "deadline": 1791403588.9673922,
+          "observed_sha": "cc96f5953d8af5b19fd9f83231872bf11f73602c",
+          "reason": null
+        },
+        {
+          "id": "1ba1f7b598970c465ee9b3081408ddf54aaff61a3d3ba26b1ea57423d138be08",
+          "plan": {
+            "expected_sha": "e43be9dfa1464da1a1a0145abe9591173786ba97",
+            "kind": "GIT_OBJECT",
+            "request_sha256": "7a687c4393f6e8ebb4c548d28f7f21b202160c861a6aa7e94f42c9024110500b",
+            "resource": "mehrangtr/Consilium/git/blobs/e43be9dfa1464da1a1a0145abe9591173786ba97",
+            "source_digest": "8f1dcfde74a62499756eaf4590621eba6794615e2a3177ba0a568c6bbf280816"
+          },
+          "state": "VERIFIED_COMPLETE",
+          "attempts": 1,
+          "nonce": "060764dd22a944e29d9c38d30100398a",
+          "deadline": 1791403588.9675086,
+          "observed_sha": "e43be9dfa1464da1a1a0145abe9591173786ba97",
+          "reason": null
+        },
+        {
+          "id": "7c9aeaf673686d51f37be7b63c99b20a92aff760324baec8b0cc777153c2ea91",
+          "plan": {
+            "expected_sha": "30933bead811f0214fb49c637233f37648c75ef2",
+            "kind": "GIT_OBJECT",
+            "request_sha256": "954f0d922e6ab548fe9e1d73c3a47bc9fff05c5060e3a02f5e98f374fc9a629a",
+            "resource": "mehrangtr/Consilium/git/blobs/30933bead811f0214fb49c637233f37648c75ef2",
+            "source_digest": "8f1dcfde74a62499756eaf4590621eba6794615e2a3177ba0a568c6bbf280816"
+          },
+          "state": "VERIFIED_COMPLETE",
+          "attempts": 1,
+          "nonce": "1b6f0a4ef791492691108b1428386312",
+          "deadline": 1791403628.83253,
+          "observed_sha": "30933bead811f0214fb49c637233f37648c75ef2",
+          "reason": null
+        },
+        {
+          "id": "a54d3e52878cdb105ed10bc384a5f7a72963b7409bce20f4c472622489bb90e7",
+          "plan": {
+            "expected_sha": "18508060bafafbe06445bd181c9f3d8757b2e9ca",
+            "kind": "GIT_OBJECT",
+            "request_sha256": "daec87a3b15b80d30e8f279a47719c57c7638fe45bec609878cde3f94447947c",
+            "resource": "mehrangtr/Consilium/git/blobs/18508060bafafbe06445bd181c9f3d8757b2e9ca",
+            "source_digest": "8f1dcfde74a62499756eaf4590621eba6794615e2a3177ba0a568c6bbf280816"
+          },
+          "state": "VERIFIED_COMPLETE",
+          "attempts": 1,
+          "nonce": "33d853c535e94e8c8667f40aebc89752",
+          "deadline": 1791403628.832745,
+          "observed_sha": "18508060bafafbe06445bd181c9f3d8757b2e9ca",
+          "reason": null
+        },
+        {
+          "id": "a3f46a3883c4cbc372549fbf1d0c17125c5710d34fcf7fa13185c7230d7909f1",
+          "plan": {
+            "expected_sha": "25403ebd705a7631438dd9ee38864b65744ec5f0",
+            "kind": "GIT_OBJECT",
+            "request_sha256": "dc66fcc8d79f5652c24f6c2ac3dbc6d0d4e4181d6bd5925234daa46a5d3528c6",
+            "resource": "mehrangtr/Consilium/git/blobs/25403ebd705a7631438dd9ee38864b65744ec5f0",
+            "source_digest": "8f1dcfde74a62499756eaf4590621eba6794615e2a3177ba0a568c6bbf280816"
+          },
+          "state": "VERIFIED_COMPLETE",
+          "attempts": 1,
+          "nonce": "a3430bad0d1e472097a852302c5bda64",
+          "deadline": 1791403628.8328722,
+          "observed_sha": "25403ebd705a7631438dd9ee38864b65744ec5f0",
+          "reason": null
+        },
+        {
+          "id": "6bc7603a06beaffc3a10ad3031f4b46ea73f19aa8b2577227dea8425d4437424",
+          "plan": {
+            "expected_sha": "16082b892e4c006e42b48ad2b729786f8e4f1b5c",
+            "kind": "GIT_OBJECT",
+            "request_sha256": "0264bbce5f0ffc5571f2488b5f3bd7af1c7cdd6cad02521ef116ca97cb181b3e",
+            "resource": "mehrangtr/Consilium/git/blobs/16082b892e4c006e42b48ad2b729786f8e4f1b5c",
+            "source_digest": "8f1dcfde74a62499756eaf4590621eba6794615e2a3177ba0a568c6bbf280816"
+          },
+          "state": "VERIFIED_COMPLETE",
+          "attempts": 1,
+          "nonce": "fd0a71dda3fc4e329f6b83a821cc59ca",
+          "deadline": 1791403628.8329713,
+          "observed_sha": "16082b892e4c006e42b48ad2b729786f8e4f1b5c",
+          "reason": null
+        },
+        {
+          "id": "97aa8154772950df523e437d5fd1376d5270af2eada7f7b982791cb38b1f228d",
+          "plan": {
+            "expected_sha": "a56b773f301ae7a23189e9d69655963e8c12a190",
+            "kind": "GIT_OBJECT",
+            "request_sha256": "09cae86a5035abc75840603f37a11f5b44c1e41432da7ba11d376dbd0198c804",
+            "resource": "mehrangtr/Consilium/git/blobs/a56b773f301ae7a23189e9d69655963e8c12a190",
+            "source_digest": "8f1dcfde74a62499756eaf4590621eba6794615e2a3177ba0a568c6bbf280816"
+          },
+          "state": "VERIFIED_COMPLETE",
+          "attempts": 1,
+          "nonce": "845a65823c2f408da3df6918800da300",
+          "deadline": 1791403660.4851606,
+          "observed_sha": "a56b773f301ae7a23189e9d69655963e8c12a190",
+          "reason": null
+        },
+        {
+          "id": "6b94f17bd29998fecb609a81a80cbcf68ef4600346329b3a2a4d0191eb7394f5",
+          "plan": {
+            "expected_sha": "b5c604691927f532bbf799f0e3dd661c14af7f5e",
+            "kind": "GIT_OBJECT",
+            "request_sha256": "25e2e9afdb824418e798b85f8a18b334bebcbebb838d49b6e2aecd881f046146",
+            "resource": "mehrangtr/Consilium/git/blobs/b5c604691927f532bbf799f0e3dd661c14af7f5e",
+            "source_digest": "8f1dcfde74a62499756eaf4590621eba6794615e2a3177ba0a568c6bbf280816"
+          },
+          "state": "VERIFIED_COMPLETE",
+          "attempts": 1,
+          "nonce": "859e3c1c86f64969a432b171d2fd78a6",
+          "deadline": 1791403660.485523,
+          "observed_sha": "b5c604691927f532bbf799f0e3dd661c14af7f5e",
+          "reason": null
+        },
+        {
+          "id": "c374ac1e944bce4e6a9c2822fc90f4d721e69a9024759e93a08adfb504e70f83",
+          "plan": {
+            "expected_sha": "782dad2411a5b4efe5777cc52f1aef4289e2191c",
+            "kind": "GIT_OBJECT",
+            "request_sha256": "1a888c013b2d4d39efee2480a7f353e5c5aec6cfb1b5a27785a498b9c1e9aff0",
+            "resource": "mehrangtr/Consilium/git/blobs/782dad2411a5b4efe5777cc52f1aef4289e2191c",
+            "source_digest": "8f1dcfde74a62499756eaf4590621eba6794615e2a3177ba0a568c6bbf280816"
+          },
+          "state": "VERIFIED_COMPLETE",
+          "attempts": 1,
+          "nonce": "dd95cb7d38594fbc96d75c1452fd69d1",
+          "deadline": 1791403660.4856231,
+          "observed_sha": "782dad2411a5b4efe5777cc52f1aef4289e2191c",
+          "reason": null
+        },
+        {
+          "id": "c1f4f2adaee5bc041d69c309d52f47d3e25ee4c46b9c642252193a36ea61bdc5",
+          "plan": {
+            "expected_sha": "665eaec8ac46f6f0a20fc6772614952404c3d4fc",
+            "kind": "GIT_OBJECT",
+            "request_sha256": "daa0e6b59f6b9b3d29383dc25cc79fb63605dd2d5c48fbd0c832a1b70194759f",
+            "resource": "mehrangtr/Consilium/git/blobs/665eaec8ac46f6f0a20fc6772614952404c3d4fc",
+            "source_digest": "8f1dcfde74a62499756eaf4590621eba6794615e2a3177ba0a568c6bbf280816"
+          },
+          "state": "VERIFIED_COMPLETE",
+          "attempts": 1,
+          "nonce": "83006f109394418590549a42a0268b15",
+          "deadline": 1791403660.485707,
+          "observed_sha": "665eaec8ac46f6f0a20fc6772614952404c3d4fc",
+          "reason": null
+        },
+        {
+          "id": "423bc8fbbb591cae258a217a21c1333b8c40ae77b171516453437578ccd672cb",
+          "plan": {
+            "expected_sha": "4e5c8e1bba7137d07cf2d5e7477a4fd887938137",
+            "kind": "GIT_OBJECT",
+            "request_sha256": "76799f116d10173589ad78b4c4d417ed558de8b53bacc38a979534fb355190ae",
+            "resource": "mehrangtr/Consilium/git/blobs/4e5c8e1bba7137d07cf2d5e7477a4fd887938137",
+            "source_digest": "8f1dcfde74a62499756eaf4590621eba6794615e2a3177ba0a568c6bbf280816"
+          },
+          "state": "VERIFIED_COMPLETE",
+          "attempts": 1,
+          "nonce": "e20962c6134f44fba906f6eaf61e0ec1",
+          "deadline": 1791403687.7956119,
+          "observed_sha": "4e5c8e1bba7137d07cf2d5e7477a4fd887938137",
+          "reason": null
+        },
+        {
+          "id": "0117d9158ab04c3faa0a26de305d24b80143589b657baab69670547598ad2766",
+          "plan": {
+            "expected_sha": "c38015f787049055b6cbaa2c93b525f4723daf8a",
+            "kind": "GIT_OBJECT",
+            "request_sha256": "65aea72104d0f52445e9e15eaa02b6926574e122e3b26fbb8912fcd593850d7d",
+            "resource": "mehrangtr/Consilium/git/blobs/c38015f787049055b6cbaa2c93b525f4723daf8a",
+            "source_digest": "8f1dcfde74a62499756eaf4590621eba6794615e2a3177ba0a568c6bbf280816"
+          },
+          "state": "VERIFIED_COMPLETE",
+          "attempts": 1,
+          "nonce": "8178c3bc09c441a48a8bd2803a58cbb8",
+          "deadline": 1791403687.7958329,
+          "observed_sha": "c38015f787049055b6cbaa2c93b525f4723daf8a",
+          "reason": null
+        },
+        {
+          "id": "1e2901861108d7cf1e329d63707c0c153d7c7ee4916b44ec24e7ca4b10318189",
+          "plan": {
+            "expected_sha": "293fc81ae1ab079907b0932bf3eda2a704015d19",
+            "kind": "GIT_OBJECT",
+            "request_sha256": "1b85647bfb8b3b33ed09816760dc5e8827d7b11e427ce41ca935fcaf523d8fc4",
+            "resource": "mehrangtr/Consilium/git/blobs/293fc81ae1ab079907b0932bf3eda2a704015d19",
+            "source_digest": "8f1dcfde74a62499756eaf4590621eba6794615e2a3177ba0a568c6bbf280816"
+          },
+          "state": "VERIFIED_COMPLETE",
+          "attempts": 1,
+          "nonce": "e5370209dbc84fc8a632e15c7f02eccd",
+          "deadline": 1791403687.7959363,
+          "observed_sha": "293fc81ae1ab079907b0932bf3eda2a704015d19",
+          "reason": null
+        },
+        {
+          "id": "4e6f4658860b01c1aac06c2626aa952e4d23533429d7859bd6cb34eb545ba05b",
+          "plan": {
+            "expected_sha": "4298967ca9300b9a8cc4939218020fa6148671c3",
+            "kind": "GIT_OBJECT",
+            "request_sha256": "0147485e9cdd27fdf6b67dd2584eed214a39d73b23a51c24341fe10926d266ce",
+            "resource": "mehrangtr/Consilium/git/blobs/4298967ca9300b9a8cc4939218020fa6148671c3",
+            "source_digest": "8f1dcfde74a62499756eaf4590621eba6794615e2a3177ba0a568c6bbf280816"
+          },
+          "state": "VERIFIED_COMPLETE",
+          "attempts": 1,
+          "nonce": "f6a31e52cda3444bac84c220d7a3e5e4",
+          "deadline": 1791403687.7960405,
+          "observed_sha": "4298967ca9300b9a8cc4939218020fa6148671c3",
+          "reason": null
+        },
+        {
+          "id": "d87a181ded13e8fa924fee6a28ca1926ae212314f4fcac95b5d25efe2ed7c59c",
+          "plan": {
+            "expected_sha": "b7145e5ce9a2ce7fe28ba6f0c7d1c93affe8eecb",
+            "kind": "GIT_OBJECT",
+            "request_sha256": "ff204b1c0cf92bebedcb7b815778dd17be11cecc5be48468c5326e55e851adc4",
+            "resource": "mehrangtr/Consilium/git/blobs/b7145e5ce9a2ce7fe28ba6f0c7d1c93affe8eecb",
+            "source_digest": "8f1dcfde74a62499756eaf4590621eba6794615e2a3177ba0a568c6bbf280816"
+          },
+          "state": "VERIFIED_COMPLETE",
+          "attempts": 1,
+          "nonce": "66d2ae43b3ac491b9d1544891e81bdba",
+          "deadline": 1791403714.9920778,
+          "observed_sha": "b7145e5ce9a2ce7fe28ba6f0c7d1c93affe8eecb",
+          "reason": null
+        },
+        {
+          "id": "a74fa4726c466d5e46b326dfcd0a46545f2f56dc75040b222a556913175e4b9b",
+          "plan": {
+            "expected_sha": "33f9f297113db825f0b2dc3f19bbdcfcd73a03fb",
+            "kind": "GIT_OBJECT",
+            "request_sha256": "c8f43e02767138bee430c8959c38229b226cb1bedeadede653504cdd19286bd6",
+            "resource": "mehrangtr/Consilium/git/blobs/33f9f297113db825f0b2dc3f19bbdcfcd73a03fb",
+            "source_digest": "8f1dcfde74a62499756eaf4590621eba6794615e2a3177ba0a568c6bbf280816"
+          },
+          "state": "VERIFIED_COMPLETE",
+          "attempts": 1,
+          "nonce": "620aabd26005436abb5fad1758567937",
+          "deadline": 1791403714.9923933,
+          "observed_sha": "33f9f297113db825f0b2dc3f19bbdcfcd73a03fb",
+          "reason": null
+        },
+        {
+          "id": "813157f67ade2362db90f5652d5d472427621a801525ce6875e0d275766801cd",
+          "plan": {
+            "expected_sha": "fde78088e4fc5fc4290e635d10fedc29918995b7",
+            "kind": "GIT_OBJECT",
+            "request_sha256": "a527919d19732801caac2733c02a3ad4b62624ff396940e26f3603f77c7dccb7",
+            "resource": "mehrangtr/Consilium/git/blobs/fde78088e4fc5fc4290e635d10fedc29918995b7",
+            "source_digest": "8f1dcfde74a62499756eaf4590621eba6794615e2a3177ba0a568c6bbf280816"
+          },
+          "state": "VERIFIED_COMPLETE",
+          "attempts": 1,
+          "nonce": "791b6963d5b949cbadbb7ab9309c014e",
+          "deadline": 1791403714.9926045,
+          "observed_sha": "fde78088e4fc5fc4290e635d10fedc29918995b7",
+          "reason": null
+        },
+        {
+          "id": "0857b2901f20ab1de75d3be4f58e25a3c9e413bb0afdfc9c69c7b348cd0fae11",
+          "plan": {
+            "expected_sha": "9bc92523beb3f762fba0a906f83100e5b102fdb7",
+            "kind": "GIT_OBJECT",
+            "request_sha256": "b6154dc40c70960e8917d2587478966d67aac758e4db7e2fb00685adcbadedd1",
+            "resource": "mehrangtr/Consilium/git/blobs/9bc92523beb3f762fba0a906f83100e5b102fdb7",
+            "source_digest": "8f1dcfde74a62499756eaf4590621eba6794615e2a3177ba0a568c6bbf280816"
+          },
+          "state": "VERIFIED_COMPLETE",
+          "attempts": 1,
+          "nonce": "669502f967864fdb9a3bfcb7af11f4b6",
+          "deadline": 1791403714.99271,
+          "observed_sha": "9bc92523beb3f762fba0a906f83100e5b102fdb7",
+          "reason": null
+        },
+        {
+          "id": "bd8174bdecd0fef2707fc799f84483df395d8a697feea82086d21fdb4a05f9dc",
+          "plan": {
+            "expected_sha": "686fe3d8124d52bb9e19736e2027bedbb8be2139",
+            "kind": "GIT_OBJECT",
+            "request_sha256": "902eb428bfbc07824396b84da91f161cf2c8448eb6aa557218139caf1c66e61e",
+            "resource": "mehrangtr/Consilium/git/blobs/686fe3d8124d52bb9e19736e2027bedbb8be2139",
+            "source_digest": "8f1dcfde74a62499756eaf4590621eba6794615e2a3177ba0a568c6bbf280816"
+          },
+          "state": "VERIFIED_COMPLETE",
+          "attempts": 1,
+          "nonce": "0aa216e6586c4ee78310fe9cb1a7404d",
+          "deadline": 1791403743.1574311,
+          "observed_sha": "686fe3d8124d52bb9e19736e2027bedbb8be2139",
+          "reason": null
+        },
+        {
+          "id": "1ac2fd50662a9bdf92dacd45ab7923e8345fa457c46c6f3b5f720cca278fdbb5",
+          "plan": {
+            "expected_sha": "e204e27d455b2b92f5fbf48dc5a9314cd764127e",
+            "kind": "GIT_OBJECT",
+            "request_sha256": "cfc98807c620834a36f95b2dfb9edd31f34d60c9485aaa1e3d628337f0d8223a",
+            "resource": "mehrangtr/Consilium/git/blobs/e204e27d455b2b92f5fbf48dc5a9314cd764127e",
+            "source_digest": "8f1dcfde74a62499756eaf4590621eba6794615e2a3177ba0a568c6bbf280816"
+          },
+          "state": "VERIFIED_COMPLETE",
+          "attempts": 1,
+          "nonce": "98e6edf2a7744f0a989651feb6af3b8c",
+          "deadline": 1791403743.1576488,
+          "observed_sha": "e204e27d455b2b92f5fbf48dc5a9314cd764127e",
+          "reason": null
+        },
+        {
+          "id": "cd1225682925cdee3b637e5ff2c6a71b14a340bb9263dcb43d9401f2e1a3da0d",
+          "plan": {
+            "expected_sha": "270cd3b604f8dc1577effe261b7913025897ba4a",
+            "kind": "GIT_OBJECT",
+            "request_sha256": "b45e5e9b7c015e10598b1fd456754be3aa51f2b767e50f1e7b0ab0f8b2b793c4",
+            "resource": "mehrangtr/Consilium/git/blobs/270cd3b604f8dc1577effe261b7913025897ba4a",
+            "source_digest": "8f1dcfde74a62499756eaf4590621eba6794615e2a3177ba0a568c6bbf280816"
+          },
+          "state": "VERIFIED_COMPLETE",
+          "attempts": 1,
+          "nonce": "b9d48c92c5664d09a0b459781ed16112",
+          "deadline": 1791403743.157749,
+          "observed_sha": "270cd3b604f8dc1577effe261b7913025897ba4a",
+          "reason": null
+        },
+        {
+          "id": "b3bcb48f5cb2ea8325a64769ef89913ae82b0c9118d42ba0c09c6bcd0142c8ea",
+          "plan": {
+            "expected_sha": "04106a498a972b61abafdf5272cca149fe041031",
+            "kind": "GIT_OBJECT",
+            "request_sha256": "a8ca50bcc04898711fc29e101854f1746379edaf6dd275c7d53a5b238758b014",
+            "resource": "mehrangtr/Consilium/git/blobs/04106a498a972b61abafdf5272cca149fe041031",
+            "source_digest": "8f1dcfde74a62499756eaf4590621eba6794615e2a3177ba0a568c6bbf280816"
+          },
+          "state": "VERIFIED_COMPLETE",
+          "attempts": 1,
+          "nonce": "4d9dbd0492894a8d96af1da44d5641ec",
+          "deadline": 1791403743.1578336,
+          "observed_sha": "04106a498a972b61abafdf5272cca149fe041031",
+          "reason": null
+        },
+        {
+          "id": "103c1f93949904777815243e2b6d0e63346ae7c12d4b4add92e2db72ff04fb0a",
+          "plan": {
+            "expected_sha": "c84edcd60abb8d361dcd339de17faca59f887cb4",
+            "kind": "GIT_OBJECT",
+            "request_sha256": "0b6e5a0c997a2c7c31f91d4f0111b009526e597ce1b0ea4ba86bef9b59519815",
+            "resource": "mehrangtr/Consilium/git/trees/c84edcd60abb8d361dcd339de17faca59f887cb4",
+            "source_digest": "8f1dcfde74a62499756eaf4590621eba6794615e2a3177ba0a568c6bbf280816"
+          },
+          "state": "VERIFIED_COMPLETE",
+          "attempts": 1,
+          "nonce": "625625a2f08e4411843f2c538b23b2e0",
+          "deadline": 1791403792.5415716,
+          "observed_sha": "c84edcd60abb8d361dcd339de17faca59f887cb4",
+          "reason": null
+        },
+        {
+          "id": "34db5dfddbd6188d0a45f047d24180cd19ea55b6edca23c09617b800117e297a",
+          "plan": {
+            "expected_sha": "3fdd57def9a0d617f9cf7e93a4636c03cf501835",
+            "kind": "REF_UPDATE",
+            "request_sha256": "566e480055439e609ca52c359d60759c8874a65ba57e78af8f65514439c97ace",
+            "resource": "mehrangtr/Consilium/refs/heads/p04-manual-reconciliation-native-20261007",
+            "source_digest": "8f1dcfde74a62499756eaf4590621eba6794615e2a3177ba0a568c6bbf280816"
+          },
+          "state": "VERIFIED_COMPLETE",
+          "attempts": 1,
+          "nonce": "75d5982ab4354f81a493b77906cef272",
+          "deadline": 1791403839.883728,
+          "observed_sha": "3fdd57def9a0d617f9cf7e93a4636c03cf501835",
+          "reason": null
+        },
+        {
+          "id": "13497a047ebb175de8fdb5ffac7282424caca33f075345fa07ed58ada16f9a4e",
+          "plan": {
+            "expected_sha": "391f2e692223e8c1fe8694efea7b1e8d75cae165",
+            "kind": "GIT_OBJECT",
+            "request_sha256": "23fd4db2eaf1edcb77d43932af7fc8f3105dae34759906f678b0c6cc57b1daa3",
+            "resource": "mehrangtr/Consilium/git/blobs/391f2e692223e8c1fe8694efea7b1e8d75cae165",
+            "source_digest": "8f1dcfde74a62499756eaf4590621eba6794615e2a3177ba0a568c6bbf280816"
+          },
+          "state": "VERIFIED_COMPLETE",
+          "attempts": 1,
+          "nonce": "23a7e5a4563e4a92ab935b71c38e6c91",
+          "deadline": 1791403968.2807488,
+          "observed_sha": "391f2e692223e8c1fe8694efea7b1e8d75cae165",
+          "reason": null
+        },
+        {
+          "id": "0fbeb39849e5da912296e59974d2172bf750553cc9df149e772d276b3725a74a",
+          "plan": {
+            "expected_sha": "fb1227c9530948caa792dfc9998b0f88ef57e12a",
+            "kind": "GIT_OBJECT",
+            "request_sha256": "5eb52fdb5e12f0bce647679ced1ddc504448a7e525924ac0bd29f67da969f232",
+            "resource": "mehrangtr/Consilium/git/blobs/fb1227c9530948caa792dfc9998b0f88ef57e12a",
+            "source_digest": "57fe47498c08bd6d1180a19b4e56564fdb388878ab8f5792487b7e9f4c628b1d"
+          },
+          "state": "VERIFIED_COMPLETE",
+          "attempts": 1,
+          "nonce": "68d6c19a27b3481e8e19384b33c6bcc5",
+          "deadline": 1791404337.8931875,
+          "observed_sha": "fb1227c9530948caa792dfc9998b0f88ef57e12a",
+          "reason": null
+        },
+        {
+          "id": "7676cddbfbdb7e70fac486b1ce037bb678f5f87ec75f2185829e7213e5e2fa11",
+          "plan": {
+            "expected_sha": "7fec345a3af677cff5a0d9baca204dcb9c9a0fdb",
+            "kind": "GIT_OBJECT",
+            "request_sha256": "bd2227335fcf6af6272a96e713e5af65b6a41efeed60141732e790ea11e4fcb6",
+            "resource": "mehrangtr/Consilium/git/trees/7fec345a3af677cff5a0d9baca204dcb9c9a0fdb",
+            "source_digest": "57fe47498c08bd6d1180a19b4e56564fdb388878ab8f5792487b7e9f4c628b1d"
+          },
+          "state": "VERIFIED_COMPLETE",
+          "attempts": 1,
+          "nonce": "1b3c7b081afe4422a366b06997cd211f",
+          "deadline": 1791404347.9532654,
+          "observed_sha": "7fec345a3af677cff5a0d9baca204dcb9c9a0fdb",
+          "reason": null
+        },
+        {
+          "id": "00dcd79da2a89bacfba04496931c2f69e161284a443848689dd019bb1b4c5bee",
+          "plan": {
+            "expected_sha": "130b9129fd6bda681c07397015653dc32d26e040",
+            "kind": "REF_UPDATE",
+            "request_sha256": "e7241b490d22ffc83e84785586dc4d0fd7e422de9fda306339f822087a85bc73",
+            "resource": "mehrangtr/Consilium/refs/heads/p04-manual-reconciliation-native-20261007",
+            "source_digest": "57fe47498c08bd6d1180a19b4e56564fdb388878ab8f5792487b7e9f4c628b1d"
+          },
+          "state": "VERIFIED_COMPLETE",
+          "attempts": 1,
+          "nonce": "9b41db2b8d03412b86bb64758d8bf116",
+          "deadline": 1791404395.5401373,
+          "observed_sha": "130b9129fd6bda681c07397015653dc32d26e040",
+          "reason": null
+        }
+      ],
+      "commit_creation": {
+        "kind": "COMMIT_CREATION_WITH_SERVER_ASSIGNED_TIMESTAMP",
+        "status": "VERIFIED_COMPLETE",
+        "expected_parent": "3fdd57def9a0d617f9cf7e93a4636c03cf501835",
+        "expected_tree": "7fec345a3af677cff5a0d9baca204dcb9c9a0fdb",
+        "source_digest": "57fe47498c08bd6d1180a19b4e56564fdb388878ab8f5792487b7e9f4c628b1d",
+        "automatic_retry": false,
+        "wait_seconds": 45,
+        "observed_sha": "130b9129fd6bda681c07397015653dc32d26e040"
+      },
+      "previous_publication_reconciliation": {
+        "status": "VERIFIED_COMPLETE",
+        "receipt_commit": "f5d41849307ae56aa97918481ddd35c9c93eb313",
+        "local_sync": "COMPLETE_WITHOUT_REPLAY",
+        "mutation_replayed": false
+      },
+      "retired_unreferenced_tree_plan": {
+        "tree": "49aaa48f7bead8a60fd59c7c8070b0a4a2cfe74d",
+        "status": "VERIFIED_NOT_APPLIED",
+        "replayed": false
+      },
+      "local_supervisor_archive": {
+        "blob": "391f2e692223e8c1fe8694efea7b1e8d75cae165",
+        "sha256": "448ccaf38b3525552e5067246cde52270d1f5a5aadc730531d2b840607e4a053",
+        "status": "VERIFIED_COMPLETE",
+        "scope": "LOCAL_FAILURE_AND_EXPECTED_OLD_NATIVE_BLOCK_RETAINED_NOT_NATIVE_PASS_PROOF"
+      },
+      "prior_commit_creations": [
+        {
+          "kind": "COMMIT_CREATION_WITH_SERVER_ASSIGNED_TIMESTAMP",
+          "status": "VERIFIED_COMPLETE",
+          "request": {
+            "repository_full_name": "mehrangtr/Consilium",
+            "tree_sha": "c84edcd60abb8d361dcd339de17faca59f887cb4",
+            "parent_sha": "f5d41849307ae56aa97918481ddd35c9c93eb313",
+            "message": "Preserve ambiguous operations during explicit manual continuation"
+          },
+          "expected_parent": "f5d41849307ae56aa97918481ddd35c9c93eb313",
+          "expected_tree": "c84edcd60abb8d361dcd339de17faca59f887cb4",
+          "source_digest": "8f1dcfde74a62499756eaf4590621eba6794615e2a3177ba0a568c6bbf280816",
+          "automatic_retry": false,
+          "wait_seconds": 45,
+          "observed_sha": "3fdd57def9a0d617f9cf7e93a4636c03cf501835",
+          "observed_parent": "f5d41849307ae56aa97918481ddd35c9c93eb313",
+          "observed_tree": "c84edcd60abb8d361dcd339de17faca59f887cb4"
+        }
+      ],
+      "prior_interrupted_journal_blob": {
+        "sha": "341417e566dba8fa78d3e5e1d7acaf20caab84f9",
+        "state": "VERIFIED_NOT_APPLIED",
+        "replayed": false
+      },
+      "failed_native_run_id": 37679962312
+    }
+  },
+  "native_evidence": "ACTUAL_WINDOWS_AND_LINUX_GRAPH_VERIFIED",
+  "next_action": "در P04-002 مشاهده‌گرهای معتبر منشأ، تاریخچه و شمارش توکن را طراحی و آزمون کن؛ سپس همهٔ معیارهای P04 را بازبینی کن. تطبیق صریح ادامهٔ دستی تکمیل شده؛ دوباره نساز. P05 و ارسال زنده هنوز آغاز نشوند.",
+  "publication_scope": "VERIFIED_DELIVERY_BRANCH_MAIN_PUBLICATION_PENDING"
 }

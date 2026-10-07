@@ -1,0 +1,9 @@
+{
+  "command": [
+    "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+    "tools/check.py"
+  ],
+  "root": "/workspace/scratch/2cd898e3d2ec/consilium_reconciliation",
+  "nonce": "f628757fb3f341d5b0b4c213da103f00",
+  "supervisor_pid": 2
+}

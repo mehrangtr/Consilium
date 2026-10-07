@@ -1,0 +1,197 @@
+{
+  "schema_version": 1,
+  "status": "VERIFIED_DELIVERY_PUBLISHED_TO_MAIN",
+  "publication_complete": true,
+  "publication_scope": "VERIFIED_DELIVERY_MAIN_BEFORE_THIS_RECEIPT",
+  "recorded_at_utc": "2026-10-07T20:37:38.926464+00:00",
+  "main_before": "f5d41849307ae56aa97918481ddd35c9c93eb313",
+  "verified_delivery_commit": "5fc973804df6eab3d2fea147b80fd47f2d1a8116",
+  "verified_delivery_tree": "4ae53b55218fa769f492e447ceeef6e9b128d068",
+  "application_source_commit": "130b9129fd6bda681c07397015653dc32d26e040",
+  "source_digest": "57fe47498c08bd6d1180a19b4e56564fdb388878ab8f5792487b7e9f4c628b1d",
+  "pull_request": 11,
+  "native_run_id": 37681112313,
+  "packaging_and_clean_handoff_verification_run_id": 37681693785,
+  "native_tests_per_os": 538,
+  "product_process_exit_cases_per_os": 31,
+  "native_targets": [
+    "Windows",
+    "Linux"
+  ],
+  "live_provider_calls": 0,
+  "clean_extracted_handoff_regression": "PASS",
+  "clean_extracted_tests": 538,
+  "all_handoff_files_match_delivery_git_blobs": 856,
+  "handoff_sha256": "07857ddf983a347c54838673fa034e562644cddf1adb47907014310964351aea",
+  "handoff_artifact": {
+    "id": 11508544765,
+    "sha256": "22fb2102a46976cb3140d591ca38b0b9b7fff6e2ec3a7274284c978124f15cf5"
+  },
+  "separate_verification_artifact": {
+    "id": 11509940600,
+    "sha256": "50e51563707b967848d87595ff63ca5f794289909aa624a454621dbaf28ec742"
+  },
+  "first_native_failure_preserved": {
+    "run_id": 37679962312,
+    "path": "evidence/p04/reconciliation-development/native-windows-failure-37679962312.zip",
+    "cause": "Test SQLite handles remained open on Windows; contextlib.closing fixed all three raw connections without removing assertions."
+  },
+  "prior_publication_local_journal_sync": "COMPLETE_WITHOUT_REPLAY",
+  "code_publication_journal_blob": "c8fa0d8d2c3fe6969e7ac29686e905c7e41f3935",
+  "main_delivery_operation": {
+    "id": "3056727570c61142b33b6c87b6279b947627a15c6a0f81c7f6ef46f8d2e6f9de",
+    "plan": {
+      "expected_sha": "5fc973804df6eab3d2fea147b80fd47f2d1a8116",
+      "kind": "REF_UPDATE",
+      "request_sha256": "4304108fdcf40fed4c8c9c4ce4ffa4ad8f8486cc7caa3fc8b194be0f16024235",
+      "resource": "mehrangtr/Consilium/refs/heads/main",
+      "source_digest": "57fe47498c08bd6d1180a19b4e56564fdb388878ab8f5792487b7e9f4c628b1d"
+    },
+    "state": "VERIFIED_COMPLETE",
+    "attempts": 1,
+    "nonce": "3b344c482e554bd1be919e1f0ba14274",
+    "deadline": 1791405365.9223073,
+    "observed_sha": "5fc973804df6eab3d2fea147b80fd47f2d1a8116",
+    "reason": null
+  },
+  "phase": "P04",
+  "phase_accepted": false,
+  "last_accepted_phase": "P03",
+  "full_v1_requirements_verified": 0,
+  "reviewer_independent": false,
+  "remaining_work": {
+    "schema_version": 1,
+    "updated_at_utc": "2026-10-07T20:24:22.653919+00:00",
+    "canonical_location": "PROGRESS.json:resume.unfinished_work",
+    "continuation_instruction": "در P04-002 مشاهده‌گرهای معتبر منشأ، تاریخچه و شمارش توکن را طراحی و آزمون کن؛ سپس همهٔ معیارهای P04 را بازبینی کن. تطبیق صریح ادامهٔ دستی تکمیل شده؛ دوباره نساز. P05 و ارسال زنده هنوز آغاز نشوند.",
+    "items": [
+      {
+        "id": "P04-002",
+        "phase": "P04",
+        "status": "EXPLICIT_MANUAL_RECONCILIATION_NATIVE_VERIFIED",
+        "title_fa": "نمای مجاز، ثبت پایدار شواهد کنترل و ورودی دورها",
+        "completed_fa": "تطبیق صریح ادامهٔ دستی و مهاجرت نهم تکمیل شدند؛ ۵۳۸ آزمون و ۳۱ قطع واقعی پردازهٔ محصول در هر دو محیط موفق‌اند.",
+        "remaining_fa": "مشاهده‌گرهای معتبر منشأ، تاریخچه و شمارش توکن و بازبینی و پذیرش کامل P04.",
+        "next_action_fa": "در P04-002 مشاهده‌گرهای معتبر منشأ، تاریخچه و شمارش توکن را طراحی و آزمون کن؛ سپس همهٔ معیارهای P04 را بازبینی کن. تطبیق صریح ادامهٔ دستی تکمیل شده؛ دوباره نساز. P05 و ارسال زنده هنوز آغاز نشوند.",
+        "done_when_fa": "شواهد و ورودی منجمد با نسخه و منشأ و مقصد روشن پایدارند؛ بازیابی و نشت و بودجه و حفظ قیود در تمام نماهای لازم آزموده شده‌اند؛ شواهد هر دو محیط و بازبینی کامل معیارهای مرحله موجود است."
+      }
+    ],
+    "completed_items": [
+      {
+        "id": "PUB-P02-001",
+        "phase": "P02_DELIVERY",
+        "status": "COMPLETED",
+        "title_fa": "ثبت کامل عمومی پذیرش و بستهٔ تحویل مرحلهٔ دو",
+        "completed_fa": "همهٔ بخش‌ها روی شاخهٔ اصلی منتشر شدند؛ اثرانگشت ۶۱۴ فایل، نسخهٔ شاخه و محتوای فایل‌های اصلی دوردست تطبیق داشتند.",
+        "remaining_fa": "هیچ کار باز در انتشار پذیرش مرحلهٔ دو باقی نمانده است.",
+        "reason_fa": "مجوز صریح انتشار دریافت شد و بررسی خودکار انتقال را پذیرفت.",
+        "checkpoint": {
+          "staged_tree": "a5d262a168aa6d83a5ca6c2cbfb90a70375e10fe",
+          "completed_batches": 11,
+          "total_batches": 11,
+          "remote_head_verified": "003dc87f3bd733985696c46e1bc79e28b4600293",
+          "source_digest": "a26532121e6eea90b6e6bae3bc5d3e5af6f49257ab453cd0472f49389b63fb51"
+        },
+        "next_action_fa": "برای انتشار مرحلهٔ دو دوباره از ابتدا شروع نکن؛ مرحلهٔ سه را از شاهد دسترسی واقعی ادامه بده.",
+        "done_when_fa": "تمام کد و شواهد مورد نظر روی شاخهٔ مقصد ثبت و بایت فایل‌های دوردست با بستهٔ نهایی تطبیق داده شده باشد.",
+        "verified_publication_commit": "3bdf3f366bcc72679ae18480901b59d19c51ebe5"
+      },
+      {
+        "id": "P03-PREP-001",
+        "phase": "P03_PREPARATION",
+        "status": "COMPLETED",
+        "title_fa": "ابزار ثبت و بررسی آفلاین آزمون مرورگر",
+        "completed_fa": "کد و راهنمای اجرا و آزمون‌های منفی و قطع پردازه تکمیل شدند؛ بررسی واقعی ویندوز و لینوکس و گراف گزارش‌ها پاس شد. این نتیجه پذیرش مرورگر زنده نیست.",
+        "remaining_fa": "هیچ کار باز در این برش آماده‌سازی باقی نمانده است؛ اجرای زنده در P03-001 حفظ شده است.",
+        "code_commit": "db2ef3073d84d560de00738cd9878df47e4f6dc4",
+        "source_digest": "a14e4bcfaf7cd9f982bb52d96037d099608e12c1d541855041a4491e25723c19"
+      },
+      {
+        "id": "P03-001",
+        "phase": "P03",
+        "status": "COMPLETED_LIMITED_FEASIBILITY",
+        "title_fa": "پذیرش مستند امکان‌سنجی مرورگر و اصلاح آغاز با شاهد تازه",
+        "acceptance": {
+          "source_digest": "70e86ab5179e978f8d0dcdc387647689412493f05ac750569bd3d764c1d22118",
+          "receipt": {
+            "path": "evidence/runs/20261006T232625Z_9d9f3ac539/RUN.json",
+            "sha256": "e8a177f7a9ff3ea6e9ed2285429c64d6f07db581d653868bf26a5417784ed256"
+          },
+          "review": {
+            "path": "evidence/accepted/P03_a1134261e9ea/REVIEW.json",
+            "sha256": "b9e731c218467e7ab0755bba011ce49369efac921d63da08b92931f61b05304b"
+          },
+          "checkpoint": {
+            "path": "evidence/browser-probe/P03_FEASIBILITY_CHECKPOINT.json",
+            "sha256": "eb3a8dd9a24b420b4830030cdce7bf40babaefb766f28a404a22d3c591a48b20"
+          },
+          "native_matrix": {
+            "path": "evidence/target-matrix/RUN.json",
+            "sha256": "65e4c4d02c9b5109a4c691d87e9fee736c856298c074ccac011292966357cb54"
+          },
+          "code_commit": "21bb52523072bd6f0193602b94ffb1387d5bc2ea",
+          "natural_expiration": "UNKNOWN_NOT_CERTIFIED",
+          "full_driver_and_recovery": "NOT_IMPLEMENTED_OR_CERTIFIED"
+        },
+        "preserve_policy": "Keep two confirmed operations and one unknown attempt; no automatic resend; private raw trace stays private; current session signed out."
+      },
+      {
+        "id": "PUB-P03-001",
+        "phase": "P03_DELIVERY",
+        "status": "COMPLETED",
+        "title_fa": "ثبت پذیرش و تحویل مرحلهٔ سه و طرح آغاز مرحلهٔ چهار روی شاخهٔ اصلی",
+        "verified_commit": "baceaf1291818be695b65565756c948c81e43651",
+        "verified_files": 194,
+        "source_digest": "cb99286e53059e175bb409da98be8e0805efe7ac1dc327430f2cae8c201a2d4f",
+        "remaining_fa": "هیچ کار باز در این انتشار باقی نمانده است؛ اجرای کد مرحلهٔ چهار در P04-001 ثبت است."
+      },
+      {
+        "id": "P04-001",
+        "phase": "P04",
+        "status": "COMPLETED_QUESTION_ADOPTION_SLICE_NOT_PHASE_ACCEPTANCE",
+        "title_fa": "قرارداد اصل پرسش، پیشنهاد معمار و پذیرش نسخهٔ جدید",
+        "completed_fa": "اصل پرسش و قیود، پیشنهاد سختگیرانه، ثبت پایدار و رابط تأیید محلی و آزمون تعارض و قطع پردازه تکمیل شده‌اند؛ شواهد بومی منبع فعلی در هر دو محیط پاس است.",
+        "remaining_fa": "هیچ کار باز در برش قرارداد و تأیید پرسش نیست؛ کار نمای مجاز و کنترل ارسال در P04-002 ادامه دارد.",
+        "next_action_fa": "پس از بررسی بومی این منبع، شواهد ContextAdmission را در همان تراکنش ثبت قصد پایدار کن و هنگام بازیابی بررسی کن؛ سپس زمینهٔ مجاز سایر دورها را بساز. پیش از آن ارسال زنده فعال نشود.",
+        "done_when_fa": "اصل متن و قیود دقیق محفوظ؛ پیشنهاد ناسازگار و پذیرش نامعتبر رد؛ تغییرهای مجاز قابل مقایسه؛ آزمون‌های واقعی و رگرسیون سبز؛ تحویل به‌روز.",
+        "checkpoint": "evidence/p04/LOCAL_REVIEW_POLICY_CHECKPOINT.json"
+      },
+      {
+        "id": "PUB-P04-DURABLE-001",
+        "phase": "P04_DELIVERY",
+        "status": "COMPLETED",
+        "verified_commit": "2593abb0815bff62f1fd5e45766d55e40bbae6ad",
+        "remaining_fa": "انتشار متوقف‌شدهٔ قبلی کامل است؛ دوباره از ابتدا تکرار نشود."
+      }
+    ],
+    "future_phases": {
+      "ids": [
+        "P05",
+        "P06",
+        "P07",
+        "P08",
+        "P09",
+        "P10",
+        "P11",
+        "P12",
+        "P13",
+        "P14",
+        "P15",
+        "P16"
+      ],
+      "status": "NOT_STARTED; BLOCKED_BY_PREVIOUS_PHASE"
+    },
+    "execution_rules": {
+      "external_step_seconds": 45,
+      "shell_test_seconds": 60,
+      "progress_update_seconds": 60,
+      "same_failure_retry_limit": 1,
+      "checkpoint_after_confirmed_step": true,
+      "automatic_rejection_retry_allowed": false,
+      "report_unknown_as_success": false
+    }
+  },
+  "ops_branch_must_not_be_merged": "ops-p04-manual-reconciliation-20261007",
+  "source_changes_after_native_tests": 0,
+  "transfer_note": "This successor publication receipt is recorded after the immutable delivery archive was built; it is outside that 856-file archive."
+}

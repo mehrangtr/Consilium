@@ -8,7 +8,7 @@ from uuid import UUID
 import json
 from pydantic import model_validator
 
-from .contracts import Answer, ConnectionSpec, Contract, Critique, DebateSpec, FrozenInput, GenerationParameters, Identifier, Message, Revision, RoundSpec, Sha256, Text
+from .contracts import Answer, ConnectionSpec, Contract, Critique, DebateSpec, FrozenInput, GenerationParameters, Identifier, Message, Revision, RoundSpec, Sha256, Text, UserDecision
 from .dispatch_policy import PolicyBlocked, destination_hash
 from .question_contracts import AdoptedQuestion, _hash
 
@@ -97,7 +97,8 @@ def build_round_context(*, question: AdoptedQuestion, debate: DebateSpec, round_
                         required_source_hashes: tuple[str, ...], grants: tuple[TransferGrant, ...],
                         connection: ConnectionSpec, parameters: GenerationParameters,
                         judge_selection: JudgeSelection | None = None,
-                        named_authorization: NamedReviewAuthorization | None = None) -> RoundContext:
+                        named_authorization: NamedReviewAuthorization | None = None,
+                        continuation_decision: UserDecision | None = None) -> RoundContext:
     question = AdoptedQuestion.model_validate(question)
     debate = DebateSpec.model_validate(debate)
     round_spec = RoundSpec.model_validate(round_spec)
@@ -120,6 +121,13 @@ def build_round_context(*, question: AdoptedQuestion, debate: DebateSpec, round_
         raise PolicyBlocked("REQUIRED_SOURCE_OR_GRANT_MISSING")
     dest = destination_hash(connection)
     authorizations = []
+    if continuation_decision is not None:
+        continuation_decision = UserDecision.model_validate(continuation_decision)
+        if (continuation_decision.debate_id != debate.debate_id
+                or continuation_decision.kind not in {"CONTINUE", "CUSTOM"}
+                or continuation_decision.expected_revision + 1 > expected_revision):
+            raise PolicyBlocked("INVALID_CONTINUATION_DECISION")
+        authorizations.append(_hash(continuation_decision))
     def check_authorization(value, model):
         value = model.model_validate(value)
         if (value.debate_id != debate.debate_id or value.destination_hash != dest
@@ -200,6 +208,8 @@ def build_round_context(*, question: AdoptedQuestion, debate: DebateSpec, round_
             "architect_assumptions": question.proposal.assumptions, "architect_changes": question.proposal.visible_changes,
             "architect_origin": question.proposal.origin, "round_kind": round_spec.kind,
             "targets": round_spec.targets, "sources": projected}
+    if continuation_decision is not None:
+        data["continuation"] = {"kind": continuation_decision.kind, "instruction": continuation_decision.instruction}
     instructions = {"REVIEW": "Critique the supplied answers with explicit reasons and scores.",
                     "TARGETED": "Address only the listed unresolved targets; preserve relevant dissent.",
                     "SYNTHESIS": "Synthesize the supplied evidence; disclose unresolved dissent and uncertainty. Agreement is not proof of truth."}

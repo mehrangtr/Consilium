@@ -1,0 +1,13 @@
+{
+  "status": "PASS",
+  "tests": [
+    "immediate_result_preserved",
+    "never_resolving_call_returns_unknown",
+    "private_error_details_not_reported",
+    "late_operation_not_replayed",
+    "invalid_wait_rejected"
+  ],
+  "scope": "ACTUAL_WORK_MODE_JS_RUNTIME_SIMULATED_CONNECTOR_NOT_NATIVE_MCP_CANCELLATION",
+  "source_sha256": "45bd3184522e932d5fbb29fb3412b055cb4224158d623f4ea6e0e16af17038af",
+  "recorded_at_utc": "2026-10-07T14:42:25.662435+00:00"
+}

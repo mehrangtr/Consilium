@@ -155,12 +155,12 @@ class SQLiteStore:
                 from consilium.shell.manual_sources import ManualSourceLedger
                 self.manual_sources = ManualSourceLedger(self)
                 self.manual_sources.check_integrity()
-                from consilium.shell.admissions import AdmissionLedger
-                self.admissions = AdmissionLedger(self)
-                self.admissions.check_integrity()
                 from consilium.shell.sources import SourceLedger
                 self.sources = SourceLedger(self)
                 self.sources.check_integrity()
+                from consilium.shell.admissions import AdmissionLedger
+                self.admissions = AdmissionLedger(self)
+                self.admissions.check_integrity()
                 self.artifacts.check_integrity()
             self._db.execute("PRAGMA foreign_keys=ON")
             if self._db.execute("PRAGMA foreign_keys").fetchone()[0] != 1:
@@ -337,8 +337,8 @@ class SQLiteStore:
             response_contract.require_intent(intent)
             contract_json = self._public(response_contract.model_dump(mode="json"))
         if admission_bundle is not None:
-            from consilium.core.admission_bundle import AdmissionBundle
-            admission_bundle = AdmissionBundle.model_validate(admission_bundle)
+            from consilium.core.round_admission import ADMISSION_ADAPTER
+            admission_bundle = ADMISSION_ADAPTER.validate_python(admission_bundle)
             admission_bundle.require_intent(intent)
             bundle_json = self._public(admission_bundle.model_dump(mode="json"))
         with self._transaction():

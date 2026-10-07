@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "phase": "P04",
+  "status": "LOCAL_VERIFIED_NATIVE_DELIVERY_PENDING",
+  "phase_accepted": false,
+  "recorded_at_utc": "2026-10-07T14:48:34.094145+00:00",
+  "live_provider_calls": 0,
+  "paid_calls": 0,
+  "native_evidence": "PENDING_NEW_SOURCE",
+  "implemented": [
+    "bounded connector wait with durable publication permits and read reconciliation",
+    "canonical later-round sources, transfer grants, policy and exact frozen input committed with operation intent",
+    "stored custom continuation instruction preserved",
+    "accepted aligned manual first-round answers can satisfy decision gate; next round still requires explicit user decision"
+  ],
+  "local_tests": 484,
+  "product_process_exit_cases_expected": 27,
+  "connector_wait_runtime_tests": "evidence/p04/CONNECTOR_WAIT_RUNTIME_TESTS.json",
+  "remaining": [
+    "manual critiques and manual later-round answers",
+    "explicit reconciliation of prior product operations",
+    "trusted live provenance and live token/history observers",
+    "full P04 criterion review and acceptance"
+  ],
+  "source_digest": null
+}

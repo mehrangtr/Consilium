@@ -61,11 +61,29 @@ def evaluate_dispatch_policy(*, context: IndependentContext, connection: Connect
                              privacy: PrivacyDecision, budget: TokenBudget, history: HistoryEvidence,
                              expected_revision: int) -> ContextAdmission:
     context = IndependentContext.model_validate(context)
+    return _evaluate_context_policy(context=context, minimum_revision=context.revision,
+        connection=connection, privacy=privacy, budget=budget, history=history,
+        expected_revision=expected_revision)
+
+
+def evaluate_round_dispatch_policy(*, context, connection, privacy, budget, history,
+                                   expected_revision: int) -> ContextAdmission:
+    from .round_context import RoundContext
+    context = RoundContext.model_validate(context)
+    if context.ledger_revision != expected_revision:
+        raise PolicyBlocked("STALE_ROUND_CONTEXT")
+    return _evaluate_context_policy(context=context, minimum_revision=context.ledger_revision,
+        connection=connection, privacy=privacy, budget=budget, history=history,
+        expected_revision=expected_revision)
+
+
+def _evaluate_context_policy(*, context, minimum_revision, connection, privacy, budget,
+                             history, expected_revision):
     connection = ConnectionSpec.model_validate(connection)
     privacy = PrivacyDecision.model_validate(privacy)
     budget = TokenBudget.model_validate(budget)
     history = HistoryEvidence.model_validate(history)
-    if type(expected_revision) is not int or expected_revision < context.revision:
+    if type(expected_revision) is not int or expected_revision < minimum_revision:
         raise PolicyBlocked("INVALID_LEDGER_REVISION")
     binding = dict(view_hash=context.content_hash, request_hash=context.frozen_input.content_hash,
                    destination_hash=destination_hash(connection), ledger_revision=expected_revision)

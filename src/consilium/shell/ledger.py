@@ -256,7 +256,11 @@ class OperationLedger:
             raise Conflict("Decision must refer to the current round")
         rows = self._db.execute("""SELECT o.participant_id,c.attempt_id FROM operations o LEFT JOIN canonical_results c
             USING(logical_operation_id) WHERE o.round_id=?""", (str(round_id),)).fetchall()
-        if {r["participant_id"] for r in rows} != {str(x) for x in spec.participant_ids} or any(r["attempt_id"] is None for r in rows):
+        manual = {str(r.candidate.participant_id) for r in self.store.manual_sources.for_debate(debate_id)
+                  if r.candidate.round_spec.round_id == round_id and r.alignment == "ALIGNED"}
+        generated = {r["participant_id"] for r in rows}
+        if (generated | manual != {str(x) for x in spec.participant_ids}
+                or generated & manual or any(r["attempt_id"] is None for r in rows)):
             raise Conflict("A decision gate requires confirmed results for every round participant")
 
     def wait_for_decision(self, debate_id, round_id, *, expected_revision):

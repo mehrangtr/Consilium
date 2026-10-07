@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "phase": "P04",
+  "status": "PASS_IMPLEMENTED_SLICE_LOCAL_NATIVE_PENDING",
+  "independent": false,
+  "review_method": "same author, separate criterion-based pass",
+  "phase_accepted": false,
+  "criteria": [
+    {
+      "id": "external_wait_scope",
+      "result": "PASS",
+      "reason": "timeout releases caller wait; explicitly cannot cancel MCP or chat session; no blind mutable replay"
+    },
+    {
+      "id": "atomic_later_round",
+      "result": "PASS",
+      "reason": "intent, policies, canonical sources, grants and continuation commit atomically; two real process exits covered"
+    },
+    {
+      "id": "preserved_user_controls",
+      "result": "PASS",
+      "reason": "pending or diverged manual content cannot complete round; explicit stored continuation still required"
+    },
+    {
+      "id": "source_integrity",
+      "result": "PASS",
+      "reason": "required sources derived from canonical historical publication revisions; omission and rehashed tampering rejected"
+    },
+    {
+      "id": "live_capability_claims",
+      "result": "PASS",
+      "reason": "MANUAL stays manual; token/history facts remain local; policy-managed send blocked"
+    },
+    {
+      "id": "native_windows_linux",
+      "result": "PENDING",
+      "reason": "new code requires actual native reports before final delivery"
+    }
+  ],
+  "remaining": [
+    "manual critiques and manual later-round answers",
+    "explicit reconciliation of prior product operations",
+    "trusted live provenance and live token/history observers",
+    "full P04 criterion review and acceptance"
+  ],
+  "local_test_fixture_failure": "new test initially shadowed unittest.TestCase.id; corrected without dropping assertions; failed supervisor log retained",
+  "local_source_change_rejection": "a verification attempt detected edits during execution; failed report retained and final source rerun required"
+}

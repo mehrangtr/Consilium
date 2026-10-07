@@ -3,8 +3,10 @@ import json
 from uuid import UUID
 
 from consilium.core.admission_bundle import AdmissionBundle
-from consilium.core.contracts import ConnectionSpec, RoundSpec
+from consilium.core.contracts import ConnectionSpec, RoundSpec, UserDecision
 from consilium.core.independent_context import recover_independent_context
+from consilium.core.round_admission import ADMISSION_ADAPTER, RoundAdmissionBundle
+from consilium.core.round_context import recover_round_context
 from consilium.shell.private import ensure_public_payload
 from consilium.shell.storage import Conflict, SchemaError, _identifier
 
@@ -14,7 +16,18 @@ class AdmissionLedger:
         self.store = store
         self._db = store._db
 
-    def validate_preparation(self, bundle: AdmissionBundle, intent) -> None:
+    def continuation_for(self, round_spec):
+        row = self._db.execute("SELECT d.decision_json FROM user_decisions d JOIN rounds r ON r.round_id=d.round_id "
+            "WHERE d.debate_id=? AND r.number=? ORDER BY d.event_sequence DESC LIMIT 1",
+            (str(round_spec.debate_id), round_spec.number-1)).fetchone()
+        if row is None:
+            raise Conflict("Later-round context requires its stored continuation decision")
+        decision = UserDecision.model_validate_json(row[0])
+        if decision.kind not in {"CONTINUE", "CUSTOM"}:
+            raise Conflict("Stored decision does not permit continuation")
+        return decision
+
+    def validate_preparation(self, bundle: AdmissionBundle | RoundAdmissionBundle, intent) -> None:
         bundle.require_intent(intent)
         question = self.store.questions.get_adopted(intent.debate_id)
         if question is None:
@@ -24,11 +37,31 @@ class AdmissionLedger:
             (str(intent.round_id), str(intent.debate_id))).fetchone()
         if row is None:
             raise Conflict("Context admission requires its registered round")
-        recover_independent_context(bundle.context, question, RoundSpec.model_validate_json(row[0]),
-            participant_id=intent.participant_id, expected_revision=question.adoption.adopted_revision,
-            parameters=intent.frozen_input.parameters)
+        round_spec = RoundSpec.model_validate_json(row[0])
+        if isinstance(bundle, RoundAdmissionBundle):
+            sources = tuple(s for s in self.store.sources.context_sources(intent.debate_id,
+                through_revision=intent.expected_revision) if s.source_round.number < round_spec.number)
+            if bundle.sources != sources or bundle.required_source_hashes != tuple(s.content_hash for s in sources):
+                raise Conflict("Round admission sources differ from the canonical historical snapshot")
+            decision = self.continuation_for(round_spec)
+            ensure_public_payload(decision.model_dump(mode="json"), self.store._forbidden_values)
+            if bundle.continuation_decision != decision:
+                raise Conflict("Round admission differs from the stored continuation decision")
+            # Semantic checks precede JSON serialization; escaping is no secret filter.
+            for source in sources:
+                ensure_public_payload(source.model_dump(mode="json"), self.store._forbidden_values)
+            recover_round_context(bundle.context, question=question, debate=self.store.get_debate(intent.debate_id),
+                round_spec=round_spec, participant_id=intent.participant_id, expected_revision=intent.expected_revision,
+                sources=sources, required_source_hashes=bundle.required_source_hashes, grants=bundle.grants,
+                connection=bundle.connection, parameters=intent.frozen_input.parameters,
+                judge_selection=bundle.judge_selection, named_authorization=bundle.named_authorization,
+                continuation_decision=decision)
+        else:
+            recover_independent_context(bundle.context, question, round_spec,
+                participant_id=intent.participant_id, expected_revision=question.adoption.adopted_revision,
+                parameters=intent.frozen_input.parameters)
 
-    def get(self, logical_operation_id: UUID) -> AdmissionBundle | None:
+    def get(self, logical_operation_id: UUID) -> AdmissionBundle | RoundAdmissionBundle | None:
         if not self._db.in_transaction:
             with self.store._transaction(write=False):
                 return self.get(logical_operation_id)
@@ -41,7 +74,7 @@ class AdmissionLedger:
                 raise SchemaError("Prepared admission evidence is missing")
             return None  # Historical foundation operations have no policy bundle.
         try:
-            bundle = AdmissionBundle.model_validate_json(row["bundle_json"])
+            bundle = ADMISSION_ADAPTER.validate_json(row["bundle_json"])
             if bundle.content_hash != row["bundle_hash"]:
                 raise ValueError("Bundle checksum mismatch")
             intent = self.store.get_intent(UUID(row["prepared_attempt_id"]))

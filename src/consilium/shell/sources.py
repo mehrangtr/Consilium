@@ -128,16 +128,20 @@ class SourceLedger:
     def export_fields(self, debate_id: UUID) -> dict:
         return {"canonical_context_sources": [x.model_dump(mode="json") for x in self.for_debate(debate_id)]}
 
-    def context_sources(self, debate_id: UUID) -> tuple[ContextSource, ...]:
+    def context_sources(self, debate_id: UUID, *, through_revision: int | None = None) -> tuple[ContextSource, ...]:
         """All verified legacy/typed sources, in publication order; no grants."""
         if not self._db.in_transaction:
             with self.store._transaction(write=False):
-                return self.context_sources(debate_id)
+                return self.context_sources(debate_id, through_revision=through_revision)
+        if through_revision is not None:
+            from consilium.shell.storage import _revision
+            through_revision = _revision(through_revision)
         groups = [(r.published_revision, (r.source,)) for r in self.for_debate(debate_id)]
         groups += [(r.published_revision, r.sources) for r in self.store.artifacts.for_debate(debate_id)]
         groups += [(r.accepted_revision, (r.source,)) for r in self.store.manual_sources.for_debate(debate_id)
                    if r.alignment == "ALIGNED"]
-        return tuple(source for _, sources in sorted(groups, key=lambda x: x[0]) for source in sources)
+        return tuple(source for revision, sources in sorted(groups, key=lambda x: x[0])
+                     if through_revision is None or revision <= through_revision for source in sources)
 
     def check_integrity(self) -> None:
         rows = self._db.execute("SELECT logical_operation_id,event_sequence FROM canonical_context_sources").fetchall()

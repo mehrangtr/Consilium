@@ -1,30 +1,87 @@
 {
   "schema_version": 1,
   "phase": "P04",
-  "status": "LOCAL_TESTS_PASS_NATIVE_PROOF_PENDING",
-  "phase_accepted": false,
+  "status": "DURABLE_INITIAL_ADMISSION_AND_LATER_PROJECTIONS_VERIFIED_NOT_PHASE_ACCEPTED",
   "source_digest": "2c15761cd9725cc9ac249544a0e508e5df982fb22ea34d51ef74f9a58685111a",
-  "code_commit": null,
-  "completed_scope": [
-    "atomic initial admission evidence",
-    "explicit later-round local projections"
+  "code_commit": "43a3f95e3fc7cc4e445148eeb4ae1f15f5469319",
+  "workflow_run_id": 37579414765,
+  "workflow_url": "https://github.com/mehrangtr/Consilium/actions/runs/37579414765",
+  "native_targets": [
+    {
+      "target": "Windows",
+      "status": "PASS",
+      "control_tests": 88,
+      "foundation_tests": 60,
+      "persistence_tests": 80,
+      "browser_probe_tests": 44,
+      "architect_tests": 95,
+      "evidence": {
+        "path": "evidence/targets/Windows/20261007T060327Z_5edc1371/RUN.json",
+        "sha256": "6a9280481141dd1490ebd72108a3ec16e7e3cf588bc3e98d08131876eb82a099"
+      }
+    },
+    {
+      "target": "Linux",
+      "status": "PASS",
+      "control_tests": 88,
+      "foundation_tests": 60,
+      "persistence_tests": 80,
+      "browser_probe_tests": 44,
+      "architect_tests": 95,
+      "evidence": {
+        "path": "evidence/targets/Linux/20261007T060313Z_062a3541/RUN.json",
+        "sha256": "ffa92d753007d9334b1ef408399027d419df21592878bf6d65e1277d2b0a4891"
+      }
+    }
   ],
-  "remaining": [
-    "later-round canonical source and ledger/budget integration",
-    "full P04 exit acceptance"
+  "native_artifacts": [
+    {
+      "target": "Windows",
+      "artifact_id": 11464390611,
+      "sha256": "407932304c62e74a332fa2c430e8d21dbaa0ae20738704964e2638925498109a"
+    },
+    {
+      "target": "Linux",
+      "artifact_id": 11464340838,
+      "sha256": "bbe96eeb788203671f475e768f5a3a00da2918517cf84c8c398d3ac7b8fd5b71"
+    }
   ],
+  "tests_per_os": 367,
+  "real_process_exit_cases_per_os": 19,
+  "phase_check_receipt": {
+    "phase": "P04",
+    "receipt": "evidence/runs/20261007T060539Z_ba356cabf5/RUN.json",
+    "sha256": "db2c6a13b6ac9d28dd0fb1f2932cd5399ba3a01e2eb943ec9a606c7ca5e6058a"
+  },
+  "review": {
+    "path": "evidence/p04/DURABLE_POLICY_AND_ROUND_VIEW_REVIEW.json",
+    "sha256": "b5b123512d377a5afe557cfe4b275b5d19645e5826e2a5279478b37b5239cd3f",
+    "independent": false,
+    "result": "PASS_FOR_IMPLEMENTED_SLICE_ONLY"
+  },
+  "verified_scope": [
+    "initial policy facts, intent, attempt, event and checkpoint commit atomically",
+    "restart validates full facts and exact authorized frozen input",
+    "missing evidence, stale state and binding changes fail safely",
+    "published migration history and rollback preserved",
+    "explicit review/targeted/synthesis projections with per-source transfer grants",
+    "blind metadata default; named mode and judge require explicit local authority",
+    "required dissent, provenance and exact reconstruction preserved"
+  ],
+  "limitations": [
+    "later-round projections still receive explicit inputs; canonical-source and ledger/budget integration remains open",
+    "positive token/history attestations are synthetic, not trusted live measurement/observation",
+    "process exits do not prove power-loss durability",
+    "metadata blindness and typed control do not guarantee complete model prompt-injection resistance",
+    "full original P04 exit review and phase acceptance remain open"
+  ],
+  "failed_previous_attempt": {
+    "path": "evidence/p04/NATIVE_FAILURE_37578899247.json",
+    "sha256": "3eea162cd745adffd8908c6af28384ac402ce36b4e24c23a5292f3337ea79a71",
+    "superseded_by_successful_run": 37579414765
+  },
   "live_provider_calls": 0,
   "paid_calls": 0,
-  "local_test_counts": {
-    "control": 88,
-    "foundation": 60,
-    "persistence": 80,
-    "browser_probe": 44,
-    "architect": 95,
-    "total": 367
-  },
-  "local_maintenance_check": {
-    "path": "evidence/maintenance-check/RUN.json",
-    "sha256": "f8578fbe92616533aa651a7f585b8eebd6fc928a6b593c9db7985cf777feed0c"
-  }
+  "phase_accepted": false,
+  "continuation": "Persist canonical later-round sources and their authorized views, grants and budgets with intent; finish P04 evidence before starting P05."
 }

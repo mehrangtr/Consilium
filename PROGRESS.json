@@ -2,7 +2,7 @@
   "schema_version": 1,
   "plan_version": "1.2",
   "updated_at": "2026-10-06",
-  "application_source_commit": "dead9ed58ee8bbefe7d2a425021dacc051aeb4d8",
+  "application_source_commit": "43a3f95e3fc7cc4e445148eeb4ae1f15f5469319",
   "current_phase": "P04",
   "verified_application_requirements": 0,
   "governance_check_note": "مرحله‌های P00 و P01 و P02 پذیرفته‌اند. P03 آماده است و هنوز بررسی مرورگر واقعی انجام نشده. ۳۰ خواسته محفوظ‌اند و پذیرش کامل اجرایی محصول 0/30 است.",
@@ -208,7 +208,7 @@
       "status": "IN_PROGRESS",
       "actual_engineering_hours": null,
       "external_wait_hours": 0,
-      "source_commit": "9cb6df0208e3d33c155cc823bac40d2312d1699f",
+      "source_commit": "43a3f95e3fc7cc4e445148eeb4ae1f15f5469319",
       "outputs": [
         "evidence/p04/CONTRACT_DRAFT.json",
         "evidence/p04/IMPLEMENTATION_PLAN_FA.md",
@@ -230,10 +230,13 @@
         "tests/architect/test_admission_storage.py",
         "tests/architect/test_round_context.py",
         "docs/P04_CONTEXT_EVIDENCE_FA.md",
-        "docs/decisions/ADR-016-P04-DURABLE-POLICY-AND-ROUND-VIEWS_FA.md"
+        "docs/decisions/ADR-016-P04-DURABLE-POLICY-AND-ROUND-VIEWS_FA.md",
+        "evidence/p04/DURABLE_POLICY_AND_ROUND_VIEW_CHECKPOINT.json",
+        "evidence/p04/DURABLE_POLICY_AND_ROUND_VIEW_REVIEW.json",
+        "evidence/p04/NATIVE_FAILURE_37578899247.json"
       ],
       "tests": [
-        "evidence/runs/20261007T051815Z_48be0f3beb/RUN.json"
+        "evidence/runs/20261007T060539Z_ba356cabf5/RUN.json"
       ],
       "exit_evidence": [],
       "blockers": [],
@@ -244,8 +247,9 @@
         "HISTORICAL CHECKPOINT: immutable question, initial independent context and schema-v3 durable user adoption implemented. 305 tests pass on each actual native OS for source d32bd2568f100a1e8917ca9cf5aaa0a149cca3d5eb76c3333d601af90ea729f6. Interactive confirmation, dispatch privacy/budget/history policy and full P04 acceptance remain pending.",
         "HISTORICAL WORK-IN-PROGRESS: local architect review, strict local dispatch policy validation and initial-context intent bridge implemented; 63 local P04 tests pass. Native proof for new source, durable admission evidence, later-round views and full phase acceptance pending. No live sends.",
         "HISTORICAL CHECKPOINT: local CLI architect review, bound local dispatch policy and initial intent preparation verified. Pre-handoff escaped-secret and non-BMP display defects fixed. 335 tests pass on both actual native targets. Full phase acceptance, durable admission evidence and later-round views pending; no live sends.",
-        "CURRENT WORK-IN-PROGRESS: atomic local admission evidence and schema-v4 migration implemented; explicit review/targeted/synthesis projections implemented. 95 local P04 tests pass, including two additional real process exits. Fresh full regression and both native targets pending. Later-round ledger/budget integration and full P04 exit acceptance remain open; policy-managed transport is explicitly blocked.",
-        "NATIVE AUDIT: Windows found two plain sqlite3 fixture connections not closed after inspection. Both now use explicit closing. Failed source edfe7e... and report preserved; new source needs fresh Linux and Windows proof."
+        "HISTORICAL WORK-IN-PROGRESS: atomic local admission evidence and schema-v4 migration implemented; explicit review/targeted/synthesis projections implemented. 95 local P04 tests pass, including two additional real process exits. Fresh full regression and both native targets pending. Later-round ledger/budget integration and full P04 exit acceptance remain open; policy-managed transport is explicitly blocked.",
+        "NATIVE AUDIT: Windows found two plain sqlite3 fixture connections not closed after inspection. Both now use explicit closing. Failed source edfe7e... and report preserved; new source needs fresh Linux and Windows proof.",
+        "CURRENT: atomic initial admission and explicit later-round projections verified for corrected source 2c15761cd9725cc9ac249544a0e508e5df982fb22ea34d51ef74f9a58685111a; 367 tests and 19 actual process exits per native OS. Windows fixture closure defect fixed; failed earlier run retained. Later-round canonical-source and ledger/budget integration and full P04 acceptance remain open. Policy-managed transport blocked."
       ]
     },
     {
@@ -701,12 +705,11 @@
       "P03 current-context defect fixed; 44 probe tests and 272 total per actual native OS",
       "P03 actual positive/observer-loss/controlled sign-out evidence and corrected five-provider estimate accepted",
       "P04 immutable question/adoption and initial independent context plus schema-v3 durable adoption tested: 305 tests on each actual native OS; phase not accepted.",
-      "P04-001 question contract, durable adoption and actual local CLI review completed; initial-context policy/intent preparation tested; 335 tests per actual native OS. Full P04 remains open."
+      "P04-001 question contract, durable adoption and actual local CLI review completed; initial-context policy/intent preparation tested; 335 tests per actual native OS. Full P04 remains open.",
+      "P04-002 durable initial admission and explicit later-round local projections verified: 367 tests and 19 real process exits per actual native OS; full P04 not accepted."
     ],
-    "working_changes": [
-      "P04 atomic evidence and local projections implemented; two Windows-only test fixture resource leaks fixed, fresh native run pending"
-    ],
-    "next_action": "ابتدا رگرسیون کامل و شاهد تازهٔ هر دو محیط برای این منبع را ثبت کن. سپس نمای دورهای بعد را از منابع معتبر پایگاه بساز و با شواهد کنترل و ورودی منجمد در همان تراکنش ثبت کن؛ آزمون بودجه و عدم حذف قیود و مخالفت را پیش از پذیرش P04 کامل کن. ارسال زنده فعال نشود.",
+    "working_changes": [],
+    "next_action": "در همین P04-002، ثبت نسخه‌دار و تغییرناپذیر منابع پاسخ و نقد را به دور و نتیجهٔ معتبر پایگاه متصل کن؛ سپس نمای دورهای بعد را همراه شواهد مجوز و بودجه در همان تراکنش ثبت قصد پایدار کن. تعارض و قطع پردازه و بودجهٔ ناکافی را بدون حذف قیود یا مخالفت آزمون کن؛ پس از شواهد تازه، بازبینی کامل معیارهای P04 را انجام بده. ارسال زنده فعال نشود.",
     "next_command": "python tools/qualityctl.py status",
     "startup_commands": [
       "python tools/qualityctl.py status",
@@ -723,32 +726,33 @@
       "P03 immutable accepted source is 70e86a...; current cb9928... differs only in transfer allowlist maintenance and is independently native-tested. Do not rewrite historical live evidence source stamps.",
       "Historical Git bundle is a pre-P03 backup, not current application code. It now matches the existing public file. Prior local checkpoint remains in archive/pre-public-source-sync-20261006; current checkout aligned with verified public main.",
       "IndependentContext revision currently represents adoption revision. Live integration must separately validate current ledger revision after round/connection events; never conflate them.",
-      "evidence/p04/IMPLEMENTATION_PLAN_FA.md is the historical initial design; its not-started wording is not current state. Use PROGRESS.json and latest P04 checkpoint."
+      "evidence/p04/IMPLEMENTATION_PLAN_FA.md is the historical initial design; its not-started wording is not current state. Use PROGRESS.json and latest P04 checkpoint.",
+      "P04 admission facts are historical local attestations; require_current is not send authorization. Policy-managed begin_send is blocked. Later-round input authenticity must come from canonical storage, not provider text or untrusted saved packets."
     ],
     "next_task": {
       "id": "P04-002",
       "phase": "P04",
-      "status": "PARTIAL_DURABLE_INITIAL_ADMISSION_AND_LATER_PROJECTIONS_LOCAL_TESTS_PASS",
+      "status": "PARTIAL_DURABLE_INITIAL_ADMISSION_AND_LATER_PROJECTIONS_VERIFIED",
       "title_fa": "نمای مجاز، ثبت پایدار شواهد کنترل و ورودی دورها",
-      "completed_fa": "ثبت تراکنشی شواهد کنترل اولیه، بازیابی و کشف حذف و تعارض؛ نمای محلی نقد و هدفمند و جمع‌بندی با مجوز منبع و حفظ مخالفت پیاده شد. ۹۵ آزمون محلی مرحلهٔ چهار پاس است؛ شاهد تازهٔ بومی هنوز در انتظار اجراست.",
+      "completed_fa": "شواهد کنترل زمینهٔ مستقل با قصد و تلاش و رویداد و نقطهٔ ذخیره در یک تراکنش ثبت می‌شوند؛ بازیابی و تعارض و قطع پردازه بررسی شده‌اند. نمای محلی نقد و هدفمند و جمع‌بندی با مجوز دقیق منبع و حفظ مخالفت ساخته شده است. ۳۶۷ آزمون و ۱۹ مورد قطع واقعی پردازه در هر محیط بومی موفق‌اند.",
       "remaining_fa": "اتصال نمای دورهای بعد به مخزن معتبر منابع شورا و ثبت تراکنشی شواهد مجوز و بودجهٔ همان نما؛ بازبینی کامل معیارهای مرحله و گیت. اندازه‌گیری زنده و مشاهدهٔ واقعی تاریخچه در این برش تأیید نشده‌اند.",
-      "next_action_fa": "ابتدا رگرسیون کامل و شاهد تازهٔ هر دو محیط برای این منبع را ثبت کن. سپس نمای دورهای بعد را از منابع معتبر پایگاه بساز و با شواهد کنترل و ورودی منجمد در همان تراکنش ثبت کن؛ آزمون بودجه و عدم حذف قیود و مخالفت را پیش از پذیرش P04 کامل کن. ارسال زنده فعال نشود.",
+      "next_action_fa": "در همین P04-002، ثبت نسخه‌دار و تغییرناپذیر منابع پاسخ و نقد را به دور و نتیجهٔ معتبر پایگاه متصل کن؛ سپس نمای دورهای بعد را همراه شواهد مجوز و بودجه در همان تراکنش ثبت قصد پایدار کن. تعارض و قطع پردازه و بودجهٔ ناکافی را بدون حذف قیود یا مخالفت آزمون کن؛ پس از شواهد تازه، بازبینی کامل معیارهای P04 را انجام بده. ارسال زنده فعال نشود.",
       "done_when_fa": "شواهد و ورودی منجمد با نسخه و منشأ و مقصد روشن پایدارند؛ بازیابی و نشت و بودجه و حفظ قیود در تمام نماهای لازم آزموده شده‌اند؛ شواهد هر دو محیط و بازبینی کامل معیارهای مرحله موجود است."
     },
     "unfinished_work": {
       "schema_version": 1,
-      "updated_at_utc": "2026-10-07T05:55:12.320369+00:00",
+      "updated_at_utc": "2026-10-07T06:08:07.336448+00:00",
       "canonical_location": "PROGRESS.json:resume.unfinished_work",
-      "continuation_instruction": "Do not reuse source edfe7e... as passing Windows evidence; preserve its recorded failure. Validate the explicitly closed fixture connections on a fresh both-OS source, then continue later-round storage and policy integration.",
+      "continuation_instruction": "Continue P04-002 from corrected, native-verified source 2c15761cd9725cc9ac249544a0e508e5df982fb22ea34d51ef74f9a58685111a. Do not repeat adoption/UI, old probes, or the resolved Windows fixture repair. Persist later-round canonical sources and bound policy evidence before full P04 acceptance.",
       "items": [
         {
           "id": "P04-002",
           "phase": "P04",
-          "status": "PARTIAL_DURABLE_INITIAL_ADMISSION_AND_LATER_PROJECTIONS_LOCAL_TESTS_PASS",
+          "status": "PARTIAL_DURABLE_INITIAL_ADMISSION_AND_LATER_PROJECTIONS_VERIFIED",
           "title_fa": "نمای مجاز، ثبت پایدار شواهد کنترل و ورودی دورها",
-          "completed_fa": "ثبت تراکنشی شواهد کنترل اولیه، بازیابی و کشف حذف و تعارض؛ نمای محلی نقد و هدفمند و جمع‌بندی با مجوز منبع و حفظ مخالفت پیاده شد. ۹۵ آزمون محلی مرحلهٔ چهار پاس است؛ شاهد تازهٔ بومی هنوز در انتظار اجراست.",
+          "completed_fa": "شواهد کنترل زمینهٔ مستقل با قصد و تلاش و رویداد و نقطهٔ ذخیره در یک تراکنش ثبت می‌شوند؛ بازیابی و تعارض و قطع پردازه بررسی شده‌اند. نمای محلی نقد و هدفمند و جمع‌بندی با مجوز دقیق منبع و حفظ مخالفت ساخته شده است. ۳۶۷ آزمون و ۱۹ مورد قطع واقعی پردازه در هر محیط بومی موفق‌اند.",
           "remaining_fa": "اتصال نمای دورهای بعد به مخزن معتبر منابع شورا و ثبت تراکنشی شواهد مجوز و بودجهٔ همان نما؛ بازبینی کامل معیارهای مرحله و گیت. اندازه‌گیری زنده و مشاهدهٔ واقعی تاریخچه در این برش تأیید نشده‌اند.",
-          "next_action_fa": "ابتدا رگرسیون کامل و شاهد تازهٔ هر دو محیط برای این منبع را ثبت کن. سپس نمای دورهای بعد را از منابع معتبر پایگاه بساز و با شواهد کنترل و ورودی منجمد در همان تراکنش ثبت کن؛ آزمون بودجه و عدم حذف قیود و مخالفت را پیش از پذیرش P04 کامل کن. ارسال زنده فعال نشود.",
+          "next_action_fa": "در همین P04-002، ثبت نسخه‌دار و تغییرناپذیر منابع پاسخ و نقد را به دور و نتیجهٔ معتبر پایگاه متصل کن؛ سپس نمای دورهای بعد را همراه شواهد مجوز و بودجه در همان تراکنش ثبت قصد پایدار کن. تعارض و قطع پردازه و بودجهٔ ناکافی را بدون حذف قیود یا مخالفت آزمون کن؛ پس از شواهد تازه، بازبینی کامل معیارهای P04 را انجام بده. ارسال زنده فعال نشود.",
           "done_when_fa": "شواهد و ورودی منجمد با نسخه و منشأ و مقصد روشن پایدارند؛ بازیابی و نشت و بودجه و حفظ قیود در تمام نماهای لازم آزموده شده‌اند؛ شواهد هر دو محیط و بازبینی کامل معیارهای مرحله موجود است."
         }
       ],
@@ -934,19 +938,27 @@
     },
     "public_publication": {
       "status": "COMPLETED_REVIEWED_SOURCE_AND_EVIDENCE_ON_MAIN",
-      "tested_source_commit": "dead9ed58ee8bbefe7d2a425021dacc051aeb4d8",
-      "tested_source_digest": "cb99286e53059e175bb409da98be8e0805efe7ac1dc327430f2cae8c201a2d4f",
+      "tested_source_commit": "43a3f95e3fc7cc4e445148eeb4ae1f15f5469319",
+      "tested_source_digest": "2c15761cd9725cc9ac249544a0e508e5df982fb22ea34d51ef74f9a58685111a",
       "standing_authorization": "ACTIVE",
       "private_raw_evidence_publication": "WITHHELD; prior automatic rejection retained",
-      "verified_artifact_commit": "c53e33764219832deed92774184ede8f6f90383a",
-      "verified_file_count": 194,
-      "verification": "Exact remote UTF-8 content and Git blob SHA for every changed file; main head matched; source unchanged after publication",
-      "verified_at_utc": "2026-10-06T23:41:32.996372+00:00",
+      "verification": "Exact changed-file Git tree comparison and successful fresh native report graphs; leased main update is the final publication operation.",
       "target_branch": "main",
       "unfinished_publication_work": false,
-      "portable_files_verified": 670,
+      "portable_files_verified": 738,
       "legacy_backup_sync": "Exact published Git blob df5bbb1abd58b6f540c1793e0d2a75023a8a1a9a retrieved through ordinary authorized Git fetch; no replacement backup uploaded",
-      "local_public_tree_reconciliation": "PASS; previous local checkpoint preserved"
+      "local_public_tree_reconciliation": "PASS; previous local checkpoint preserved",
+      "scope": "REVIEWED_NON_SECRET_P04_IMPLEMENTED_SLICE_NOT_PHASE_ACCEPTANCE",
+      "portable_verification_scope": "Byte/path/hash graph verification, including current native proof and retained failure; not phase acceptance.",
+      "transfer_execution": {
+        "prior_large_tree": "CANCELLED_BY_USER; no main ref update and sampled new blobs absent",
+        "reconciled_main": "983ee7b150da7c27f4cc3eb4799e5bc714e6de83",
+        "tested_code_preserved_on_branch": "43a3f95e3fc7cc4e445148eeb4ae1f15f5469319",
+        "method": "Upload verified individual blobs, then a small SHA-only tree; compare exact local tree before commit and leased ref update.",
+        "per_call_deadline_seconds": 30,
+        "unknown_call_policy": "End waiting; record UNKNOWN; reconcile by object SHA or ref before retry; never repeat a ref update blindly.",
+        "progress_persistence": "Local upload checkpoint under evidence; no phase advancement or native proof replacement."
+      }
     },
     "historical_resume_source": {
       "repository": "mehrangtr/Consilium",
@@ -955,24 +967,24 @@
       "meaning": "Historical login attempts and preflight checkpoint; current record supersedes pending-login/natural-wait instructions"
     },
     "last_tested_source_checkpoint": {
-      "source_digest": "cb99286e53059e175bb409da98be8e0805efe7ac1dc327430f2cae8c201a2d4f",
-      "code_commit": "dead9ed58ee8bbefe7d2a425021dacc051aeb4d8",
-      "native_run_id": 37547041855,
+      "source_digest": "2c15761cd9725cc9ac249544a0e508e5df982fb22ea34d51ef74f9a58685111a",
+      "code_commit": "43a3f95e3fc7cc4e445148eeb4ae1f15f5469319",
+      "native_run_id": 37579414765,
       "native_matrix": {
         "path": "evidence/target-matrix/RUN.json",
-        "sha256": "bc899c3b3a1d9be2995772eefd2641faa23fe795c14224b8bc1a891263e98dc2"
+        "sha256": "8d71801dd42de9425add44ebe3e888b5724b103f735608d4c6cde3b832679228"
       },
-      "tests_per_os": 272,
-      "scope": "NATIVE_OFFLINE_REGRESSION; P04_IMPLEMENTATION_NOT_STARTED"
+      "tests_per_os": 367,
+      "scope": "NATIVE_OFFLINE_P04_SLICE_NOT_PHASE_ACCEPTANCE"
     },
     "native_checkpoint": {
       "schema_version": 1,
       "phase": "P04",
-      "status": "LOCAL_REVIEW_POLICY_AND_PREPARATION_VERIFIED_NOT_PHASE_ACCEPTED",
-      "source_digest": "fb21bf1487d54923ce9867dcec5b36bffd64cff8e0f788b552448dc400f59f72",
-      "code_commit": "9cb6df0208e3d33c155cc823bac40d2312d1699f",
-      "workflow_run_id": 37575471313,
-      "workflow_url": "https://github.com/mehrangtr/Consilium/actions/runs/37575471313",
+      "status": "DURABLE_INITIAL_ADMISSION_AND_LATER_PROJECTIONS_VERIFIED_NOT_PHASE_ACCEPTED",
+      "source_digest": "2c15761cd9725cc9ac249544a0e508e5df982fb22ea34d51ef74f9a58685111a",
+      "code_commit": "43a3f95e3fc7cc4e445148eeb4ae1f15f5469319",
+      "workflow_run_id": 37579414765,
+      "workflow_url": "https://github.com/mehrangtr/Consilium/actions/runs/37579414765",
       "native_targets": [
         {
           "target": "Windows",
@@ -981,10 +993,10 @@
           "foundation_tests": 60,
           "persistence_tests": 80,
           "browser_probe_tests": 44,
-          "architect_tests": 63,
+          "architect_tests": 95,
           "evidence": {
-            "path": "evidence/targets/Windows/20261007T051632Z_9f313e74/RUN.json",
-            "sha256": "493b969be118b37c3a33ecbf26d1d9dce211afaed5186398c16a9502a63d149d"
+            "path": "evidence/targets/Windows/20261007T060327Z_5edc1371/RUN.json",
+            "sha256": "6a9280481141dd1490ebd72108a3ec16e7e3cf588bc3e98d08131876eb82a099"
           }
         },
         {
@@ -994,36 +1006,63 @@
           "foundation_tests": 60,
           "persistence_tests": 80,
           "browser_probe_tests": 44,
-          "architect_tests": 63,
+          "architect_tests": 95,
           "evidence": {
-            "path": "evidence/targets/Linux/20261007T051626Z_87bc1420/RUN.json",
-            "sha256": "c777db3313cb35d317620856c965734ea3ae78c591bbb9898e3776b719e9b5fc"
+            "path": "evidence/targets/Linux/20261007T060313Z_062a3541/RUN.json",
+            "sha256": "ffa92d753007d9334b1ef408399027d419df21592878bf6d65e1277d2b0a4891"
           }
         }
       ],
+      "native_artifacts": [
+        {
+          "target": "Windows",
+          "artifact_id": 11464390611,
+          "sha256": "407932304c62e74a332fa2c430e8d21dbaa0ae20738704964e2638925498109a"
+        },
+        {
+          "target": "Linux",
+          "artifact_id": 11464340838,
+          "sha256": "bbe96eeb788203671f475e768f5a3a00da2918517cf84c8c398d3ac7b8fd5b71"
+        }
+      ],
+      "tests_per_os": 367,
+      "real_process_exit_cases_per_os": 19,
       "phase_check_receipt": {
         "phase": "P04",
-        "receipt": "evidence/runs/20261007T051815Z_48be0f3beb/RUN.json",
-        "sha256": "5dc24125699df1d186ff3d17cd7857ecccab6b72a1689056a648dd8e4eb687b2"
+        "receipt": "evidence/runs/20261007T060539Z_ba356cabf5/RUN.json",
+        "sha256": "db2c6a13b6ac9d28dd0fb1f2932cd5399ba3a01e2eb943ec9a606c7ca5e6058a"
       },
       "review": {
+        "path": "evidence/p04/DURABLE_POLICY_AND_ROUND_VIEW_REVIEW.json",
+        "sha256": "b5b123512d377a5afe557cfe4b275b5d19645e5826e2a5279478b37b5239cd3f",
         "independent": false,
-        "method": "Separate author review of trusted local confirmation, binding/revision guards, budget and history blocks, preparation without transport, and negative tests for escaped secrets and exact Unicode display.",
         "result": "PASS_FOR_IMPLEMENTED_SLICE_ONLY"
       },
       "verified_scope": [
-        "local CLI confirmation before atomic question adoption",
-        "strict local validation of externally supplied policy attestations",
-        "independent frozen-input reconstruction against actual registered state",
-        "intent preparation guarded against state changes; no transport"
+        "initial policy facts, intent, attempt, event and checkpoint commit atomically",
+        "restart validates full facts and exact authorized frozen input",
+        "missing evidence, stale state and binding changes fail safely",
+        "published migration history and rollback preserved",
+        "explicit review/targeted/synthesis projections with per-source transfer grants",
+        "blind metadata default; named mode and judge require explicit local authority",
+        "required dissent, provenance and exact reconstruction preserved"
       ],
       "limitations": [
-        "positive policy attestations are synthetic test facts, not real token measurements or remote history verification",
-        "admission evidence is not durably stored alongside intent yet",
-        "later-round authorized views are not implemented",
-        "full P04 exit review and acceptance remain open"
+        "later-round projections still receive explicit inputs; canonical-source and ledger/budget integration remains open",
+        "positive token/history attestations are synthetic, not trusted live measurement/observation",
+        "process exits do not prove power-loss durability",
+        "metadata blindness and typed control do not guarantee complete model prompt-injection resistance",
+        "full original P04 exit review and phase acceptance remain open"
       ],
-      "continuation": "Persist admission evidence atomically with intent and validate on restart; implement remaining authorized views before P04 acceptance."
+      "failed_previous_attempt": {
+        "path": "evidence/p04/NATIVE_FAILURE_37578899247.json",
+        "sha256": "3eea162cd745adffd8908c6af28384ac402ce36b4e24c23a5292f3337ea79a71",
+        "superseded_by_successful_run": 37579414765
+      },
+      "live_provider_calls": 0,
+      "paid_calls": 0,
+      "phase_accepted": false,
+      "continuation": "Persist canonical later-round sources and their authorized views, grants and budgets with intent; finish P04 evidence before starting P05."
     },
     "native_checkpoint_history": [
       {
@@ -1130,6 +1169,66 @@
           "full P04 exit evidence and phase acceptance"
         ],
         "continuation": "Implement local interactive confirmation and policy validation before connecting the context to live sends."
+      },
+      {
+        "schema_version": 1,
+        "phase": "P04",
+        "status": "LOCAL_REVIEW_POLICY_AND_PREPARATION_VERIFIED_NOT_PHASE_ACCEPTED",
+        "source_digest": "fb21bf1487d54923ce9867dcec5b36bffd64cff8e0f788b552448dc400f59f72",
+        "code_commit": "9cb6df0208e3d33c155cc823bac40d2312d1699f",
+        "workflow_run_id": 37575471313,
+        "workflow_url": "https://github.com/mehrangtr/Consilium/actions/runs/37575471313",
+        "native_targets": [
+          {
+            "target": "Windows",
+            "status": "PASS",
+            "control_tests": 88,
+            "foundation_tests": 60,
+            "persistence_tests": 80,
+            "browser_probe_tests": 44,
+            "architect_tests": 63,
+            "evidence": {
+              "path": "evidence/targets/Windows/20261007T051632Z_9f313e74/RUN.json",
+              "sha256": "493b969be118b37c3a33ecbf26d1d9dce211afaed5186398c16a9502a63d149d"
+            }
+          },
+          {
+            "target": "Linux",
+            "status": "PASS",
+            "control_tests": 88,
+            "foundation_tests": 60,
+            "persistence_tests": 80,
+            "browser_probe_tests": 44,
+            "architect_tests": 63,
+            "evidence": {
+              "path": "evidence/targets/Linux/20261007T051626Z_87bc1420/RUN.json",
+              "sha256": "c777db3313cb35d317620856c965734ea3ae78c591bbb9898e3776b719e9b5fc"
+            }
+          }
+        ],
+        "phase_check_receipt": {
+          "phase": "P04",
+          "receipt": "evidence/runs/20261007T051815Z_48be0f3beb/RUN.json",
+          "sha256": "5dc24125699df1d186ff3d17cd7857ecccab6b72a1689056a648dd8e4eb687b2"
+        },
+        "review": {
+          "independent": false,
+          "method": "Separate author review of trusted local confirmation, binding/revision guards, budget and history blocks, preparation without transport, and negative tests for escaped secrets and exact Unicode display.",
+          "result": "PASS_FOR_IMPLEMENTED_SLICE_ONLY"
+        },
+        "verified_scope": [
+          "local CLI confirmation before atomic question adoption",
+          "strict local validation of externally supplied policy attestations",
+          "independent frozen-input reconstruction against actual registered state",
+          "intent preparation guarded against state changes; no transport"
+        ],
+        "limitations": [
+          "positive policy attestations are synthetic test facts, not real token measurements or remote history verification",
+          "admission evidence is not durably stored alongside intent yet",
+          "later-round authorized views are not implemented",
+          "full P04 exit review and acceptance remain open"
+        ],
+        "continuation": "Persist admission evidence atomically with intent and validate on restart; implement remaining authorized views before P04 acceptance."
       }
     ],
     "native_validation_attempts": [
@@ -1157,7 +1256,11 @@
         "artifact_id": 11463363970,
         "artifact_sha256": "d3e5949f2fe121e9b8adb6a3055f00edda2920b90965c69755e013ec36e94d03"
       }
-    ]
+    ],
+    "last_verified_in_phase_checkpoint": {
+      "path": "evidence/p04/DURABLE_POLICY_AND_ROUND_VIEW_CHECKPOINT.json",
+      "sha256": "e3ecc9e5bb78626b5cc82239d481cacfb301c585d41a3199be80b37df53d05ba"
+    }
   },
-  "updated_at_utc": "2026-10-07T06:00:52.642246+00:00"
+  "updated_at_utc": "2026-10-07T08:16:32.424540+00:00"
 }

@@ -1,0 +1,350 @@
+{
+  "schema_version": 1,
+  "scope": "VERIFIED_TRANSFER_PREFLIGHT_NOT_PHASE_ACCEPTANCE",
+  "status": "ALL_REQUIRED_BLOBS_VERIFIED_READY_FOR_MAIN_COMMIT",
+  "source_digest": "2c15761cd9725cc9ac249544a0e508e5df982fb22ea34d51ef74f9a58685111a",
+  "tested_code_commit": "43a3f95e3fc7cc4e445148eeb4ae1f15f5469319",
+  "base_tree": "4a8525925b3451ceb7346714bae44ff6774a69a4",
+  "expected_main_before_update": "983ee7b150da7c27f4cc3eb4799e5bc714e6de83",
+  "verified_changed_files": 67,
+  "verified_new_unique_blobs": 48,
+  "reused_existing_files": 19,
+  "initial_large_call": "Cancelled by user; no main update; sampled blobs absent.",
+  "method": "Individual blobs plus artifact batches capped at 30000 bytes; each batch tree checked against local Git; final tree uses SHA references only.",
+  "local_wait_deadline_seconds": 45,
+  "uncertain_operation_policy": "Stop waiting and verify the object SHA before retry; never repeat a ref update blindly.",
+  "phase": "P04_IN_PROGRESS",
+  "phase_accepted": false,
+  "operations": [
+    {
+      "path": "MANIFEST.json",
+      "sha": "e353832e489fefac4482ec947673d31c380f4bdd",
+      "status": "UPLOADED_VERIFIED"
+    },
+    {
+      "path": "PROGRESS.json",
+      "sha": "0be0644bdc484f9464c41f0aa632a04c4eecf53c",
+      "status": "UNKNOWN_TIMEOUT"
+    },
+    {
+      "path": "evidence/targets/Windows/20261007T060327Z_5edc1371/CHECK.log",
+      "sha": "efec489d7e6611d9109bfc115a847dc6d5268701",
+      "status": "UNKNOWN_TIMEOUT"
+    },
+    {
+      "path": "PROGRESS.json",
+      "sha": "0be0644bdc484f9464c41f0aa632a04c4eecf53c",
+      "status": "RECONCILED_EXISTS"
+    },
+    {
+      "path": "evidence/targets/Windows/20261007T060327Z_5edc1371/CHECK.log",
+      "sha": "efec489d7e6611d9109bfc115a847dc6d5268701",
+      "status": "RECONCILED_EXISTS"
+    },
+    {
+      "path": "evidence/runs/20261007T060539Z_ba356cabf5/development_regression.log",
+      "sha": "86dad21dfc8e859d81b149e91719cb9634b0664a",
+      "status": "UPLOADED_VERIFIED"
+    },
+    {
+      "path": "evidence/targets/Linux/20261007T060313Z_062a3541/CHECK.log",
+      "sha": "fd0d77b772c0cd29ddfcb19cccf58d579b85900e",
+      "status": "UPLOADED_VERIFIED"
+    },
+    {
+      "path": "HANDOFF.json",
+      "sha": "76b2d1d1921997f44a9a5fd3f732b09ed9e5db2b",
+      "status": "UNKNOWN_TIMEOUT"
+    },
+    {
+      "path": "HANDOFF.json",
+      "sha": "76b2d1d1921997f44a9a5fd3f732b09ed9e5db2b",
+      "status": "VERIFY_NOT_FOUND",
+      "details": "NOT_FOUND"
+    },
+    {
+      "path": "evidence/navigation/STATUS_FA.md",
+      "sha": "82bfadde88eab561a9517061a532adc1bb41b7e1",
+      "status": "UNKNOWN_TIMEOUT"
+    },
+    {
+      "path": "evidence/navigation/BACKLOG_FA.md",
+      "sha": "0b940fc758bc37c82dc405b9e9d2db132447d660",
+      "status": "UNKNOWN_TIMEOUT"
+    },
+    {
+      "path": "evidence/runs/20261007T060539Z_ba356cabf5/architect_and_independent_context.log",
+      "sha": "62bb361e7c625bff0a12bc2fb67e57a3053e767d",
+      "status": "UPLOADED_VERIFIED"
+    },
+    {
+      "path": "HANDOFF.json",
+      "sha": "76b2d1d1921997f44a9a5fd3f732b09ed9e5db2b",
+      "status": "VERIFY_NOT_FOUND",
+      "code": "NOT_FOUND"
+    },
+    {
+      "path": "evidence/navigation/STATUS_FA.md",
+      "sha": "82bfadde88eab561a9517061a532adc1bb41b7e1",
+      "status": "VERIFY_NOT_FOUND",
+      "code": "NOT_FOUND"
+    },
+    {
+      "path": "evidence/navigation/BACKLOG_FA.md",
+      "sha": "0b940fc758bc37c82dc405b9e9d2db132447d660",
+      "status": "VERIFY_NOT_FOUND",
+      "code": "NOT_FOUND"
+    },
+    {
+      "path": "HANDOFF.json",
+      "sha": "76b2d1d1921997f44a9a5fd3f732b09ed9e5db2b",
+      "status": "UPLOADED_VERIFIED",
+      "operation": "CREATE",
+      "attempt": 2
+    },
+    {
+      "path": "evidence/navigation/STATUS_FA.md",
+      "sha": "82bfadde88eab561a9517061a532adc1bb41b7e1",
+      "status": "UPLOADED_VERIFIED",
+      "operation": "CREATE",
+      "attempt": 2
+    },
+    {
+      "path": "evidence/navigation/BACKLOG_FA.md",
+      "sha": "0b940fc758bc37c82dc405b9e9d2db132447d660",
+      "status": "UPLOADED_VERIFIED",
+      "operation": "CREATE",
+      "attempt": 2
+    },
+    {
+      "path": "evidence/targets/Windows/20261007T060327Z_5edc1371/control_report.json",
+      "sha": "7588277a6163aeca54e40b580e8fe9672603e245",
+      "status": "UPLOADED_VERIFIED",
+      "operation": "CREATE",
+      "attempt": 1
+    },
+    {
+      "path": "evidence/targets/Linux/20261007T060313Z_062a3541/control_report.json",
+      "sha": "205d1511bde918ccac91fdef649195245c29af14",
+      "status": "UPLOADED_VERIFIED",
+      "operation": "CREATE",
+      "attempt": 1
+    },
+    {
+      "path": "evidence/control-tests/RUN.json",
+      "sha": "cc9c13e33ef4dc68b3d1ce0a904b335cd1c576fa",
+      "status": "UPLOADED_VERIFIED_IN_SMALL_TREE",
+      "tree": "7befe58f93e0102ee234a550811aab63fd6f5ac2"
+    },
+    {
+      "path": "evidence/targets/Windows/20261007T060327Z_5edc1371/persistence_report.json",
+      "sha": "355a26d2bfb82bd5e9688e97687f78864377a34d",
+      "status": "UPLOADED_VERIFIED_IN_SMALL_TREE",
+      "tree": "7befe58f93e0102ee234a550811aab63fd6f5ac2"
+    },
+    {
+      "path": "evidence/target-matrix/RUN.json",
+      "sha": "e0549b8da34c69d01c2cee2188862a79fb1b642c",
+      "status": "UPLOADED_VERIFIED_IN_SMALL_TREE",
+      "tree": "7befe58f93e0102ee234a550811aab63fd6f5ac2"
+    },
+    {
+      "path": "evidence/targets/Windows/20261007T060327Z_5edc1371/smoke_1.log",
+      "sha": "ecb487bfc3f59fa25ccfb890fd4cfffe6b440f51",
+      "status": "UPLOADED_VERIFIED_IN_SMALL_TREE",
+      "tree": "7befe58f93e0102ee234a550811aab63fd6f5ac2"
+    },
+    {
+      "path": "evidence/latest/P04.json",
+      "sha": "06e94ae4f746db9dd1bccec361f2152cc896c084",
+      "status": "UPLOADED_VERIFIED_IN_SMALL_TREE",
+      "tree": "7befe58f93e0102ee234a550811aab63fd6f5ac2"
+    },
+    {
+      "path": "evidence/targets/Windows/20261007T060327Z_5edc1371/architect_report.json",
+      "sha": "11482843d66e32182c8508f93a65e914b6016996",
+      "status": "UPLOADED_VERIFIED_IN_SMALL_TREE",
+      "tree": "b715db019bbff8380726d1f269d6ae4ec4b48ff0"
+    },
+    {
+      "path": "evidence/architect-tests/RUN.json",
+      "sha": "9b9ced9eb3496ca9f124e50d7dcb1ac37e33f10c",
+      "status": "UPLOADED_VERIFIED_IN_SMALL_TREE",
+      "tree": "b715db019bbff8380726d1f269d6ae4ec4b48ff0"
+    },
+    {
+      "path": "evidence/targets/Windows/LATEST.json",
+      "sha": "c252a6c24ad0190479f484241c47d7585d3fd08b",
+      "status": "UPLOADED_VERIFIED_IN_SMALL_TREE",
+      "tree": "b715db019bbff8380726d1f269d6ae4ec4b48ff0"
+    },
+    {
+      "path": "evidence/targets/Linux/LATEST.json",
+      "sha": "365245f266fe9d3e007caf13597cc7ec828951dd",
+      "status": "UPLOADED_VERIFIED_IN_SMALL_TREE",
+      "tree": "b715db019bbff8380726d1f269d6ae4ec4b48ff0"
+    },
+    {
+      "path": "evidence/targets/Linux/20261007T060313Z_062a3541/architect_report.json",
+      "sha": "cdd93930412854b4e92b4e96082839cf7c757bb0",
+      "status": "UPLOADED_VERIFIED_IN_SMALL_TREE",
+      "tree": "7429319e6f05c7f4e68cb506750813aa3af9e140"
+    },
+    {
+      "path": "evidence/persistence-tests/RUN.json",
+      "sha": "ae62b1953683979a0b7b2d9fcf75576891a7d80e",
+      "status": "UPLOADED_VERIFIED_IN_SMALL_TREE",
+      "tree": "7429319e6f05c7f4e68cb506750813aa3af9e140"
+    },
+    {
+      "path": "evidence/targets/Windows/20261007T060327Z_5edc1371/smoke_2.log",
+      "sha": "60e81153c406b02d07b76a4074a894147f30fccf",
+      "status": "UPLOADED_VERIFIED_IN_SMALL_TREE",
+      "tree": "7429319e6f05c7f4e68cb506750813aa3af9e140"
+    },
+    {
+      "path": "evidence/runs/20261007T060539Z_ba356cabf5/native_target_matrix.log",
+      "sha": "ed217d7754dae6c5d8ed8dda95529ae8fc13c163",
+      "status": "UPLOADED_VERIFIED_IN_SMALL_TREE",
+      "tree": "7429319e6f05c7f4e68cb506750813aa3af9e140"
+    },
+    {
+      "path": "evidence/targets/Windows/20261007T060327Z_5edc1371/smoke_4.log",
+      "sha": "999a56968ae023485e385cc043b72f7e8c04a99f",
+      "status": "UPLOADED_VERIFIED_IN_SMALL_TREE",
+      "tree": "7429319e6f05c7f4e68cb506750813aa3af9e140"
+    },
+    {
+      "path": "evidence/targets/Linux/20261007T060313Z_062a3541/persistence_report.json",
+      "sha": "0a3daf46ee67eaabcc48ff8f114f239af335be72",
+      "status": "UPLOADED_VERIFIED_IN_SMALL_TREE",
+      "tree": "168f1a1fc6495e8f501c224feeed5dcddf82b2ae"
+    },
+    {
+      "path": "evidence/runs/20261007T060539Z_ba356cabf5/persistence_durable_kernel.log",
+      "sha": "7c8d7cb9c5a56154562fb3db40d421f13ad35a3e",
+      "status": "UPLOADED_VERIFIED_IN_SMALL_TREE",
+      "tree": "168f1a1fc6495e8f501c224feeed5dcddf82b2ae"
+    },
+    {
+      "path": "evidence/p04/DURABLE_POLICY_AND_ROUND_VIEW_REVIEW.json",
+      "sha": "032dbad0b70559cf39231e6ae2c9b9a493894ec9",
+      "status": "UPLOADED_VERIFIED_IN_SMALL_TREE",
+      "tree": "168f1a1fc6495e8f501c224feeed5dcddf82b2ae"
+    },
+    {
+      "path": "evidence/targets/Linux/20261007T060313Z_062a3541/smoke_1.log",
+      "sha": "ff06891580860f175cd3fe2d84c32722e49cf4a1",
+      "status": "UPLOADED_VERIFIED_IN_SMALL_TREE",
+      "tree": "168f1a1fc6495e8f501c224feeed5dcddf82b2ae"
+    },
+    {
+      "path": "evidence/targets/Windows/20261007T060327Z_5edc1371/architect_junit.xml",
+      "sha": "e2b5ad27c56a7207a0c138837d0c2385a76de2df",
+      "status": "UPLOADED_VERIFIED_IN_SMALL_TREE",
+      "tree": "efdbbbb842e533f6ec064068133af5cba7717769"
+    },
+    {
+      "path": "evidence/targets/Windows/20261007T060327Z_5edc1371/foundation_report.json",
+      "sha": "d6212b0ba8041ca0e8327a993e435663c2b9b315",
+      "status": "UPLOADED_VERIFIED_IN_SMALL_TREE",
+      "tree": "efdbbbb842e533f6ec064068133af5cba7717769"
+    },
+    {
+      "path": "evidence/foundation-tests/RUN.json",
+      "sha": "6b8acda1683d6fdf17b2512a49c1d6461400a673",
+      "status": "UPLOADED_VERIFIED_IN_SMALL_TREE",
+      "tree": "efdbbbb842e533f6ec064068133af5cba7717769"
+    },
+    {
+      "path": "evidence/targets/Linux/20261007T060313Z_062a3541/smoke_2.log",
+      "sha": "38c0355ea02f8440e1e49c837dd0953a6a011aae",
+      "status": "UPLOADED_VERIFIED_IN_SMALL_TREE",
+      "tree": "efdbbbb842e533f6ec064068133af5cba7717769"
+    },
+    {
+      "path": "evidence/targets/Linux/20261007T060313Z_062a3541/smoke_4.log",
+      "sha": "00a203eb15478beac736962aad5aa7234a62dc91",
+      "status": "UPLOADED_VERIFIED_IN_SMALL_TREE",
+      "tree": "efdbbbb842e533f6ec064068133af5cba7717769"
+    },
+    {
+      "path": "evidence/targets/Linux/20261007T060313Z_062a3541/foundation_report.json",
+      "sha": "8a1680923cf7dd6fba2d1b5a1413b489db71cd36",
+      "status": "UPLOADED_VERIFIED_IN_SMALL_TREE",
+      "tree": "836cbeae7f72fe7279ab7dacd4c9de7a15f7b756"
+    },
+    {
+      "path": "evidence/targets/Linux/20261007T060313Z_062a3541/RUN.json",
+      "sha": "b854539d8efcc276428697943e27d10916b5270c",
+      "status": "UPLOADED_VERIFIED_IN_SMALL_TREE",
+      "tree": "836cbeae7f72fe7279ab7dacd4c9de7a15f7b756"
+    },
+    {
+      "path": "evidence/runs/20261007T060539Z_ba356cabf5/foundation_behavior.log",
+      "sha": "4a1f1f32ea03ab087d64b2c5be34265a974f696d",
+      "status": "UPLOADED_VERIFIED_IN_SMALL_TREE",
+      "tree": "836cbeae7f72fe7279ab7dacd4c9de7a15f7b756"
+    },
+    {
+      "path": "evidence/p04/DURABLE_POLICY_AND_ROUND_VIEW_CHECKPOINT.json",
+      "sha": "39c7ac377111f555a13d3cd758a9c9ecea05f17b",
+      "status": "UPLOADED_VERIFIED_IN_SMALL_TREE",
+      "tree": "836cbeae7f72fe7279ab7dacd4c9de7a15f7b756"
+    },
+    {
+      "path": "evidence/targets/Windows/20261007T060327Z_5edc1371/smoke_3.log",
+      "sha": "86e8774cd201cb15b6a610904a5c23a1b93e9547",
+      "status": "UPLOADED_VERIFIED_IN_SMALL_TREE",
+      "tree": "836cbeae7f72fe7279ab7dacd4c9de7a15f7b756"
+    },
+    {
+      "path": "evidence/targets/Windows/20261007T060327Z_5edc1371/browser_probe_report.json",
+      "sha": "2836fa16aa8e074b2e991cada8f583ef03b92c74",
+      "status": "UPLOADED_VERIFIED_IN_SMALL_TREE",
+      "tree": "9632ff1190960d83d056e1bfc493e92b37079339"
+    },
+    {
+      "path": "evidence/browser-probe-tests/RUN.json",
+      "sha": "09a6423cd2635808bb7c716a8e3b2a90376b427d",
+      "status": "UPLOADED_VERIFIED_IN_SMALL_TREE",
+      "tree": "9632ff1190960d83d056e1bfc493e92b37079339"
+    },
+    {
+      "path": "evidence/targets/Linux/20261007T060313Z_062a3541/browser_probe_report.json",
+      "sha": "6a4762cfe7f98e6669cf17e1e84be792391143c7",
+      "status": "UPLOADED_VERIFIED_IN_SMALL_TREE",
+      "tree": "9632ff1190960d83d056e1bfc493e92b37079339"
+    },
+    {
+      "path": "evidence/runs/20261007T060539Z_ba356cabf5/browser_probe_preflight_and_durability.log",
+      "sha": "482cd22314594a7bb536806daf87e1578a727f40",
+      "status": "UPLOADED_VERIFIED_IN_SMALL_TREE",
+      "tree": "9632ff1190960d83d056e1bfc493e92b37079339"
+    },
+    {
+      "path": "evidence/targets/Linux/20261007T060313Z_062a3541/smoke_3.log",
+      "sha": "d56e85998b72e039390fcf352c2524b6e0689f75",
+      "status": "UPLOADED_VERIFIED_IN_SMALL_TREE",
+      "tree": "9632ff1190960d83d056e1bfc493e92b37079339"
+    },
+    {
+      "path": "evidence/scope/RUN.json",
+      "sha": "89ce0ad9084b26a57e8376cce6c612a7d029022e",
+      "status": "UPLOADED_VERIFIED_IN_SMALL_TREE",
+      "tree": "9632ff1190960d83d056e1bfc493e92b37079339"
+    },
+    {
+      "path": "evidence/runs/20261007T060539Z_ba356cabf5/scope_inventory.log",
+      "sha": "10a59712c6617803563989eafb118bf7c72a8697",
+      "status": "UPLOADED_VERIFIED_IN_SMALL_TREE",
+      "tree": "9632ff1190960d83d056e1bfc493e92b37079339"
+    },
+    {
+      "path": "evidence/runs/20261007T060539Z_ba356cabf5/RUN.json",
+      "sha": "824a326eb6f165f14d811cf274268662a05f3294",
+      "status": "UPLOADED_VERIFIED_IN_SMALL_TREE",
+      "tree": "14ddbe75218c701e1fe947d72162c9593661320c"
+    }
+  ]
+}

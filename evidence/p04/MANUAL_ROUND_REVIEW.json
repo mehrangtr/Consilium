@@ -2,7 +2,7 @@
   "schema_version": 1,
   "phase": "P04",
   "scope": "MANUAL_REVIEW_LATER_ANSWER_AND_CLI_ENTRY_SLICE",
-  "status": "PASS_LOCAL_NATIVE_PENDING_REMOTE_NATIVE",
+  "status": "PASS_IMPLEMENTED_SLICE_NATIVE_VERIFIED",
   "source_digest": "e97465f7dfe8c2977f1d2058021d41bc0040dffa4145cfff2c9776372b6d35be",
   "reviewer_independent": false,
   "method": "Separate author pass against canonical prompts, source history, authority boundary, migration history, failure retention and negative cases; not an independent reviewer.",
@@ -34,13 +34,13 @@
     },
     {
       "id": "migration_and_crash",
-      "result": "PASS_LOCAL_NATIVE",
-      "reason": "Populated V7 upgrade retains all published V1–V7 checksums; failed V8 rollback and two actual process-exit boundaries pass."
+      "result": "PASS",
+      "reason": "Populated V7 upgrade retains all published V1–V7 checksums; failed V8 rollback and two actual process-exit boundaries pass. Fresh exact-source Windows/Linux graphs verified."
     },
     {
       "id": "native_windows_linux",
-      "result": "PENDING",
-      "reason": "Fresh local Linux native graph passed; remote Windows/Linux run not yet started."
+      "result": "PASS",
+      "reason": "Fresh local Linux native graph passed; remote Windows/Linux run not yet started. Fresh exact-source Windows/Linux graphs verified."
     }
   ],
   "local_native": {
@@ -49,7 +49,8 @@
     "supervisor_state": "evidence/development-supervisor/eb21b5b2c266477cbfd438a3425954c7/STATE.json",
     "tests": 516,
     "architect_tests": 220,
-    "skipped": 0
+    "skipped": 0,
+    "scope": "LOCAL_AUTHOR_RECORD_NOT_INCLUDED_AS_PUBLIC_NATIVE_PROOF"
   },
   "new_tests": 32,
   "live_provider_calls": 0,
@@ -61,5 +62,113 @@
     "GUI textarea is scheduled P12, not implemented by this CLI slice.",
     "Process exits do not prove power-loss durability; hashes do not authenticate fully coordinated database rewrites.",
     "Full P04 criteria and trusted live observers remain open."
-  ]
+  ],
+  "code_commit": "53555c5d163a4e6e027f05d2b0f281a504cf5fcc",
+  "native_run_id": "37660566040",
+  "target_reports": [
+    {
+      "target": "Windows",
+      "report": {
+        "path": "evidence/targets/Windows/20261007T173824Z_030419d3/RUN.json",
+        "sha256": "13f1a192825844ede58a75dc0fb58f96bf66036b674f315f22e360a3681dc846"
+      },
+      "status": "PASS",
+      "source_matches_current": true,
+      "scope": "RECORDED_TARGET_ARTIFACTS_NOT_PHASE_ACCEPTANCE"
+    },
+    {
+      "target": "Linux",
+      "report": {
+        "path": "evidence/targets/Linux/20261007T173809Z_1bf692cb/RUN.json",
+        "sha256": "480ce46df3daa30f64584bb896ad951876724c4d4d9f51031c78d1e5f4a7e4f1"
+      },
+      "status": "PASS",
+      "source_matches_current": true,
+      "scope": "RECORDED_TARGET_ARTIFACTS_NOT_PHASE_ACCEPTANCE"
+    }
+  ],
+  "configured_phase_run": {
+    "receipt": "evidence/runs/20261007T180617Z_c91178382e/RUN.json",
+    "sha256": "6a62c0ed633a7433bafc5466893eb7168c583542f98d2aa76b44179259949eab",
+    "status": "PASS",
+    "source_matches_current": true,
+    "checks": [
+      {
+        "id": "scope_inventory",
+        "status": "PASS",
+        "counts": null,
+        "error": null
+      },
+      {
+        "id": "development_regression",
+        "status": "PASS",
+        "counts": {
+          "tests": 112,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        "error": null
+      },
+      {
+        "id": "foundation_behavior",
+        "status": "PASS",
+        "counts": {
+          "tests": 60,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        "error": null
+      },
+      {
+        "id": "environment_lock",
+        "status": "PASS",
+        "counts": null,
+        "error": null
+      },
+      {
+        "id": "native_target_matrix",
+        "status": "PASS",
+        "counts": null,
+        "error": null
+      },
+      {
+        "id": "persistence_durable_kernel",
+        "status": "PASS",
+        "counts": {
+          "tests": 80,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        "error": null
+      },
+      {
+        "id": "browser_probe_preflight_and_durability",
+        "status": "PASS",
+        "counts": {
+          "tests": 44,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        "error": null
+      },
+      {
+        "id": "architect_and_independent_context",
+        "status": "PASS",
+        "counts": {
+          "tests": 220,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        "error": null
+      }
+    ],
+    "scope": "LATEST_COMPLETED_CONFIGURED_RUN; NOT_PHASE_ACCEPTANCE"
+  },
+  "tests_per_native_target": 516,
+  "product_process_exit_cases_per_native_target": 29
 }

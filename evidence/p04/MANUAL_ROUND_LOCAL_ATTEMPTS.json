@@ -19,5 +19,17 @@
   },
   "author_review_corrections": [
     "Manual critique target aliases now match the canonical blind prompt aliases B/C; they are not independently renumbered A/B. Exact canonical peer-target assertion added."
-  ]
+  ],
+  "remote_packaging_failure": {
+    "workflow_run_id": 37663677135,
+    "job_id": 112937317840,
+    "artifact_id": 11500769771,
+    "artifact_sha256": "96d72e58690012c9a1907de16211ecbe2cae3c6f4de479e69191cd16da610a62",
+    "status": "PACKAGING_FAILURE_BEFORE_PUBLICATION",
+    "product_tests_failed": 0,
+    "cause": "Packaging helper expected an import summary label instead of the durable journal's actual VERIFIED_COMPLETE state.",
+    "fix": "Require exact VERIFIED_COMPLETE, mutation_replayed false and original verified receipt commit; preserve all source/native assertions.",
+    "delivery_ref_absence_independently_verified": true,
+    "test_assertions_removed": false
+  }
 }

@@ -3,14 +3,14 @@
   "scope": "P04_QUESTION_CONTEXT_AND_POLICY_OFFLINE_NOT_FULL_PHASE_ACCEPTANCE",
   "status": "PASS",
   "counts": {
-    "tests": 188,
+    "tests": 220,
     "failures": 0,
     "errors": 0,
     "skipped": 0
   },
-  "source_digest_before": "32ecd7ffb6844ec1a3a7f863e81cb4a1c817f2369345dba435df27c9f98f720a",
-  "source_digest_after": "32ecd7ffb6844ec1a3a7f863e81cb4a1c817f2369345dba435df27c9f98f720a",
-  "date_utc": "2026-10-07T15:34:13.915364+00:00",
+  "source_digest_before": "e97465f7dfe8c2977f1d2058021d41bc0040dffa4145cfff2c9776372b6d35be",
+  "source_digest_after": "e97465f7dfe8c2977f1d2058021d41bc0040dffa4145cfff2c9776372b6d35be",
+  "date_utc": "2026-10-07T18:07:21.867130+00:00",
   "host": {
     "system": "Linux",
     "python": "3.12.14"
@@ -352,6 +352,126 @@
       "status": "PASS"
     },
     {
+      "id": "test_manual_rounds.ManualRoundTests.test_acceptance_insert_failure_rolls_back_event_checkpoint_and_all_sources",
+      "status": "PASS"
+    },
+    {
+      "id": "test_manual_rounds.ManualRoundTests.test_cli_review_eof_keeps_candidate_unaccepted",
+      "status": "PASS"
+    },
+    {
+      "id": "test_manual_rounds.ManualRoundTests.test_complete_manual_critique_batch_survives_restart_without_login_or_send",
+      "status": "PASS"
+    },
+    {
+      "id": "test_manual_rounds.ManualRoundTests.test_connection_switch_invalidates_review_and_preserves_staged_content",
+      "status": "PASS"
+    },
+    {
+      "id": "test_manual_rounds.ManualRoundTests.test_deleted_acceptance_is_detected_on_restart",
+      "status": "PASS"
+    },
+    {
+      "id": "test_manual_rounds.ManualRoundTests.test_diverged_prompt_is_retained_but_excluded_from_context_and_completion",
+      "status": "PASS"
+    },
+    {
+      "id": "test_manual_rounds.ManualRoundTests.test_escaped_secret_in_critique_is_checked_semantically_before_storage",
+      "status": "PASS"
+    },
+    {
+      "id": "test_manual_rounds.ManualRoundTests.test_exact_local_review_phrase_accepts_only_the_displayed_content",
+      "status": "PASS"
+    },
+    {
+      "id": "test_manual_rounds.ManualRoundTests.test_failed_v8_upgrade_rolls_back_without_changing_v7_history",
+      "status": "PASS"
+    },
+    {
+      "id": "test_manual_rounds.ManualRoundTests.test_false_confirmation_wrong_hash_and_double_acceptance_do_not_replace_content",
+      "status": "PASS"
+    },
+    {
+      "id": "test_manual_rounds.ManualRoundTests.test_forged_context_cannot_omit_a_canonical_source",
+      "status": "PASS"
+    },
+    {
+      "id": "test_manual_rounds.ManualRoundTests.test_future_policy_receipt_rebuilds_prior_manual_history_on_restart",
+      "status": "PASS"
+    },
+    {
+      "id": "test_manual_rounds.ManualRoundTests.test_historical_source_cutoff_excludes_future_manual_acceptance_without_recursion",
+      "status": "PASS"
+    },
+    {
+      "id": "test_manual_rounds.ManualRoundTests.test_invalid_json_duplicate_target_coverage_and_scalar_coercion_are_rejected",
+      "status": "PASS"
+    },
+    {
+      "id": "test_manual_rounds.ManualRoundTests.test_later_manual_answer_preserves_exact_text_and_historical_review",
+      "status": "PASS"
+    },
+    {
+      "id": "test_manual_rounds.ManualRoundTests.test_local_byte_cap_blocks_without_dropping_dissent",
+      "status": "PASS"
+    },
+    {
+      "id": "test_manual_rounds.ManualRoundTests.test_missing_or_stale_transfer_grant_cannot_build_a_smaller_view",
+      "status": "PASS"
+    },
+    {
+      "id": "test_manual_rounds.ManualRoundTests.test_pending_operation_cannot_be_silently_replaced_by_manual_submission",
+      "status": "PASS"
+    },
+    {
+      "id": "test_manual_rounds.ManualRoundTests.test_populated_v7_upgrade_preserves_initial_manual_sources_and_all_published_checksums",
+      "status": "PASS"
+    },
+    {
+      "id": "test_manual_rounds.ManualRoundTests.test_real_cli_file_stage_and_review",
+      "status": "PASS"
+    },
+    {
+      "id": "test_manual_rounds.ManualRoundTests.test_real_cli_multiline_manual_slot_preserves_spaces_and_line_breaks",
+      "status": "PASS"
+    },
+    {
+      "id": "test_manual_rounds.ManualRoundTests.test_real_cli_slot_eof_cancels_without_staging_partial_content",
+      "status": "PASS"
+    },
+    {
+      "id": "test_manual_rounds.ManualRoundTests.test_real_process_exit_after_manual_batch_commit_preserves_all_sources",
+      "status": "PASS"
+    },
+    {
+      "id": "test_manual_rounds.ManualRoundTests.test_real_process_exit_before_manual_batch_commit_rolls_back_all_sources",
+      "status": "PASS"
+    },
+    {
+      "id": "test_manual_rounds.ManualRoundTests.test_response_control_text_does_not_finish_or_change_the_judge",
+      "status": "PASS"
+    },
+    {
+      "id": "test_manual_rounds.ManualRoundTests.test_revision_change_during_cli_review_prevents_acceptance",
+      "status": "PASS"
+    },
+    {
+      "id": "test_manual_rounds.ManualRoundTests.test_round_not_seen_is_diverged_even_with_exact_prompt",
+      "status": "PASS"
+    },
+    {
+      "id": "test_manual_rounds.ManualRoundTests.test_staged_content_does_not_complete_round_and_acceptance_still_needs_user_decision",
+      "status": "PASS"
+    },
+    {
+      "id": "test_manual_rounds.ManualRoundTests.test_submission_file_cannot_supply_authority_or_expected_prompt",
+      "status": "PASS"
+    },
+    {
+      "id": "test_manual_rounds.ManualRoundTests.test_targets_derive_from_canonical_peer_answers_and_blind_metadata",
+      "status": "PASS"
+    },
+    {
       "id": "test_manual_sources.ExistingOperationManualGuardTests.test_prepared_operation_is_preserved_after_switch_to_manual",
       "status": "PASS"
     },
@@ -400,7 +520,15 @@
       "status": "PASS"
     },
     {
+      "id": "test_manual_sources.ManualSourceTests.test_initial_manual_slot_eof_does_not_stage_a_partial_answer",
+      "status": "PASS"
+    },
+    {
       "id": "test_manual_sources.ManualSourceTests.test_modified_candidate_and_deleted_acceptance_are_rejected_on_restart",
+      "status": "PASS"
+    },
+    {
+      "id": "test_manual_sources.ManualSourceTests.test_real_cli_initial_multiline_slot_retains_exact_entered_answer",
       "status": "PASS"
     },
     {

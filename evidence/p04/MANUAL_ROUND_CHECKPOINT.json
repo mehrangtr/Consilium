@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "phase": "P04",
-  "status": "LOCAL_NATIVE_VERIFIED_REMOTE_NATIVE_AND_PUBLICATION_PENDING",
+  "status": "MANUAL_ROUND_AND_ENTRY_NATIVE_VERIFIED_NOT_PHASE_ACCEPTED",
   "source_digest": "e97465f7dfe8c2977f1d2058021d41bc0040dffa4145cfff2c9776372b6d35be",
   "local_native": {
     "receipt": "evidence/targets/Linux/20261007T172324Z_46c2bfbe/RUN.json",
@@ -9,9 +9,557 @@
     "supervisor_state": "evidence/development-supervisor/eb21b5b2c266477cbfd438a3425954c7/STATE.json",
     "tests": 516,
     "architect_tests": 220,
-    "skipped": 0
+    "skipped": 0,
+    "scope": "LOCAL_AUTHOR_RECORD_NOT_INCLUDED_AS_PUBLIC_NATIVE_PROOF"
   },
   "phase_accepted": false,
   "reviewer_independent": false,
-  "next_action": "Verify fresh actual Windows/Linux reports, publish this exact source and verified handoff. Then explicit prior-operation reconciliation, trusted live observers and full P04 review; never start P05 early."
+  "next_action": "در P04-002 تطبیق صریح عملیات قبلی را طراحی و آزمون کن؛ سپس منشأ زنده و مشاهده و اندازه‌گیری معتبر اتصال و همهٔ معیارهای P04 را بازبینی کن. نقد دستی، پاسخ دورهای بعد و جای ورود چندخطی تکمیل شده‌اند؛ دوباره نساز. P05 و ارسال زنده هنوز آغاز نشوند.",
+  "code_commit": "53555c5d163a4e6e027f05d2b0f281a504cf5fcc",
+  "native_run_id": "37660566040",
+  "target_reports": [
+    {
+      "target": "Windows",
+      "report": {
+        "path": "evidence/targets/Windows/20261007T173824Z_030419d3/RUN.json",
+        "sha256": "13f1a192825844ede58a75dc0fb58f96bf66036b674f315f22e360a3681dc846"
+      },
+      "status": "PASS",
+      "source_matches_current": true,
+      "scope": "RECORDED_TARGET_ARTIFACTS_NOT_PHASE_ACCEPTANCE"
+    },
+    {
+      "target": "Linux",
+      "report": {
+        "path": "evidence/targets/Linux/20261007T173809Z_1bf692cb/RUN.json",
+        "sha256": "480ce46df3daa30f64584bb896ad951876724c4d4d9f51031c78d1e5f4a7e4f1"
+      },
+      "status": "PASS",
+      "source_matches_current": true,
+      "scope": "RECORDED_TARGET_ARTIFACTS_NOT_PHASE_ACCEPTANCE"
+    }
+  ],
+  "configured_phase_run": {
+    "receipt": "evidence/runs/20261007T180617Z_c91178382e/RUN.json",
+    "sha256": "6a62c0ed633a7433bafc5466893eb7168c583542f98d2aa76b44179259949eab",
+    "status": "PASS",
+    "source_matches_current": true,
+    "checks": [
+      {
+        "id": "scope_inventory",
+        "status": "PASS",
+        "counts": null,
+        "error": null
+      },
+      {
+        "id": "development_regression",
+        "status": "PASS",
+        "counts": {
+          "tests": 112,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        "error": null
+      },
+      {
+        "id": "foundation_behavior",
+        "status": "PASS",
+        "counts": {
+          "tests": 60,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        "error": null
+      },
+      {
+        "id": "environment_lock",
+        "status": "PASS",
+        "counts": null,
+        "error": null
+      },
+      {
+        "id": "native_target_matrix",
+        "status": "PASS",
+        "counts": null,
+        "error": null
+      },
+      {
+        "id": "persistence_durable_kernel",
+        "status": "PASS",
+        "counts": {
+          "tests": 80,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        "error": null
+      },
+      {
+        "id": "browser_probe_preflight_and_durability",
+        "status": "PASS",
+        "counts": {
+          "tests": 44,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        "error": null
+      },
+      {
+        "id": "architect_and_independent_context",
+        "status": "PASS",
+        "counts": {
+          "tests": 220,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        "error": null
+      }
+    ],
+    "scope": "LATEST_COMPLETED_CONFIGURED_RUN; NOT_PHASE_ACCEPTANCE"
+  },
+  "tests_per_native_target": 516,
+  "product_process_exit_cases_per_native_target": 29,
+  "development_supervisor_snapshots": [
+    {
+      "path": "evidence/development-supervisor/0c319e835dde4fc7ade87912daa5e899/STATE.json",
+      "sha256": "8a787d2e2dd86b4d59e738942f66001b4285e30ae86a339651e709ee2aa1b6d1",
+      "state": {
+        "schema_version": 1,
+        "scope": "OWNED_OFFLINE_DEVELOPMENT_NOT_CHAT_SESSION_CONTROL",
+        "status": "PASS",
+        "idle_seconds": 300,
+        "hard_seconds": 900,
+        "phase_advanced": false,
+        "source_digest": "e97465f7dfe8c2977f1d2058021d41bc0040dffa4145cfff2c9776372b6d35be",
+        "steps": [
+          {
+            "step": "native",
+            "attempt": 1,
+            "nonce": "71558418693b4d18b268aa40aa3b12e0",
+            "status": "COMPLETE",
+            "log": "evidence/development-supervisor/0c319e835dde4fc7ade87912daa5e899/native_1/OUTPUT.log",
+            "worker_pid": 2457,
+            "last_completed_milestone": "native_receipt_and_pointer_written",
+            "retained_proof": {
+              "artifacts": [
+                {
+                  "original_path": "evidence/targets/Linux/20261007T173809Z_1bf692cb/RUN.json",
+                  "path": "evidence/development-supervisor/0c319e835dde4fc7ade87912daa5e899/native_1/proofs/evidence/targets/Linux/20261007T173809Z_1bf692cb/RUN.json",
+                  "sha256": "480ce46df3daa30f64584bb896ad951876724c4d4d9f51031c78d1e5f4a7e4f1"
+                },
+                {
+                  "original_path": "evidence/targets/Linux/20261007T173809Z_1bf692cb/CHECK.log",
+                  "path": "evidence/development-supervisor/0c319e835dde4fc7ade87912daa5e899/native_1/proofs/evidence/targets/Linux/20261007T173809Z_1bf692cb/CHECK.log",
+                  "sha256": "d6bdc8877e8a4f12fe04f642666d61314b3dbce9ffafac3516cba29c500747bc"
+                },
+                {
+                  "original_path": "evidence/targets/Linux/20261007T173809Z_1bf692cb/maintenance_report.json",
+                  "path": "evidence/development-supervisor/0c319e835dde4fc7ade87912daa5e899/native_1/proofs/evidence/targets/Linux/20261007T173809Z_1bf692cb/maintenance_report.json",
+                  "sha256": "16269e865f8d0ff44bd1835841abbae1c9bc0471b00ddb49e9eaf544a6b8d6f0"
+                },
+                {
+                  "original_path": "evidence/targets/Linux/20261007T173809Z_1bf692cb/environment_report.json",
+                  "path": "evidence/development-supervisor/0c319e835dde4fc7ade87912daa5e899/native_1/proofs/evidence/targets/Linux/20261007T173809Z_1bf692cb/environment_report.json",
+                  "sha256": "3a88435f03074e8f4bcb8b2e14cd99c89e7f60680dcfed790edeaeda621b6321"
+                },
+                {
+                  "original_path": "evidence/targets/Linux/20261007T173809Z_1bf692cb/control_report.json",
+                  "path": "evidence/development-supervisor/0c319e835dde4fc7ade87912daa5e899/native_1/proofs/evidence/targets/Linux/20261007T173809Z_1bf692cb/control_report.json",
+                  "sha256": "a7d0e4fb9d1980560f1cfb41a9d908f2c1f9e4be480a905f2eca6e19d0320844"
+                },
+                {
+                  "original_path": "evidence/targets/Linux/20261007T173809Z_1bf692cb/control_junit.xml",
+                  "path": "evidence/development-supervisor/0c319e835dde4fc7ade87912daa5e899/native_1/proofs/evidence/targets/Linux/20261007T173809Z_1bf692cb/control_junit.xml",
+                  "sha256": "9960941d7f6f6b81fce061537e1e788f5dd9996f3b174873cf9fd0dd256c0b73"
+                },
+                {
+                  "original_path": "evidence/targets/Linux/20261007T173809Z_1bf692cb/foundation_report.json",
+                  "path": "evidence/development-supervisor/0c319e835dde4fc7ade87912daa5e899/native_1/proofs/evidence/targets/Linux/20261007T173809Z_1bf692cb/foundation_report.json",
+                  "sha256": "8053df3e99c77a15b9f42269533cd683afa0c8b43dcc1be84b032726d8be9199"
+                },
+                {
+                  "original_path": "evidence/targets/Linux/20261007T173809Z_1bf692cb/foundation_junit.xml",
+                  "path": "evidence/development-supervisor/0c319e835dde4fc7ade87912daa5e899/native_1/proofs/evidence/targets/Linux/20261007T173809Z_1bf692cb/foundation_junit.xml",
+                  "sha256": "8d407155e6b1dc1ca1a1e921d0e9a05eafbc0bc1f2ae07f4b67e55f664a99949"
+                },
+                {
+                  "original_path": "evidence/targets/Linux/20261007T173809Z_1bf692cb/persistence_report.json",
+                  "path": "evidence/development-supervisor/0c319e835dde4fc7ade87912daa5e899/native_1/proofs/evidence/targets/Linux/20261007T173809Z_1bf692cb/persistence_report.json",
+                  "sha256": "e50c29a820917a77d6096540e7900d509f3fec461617495cef1748e2b08451dd"
+                },
+                {
+                  "original_path": "evidence/targets/Linux/20261007T173809Z_1bf692cb/persistence_junit.xml",
+                  "path": "evidence/development-supervisor/0c319e835dde4fc7ade87912daa5e899/native_1/proofs/evidence/targets/Linux/20261007T173809Z_1bf692cb/persistence_junit.xml",
+                  "sha256": "e7036cde446d2adba65acaf62d19b0abaaf454e3786469915e6b33e598fc4a78"
+                },
+                {
+                  "original_path": "evidence/targets/Linux/20261007T173809Z_1bf692cb/browser_probe_report.json",
+                  "path": "evidence/development-supervisor/0c319e835dde4fc7ade87912daa5e899/native_1/proofs/evidence/targets/Linux/20261007T173809Z_1bf692cb/browser_probe_report.json",
+                  "sha256": "40624a5e4de4247708b709ec1bc564137a7f69c575693742cbd8ba671dbea443"
+                },
+                {
+                  "original_path": "evidence/targets/Linux/20261007T173809Z_1bf692cb/browser_probe_junit.xml",
+                  "path": "evidence/development-supervisor/0c319e835dde4fc7ade87912daa5e899/native_1/proofs/evidence/targets/Linux/20261007T173809Z_1bf692cb/browser_probe_junit.xml",
+                  "sha256": "d8f4b9cf44201197e9b0abd379f0abe06283fecf6ebbcb10369218643d16e702"
+                },
+                {
+                  "original_path": "evidence/targets/Linux/20261007T173809Z_1bf692cb/architect_report.json",
+                  "path": "evidence/development-supervisor/0c319e835dde4fc7ade87912daa5e899/native_1/proofs/evidence/targets/Linux/20261007T173809Z_1bf692cb/architect_report.json",
+                  "sha256": "a726f075cf73e39371f83db5347c0ea442dd30337bb49feac0bc36194015703e"
+                },
+                {
+                  "original_path": "evidence/targets/Linux/20261007T173809Z_1bf692cb/architect_junit.xml",
+                  "path": "evidence/development-supervisor/0c319e835dde4fc7ade87912daa5e899/native_1/proofs/evidence/targets/Linux/20261007T173809Z_1bf692cb/architect_junit.xml",
+                  "sha256": "db5938c9f3d484206155264b0d8b05ebb5c8ef992f4d03c779b544f34153430b"
+                },
+                {
+                  "original_path": "evidence/targets/Linux/20261007T173809Z_1bf692cb/smoke_1.log",
+                  "path": "evidence/development-supervisor/0c319e835dde4fc7ade87912daa5e899/native_1/proofs/evidence/targets/Linux/20261007T173809Z_1bf692cb/smoke_1.log",
+                  "sha256": "89f79809aabafe52a6599f300573f73209964fe9091040dafe3bc9b6f3f139d7"
+                },
+                {
+                  "original_path": "evidence/targets/Linux/20261007T173809Z_1bf692cb/smoke_2.log",
+                  "path": "evidence/development-supervisor/0c319e835dde4fc7ade87912daa5e899/native_1/proofs/evidence/targets/Linux/20261007T173809Z_1bf692cb/smoke_2.log",
+                  "sha256": "97fdcd30e1cba30f8182a537f6ba8673303d7edc218ab13a47cf7142a19e399c"
+                },
+                {
+                  "original_path": "evidence/targets/Linux/20261007T173809Z_1bf692cb/smoke_3.log",
+                  "path": "evidence/development-supervisor/0c319e835dde4fc7ade87912daa5e899/native_1/proofs/evidence/targets/Linux/20261007T173809Z_1bf692cb/smoke_3.log",
+                  "sha256": "2b0f4dfba157923fef98a38674c67f8c4c503ca741987b0b424ede42db981c74"
+                },
+                {
+                  "original_path": "evidence/targets/Linux/20261007T173809Z_1bf692cb/smoke_4.log",
+                  "path": "evidence/development-supervisor/0c319e835dde4fc7ade87912daa5e899/native_1/proofs/evidence/targets/Linux/20261007T173809Z_1bf692cb/smoke_4.log",
+                  "sha256": "6b1a1a490cd4715ba577b1e6fb1017286e6f8ea80171794b3c99a3645a8925e6"
+                }
+              ],
+              "errors": []
+            },
+            "stop_reason": null,
+            "returncode": 0,
+            "reconciliation": {
+              "status": "VERIFIED_COMPLETE",
+              "receipt": "evidence/targets/Linux/20261007T173809Z_1bf692cb/RUN.json",
+              "sha256": "480ce46df3daa30f64584bb896ad951876724c4d4d9f51031c78d1e5f4a7e4f1"
+            }
+          }
+        ],
+        "remaining_steps": [],
+        "next_action": "REVIEW_CURRENT_PHASE_EXIT_CRITERIA_NOT_AUTOMATIC_ACCEPTANCE"
+      }
+    },
+    {
+      "path": "evidence/development-supervisor/4acfaa5511834f179ec9f2241619c25a/STATE.json",
+      "sha256": "04b0380b4ff077cfce192f6b45183a67ca85452758e0b6a382afc6f9ab17a420",
+      "state": {
+        "schema_version": 1,
+        "scope": "OWNED_OFFLINE_DEVELOPMENT_NOT_CHAT_SESSION_CONTROL",
+        "status": "PASS",
+        "idle_seconds": 300,
+        "hard_seconds": 900,
+        "phase_advanced": false,
+        "source_digest": "e97465f7dfe8c2977f1d2058021d41bc0040dffa4145cfff2c9776372b6d35be",
+        "steps": [
+          {
+            "step": "phase",
+            "attempt": 1,
+            "nonce": "53b4712b64384d418b26dcb2aef28176",
+            "status": "COMPLETE",
+            "log": "evidence/development-supervisor/4acfaa5511834f179ec9f2241619c25a/phase_1/OUTPUT.log",
+            "worker_pid": 2240,
+            "last_completed_milestone": "configured_architect_and_independent_context_finished",
+            "retained_proof": {
+              "artifacts": [
+                {
+                  "original_path": "evidence/runs/20261007T180617Z_c91178382e/RUN.json",
+                  "path": "evidence/development-supervisor/4acfaa5511834f179ec9f2241619c25a/phase_1/proofs/evidence/runs/20261007T180617Z_c91178382e/RUN.json",
+                  "sha256": "6a62c0ed633a7433bafc5466893eb7168c583542f98d2aa76b44179259949eab"
+                },
+                {
+                  "original_path": "evidence/runs/20261007T180617Z_c91178382e/scope_inventory.log",
+                  "path": "evidence/development-supervisor/4acfaa5511834f179ec9f2241619c25a/phase_1/proofs/evidence/runs/20261007T180617Z_c91178382e/scope_inventory.log",
+                  "sha256": "626ce7485595b600b260b5d5e2582eb0c90446ccf962b030c9aade5db636e276"
+                },
+                {
+                  "original_path": "evidence/runs/20261007T180617Z_c91178382e/development_regression.log",
+                  "path": "evidence/development-supervisor/4acfaa5511834f179ec9f2241619c25a/phase_1/proofs/evidence/runs/20261007T180617Z_c91178382e/development_regression.log",
+                  "sha256": "618051421be5307252ab999920c2d87e433d9482e295c029daef91785ac1ea91"
+                },
+                {
+                  "original_path": "evidence/runs/20261007T180617Z_c91178382e/development_regression.xml",
+                  "path": "evidence/development-supervisor/4acfaa5511834f179ec9f2241619c25a/phase_1/proofs/evidence/runs/20261007T180617Z_c91178382e/development_regression.xml",
+                  "sha256": "9960941d7f6f6b81fce061537e1e788f5dd9996f3b174873cf9fd0dd256c0b73"
+                },
+                {
+                  "original_path": "evidence/runs/20261007T180617Z_c91178382e/foundation_behavior.log",
+                  "path": "evidence/development-supervisor/4acfaa5511834f179ec9f2241619c25a/phase_1/proofs/evidence/runs/20261007T180617Z_c91178382e/foundation_behavior.log",
+                  "sha256": "31775bd2c38b4ec3b5a146d2e30b0096923bbfcdf657a8a4adab872a9bfb2916"
+                },
+                {
+                  "original_path": "evidence/runs/20261007T180617Z_c91178382e/foundation_behavior.xml",
+                  "path": "evidence/development-supervisor/4acfaa5511834f179ec9f2241619c25a/phase_1/proofs/evidence/runs/20261007T180617Z_c91178382e/foundation_behavior.xml",
+                  "sha256": "8d407155e6b1dc1ca1a1e921d0e9a05eafbc0bc1f2ae07f4b67e55f664a99949"
+                },
+                {
+                  "original_path": "evidence/runs/20261007T180617Z_c91178382e/environment_lock.log",
+                  "path": "evidence/development-supervisor/4acfaa5511834f179ec9f2241619c25a/phase_1/proofs/evidence/runs/20261007T180617Z_c91178382e/environment_lock.log",
+                  "sha256": "d483169b60e63849270f8eff398d77e6a63bd69a8a83f685541a7a9ed2e037b3"
+                },
+                {
+                  "original_path": "evidence/runs/20261007T180617Z_c91178382e/native_target_matrix.log",
+                  "path": "evidence/development-supervisor/4acfaa5511834f179ec9f2241619c25a/phase_1/proofs/evidence/runs/20261007T180617Z_c91178382e/native_target_matrix.log",
+                  "sha256": "452123e95a228b8e59ee98bc6f1ae1d8d0aee85736d4285faa293e59a066e8e2"
+                },
+                {
+                  "original_path": "evidence/runs/20261007T180617Z_c91178382e/persistence_durable_kernel.log",
+                  "path": "evidence/development-supervisor/4acfaa5511834f179ec9f2241619c25a/phase_1/proofs/evidence/runs/20261007T180617Z_c91178382e/persistence_durable_kernel.log",
+                  "sha256": "df73a8925a2a8dbf5d0e5b76da713a32ae48315a6712751af227ad709ef03355"
+                },
+                {
+                  "original_path": "evidence/runs/20261007T180617Z_c91178382e/persistence_durable_kernel.xml",
+                  "path": "evidence/development-supervisor/4acfaa5511834f179ec9f2241619c25a/phase_1/proofs/evidence/runs/20261007T180617Z_c91178382e/persistence_durable_kernel.xml",
+                  "sha256": "e7036cde446d2adba65acaf62d19b0abaaf454e3786469915e6b33e598fc4a78"
+                },
+                {
+                  "original_path": "evidence/runs/20261007T180617Z_c91178382e/browser_probe_preflight_and_durability.log",
+                  "path": "evidence/development-supervisor/4acfaa5511834f179ec9f2241619c25a/phase_1/proofs/evidence/runs/20261007T180617Z_c91178382e/browser_probe_preflight_and_durability.log",
+                  "sha256": "158819c647dd1cc442baf65a90c1e207113b458493556d412092ceb24438a094"
+                },
+                {
+                  "original_path": "evidence/runs/20261007T180617Z_c91178382e/browser_probe_preflight_and_durability.xml",
+                  "path": "evidence/development-supervisor/4acfaa5511834f179ec9f2241619c25a/phase_1/proofs/evidence/runs/20261007T180617Z_c91178382e/browser_probe_preflight_and_durability.xml",
+                  "sha256": "d8f4b9cf44201197e9b0abd379f0abe06283fecf6ebbcb10369218643d16e702"
+                },
+                {
+                  "original_path": "evidence/runs/20261007T180617Z_c91178382e/architect_and_independent_context.log",
+                  "path": "evidence/development-supervisor/4acfaa5511834f179ec9f2241619c25a/phase_1/proofs/evidence/runs/20261007T180617Z_c91178382e/architect_and_independent_context.log",
+                  "sha256": "fdb1fd36f79c87b861d4a3584afda10d387b3e8b51435c7f206a98bf5e93bec4"
+                },
+                {
+                  "original_path": "evidence/runs/20261007T180617Z_c91178382e/architect_and_independent_context.xml",
+                  "path": "evidence/development-supervisor/4acfaa5511834f179ec9f2241619c25a/phase_1/proofs/evidence/runs/20261007T180617Z_c91178382e/architect_and_independent_context.xml",
+                  "sha256": "db5938c9f3d484206155264b0d8b05ebb5c8ef992f4d03c779b544f34153430b"
+                }
+              ],
+              "errors": []
+            },
+            "stop_reason": null,
+            "returncode": 0,
+            "reconciliation": {
+              "status": "VERIFIED_COMPLETE",
+              "receipt": "evidence/runs/20261007T180617Z_c91178382e/RUN.json",
+              "sha256": "6a62c0ed633a7433bafc5466893eb7168c583542f98d2aa76b44179259949eab"
+            }
+          }
+        ],
+        "remaining_steps": [],
+        "next_action": "REVIEW_CURRENT_PHASE_EXIT_CRITERIA_NOT_AUTOMATIC_ACCEPTANCE"
+      }
+    },
+    {
+      "path": "evidence/development-supervisor/5bc15e18829a406c87f5cc9c13982330/STATE.json",
+      "sha256": "7cc3317923fca765e86824b1ceb82b9fc46b9bbd2e45bf5d4f24ce1f2d690a1e",
+      "state": {
+        "schema_version": 1,
+        "scope": "OWNED_OFFLINE_DEVELOPMENT_NOT_CHAT_SESSION_CONTROL",
+        "status": "PASS",
+        "idle_seconds": 300,
+        "hard_seconds": 900,
+        "phase_advanced": false,
+        "source_digest": "e97465f7dfe8c2977f1d2058021d41bc0040dffa4145cfff2c9776372b6d35be",
+        "steps": [
+          {
+            "step": "native",
+            "attempt": 1,
+            "nonce": "9cb99bac5c274435b4140b4fe0255a58",
+            "status": "COMPLETE",
+            "log": "evidence/development-supervisor/5bc15e18829a406c87f5cc9c13982330/native_1/OUTPUT.log",
+            "worker_pid": 5908,
+            "last_completed_milestone": "native_receipt_and_pointer_written",
+            "retained_proof": {
+              "artifacts": [
+                {
+                  "original_path": "evidence/targets/Windows/20261007T173824Z_030419d3/RUN.json",
+                  "path": "evidence/development-supervisor/5bc15e18829a406c87f5cc9c13982330/native_1/proofs/evidence/targets/Windows/20261007T173824Z_030419d3/RUN.json",
+                  "sha256": "13f1a192825844ede58a75dc0fb58f96bf66036b674f315f22e360a3681dc846"
+                },
+                {
+                  "original_path": "evidence/targets/Windows/20261007T173824Z_030419d3/CHECK.log",
+                  "path": "evidence/development-supervisor/5bc15e18829a406c87f5cc9c13982330/native_1/proofs/evidence/targets/Windows/20261007T173824Z_030419d3/CHECK.log",
+                  "sha256": "6721e26f0c1935972d90ce5c82bed5c380745d09d4e7ce438fa9b7f3692842a7"
+                },
+                {
+                  "original_path": "evidence/targets/Windows/20261007T173824Z_030419d3/maintenance_report.json",
+                  "path": "evidence/development-supervisor/5bc15e18829a406c87f5cc9c13982330/native_1/proofs/evidence/targets/Windows/20261007T173824Z_030419d3/maintenance_report.json",
+                  "sha256": "d64cf53cc7975ac8f6de0144ba986b5b43daad5d4adb2d32dbaef9c9d8752ef5"
+                },
+                {
+                  "original_path": "evidence/targets/Windows/20261007T173824Z_030419d3/environment_report.json",
+                  "path": "evidence/development-supervisor/5bc15e18829a406c87f5cc9c13982330/native_1/proofs/evidence/targets/Windows/20261007T173824Z_030419d3/environment_report.json",
+                  "sha256": "139206dccc8c5502356ea1222127683aef7437024b9bf1becbcc97494a5d9d62"
+                },
+                {
+                  "original_path": "evidence/targets/Windows/20261007T173824Z_030419d3/control_report.json",
+                  "path": "evidence/development-supervisor/5bc15e18829a406c87f5cc9c13982330/native_1/proofs/evidence/targets/Windows/20261007T173824Z_030419d3/control_report.json",
+                  "sha256": "d5891b14de1873808988ee953d0c04ffce1c005597536dba6b1684cf3fdbfb33"
+                },
+                {
+                  "original_path": "evidence/targets/Windows/20261007T173824Z_030419d3/control_junit.xml",
+                  "path": "evidence/development-supervisor/5bc15e18829a406c87f5cc9c13982330/native_1/proofs/evidence/targets/Windows/20261007T173824Z_030419d3/control_junit.xml",
+                  "sha256": "f56ce28d44a33c2adc54291dbf812a570e0f2ee8ab130205f05156e55f24de5e"
+                },
+                {
+                  "original_path": "evidence/targets/Windows/20261007T173824Z_030419d3/foundation_report.json",
+                  "path": "evidence/development-supervisor/5bc15e18829a406c87f5cc9c13982330/native_1/proofs/evidence/targets/Windows/20261007T173824Z_030419d3/foundation_report.json",
+                  "sha256": "27e8da44d54b05da10977390e438811847bf59f2bec96613cee56d8ab9246219"
+                },
+                {
+                  "original_path": "evidence/targets/Windows/20261007T173824Z_030419d3/foundation_junit.xml",
+                  "path": "evidence/development-supervisor/5bc15e18829a406c87f5cc9c13982330/native_1/proofs/evidence/targets/Windows/20261007T173824Z_030419d3/foundation_junit.xml",
+                  "sha256": "7c775438c51a685195abba490548262de4759e5d29d91293ad3bbf5bea68179d"
+                },
+                {
+                  "original_path": "evidence/targets/Windows/20261007T173824Z_030419d3/persistence_report.json",
+                  "path": "evidence/development-supervisor/5bc15e18829a406c87f5cc9c13982330/native_1/proofs/evidence/targets/Windows/20261007T173824Z_030419d3/persistence_report.json",
+                  "sha256": "2dd64c1333edd8377dc1d0fbade62c2b5f630fb245c879ed7d68d3418d335512"
+                },
+                {
+                  "original_path": "evidence/targets/Windows/20261007T173824Z_030419d3/persistence_junit.xml",
+                  "path": "evidence/development-supervisor/5bc15e18829a406c87f5cc9c13982330/native_1/proofs/evidence/targets/Windows/20261007T173824Z_030419d3/persistence_junit.xml",
+                  "sha256": "5cd1552b18f130d7b707bb43c28d6bcc66506d51f9a582ac6f3c244ec606ad57"
+                },
+                {
+                  "original_path": "evidence/targets/Windows/20261007T173824Z_030419d3/browser_probe_report.json",
+                  "path": "evidence/development-supervisor/5bc15e18829a406c87f5cc9c13982330/native_1/proofs/evidence/targets/Windows/20261007T173824Z_030419d3/browser_probe_report.json",
+                  "sha256": "882499fb0228d9676d4117280f0ee40896bd707d3eeef7a21ad4e4ef8c13cc1d"
+                },
+                {
+                  "original_path": "evidence/targets/Windows/20261007T173824Z_030419d3/browser_probe_junit.xml",
+                  "path": "evidence/development-supervisor/5bc15e18829a406c87f5cc9c13982330/native_1/proofs/evidence/targets/Windows/20261007T173824Z_030419d3/browser_probe_junit.xml",
+                  "sha256": "cc96cd3d9eb9caaf9925bbf12a0aab6a3fb6e60c3968367ad7be5c7476ed39a9"
+                },
+                {
+                  "original_path": "evidence/targets/Windows/20261007T173824Z_030419d3/architect_report.json",
+                  "path": "evidence/development-supervisor/5bc15e18829a406c87f5cc9c13982330/native_1/proofs/evidence/targets/Windows/20261007T173824Z_030419d3/architect_report.json",
+                  "sha256": "c453fadb8dcbcab8d16f5601625347a4b261d4e40a73d80469b00cd8222b818e"
+                },
+                {
+                  "original_path": "evidence/targets/Windows/20261007T173824Z_030419d3/architect_junit.xml",
+                  "path": "evidence/development-supervisor/5bc15e18829a406c87f5cc9c13982330/native_1/proofs/evidence/targets/Windows/20261007T173824Z_030419d3/architect_junit.xml",
+                  "sha256": "66ad14e245b1ba81379d4123661257a6ce0e9e36ae26aefad9824181fece27f5"
+                },
+                {
+                  "original_path": "evidence/targets/Windows/20261007T173824Z_030419d3/smoke_1.log",
+                  "path": "evidence/development-supervisor/5bc15e18829a406c87f5cc9c13982330/native_1/proofs/evidence/targets/Windows/20261007T173824Z_030419d3/smoke_1.log",
+                  "sha256": "8a1bde26a7a7786b11782c41fe232e050f5c1baf667320f73f1fdfa73a18bdee"
+                },
+                {
+                  "original_path": "evidence/targets/Windows/20261007T173824Z_030419d3/smoke_2.log",
+                  "path": "evidence/development-supervisor/5bc15e18829a406c87f5cc9c13982330/native_1/proofs/evidence/targets/Windows/20261007T173824Z_030419d3/smoke_2.log",
+                  "sha256": "ffce5b77d88676c3d0453e0ff0683baa48f0a7b37d3915c24dadc6e6705ffc6a"
+                },
+                {
+                  "original_path": "evidence/targets/Windows/20261007T173824Z_030419d3/smoke_3.log",
+                  "path": "evidence/development-supervisor/5bc15e18829a406c87f5cc9c13982330/native_1/proofs/evidence/targets/Windows/20261007T173824Z_030419d3/smoke_3.log",
+                  "sha256": "a58042462af625d1dee845404a619f0eac0d2269c66ffa1e0f99b8ac39724e70"
+                },
+                {
+                  "original_path": "evidence/targets/Windows/20261007T173824Z_030419d3/smoke_4.log",
+                  "path": "evidence/development-supervisor/5bc15e18829a406c87f5cc9c13982330/native_1/proofs/evidence/targets/Windows/20261007T173824Z_030419d3/smoke_4.log",
+                  "sha256": "059baf9ad13ba3b910e27bb73e2fe83b2d8d43e12409707e25fe79c29fcdc964"
+                }
+              ],
+              "errors": []
+            },
+            "stop_reason": null,
+            "returncode": 0,
+            "reconciliation": {
+              "status": "VERIFIED_COMPLETE",
+              "receipt": "evidence/targets/Windows/20261007T173824Z_030419d3/RUN.json",
+              "sha256": "13f1a192825844ede58a75dc0fb58f96bf66036b674f315f22e360a3681dc846"
+            }
+          }
+        ],
+        "remaining_steps": [],
+        "next_action": "REVIEW_CURRENT_PHASE_EXIT_CRITERIA_NOT_AUTOMATIC_ACCEPTANCE"
+      }
+    }
+  ],
+  "publication_journal": {
+    "blob": "eb3f9c16f6f9ebfa721a08799a3455ca6fdd23be",
+    "sha256": "a0b0cf8300a133d787e7fc71cfef358a850d5f6eeabb4a2173e01faacde3f94c",
+    "snapshot": {
+      "automatic_mutable_replay": false,
+      "code_commit": "53555c5d163a4e6e027f05d2b0f281a504cf5fcc",
+      "code_tree": "ae2db99dc2972710200423a0b5e577fb189f20ce",
+      "commit_creation": {
+        "automatic_retry": false,
+        "before_call_utc": "2026-10-07T17:36:00.629904+00:00",
+        "expected_parent": "22cd94156b0853999081f6ced0efa9ccd21cf323",
+        "expected_tree": "ae2db99dc2972710200423a0b5e577fb189f20ce",
+        "kind": "COMMIT_CREATION_WITH_SERVER_ASSIGNED_TIMESTAMP",
+        "observed_commit": "53555c5d163a4e6e027f05d2b0f281a504cf5fcc",
+        "parent": "22cd94156b0853999081f6ced0efa9ccd21cf323",
+        "request": {
+          "message": "Add durable manual critiques, later answers and multiline CLI entry",
+          "parent_sha": "22cd94156b0853999081f6ced0efa9ccd21cf323",
+          "repository_full_name": "mehrangtr/Consilium",
+          "tree_sha": "ae2db99dc2972710200423a0b5e577fb189f20ce"
+        },
+        "request_sha256": "019c13c27a90e4310b8aee92d1626a0051c05e5ba0c05d5c0d555ffa85eba54b",
+        "source_digest": "e97465f7dfe8c2977f1d2058021d41bc0040dffa4145cfff2c9776372b6d35be",
+        "status": "VERIFIED_COMPLETE",
+        "tree": "ae2db99dc2972710200423a0b5e577fb189f20ce"
+      },
+      "operations": [
+        {
+          "attempts": 1,
+          "deadline": 1791394689.5576181,
+          "id": "0a35011aa1e9d48bf4b1deb619206d8afe4f69a69ad7159dd5d091577d6479c5",
+          "nonce": "a9d0ff90f4154d2eab394b07c77c5ccd",
+          "observed_sha": "53555c5d163a4e6e027f05d2b0f281a504cf5fcc",
+          "plan": {
+            "expected_sha": "53555c5d163a4e6e027f05d2b0f281a504cf5fcc",
+            "kind": "REF_UPDATE",
+            "request_sha256": "ef1801b434a9e04a286dc071b8e7228990e7a611b92e356567a9fc1bc6234259",
+            "resource": "mehrangtr/Consilium/refs/heads/p04-manual-round-native-20261007",
+            "source_digest": "e97465f7dfe8c2977f1d2058021d41bc0040dffa4145cfff2c9776372b6d35be"
+          },
+          "reason": null,
+          "state": "VERIFIED_COMPLETE"
+        },
+        {
+          "attempts": 1,
+          "deadline": 1791394523.3274078,
+          "id": "96a9a73566e15585bec4621bf0ed1e7b9e0c075ee200ed7cc25334a067eccb4e",
+          "nonce": "bfe4a910ed0b4f529f679bb19144cce5",
+          "observed_sha": "ae2db99dc2972710200423a0b5e577fb189f20ce",
+          "plan": {
+            "expected_sha": "ae2db99dc2972710200423a0b5e577fb189f20ce",
+            "kind": "GIT_OBJECT",
+            "request_sha256": "b726f647d64afb9a90060b0d464ca71f6a267156c0df4340fdc70e8867a40490",
+            "resource": "mehrangtr/Consilium/tree/ae2db99dc2972710200423a0b5e577fb189f20ce",
+            "source_digest": "e97465f7dfe8c2977f1d2058021d41bc0040dffa4145cfff2c9776372b6d35be"
+          },
+          "reason": null,
+          "state": "VERIFIED_COMPLETE"
+        }
+      ],
+      "previous_publication_reconciliation": {
+        "historical_remote_receipt_preserved": true,
+        "mutation_replayed": false,
+        "operation_id": "edf0c8a9bbd58dcfd9fbf0c94bb213c2796bb41b34402ad3800d1b686c199405",
+        "receipt_commit": "22cd94156b0853999081f6ced0efa9ccd21cf323",
+        "status": "VERIFIED_COMPLETE"
+      },
+      "schema_version": 1,
+      "source_digest": "e97465f7dfe8c2977f1d2058021d41bc0040dffa4145cfff2c9776372b6d35be"
+    }
+  },
+  "native_evidence": "ACTUAL_WINDOWS_AND_LINUX_GRAPH_VERIFIED",
+  "publication_scope": "VERIFIED_DELIVERY_BRANCH_MAIN_PUBLICATION_PENDING"
 }

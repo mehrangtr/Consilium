@@ -1,0 +1,9 @@
+{
+  "command": [
+    "C:\\hostedtoolcache\\windows\\Python\\3.12.10\\x64\\python.exe",
+    "tools/record_target_checks.py"
+  ],
+  "root": "D:\\a\\Consilium\\Consilium",
+  "nonce": "9cb99bac5c274435b4140b4fe0255a58",
+  "supervisor_pid": 10100
+}

@@ -2,7 +2,7 @@
 
 این نما خودکار از `ROADMAP.json`، `PROGRESS.json` و `CHECKS.json` ساخته شده است. ویرایش دستی مرجع نیست؛ پس از تغییر مبنا فرمان تولید را دوباره اجرا کنید.
 
-شناسهٔ مبنای نما: `e2677efd1742bd5a45e6f16f04079e8a85b71983af278f0ef0a1b707bcb463f1`.
+شناسهٔ مبنای نما: `86c12af23016dae4840cae3895fe6260ee9047fe1f65f0331ec73eaf0dbd0cd9`.
 
 مرحلهٔ فعلی: `P04`. آخرین مرحلهٔ پذیرفته‌شده: `P03`.
 
@@ -24,10 +24,11 @@
     "P04-002 canonical mock-source storage and V5 migration verified: 388 tests and 21 real process exits per actual native OS; full phase remains open.",
     "P04-002 frozen output schemas, typed mock answers and multi-target critique batches plus V6 migration verified: 419 tests and 23 real process exits per native OS. Full P04 remains open.",
     "Five-minute owned-process supervisor and P04-002 explicit initial manual-answer acceptance/V7 migration verified: 453 tests and 25 product process-exit cases per actual native OS. Full P04 remains open.",
-    "Bounded external connector waits, durable publication permits, canonical later-round input/policies and manual-first-round decision gate verified: 484 tests and 27 product process exits per actual OS, plus 5 Work Mode JS wait cases. Full P04 remains open."
+    "Bounded external connector waits, durable publication permits, canonical later-round input/policies and manual-first-round decision gate verified: 484 tests and 27 product process exits per actual OS, plus 5 Work Mode JS wait cases. Full P04 remains open.",
+    "Manual critique batches, later answers, V8 migration and multiline initial/later CLI entry verified: 516 tests and 29 actual product process exits on each native OS; zero skipped tests or live calls. Full P04 remains open."
   ],
   "working_changes": [],
-  "next_action": "در P04-002 نقد دستی و پاسخ دستی دورهای بعد و تطبیق صریح عملیات قبلی را تکمیل کن؛ منشأ زنده و مشاهده و اندازه‌گیری معتبر اتصال را آماده و همهٔ معیارهای P04 را بازبینی کن. نمای پایدار دور بعد اکنون موجود است؛ آن را دوباره نساز. P05 و ارسال زنده هنوز آغاز نشوند.",
+  "next_action": "در P04-002 تطبیق صریح عملیات قبلی را طراحی و آزمون کن؛ سپس منشأ زنده و مشاهده و اندازه‌گیری معتبر اتصال و همهٔ معیارهای P04 را بازبینی کن. نقد دستی، پاسخ دورهای بعد و جای ورود چندخطی تکمیل شده‌اند؛ دوباره نساز. P05 و ارسال زنده هنوز آغاز نشوند.",
   "next_command": "python tools/development_supervisor.py local",
   "startup_commands": [
     "python tools/qualityctl.py status",
@@ -48,32 +49,33 @@
     "P04 admission facts are historical local attestations; require_current is not send authorization. Policy-managed begin_send is blocked. Later-round input authenticity must come from canonical storage, not provider text or untrusted saved packets.",
     "Historical executor stall recovered on this turn. Original staged checkout is preserved; continuation uses a fresh worktree from verified public main. Do not republish old local metadata.",
     "HISTORICAL: Typed multi-target source contracts are MOCK-only. Provider JSON supplies text/scores/aliases; local contract supplies identities/rubric. Full Council, Manual/LIVE acceptance and durable later-round admission remain open.",
-    "Later-round durable receipt now rebuilds all aligned prior canonical sources and the stored continuation decision. Live budget/history facts remain unverified; policy-managed send stays blocked. Manual critiques and later-round manual answers still pending."
+    "HISTORICAL: Later-round durable receipt now rebuilds all aligned prior canonical sources and the stored continuation decision. Live budget/history facts remain unverified; policy-managed send stays blocked. Manual critiques and later-round manual answers still pending.",
+    "Manual later answers/critiques use exact historical canonical views and explicit destination grants; no remote token/history proof is minted. Existing operations still block manual replacement until explicit reconciliation. GUI entry remains P12."
   ],
   "next_task": {
     "id": "P04-002",
     "phase": "P04",
-    "status": "DURABLE_LATER_ROUND_NATIVE_VERIFIED",
+    "status": "MANUAL_ROUND_AND_ENTRY_NATIVE_VERIFIED",
     "title_fa": "نمای مجاز، ثبت پایدار شواهد کنترل و ورودی دورها",
-    "completed_fa": "ورودی دور بعد با منابع رسمی و مجوز انتقال و بودجه و دستور سفارشی کاربر همراه قصد اتمیک ثبت می‌شود. گیت پاسخ دستی اولیهٔ هم‌راستا و کنترل انتظار و تطبیق انتشار نیز آزموده شدند؛ ۴۸۴ آزمون و ۲۷ قطع پردازهٔ محصول در هر دو محیط واقعی موفق‌اند.",
-    "remaining_fa": "نقد دستی و پاسخ دستی دورهای بعد، تطبیق صریح عملیات قبلی، منشأ زنده و مشاهده و اندازه‌گیری معتبر اتصال و بازبینی کامل P04.",
-    "next_action_fa": "در P04-002 نقد دستی و پاسخ دستی دورهای بعد و تطبیق صریح عملیات قبلی را تکمیل کن؛ منشأ زنده و مشاهده و اندازه‌گیری معتبر اتصال را آماده و همهٔ معیارهای P04 را بازبینی کن. نمای پایدار دور بعد اکنون موجود است؛ آن را دوباره نساز. P05 و ارسال زنده هنوز آغاز نشوند.",
+    "completed_fa": "نقد دستی چندهدفه و پاسخ دستی دورهای بعد و ورود چندخطی اولیه و بعدی، همراه نسخهٔ هشت پایگاه، تکمیل شدند؛ ۵۱۶ آزمون و ۲۹ قطع واقعی پردازهٔ محصول در هر دو محیط موفق‌اند.",
+    "remaining_fa": "تطبیق صریح عملیات قبلی، منشأ زنده و مشاهده و اندازه‌گیری معتبر اتصال و بازبینی و پذیرش کامل P04.",
+    "next_action_fa": "در P04-002 تطبیق صریح عملیات قبلی را طراحی و آزمون کن؛ سپس منشأ زنده و مشاهده و اندازه‌گیری معتبر اتصال و همهٔ معیارهای P04 را بازبینی کن. نقد دستی، پاسخ دورهای بعد و جای ورود چندخطی تکمیل شده‌اند؛ دوباره نساز. P05 و ارسال زنده هنوز آغاز نشوند.",
     "done_when_fa": "شواهد و ورودی منجمد با نسخه و منشأ و مقصد روشن پایدارند؛ بازیابی و نشت و بودجه و حفظ قیود در تمام نماهای لازم آزموده شده‌اند؛ شواهد هر دو محیط و بازبینی کامل معیارهای مرحله موجود است."
   },
   "unfinished_work": {
     "schema_version": 1,
-    "updated_at_utc": "2026-10-07T15:33:34.506981+00:00",
+    "updated_at_utc": "2026-10-07T18:06:16.788518+00:00",
     "canonical_location": "PROGRESS.json:resume.unfinished_work",
-    "continuation_instruction": "Continue remaining P04-002 only; canonical later-round intent/admission and bounded publication guard are verified for 32ecd7ffb6844ec1a3a7f863e81cb4a1c817f2369345dba435df27c9f98f720a. Keep P00-P03 acceptance intact. Do not replay accepted browser probes or rebuild completed source/admission slices.",
+    "continuation_instruction": "Continue explicit prior-product-operation reconciliation in P04-002, then trusted live observation and full P04 exit review. Do not rebuild completed manual/round/source slices or replay P03. P05 remains blocked.",
     "items": [
       {
         "id": "P04-002",
         "phase": "P04",
-        "status": "DURABLE_LATER_ROUND_NATIVE_VERIFIED",
+        "status": "MANUAL_ROUND_AND_ENTRY_NATIVE_VERIFIED",
         "title_fa": "نمای مجاز، ثبت پایدار شواهد کنترل و ورودی دورها",
-        "completed_fa": "ورودی دور بعد با منابع رسمی و مجوز انتقال و بودجه و دستور سفارشی کاربر همراه قصد اتمیک ثبت می‌شود. گیت پاسخ دستی اولیهٔ هم‌راستا و کنترل انتظار و تطبیق انتشار نیز آزموده شدند؛ ۴۸۴ آزمون و ۲۷ قطع پردازهٔ محصول در هر دو محیط واقعی موفق‌اند.",
-        "remaining_fa": "نقد دستی و پاسخ دستی دورهای بعد، تطبیق صریح عملیات قبلی، منشأ زنده و مشاهده و اندازه‌گیری معتبر اتصال و بازبینی کامل P04.",
-        "next_action_fa": "در P04-002 نقد دستی و پاسخ دستی دورهای بعد و تطبیق صریح عملیات قبلی را تکمیل کن؛ منشأ زنده و مشاهده و اندازه‌گیری معتبر اتصال را آماده و همهٔ معیارهای P04 را بازبینی کن. نمای پایدار دور بعد اکنون موجود است؛ آن را دوباره نساز. P05 و ارسال زنده هنوز آغاز نشوند.",
+        "completed_fa": "نقد دستی چندهدفه و پاسخ دستی دورهای بعد و ورود چندخطی اولیه و بعدی، همراه نسخهٔ هشت پایگاه، تکمیل شدند؛ ۵۱۶ آزمون و ۲۹ قطع واقعی پردازهٔ محصول در هر دو محیط موفق‌اند.",
+        "remaining_fa": "تطبیق صریح عملیات قبلی، منشأ زنده و مشاهده و اندازه‌گیری معتبر اتصال و بازبینی و پذیرش کامل P04.",
+        "next_action_fa": "در P04-002 تطبیق صریح عملیات قبلی را طراحی و آزمون کن؛ سپس منشأ زنده و مشاهده و اندازه‌گیری معتبر اتصال و همهٔ معیارهای P04 را بازبینی کن. نقد دستی، پاسخ دورهای بعد و جای ورود چندخطی تکمیل شده‌اند؛ دوباره نساز. P05 و ارسال زنده هنوز آغاز نشوند.",
         "done_when_fa": "شواهد و ورودی منجمد با نسخه و منشأ و مقصد روشن پایدارند؛ بازیابی و نشت و بودجه و حفظ قیود در تمام نماهای لازم آزموده شده‌اند؛ شواهد هر دو محیط و بازبینی کامل معیارهای مرحله موجود است."
       }
     ],
@@ -686,23 +688,23 @@
   ],
   "last_verified_in_phase_checkpoint": {
     "phase": "P04",
-    "path": "evidence/p04/EXTERNAL_ROUND_CHECKPOINT.json",
-    "sha256": "1c9a120f4b3727070306f94c1b792cb6ce7a81e8f82509f0b536c3c743dee085",
-    "source_digest": "32ecd7ffb6844ec1a3a7f863e81cb4a1c817f2369345dba435df27c9f98f720a",
+    "path": "evidence/p04/MANUAL_ROUND_CHECKPOINT.json",
+    "sha256": "bd6513a1b9a8d04bcff3ca30e434856920d0553269af477a7d3d813adbb20925",
+    "source_digest": "e97465f7dfe8c2977f1d2058021d41bc0040dffa4145cfff2c9776372b6d35be",
     "phase_accepted": false
   },
   "native_evidence": {
-    "run_id": "37642514269",
-    "code_commit": "c077474d3216e90621f569840bd73a0cc191a076",
-    "source_digest": "32ecd7ffb6844ec1a3a7f863e81cb4a1c817f2369345dba435df27c9f98f720a",
-    "tests_per_target": 484,
-    "process_exit_cases_per_target": 27,
+    "run_id": "37660566040",
+    "code_commit": "53555c5d163a4e6e027f05d2b0f281a504cf5fcc",
+    "source_digest": "e97465f7dfe8c2977f1d2058021d41bc0040dffa4145cfff2c9776372b6d35be",
+    "tests_per_target": 516,
+    "process_exit_cases_per_target": 29,
     "target_reports": [
       {
         "target": "Windows",
         "report": {
-          "path": "evidence/targets/Windows/20261007T151835Z_5fc189e8/RUN.json",
-          "sha256": "3ca05bf7842991fd78b3b8b86a6ff857ea796283c4785a27e4be3d9007cc656d"
+          "path": "evidence/targets/Windows/20261007T173824Z_030419d3/RUN.json",
+          "sha256": "13f1a192825844ede58a75dc0fb58f96bf66036b674f315f22e360a3681dc846"
         },
         "status": "PASS",
         "source_matches_current": true,
@@ -711,8 +713,8 @@
       {
         "target": "Linux",
         "report": {
-          "path": "evidence/targets/Linux/20261007T151831Z_768c9d99/RUN.json",
-          "sha256": "5af3908eef9cf9348fa6309ceb44711bc796cd6a00421b2309dfb27dedeb2366"
+          "path": "evidence/targets/Linux/20261007T173809Z_1bf692cb/RUN.json",
+          "sha256": "480ce46df3daa30f64584bb896ad951876724c4d4d9f51031c78d1e5f4a7e4f1"
         },
         "status": "PASS",
         "source_matches_current": true,
@@ -720,7 +722,7 @@
       }
     ]
   },
-  "transfer_reviewed_file_count": 824,
+  "transfer_reviewed_file_count": 837,
   "developer_supervisor": {
     "entry_command": "python tools/development_supervisor.py local",
     "idle_seconds": 300,
@@ -732,19 +734,31 @@
     "user_action_messages": "Only when real user action is needed, explain precise steps in bold large text.",
     "native_verified": true,
     "latest_state_snapshots": {
-      "path": "evidence/p04/EXTERNAL_ROUND_CHECKPOINT.json",
-      "sha256": "1c9a120f4b3727070306f94c1b792cb6ce7a81e8f82509f0b536c3c743dee085"
+      "path": "evidence/p04/MANUAL_ROUND_CHECKPOINT.json",
+      "sha256": "bd6513a1b9a8d04bcff3ca30e434856920d0553269af477a7d3d813adbb20925"
     }
   },
   "external_publication_guard": {
     "bounded_wait_ms": 25000,
     "maximum_permitted_wait_ms": 60000,
     "actual_alternate_path_wait_ms": 45000,
-    "journal_blob": "cc4c7e53e783933247c782e1bd09ad5224673100",
+    "journal_blob": "eb3f9c16f6f9ebfa721a08799a3455ca6fdd23be",
     "cancels_mcp_or_chat": false,
     "mutable_replay": "NEVER_AUTOMATIC_AFTER_UNKNOWN",
     "immutable_retry": "ONE_PER_REQUEST_PLAN_AFTER_INDEPENDENT_ABSENCE_PROOF",
-    "current_source_tree_verified": true
+    "current_source_tree_verified": true,
+    "local_new_publication_journal_sync": "DEFERRED_WHILE_LOCAL_EXECUTOR_UNAVAILABLE"
+  },
+  "previous_publication_reconciliation": {
+    "status": "VERIFIED_COMPLETE",
+    "main": "22cd94156b0853999081f6ced0efa9ccd21cf323",
+    "pr": 9,
+    "native_runs": [
+      37642514269,
+      37646529622
+    ],
+    "handoff_files": 824,
+    "local_journal_import": "COMPLETE_WITHOUT_REPLAY"
   }
 }
 ```

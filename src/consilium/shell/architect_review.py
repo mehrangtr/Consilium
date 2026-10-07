@@ -12,7 +12,7 @@ def _display(data: dict) -> str:
     # JSON quotes C0/newlines. Also expose C1, bidi and invisible format controls
     # so candidate text cannot erase or visually replace the trusted UI prompt.
     text = json.dumps(data, ensure_ascii=False, indent=2, allow_nan=False)
-    return "".join("\\u%04x" % ord(c) if (0x7f <= ord(c) <= 0x9f or
+    return "".join(json.dumps(c, ensure_ascii=True)[1:-1] if (0x7f <= ord(c) <= 0x9f or
         c in "\u2028\u2029" or (unicodedata.category(c) == "Cf" and c not in "\u200c\u200d")) else c for c in text)
 
 

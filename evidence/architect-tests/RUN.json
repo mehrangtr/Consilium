@@ -3,14 +3,14 @@
   "scope": "P04_QUESTION_CONTEXT_AND_POLICY_OFFLINE_NOT_FULL_PHASE_ACCEPTANCE",
   "status": "PASS",
   "counts": {
-    "tests": 61,
+    "tests": 63,
     "failures": 0,
     "errors": 0,
     "skipped": 0
   },
-  "source_digest_before": "0e36f552339052d43f449aedda4bd7549eaab97c70ef41bfd205b2c93213ff16",
-  "source_digest_after": "0e36f552339052d43f449aedda4bd7549eaab97c70ef41bfd205b2c93213ff16",
-  "date_utc": "2026-10-07T05:10:01.022844+00:00",
+  "source_digest_before": "fb21bf1487d54923ce9867dcec5b36bffd64cff8e0f788b552448dc400f59f72",
+  "source_digest_after": "fb21bf1487d54923ce9867dcec5b36bffd64cff8e0f788b552448dc400f59f72",
+  "date_utc": "2026-10-07T05:15:15.109445+00:00",
   "host": {
     "system": "Linux",
     "python": "3.12.14"
@@ -52,6 +52,10 @@
       "status": "PASS"
     },
     {
+      "id": "test_architect_review.ArchitectReviewTests.test_visible_control_escaping_roundtrips_non_bmp_unicode_exactly",
+      "status": "PASS"
+    },
+    {
       "id": "test_context_preparation.ContextPreparationTests.test_distinct_adoption_and_ledger_revisions_prepare_exact_input_without_send",
       "status": "PASS"
     },
@@ -65,6 +69,10 @@
     },
     {
       "id": "test_context_preparation.ContextPreparationTests.test_known_private_material_blocks_even_with_allow_attestation",
+      "status": "PASS"
+    },
+    {
+      "id": "test_context_preparation.ContextPreparationTests.test_multiline_quoted_secret_is_checked_before_json_escaping",
       "status": "PASS"
     },
     {

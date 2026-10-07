@@ -25,6 +25,9 @@ def prepare_independent_intent(store, *, context, connection: ConnectionSpec, id
         question = store.questions.get_adopted(context.debate_id)
         if question is None:
             raise Conflict("Initial context requires the adopted question")
+        # Inspect semantic source fields as well as serialized messages. JSON
+        # escaping can hide newline/quote/backslash secrets from substring checks.
+        ensure_public_payload(question.model_dump(mode="json"), store._forbidden_values)
         row = store._db.execute("SELECT spec_json FROM rounds WHERE debate_id=? AND round_id=?",
                                 (str(context.debate_id), str(context.round_id))).fetchone()
         if row is None:

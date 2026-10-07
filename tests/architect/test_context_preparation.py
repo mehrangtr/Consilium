@@ -19,7 +19,7 @@ class ContextPreparationTests(unittest.TestCase):
         self.path=Path(self.temp.name)/"context.sqlite3"
         self.store=SQLiteStore(self.path)
         self.debate=DebateSpec(debate_id=UUID(int=1),participant_ids=(UUID(int=2),),
-            original_request="اصل پرسش",constraints=("بدون هزینه",))
+            original_request='اصل پرسش\nخط "دوم"',constraints=("بدون هزینه",))
         self.store.create_debate(self.debate)
         snapshot=QuestionSnapshot.from_debate(self.debate)
         proposal=ArchitectProposal(snapshot_hash=snapshot.content_hash,proposal_version=1,
@@ -91,6 +91,12 @@ class ContextPreparationTests(unittest.TestCase):
 
     def test_known_private_material_blocks_even_with_allow_attestation(self):
         self.store._forbidden_values=("اصل پرسش",)
+        with self.assertRaises(ValueError):self.prepare()
+        self.assertEqual(self.store.prepared_intents(self.debate.debate_id),())
+
+    def test_multiline_quoted_secret_is_checked_before_json_escaping(self):
+        self.store._forbidden_values=(self.debate.original_request,)
+        self.assertNotIn(self.debate.original_request,self.context.frozen_input.messages[1].content)
         with self.assertRaises(ValueError):self.prepare()
         self.assertEqual(self.store.prepared_intents(self.debate.debate_id),())
 

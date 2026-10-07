@@ -228,7 +228,7 @@
         "Handoff allowlist maintenance fixed two omitted new source paths; current-source native tests required, without re-executing browser sends.",
         "HISTORICAL CHECKPOINT: transfer allowlist maintenance and its current source passed 272 tests on each actual native OS. P04 Python implementation is still not started; source and reviewed evidence on main verified.",
         "HISTORICAL CHECKPOINT: immutable question, initial independent context and schema-v3 durable user adoption implemented. 305 tests pass on each actual native OS for source d32bd2568f100a1e8917ca9cf5aaa0a149cca3d5eb76c3333d601af90ea729f6. Interactive confirmation, dispatch privacy/budget/history policy and full P04 acceptance remain pending.",
-        "CURRENT IMPLEMENTATION: local architect review, strict local dispatch policy validation and initial-context intent bridge implemented; 61 local P04 tests pass. Native proof for new source, durable admission evidence, later-round views and full phase acceptance pending. No live sends."
+        "CURRENT IMPLEMENTATION: local architect review, strict local dispatch policy validation and initial-context intent bridge implemented; 63 local P04 tests pass. Native proof for new source, durable admission evidence, later-round views and full phase acceptance pending. No live sends."
       ]
     },
     {
@@ -686,7 +686,7 @@
       "P04 immutable question/adoption and initial independent context plus schema-v3 durable adoption tested: 305 tests on each actual native OS; phase not accepted."
     ],
     "working_changes": [
-      "P04 interactive local architect review, bound privacy/budget/history validation, independent intent preparation; 61 slice tests"
+      "P04 local review, bound policy and intent bridge; pre-handoff fixes for escaped multiline secrets and non-BMP display; 63 slice tests"
     ],
     "next_action": "پس از بررسی بومی این منبع، شواهد ContextAdmission را در همان تراکنش ثبت قصد پایدار کن و هنگام بازیابی بررسی کن؛ سپس زمینهٔ مجاز سایر دورها را بساز. پیش از آن ارسال زنده فعال نشود.",
     "next_command": "python tools/qualityctl.py status",
@@ -711,7 +711,7 @@
       "phase": "P04",
       "status": "LOCAL_REVIEW_POLICY_AND_INTENT_BRIDGE_IMPLEMENTED_NATIVE_VALIDATION_PENDING",
       "title_fa": "قرارداد اصل پرسش، پیشنهاد معمار و پذیرش نسخهٔ جدید",
-      "completed_fa": "رابط محلی تأیید، کنترل محلی مجوز و بودجه و تاریخچه، و اتصال زمینهٔ مستقل به قصد دفتر پیاده شدند. ۶۱ آزمون مرحلهٔ چهار پاس شده‌اند؛ هیچ ارسال زنده‌ای انجام نشده است.",
+      "completed_fa": "رابط محلی تأیید، کنترل محلی مجوز و بودجه و تاریخچه، و اتصال زمینهٔ مستقل به قصد دفتر پیاده شدند. ۶۳ آزمون مرحلهٔ چهار پاس شده‌اند؛ هیچ ارسال زنده‌ای انجام نشده است.",
       "remaining_fa": "بررسی کامل و شاهد بومی منبع تازه؛ ثبت پایدار شواهد کنترل کنار قصد و اعتبارسنجی پیش از ارسال؛ زمینهٔ دورهای بعد و پذیرش کامل مرحلهٔ چهار باقی است.",
       "next_action_fa": "پس از بررسی بومی این منبع، شواهد ContextAdmission را در همان تراکنش ثبت قصد پایدار کن و هنگام بازیابی بررسی کن؛ سپس زمینهٔ مجاز سایر دورها را بساز. پیش از آن ارسال زنده فعال نشود.",
       "done_when_fa": "اصل متن و قیود دقیق محفوظ؛ پیشنهاد ناسازگار و پذیرش نامعتبر رد؛ تغییرهای مجاز قابل مقایسه؛ آزمون‌های واقعی و رگرسیون سبز؛ تحویل به‌روز."
@@ -727,7 +727,7 @@
           "phase": "P04",
           "status": "LOCAL_REVIEW_POLICY_AND_INTENT_BRIDGE_IMPLEMENTED_NATIVE_VALIDATION_PENDING",
           "title_fa": "قرارداد اصل پرسش، پیشنهاد معمار و پذیرش نسخهٔ جدید",
-          "completed_fa": "رابط محلی تأیید، کنترل محلی مجوز و بودجه و تاریخچه، و اتصال زمینهٔ مستقل به قصد دفتر پیاده شدند. ۶۱ آزمون مرحلهٔ چهار پاس شده‌اند؛ هیچ ارسال زنده‌ای انجام نشده است.",
+          "completed_fa": "رابط محلی تأیید، کنترل محلی مجوز و بودجه و تاریخچه، و اتصال زمینهٔ مستقل به قصد دفتر پیاده شدند. ۶۳ آزمون مرحلهٔ چهار پاس شده‌اند؛ هیچ ارسال زنده‌ای انجام نشده است.",
           "remaining_fa": "بررسی کامل و شاهد بومی منبع تازه؛ ثبت پایدار شواهد کنترل کنار قصد و اعتبارسنجی پیش از ارسال؛ زمینهٔ دورهای بعد و پذیرش کامل مرحلهٔ چهار باقی است.",
           "next_action_fa": "پس از بررسی بومی این منبع، شواهد ContextAdmission را در همان تراکنش ثبت قصد پایدار کن و هنگام بازیابی بررسی کن؛ سپس زمینهٔ مجاز سایر دورها را بساز. پیش از آن ارسال زنده فعال نشود.",
           "done_when_fa": "اصل متن و قیود دقیق محفوظ؛ پیشنهاد ناسازگار و پذیرش نامعتبر رد؛ تغییرهای مجاز قابل مقایسه؛ آزمون‌های واقعی و رگرسیون سبز؛ تحویل به‌روز."

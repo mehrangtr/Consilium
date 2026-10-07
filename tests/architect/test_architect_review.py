@@ -83,6 +83,15 @@ class ArchitectReviewTests(unittest.TestCase):
                 expected_revision=0,read_line=response,write=self.outputs.append)
         self.assertIsNone(self.store.questions.get_adopted(self.debate.debate_id))
 
+    def test_visible_control_escaping_roundtrips_non_bmp_unicode_exactly(self):
+        text="عنوان\U0001bca0\u202e\u009b\x1b"
+        proposal=self.proposal.model_copy(update={"proposal_version":2,"optimized_request":text})
+        self.store.questions.record_proposal(self.debate.debate_id,proposal,expected_revision=0)
+        review_candidate(self.store,self.debate.debate_id,proposal.content_hash,expected_revision=0,
+            read_line=lambda:"",write=self.outputs.append)
+        self.assertNotIn("\U0001bca0",self.outputs[0])
+        self.assertEqual(json.loads(self.outputs[0])["optimized_request"],text)
+
     def cli(self,response,**updates):
         values=dict(database=str(self.path),debate_id=str(self.debate.debate_id),
                     proposal_hash=self.proposal.content_hash,expected_revision="0")

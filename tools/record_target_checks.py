@@ -15,6 +15,9 @@ import qualityctl as q
 from check_target_matrix import validate_smoke_row
 
 ROOT = Path(__file__).resolve().parents[1]
+# check.py runs several suites, each bounded to 60 seconds. The aggregate
+# recorder needs room for those suites and its final source-bound report.
+NATIVE_CHECK_BUDGET_SECONDS = 120
 
 
 def main():
@@ -49,11 +52,12 @@ def main():
     code = None
     try:
         execution = subprocess.run([sys.executable, "tools/check.py"], cwd=ROOT, stdin=subprocess.DEVNULL,
-                                   stdout=subprocess.PIPE, stderr=subprocess.STDOUT, timeout=60, shell=False)
+                                   stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
+                                   timeout=NATIVE_CHECK_BUDGET_SECONDS, shell=False)
         code, check_output = execution.returncode, execution.stdout
     except subprocess.TimeoutExpired as exc:
         check_output = exc.output or b""
-        errors.append({"kind": "CHECK_TIMEOUT", "timeout_seconds": 60})
+        errors.append({"kind": "CHECK_TIMEOUT", "timeout_seconds": exc.timeout})
     except OSError as exc:
         check_output = b""
         errors.append({"kind": "CHECK_START_FAILED", "error": type(exc).__name__})

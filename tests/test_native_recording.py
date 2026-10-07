@@ -67,9 +67,10 @@ class NativeRecordingControls(unittest.TestCase):
     def test_timed_out_check_preserves_partial_log_and_failed_checkpoint(self):
         def execution(argv, **kwargs):
             if argv[1] == "tools/check.py":
-                raise subprocess.TimeoutExpired(argv, 60, output=b"synthetic partial check log")
+                raise subprocess.TimeoutExpired(argv, kwargs["timeout"], output=b"synthetic partial check log")
             return self.smoke(argv)
         self.assertEqual(self.invoke(execution), 1)
         report = self.latest()
         self.assertEqual(report["status"], "FAIL")
+        self.assertIn({"kind": "CHECK_TIMEOUT", "timeout_seconds": recorder.NATIVE_CHECK_BUDGET_SECONDS}, report["errors"])
         self.assertIn(b"synthetic partial check log", q.artifact(self.root, report["artifacts"]["check_log"]).read_bytes())

@@ -43,6 +43,8 @@ def main():
     has_probe = (ROOT / "tools/run_browser_probe_tests.py").is_file()
     if has_probe:
         commands.append(("browser_probe_preparation_tests", [sys.executable, "tools/run_browser_probe_tests.py"]))
+    if (ROOT / "tools/run_architect_tests.py").is_file():
+        commands.append(("architect_contract_tests", [sys.executable, "tools/run_architect_tests.py"]))
     for name, argv in commands:
         try:
             code = subprocess.run(argv, cwd=ROOT, stdin=subprocess.DEVNULL,

@@ -2,7 +2,7 @@
 
 این نما خودکار از `ROADMAP.json`، `PROGRESS.json` و `CHECKS.json` ساخته شده است. ویرایش دستی مرجع نیست؛ پس از تغییر مبنا فرمان تولید را دوباره اجرا کنید.
 
-شناسهٔ مبنای نما: `47402d1d9a8e5d25f2251898fe88f17dbae36daafd32ed08366922e0acb4c6cb`.
+شناسهٔ مبنای نما: `c6639c9eabdf91f51b35991460a73e0a4cf18b9b35b0c76c0f281d7946ab9f52`.
 
 مرحلهٔ فعلی: `P04`. آخرین مرحلهٔ پذیرفته‌شده: `P03`.
 
@@ -20,8 +20,10 @@
     "P03 actual positive/observer-loss/controlled sign-out evidence and corrected five-provider estimate accepted",
     "P04 contract draft and adversarial test matrix prepared; no P04 implementation yet"
   ],
-  "working_changes": [],
-  "next_action": "از P04-001 ادامه بده: آزمون‌های قرارداد حفظ دقیق پرسش و قیود و رد پیشنهاد ناسازگار را بنویس؛ سپس مدل‌های خالص و سختگیرانه را با استفاده از Contract موجود بساز. اصل درخواست جایگزین نشود. ثبت CHECKS مرحله و شاهد بومی منبع تغییرکرده پیش از پذیرش لازم‌اند.",
+  "working_changes": [
+    "P04 question contracts and ten offline behavior tests"
+  ],
+  "next_action": "مرز ورودی مورد اعتماد کاربر را به پوسته و ثبت نسخه متصل کن؛ سپس زمینهٔ مجاز مستقل و بازیابی را بساز. مرحلهٔ چهار هنوز پذیرفته نشده است.",
   "next_command": "python tools/qualityctl.py status",
   "startup_commands": [
     "python tools/qualityctl.py status",
@@ -41,27 +43,27 @@
   "next_task": {
     "id": "P04-001",
     "phase": "P04",
-    "status": "DESIGN_COMPLETE_IMPLEMENTATION_AND_TESTS_NOT_STARTED",
+    "status": "IMPLEMENTED_OFFLINE_TESTED_INTEGRATION_AND_NATIVE_VALIDATION_PENDING",
     "title_fa": "قرارداد اصل پرسش، پیشنهاد معمار و پذیرش نسخهٔ جدید",
-    "completed_fa": "طرح اولیه و ماتریس دوازده رفتار آماده است؛ اینها شاهد اجرای برنامه نیستند.",
-    "remaining_fa": "مدل‌های Python، آزمون‌های مثبت و منفی و اتصال به دفتر موجود پیاده نشده‌اند.",
-    "next_action_fa": "از P04-001 ادامه بده: آزمون‌های قرارداد حفظ دقیق پرسش و قیود و رد پیشنهاد ناسازگار را بنویس؛ سپس مدل‌های خالص و سختگیرانه را با استفاده از Contract موجود بساز. اصل درخواست جایگزین نشود. ثبت CHECKS مرحله و شاهد بومی منبع تغییرکرده پیش از پذیرش لازم‌اند.",
+    "completed_fa": "قراردادهای خالص حفظ پرسش، پیشنهاد معمار و پذیرش صریح پیاده شدند؛ ده آزمون مثبت و منفی محلی پاس شدند.",
+    "remaining_fa": "اتصال به اقدام واقعی کاربر و دفتر عملیات، زمینهٔ مجاز، شاهد بومی هر دو محیط و پذیرش کامل مرحله باقی است.",
+    "next_action_fa": "مرز ورودی مورد اعتماد کاربر را به پوسته و ثبت نسخه متصل کن؛ سپس زمینهٔ مجاز مستقل و بازیابی را بساز. مرحلهٔ چهار هنوز پذیرفته نشده است.",
     "done_when_fa": "اصل متن و قیود دقیق محفوظ؛ پیشنهاد ناسازگار و پذیرش نامعتبر رد؛ تغییرهای مجاز قابل مقایسه؛ آزمون‌های واقعی و رگرسیون سبز؛ تحویل به‌روز."
   },
   "unfinished_work": {
     "schema_version": 1,
     "updated_at_utc": "2026-10-06T23:29:08.363475+00:00",
     "canonical_location": "PROGRESS.json:resume.unfinished_work",
-    "continuation_instruction": "Read current record and accepted review; do not replay P03 sends or repeat historical login requests. Implement only P04-001 next.",
+    "continuation_instruction": "Continue implemented P04 slice; do not replay P03 browser probes. Native evidence for the new source remains pending.",
     "items": [
       {
         "id": "P04-001",
         "phase": "P04",
-        "status": "DESIGN_COMPLETE_IMPLEMENTATION_AND_TESTS_NOT_STARTED",
+        "status": "IMPLEMENTED_OFFLINE_TESTED_INTEGRATION_AND_NATIVE_VALIDATION_PENDING",
         "title_fa": "قرارداد اصل پرسش، پیشنهاد معمار و پذیرش نسخهٔ جدید",
-        "completed_fa": "طرح اولیه و ماتریس دوازده رفتار آماده است؛ اینها شاهد اجرای برنامه نیستند.",
-        "remaining_fa": "مدل‌های Python، آزمون‌های مثبت و منفی و اتصال به دفتر موجود پیاده نشده‌اند.",
-        "next_action_fa": "از P04-001 ادامه بده: آزمون‌های قرارداد حفظ دقیق پرسش و قیود و رد پیشنهاد ناسازگار را بنویس؛ سپس مدل‌های خالص و سختگیرانه را با استفاده از Contract موجود بساز. اصل درخواست جایگزین نشود. ثبت CHECKS مرحله و شاهد بومی منبع تغییرکرده پیش از پذیرش لازم‌اند.",
+        "completed_fa": "قراردادهای خالص حفظ پرسش، پیشنهاد معمار و پذیرش صریح پیاده شدند؛ ده آزمون مثبت و منفی محلی پاس شدند.",
+        "remaining_fa": "اتصال به اقدام واقعی کاربر و دفتر عملیات، زمینهٔ مجاز، شاهد بومی هر دو محیط و پذیرش کامل مرحله باقی است.",
+        "next_action_fa": "مرز ورودی مورد اعتماد کاربر را به پوسته و ثبت نسخه متصل کن؛ سپس زمینهٔ مجاز مستقل و بازیابی را بساز. مرحلهٔ چهار هنوز پذیرفته نشده است.",
         "done_when_fa": "اصل متن و قیود دقیق محفوظ؛ پیشنهاد ناسازگار و پذیرش نامعتبر رد؛ تغییرهای مجاز قابل مقایسه؛ آزمون‌های واقعی و رگرسیون سبز؛ تحویل به‌روز."
       }
     ],

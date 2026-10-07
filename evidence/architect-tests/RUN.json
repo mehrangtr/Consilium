@@ -1,0 +1,63 @@
+{
+  "phase": "P04",
+  "scope": "P04_QUESTION_CONTRACTS_OFFLINE_NOT_FULL_PHASE_ACCEPTANCE",
+  "status": "PASS",
+  "counts": {
+    "tests": 10,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "source_digest_before": "23274d999d6e809c8878124aca03b1d0884b7c41d51965ed7ce8b8b05442230e",
+  "source_digest_after": "23274d999d6e809c8878124aca03b1d0884b7c41d51965ed7ce8b8b05442230e",
+  "date_utc": "2026-10-07T04:06:54.886680+00:00",
+  "host": {
+    "system": "Linux",
+    "python": "3.12.14"
+  },
+  "windows_execution": "NOT_RUN",
+  "live_provider_calls": 0,
+  "verified_application_requirements": 0,
+  "cases": [
+    {
+      "id": "test_question_contracts.QuestionContractsTests.test_changed_constraints_and_wrong_snapshot_rejected",
+      "status": "PASS"
+    },
+    {
+      "id": "test_question_contracts.QuestionContractsTests.test_exact_original_and_constraints_survive_json",
+      "status": "PASS"
+    },
+    {
+      "id": "test_question_contracts.QuestionContractsTests.test_explicit_adoption_preserves_original",
+      "status": "PASS"
+    },
+    {
+      "id": "test_question_contracts.QuestionContractsTests.test_extra_fields_and_bool_version_rejected",
+      "status": "PASS"
+    },
+    {
+      "id": "test_question_contracts.QuestionContractsTests.test_hash_binds_identity_revision_and_exact_whitespace",
+      "status": "PASS"
+    },
+    {
+      "id": "test_question_contracts.QuestionContractsTests.test_missing_duplicate_and_out_of_range_coverage_rejected",
+      "status": "PASS"
+    },
+    {
+      "id": "test_question_contracts.QuestionContractsTests.test_no_implicit_adoption",
+      "status": "PASS"
+    },
+    {
+      "id": "test_question_contracts.QuestionContractsTests.test_revision_must_advance_exactly_once",
+      "status": "PASS"
+    },
+    {
+      "id": "test_question_contracts.QuestionContractsTests.test_snapshot_is_immutable",
+      "status": "PASS"
+    },
+    {
+      "id": "test_question_contracts.QuestionContractsTests.test_stale_revision_and_wrong_proposal_hash_rejected",
+      "status": "PASS"
+    }
+  ]
+}

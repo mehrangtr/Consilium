@@ -1,0 +1,637 @@
+{
+  "phase": "P04",
+  "source_digest": "a8cb0b5371a5cf89c917b2039e5756bdc4c9875d7aff8a69ed65ab8d1d5001a4",
+  "status": "PASS",
+  "reviewer": "Codex author, separate review pass; not independent",
+  "method": "Separate author review of all original P04 tasks and unchanged exit criteria, actual exact-source Windows/Linux report graphs, negative cases and reproducible local examples. No simulated external history or byte fixture is certified as live provider capability.",
+  "impact_assessment": "All previous suites pass on both native targets. V1-V9 SQL/checksums are unchanged; historical admission hashes retain their old schemas. P00-P03 acceptance rows and protected 30-requirement baseline remain unchanged. No live calls, payments or production send authorization added.",
+  "findings": [
+    {
+      "id": "P04-OBSERVERS",
+      "kind": "DEFECT",
+      "state": "CLOSED",
+      "reason": "Canonical source/history observation and bound, atomically stored receipts implemented; wrong model, stale evidence, secret, ambiguity and tampering rejected."
+    },
+    {
+      "id": "P04-ARCHITECT-INPUT",
+      "kind": "DEFECT",
+      "state": "CLOSED",
+      "reason": "Frozen architect request and strict output staging added; duplicate keys, changed constraints, self-approval and late staging rejected."
+    }
+  ],
+  "criteria": [
+    {
+      "id": "P04.E01",
+      "criterion": "معمار پیش از دور اول اجرا می‌شود و اصل پرسش و محدودیت‌ها قابل مقایسه و بازیابی‌اند.",
+      "status": "PASS",
+      "notes": "Architect input is frozen from the unchanged original and exact ordered constraints, strict output is staged before round 1, and approval is a separate local user action with visible diff/version/assumptions. Durable original/candidate/adoption survive reopen. Offline scripted architect/manual examples do not claim live model optimization.",
+      "evidence": [
+        {
+          "path": "evidence/architect-tests/JUNIT.xml",
+          "sha256": "6e462a4e5f5974f35ff70dba932347c21e29694d4768a9df34e5fdb09ccd9913"
+        },
+        {
+          "path": "evidence/p04/context-examples/RUN.json",
+          "sha256": "7a3acf568bae70a51022e10fd487dba1a1ed25f70eb2961c17b7f489e2907264"
+        },
+        {
+          "path": "evidence/persistence-tests/JUNIT.xml",
+          "sha256": "d8f658daff1d882f8be7378768e1b15d9614519b14818008d32a97a7956c1a55"
+        },
+        {
+          "path": "evidence/target-matrix/RUN.json",
+          "sha256": "298e416b1b3f6bf571976f426d4499647fcb25d1d2efce92425885ba45965fc1"
+        },
+        {
+          "path": "evidence/targets/Linux/20261007T213059Z_f6ac87c9/CHECK.log",
+          "sha256": "74ab8185c96b36c0ebc1bb9037949209587533eff8da9fe2667d96555a063cf9"
+        },
+        {
+          "path": "evidence/targets/Linux/20261007T213059Z_f6ac87c9/RUN.json",
+          "sha256": "e177aefd4993f30a420735d85c26c07678090ecff0959e3723eb81e8bacd27cb"
+        },
+        {
+          "path": "evidence/targets/Linux/20261007T213059Z_f6ac87c9/architect_junit.xml",
+          "sha256": "6e462a4e5f5974f35ff70dba932347c21e29694d4768a9df34e5fdb09ccd9913"
+        },
+        {
+          "path": "evidence/targets/Linux/20261007T213059Z_f6ac87c9/architect_report.json",
+          "sha256": "7f7f5737494802b34d08acded3239273271a154dfbaf401ac4d03b377e77fcc1"
+        },
+        {
+          "path": "evidence/targets/Linux/20261007T213059Z_f6ac87c9/browser_probe_junit.xml",
+          "sha256": "d8f4b9cf44201197e9b0abd379f0abe06283fecf6ebbcb10369218643d16e702"
+        },
+        {
+          "path": "evidence/targets/Linux/20261007T213059Z_f6ac87c9/browser_probe_report.json",
+          "sha256": "3297077f6b3d50e05765860022b9260c77228c9a7ea7ba5e51effd354d93e17c"
+        },
+        {
+          "path": "evidence/targets/Linux/20261007T213059Z_f6ac87c9/control_junit.xml",
+          "sha256": "9960941d7f6f6b81fce061537e1e788f5dd9996f3b174873cf9fd0dd256c0b73"
+        },
+        {
+          "path": "evidence/targets/Linux/20261007T213059Z_f6ac87c9/control_report.json",
+          "sha256": "f8717b7c8c3ec0bce4395f2a3fef813df431476660e7216d190d4f65cb52f1f1"
+        },
+        {
+          "path": "evidence/targets/Linux/20261007T213059Z_f6ac87c9/environment_report.json",
+          "sha256": "3a88435f03074e8f4bcb8b2e14cd99c89e7f60680dcfed790edeaeda621b6321"
+        },
+        {
+          "path": "evidence/targets/Linux/20261007T213059Z_f6ac87c9/foundation_junit.xml",
+          "sha256": "8d407155e6b1dc1ca1a1e921d0e9a05eafbc0bc1f2ae07f4b67e55f664a99949"
+        },
+        {
+          "path": "evidence/targets/Linux/20261007T213059Z_f6ac87c9/foundation_report.json",
+          "sha256": "515933d149c93de8f182517d2195621e62427784966b45b386292261ca0e8a55"
+        },
+        {
+          "path": "evidence/targets/Linux/20261007T213059Z_f6ac87c9/maintenance_report.json",
+          "sha256": "e85732ee3b90e9ad66f1fbf72685dffb01be3ec60da34040e7df40a279c6d0d2"
+        },
+        {
+          "path": "evidence/targets/Linux/20261007T213059Z_f6ac87c9/persistence_junit.xml",
+          "sha256": "d8f658daff1d882f8be7378768e1b15d9614519b14818008d32a97a7956c1a55"
+        },
+        {
+          "path": "evidence/targets/Linux/20261007T213059Z_f6ac87c9/persistence_report.json",
+          "sha256": "13dab580e22484b3c9d5cb734ea05c3d327423fd1bc029085abbb1067f793a8f"
+        },
+        {
+          "path": "evidence/targets/Linux/20261007T213059Z_f6ac87c9/smoke_1.log",
+          "sha256": "9dfc40492ccb101138fe5f87fa38ae79d0094d0fe6c27786c82fce0c4f9de8f7"
+        },
+        {
+          "path": "evidence/targets/Linux/20261007T213059Z_f6ac87c9/smoke_2.log",
+          "sha256": "8c8013ef296c85a7a2c176f200d512a268f5a8be62be93a8d9be8fa56dfaeeaf"
+        },
+        {
+          "path": "evidence/targets/Linux/20261007T213059Z_f6ac87c9/smoke_3.log",
+          "sha256": "f329948517242d36dd3b5a7378e5f410416397d0a2cd99d6f545fe1aff2b6a05"
+        },
+        {
+          "path": "evidence/targets/Linux/20261007T213059Z_f6ac87c9/smoke_4.log",
+          "sha256": "ccee5e85ebf66801323c65f7b26a61b2245cf702a854e050c16083d6e14b82ec"
+        },
+        {
+          "path": "evidence/targets/Linux/LATEST.json",
+          "sha256": "5a88a54c2ca3c92af4d2d0897c6ace06f85ead0acac1bf3e7642a51c7ba936a1"
+        },
+        {
+          "path": "evidence/targets/Windows/20261007T213134Z_852f5a32/CHECK.log",
+          "sha256": "2dd9cbc21ecde3f86084904c5658eb8887e1d5dcff79743547a2e39937940d7f"
+        },
+        {
+          "path": "evidence/targets/Windows/20261007T213134Z_852f5a32/RUN.json",
+          "sha256": "53b928a14137cd954a022851ec31ccd9ab3c86f9e6dbb58fceb5fca1a3183acf"
+        },
+        {
+          "path": "evidence/targets/Windows/20261007T213134Z_852f5a32/architect_junit.xml",
+          "sha256": "1f75c76880d07546153368668ae3d17731bd3e25d730d0b6167c3d42832ab1c5"
+        },
+        {
+          "path": "evidence/targets/Windows/20261007T213134Z_852f5a32/architect_report.json",
+          "sha256": "f331b63c0dc5953708996275df9d9318d5e43c17c33997d8e51306bc09de7d70"
+        },
+        {
+          "path": "evidence/targets/Windows/20261007T213134Z_852f5a32/browser_probe_junit.xml",
+          "sha256": "cc96cd3d9eb9caaf9925bbf12a0aab6a3fb6e60c3968367ad7be5c7476ed39a9"
+        },
+        {
+          "path": "evidence/targets/Windows/20261007T213134Z_852f5a32/browser_probe_report.json",
+          "sha256": "2e945e414579ef8144f3316d227f7215fb7d6ed80fb355588096f5213c9c9658"
+        },
+        {
+          "path": "evidence/targets/Windows/20261007T213134Z_852f5a32/control_junit.xml",
+          "sha256": "f56ce28d44a33c2adc54291dbf812a570e0f2ee8ab130205f05156e55f24de5e"
+        },
+        {
+          "path": "evidence/targets/Windows/20261007T213134Z_852f5a32/control_report.json",
+          "sha256": "73717aa5bbe608655567aae0fb01869379e988bb33a4a9ba9bd819d08ee0b157"
+        },
+        {
+          "path": "evidence/targets/Windows/20261007T213134Z_852f5a32/environment_report.json",
+          "sha256": "139206dccc8c5502356ea1222127683aef7437024b9bf1becbcc97494a5d9d62"
+        },
+        {
+          "path": "evidence/targets/Windows/20261007T213134Z_852f5a32/foundation_junit.xml",
+          "sha256": "7c775438c51a685195abba490548262de4759e5d29d91293ad3bbf5bea68179d"
+        },
+        {
+          "path": "evidence/targets/Windows/20261007T213134Z_852f5a32/foundation_report.json",
+          "sha256": "428f0593df1a48cc63fc938c418183fa22e1e3a6c6b8c95e5de57f0101617e53"
+        },
+        {
+          "path": "evidence/targets/Windows/20261007T213134Z_852f5a32/maintenance_report.json",
+          "sha256": "d312d220b87ac454299146c0f03bfe572c5c1d245d89b05ca61bdfdd2567557c"
+        },
+        {
+          "path": "evidence/targets/Windows/20261007T213134Z_852f5a32/persistence_junit.xml",
+          "sha256": "302fcb323734105787efe34b9e2728b19788dbc67d2a1ff033e4a22971d608a7"
+        },
+        {
+          "path": "evidence/targets/Windows/20261007T213134Z_852f5a32/persistence_report.json",
+          "sha256": "0f12756fc36da2ec18b338a88cbfb8d85195e5b6d5c8849acb24c0334afdc2de"
+        },
+        {
+          "path": "evidence/targets/Windows/20261007T213134Z_852f5a32/smoke_1.log",
+          "sha256": "e47f5788cb778019e9cbf8bec531f166753facb848fd352ea43a1b22c9361445"
+        },
+        {
+          "path": "evidence/targets/Windows/20261007T213134Z_852f5a32/smoke_2.log",
+          "sha256": "02809218983c89d879ed3104d53b3c37070eb5ffc61c6a7a6f1c27f7c82dbb99"
+        },
+        {
+          "path": "evidence/targets/Windows/20261007T213134Z_852f5a32/smoke_3.log",
+          "sha256": "0aead4c498abf3ce452eacbaf586930d23a034f36d161d46e13db7bb5169e235"
+        },
+        {
+          "path": "evidence/targets/Windows/20261007T213134Z_852f5a32/smoke_4.log",
+          "sha256": "94d13464ba37890a9351375496ba773ac582e03e1949c8a588575f4be743dcc5"
+        },
+        {
+          "path": "evidence/targets/Windows/LATEST.json",
+          "sha256": "68ea4cf0df48f5bc1c6db35c2db19af339219fcbdf6822eae56a9ad6225d4f8f"
+        },
+        {
+          "path": "src/consilium/core/architect_request.py",
+          "sha256": "9adcd1bb6491c1e2a1c1cc643541d52e2aaa6bae8077bc7215e9f478b7e7156e"
+        },
+        {
+          "path": "src/consilium/shell/architect_candidates.py",
+          "sha256": "82fcd1d33a44af214816cb296ae6b32b02e877776dd57ed866205b483ff71a45"
+        },
+        {
+          "path": "src/consilium/shell/architect_review.py",
+          "sha256": "95001f21b3e7c64a0fd9c1999645941b4881ab0dbc029033223e9a7fc2389b3d"
+        },
+        {
+          "path": "src/consilium/shell/questions.py",
+          "sha256": "0452b0e3b9b7ed181e1ea6522ff39c1654dba3740635b9f74e8ca6444af678a5"
+        },
+        {
+          "path": "tests/architect/test_architect_request.py",
+          "sha256": "53a657ff8551bbd6636041504e0bf6594b3dfe3ae7be542b200e3e7f10595db2"
+        },
+        {
+          "path": "tests/architect/test_question_storage.py",
+          "sha256": "44fac77c3ce0a0a1bcc98d7ff5e71d02404880c5e61a8a86995073c348475fcb"
+        }
+      ]
+    },
+    {
+      "id": "P04.E02",
+      "criterion": "آزمون ورودی دور مستقل، بازیابی آن و جلوگیری از نشت همتا موفق است.",
+      "status": "PASS",
+      "notes": "Two independent inputs contain no peers even after canonical peer answers exist. Exact reconstruction, wrong participant/round/revision, forged context and contaminated/incomplete history are tested. Atomic packet and 33 actual process-exit cases pass on each native host. No automatic resend follows recovery.",
+      "evidence": [
+        {
+          "path": "evidence/architect-tests/JUNIT.xml",
+          "sha256": "6e462a4e5f5974f35ff70dba932347c21e29694d4768a9df34e5fdb09ccd9913"
+        },
+        {
+          "path": "evidence/p04/context-examples/RUN.json",
+          "sha256": "7a3acf568bae70a51022e10fd487dba1a1ed25f70eb2961c17b7f489e2907264"
+        },
+        {
+          "path": "evidence/persistence-tests/JUNIT.xml",
+          "sha256": "d8f658daff1d882f8be7378768e1b15d9614519b14818008d32a97a7956c1a55"
+        },
+        {
+          "path": "evidence/target-matrix/RUN.json",
+          "sha256": "298e416b1b3f6bf571976f426d4499647fcb25d1d2efce92425885ba45965fc1"
+        },
+        {
+          "path": "evidence/targets/Linux/20261007T213059Z_f6ac87c9/CHECK.log",
+          "sha256": "74ab8185c96b36c0ebc1bb9037949209587533eff8da9fe2667d96555a063cf9"
+        },
+        {
+          "path": "evidence/targets/Linux/20261007T213059Z_f6ac87c9/RUN.json",
+          "sha256": "e177aefd4993f30a420735d85c26c07678090ecff0959e3723eb81e8bacd27cb"
+        },
+        {
+          "path": "evidence/targets/Linux/20261007T213059Z_f6ac87c9/architect_junit.xml",
+          "sha256": "6e462a4e5f5974f35ff70dba932347c21e29694d4768a9df34e5fdb09ccd9913"
+        },
+        {
+          "path": "evidence/targets/Linux/20261007T213059Z_f6ac87c9/architect_report.json",
+          "sha256": "7f7f5737494802b34d08acded3239273271a154dfbaf401ac4d03b377e77fcc1"
+        },
+        {
+          "path": "evidence/targets/Linux/20261007T213059Z_f6ac87c9/browser_probe_junit.xml",
+          "sha256": "d8f4b9cf44201197e9b0abd379f0abe06283fecf6ebbcb10369218643d16e702"
+        },
+        {
+          "path": "evidence/targets/Linux/20261007T213059Z_f6ac87c9/browser_probe_report.json",
+          "sha256": "3297077f6b3d50e05765860022b9260c77228c9a7ea7ba5e51effd354d93e17c"
+        },
+        {
+          "path": "evidence/targets/Linux/20261007T213059Z_f6ac87c9/control_junit.xml",
+          "sha256": "9960941d7f6f6b81fce061537e1e788f5dd9996f3b174873cf9fd0dd256c0b73"
+        },
+        {
+          "path": "evidence/targets/Linux/20261007T213059Z_f6ac87c9/control_report.json",
+          "sha256": "f8717b7c8c3ec0bce4395f2a3fef813df431476660e7216d190d4f65cb52f1f1"
+        },
+        {
+          "path": "evidence/targets/Linux/20261007T213059Z_f6ac87c9/environment_report.json",
+          "sha256": "3a88435f03074e8f4bcb8b2e14cd99c89e7f60680dcfed790edeaeda621b6321"
+        },
+        {
+          "path": "evidence/targets/Linux/20261007T213059Z_f6ac87c9/foundation_junit.xml",
+          "sha256": "8d407155e6b1dc1ca1a1e921d0e9a05eafbc0bc1f2ae07f4b67e55f664a99949"
+        },
+        {
+          "path": "evidence/targets/Linux/20261007T213059Z_f6ac87c9/foundation_report.json",
+          "sha256": "515933d149c93de8f182517d2195621e62427784966b45b386292261ca0e8a55"
+        },
+        {
+          "path": "evidence/targets/Linux/20261007T213059Z_f6ac87c9/maintenance_report.json",
+          "sha256": "e85732ee3b90e9ad66f1fbf72685dffb01be3ec60da34040e7df40a279c6d0d2"
+        },
+        {
+          "path": "evidence/targets/Linux/20261007T213059Z_f6ac87c9/persistence_junit.xml",
+          "sha256": "d8f658daff1d882f8be7378768e1b15d9614519b14818008d32a97a7956c1a55"
+        },
+        {
+          "path": "evidence/targets/Linux/20261007T213059Z_f6ac87c9/persistence_report.json",
+          "sha256": "13dab580e22484b3c9d5cb734ea05c3d327423fd1bc029085abbb1067f793a8f"
+        },
+        {
+          "path": "evidence/targets/Linux/20261007T213059Z_f6ac87c9/smoke_1.log",
+          "sha256": "9dfc40492ccb101138fe5f87fa38ae79d0094d0fe6c27786c82fce0c4f9de8f7"
+        },
+        {
+          "path": "evidence/targets/Linux/20261007T213059Z_f6ac87c9/smoke_2.log",
+          "sha256": "8c8013ef296c85a7a2c176f200d512a268f5a8be62be93a8d9be8fa56dfaeeaf"
+        },
+        {
+          "path": "evidence/targets/Linux/20261007T213059Z_f6ac87c9/smoke_3.log",
+          "sha256": "f329948517242d36dd3b5a7378e5f410416397d0a2cd99d6f545fe1aff2b6a05"
+        },
+        {
+          "path": "evidence/targets/Linux/20261007T213059Z_f6ac87c9/smoke_4.log",
+          "sha256": "ccee5e85ebf66801323c65f7b26a61b2245cf702a854e050c16083d6e14b82ec"
+        },
+        {
+          "path": "evidence/targets/Linux/LATEST.json",
+          "sha256": "5a88a54c2ca3c92af4d2d0897c6ace06f85ead0acac1bf3e7642a51c7ba936a1"
+        },
+        {
+          "path": "evidence/targets/Windows/20261007T213134Z_852f5a32/CHECK.log",
+          "sha256": "2dd9cbc21ecde3f86084904c5658eb8887e1d5dcff79743547a2e39937940d7f"
+        },
+        {
+          "path": "evidence/targets/Windows/20261007T213134Z_852f5a32/RUN.json",
+          "sha256": "53b928a14137cd954a022851ec31ccd9ab3c86f9e6dbb58fceb5fca1a3183acf"
+        },
+        {
+          "path": "evidence/targets/Windows/20261007T213134Z_852f5a32/architect_junit.xml",
+          "sha256": "1f75c76880d07546153368668ae3d17731bd3e25d730d0b6167c3d42832ab1c5"
+        },
+        {
+          "path": "evidence/targets/Windows/20261007T213134Z_852f5a32/architect_report.json",
+          "sha256": "f331b63c0dc5953708996275df9d9318d5e43c17c33997d8e51306bc09de7d70"
+        },
+        {
+          "path": "evidence/targets/Windows/20261007T213134Z_852f5a32/browser_probe_junit.xml",
+          "sha256": "cc96cd3d9eb9caaf9925bbf12a0aab6a3fb6e60c3968367ad7be5c7476ed39a9"
+        },
+        {
+          "path": "evidence/targets/Windows/20261007T213134Z_852f5a32/browser_probe_report.json",
+          "sha256": "2e945e414579ef8144f3316d227f7215fb7d6ed80fb355588096f5213c9c9658"
+        },
+        {
+          "path": "evidence/targets/Windows/20261007T213134Z_852f5a32/control_junit.xml",
+          "sha256": "f56ce28d44a33c2adc54291dbf812a570e0f2ee8ab130205f05156e55f24de5e"
+        },
+        {
+          "path": "evidence/targets/Windows/20261007T213134Z_852f5a32/control_report.json",
+          "sha256": "73717aa5bbe608655567aae0fb01869379e988bb33a4a9ba9bd819d08ee0b157"
+        },
+        {
+          "path": "evidence/targets/Windows/20261007T213134Z_852f5a32/environment_report.json",
+          "sha256": "139206dccc8c5502356ea1222127683aef7437024b9bf1becbcc97494a5d9d62"
+        },
+        {
+          "path": "evidence/targets/Windows/20261007T213134Z_852f5a32/foundation_junit.xml",
+          "sha256": "7c775438c51a685195abba490548262de4759e5d29d91293ad3bbf5bea68179d"
+        },
+        {
+          "path": "evidence/targets/Windows/20261007T213134Z_852f5a32/foundation_report.json",
+          "sha256": "428f0593df1a48cc63fc938c418183fa22e1e3a6c6b8c95e5de57f0101617e53"
+        },
+        {
+          "path": "evidence/targets/Windows/20261007T213134Z_852f5a32/maintenance_report.json",
+          "sha256": "d312d220b87ac454299146c0f03bfe572c5c1d245d89b05ca61bdfdd2567557c"
+        },
+        {
+          "path": "evidence/targets/Windows/20261007T213134Z_852f5a32/persistence_junit.xml",
+          "sha256": "302fcb323734105787efe34b9e2728b19788dbc67d2a1ff033e4a22971d608a7"
+        },
+        {
+          "path": "evidence/targets/Windows/20261007T213134Z_852f5a32/persistence_report.json",
+          "sha256": "0f12756fc36da2ec18b338a88cbfb8d85195e5b6d5c8849acb24c0334afdc2de"
+        },
+        {
+          "path": "evidence/targets/Windows/20261007T213134Z_852f5a32/smoke_1.log",
+          "sha256": "e47f5788cb778019e9cbf8bec531f166753facb848fd352ea43a1b22c9361445"
+        },
+        {
+          "path": "evidence/targets/Windows/20261007T213134Z_852f5a32/smoke_2.log",
+          "sha256": "02809218983c89d879ed3104d53b3c37070eb5ffc61c6a7a6f1c27f7c82dbb99"
+        },
+        {
+          "path": "evidence/targets/Windows/20261007T213134Z_852f5a32/smoke_3.log",
+          "sha256": "0aead4c498abf3ce452eacbaf586930d23a034f36d161d46e13db7bb5169e235"
+        },
+        {
+          "path": "evidence/targets/Windows/20261007T213134Z_852f5a32/smoke_4.log",
+          "sha256": "94d13464ba37890a9351375496ba773ac582e03e1949c8a588575f4be743dcc5"
+        },
+        {
+          "path": "evidence/targets/Windows/LATEST.json",
+          "sha256": "68ea4cf0df48f5bc1c6db35c2db19af339219fcbdf6822eae56a9ad6225d4f8f"
+        },
+        {
+          "path": "src/consilium/core/independent_context.py",
+          "sha256": "14e1ab29282f02381bafe9f095665392aa3ac4d2665d42cab97f699688439273"
+        },
+        {
+          "path": "src/consilium/shell/context_observers.py",
+          "sha256": "420000ab5368ba9b86f62933dc62fa6a9af0c960b6d8e251cdfb2e397d79eca9"
+        },
+        {
+          "path": "tests/architect/test_context_observers.py",
+          "sha256": "a9dcde335cddeec928aeb199952ce85ca6d9ae98b9313492d122f534301f7ef3"
+        },
+        {
+          "path": "tests/architect/test_independent_context.py",
+          "sha256": "95c66207276557de5cfc63e5885381a5ee54e75d9d11d300aac0a5c2d7e8ef29"
+        },
+        {
+          "path": "tests/persistence/test_context_history_observer.py",
+          "sha256": "981faabf881f90266f074cb21971a5d210d6221be62daf4ec7a78f54f7bd1d02"
+        }
+      ]
+    },
+    {
+      "id": "P04.E03",
+      "criterion": "بستهٔ زمینهٔ مجاز، نسخه و منشأ روشن دارد.",
+      "status": "PASS",
+      "notes": "Independent, review, targeted and selected-judge views have explicit role/version/provenance and scoped grants. Canonical MANUAL/MOCK origins stay truthful, dissent and user instructions remain, known secrets and missing permission/measurement block. Observed receipts are atomically bound to destination/request/revision. Production observers are still required at the unchanged P08/P09 gates; byte tokens apply exclusively to the registered local mock codec.",
+      "evidence": [
+        {
+          "path": "docs/decisions/ADR-025-P04-CONTEXT-OBSERVATION-BOUNDARY_FA.md",
+          "sha256": "f61a44cb998fc53400bbed0338b9fa8469f7d5a20149980aa92e7e9a645bdd5b"
+        },
+        {
+          "path": "evidence/architect-tests/JUNIT.xml",
+          "sha256": "6e462a4e5f5974f35ff70dba932347c21e29694d4768a9df34e5fdb09ccd9913"
+        },
+        {
+          "path": "evidence/p04/context-examples/RUN.json",
+          "sha256": "7a3acf568bae70a51022e10fd487dba1a1ed25f70eb2961c17b7f489e2907264"
+        },
+        {
+          "path": "evidence/persistence-tests/JUNIT.xml",
+          "sha256": "d8f658daff1d882f8be7378768e1b15d9614519b14818008d32a97a7956c1a55"
+        },
+        {
+          "path": "evidence/publication/P04_COMPLETION_SOURCE_JOURNAL.json",
+          "sha256": "2244a3cad9e1c8205a2802c517167088972a542d373c00475787c49983b085dc"
+        },
+        {
+          "path": "evidence/target-matrix/RUN.json",
+          "sha256": "298e416b1b3f6bf571976f426d4499647fcb25d1d2efce92425885ba45965fc1"
+        },
+        {
+          "path": "evidence/targets/Linux/20261007T213059Z_f6ac87c9/CHECK.log",
+          "sha256": "74ab8185c96b36c0ebc1bb9037949209587533eff8da9fe2667d96555a063cf9"
+        },
+        {
+          "path": "evidence/targets/Linux/20261007T213059Z_f6ac87c9/RUN.json",
+          "sha256": "e177aefd4993f30a420735d85c26c07678090ecff0959e3723eb81e8bacd27cb"
+        },
+        {
+          "path": "evidence/targets/Linux/20261007T213059Z_f6ac87c9/architect_junit.xml",
+          "sha256": "6e462a4e5f5974f35ff70dba932347c21e29694d4768a9df34e5fdb09ccd9913"
+        },
+        {
+          "path": "evidence/targets/Linux/20261007T213059Z_f6ac87c9/architect_report.json",
+          "sha256": "7f7f5737494802b34d08acded3239273271a154dfbaf401ac4d03b377e77fcc1"
+        },
+        {
+          "path": "evidence/targets/Linux/20261007T213059Z_f6ac87c9/browser_probe_junit.xml",
+          "sha256": "d8f4b9cf44201197e9b0abd379f0abe06283fecf6ebbcb10369218643d16e702"
+        },
+        {
+          "path": "evidence/targets/Linux/20261007T213059Z_f6ac87c9/browser_probe_report.json",
+          "sha256": "3297077f6b3d50e05765860022b9260c77228c9a7ea7ba5e51effd354d93e17c"
+        },
+        {
+          "path": "evidence/targets/Linux/20261007T213059Z_f6ac87c9/control_junit.xml",
+          "sha256": "9960941d7f6f6b81fce061537e1e788f5dd9996f3b174873cf9fd0dd256c0b73"
+        },
+        {
+          "path": "evidence/targets/Linux/20261007T213059Z_f6ac87c9/control_report.json",
+          "sha256": "f8717b7c8c3ec0bce4395f2a3fef813df431476660e7216d190d4f65cb52f1f1"
+        },
+        {
+          "path": "evidence/targets/Linux/20261007T213059Z_f6ac87c9/environment_report.json",
+          "sha256": "3a88435f03074e8f4bcb8b2e14cd99c89e7f60680dcfed790edeaeda621b6321"
+        },
+        {
+          "path": "evidence/targets/Linux/20261007T213059Z_f6ac87c9/foundation_junit.xml",
+          "sha256": "8d407155e6b1dc1ca1a1e921d0e9a05eafbc0bc1f2ae07f4b67e55f664a99949"
+        },
+        {
+          "path": "evidence/targets/Linux/20261007T213059Z_f6ac87c9/foundation_report.json",
+          "sha256": "515933d149c93de8f182517d2195621e62427784966b45b386292261ca0e8a55"
+        },
+        {
+          "path": "evidence/targets/Linux/20261007T213059Z_f6ac87c9/maintenance_report.json",
+          "sha256": "e85732ee3b90e9ad66f1fbf72685dffb01be3ec60da34040e7df40a279c6d0d2"
+        },
+        {
+          "path": "evidence/targets/Linux/20261007T213059Z_f6ac87c9/persistence_junit.xml",
+          "sha256": "d8f658daff1d882f8be7378768e1b15d9614519b14818008d32a97a7956c1a55"
+        },
+        {
+          "path": "evidence/targets/Linux/20261007T213059Z_f6ac87c9/persistence_report.json",
+          "sha256": "13dab580e22484b3c9d5cb734ea05c3d327423fd1bc029085abbb1067f793a8f"
+        },
+        {
+          "path": "evidence/targets/Linux/20261007T213059Z_f6ac87c9/smoke_1.log",
+          "sha256": "9dfc40492ccb101138fe5f87fa38ae79d0094d0fe6c27786c82fce0c4f9de8f7"
+        },
+        {
+          "path": "evidence/targets/Linux/20261007T213059Z_f6ac87c9/smoke_2.log",
+          "sha256": "8c8013ef296c85a7a2c176f200d512a268f5a8be62be93a8d9be8fa56dfaeeaf"
+        },
+        {
+          "path": "evidence/targets/Linux/20261007T213059Z_f6ac87c9/smoke_3.log",
+          "sha256": "f329948517242d36dd3b5a7378e5f410416397d0a2cd99d6f545fe1aff2b6a05"
+        },
+        {
+          "path": "evidence/targets/Linux/20261007T213059Z_f6ac87c9/smoke_4.log",
+          "sha256": "ccee5e85ebf66801323c65f7b26a61b2245cf702a854e050c16083d6e14b82ec"
+        },
+        {
+          "path": "evidence/targets/Linux/LATEST.json",
+          "sha256": "5a88a54c2ca3c92af4d2d0897c6ace06f85ead0acac1bf3e7642a51c7ba936a1"
+        },
+        {
+          "path": "evidence/targets/Windows/20261007T213134Z_852f5a32/CHECK.log",
+          "sha256": "2dd9cbc21ecde3f86084904c5658eb8887e1d5dcff79743547a2e39937940d7f"
+        },
+        {
+          "path": "evidence/targets/Windows/20261007T213134Z_852f5a32/RUN.json",
+          "sha256": "53b928a14137cd954a022851ec31ccd9ab3c86f9e6dbb58fceb5fca1a3183acf"
+        },
+        {
+          "path": "evidence/targets/Windows/20261007T213134Z_852f5a32/architect_junit.xml",
+          "sha256": "1f75c76880d07546153368668ae3d17731bd3e25d730d0b6167c3d42832ab1c5"
+        },
+        {
+          "path": "evidence/targets/Windows/20261007T213134Z_852f5a32/architect_report.json",
+          "sha256": "f331b63c0dc5953708996275df9d9318d5e43c17c33997d8e51306bc09de7d70"
+        },
+        {
+          "path": "evidence/targets/Windows/20261007T213134Z_852f5a32/browser_probe_junit.xml",
+          "sha256": "cc96cd3d9eb9caaf9925bbf12a0aab6a3fb6e60c3968367ad7be5c7476ed39a9"
+        },
+        {
+          "path": "evidence/targets/Windows/20261007T213134Z_852f5a32/browser_probe_report.json",
+          "sha256": "2e945e414579ef8144f3316d227f7215fb7d6ed80fb355588096f5213c9c9658"
+        },
+        {
+          "path": "evidence/targets/Windows/20261007T213134Z_852f5a32/control_junit.xml",
+          "sha256": "f56ce28d44a33c2adc54291dbf812a570e0f2ee8ab130205f05156e55f24de5e"
+        },
+        {
+          "path": "evidence/targets/Windows/20261007T213134Z_852f5a32/control_report.json",
+          "sha256": "73717aa5bbe608655567aae0fb01869379e988bb33a4a9ba9bd819d08ee0b157"
+        },
+        {
+          "path": "evidence/targets/Windows/20261007T213134Z_852f5a32/environment_report.json",
+          "sha256": "139206dccc8c5502356ea1222127683aef7437024b9bf1becbcc97494a5d9d62"
+        },
+        {
+          "path": "evidence/targets/Windows/20261007T213134Z_852f5a32/foundation_junit.xml",
+          "sha256": "7c775438c51a685195abba490548262de4759e5d29d91293ad3bbf5bea68179d"
+        },
+        {
+          "path": "evidence/targets/Windows/20261007T213134Z_852f5a32/foundation_report.json",
+          "sha256": "428f0593df1a48cc63fc938c418183fa22e1e3a6c6b8c95e5de57f0101617e53"
+        },
+        {
+          "path": "evidence/targets/Windows/20261007T213134Z_852f5a32/maintenance_report.json",
+          "sha256": "d312d220b87ac454299146c0f03bfe572c5c1d245d89b05ca61bdfdd2567557c"
+        },
+        {
+          "path": "evidence/targets/Windows/20261007T213134Z_852f5a32/persistence_junit.xml",
+          "sha256": "302fcb323734105787efe34b9e2728b19788dbc67d2a1ff033e4a22971d608a7"
+        },
+        {
+          "path": "evidence/targets/Windows/20261007T213134Z_852f5a32/persistence_report.json",
+          "sha256": "0f12756fc36da2ec18b338a88cbfb8d85195e5b6d5c8849acb24c0334afdc2de"
+        },
+        {
+          "path": "evidence/targets/Windows/20261007T213134Z_852f5a32/smoke_1.log",
+          "sha256": "e47f5788cb778019e9cbf8bec531f166753facb848fd352ea43a1b22c9361445"
+        },
+        {
+          "path": "evidence/targets/Windows/20261007T213134Z_852f5a32/smoke_2.log",
+          "sha256": "02809218983c89d879ed3104d53b3c37070eb5ffc61c6a7a6f1c27f7c82dbb99"
+        },
+        {
+          "path": "evidence/targets/Windows/20261007T213134Z_852f5a32/smoke_3.log",
+          "sha256": "0aead4c498abf3ce452eacbaf586930d23a034f36d161d46e13db7bb5169e235"
+        },
+        {
+          "path": "evidence/targets/Windows/20261007T213134Z_852f5a32/smoke_4.log",
+          "sha256": "94d13464ba37890a9351375496ba773ac582e03e1949c8a588575f4be743dcc5"
+        },
+        {
+          "path": "evidence/targets/Windows/LATEST.json",
+          "sha256": "68ea4cf0df48f5bc1c6db35c2db19af339219fcbdf6822eae56a9ad6225d4f8f"
+        },
+        {
+          "path": "src/consilium/core/round_admission.py",
+          "sha256": "c4261277b1fe725f6bf83b260e18c6152f2665860d3c1983b721eb71101b15cc"
+        },
+        {
+          "path": "src/consilium/core/round_context.py",
+          "sha256": "8e5cd29000ec0115d819cf093d1930e7839074f84da749cf905054ef1b90b7b1"
+        },
+        {
+          "path": "src/consilium/shell/admissions.py",
+          "sha256": "596a67e3712f0b86b64b9a4a841e9398e922bd02a5202892bec1af801fd7e0d6"
+        },
+        {
+          "path": "tests/architect/test_round_admission.py",
+          "sha256": "1e9f7b9e3ae0e25251fc451a28fa4c125638e12dcd200c254447e8b27a4186bf"
+        },
+        {
+          "path": "tests/architect/test_round_context.py",
+          "sha256": "158af95149bac694eb75a7b36d75ec6853400a603dd7dc4f2c27dd73ae1b3fab"
+        }
+      ]
+    }
+  ],
+  "reviewer_independent": false,
+  "live_provider_calls": 0,
+  "paid_calls": 0,
+  "native_run_id": 37689915269,
+  "tests_per_native_target": 579,
+  "product_process_exit_cases_per_native_target": 33,
+  "scope": "FULL_ORIGINAL_P04_CONTEXT_PHASE_ONLY; NOT_FULL_V1_OR_LIVE_ADAPTER_CERTIFICATION",
+  "future_work_per_original_roadmap": [
+    "P05 complete council orchestration",
+    "P08 real API observer/tokenizer capabilities",
+    "P09 real browser history/capabilities",
+    "P11 complete cross-account recovery"
+  ]
+}

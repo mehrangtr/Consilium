@@ -1,0 +1,434 @@
+{
+  "schema_version": 1,
+  "status": "VERIFIED_COMPLETE",
+  "code_commit": "10c27c56187299120b2545ddca65014ec17bacff",
+  "code_tree": "f339e896177240345bc1c6413635308fb94434b4",
+  "source_digest": "a8cb0b5371a5cf89c917b2039e5756bdc4c9875d7aff8a69ed65ab8d1d5001a4",
+  "operations": [
+    {
+      "id": "0267685d11f8d73354667a10f6153b0dd61ea678b15b3289e902c3e75bb3925a",
+      "plan": {
+        "expected_sha": "d38562696497fc62cab254f98849b05b0d06c2a8",
+        "kind": "GIT_OBJECT",
+        "request_sha256": "8da7c12731267f8488e86103d99520bed98a580f0b5af03f8c2e18d15b842e09",
+        "resource": "blob/d38562696497fc62cab254f98849b05b0d06c2a8",
+        "source_digest": "a8cb0b5371a5cf89c917b2039e5756bdc4c9875d7aff8a69ed65ab8d1d5001a4"
+      },
+      "state": "VERIFIED_COMPLETE",
+      "attempts": 1,
+      "nonce": "b042a92a3fd543c1a40afc6fa44d5742",
+      "deadline": 1791408544.6908176,
+      "observed_sha": "d38562696497fc62cab254f98849b05b0d06c2a8",
+      "reason": null
+    },
+    {
+      "id": "03de344d77ce43d529313b62f81c7ef7a7081af90534e23298b972581ba27825",
+      "plan": {
+        "expected_sha": "385c01a5be7fdbfa4e15718b6c264b89c96cb9de",
+        "kind": "GIT_OBJECT",
+        "request_sha256": "630f3289af54272711015eb49b650b5a57f9a68b0b84f1c7f53227ed37384c5e",
+        "resource": "blob/385c01a5be7fdbfa4e15718b6c264b89c96cb9de",
+        "source_digest": "a8cb0b5371a5cf89c917b2039e5756bdc4c9875d7aff8a69ed65ab8d1d5001a4"
+      },
+      "state": "VERIFIED_COMPLETE",
+      "attempts": 1,
+      "nonce": "2ace4527522a4a978d0f9199d3364d54",
+      "deadline": 1791408544.6910439,
+      "observed_sha": "385c01a5be7fdbfa4e15718b6c264b89c96cb9de",
+      "reason": null
+    },
+    {
+      "id": "0683bea5066e41c82bc752daf4f1b3001c3e830eadd8775cd9458cbb6bc3d3ba",
+      "plan": {
+        "expected_sha": "1d0dd8e8a41c34ed90c007b3991025810b10939f",
+        "kind": "GIT_OBJECT",
+        "request_sha256": "69793f756bc9221d5174956a76f9977181517f8d2d6998c734c3187a9afff96c",
+        "resource": "blob/1d0dd8e8a41c34ed90c007b3991025810b10939f",
+        "source_digest": "a8cb0b5371a5cf89c917b2039e5756bdc4c9875d7aff8a69ed65ab8d1d5001a4"
+      },
+      "state": "VERIFIED_COMPLETE",
+      "attempts": 1,
+      "nonce": "c1d379d2678a446a9eb215399ae324c1",
+      "deadline": 1791408511.7386742,
+      "observed_sha": "1d0dd8e8a41c34ed90c007b3991025810b10939f",
+      "reason": null
+    },
+    {
+      "id": "07cfca90a2f29976bc423a18f67860b593d3f57a66c08ebc7d4547f30090a478",
+      "plan": {
+        "expected_sha": "a46facd9e54c9df856644661a70287c839931203",
+        "kind": "GIT_OBJECT",
+        "request_sha256": "f6fe6024624e54e7e5c6d000b63244808465bf1f3c15154a1ad30fc0f55e6540",
+        "resource": "blob/a46facd9e54c9df856644661a70287c839931203",
+        "source_digest": "a8cb0b5371a5cf89c917b2039e5756bdc4c9875d7aff8a69ed65ab8d1d5001a4"
+      },
+      "state": "VERIFIED_COMPLETE",
+      "attempts": 1,
+      "nonce": "31214704ea7a4e439d84848a4fa5252f",
+      "deadline": 1791408442.0205173,
+      "observed_sha": "a46facd9e54c9df856644661a70287c839931203",
+      "reason": null
+    },
+    {
+      "id": "19b68b7ba1030cb9c83a30fac12c52d770fad1a5287c963e064cd0ff7cebe022",
+      "plan": {
+        "expected_sha": "f339e896177240345bc1c6413635308fb94434b4",
+        "kind": "GIT_OBJECT",
+        "request_sha256": "2634e477676684ea31a0711de3f8f4cf5d3a3798e60c850ea83b83ec99660b68",
+        "resource": "tree/f339e896177240345bc1c6413635308fb94434b4",
+        "source_digest": "a8cb0b5371a5cf89c917b2039e5756bdc4c9875d7aff8a69ed65ab8d1d5001a4"
+      },
+      "state": "VERIFIED_COMPLETE",
+      "attempts": 1,
+      "nonce": "9f459f835eca42b2aa6bc6fe2c9905f6",
+      "deadline": 1791408595.6579437,
+      "observed_sha": "f339e896177240345bc1c6413635308fb94434b4",
+      "reason": null
+    },
+    {
+      "id": "27edf4e3d217426de54e1a4fdcea1a680ca1a3ab8325a5ded85b134fc078358b",
+      "plan": {
+        "expected_sha": "10c27c56187299120b2545ddca65014ec17bacff",
+        "kind": "REF_UPDATE",
+        "request_sha256": "a8cb0b5371a5cf89c917b2039e5756bdc4c9875d7aff8a69ed65ab8d1d5001a4",
+        "resource": "refs/heads/p04-completion-code-20261007",
+        "source_digest": "a8cb0b5371a5cf89c917b2039e5756bdc4c9875d7aff8a69ed65ab8d1d5001a4"
+      },
+      "state": "VERIFIED_COMPLETE",
+      "attempts": 1,
+      "nonce": "b1550d20f2e544beaa215644f1de9df9",
+      "deadline": 1791408688.5666363,
+      "observed_sha": "10c27c56187299120b2545ddca65014ec17bacff",
+      "reason": null
+    },
+    {
+      "id": "3c988b0e2fc082fb067af0ec6d934d9437d62ed21ac50e2ba8074c65e7d49031",
+      "plan": {
+        "expected_sha": "670468e24581e63f10a8c63049eebebe01fe6472",
+        "kind": "GIT_OBJECT",
+        "request_sha256": "48d68fc47ea2b5bfb609d1f4122721c0df458b69d6928bb1fa878ba492b55c46",
+        "resource": "blob/670468e24581e63f10a8c63049eebebe01fe6472",
+        "source_digest": "a8cb0b5371a5cf89c917b2039e5756bdc4c9875d7aff8a69ed65ab8d1d5001a4"
+      },
+      "state": "VERIFIED_COMPLETE",
+      "attempts": 1,
+      "nonce": "1ecb7d83ac5143699244feddf83e6d7f",
+      "deadline": 1791408337.3774037,
+      "observed_sha": "670468e24581e63f10a8c63049eebebe01fe6472",
+      "reason": null
+    },
+    {
+      "id": "474aa6a1bfdb26f08b775b0a10f00886002c6573d840d3f2f2ece5581811aaab",
+      "plan": {
+        "expected_sha": "c083cf508a6dc894bdc1e4c80200b2ee0f0a0890",
+        "kind": "GIT_OBJECT",
+        "request_sha256": "a3ee30a76705cbb4d33c0ef579ce968e9a63fac9f748731d2489de95180c1f6f",
+        "resource": "blob/c083cf508a6dc894bdc1e4c80200b2ee0f0a0890",
+        "source_digest": "a8cb0b5371a5cf89c917b2039e5756bdc4c9875d7aff8a69ed65ab8d1d5001a4"
+      },
+      "state": "VERIFIED_COMPLETE",
+      "attempts": 1,
+      "nonce": "4445a09e96004156bc409157114f1f27",
+      "deadline": 1791408410.336444,
+      "observed_sha": "c083cf508a6dc894bdc1e4c80200b2ee0f0a0890",
+      "reason": null
+    },
+    {
+      "id": "47e1e36f98e5828f0ee5b8f32143b057a04c7a7b23e85f07db9249b262d2f864",
+      "plan": {
+        "expected_sha": "4df4d0f2dd020db8e7fb8e929c882ebe73f4cca3",
+        "kind": "GIT_OBJECT",
+        "request_sha256": "473668fa1095ae3f0601f86b3ffd67a8db53ffe3e5b4d2b6c8ac569b1a1f4d57",
+        "resource": "blob/4df4d0f2dd020db8e7fb8e929c882ebe73f4cca3",
+        "source_digest": "a8cb0b5371a5cf89c917b2039e5756bdc4c9875d7aff8a69ed65ab8d1d5001a4"
+      },
+      "state": "VERIFIED_COMPLETE",
+      "attempts": 1,
+      "nonce": "deb208ea384b4c3bbb56cc3987d25429",
+      "deadline": 1791408544.6911461,
+      "observed_sha": "4df4d0f2dd020db8e7fb8e929c882ebe73f4cca3",
+      "reason": null
+    },
+    {
+      "id": "4fa01e54906259deafa6f8433be0419d1ccaa0074310562af2d9db6a82956dd5",
+      "plan": {
+        "expected_sha": "b01035fb1b96939985c5663b0b25f8061f7cc61d",
+        "kind": "GIT_OBJECT",
+        "request_sha256": "d5a0eca4436e9d2b9837890ea47b4a0d6f7493c5ecbba737291faea2b56bebda",
+        "resource": "blob/b01035fb1b96939985c5663b0b25f8061f7cc61d",
+        "source_digest": "a8cb0b5371a5cf89c917b2039e5756bdc4c9875d7aff8a69ed65ab8d1d5001a4"
+      },
+      "state": "VERIFIED_COMPLETE",
+      "attempts": 1,
+      "nonce": "39bf17e3341543359ef64d315eac2081",
+      "deadline": 1791408410.3362205,
+      "observed_sha": "b01035fb1b96939985c5663b0b25f8061f7cc61d",
+      "reason": null
+    },
+    {
+      "id": "514bc64be624cfb9eaea46ad782721051f99080153877ace6ff3a87dc42eb6e6",
+      "plan": {
+        "expected_sha": "3fc1abd19ebb375ca8eb85540570fca233f1d51a",
+        "kind": "GIT_OBJECT",
+        "request_sha256": "24fa5f8cc9521e1bf1afa6093e6eb4ecdd389cb6b7655557d65ce4a30c611770",
+        "resource": "blob/3fc1abd19ebb375ca8eb85540570fca233f1d51a",
+        "source_digest": "a8cb0b5371a5cf89c917b2039e5756bdc4c9875d7aff8a69ed65ab8d1d5001a4"
+      },
+      "state": "VERIFIED_COMPLETE",
+      "attempts": 1,
+      "nonce": "66dd925c46ac4e72b2ea66961b2e5325",
+      "deadline": 1791408482.3889725,
+      "observed_sha": "3fc1abd19ebb375ca8eb85540570fca233f1d51a",
+      "reason": null
+    },
+    {
+      "id": "5474a10ec49e8da9debadbca6b2dbbe9d35a86a600908fd8e96a793d2e5efde0",
+      "plan": {
+        "expected_sha": "39f71bdbe1e6678e8856daad41e50b3d0a4e06f8",
+        "kind": "GIT_OBJECT",
+        "request_sha256": "4a643b6e0aff8ce73cca193d6525643217b50e2f6cacde35c7e6a5d096e97b22",
+        "resource": "blob/39f71bdbe1e6678e8856daad41e50b3d0a4e06f8",
+        "source_digest": "a8cb0b5371a5cf89c917b2039e5756bdc4c9875d7aff8a69ed65ab8d1d5001a4"
+      },
+      "state": "VERIFIED_COMPLETE",
+      "attempts": 1,
+      "nonce": "d160c126f2584d7dafc55313af3fe897",
+      "deadline": 1791408482.3887908,
+      "observed_sha": "39f71bdbe1e6678e8856daad41e50b3d0a4e06f8",
+      "reason": null
+    },
+    {
+      "id": "547a1b96fc3b57f3b5b1edb331abf51a8837a7c6475ea1b9de1e333d55153459",
+      "plan": {
+        "expected_sha": "cbee230bd69d6c5cff3d0272116572bd309e50da",
+        "kind": "GIT_OBJECT",
+        "request_sha256": "fef90651d4276a52b00430f00316f24f2c1b23d0692f541929225ee00d369811",
+        "resource": "blob/cbee230bd69d6c5cff3d0272116572bd309e50da",
+        "source_digest": "a8cb0b5371a5cf89c917b2039e5756bdc4c9875d7aff8a69ed65ab8d1d5001a4"
+      },
+      "state": "VERIFIED_COMPLETE",
+      "attempts": 1,
+      "nonce": "536b9b9a0dc64d26acd2ec245e66bea0",
+      "deadline": 1791408511.7390893,
+      "observed_sha": "cbee230bd69d6c5cff3d0272116572bd309e50da",
+      "reason": null
+    },
+    {
+      "id": "6ffce9fbc9c33580dd36b2d723f482c957eb03605caf55fa8e4b49128e108093",
+      "plan": {
+        "expected_sha": "296eca32eec27394c3910244021c80222b966573",
+        "kind": "GIT_OBJECT",
+        "request_sha256": "c766540c5aead74168149b9d44ace38ff50b7c9e1b2bf7cb6030450725398d30",
+        "resource": "blob/296eca32eec27394c3910244021c80222b966573",
+        "source_digest": "a8cb0b5371a5cf89c917b2039e5756bdc4c9875d7aff8a69ed65ab8d1d5001a4"
+      },
+      "state": "VERIFIED_COMPLETE",
+      "attempts": 1,
+      "nonce": "59d439e6b3364336b57d2407cb4f6ab8",
+      "deadline": 1791408482.388889,
+      "observed_sha": "296eca32eec27394c3910244021c80222b966573",
+      "reason": null
+    },
+    {
+      "id": "752dc88112f6131175b2f1e9bb4db65426c60d9d0af0cd1ea471f34814e855da",
+      "plan": {
+        "expected_sha": "58802056f21674895bc52b4c30dd6613f8965ff9",
+        "kind": "GIT_OBJECT",
+        "request_sha256": "6846e47b675c1cb3f9baf231cda3b33a63260093a8665fee253a70d8521214ed",
+        "resource": "blob/58802056f21674895bc52b4c30dd6613f8965ff9",
+        "source_digest": "a8cb0b5371a5cf89c917b2039e5756bdc4c9875d7aff8a69ed65ab8d1d5001a4"
+      },
+      "state": "VERIFIED_COMPLETE",
+      "attempts": 1,
+      "nonce": "8447d1d1ffde4f1d90e7e1d08ab88177",
+      "deadline": 1791408442.0200233,
+      "observed_sha": "58802056f21674895bc52b4c30dd6613f8965ff9",
+      "reason": null
+    },
+    {
+      "id": "76ef811b4966fde31eba071d1341d29125072ffc156d0c6aaa583172cbd8c0ce",
+      "plan": {
+        "expected_sha": "a78aecef3304054f1ff6baf4b23208f6da48a8f1",
+        "kind": "GIT_OBJECT",
+        "request_sha256": "d2c50edc98af61867f58afdd756dc6a9b28192639c02e84203c0f662c602a176",
+        "resource": "blob/a78aecef3304054f1ff6baf4b23208f6da48a8f1",
+        "source_digest": "a8cb0b5371a5cf89c917b2039e5756bdc4c9875d7aff8a69ed65ab8d1d5001a4"
+      },
+      "state": "VERIFIED_COMPLETE",
+      "attempts": 1,
+      "nonce": "b94df05344974fa3ba27b4c348a63b97",
+      "deadline": 1791408442.02025,
+      "observed_sha": "a78aecef3304054f1ff6baf4b23208f6da48a8f1",
+      "reason": null
+    },
+    {
+      "id": "7f117d56f3b2579c73891f7af00172ebf1736b57db434625b21f9976e0b3d181",
+      "plan": {
+        "expected_sha": "4ddc4b2b292a29b3e4d60d98560ad1311a141975",
+        "kind": "GIT_OBJECT",
+        "request_sha256": "f67d4639b1b77284e7b3a4202342e7e4bfce7f6991cd254da4cb2d371a2994ed",
+        "resource": "blob/4ddc4b2b292a29b3e4d60d98560ad1311a141975",
+        "source_digest": "a8cb0b5371a5cf89c917b2039e5756bdc4c9875d7aff8a69ed65ab8d1d5001a4"
+      },
+      "state": "VERIFIED_COMPLETE",
+      "attempts": 1,
+      "nonce": "dacb6dcc625f4de896416c5b4cf98c66",
+      "deadline": 1791408511.738898,
+      "observed_sha": "4ddc4b2b292a29b3e4d60d98560ad1311a141975",
+      "reason": null
+    },
+    {
+      "id": "87cfb70db3ee453c1f6d0b0a575bcbcc7fda746943a1776a90d537bc303585cd",
+      "plan": {
+        "expected_sha": "79c2f4475c7e372066b71c330efcaa5b1d8a29c7",
+        "kind": "GIT_OBJECT",
+        "request_sha256": "84c1e028820c628c7a14fd28f77f36063276bd83703bf27e3f4e49995f8e8aa6",
+        "resource": "blob/79c2f4475c7e372066b71c330efcaa5b1d8a29c7",
+        "source_digest": "a8cb0b5371a5cf89c917b2039e5756bdc4c9875d7aff8a69ed65ab8d1d5001a4"
+      },
+      "state": "VERIFIED_COMPLETE",
+      "attempts": 1,
+      "nonce": "9b966246bb8148cebda27c6b68896c30",
+      "deadline": 1791408442.020353,
+      "observed_sha": "79c2f4475c7e372066b71c330efcaa5b1d8a29c7",
+      "reason": null
+    },
+    {
+      "id": "9ef2396f14ddd3c42a959189e770e6bac0be22200bc359d867d08be44fcfb626",
+      "plan": {
+        "expected_sha": "8106cd315ebeac2a4b98dc6aa8b052a863ac8f47",
+        "kind": "GIT_OBJECT",
+        "request_sha256": "cf18d94cee8ab69b5e307a1eee22a936bcac094d5e59042c3319a6544cdbff13",
+        "resource": "blob/8106cd315ebeac2a4b98dc6aa8b052a863ac8f47",
+        "source_digest": "a8cb0b5371a5cf89c917b2039e5756bdc4c9875d7aff8a69ed65ab8d1d5001a4"
+      },
+      "state": "VERIFIED_COMPLETE",
+      "attempts": 1,
+      "nonce": "933f8899bc994e018fa8c6cc8cac9eb1",
+      "deadline": 1791408337.3770518,
+      "observed_sha": "8106cd315ebeac2a4b98dc6aa8b052a863ac8f47",
+      "reason": null
+    },
+    {
+      "id": "a93c52d0283c9c277b2d49baa08b2891f1bc0367846eed46e70286d067fefa5c",
+      "plan": {
+        "expected_sha": "331229846b2e979ebd2df90e1486d2a28c92da20",
+        "kind": "GIT_OBJECT",
+        "request_sha256": "bf853abe7ccc6daf27ec5d072c9f85222bb4942f7674baabf46415686b7cd42d",
+        "resource": "blob/331229846b2e979ebd2df90e1486d2a28c92da20",
+        "source_digest": "a8cb0b5371a5cf89c917b2039e5756bdc4c9875d7aff8a69ed65ab8d1d5001a4"
+      },
+      "state": "VERIFIED_COMPLETE",
+      "attempts": 1,
+      "nonce": "ad1e6c3ea7a94841a86c5c6788317bdc",
+      "deadline": 1791408482.388567,
+      "observed_sha": "331229846b2e979ebd2df90e1486d2a28c92da20",
+      "reason": null
+    },
+    {
+      "id": "aea8765d524e0d9c38ae7a69ca8ab1dde678d1acbcc7372f99f404e30952e316",
+      "plan": {
+        "expected_sha": "6ef8d8a891f9f6b528d97f7ff8995df717532b67",
+        "kind": "GIT_OBJECT",
+        "request_sha256": "628bdc3f9f7d900020b1ef8ef8a55f48d3eea092c30d4ab8a72157160e3c893f",
+        "resource": "blob/6ef8d8a891f9f6b528d97f7ff8995df717532b67",
+        "source_digest": "a8cb0b5371a5cf89c917b2039e5756bdc4c9875d7aff8a69ed65ab8d1d5001a4"
+      },
+      "state": "VERIFIED_COMPLETE",
+      "attempts": 1,
+      "nonce": "42262e00acba450da029fca8338e2ef6",
+      "deadline": 1791408410.3363194,
+      "observed_sha": "6ef8d8a891f9f6b528d97f7ff8995df717532b67",
+      "reason": null
+    },
+    {
+      "id": "b1d287cb282b3b492d8077bebeb84140d1bf060e594498db844e1177dd8d1ac6",
+      "plan": {
+        "expected_sha": "207091d06eb131f884549c8800150e6ba4f7a5dc",
+        "kind": "GIT_OBJECT",
+        "request_sha256": "ed8b14e1fcc9bc1adb6fb02d5d4b8ab98ee33d820215ff687fb33277954ee3c7",
+        "resource": "blob/207091d06eb131f884549c8800150e6ba4f7a5dc",
+        "source_digest": "a8cb0b5371a5cf89c917b2039e5756bdc4c9875d7aff8a69ed65ab8d1d5001a4"
+      },
+      "state": "VERIFIED_COMPLETE",
+      "attempts": 1,
+      "nonce": "b7f6c0634661495091768e674af80f68",
+      "deadline": 1791408410.3360095,
+      "observed_sha": "207091d06eb131f884549c8800150e6ba4f7a5dc",
+      "reason": null
+    },
+    {
+      "id": "da4fcdc34df8e3a9af4aa680ff77a4c59d680f97cfe6af03a97128f815279487",
+      "plan": {
+        "expected_sha": "759a57bd24e68c5639c222fd6d3bbb9019f18cf6",
+        "kind": "GIT_OBJECT",
+        "request_sha256": "d10ca6204e182be8da8548579c5fad7c41cacfe0816fa891adfb5e3156df0f94",
+        "resource": "blob/759a57bd24e68c5639c222fd6d3bbb9019f18cf6",
+        "source_digest": "a8cb0b5371a5cf89c917b2039e5756bdc4c9875d7aff8a69ed65ab8d1d5001a4"
+      },
+      "state": "VERIFIED_COMPLETE",
+      "attempts": 1,
+      "nonce": "687fc34614a6482c81dd7bceb7ab36fc",
+      "deadline": 1791408337.3772736,
+      "observed_sha": "759a57bd24e68c5639c222fd6d3bbb9019f18cf6",
+      "reason": null
+    },
+    {
+      "id": "dbeb3c469894ac5e3dfbc005c7fcf7cdee582edbbc1eacbe918b6eb29634c67e",
+      "plan": {
+        "expected_sha": "f5294a30b461dbae7ec7ac84ba9d143a3641cdf7",
+        "kind": "GIT_OBJECT",
+        "request_sha256": "8f2200b2e4434cc75479964b162420236822bc3d69e794e354a0bf60bdbca167",
+        "resource": "blob/f5294a30b461dbae7ec7ac84ba9d143a3641cdf7",
+        "source_digest": "a8cb0b5371a5cf89c917b2039e5756bdc4c9875d7aff8a69ed65ab8d1d5001a4"
+      },
+      "state": "VERIFIED_COMPLETE",
+      "attempts": 1,
+      "nonce": "24b87b96261b414b9641cd966b087896",
+      "deadline": 1791408337.3767097,
+      "observed_sha": "f5294a30b461dbae7ec7ac84ba9d143a3641cdf7",
+      "reason": null
+    },
+    {
+      "id": "fd0b5b3fb96dc8753583a436c2bc0e88f54d7f69dc9c06ca51d9d896ff6d34cd",
+      "plan": {
+        "expected_sha": "bb7187fcbfaab6281fe47f34279787550cff0be4",
+        "kind": "GIT_OBJECT",
+        "request_sha256": "0c0eb6723453fa560f588744dacfb9f42bf8c49b9e2a17c11c43cddbd4821719",
+        "resource": "blob/bb7187fcbfaab6281fe47f34279787550cff0be4",
+        "source_digest": "a8cb0b5371a5cf89c917b2039e5756bdc4c9875d7aff8a69ed65ab8d1d5001a4"
+      },
+      "state": "VERIFIED_COMPLETE",
+      "attempts": 1,
+      "nonce": "f631e6f234a344939e94d16438c57200",
+      "deadline": 1791408511.7389972,
+      "observed_sha": "bb7187fcbfaab6281fe47f34279787550cff0be4",
+      "reason": null
+    }
+  ],
+  "commit_creation": {
+    "status": "VERIFIED_COMPLETE",
+    "request": {
+      "repository_full_name": "mehrangtr/Consilium",
+      "parent_sha": "45148d005b2b532fbd7e9b751a6015d9540c2132",
+      "tree_sha": "f339e896177240345bc1c6413635308fb94434b4",
+      "message": "Complete P04 architect and authorized-context observation contracts"
+    },
+    "request_sha256": "c72999bd36a082f5cab42646f056d846577cef8908980ee9135d48c4da6017dd",
+    "source_digest": "a8cb0b5371a5cf89c917b2039e5756bdc4c9875d7aff8a69ed65ab8d1d5001a4",
+    "commit": "10c27c56187299120b2545ddca65014ec17bacff"
+  },
+  "exact_branch_request": {
+    "status": "VERIFIED_COMPLETE",
+    "request": {
+      "repository_full_name": "mehrangtr/Consilium",
+      "branch_name": "p04-completion-code-20261007",
+      "sha": "10c27c56187299120b2545ddca65014ec17bacff"
+    },
+    "request_sha256": "98bf54d79f29ff0a3115e1e375f4fb1c5f638a2f14ac457ff5187db4529eb71a",
+    "observed_branch_head": "10c27c56187299120b2545ddca65014ec17bacff",
+    "guard_request_hash_correction": "The original guard request_sha256 carried the source digest. This supplemental receipt preserves the exact actual request and its correct hash; expected ref head and no-replay policy were unaffected. No mutation was replayed."
+  },
+  "automatic_mutable_retry": false,
+  "previous_main": "45148d005b2b532fbd7e9b751a6015d9540c2132"
+}

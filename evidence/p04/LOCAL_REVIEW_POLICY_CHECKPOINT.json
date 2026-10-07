@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "phase": "P04",
+  "status": "LOCAL_REVIEW_POLICY_AND_PREPARATION_VERIFIED_NOT_PHASE_ACCEPTED",
+  "source_digest": "fb21bf1487d54923ce9867dcec5b36bffd64cff8e0f788b552448dc400f59f72",
+  "code_commit": "9cb6df0208e3d33c155cc823bac40d2312d1699f",
+  "workflow_run_id": 37575471313,
+  "workflow_url": "https://github.com/mehrangtr/Consilium/actions/runs/37575471313",
+  "native_targets": [
+    {
+      "target": "Windows",
+      "status": "PASS",
+      "control_tests": 88,
+      "foundation_tests": 60,
+      "persistence_tests": 80,
+      "browser_probe_tests": 44,
+      "architect_tests": 63,
+      "evidence": {
+        "path": "evidence/targets/Windows/20261007T051632Z_9f313e74/RUN.json",
+        "sha256": "493b969be118b37c3a33ecbf26d1d9dce211afaed5186398c16a9502a63d149d"
+      }
+    },
+    {
+      "target": "Linux",
+      "status": "PASS",
+      "control_tests": 88,
+      "foundation_tests": 60,
+      "persistence_tests": 80,
+      "browser_probe_tests": 44,
+      "architect_tests": 63,
+      "evidence": {
+        "path": "evidence/targets/Linux/20261007T051626Z_87bc1420/RUN.json",
+        "sha256": "c777db3313cb35d317620856c965734ea3ae78c591bbb9898e3776b719e9b5fc"
+      }
+    }
+  ],
+  "phase_check_receipt": {
+    "phase": "P04",
+    "receipt": "evidence/runs/20261007T051815Z_48be0f3beb/RUN.json",
+    "sha256": "5dc24125699df1d186ff3d17cd7857ecccab6b72a1689056a648dd8e4eb687b2"
+  },
+  "review": {
+    "independent": false,
+    "method": "Separate author review of trusted local confirmation, binding/revision guards, budget and history blocks, preparation without transport, and negative tests for escaped secrets and exact Unicode display.",
+    "result": "PASS_FOR_IMPLEMENTED_SLICE_ONLY"
+  },
+  "verified_scope": [
+    "local CLI confirmation before atomic question adoption",
+    "strict local validation of externally supplied policy attestations",
+    "independent frozen-input reconstruction against actual registered state",
+    "intent preparation guarded against state changes; no transport"
+  ],
+  "limitations": [
+    "positive policy attestations are synthetic test facts, not real token measurements or remote history verification",
+    "admission evidence is not durably stored alongside intent yet",
+    "later-round authorized views are not implemented",
+    "full P04 exit review and acceptance remain open"
+  ],
+  "continuation": "Persist admission evidence atomically with intent and validate on restart; implement remaining authorized views before P04 acceptance."
+}

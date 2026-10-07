@@ -208,7 +208,7 @@
       "status": "IN_PROGRESS",
       "actual_engineering_hours": null,
       "external_wait_hours": 0,
-      "source_commit": "baa1d4714d0ee1b72278127d58a48c11416743b4",
+      "source_commit": "9cb6df0208e3d33c155cc823bac40d2312d1699f",
       "outputs": [
         "evidence/p04/CONTRACT_DRAFT.json",
         "evidence/p04/IMPLEMENTATION_PLAN_FA.md",
@@ -216,10 +216,16 @@
         "src/consilium/core/independent_context.py",
         "src/consilium/shell/questions.py",
         "src/consilium/shell/schema_v3.py",
-        "evidence/p04/DURABLE_ADOPTION_CHECKPOINT.json"
+        "evidence/p04/DURABLE_ADOPTION_CHECKPOINT.json",
+        "src/consilium/core/dispatch_policy.py",
+        "src/consilium/shell/architect_review.py",
+        "src/consilium/shell/context_preparation.py",
+        "tools/review_architect.py",
+        "docs/P04_LOCAL_REVIEW_RUNBOOK_FA.md",
+        "evidence/p04/LOCAL_REVIEW_POLICY_CHECKPOINT.json"
       ],
       "tests": [
-        "evidence/runs/20261007T044809Z_977d5a601a/RUN.json"
+        "evidence/runs/20261007T051815Z_48be0f3beb/RUN.json"
       ],
       "exit_evidence": [],
       "blockers": [],
@@ -228,7 +234,8 @@
         "Handoff allowlist maintenance fixed two omitted new source paths; current-source native tests required, without re-executing browser sends.",
         "HISTORICAL CHECKPOINT: transfer allowlist maintenance and its current source passed 272 tests on each actual native OS. P04 Python implementation is still not started; source and reviewed evidence on main verified.",
         "HISTORICAL CHECKPOINT: immutable question, initial independent context and schema-v3 durable user adoption implemented. 305 tests pass on each actual native OS for source d32bd2568f100a1e8917ca9cf5aaa0a149cca3d5eb76c3333d601af90ea729f6. Interactive confirmation, dispatch privacy/budget/history policy and full P04 acceptance remain pending.",
-        "CURRENT IMPLEMENTATION: local architect review, strict local dispatch policy validation and initial-context intent bridge implemented; 63 local P04 tests pass. Native proof for new source, durable admission evidence, later-round views and full phase acceptance pending. No live sends."
+        "HISTORICAL WORK-IN-PROGRESS: local architect review, strict local dispatch policy validation and initial-context intent bridge implemented; 63 local P04 tests pass. Native proof for new source, durable admission evidence, later-round views and full phase acceptance pending. No live sends.",
+        "CURRENT: local CLI architect review, bound local dispatch policy and initial intent preparation verified. Pre-handoff escaped-secret and non-BMP display defects fixed. 335 tests pass on both actual native targets. Full phase acceptance, durable admission evidence and later-round views pending; no live sends."
       ]
     },
     {
@@ -683,12 +690,11 @@
       "P00-P02 acceptance preserved",
       "P03 current-context defect fixed; 44 probe tests and 272 total per actual native OS",
       "P03 actual positive/observer-loss/controlled sign-out evidence and corrected five-provider estimate accepted",
-      "P04 immutable question/adoption and initial independent context plus schema-v3 durable adoption tested: 305 tests on each actual native OS; phase not accepted."
+      "P04 immutable question/adoption and initial independent context plus schema-v3 durable adoption tested: 305 tests on each actual native OS; phase not accepted.",
+      "P04-001 question contract, durable adoption and actual local CLI review completed; initial-context policy/intent preparation tested; 335 tests per actual native OS. Full P04 remains open."
     ],
-    "working_changes": [
-      "P04 local review, bound policy and intent bridge; pre-handoff fixes for escaped multiline secrets and non-BMP display; 63 slice tests"
-    ],
-    "next_action": "پس از بررسی بومی این منبع، شواهد ContextAdmission را در همان تراکنش ثبت قصد پایدار کن و هنگام بازیابی بررسی کن؛ سپس زمینهٔ مجاز سایر دورها را بساز. پیش از آن ارسال زنده فعال نشود.",
+    "working_changes": [],
+    "next_action": "شواهد ContextAdmission را با خود شواهد مجوز و بودجه و تاریخچه، در همان تراکنش ثبت قصد پایدار کن؛ بازگشایی و تعارض و قطع پردازه را بررسی کن. سپس زمینهٔ مجاز سایر دورها را بساز. هیچ ارسال زنده‌ای پیش از تکمیل این گیت فعال نشود.",
     "next_command": "python tools/qualityctl.py status",
     "startup_commands": [
       "python tools/qualityctl.py status",
@@ -704,33 +710,34 @@
       "Prior estimate 294-502 excluded extra scoped connections and is superseded; current scoped reserve estimate 420-718 hours",
       "P03 immutable accepted source is 70e86a...; current cb9928... differs only in transfer allowlist maintenance and is independently native-tested. Do not rewrite historical live evidence source stamps.",
       "Historical Git bundle is a pre-P03 backup, not current application code. It now matches the existing public file. Prior local checkpoint remains in archive/pre-public-source-sync-20261006; current checkout aligned with verified public main.",
-      "IndependentContext revision currently represents adoption revision. Live integration must separately validate current ledger revision after round/connection events; never conflate them."
+      "IndependentContext revision currently represents adoption revision. Live integration must separately validate current ledger revision after round/connection events; never conflate them.",
+      "evidence/p04/IMPLEMENTATION_PLAN_FA.md is the historical initial design; its not-started wording is not current state. Use PROGRESS.json and latest P04 checkpoint."
     ],
     "next_task": {
-      "id": "P04-001",
+      "id": "P04-002",
       "phase": "P04",
-      "status": "LOCAL_REVIEW_POLICY_AND_INTENT_BRIDGE_IMPLEMENTED_NATIVE_VALIDATION_PENDING",
-      "title_fa": "قرارداد اصل پرسش، پیشنهاد معمار و پذیرش نسخهٔ جدید",
-      "completed_fa": "رابط محلی تأیید، کنترل محلی مجوز و بودجه و تاریخچه، و اتصال زمینهٔ مستقل به قصد دفتر پیاده شدند. ۶۳ آزمون مرحلهٔ چهار پاس شده‌اند؛ هیچ ارسال زنده‌ای انجام نشده است.",
-      "remaining_fa": "بررسی کامل و شاهد بومی منبع تازه؛ ثبت پایدار شواهد کنترل کنار قصد و اعتبارسنجی پیش از ارسال؛ زمینهٔ دورهای بعد و پذیرش کامل مرحلهٔ چهار باقی است.",
-      "next_action_fa": "پس از بررسی بومی این منبع، شواهد ContextAdmission را در همان تراکنش ثبت قصد پایدار کن و هنگام بازیابی بررسی کن؛ سپس زمینهٔ مجاز سایر دورها را بساز. پیش از آن ارسال زنده فعال نشود.",
-      "done_when_fa": "اصل متن و قیود دقیق محفوظ؛ پیشنهاد ناسازگار و پذیرش نامعتبر رد؛ تغییرهای مجاز قابل مقایسه؛ آزمون‌های واقعی و رگرسیون سبز؛ تحویل به‌روز."
+      "status": "PARTIAL_INITIAL_CONTEXT_POLICY_AND_PREPARATION_VERIFIED",
+      "title_fa": "نمای مجاز، ثبت پایدار شواهد کنترل و ورودی دورها",
+      "completed_fa": "زمینهٔ اولیهٔ مستقل و بازیابی آن، کنترل محلی مجوز و بودجه و تاریخچه و آماده‌سازی قصد از وضعیت واقعی پیاده شده‌اند. ۳۳۵ آزمون در هر محیط بومی پاس است.",
+      "remaining_fa": "شواهد کنترل هنوز همراه قصد عملیات پایدار ذخیره نمی‌شوند؛ زمینهٔ مجاز دورهای بازبینی و هدفمند و جمع‌بندی و پذیرش کامل مرحلهٔ چهار باقی است. اندازه‌گیری توکن و مشاهدهٔ واقعی تاریخچه در این برش تأیید نشده‌اند.",
+      "next_action_fa": "شواهد ContextAdmission را با خود شواهد مجوز و بودجه و تاریخچه، در همان تراکنش ثبت قصد پایدار کن؛ بازگشایی و تعارض و قطع پردازه را بررسی کن. سپس زمینهٔ مجاز سایر دورها را بساز. هیچ ارسال زنده‌ای پیش از تکمیل این گیت فعال نشود.",
+      "done_when_fa": "شواهد و ورودی منجمد با نسخه و منشأ و مقصد روشن پایدارند؛ بازیابی و نشت و بودجه و حفظ قیود در تمام نماهای لازم آزموده شده‌اند؛ شواهد هر دو محیط و بازبینی کامل معیارهای مرحله موجود است."
     },
     "unfinished_work": {
       "schema_version": 1,
-      "updated_at_utc": "2026-10-06T23:29:08.363475+00:00",
+      "updated_at_utc": "2026-10-07T05:20:01.020452+00:00",
       "canonical_location": "PROGRESS.json:resume.unfinished_work",
-      "continuation_instruction": "Continue implemented P04 slice; do not replay P03 browser probes. Native evidence for the new source remains pending.",
+      "continuation_instruction": "Continue P04-002 from verified 335-test source. Do not repeat P03 browser probes or redo completed P04-001. Persist admission evidence before enabling transport.",
       "items": [
         {
-          "id": "P04-001",
+          "id": "P04-002",
           "phase": "P04",
-          "status": "LOCAL_REVIEW_POLICY_AND_INTENT_BRIDGE_IMPLEMENTED_NATIVE_VALIDATION_PENDING",
-          "title_fa": "قرارداد اصل پرسش، پیشنهاد معمار و پذیرش نسخهٔ جدید",
-          "completed_fa": "رابط محلی تأیید، کنترل محلی مجوز و بودجه و تاریخچه، و اتصال زمینهٔ مستقل به قصد دفتر پیاده شدند. ۶۳ آزمون مرحلهٔ چهار پاس شده‌اند؛ هیچ ارسال زنده‌ای انجام نشده است.",
-          "remaining_fa": "بررسی کامل و شاهد بومی منبع تازه؛ ثبت پایدار شواهد کنترل کنار قصد و اعتبارسنجی پیش از ارسال؛ زمینهٔ دورهای بعد و پذیرش کامل مرحلهٔ چهار باقی است.",
-          "next_action_fa": "پس از بررسی بومی این منبع، شواهد ContextAdmission را در همان تراکنش ثبت قصد پایدار کن و هنگام بازیابی بررسی کن؛ سپس زمینهٔ مجاز سایر دورها را بساز. پیش از آن ارسال زنده فعال نشود.",
-          "done_when_fa": "اصل متن و قیود دقیق محفوظ؛ پیشنهاد ناسازگار و پذیرش نامعتبر رد؛ تغییرهای مجاز قابل مقایسه؛ آزمون‌های واقعی و رگرسیون سبز؛ تحویل به‌روز."
+          "status": "PARTIAL_INITIAL_CONTEXT_POLICY_AND_PREPARATION_VERIFIED",
+          "title_fa": "نمای مجاز، ثبت پایدار شواهد کنترل و ورودی دورها",
+          "completed_fa": "زمینهٔ اولیهٔ مستقل و بازیابی آن، کنترل محلی مجوز و بودجه و تاریخچه و آماده‌سازی قصد از وضعیت واقعی پیاده شده‌اند. ۳۳۵ آزمون در هر محیط بومی پاس است.",
+          "remaining_fa": "شواهد کنترل هنوز همراه قصد عملیات پایدار ذخیره نمی‌شوند؛ زمینهٔ مجاز دورهای بازبینی و هدفمند و جمع‌بندی و پذیرش کامل مرحلهٔ چهار باقی است. اندازه‌گیری توکن و مشاهدهٔ واقعی تاریخچه در این برش تأیید نشده‌اند.",
+          "next_action_fa": "شواهد ContextAdmission را با خود شواهد مجوز و بودجه و تاریخچه، در همان تراکنش ثبت قصد پایدار کن؛ بازگشایی و تعارض و قطع پردازه را بررسی کن. سپس زمینهٔ مجاز سایر دورها را بساز. هیچ ارسال زنده‌ای پیش از تکمیل این گیت فعال نشود.",
+          "done_when_fa": "شواهد و ورودی منجمد با نسخه و منشأ و مقصد روشن پایدارند؛ بازیابی و نشت و بودجه و حفظ قیود در تمام نماهای لازم آزموده شده‌اند؛ شواهد هر دو محیط و بازبینی کامل معیارهای مرحله موجود است."
         }
       ],
       "completed_items": [
@@ -801,6 +808,17 @@
           "verified_files": 194,
           "source_digest": "cb99286e53059e175bb409da98be8e0805efe7ac1dc327430f2cae8c201a2d4f",
           "remaining_fa": "هیچ کار باز در این انتشار باقی نمانده است؛ اجرای کد مرحلهٔ چهار در P04-001 ثبت است."
+        },
+        {
+          "id": "P04-001",
+          "phase": "P04",
+          "status": "COMPLETED_QUESTION_ADOPTION_SLICE_NOT_PHASE_ACCEPTANCE",
+          "title_fa": "قرارداد اصل پرسش، پیشنهاد معمار و پذیرش نسخهٔ جدید",
+          "completed_fa": "اصل پرسش و قیود، پیشنهاد سختگیرانه، ثبت پایدار و رابط تأیید محلی و آزمون تعارض و قطع پردازه تکمیل شده‌اند؛ شواهد بومی منبع فعلی در هر دو محیط پاس است.",
+          "remaining_fa": "هیچ کار باز در برش قرارداد و تأیید پرسش نیست؛ کار نمای مجاز و کنترل ارسال در P04-002 ادامه دارد.",
+          "next_action_fa": "پس از بررسی بومی این منبع، شواهد ContextAdmission را در همان تراکنش ثبت قصد پایدار کن و هنگام بازیابی بررسی کن؛ سپس زمینهٔ مجاز سایر دورها را بساز. پیش از آن ارسال زنده فعال نشود.",
+          "done_when_fa": "اصل متن و قیود دقیق محفوظ؛ پیشنهاد ناسازگار و پذیرش نامعتبر رد؛ تغییرهای مجاز قابل مقایسه؛ آزمون‌های واقعی و رگرسیون سبز؛ تحویل به‌روز.",
+          "checkpoint": "evidence/p04/LOCAL_REVIEW_POLICY_CHECKPOINT.json"
         }
       ],
       "future_phases": {
@@ -936,9 +954,64 @@
       "scope": "NATIVE_OFFLINE_REGRESSION; P04_IMPLEMENTATION_NOT_STARTED"
     },
     "native_checkpoint": {
-      "status": "NOT_RUN_FOR_NEW_REVIEW_POLICY_SOURCE",
-      "previous_proof": "evidence/p04/DURABLE_ADOPTION_CHECKPOINT.json",
-      "notice": "Previous 305-test source proof is historical; fresh source requires both native targets."
+      "schema_version": 1,
+      "phase": "P04",
+      "status": "LOCAL_REVIEW_POLICY_AND_PREPARATION_VERIFIED_NOT_PHASE_ACCEPTED",
+      "source_digest": "fb21bf1487d54923ce9867dcec5b36bffd64cff8e0f788b552448dc400f59f72",
+      "code_commit": "9cb6df0208e3d33c155cc823bac40d2312d1699f",
+      "workflow_run_id": 37575471313,
+      "workflow_url": "https://github.com/mehrangtr/Consilium/actions/runs/37575471313",
+      "native_targets": [
+        {
+          "target": "Windows",
+          "status": "PASS",
+          "control_tests": 88,
+          "foundation_tests": 60,
+          "persistence_tests": 80,
+          "browser_probe_tests": 44,
+          "architect_tests": 63,
+          "evidence": {
+            "path": "evidence/targets/Windows/20261007T051632Z_9f313e74/RUN.json",
+            "sha256": "493b969be118b37c3a33ecbf26d1d9dce211afaed5186398c16a9502a63d149d"
+          }
+        },
+        {
+          "target": "Linux",
+          "status": "PASS",
+          "control_tests": 88,
+          "foundation_tests": 60,
+          "persistence_tests": 80,
+          "browser_probe_tests": 44,
+          "architect_tests": 63,
+          "evidence": {
+            "path": "evidence/targets/Linux/20261007T051626Z_87bc1420/RUN.json",
+            "sha256": "c777db3313cb35d317620856c965734ea3ae78c591bbb9898e3776b719e9b5fc"
+          }
+        }
+      ],
+      "phase_check_receipt": {
+        "phase": "P04",
+        "receipt": "evidence/runs/20261007T051815Z_48be0f3beb/RUN.json",
+        "sha256": "5dc24125699df1d186ff3d17cd7857ecccab6b72a1689056a648dd8e4eb687b2"
+      },
+      "review": {
+        "independent": false,
+        "method": "Separate author review of trusted local confirmation, binding/revision guards, budget and history blocks, preparation without transport, and negative tests for escaped secrets and exact Unicode display.",
+        "result": "PASS_FOR_IMPLEMENTED_SLICE_ONLY"
+      },
+      "verified_scope": [
+        "local CLI confirmation before atomic question adoption",
+        "strict local validation of externally supplied policy attestations",
+        "independent frozen-input reconstruction against actual registered state",
+        "intent preparation guarded against state changes; no transport"
+      ],
+      "limitations": [
+        "positive policy attestations are synthetic test facts, not real token measurements or remote history verification",
+        "admission evidence is not durably stored alongside intent yet",
+        "later-round authorized views are not implemented",
+        "full P04 exit review and acceptance remain open"
+      ],
+      "continuation": "Persist admission evidence atomically with intent and validate on restart; implement remaining authorized views before P04 acceptance."
     },
     "native_checkpoint_history": [
       {

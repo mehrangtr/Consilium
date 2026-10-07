@@ -1,7 +1,7 @@
 {
   "phase": "P01",
   "scope": "SELECTED_OS_FOUNDATION_GATE_NOT_FULL_V1_ACCEPTANCE",
-  "source_digest": "cb99286e53059e175bb409da98be8e0805efe7ac1dc327430f2cae8c201a2d4f",
+  "source_digest": "54424d1e1b4d8eec347fc67351ec3d3bb5f4cf705da82c1812076b0c14d804d5",
   "targets": [
     {
       "target": "Windows",
@@ -10,9 +10,10 @@
       "foundation_tests": 60,
       "persistence_tests": 80,
       "browser_probe_tests": 44,
+      "architect_tests": 18,
       "evidence": {
-        "path": "evidence/targets/Windows/20261006T233205Z_687e92cb/RUN.json",
-        "sha256": "76f899a3bfa3c1aa5680333dbdedd813d022bb20267926d3bd3ea0505fb24b41"
+        "path": "evidence/targets/Windows/20261007T043439Z_53e985a1/RUN.json",
+        "sha256": "5d53a321c4a49622d669d3b2d62bd9ece9f3791fa0fd4c679d2bf4ebd314a28a"
       }
     },
     {
@@ -22,9 +23,10 @@
       "foundation_tests": 60,
       "persistence_tests": 80,
       "browser_probe_tests": 44,
+      "architect_tests": 18,
       "evidence": {
-        "path": "evidence/targets/Linux/20261006T233155Z_23fbc5ed/RUN.json",
-        "sha256": "f1e03bb980cd9a5fc5c9a844e1ca8793f14dfa3ab2b09d6050002703e100ef7c"
+        "path": "evidence/targets/Linux/20261007T043419Z_c14161ac/RUN.json",
+        "sha256": "79cefdec0e882b46cd2a2e6f0def4168965c66932424990dd05c6b92540ca8c1"
       }
     }
   ],

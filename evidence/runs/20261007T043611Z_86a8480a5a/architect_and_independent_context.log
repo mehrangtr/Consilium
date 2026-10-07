@@ -1,0 +1,24 @@
+test_extra_context_fields_rejected (test_independent_context.IndependentContextTests.test_extra_context_fields_rejected) ... ok
+test_modified_payload_rejected_even_when_well_formed (test_independent_context.IndependentContextTests.test_modified_payload_rejected_even_when_well_formed) ... ok
+test_original_constraints_and_assumptions_remain_visible (test_independent_context.IndependentContextTests.test_original_constraints_and_assumptions_remain_visible) ... ok
+test_other_debate_round_or_participant_rejected (test_independent_context.IndependentContextTests.test_other_debate_round_or_participant_rejected) ... ok
+test_peer_content_cannot_be_supplied (test_independent_context.IndependentContextTests.test_peer_content_cannot_be_supplied) ... ok
+test_provider_text_is_data_not_a_role (test_independent_context.IndependentContextTests.test_provider_text_is_data_not_a_role) ... ok
+test_recovery_reconstructs_exact_bytes (test_independent_context.IndependentContextTests.test_recovery_reconstructs_exact_bytes) ... ok
+test_stale_recovery_and_wrong_participant_rejected (test_independent_context.IndependentContextTests.test_stale_recovery_and_wrong_participant_rejected) ... ok
+test_changed_constraints_and_wrong_snapshot_rejected (test_question_contracts.QuestionContractsTests.test_changed_constraints_and_wrong_snapshot_rejected) ... ok
+test_exact_original_and_constraints_survive_json (test_question_contracts.QuestionContractsTests.test_exact_original_and_constraints_survive_json) ... ok
+test_explicit_adoption_preserves_original (test_question_contracts.QuestionContractsTests.test_explicit_adoption_preserves_original) ... ok
+test_extra_fields_and_bool_version_rejected (test_question_contracts.QuestionContractsTests.test_extra_fields_and_bool_version_rejected) ... ok
+test_hash_binds_identity_revision_and_exact_whitespace (test_question_contracts.QuestionContractsTests.test_hash_binds_identity_revision_and_exact_whitespace) ... ok
+test_missing_duplicate_and_out_of_range_coverage_rejected (test_question_contracts.QuestionContractsTests.test_missing_duplicate_and_out_of_range_coverage_rejected) ... ok
+test_no_implicit_adoption (test_question_contracts.QuestionContractsTests.test_no_implicit_adoption) ... ok
+test_revision_must_advance_exactly_once (test_question_contracts.QuestionContractsTests.test_revision_must_advance_exactly_once) ... ok
+test_snapshot_is_immutable (test_question_contracts.QuestionContractsTests.test_snapshot_is_immutable) ... ok
+test_stale_revision_and_wrong_proposal_hash_rejected (test_question_contracts.QuestionContractsTests.test_stale_revision_and_wrong_proposal_hash_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 18 tests in 0.007s
+
+OK
+{"phase": "P04", "scope": "P04_QUESTION_CONTRACTS_OFFLINE_NOT_FULL_PHASE_ACCEPTANCE", "status": "PASS", "counts": {"tests": 18, "failures": 0, "errors": 0, "skipped": 0}}

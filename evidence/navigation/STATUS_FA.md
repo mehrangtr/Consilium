@@ -2,7 +2,7 @@
 
 این نما خودکار از `ROADMAP.json`، `PROGRESS.json` و `CHECKS.json` ساخته شده است. ویرایش دستی مرجع نیست؛ پس از تغییر مبنا فرمان تولید را دوباره اجرا کنید.
 
-شناسهٔ مبنای نما: `9118a127ee4ca80a9262dce1e54b5b92d87ebd51b3b6e915f2267220574adabc`.
+شناسهٔ مبنای نما: `1bc6ce4717f4b369ec023d49e1c0703d2f092a8920b159598562ae79f61be30a`.
 
 مرحلهٔ فعلی: `P04`. آخرین مرحلهٔ پذیرفته‌شده: `P03`.
 
@@ -43,10 +43,10 @@
   "next_task": {
     "id": "P04-001",
     "phase": "P04",
-    "status": "IMPLEMENTED_OFFLINE_TESTED_INTEGRATION_AND_NATIVE_VALIDATION_PENDING",
+    "status": "OFFLINE_SLICE_AND_BOTH_NATIVE_TARGETS_VERIFIED_INTEGRATION_PENDING",
     "title_fa": "قرارداد اصل پرسش، پیشنهاد معمار و پذیرش نسخهٔ جدید",
     "completed_fa": "پرسش و پیشنهاد و پذیرش نسخه و زمینهٔ اولیهٔ مستقل و بازیابی دقیق ورودی پیاده شدند؛ هجده آزمون محلی پاس شدند.",
-    "remaining_fa": "اتصال پایدار به ورودی مورد اعتماد کاربر و دفتر عملیات، سیاست حریم خصوصی و بودجه، تاریخچهٔ دوردست و گیت مرحله و شاهد بومی تازه باقی است.",
+    "remaining_fa": "ثبت پایدار تأیید کاربر، مهاجرت پایگاه داده، سیاست حریم خصوصی و بودجه، تاریخچهٔ دوردست و پذیرش کامل مرحله باقی است. شاهد بومی این برش در هر دو محیط پاس شده است.",
     "next_action_fa": "مهاجرت نسخه‌دار پایگاه داده برای ثبت پیشنهاد و تأیید کاربر را با آزمون بازگشایی و تعارض نسخه بساز؛ سپس سیاست ارسال را تکمیل کن. دور مستقل هنوز به ارسال زنده متصل نیست.",
     "done_when_fa": "اصل متن و قیود دقیق محفوظ؛ پیشنهاد ناسازگار و پذیرش نامعتبر رد؛ تغییرهای مجاز قابل مقایسه؛ آزمون‌های واقعی و رگرسیون سبز؛ تحویل به‌روز."
   },
@@ -59,10 +59,10 @@
       {
         "id": "P04-001",
         "phase": "P04",
-        "status": "IMPLEMENTED_OFFLINE_TESTED_INTEGRATION_AND_NATIVE_VALIDATION_PENDING",
+        "status": "OFFLINE_SLICE_AND_BOTH_NATIVE_TARGETS_VERIFIED_INTEGRATION_PENDING",
         "title_fa": "قرارداد اصل پرسش، پیشنهاد معمار و پذیرش نسخهٔ جدید",
         "completed_fa": "پرسش و پیشنهاد و پذیرش نسخه و زمینهٔ اولیهٔ مستقل و بازیابی دقیق ورودی پیاده شدند؛ هجده آزمون محلی پاس شدند.",
-        "remaining_fa": "اتصال پایدار به ورودی مورد اعتماد کاربر و دفتر عملیات، سیاست حریم خصوصی و بودجه، تاریخچهٔ دوردست و گیت مرحله و شاهد بومی تازه باقی است.",
+        "remaining_fa": "ثبت پایدار تأیید کاربر، مهاجرت پایگاه داده، سیاست حریم خصوصی و بودجه، تاریخچهٔ دوردست و پذیرش کامل مرحله باقی است. شاهد بومی این برش در هر دو محیط پاس شده است.",
         "next_action_fa": "مهاجرت نسخه‌دار پایگاه داده برای ثبت پیشنهاد و تأیید کاربر را با آزمون بازگشایی و تعارض نسخه بساز؛ سپس سیاست ارسال را تکمیل کن. دور مستقل هنوز به ارسال زنده متصل نیست.",
         "done_when_fa": "اصل متن و قیود دقیق محفوظ؛ پیشنهاد ناسازگار و پذیرش نامعتبر رد؛ تغییرهای مجاز قابل مقایسه؛ آزمون‌های واقعی و رگرسیون سبز؛ تحویل به‌روز."
       }
@@ -268,6 +268,56 @@
     },
     "tests_per_os": 272,
     "scope": "NATIVE_OFFLINE_REGRESSION; P04_IMPLEMENTATION_NOT_STARTED"
+  },
+  "native_checkpoint": {
+    "schema_version": 1,
+    "phase": "P04",
+    "status": "OFFLINE_SLICE_VERIFIED_NOT_PHASE_ACCEPTED",
+    "source_digest": "54424d1e1b4d8eec347fc67351ec3d3bb5f4cf705da82c1812076b0c14d804d5",
+    "code_commit": "f150ffa2ac35f198a5fe5e102850e232995b51ce",
+    "workflow_run_id": 37572086193,
+    "workflow_url": "https://github.com/mehrangtr/Consilium/actions/runs/37572086193",
+    "native_targets": [
+      {
+        "target": "Windows",
+        "status": "PASS",
+        "control_tests": 88,
+        "foundation_tests": 60,
+        "persistence_tests": 80,
+        "browser_probe_tests": 44,
+        "architect_tests": 18,
+        "evidence": {
+          "path": "evidence/targets/Windows/20261007T043439Z_53e985a1/RUN.json",
+          "sha256": "5d53a321c4a49622d669d3b2d62bd9ece9f3791fa0fd4c679d2bf4ebd314a28a"
+        }
+      },
+      {
+        "target": "Linux",
+        "status": "PASS",
+        "control_tests": 88,
+        "foundation_tests": 60,
+        "persistence_tests": 80,
+        "browser_probe_tests": 44,
+        "architect_tests": 18,
+        "evidence": {
+          "path": "evidence/targets/Linux/20261007T043419Z_c14161ac/RUN.json",
+          "sha256": "79cefdec0e882b46cd2a2e6f0def4168965c66932424990dd05c6b92540ca8c1"
+        }
+      }
+    ],
+    "phase_check_receipt": {
+      "phase": "P04",
+      "receipt": "evidence/runs/20261007T043611Z_86a8480a5a/RUN.json",
+      "sha256": "a4bb9ac5a9ed3a0cf1a69e3137774b309d737c488812bca4f24aba269df611d0"
+    },
+    "review": "Separate author review: structural projection and recovery only; no independent reviewer; no live dispatch or remote-history guarantee.",
+    "remaining": [
+      "durable trusted-user adoption and versioned database migration",
+      "dispatch privacy and budget policy",
+      "remote conversation identity and history authorization",
+      "full P04 exits and acceptance review"
+    ],
+    "continuation": "Implement durable adoption before connecting this context to live dispatch. Do not replay P03 sends."
   }
 }
 ```

@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "phase": "P04",
+  "status": "OFFLINE_SLICE_VERIFIED_NOT_PHASE_ACCEPTED",
+  "source_digest": "54424d1e1b4d8eec347fc67351ec3d3bb5f4cf705da82c1812076b0c14d804d5",
+  "code_commit": "f150ffa2ac35f198a5fe5e102850e232995b51ce",
+  "workflow_run_id": 37572086193,
+  "workflow_url": "https://github.com/mehrangtr/Consilium/actions/runs/37572086193",
+  "native_targets": [
+    {
+      "target": "Windows",
+      "status": "PASS",
+      "control_tests": 88,
+      "foundation_tests": 60,
+      "persistence_tests": 80,
+      "browser_probe_tests": 44,
+      "architect_tests": 18,
+      "evidence": {
+        "path": "evidence/targets/Windows/20261007T043439Z_53e985a1/RUN.json",
+        "sha256": "5d53a321c4a49622d669d3b2d62bd9ece9f3791fa0fd4c679d2bf4ebd314a28a"
+      }
+    },
+    {
+      "target": "Linux",
+      "status": "PASS",
+      "control_tests": 88,
+      "foundation_tests": 60,
+      "persistence_tests": 80,
+      "browser_probe_tests": 44,
+      "architect_tests": 18,
+      "evidence": {
+        "path": "evidence/targets/Linux/20261007T043419Z_c14161ac/RUN.json",
+        "sha256": "79cefdec0e882b46cd2a2e6f0def4168965c66932424990dd05c6b92540ca8c1"
+      }
+    }
+  ],
+  "phase_check_receipt": {
+    "phase": "P04",
+    "receipt": "evidence/runs/20261007T043611Z_86a8480a5a/RUN.json",
+    "sha256": "a4bb9ac5a9ed3a0cf1a69e3137774b309d737c488812bca4f24aba269df611d0"
+  },
+  "review": "Separate author review: structural projection and recovery only; no independent reviewer; no live dispatch or remote-history guarantee.",
+  "remaining": [
+    "durable trusted-user adoption and versioned database migration",
+    "dispatch privacy and budget policy",
+    "remote conversation identity and history authorization",
+    "full P04 exits and acceptance review"
+  ],
+  "continuation": "Implement durable adoption before connecting this context to live dispatch. Do not replay P03 sends."
+}

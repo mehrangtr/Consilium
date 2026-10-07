@@ -1,13 +1,122 @@
 {
   "schema_version": 1,
-  "status": "LOCAL_VERIFIED_NATIVE_AND_DELIVERY_PENDING",
+  "status": "TYPED_MOCK_SOURCE_BATCH_VERIFIED_NOT_PHASE_ACCEPTED",
   "phase": "P04",
   "source_digest": "b48df0fd1894ca371aba3c9b81939f211da183d1fc48d26afce67a0e99979454",
   "local_tests": 419,
   "real_process_exit_cases": 23,
   "live_provider_calls": 0,
   "phase_accepted": false,
-  "next_action": "شواهد تازهٔ ویندوز و لینوکس برای همین منبع را دریافت و تطبیق بده؛ ردیف P04 را به اجرای تازه وصل کن و بستهٔ تحویل را راستی‌آزمایی کن. سپس فقط در P04-002 پذیرش صریح منابع دستی و اتصال پایدار نمای دور بعد را ادامه بده؛ ارسال زنده مسدود بماند.",
+  "next_action": "در همین P04-002 پذیرش صریح منابع دستی و منشأ آنها را با ثبت قابل بازیابی تعریف کن؛ منشأ زنده از متن یا برچسب اتصال گرفته نشود. سپس نمای دورهای بعد را از منابع رسمی با مجوز انتقال و بودجه به قصد عملیات در یک تراکنش وصل کن. حفظ قیود و مخالفت و بازیابی و عدم نشت را آزمون کن؛ همهٔ معیارهای P04 را بازبینی کن. P05 و ارسال زنده هنوز آغاز نشوند.",
   "prior_publication_verified": "d0139378d379302fe2dd16508a52399be3434015",
-  "previous_phase_row_discrepancy": "P04 phase source/tests fields lagged the newer resume; final receipt links will be reconciled."
+  "previous_phase_row_discrepancy": "RESOLVED: P04 source_commit and tests now match the current source, configured receipt and resume.",
+  "code_commit": "6c3b08fb735c3da2999b52b98e77e4df040a30fa",
+  "native_run_id": "37610129815",
+  "target_reports": [
+    {
+      "target": "Windows",
+      "report": {
+        "path": "evidence/targets/Windows/20261007T105146Z_a2808f5c/RUN.json",
+        "sha256": "75ceba38d9f09c5996445cb1242f4debf6a50ce0fad4936e9f221ba30845912a"
+      },
+      "status": "PASS",
+      "source_matches_current": true,
+      "scope": "RECORDED_TARGET_ARTIFACTS_NOT_PHASE_ACCEPTANCE"
+    },
+    {
+      "target": "Linux",
+      "report": {
+        "path": "evidence/targets/Linux/20261007T105132Z_48aaa2b1/RUN.json",
+        "sha256": "a375e546a6ed960b339c3da3c3351b5fe53a70743ee479747897873e012a7585"
+      },
+      "status": "PASS",
+      "source_matches_current": true,
+      "scope": "RECORDED_TARGET_ARTIFACTS_NOT_PHASE_ACCEPTANCE"
+    }
+  ],
+  "configured_phase_run": {
+    "receipt": "evidence/runs/20261007T105627Z_f9e515a9b9/RUN.json",
+    "sha256": "1a114014f925eda0f46eae58ab49c3c2f09da0587256709bdcfc0a1d92c1f311",
+    "status": "PASS",
+    "source_matches_current": true,
+    "checks": [
+      {
+        "id": "scope_inventory",
+        "status": "PASS",
+        "counts": null,
+        "error": null
+      },
+      {
+        "id": "development_regression",
+        "status": "PASS",
+        "counts": {
+          "tests": 88,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        "error": null
+      },
+      {
+        "id": "foundation_behavior",
+        "status": "PASS",
+        "counts": {
+          "tests": 60,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        "error": null
+      },
+      {
+        "id": "environment_lock",
+        "status": "PASS",
+        "counts": null,
+        "error": null
+      },
+      {
+        "id": "native_target_matrix",
+        "status": "PASS",
+        "counts": null,
+        "error": null
+      },
+      {
+        "id": "persistence_durable_kernel",
+        "status": "PASS",
+        "counts": {
+          "tests": 80,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        "error": null
+      },
+      {
+        "id": "browser_probe_preflight_and_durability",
+        "status": "PASS",
+        "counts": {
+          "tests": 44,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        "error": null
+      },
+      {
+        "id": "architect_and_independent_context",
+        "status": "PASS",
+        "counts": {
+          "tests": 147,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        "error": null
+      }
+    ],
+    "scope": "LATEST_COMPLETED_CONFIGURED_RUN; NOT_PHASE_ACCEPTANCE"
+  },
+  "tests_per_native_target": 419,
+  "process_exit_cases_per_native_target": 23,
+  "publication_scope": "VERIFIED_DELIVERY_BRANCH; PRIMARY_MAIN_REF_REVIEW_FOLLOWS"
 }

@@ -2,7 +2,7 @@
 
 این نما خودکار از `ROADMAP.json`، `PROGRESS.json` و `CHECKS.json` ساخته شده است. ویرایش دستی مرجع نیست؛ پس از تغییر مبنا فرمان تولید را دوباره اجرا کنید.
 
-شناسهٔ مبنای نما: `12384173f37d5e09a578766dd077e3d22b78f0b4d80c471c426524f21785a744`.
+شناسهٔ مبنای نما: `909b9de4d1857d8f58cbd5368e9884226b21d7c4f4ab94a247f4b771de646737`.
 
 مرحلهٔ فعلی: `P04`. آخرین مرحلهٔ پذیرفته‌شده: `P03`.
 
@@ -21,12 +21,11 @@
     "P04 immutable question/adoption and initial independent context plus schema-v3 durable adoption tested: 305 tests on each actual native OS; phase not accepted.",
     "P04-001 question contract, durable adoption and actual local CLI review completed; initial-context policy/intent preparation tested; 335 tests per actual native OS. Full P04 remains open.",
     "P04-002 durable initial admission and explicit later-round local projections verified: 367 tests and 19 real process exits per actual native OS; full P04 not accepted.",
-    "P04-002 canonical mock-source storage and V5 migration verified: 388 tests and 21 real process exits per actual native OS; full phase remains open."
+    "P04-002 canonical mock-source storage and V5 migration verified: 388 tests and 21 real process exits per actual native OS; full phase remains open.",
+    "P04-002 frozen output schemas, typed mock answers and multi-target critique batches plus V6 migration verified: 419 tests and 23 real process exits per native OS. Full P04 remains open."
   ],
-  "working_changes": [
-    "P04-002 frozen output contracts, typed mock source batches and V6 migration; local checks PASS; fresh native proof/publication pending."
-  ],
-  "next_action": "شواهد تازهٔ ویندوز و لینوکس برای همین منبع را دریافت و تطبیق بده؛ ردیف P04 را به اجرای تازه وصل کن و بستهٔ تحویل را راستی‌آزمایی کن. سپس فقط در P04-002 پذیرش صریح منابع دستی و اتصال پایدار نمای دور بعد را ادامه بده؛ ارسال زنده مسدود بماند.",
+  "working_changes": [],
+  "next_action": "در همین P04-002 پذیرش صریح منابع دستی و منشأ آنها را با ثبت قابل بازیابی تعریف کن؛ منشأ زنده از متن یا برچسب اتصال گرفته نشود. سپس نمای دورهای بعد را از منابع رسمی با مجوز انتقال و بودجه به قصد عملیات در یک تراکنش وصل کن. حفظ قیود و مخالفت و بازیابی و عدم نشت را آزمون کن؛ همهٔ معیارهای P04 را بازبینی کن. P05 و ارسال زنده هنوز آغاز نشوند.",
   "next_command": "python tools/qualityctl.py status",
   "startup_commands": [
     "python tools/qualityctl.py status",
@@ -51,27 +50,27 @@
   "next_task": {
     "id": "P04-002",
     "phase": "P04",
-    "status": "PARTIAL_TYPED_MOCK_SOURCE_BATCH_LOCAL_PASS_NATIVE_PENDING",
+    "status": "PARTIAL_TYPED_MOCK_SOURCE_BATCH_NATIVE_VERIFIED",
     "title_fa": "نمای مجاز، ثبت پایدار شواهد کنترل و ورودی دورها",
-    "completed_fa": "قرارداد خروجی ثابت و ثبت اتمیک پاسخ یا نقد چندهدفه در V6 افزوده شده‌اند؛ ۴۱۹ آزمون محلی موفق‌اند. شاهد تازهٔ هر دو محیط و ثبت تحویل این برش هنوز لازم است.",
-    "remaining_fa": "شاهد بومی و تحویل این برش؛ واردکردن دستی با پذیرش صریح، منشأ زنده، اتصال نمای دور بعد به قصد و شواهد مجوز و بودجه و پذیرش کامل P04.",
-    "next_action_fa": "شواهد تازهٔ ویندوز و لینوکس برای همین منبع را دریافت و تطبیق بده؛ ردیف P04 را به اجرای تازه وصل کن و بستهٔ تحویل را راستی‌آزمایی کن. سپس فقط در P04-002 پذیرش صریح منابع دستی و اتصال پایدار نمای دور بعد را ادامه بده؛ ارسال زنده مسدود بماند.",
+    "completed_fa": "قرارداد خروجی پیش از ارسال ثابت است؛ پاسخ یا نقد چندهدفه به نتیجهٔ رسمی و طرح و هدف‌های دقیق متصل می‌شود. ۳۱ آزمون تازه و مجموع ۴۱۹ آزمون با ۲۳ مورد قطع واقعی پردازه در هر محیط بومی موفق‌اند.",
+    "remaining_fa": "پذیرش صریح منابع دستی، شاهد منشأ زنده، اتصال پایدار نمای دور بعد به قصد و شواهد مجوز و بودجه و پذیرش کامل P04.",
+    "next_action_fa": "در همین P04-002 پذیرش صریح منابع دستی و منشأ آنها را با ثبت قابل بازیابی تعریف کن؛ منشأ زنده از متن یا برچسب اتصال گرفته نشود. سپس نمای دورهای بعد را از منابع رسمی با مجوز انتقال و بودجه به قصد عملیات در یک تراکنش وصل کن. حفظ قیود و مخالفت و بازیابی و عدم نشت را آزمون کن؛ همهٔ معیارهای P04 را بازبینی کن. P05 و ارسال زنده هنوز آغاز نشوند.",
     "done_when_fa": "شواهد و ورودی منجمد با نسخه و منشأ و مقصد روشن پایدارند؛ بازیابی و نشت و بودجه و حفظ قیود در تمام نماهای لازم آزموده شده‌اند؛ شواهد هر دو محیط و بازبینی کامل معیارهای مرحله موجود است."
   },
   "unfinished_work": {
     "schema_version": 1,
-    "updated_at_utc": "2026-10-07T10:42:38.758593+00:00",
+    "updated_at_utc": "2026-10-07T10:56:27.287174+00:00",
     "canonical_location": "PROGRESS.json:resume.unfinished_work",
-    "continuation_instruction": "Prior main publication d0139378d379302fe2dd16508a52399be3434015 and PR6 verified complete. Local staged history preserved in previous checkout and p04_resume_checkpoint. Continue current typed-source slice native evidence and handoff before further P04 work.",
+    "continuation_instruction": "PR6 and prior main d0139378d379302fe2dd16508a52399be3434015 are verified complete. Current typed-source slice is native-verified for b48df0fd1894ca371aba3c9b81939f211da183d1fc48d26afce67a0e99979454. Continue only remaining P04-002 Manual/provenance and durable later-round admission. Original staged checkout is preserved; do not republish it or repeat accepted provider probes.",
     "items": [
       {
         "id": "P04-002",
         "phase": "P04",
-        "status": "PARTIAL_TYPED_MOCK_SOURCE_BATCH_LOCAL_PASS_NATIVE_PENDING",
+        "status": "PARTIAL_TYPED_MOCK_SOURCE_BATCH_NATIVE_VERIFIED",
         "title_fa": "نمای مجاز، ثبت پایدار شواهد کنترل و ورودی دورها",
-        "completed_fa": "قرارداد خروجی ثابت و ثبت اتمیک پاسخ یا نقد چندهدفه در V6 افزوده شده‌اند؛ ۴۱۹ آزمون محلی موفق‌اند. شاهد تازهٔ هر دو محیط و ثبت تحویل این برش هنوز لازم است.",
-        "remaining_fa": "شاهد بومی و تحویل این برش؛ واردکردن دستی با پذیرش صریح، منشأ زنده، اتصال نمای دور بعد به قصد و شواهد مجوز و بودجه و پذیرش کامل P04.",
-        "next_action_fa": "شواهد تازهٔ ویندوز و لینوکس برای همین منبع را دریافت و تطبیق بده؛ ردیف P04 را به اجرای تازه وصل کن و بستهٔ تحویل را راستی‌آزمایی کن. سپس فقط در P04-002 پذیرش صریح منابع دستی و اتصال پایدار نمای دور بعد را ادامه بده؛ ارسال زنده مسدود بماند.",
+        "completed_fa": "قرارداد خروجی پیش از ارسال ثابت است؛ پاسخ یا نقد چندهدفه به نتیجهٔ رسمی و طرح و هدف‌های دقیق متصل می‌شود. ۳۱ آزمون تازه و مجموع ۴۱۹ آزمون با ۲۳ مورد قطع واقعی پردازه در هر محیط بومی موفق‌اند.",
+        "remaining_fa": "پذیرش صریح منابع دستی، شاهد منشأ زنده، اتصال پایدار نمای دور بعد به قصد و شواهد مجوز و بودجه و پذیرش کامل P04.",
+        "next_action_fa": "در همین P04-002 پذیرش صریح منابع دستی و منشأ آنها را با ثبت قابل بازیابی تعریف کن؛ منشأ زنده از متن یا برچسب اتصال گرفته نشود. سپس نمای دورهای بعد را از منابع رسمی با مجوز انتقال و بودجه به قصد عملیات در یک تراکنش وصل کن. حفظ قیود و مخالفت و بازیابی و عدم نشت را آزمون کن؛ همهٔ معیارهای P04 را بازبینی کن. P05 و ارسال زنده هنوز آغاز نشوند.",
         "done_when_fa": "شواهد و ورودی منجمد با نسخه و منشأ و مقصد روشن پایدارند؛ بازیابی و نشت و بودجه و حفظ قیود در تمام نماهای لازم آزموده شده‌اند؛ شواهد هر دو محیط و بازبینی کامل معیارهای مرحله موجود است."
       }
     ],
@@ -688,7 +687,37 @@
     "sha256": "483b7833aed52e107a3235987938c66f3e0f6f0aa3ece21a9efbe653eb388c9f",
     "source_digest": "bd3d5640089d4ee858090412dc0d3fd4dfde8a5e03bf449fde1c2ed8336b309b",
     "phase_accepted": false
-  }
+  },
+  "native_evidence": {
+    "run_id": "37610129815",
+    "code_commit": "6c3b08fb735c3da2999b52b98e77e4df040a30fa",
+    "source_digest": "b48df0fd1894ca371aba3c9b81939f211da183d1fc48d26afce67a0e99979454",
+    "tests_per_target": 419,
+    "process_exit_cases_per_target": 23,
+    "target_reports": [
+      {
+        "target": "Windows",
+        "report": {
+          "path": "evidence/targets/Windows/20261007T105146Z_a2808f5c/RUN.json",
+          "sha256": "75ceba38d9f09c5996445cb1242f4debf6a50ce0fad4936e9f221ba30845912a"
+        },
+        "status": "PASS",
+        "source_matches_current": true,
+        "scope": "RECORDED_TARGET_ARTIFACTS_NOT_PHASE_ACCEPTANCE"
+      },
+      {
+        "target": "Linux",
+        "report": {
+          "path": "evidence/targets/Linux/20261007T105132Z_48aaa2b1/RUN.json",
+          "sha256": "a375e546a6ed960b339c3da3c3351b5fe53a70743ee479747897873e012a7585"
+        },
+        "status": "PASS",
+        "source_matches_current": true,
+        "scope": "RECORDED_TARGET_ARTIFACTS_NOT_PHASE_ACCEPTANCE"
+      }
+    ]
+  },
+  "transfer_reviewed_file_count": 794
 }
 ```
 

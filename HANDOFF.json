@@ -1,12 +1,12 @@
 {
   "schema_version": 1,
   "plan_version": "1.2",
-  "source_snapshot_digest": "bd3d5640089d4ee858090412dc0d3fd4dfde8a5e03bf449fde1c2ed8336b309b",
+  "source_snapshot_digest": "b48df0fd1894ca371aba3c9b81939f211da183d1fc48d26afce67a0e99979454",
   "current_phase": "P04",
   "last_accepted_phase": "P03",
   "latest_current_phase_run": {
-    "receipt": "evidence/runs/20261007T093522Z_1047630995/RUN.json",
-    "sha256": "998208d851c81af315e1bd8f031b024aa1224de506d9e1c202be399b92b8407e",
+    "receipt": "evidence/runs/20261007T105627Z_f9e515a9b9/RUN.json",
+    "sha256": "1a114014f925eda0f46eae58ab49c3c2f09da0587256709bdcfc0a1d92c1f311",
     "status": "PASS",
     "source_matches_current": true,
     "checks": [
@@ -76,7 +76,7 @@
         "id": "architect_and_independent_context",
         "status": "PASS",
         "counts": {
-          "tests": 116,
+          "tests": 147,
           "failures": 0,
           "errors": 0,
           "skipped": 0
@@ -90,8 +90,8 @@
     {
       "target": "Windows",
       "report": {
-        "path": "evidence/targets/Windows/20261007T091006Z_d44d8f06/RUN.json",
-        "sha256": "14fffc2c07b2ed1c2f016f6b7bbd1c38970866abe3d3d0944f8b5bac387a814b"
+        "path": "evidence/targets/Windows/20261007T105146Z_a2808f5c/RUN.json",
+        "sha256": "75ceba38d9f09c5996445cb1242f4debf6a50ce0fad4936e9f221ba30845912a"
       },
       "status": "PASS",
       "source_matches_current": true,
@@ -100,8 +100,8 @@
     {
       "target": "Linux",
       "report": {
-        "path": "evidence/targets/Linux/20261007T090955Z_4c9a6cca/RUN.json",
-        "sha256": "6dc3795add51fb777443b93b7fbdeeaea8effdb197e61e3b753eac5bd33a3e3a"
+        "path": "evidence/targets/Linux/20261007T105132Z_48aaa2b1/RUN.json",
+        "sha256": "a375e546a6ed960b339c3da3c3351b5fe53a70743ee479747897873e012a7585"
       },
       "status": "PASS",
       "source_matches_current": true,
@@ -110,10 +110,10 @@
   ],
   "last_acceptance_matches_current_source": false,
   "application_source_supplied": true,
-  "application_source_commit": "520bb5d5f321afbef744cd604438795737dccfe6",
+  "application_source_commit": "6c3b08fb735c3da2999b52b98e77e4df040a30fa",
   "verified_application_requirements": 0,
   "state_label": "INCOMPLETE",
-  "next_action": "در همین P04-002 قرارداد نسخه‌دار منبع نقد چندهدفه و پاسخ واقعی یا دستی را با پیوند به تأیید روشن تعریف کن؛ قرارداد ذخیره پیش از گردش کامل شورا در P05 است. سپس نمای دورهای بعد را با منابع معتبر و مجوز و بودجه در همان تراکنش قصد ثبت کن. حفظ قیود و مخالفت و بازیابی را آزمون کن و بعد همهٔ معیارهای باز P04 را بازبینی کن. ارسال زنده فعال نشود.",
+  "next_action": "در همین P04-002 پذیرش صریح منابع دستی و منشأ آنها را با ثبت قابل بازیابی تعریف کن؛ منشأ زنده از متن یا برچسب اتصال گرفته نشود. سپس نمای دورهای بعد را از منابع رسمی با مجوز انتقال و بودجه به قصد عملیات در یک تراکنش وصل کن. حفظ قیود و مخالفت و بازیابی و عدم نشت را آزمون کن؛ همهٔ معیارهای P04 را بازبینی کن. P05 و ارسال زنده هنوز آغاز نشوند.",
   "resume": {
     "phase": "P04",
     "last_verified_checkpoint": "P03",
@@ -124,10 +124,11 @@
       "P04 immutable question/adoption and initial independent context plus schema-v3 durable adoption tested: 305 tests on each actual native OS; phase not accepted.",
       "P04-001 question contract, durable adoption and actual local CLI review completed; initial-context policy/intent preparation tested; 335 tests per actual native OS. Full P04 remains open.",
       "P04-002 durable initial admission and explicit later-round local projections verified: 367 tests and 19 real process exits per actual native OS; full P04 not accepted.",
-      "P04-002 canonical mock-source storage and V5 migration verified: 388 tests and 21 real process exits per actual native OS; full phase remains open."
+      "P04-002 canonical mock-source storage and V5 migration verified: 388 tests and 21 real process exits per actual native OS; full phase remains open.",
+      "P04-002 frozen output schemas, typed mock answers and multi-target critique batches plus V6 migration verified: 419 tests and 23 real process exits per native OS. Full P04 remains open."
     ],
     "working_changes": [],
-    "next_action": "در همین P04-002 قرارداد نسخه‌دار منبع نقد چندهدفه و پاسخ واقعی یا دستی را با پیوند به تأیید روشن تعریف کن؛ قرارداد ذخیره پیش از گردش کامل شورا در P05 است. سپس نمای دورهای بعد را با منابع معتبر و مجوز و بودجه در همان تراکنش قصد ثبت کن. حفظ قیود و مخالفت و بازیابی را آزمون کن و بعد همهٔ معیارهای باز P04 را بازبینی کن. ارسال زنده فعال نشود.",
+    "next_action": "در همین P04-002 پذیرش صریح منابع دستی و منشأ آنها را با ثبت قابل بازیابی تعریف کن؛ منشأ زنده از متن یا برچسب اتصال گرفته نشود. سپس نمای دورهای بعد را از منابع رسمی با مجوز انتقال و بودجه به قصد عملیات در یک تراکنش وصل کن. حفظ قیود و مخالفت و بازیابی و عدم نشت را آزمون کن؛ همهٔ معیارهای P04 را بازبینی کن. P05 و ارسال زنده هنوز آغاز نشوند.",
     "next_command": "python tools/qualityctl.py status",
     "startup_commands": [
       "python tools/qualityctl.py status",
@@ -146,33 +147,33 @@
       "IndependentContext revision currently represents adoption revision. Live integration must separately validate current ledger revision after round/connection events; never conflate them.",
       "evidence/p04/IMPLEMENTATION_PLAN_FA.md is the historical initial design; its not-started wording is not current state. Use PROGRESS.json and latest P04 checkpoint.",
       "P04 admission facts are historical local attestations; require_current is not send authorization. Policy-managed begin_send is blocked. Later-round input authenticity must come from canonical storage, not provider text or untrusted saved packets.",
-      "Local executor stopped responding after verification; delivery was rebuilt on GitHub from exactly 520bb5d5f321afbef744cd604438795737dccfe6 and existing native artifacts. The helper workflow is not product source and must not be merged.",
-      "Current source publication is one mock Answer per confirmed operation; multi-target Critique storage needs an explicit versioned contract, not silent reuse or relabeling."
+      "Historical executor stall recovered on this turn. Original staged checkout is preserved; continuation uses a fresh worktree from verified public main. Do not republish old local metadata.",
+      "Typed multi-target source contracts are MOCK-only. Provider JSON supplies text/scores/aliases; local contract supplies identities/rubric. Full Council, Manual/LIVE acceptance and durable later-round admission remain open."
     ],
     "next_task": {
       "id": "P04-002",
       "phase": "P04",
-      "status": "PARTIAL_CANONICAL_MOCK_SOURCE_STORAGE_VERIFIED",
+      "status": "PARTIAL_TYPED_MOCK_SOURCE_BATCH_NATIVE_VERIFIED",
       "title_fa": "نمای مجاز، ثبت پایدار شواهد کنترل و ورودی دورها",
-      "completed_fa": "ثبت کنترل اولیه و نماهای خالص حفظ شده‌اند. مخزن پاسخ ساختگی به نتیجهٔ رسمی و تلاش و ورودی و دور دقیق متصل است؛ ۲۱ آزمون جدید و مجموع ۳۸۸ آزمون با ۲۱ مورد قطع واقعی پردازه در هر محیط بومی موفق‌اند.",
-      "remaining_fa": "قرارداد منبع نقد چندهدفه و پاسخ واقعی یا دستی، اتصال نمای دور بعد به قصد و شواهد مجوز و بودجه، معیارهای باز و پذیرش کامل مرحله.",
-      "next_action_fa": "در همین P04-002 قرارداد نسخه‌دار منبع نقد چندهدفه و پاسخ واقعی یا دستی را با پیوند به تأیید روشن تعریف کن؛ قرارداد ذخیره پیش از گردش کامل شورا در P05 است. سپس نمای دورهای بعد را با منابع معتبر و مجوز و بودجه در همان تراکنش قصد ثبت کن. حفظ قیود و مخالفت و بازیابی را آزمون کن و بعد همهٔ معیارهای باز P04 را بازبینی کن. ارسال زنده فعال نشود.",
+      "completed_fa": "قرارداد خروجی پیش از ارسال ثابت است؛ پاسخ یا نقد چندهدفه به نتیجهٔ رسمی و طرح و هدف‌های دقیق متصل می‌شود. ۳۱ آزمون تازه و مجموع ۴۱۹ آزمون با ۲۳ مورد قطع واقعی پردازه در هر محیط بومی موفق‌اند.",
+      "remaining_fa": "پذیرش صریح منابع دستی، شاهد منشأ زنده، اتصال پایدار نمای دور بعد به قصد و شواهد مجوز و بودجه و پذیرش کامل P04.",
+      "next_action_fa": "در همین P04-002 پذیرش صریح منابع دستی و منشأ آنها را با ثبت قابل بازیابی تعریف کن؛ منشأ زنده از متن یا برچسب اتصال گرفته نشود. سپس نمای دورهای بعد را از منابع رسمی با مجوز انتقال و بودجه به قصد عملیات در یک تراکنش وصل کن. حفظ قیود و مخالفت و بازیابی و عدم نشت را آزمون کن؛ همهٔ معیارهای P04 را بازبینی کن. P05 و ارسال زنده هنوز آغاز نشوند.",
       "done_when_fa": "شواهد و ورودی منجمد با نسخه و منشأ و مقصد روشن پایدارند؛ بازیابی و نشت و بودجه و حفظ قیود در تمام نماهای لازم آزموده شده‌اند؛ شواهد هر دو محیط و بازبینی کامل معیارهای مرحله موجود است."
     },
     "unfinished_work": {
       "schema_version": 1,
-      "updated_at_utc": "2026-10-07T09:35:55.689891+00:00",
+      "updated_at_utc": "2026-10-07T10:56:27.287174+00:00",
       "canonical_location": "PROGRESS.json:resume.unfinished_work",
-      "continuation_instruction": "Old stalled publication completed at 2593abb0815bff62f1fd5e45766d55e40bbae6ad. New source bd3d5640089d4ee858090412dc0d3fd4dfde8a5e03bf449fde1c2ed8336b309b is native-verified. Continue remaining P04-002 contracts and durable later-round admission; do not repeat old probes or successful tests without a source change or real defect.",
+      "continuation_instruction": "PR6 and prior main d0139378d379302fe2dd16508a52399be3434015 are verified complete. Current typed-source slice is native-verified for b48df0fd1894ca371aba3c9b81939f211da183d1fc48d26afce67a0e99979454. Continue only remaining P04-002 Manual/provenance and durable later-round admission. Original staged checkout is preserved; do not republish it or repeat accepted provider probes.",
       "items": [
         {
           "id": "P04-002",
           "phase": "P04",
-          "status": "PARTIAL_CANONICAL_MOCK_SOURCE_STORAGE_VERIFIED",
+          "status": "PARTIAL_TYPED_MOCK_SOURCE_BATCH_NATIVE_VERIFIED",
           "title_fa": "نمای مجاز، ثبت پایدار شواهد کنترل و ورودی دورها",
-          "completed_fa": "ثبت کنترل اولیه و نماهای خالص حفظ شده‌اند. مخزن پاسخ ساختگی به نتیجهٔ رسمی و تلاش و ورودی و دور دقیق متصل است؛ ۲۱ آزمون جدید و مجموع ۳۸۸ آزمون با ۲۱ مورد قطع واقعی پردازه در هر محیط بومی موفق‌اند.",
-          "remaining_fa": "قرارداد منبع نقد چندهدفه و پاسخ واقعی یا دستی، اتصال نمای دور بعد به قصد و شواهد مجوز و بودجه، معیارهای باز و پذیرش کامل مرحله.",
-          "next_action_fa": "در همین P04-002 قرارداد نسخه‌دار منبع نقد چندهدفه و پاسخ واقعی یا دستی را با پیوند به تأیید روشن تعریف کن؛ قرارداد ذخیره پیش از گردش کامل شورا در P05 است. سپس نمای دورهای بعد را با منابع معتبر و مجوز و بودجه در همان تراکنش قصد ثبت کن. حفظ قیود و مخالفت و بازیابی را آزمون کن و بعد همهٔ معیارهای باز P04 را بازبینی کن. ارسال زنده فعال نشود.",
+          "completed_fa": "قرارداد خروجی پیش از ارسال ثابت است؛ پاسخ یا نقد چندهدفه به نتیجهٔ رسمی و طرح و هدف‌های دقیق متصل می‌شود. ۳۱ آزمون تازه و مجموع ۴۱۹ آزمون با ۲۳ مورد قطع واقعی پردازه در هر محیط بومی موفق‌اند.",
+          "remaining_fa": "پذیرش صریح منابع دستی، شاهد منشأ زنده، اتصال پایدار نمای دور بعد به قصد و شواهد مجوز و بودجه و پذیرش کامل P04.",
+          "next_action_fa": "در همین P04-002 پذیرش صریح منابع دستی و منشأ آنها را با ثبت قابل بازیابی تعریف کن؛ منشأ زنده از متن یا برچسب اتصال گرفته نشود. سپس نمای دورهای بعد را از منابع رسمی با مجوز انتقال و بودجه به قصد عملیات در یک تراکنش وصل کن. حفظ قیود و مخالفت و بازیابی و عدم نشت را آزمون کن؛ همهٔ معیارهای P04 را بازبینی کن. P05 و ارسال زنده هنوز آغاز نشوند.",
           "done_when_fa": "شواهد و ورودی منجمد با نسخه و منشأ و مقصد روشن پایدارند؛ بازیابی و نشت و بودجه و حفظ قیود در تمام نماهای لازم آزموده شده‌اند؛ شواهد هر دو محیط و بازبینی کامل معیارهای مرحله موجود است."
         }
       ],
@@ -789,7 +790,37 @@
       "sha256": "483b7833aed52e107a3235987938c66f3e0f6f0aa3ece21a9efbe653eb388c9f",
       "source_digest": "bd3d5640089d4ee858090412dc0d3fd4dfde8a5e03bf449fde1c2ed8336b309b",
       "phase_accepted": false
-    }
+    },
+    "native_evidence": {
+      "run_id": "37610129815",
+      "code_commit": "6c3b08fb735c3da2999b52b98e77e4df040a30fa",
+      "source_digest": "b48df0fd1894ca371aba3c9b81939f211da183d1fc48d26afce67a0e99979454",
+      "tests_per_target": 419,
+      "process_exit_cases_per_target": 23,
+      "target_reports": [
+        {
+          "target": "Windows",
+          "report": {
+            "path": "evidence/targets/Windows/20261007T105146Z_a2808f5c/RUN.json",
+            "sha256": "75ceba38d9f09c5996445cb1242f4debf6a50ce0fad4936e9f221ba30845912a"
+          },
+          "status": "PASS",
+          "source_matches_current": true,
+          "scope": "RECORDED_TARGET_ARTIFACTS_NOT_PHASE_ACCEPTANCE"
+        },
+        {
+          "target": "Linux",
+          "report": {
+            "path": "evidence/targets/Linux/20261007T105132Z_48aaa2b1/RUN.json",
+            "sha256": "a375e546a6ed960b339c3da3c3351b5fe53a70743ee479747897873e012a7585"
+          },
+          "status": "PASS",
+          "source_matches_current": true,
+          "scope": "RECORDED_TARGET_ARTIFACTS_NOT_PHASE_ACCEPTANCE"
+        }
+      ]
+    },
+    "transfer_reviewed_file_count": 794
   },
   "security_note": "Allowlist and basic patterns only; manually review before sharing."
 }

@@ -1,0 +1,79 @@
+{
+  "schema_version": 1,
+  "recorded_at_utc": "2026-10-07T12:41:49.870950+00:00",
+  "status": "COMPLETED_VERIFIED_MAIN_PUBLICATION",
+  "scope": "OWNED_PROCESS_SUPERVISOR_AND_P04_MANUAL_INITIAL_ANSWER_SLICE_NOT_FULL_P04_ACCEPTANCE",
+  "previous_main": "48b61982442ca9258e4fa6961b98b221fc8927d5",
+  "previous_publication": {
+    "pr": 7,
+    "merged": true,
+    "remaining_work": "NONE"
+  },
+  "pr": 8,
+  "code_commit": "1bcd3a3c419da0e001366dc5501e1aca8a30abd6",
+  "delivery_commit": "59cd4986f9798e34676e21427a7d0b517f3ab800",
+  "delivery_tree": "758b2cae0809fa526c26564dd1b4d09f77895ed2",
+  "source_digest": "9ccf9055fc12fd9def8aafb9e7669573e6cf0ca8273e8629bdf4ab5d4da83208",
+  "native_code_run": {
+    "id": 37621021028,
+    "conclusion": "success",
+    "tests_per_os": 453,
+    "product_process_exit_cases_per_os": 25
+  },
+  "native_pr_run": {
+    "id": 37622383149,
+    "conclusion": "success"
+  },
+  "verified_handoff": {
+    "files": 813,
+    "sha256": "416f2922d50cf09643ff19ab90c2dcfae510d0e318d783ab2016df92115342e1",
+    "every_member_matches_published_git_blob": true
+  },
+  "primary_review": {
+    "status": "PASS_PRIMARY_DELIVERY_REVIEW",
+    "every_zip_member_matches_published_git_blob": true,
+    "files": 813,
+    "historical_P00_P03_unchanged": true,
+    "source_changes_from_tested_code": 0,
+    "phase": "P04",
+    "phase_accepted": false,
+    "native_tests_per_os": 453,
+    "watchdog_journals": 3,
+    "next_task": {
+      "id": "P04-002",
+      "phase": "P04",
+      "status": "PARTIAL_MANUAL_INITIAL_ANSWER_NATIVE_VERIFIED",
+      "title_fa": "نمای مجاز، ثبت پایدار شواهد کنترل و ورودی دورها",
+      "completed_fa": "ناظر پنج‌دقیقه‌ای و پذیرش صریح و پایدار پاسخ دستی اولیه همراه با مهاجرت نسخهٔ ۷ پیاده شده‌اند. ۴۵۳ آزمون و ۲۵ مورد قطع پردازهٔ محصول در هر دو محیط بومی موفق‌اند؛ قطع درخت پردازهٔ ناظر نیز در آزمون‌های کنترل اجرا شده است.",
+      "remaining_fa": "نقد دستی و دورهای بعد، تطبیق صریح عملیات قبلی، منشأ زندهٔ معتبر، اتصال پایدار نمای دور بعد به قصد و شواهد مجوز و بودجه و پذیرش کامل P04.",
+      "next_action_fa": "در P04-002 نقد دستی و دورهای بعد و منشأ زنده و تطبیق صریح عملیات قبلی را تکمیل کن؛ نمای دور بعد را از منابع رسمی با مجوز انتقال و بودجه در یک تراکنش به قصد عملیات وصل کن. بازیابی و حفظ مخالفت و نشت و بودجه را آزمون و تمام معیارهای P04 را بازبینی کن. P05 و ارسال زنده هنوز آغاز نشوند.",
+      "done_when_fa": "شواهد و ورودی منجمد با نسخه و منشأ و مقصد روشن پایدارند؛ بازیابی و نشت و بودجه و حفظ قیود در تمام نماهای لازم آزموده شده‌اند؛ شواهد هر دو محیط و بازبینی کامل معیارهای مرحله موجود است."
+    },
+    "code_commit": "1bcd3a3c419da0e001366dc5501e1aca8a30abd6",
+    "delivery_commit": "59cd4986f9798e34676e21427a7d0b517f3ab800"
+  },
+  "watchdog": {
+    "idle_seconds": 300,
+    "hard_seconds": 900,
+    "scope": "OWNED_PROJECT_PROCESS_TREES",
+    "verified_native_states": 3,
+    "stops_chatgpt_or_connector_services": false,
+    "external_replay": "NOT_AUTOMATIC"
+  },
+  "phase": "P04",
+  "phase_accepted": false,
+  "last_accepted_phase": "P03",
+  "remaining_publication_work": "NONE",
+  "remaining_p04_work": [
+    "manual critiques and later rounds",
+    "explicit reconciliation of existing operations",
+    "trusted live provenance",
+    "atomic durable later-round grants/budget/context intent admission",
+    "full P04 exit review and acceptance"
+  ],
+  "continuation_location": "PROGRESS.json:resume.next_task",
+  "publication_permission": "User standing GitHub and publication authorization until explicit stop",
+  "review_independent": false,
+  "main_ref_verified_delivery_commit": "59cd4986f9798e34676e21427a7d0b517f3ab800",
+  "journal_note": "This journal-only commit follows the verified published delivery. Its addition changes no tested source, phase acceptance or handoff bytes."
+}

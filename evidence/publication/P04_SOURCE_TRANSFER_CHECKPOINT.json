@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "status": "SOURCE_AND_NATIVE_EVIDENCE_VERIFIED_REBUILT_ON_GITHUB",
+  "status": "COMPLETED_VERIFIED_MAIN_PUBLICATION",
   "prior_publication": "2593abb0815bff62f1fd5e45766d55e40bbae6ad",
   "source_digest": "bd3d5640089d4ee858090412dc0d3fd4dfde8a5e03bf449fde1c2ed8336b309b",
   "code_commit": "520bb5d5f321afbef744cd604438795737dccfe6",
@@ -11,5 +11,10 @@
   "local_import_error": "Earlier local import serialization error caused a failed configured run; corrected import and subsequent configured run passed. Final delivery revalidates original native artifacts on a fresh runner.",
   "helper_run_id": "37601625963",
   "phase_accepted": false,
-  "remaining_publication_work": "Primary assistant must fetch delivery branch and verify it before leased main update."
+  "remaining_publication_work": "NONE",
+  "verified_publication_commit": "86fea060a7169c97137548d43a13885ca6671ef7",
+  "verified_publication_tree": "06255e31b72c4ce9c94954efd9fbe65ae77fbf88",
+  "verification": "Fetched main and compared delivery ancestry and all 70 changed paths. Product source changes: zero. Source/native graphs and verified 781-file handoff match the tested source.",
+  "local_checkout_follow_up": "Local executor became unresponsive. Preserve local staged metadata/history before reconciling; use a fresh checkout of verified public main for continuation. Do not republish the old local staging.",
+  "next_development_task": "Continue only P04-002 source contracts for multi-target critique and real/Manual provenance plus durable later-round admission. Full P04 is still open."
 }

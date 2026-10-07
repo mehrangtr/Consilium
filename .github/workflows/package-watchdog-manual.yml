@@ -1,0 +1,85 @@
+name: Package verified P04 watchdog and manual-answer handoff
+'on':
+  push:
+    branches: [ops-p04-watchdog-manual-handoff-20261007]
+  workflow_dispatch:
+permissions:
+  contents: write
+  actions: read
+env:
+  PYTHONUTF8: '1'
+  PYTHONIOENCODING: utf-8
+jobs:
+  package:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v7
+        timeout-minutes: 5
+        with:
+          path: ops
+          persist-credentials: false
+      - uses: actions/checkout@v7
+        timeout-minutes: 5
+        with:
+          ref: 1bcd3a3c419da0e001366dc5501e1aca8a30abd6
+          path: payload
+          persist-credentials: true
+      - uses: actions/setup-python@v7
+        timeout-minutes: 5
+        with:
+          python-version: '3.12.14'
+      - run: python -m pip install -r payload/requirements.lock
+        timeout-minutes: 5
+      - uses: actions/download-artifact@v8
+        timeout-minutes: 5
+        with:
+          name: native-target-Linux
+          path: payload/evidence/targets/Linux
+          github-token: ${{ github.token }}
+          repository: mehrangtr/Consilium
+          run-id: 37621021028
+      - uses: actions/download-artifact@v8
+        timeout-minutes: 5
+        with:
+          name: native-target-Windows
+          path: payload/evidence/targets/Windows
+          github-token: ${{ github.token }}
+          repository: mehrangtr/Consilium
+          run-id: 37621021028
+      - uses: actions/download-artifact@v8
+        timeout-minutes: 5
+        with:
+          name: development-supervisor-Linux
+          path: payload/evidence/development-supervisor
+          github-token: ${{ github.token }}
+          repository: mehrangtr/Consilium
+          run-id: 37621021028
+      - uses: actions/download-artifact@v8
+        timeout-minutes: 5
+        with:
+          name: development-supervisor-Windows
+          path: payload/evidence/development-supervisor
+          github-token: ${{ github.token }}
+          repository: mehrangtr/Consilium
+          run-id: 37621021028
+      - name: Verify native and supervisor graphs, update only handoff metadata, publish delivery branch
+        timeout-minutes: 5
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PAYLOAD_ROOT: ${{ github.workspace }}/payload
+          TESTED_CODE_SHA: 1bcd3a3c419da0e001366dc5501e1aca8a30abd6
+          TESTED_SOURCE_DIGEST: 9ccf9055fc12fd9def8aafb9e7669573e6cf0ca8273e8629bdf4ab5d4da83208
+          NATIVE_RUN_ID: '37621021028'
+          DELIVERY_BRANCH: p04-watchdog-manual-delivery-20261007
+        run: python ops/.github/scripts/publish-watchdog-manual.py
+      - uses: actions/upload-artifact@v7
+        timeout-minutes: 5
+        if: always()
+        with:
+          name: verified-watchdog-manual-handoff
+          path: |
+            delivery/
+            payload/evidence/development-supervisor/
+          if-no-files-found: error
+          retention-days: 7

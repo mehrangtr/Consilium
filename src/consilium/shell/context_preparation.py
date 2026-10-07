@@ -14,7 +14,7 @@ from consilium.shell.storage import Conflict, _revision
 
 def prepare_independent_intent(store, *, context, connection: ConnectionSpec, identity: OperationIdentity,
                                expected_revision: int, expected_connection_revision: int,
-                               parameters: GenerationParameters, privacy, budget, history):
+                               parameters: GenerationParameters, privacy, budget, history, observation=None):
     context = IndependentContext.model_validate(context)
     expected_connection_revision = _revision(expected_connection_revision)
     connection = ConnectionSpec.model_validate(connection)
@@ -49,16 +49,18 @@ def prepare_independent_intent(store, *, context, connection: ConnectionSpec, id
             participant_id=context.participant_id, connection_id=connection.connection_id,
             expected_revision=expected_revision, connection_revision=expected_connection_revision,
             frozen_input=frozen, request_hash=frozen.content_hash)
-        bundle = AdmissionBundle(context=context, connection=connection,
+        from consilium.core.round_admission import ObservedAdmissionBundle
+        bundle_class = AdmissionBundle if observation is None else ObservedAdmissionBundle
+        bundle = bundle_class(context=context, connection=connection,
             connection_revision=expected_connection_revision, privacy=privacy, budget=budget,
-            history=history, admission=admission)
+            history=history, admission=admission, **({} if observation is None else {"observation": observation}))
     return store.prepare_intent(intent, admission_bundle=bundle), admission
 
 
 def prepare_round_intent(store, *, debate_id, round_id, participant_id, context,
                          connection, identity, expected_revision, expected_connection_revision,
                          parameters, grants, privacy, budget, history,
-                         judge_selection=None, named_authorization=None):
+                         judge_selection=None, named_authorization=None, observation=None):
     """Derive all required sources from storage, then atomically persist receipt."""
     from consilium.core.round_admission import RoundAdmissionBundle
     from consilium.core.round_context import RoundContext, recover_round_context
@@ -101,8 +103,11 @@ def prepare_round_intent(store, *, debate_id, round_id, participant_id, context,
             participant_id=participant_id, connection_id=connection.connection_id,
             expected_revision=expected_revision, connection_revision=expected_connection_revision,
             frozen_input=frozen, request_hash=frozen.content_hash)
-        bundle = RoundAdmissionBundle(context=context, connection=connection,
+        from consilium.core.round_admission import ObservedRoundAdmissionBundle
+        bundle_class = RoundAdmissionBundle if observation is None else ObservedRoundAdmissionBundle
+        bundle = bundle_class(context=context, connection=connection,
             connection_revision=expected_connection_revision, sources=sources, required_source_hashes=required,
             grants=grants, continuation_decision=decision, judge_selection=judge_selection, named_authorization=named_authorization,
-            privacy=privacy, budget=budget, history=history, admission=admission)
+            privacy=privacy, budget=budget, history=history, admission=admission,
+            **({} if observation is None else {"observation": observation}))
     return store.prepare_intent(intent, admission_bundle=bundle), admission

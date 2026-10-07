@@ -97,7 +97,16 @@
           "tools/run_architect_tests.py"
         ],
         "junit": "evidence/architect-tests/JUNIT.xml",
-        "scope": "P04_OFFLINE_QUESTION_AND_INITIAL_INDEPENDENT_CONTEXT_SLICE_NOT_FULL_PHASE"
+        "scope": "P04_FULL_OFFLINE_QUESTION_AUTHORIZED_CONTEXT_CONTRACTS; LIVE_ADAPTER_CERTIFICATION_REMAINS_P08_P09"
+      },
+      {
+        "id": "p04_executed_context_exit_examples",
+        "kind": "static",
+        "argv": [
+          "{python}",
+          "tools/record_p04_context_examples.py"
+        ],
+        "scope": "EXECUTED_OFFLINE_CONTEXT_EXIT_EXAMPLES_NOT_LIVE_PROVIDER_CERTIFICATION"
       }
     ],
     "P05": [],

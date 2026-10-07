@@ -759,8 +759,10 @@
       "Manual critique batches, later answers, V8 migration and multiline initial/later CLI entry verified: 516 tests and 29 actual product process exits on each native OS; zero skipped tests or live calls. Full P04 remains open.",
       "Explicit manual operation reconciliation and V9 migration verified: 538 tests and 31 actual product process exits per native OS; prior delivery facts preserved and late responses quarantined. Full P04 remains open."
     ],
-    "working_changes": [],
-    "next_action": "در P04-002 مشاهده‌گرهای معتبر منشأ، تاریخچه و شمارش توکن را طراحی و آزمون کن؛ سپس همهٔ معیارهای P04 را بازبینی کن. تطبیق صریح ادامهٔ دستی تکمیل شده؛ دوباره نساز. P05 و ارسال زنده هنوز آغاز نشوند.",
+    "working_changes": [
+      "P04 observation contracts, canonical-history observer, atomic observed receipts, exit examples and negative tests"
+    ],
+    "next_action": "بررسی کامل و بومی را روی منبع نهایی اجرا کن؛ سپس بازبینی معیارهای اصلی و گیت رسمی P04 و بستهٔ تحویل را ثبت کن.",
     "next_command": "python tools/development_supervisor.py local",
     "startup_commands": [
       "python tools/qualityctl.py status",
@@ -788,11 +790,11 @@
     "next_task": {
       "id": "P04-002",
       "phase": "P04",
-      "status": "EXPLICIT_MANUAL_RECONCILIATION_NATIVE_VERIFIED",
+      "status": "P04_COMPLETION_IMPLEMENTED_PENDING_NATIVE_REVIEW",
       "title_fa": "نمای مجاز، ثبت پایدار شواهد کنترل و ورودی دورها",
       "completed_fa": "تطبیق صریح ادامهٔ دستی و مهاجرت نهم تکمیل شدند؛ ۵۳۸ آزمون و ۳۱ قطع واقعی پردازهٔ محصول در هر دو محیط موفق‌اند.",
-      "remaining_fa": "مشاهده‌گرهای معتبر منشأ، تاریخچه و شمارش توکن و بازبینی و پذیرش کامل P04.",
-      "next_action_fa": "در P04-002 مشاهده‌گرهای معتبر منشأ، تاریخچه و شمارش توکن را طراحی و آزمون کن؛ سپس همهٔ معیارهای P04 را بازبینی کن. تطبیق صریح ادامهٔ دستی تکمیل شده؛ دوباره نساز. P05 و ارسال زنده هنوز آغاز نشوند.",
+      "remaining_fa": "بررسی کامل، شواهد بومی هر دو محیط و پذیرش رسمی همهٔ معیارهای P04.",
+      "next_action_fa": "بررسی کامل و بومی را روی منبع نهایی اجرا کن؛ سپس بازبینی معیارهای اصلی و گیت رسمی P04 و بستهٔ تحویل را ثبت کن.",
       "done_when_fa": "شواهد و ورودی منجمد با نسخه و منشأ و مقصد روشن پایدارند؛ بازیابی و نشت و بودجه و حفظ قیود در تمام نماهای لازم آزموده شده‌اند؛ شواهد هر دو محیط و بازبینی کامل معیارهای مرحله موجود است."
     },
     "unfinished_work": {

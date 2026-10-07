@@ -47,4 +47,29 @@ class RoundAdmissionBundle(Contract):
             raise ValueError("Round admission does not belong to the prepared intent")
 
 
-ADMISSION_ADAPTER = TypeAdapter(AdmissionBundle | RoundAdmissionBundle)
+from .context_observations import ObservationReceipt, validate_observation
+
+
+class ObservedAdmissionBundle(AdmissionBundle):
+    observation: ObservationReceipt
+
+    @model_validator(mode="after")
+    def checked_observation(self) -> Self:
+        validate_observation(self.observation, context=self.context, connection=self.connection,
+            privacy=self.privacy, budget=self.budget, history=self.history,
+            expected_revision=self.admission.ledger_revision, sources=())
+        return self
+
+
+class ObservedRoundAdmissionBundle(RoundAdmissionBundle):
+    observation: ObservationReceipt
+
+    @model_validator(mode="after")
+    def checked_observation(self) -> Self:
+        validate_observation(self.observation, context=self.context, connection=self.connection,
+            privacy=self.privacy, budget=self.budget, history=self.history,
+            expected_revision=self.admission.ledger_revision, sources=self.sources)
+        return self
+
+
+ADMISSION_ADAPTER = TypeAdapter(ObservedAdmissionBundle | ObservedRoundAdmissionBundle | AdmissionBundle | RoundAdmissionBundle)

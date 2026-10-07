@@ -60,6 +60,8 @@ class AdmissionLedger:
             recover_independent_context(bundle.context, question, round_spec,
                 participant_id=intent.participant_id, expected_revision=question.adoption.adopted_revision,
                 parameters=intent.frozen_input.parameters)
+        from consilium.shell.context_observers import validate_stored_observation
+        validate_stored_observation(self.store, bundle, intent)
 
     def get(self, logical_operation_id: UUID) -> AdmissionBundle | RoundAdmissionBundle | None:
         if not self._db.in_transaction:

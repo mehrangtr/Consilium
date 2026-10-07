@@ -39,5 +39,17 @@
     "total": 538,
     "phase_check": "BLOCKED_OLD_NATIVE_SOURCE_EXPECTED",
     "supervisor_state": "evidence/development-supervisor/7003a1e0e6894913afbb66792c6beab2/STATE.json"
+  },
+  "first_native_failure": {
+    "run_id": 37679962312,
+    "code_commit": "3fdd57def9a0d617f9cf7e93a4636c03cf501835",
+    "linux": "PASS",
+    "windows": "FAIL",
+    "artifact_id": 11509171489,
+    "archive": "evidence/p04/reconciliation-development/native-windows-failure-37679962312.zip",
+    "artifact_sha256": "ca1a5b7b94e957a0f32db8e9cd1c5253bc7a3be08ff150c323b21e7824137420",
+    "cause": "Test-owned raw sqlite3 connections were not closed by their transaction context managers, leaving Windows file handles open.",
+    "fix": "Use contextlib.closing for all three raw connections; autocommit on the corruption fixture preserves the intended database changes.",
+    "test_assertions_removed": false
   }
 }

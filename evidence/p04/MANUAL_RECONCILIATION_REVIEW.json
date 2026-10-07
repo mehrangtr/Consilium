@@ -45,7 +45,8 @@
   "issues_found_and_resolved": [
     "Initialization attempted historical verification before ArtifactLedger existed; reordered object initialization.",
     "Quarantine table rejected the new reason; extended the table in V9 while preserving prior SQL.",
-    "Five old migration tests still expected latest version 8; updated only latest-version expectations to 9, preserving all historical checksum assertions."
+    "Five old migration tests still expected latest version 8; updated only latest-version expectations to 9, preserving all historical checksum assertions.",
+    "Test-owned raw sqlite3 connections were not closed by their transaction context managers, leaving Windows file handles open. Use contextlib.closing for all three raw connections; autocommit on the corruption fixture preserves the intended database changes."
   ],
   "limitations": [
     "Already started external work cannot be cancelled by local manual reconciliation.",

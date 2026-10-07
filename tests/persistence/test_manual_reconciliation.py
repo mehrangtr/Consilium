@@ -1,5 +1,6 @@
 """Manual abandonment cannot turn ambiguity into delivery proof or resend authority."""
 import json
+from contextlib import closing
 import os
 from pathlib import Path
 import sqlite3
@@ -139,7 +140,7 @@ class ManualReconciliationTests(unittest.TestCase):
             with self.subTest(sql=sql):
                 with SQLiteStore(backup) as good: good.backup(self.path.with_name("bad.sqlite3"))
                 bad = self.path.with_name("bad.sqlite3")
-                with sqlite3.connect(bad) as db: db.execute(sql)
+                with closing(sqlite3.connect(bad, autocommit=True)) as db: db.execute(sql)
                 with self.assertRaises(SchemaError): SQLiteStore(bad)
                 bad.unlink()
 
@@ -174,7 +175,7 @@ class ManualReconciliationTests(unittest.TestCase):
         from consilium.shell.schema_v2 import V2_STATEMENTS
         old=[tuple(r) for r in self.store._db.execute("SELECT * FROM schema_migrations WHERE version<=8")]
         self.store.close()
-        with sqlite3.connect(self.path,autocommit=True) as db:
+        with closing(sqlite3.connect(self.path,autocommit=True)) as db:
             db.execute("PRAGMA foreign_keys=OFF");db.execute("BEGIN")
             db.execute("DROP TABLE manual_operation_reconciliations")
             for statement in V8_STATEMENTS[:4]:db.execute(statement)
@@ -196,7 +197,7 @@ class ManualReconciliationTests(unittest.TestCase):
         from consilium.shell.schema_v9 import V9_STATEMENTS
         old=self.v8_fixture()
         with patch("consilium.shell.storage.V9_STATEMENTS",(*V9_STATEMENTS,"INVALID SQL FIXTURE")),self.assertRaises(SchemaError):SQLiteStore(self.path)
-        with sqlite3.connect(self.path) as db:
+        with closing(sqlite3.connect(self.path)) as db:
             self.assertEqual(db.execute("PRAGMA user_version").fetchone()[0],8)
             self.assertEqual(db.execute("SELECT * FROM schema_migrations").fetchall(),old)
         self.store=SQLiteStore(self.path)

@@ -1,0 +1,86 @@
+name: Package verified P04 external-guard and round-admission handoff
+'on':
+  push:
+    branches: [ops-p04-external-round-handoff-20261007]
+  workflow_dispatch:
+permissions:
+  contents: write
+  actions: read
+env:
+  PYTHONUTF8: '1'
+  PYTHONIOENCODING: utf-8
+jobs:
+  package:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v7
+        timeout-minutes: 5
+        with:
+          path: ops
+          persist-credentials: false
+      - uses: actions/checkout@v7
+        timeout-minutes: 5
+        with:
+          ref: c077474d3216e90621f569840bd73a0cc191a076
+          path: payload
+          persist-credentials: true
+      - uses: actions/setup-python@v7
+        timeout-minutes: 5
+        with:
+          python-version: '3.12.14'
+      - run: python -m pip install -r payload/requirements.lock
+        timeout-minutes: 5
+      - uses: actions/download-artifact@v8
+        timeout-minutes: 5
+        with:
+          name: native-target-Linux
+          path: payload/evidence/targets/Linux
+          github-token: ${{ github.token }}
+          repository: mehrangtr/Consilium
+          run-id: 37642514269
+      - uses: actions/download-artifact@v8
+        timeout-minutes: 5
+        with:
+          name: native-target-Windows
+          path: payload/evidence/targets/Windows
+          github-token: ${{ github.token }}
+          repository: mehrangtr/Consilium
+          run-id: 37642514269
+      - uses: actions/download-artifact@v8
+        timeout-minutes: 5
+        with:
+          name: development-supervisor-Linux
+          path: payload/evidence/development-supervisor
+          github-token: ${{ github.token }}
+          repository: mehrangtr/Consilium
+          run-id: 37642514269
+      - uses: actions/download-artifact@v8
+        timeout-minutes: 5
+        with:
+          name: development-supervisor-Windows
+          path: payload/evidence/development-supervisor
+          github-token: ${{ github.token }}
+          repository: mehrangtr/Consilium
+          run-id: 37642514269
+      - name: Verify native and supervisor graphs, update only handoff metadata, publish delivery branch
+        timeout-minutes: 5
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PAYLOAD_ROOT: ${{ github.workspace }}/payload
+          TESTED_CODE_SHA: c077474d3216e90621f569840bd73a0cc191a076
+          TESTED_SOURCE_DIGEST: 32ecd7ffb6844ec1a3a7f863e81cb4a1c817f2369345dba435df27c9f98f720a
+          NATIVE_RUN_ID: '37642514269'
+          PUBLICATION_JOURNAL_SHA: cc4c7e53e783933247c782e1bd09ad5224673100
+          DELIVERY_BRANCH: p04-external-round-delivery-20261007
+        run: python ops/.github/scripts/publish-external-round.py
+      - uses: actions/upload-artifact@v7
+        timeout-minutes: 5
+        if: always()
+        with:
+          name: verified-external-round-handoff
+          path: |
+            delivery/
+            payload/evidence/development-supervisor/
+          if-no-files-found: error
+          retention-days: 7

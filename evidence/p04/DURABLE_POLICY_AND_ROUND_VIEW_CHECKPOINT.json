@@ -3,7 +3,7 @@
   "phase": "P04",
   "status": "LOCAL_TESTS_PASS_NATIVE_PROOF_PENDING",
   "phase_accepted": false,
-  "source_digest": "edfe7e84230c4f0e286774fa4c8377d232690fd9ab4644208b05c0bc1d05da19",
+  "source_digest": "2c15761cd9725cc9ac249544a0e508e5df982fb22ea34d51ef74f9a58685111a",
   "code_commit": null,
   "completed_scope": [
     "atomic initial admission evidence",
@@ -25,6 +25,6 @@
   },
   "local_maintenance_check": {
     "path": "evidence/maintenance-check/RUN.json",
-    "sha256": "2074c3562926e924df51de8a02e703cae185420941226d283b95a59ceb9e20b4"
+    "sha256": "f8578fbe92616533aa651a7f585b8eebd6fc928a6b593c9db7985cf777feed0c"
   }
 }

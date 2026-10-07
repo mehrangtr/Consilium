@@ -11,9 +11,9 @@
     "expected_failures": 0,
     "unexpected_successes": 0
   },
-  "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
-  "date": "2026-10-07T06:00:57.852411+00:00",
-  "platform": "Linux-6.18.44-x86_64-with-glibc2.39",
+  "python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+  "date": "2026-10-07T05:57:52.356197+00:00",
+  "platform": "Windows-2025Server-10.0.26100-SP0",
   "source_files_before": {
     "tools/qualityctl.py": "6e6720263ad59ed623d3f966e2edff8cfb25ee8e59456bec973c8dcd36171ba3",
     "tools/run_control_tests.py": "c2844ce3de623d84c514784702a7ff861e8f60ec60f40a1aaee54fad4dcb73cf",
@@ -21,7 +21,7 @@
     "tools/check_target_matrix.py": "f3867b261022d945892704bbea660019dc1f7b79faf313d64d3e205178a53a5f",
     "tools/record_target_checks.py": "a60e1ed35a341de95361774a2cd7740284fe0e56e0f89683eaf0d45cf9b8a309",
     "ROADMAP.json": "ee444b7e89a9b7724e970e1ed11e50b9762833587823fc01c331425480433cfd",
-    "PROGRESS.json": "3c32298d3846c5438c41a0b958fa3b607487e9cde9b5cde92a1f6d0d8219b570",
+    "PROGRESS.json": "da6b99f8082b018b50d0f0e131e23fc32b6aac554285f5f10e51b6e93bf35737",
     "baseline/Consilium_User_Guarded_Governance_v1.3_Reviewed.zip": "8f898b60627c07ec9c4028ff4bfa510c1b5578c2dd1141fa8f2f16ed648fd742",
     "tests/test_git_preservation.py": "ed93431b625d3ffd8f96207bec66775466202d3142b1b378c8709d8221801526",
     "tests/test_native_recording.py": "9179cf8656c75eee5c68f200d7c95001d739cd3c9c5949c21dbd2568de83ec0a",
@@ -30,11 +30,11 @@
     "tests/test_target_checks.py": "e118411a53a9850b4073791138b07f671bcad0117c626a8657e14926b954b539"
   },
   "host": {
-    "system": "Linux",
-    "python": "3.12.14"
+    "system": "Windows",
+    "python": "3.12.10"
   },
-  "source_digest_before": "2c15761cd9725cc9ac249544a0e508e5df982fb22ea34d51ef74f9a58685111a",
-  "source_digest_after": "2c15761cd9725cc9ac249544a0e508e5df982fb22ea34d51ef74f9a58685111a",
+  "source_digest_before": "edfe7e84230c4f0e286774fa4c8377d232690fd9ab4644208b05c0bc1d05da19",
+  "source_digest_after": "edfe7e84230c4f0e286774fa4c8377d232690fd9ab4644208b05c0bc1d05da19",
   "source_files_after": {
     "tools/qualityctl.py": "6e6720263ad59ed623d3f966e2edff8cfb25ee8e59456bec973c8dcd36171ba3",
     "tools/run_control_tests.py": "c2844ce3de623d84c514784702a7ff861e8f60ec60f40a1aaee54fad4dcb73cf",
@@ -42,7 +42,7 @@
     "tools/check_target_matrix.py": "f3867b261022d945892704bbea660019dc1f7b79faf313d64d3e205178a53a5f",
     "tools/record_target_checks.py": "a60e1ed35a341de95361774a2cd7740284fe0e56e0f89683eaf0d45cf9b8a309",
     "ROADMAP.json": "ee444b7e89a9b7724e970e1ed11e50b9762833587823fc01c331425480433cfd",
-    "PROGRESS.json": "3c32298d3846c5438c41a0b958fa3b607487e9cde9b5cde92a1f6d0d8219b570",
+    "PROGRESS.json": "da6b99f8082b018b50d0f0e131e23fc32b6aac554285f5f10e51b6e93bf35737",
     "baseline/Consilium_User_Guarded_Governance_v1.3_Reviewed.zip": "8f898b60627c07ec9c4028ff4bfa510c1b5578c2dd1141fa8f2f16ed648fd742",
     "tests/test_git_preservation.py": "ed93431b625d3ffd8f96207bec66775466202d3142b1b378c8709d8221801526",
     "tests/test_native_recording.py": "9179cf8656c75eee5c68f200d7c95001d739cd3c9c5949c21dbd2568de83ec0a",

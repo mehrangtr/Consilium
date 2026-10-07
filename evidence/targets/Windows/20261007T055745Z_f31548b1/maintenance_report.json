@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "scope": "DEVELOPMENT_CHECK_WITH_SEPARATE_FOUNDATION_TESTS",
-  "status": "PASS",
+  "status": "FAIL",
   "checks": [
     {
       "id": "state_navigation_python_syntax",
@@ -39,12 +39,12 @@
     },
     {
       "id": "architect_contract_tests",
-      "status": "PASS",
-      "returncode": 0
+      "status": "FAIL",
+      "returncode": 1
     }
   ],
-  "source_digest_before": "2c15761cd9725cc9ac249544a0e508e5df982fb22ea34d51ef74f9a58685111a",
-  "source_digest_after": "2c15761cd9725cc9ac249544a0e508e5df982fb22ea34d51ef74f9a58685111a",
+  "source_digest_before": "edfe7e84230c4f0e286774fa4c8377d232690fd9ab4644208b05c0bc1d05da19",
+  "source_digest_after": "edfe7e84230c4f0e286774fa4c8377d232690fd9ab4644208b05c0bc1d05da19",
   "application_runtime_tests": "FOUNDATION_P02_KERNEL_P03_OFFLINE_PROBE_AND_P04_OFFLINE_SLICES",
   "application_phase_accepted": false,
   "static_type_check": "NOT_RUN",

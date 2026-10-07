@@ -1,4 +1,5 @@
 import hashlib
+from contextlib import closing
 import json
 import os
 from pathlib import Path
@@ -188,7 +189,7 @@ class AdmissionMigrationTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as directory:
             path = Path(directory) / "v3.sqlite3"
             self.create_v3(path)
-            with sqlite3.connect(path) as before:
+            with closing(sqlite3.connect(path)) as before:
                 recorded = before.execute("SELECT * FROM schema_migrations ORDER BY version").fetchall()
             with SQLiteStore(path) as upgraded:
                 self.assertEqual(upgraded._db.execute("PRAGMA user_version").fetchone()[0], 4)
@@ -204,7 +205,7 @@ class AdmissionMigrationTests(unittest.TestCase):
             self.create_v3(path)
             with patch.object(storage_module, "V4_STATEMENTS", storage_module.V4_STATEMENTS + ("INVALID SQL",)):
                 with self.assertRaises(SchemaError): SQLiteStore(path)
-            with sqlite3.connect(path) as db:
+            with closing(sqlite3.connect(path)) as db:
                 self.assertEqual(db.execute("PRAGMA user_version").fetchone()[0], 3)
                 self.assertEqual(db.execute("SELECT count(*) FROM schema_migrations").fetchone()[0], 3)
                 self.assertEqual(db.execute("SELECT count(*) FROM sqlite_master WHERE name='context_admissions'").fetchone()[0], 0)

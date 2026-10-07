@@ -2,7 +2,7 @@
 
 این نما خودکار از `ROADMAP.json`، `PROGRESS.json` و `CHECKS.json` ساخته شده است. ویرایش دستی مرجع نیست؛ پس از تغییر مبنا فرمان تولید را دوباره اجرا کنید.
 
-شناسهٔ مبنای نما: `85d598217a12b7792c3c9e2861503c7c60d53ae3d54f7561f5acd4dd9a861517`.
+شناسهٔ مبنای نما: `0a614feea50cd82ae8bbf41af27ae3882d367cd142e759ae0412eeb1d88ca38a`.
 
 مرحلهٔ فعلی: `P04`. آخرین مرحلهٔ پذیرفته‌شده: `P03`.
 
@@ -22,7 +22,7 @@
     "P04-001 question contract, durable adoption and actual local CLI review completed; initial-context policy/intent preparation tested; 335 tests per actual native OS. Full P04 remains open."
   ],
   "working_changes": [
-    "P04-002 atomic initial admission and explicit later-round projections; 95 local slice tests; native validation pending"
+    "P04 atomic evidence and local projections implemented; two Windows-only test fixture resource leaks fixed, fresh native run pending"
   ],
   "next_action": "ابتدا رگرسیون کامل و شاهد تازهٔ هر دو محیط برای این منبع را ثبت کن. سپس نمای دورهای بعد را از منابع معتبر پایگاه بساز و با شواهد کنترل و ورودی منجمد در همان تراکنش ثبت کن؛ آزمون بودجه و عدم حذف قیود و مخالفت را پیش از پذیرش P04 کامل کن. ارسال زنده فعال نشود.",
   "next_command": "python tools/qualityctl.py status",
@@ -57,7 +57,7 @@
     "schema_version": 1,
     "updated_at_utc": "2026-10-07T05:55:12.320369+00:00",
     "canonical_location": "PROGRESS.json:resume.unfinished_work",
-    "continuation_instruction": "Continue this P04-002 work from the new local source; obtain fresh both-OS proof, then persist later-round source/permission/budget evidence. Never replay P03 probes.",
+    "continuation_instruction": "Do not reuse source edfe7e... as passing Windows evidence; preserve its recorded failure. Validate the explicitly closed fixture connections on a fresh both-OS source, then continue later-round storage and policy integration.",
     "items": [
       {
         "id": "P04-002",
@@ -448,6 +448,32 @@
         "full P04 exit evidence and phase acceptance"
       ],
       "continuation": "Implement local interactive confirmation and policy validation before connecting the context to live sends."
+    }
+  ],
+  "native_validation_attempts": [
+    {
+      "schema_version": 1,
+      "phase": "P04",
+      "status": "NATIVE_FAILURE_PRESERVED_FIX_REQUIRES_FRESH_RUN",
+      "workflow_run_id": 37578899247,
+      "code_commit": "62e15b9dbab7c635f9c4f3fed75b888de8934843",
+      "source_digest": "edfe7e84230c4f0e286774fa4c8377d232690fd9ab4644208b05c0bc1d05da19",
+      "target": "Windows",
+      "native_report": {
+        "path": "evidence/targets/Windows/20261007T055745Z_f31548b1/RUN.json",
+        "sha256": "6a8aaac4738d536099d018dfb3f2ec956f8a8e1366e86937cfce353c0e4076ba"
+      },
+      "cause": "Two migration test fixtures used sqlite3.Connection context managers without explicitly closing connections; Windows correctly refused deleting the still-open database.",
+      "failed_tests": [
+        "test_admission_storage.AdmissionMigrationTests.test_failed_v4_upgrade_leaves_v3_unchanged",
+        "test_admission_storage.AdmissionMigrationTests.test_v3_upgrade_preserves_all_published_migration_checksums"
+      ],
+      "fix": "Use contextlib.closing for both plain sqlite3 fixture inspection connections; retain all assertions and do not ignore cleanup errors.",
+      "test_failures_hidden_or_removed": false,
+      "product_sqlite_lifetime_changed": false,
+      "native_status_after_fix": "PENDING_FRESH_SOURCE",
+      "artifact_id": 11463363970,
+      "artifact_sha256": "d3e5949f2fe121e9b8adb6a3055f00edda2920b90965c69755e013ec36e94d03"
     }
   ]
 }

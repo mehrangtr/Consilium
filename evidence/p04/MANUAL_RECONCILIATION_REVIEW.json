@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "status": "PASS_IMPLEMENTED_SLICE_PENDING_NATIVE",
+  "phase": "P04",
+  "phase_accepted": false,
+  "reviewer_independent": false,
+  "review_method": "SEPARATE_AUTHOR_REVIEW_AFTER_IMPLEMENTATION",
+  "criteria": [
+    {
+      "id": "exact_local_choice",
+      "result": "PASS",
+      "reason": "Exact review hash, current revision, new manual connection, explicit confirmation, user action ID, actor and reason required; EOF/general yes cancel."
+    },
+    {
+      "id": "transport_truth",
+      "result": "PASS",
+      "reason": "All prior AttemptRecords remain equal; no transport call, delivery inference, resend, generation restart or canonical result is minted."
+    },
+    {
+      "id": "late_result",
+      "result": "PASS",
+      "reason": "Late prior results enter an append-only quarantine while original attempts remain unchanged; V9 permits the precise rejection reason."
+    },
+    {
+      "id": "received_results_and_wait_gates",
+      "result": "PASS",
+      "reason": "Received/validated/confirmed results and unrelated wait checkpoints cannot be overridden."
+    },
+    {
+      "id": "manual_sources_and_round_gate",
+      "result": "PASS",
+      "reason": "Initial answer and critique acceptance remain separate; stale grants/frame rejected; canonical dissent and explicit next-round decision preserved."
+    },
+    {
+      "id": "migration_and_crash",
+      "result": "PASS_LOCAL_PENDING_NATIVE",
+      "reason": "Published V1-V8 SQL unchanged; fresh V9 rollback and two true process exits tested."
+    },
+    {
+      "id": "native_windows_linux",
+      "result": "PENDING",
+      "reason": "New-source real host runs must pass before publishing completion."
+    }
+  ],
+  "issues_found_and_resolved": [
+    "Initialization attempted historical verification before ArtifactLedger existed; reordered object initialization.",
+    "Quarantine table rejected the new reason; extended the table in V9 while preserving prior SQL.",
+    "Five old migration tests still expected latest version 8; updated only latest-version expectations to 9, preserving all historical checksum assertions."
+  ],
+  "limitations": [
+    "Already started external work cannot be cancelled by local manual reconciliation.",
+    "Policy-managed sends remain blocked pending trusted live observers.",
+    "Full P04 and V1 remain unaccepted; GUI manual entry remains P12."
+  ]
+}

@@ -311,15 +311,16 @@ class ManualRoundTests(unittest.TestCase):
         self.store.close()
         with closing(sqlite3.connect(self.path,autocommit=True)) as db:
             db.execute('PRAGMA foreign_keys=OFF');db.execute('BEGIN')
+            db.execute('DROP TABLE manual_operation_reconciliations')
             for statement in V7_STATEMENTS[:4]:db.execute(statement)
             db.execute('DROP TABLE manual_round_acceptances');db.execute('DROP TABLE manual_round_candidates')
-            db.execute('DELETE FROM schema_migrations WHERE version=8');db.execute('PRAGMA user_version=7');db.execute('COMMIT')
+            db.execute('DELETE FROM schema_migrations WHERE version>=8');db.execute('PRAGMA user_version=7');db.execute('COMMIT')
         return [tuple(row) for row in old]
 
     def test_populated_v7_upgrade_preserves_initial_manual_sources_and_all_published_checksums(self):
         old=self.v7_fixture();self.store=SQLiteStore(self.path)
         self.assertEqual([tuple(r) for r in self.store._db.execute('SELECT version,checksum FROM schema_migrations WHERE version<=7')],old)
-        self.assertEqual(self.store._db.execute('PRAGMA user_version').fetchone()[0],8)
+        self.assertEqual(self.store._db.execute('PRAGMA user_version').fetchone()[0],9)
         self.assertEqual(len(self.store.manual_sources.for_debate(self.debate.debate_id)),3)
         self.assertEqual(self.store.sources.context_sources(self.debate.debate_id),self.frame.sources)
 

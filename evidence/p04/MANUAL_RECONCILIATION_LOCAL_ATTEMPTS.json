@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "initial_red": {
+    "tests": 13,
+    "errors": 13,
+    "reason": "Missing new SQLiteStore API; this does not establish 13 independent behavioral failures.",
+    "path": "evidence/p04/reconciliation-development/reconciliation-red.txt"
+  },
+  "first_green_attempt": {
+    "errors": 5,
+    "reason": "Initialization order failed on reopen; corrected."
+  },
+  "second_green_attempt": {
+    "errors": 1,
+    "reason": "Precise quarantine reason absent from old table constraint; corrected in new V9 migration."
+  },
+  "full_regression_first": {
+    "status": "FAIL",
+    "architect_tests": 222,
+    "failures": 5,
+    "reason": "Five latest-schema assertions still expected version 8; changed to 9, without changing historical checksum tests.",
+    "retained_supervisor_state": "evidence/development-supervisor/aed45845b8304a65b5a6f7c4437e91e7/STATE.json"
+  },
+  "focused": {
+    "status": "PASS",
+    "tests": 22,
+    "skipped": 0,
+    "new_product_process_exit_cases": 2
+  },
+  "full_regression_latest": {
+    "checks": "PASS",
+    "counts": {
+      "control-tests": 112,
+      "foundation-tests": 60,
+      "persistence-tests": 100,
+      "browser-probe-tests": 44,
+      "architect-tests": 222
+    },
+    "total": 538,
+    "phase_check": "BLOCKED_OLD_NATIVE_SOURCE_EXPECTED",
+    "supervisor_state": "evidence/development-supervisor/7003a1e0e6894913afbb66792c6beab2/STATE.json"
+  }
+}

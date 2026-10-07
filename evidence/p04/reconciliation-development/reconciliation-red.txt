@@ -1,0 +1,180 @@
+EEEEEEEEEEEEE
+======================================================================
+ERROR: test_all_prior_operations_in_the_slot_are_reviewed_together (test_manual_reconciliation.ManualReconciliationTests.test_all_prior_operations_in_the_slot_are_reviewed_together)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/2cd898e3d2ec/consilium_reconciliation/tests/persistence/test_manual_reconciliation.py", line 106, in test_all_prior_operations_in_the_slot_are_reviewed_together
+    review = self.review(); self.assertEqual(len(review.attempts), 2)
+             ^^^^^^^^^^^^^
+  File "/workspace/scratch/2cd898e3d2ec/consilium_reconciliation/tests/persistence/test_manual_reconciliation.py", line 32, in review
+    return self.store.manual_reconciliation.review(**{**args, **updates})
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'SQLiteStore' object has no attribute 'manual_reconciliation'
+
+======================================================================
+ERROR: test_changed_attempt_after_review_requires_fresh_review (test_manual_reconciliation.ManualReconciliationTests.test_changed_attempt_after_review_requires_fresh_review)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/2cd898e3d2ec/consilium_reconciliation/tests/persistence/test_manual_reconciliation.py", line 77, in test_changed_attempt_after_review_requires_fresh_review
+    review = self.review(); self.store.ledger.begin_send(self.request, expected_revision=self.revision)
+             ^^^^^^^^^^^^^
+  File "/workspace/scratch/2cd898e3d2ec/consilium_reconciliation/tests/persistence/test_manual_reconciliation.py", line 32, in review
+    return self.store.manual_reconciliation.review(**{**args, **updates})
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'SQLiteStore' object has no attribute 'manual_reconciliation'
+
+======================================================================
+ERROR: test_deleted_record_and_tampered_record_are_detected_on_restart (test_manual_reconciliation.ManualReconciliationTests.test_deleted_record_and_tampered_record_are_detected_on_restart)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/2cd898e3d2ec/consilium_reconciliation/tests/persistence/test_manual_reconciliation.py", line 112, in test_deleted_record_and_tampered_record_are_detected_on_restart
+    self.accept(); backup = self.path.with_name("valid.sqlite3"); self.store.backup(backup)
+    ^^^^^^^^^^^^^
+  File "/workspace/scratch/2cd898e3d2ec/consilium_reconciliation/tests/persistence/test_manual_reconciliation.py", line 35, in accept
+    review = review or self.review()
+                       ^^^^^^^^^^^^^
+  File "/workspace/scratch/2cd898e3d2ec/consilium_reconciliation/tests/persistence/test_manual_reconciliation.py", line 32, in review
+    return self.store.manual_reconciliation.review(**{**args, **updates})
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'SQLiteStore' object has no attribute 'manual_reconciliation'
+
+======================================================================
+ERROR: test_final_insert_failure_rolls_back_binding_event_wait_state_and_record (test_manual_reconciliation.ManualReconciliationTests.test_final_insert_failure_rolls_back_binding_event_wait_state_and_record)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/2cd898e3d2ec/consilium_reconciliation/tests/persistence/test_manual_reconciliation.py", line 123, in test_final_insert_failure_rolls_back_binding_event_wait_state_and_record
+    self.store._db.execute("CREATE TEMP TRIGGER reject_reconciliation BEFORE INSERT ON manual_operation_reconciliations BEGIN SELECT RAISE(ABORT,'fixture'); END")
+sqlite3.OperationalError: no such table: manual_operation_reconciliations
+
+======================================================================
+ERROR: test_hash_revision_actor_reason_and_confirmation_are_required_without_partial_write (test_manual_reconciliation.ManualReconciliationTests.test_hash_revision_actor_reason_and_confirmation_are_required_without_partial_write)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/2cd898e3d2ec/consilium_reconciliation/tests/persistence/test_manual_reconciliation.py", line 70, in test_hash_revision_actor_reason_and_confirmation_are_required_without_partial_write
+    review = self.review(); before = self.store.export_debate(self.debate.debate_id)
+             ^^^^^^^^^^^^^
+  File "/workspace/scratch/2cd898e3d2ec/consilium_reconciliation/tests/persistence/test_manual_reconciliation.py", line 32, in review
+    return self.store.manual_reconciliation.review(**{**args, **updates})
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'SQLiteStore' object has no attribute 'manual_reconciliation'
+
+======================================================================
+ERROR: test_late_response_is_quarantined_without_changing_retired_attempt (test_manual_reconciliation.ManualReconciliationTests.test_late_response_is_quarantined_without_changing_retired_attempt)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/2cd898e3d2ec/consilium_reconciliation/tests/persistence/test_manual_reconciliation.py", line 88, in test_late_response_is_quarantined_without_changing_retired_attempt
+    before = self.store.ledger.get_attempt(self.attempt); self.accept()
+                                                          ^^^^^^^^^^^^^
+  File "/workspace/scratch/2cd898e3d2ec/consilium_reconciliation/tests/persistence/test_manual_reconciliation.py", line 35, in accept
+    review = review or self.review()
+                       ^^^^^^^^^^^^^
+  File "/workspace/scratch/2cd898e3d2ec/consilium_reconciliation/tests/persistence/test_manual_reconciliation.py", line 32, in review
+    return self.store.manual_reconciliation.review(**{**args, **updates})
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'SQLiteStore' object has no attribute 'manual_reconciliation'
+
+======================================================================
+ERROR: test_pending_login_allows_explicit_manual_choice_but_keeps_original_state (test_manual_reconciliation.ManualReconciliationTests.test_pending_login_allows_explicit_manual_choice_but_keeps_original_state)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/2cd898e3d2ec/consilium_reconciliation/tests/persistence/test_manual_reconciliation.py", line 65, in test_pending_login_allows_explicit_manual_choice_but_keeps_original_state
+    before = self.store.ledger.get_attempt(self.attempt); self.accept()
+                                                          ^^^^^^^^^^^^^
+  File "/workspace/scratch/2cd898e3d2ec/consilium_reconciliation/tests/persistence/test_manual_reconciliation.py", line 35, in accept
+    review = review or self.review()
+                       ^^^^^^^^^^^^^
+  File "/workspace/scratch/2cd898e3d2ec/consilium_reconciliation/tests/persistence/test_manual_reconciliation.py", line 32, in review
+    return self.store.manual_reconciliation.review(**{**args, **updates})
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'SQLiteStore' object has no attribute 'manual_reconciliation'
+
+======================================================================
+ERROR: test_prepared_attempt_is_retired_without_becoming_not_sent_or_disappearing (test_manual_reconciliation.ManualReconciliationTests.test_prepared_attempt_is_retired_without_becoming_not_sent_or_disappearing)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/2cd898e3d2ec/consilium_reconciliation/tests/persistence/test_manual_reconciliation.py", line 58, in test_prepared_attempt_is_retired_without_becoming_not_sent_or_disappearing
+    before = self.store.ledger.get_attempt(self.attempt); self.accept()
+                                                          ^^^^^^^^^^^^^
+  File "/workspace/scratch/2cd898e3d2ec/consilium_reconciliation/tests/persistence/test_manual_reconciliation.py", line 35, in accept
+    review = review or self.review()
+                       ^^^^^^^^^^^^^
+  File "/workspace/scratch/2cd898e3d2ec/consilium_reconciliation/tests/persistence/test_manual_reconciliation.py", line 32, in review
+    return self.store.manual_reconciliation.review(**{**args, **updates})
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'SQLiteStore' object has no attribute 'manual_reconciliation'
+
+======================================================================
+ERROR: test_process_exit_after_commit_preserves_manual_reconciliation_and_prior_attempt (test_manual_reconciliation.ManualReconciliationTests.test_process_exit_after_commit_preserves_manual_reconciliation_and_prior_attempt)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/2cd898e3d2ec/consilium_reconciliation/tests/persistence/test_manual_reconciliation.py", line 155, in test_process_exit_after_commit_preserves_manual_reconciliation_and_prior_attempt
+    def test_process_exit_after_commit_preserves_manual_reconciliation_and_prior_attempt(self): self.crash(False)
+                                                                                                ^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/2cd898e3d2ec/consilium_reconciliation/tests/persistence/test_manual_reconciliation.py", line 128, in crash
+    review = self.review(); old_revision = self.revision; self.store.close()
+             ^^^^^^^^^^^^^
+  File "/workspace/scratch/2cd898e3d2ec/consilium_reconciliation/tests/persistence/test_manual_reconciliation.py", line 32, in review
+    return self.store.manual_reconciliation.review(**{**args, **updates})
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'SQLiteStore' object has no attribute 'manual_reconciliation'
+
+======================================================================
+ERROR: test_process_exit_before_record_commit_rolls_back_entire_manual_reconciliation (test_manual_reconciliation.ManualReconciliationTests.test_process_exit_before_record_commit_rolls_back_entire_manual_reconciliation)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/2cd898e3d2ec/consilium_reconciliation/tests/persistence/test_manual_reconciliation.py", line 154, in test_process_exit_before_record_commit_rolls_back_entire_manual_reconciliation
+    def test_process_exit_before_record_commit_rolls_back_entire_manual_reconciliation(self): self.crash(True)
+                                                                                              ^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/2cd898e3d2ec/consilium_reconciliation/tests/persistence/test_manual_reconciliation.py", line 128, in crash
+    review = self.review(); old_revision = self.revision; self.store.close()
+             ^^^^^^^^^^^^^
+  File "/workspace/scratch/2cd898e3d2ec/consilium_reconciliation/tests/persistence/test_manual_reconciliation.py", line 32, in review
+    return self.store.manual_reconciliation.review(**{**args, **updates})
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'SQLiteStore' object has no attribute 'manual_reconciliation'
+
+======================================================================
+ERROR: test_received_validated_and_confirmed_results_cannot_be_replaced (test_manual_reconciliation.ManualReconciliationTests.test_received_validated_and_confirmed_results_cannot_be_replaced)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/2cd898e3d2ec/consilium_reconciliation/tests/persistence/test_manual_reconciliation.py", line 84, in test_received_validated_and_confirmed_results_cannot_be_replaced
+    with self.assertRaises(ValueError): self.review()
+                                        ^^^^^^^^^^^^^
+  File "/workspace/scratch/2cd898e3d2ec/consilium_reconciliation/tests/persistence/test_manual_reconciliation.py", line 32, in review
+    return self.store.manual_reconciliation.review(**{**args, **updates})
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'SQLiteStore' object has no attribute 'manual_reconciliation'
+
+======================================================================
+ERROR: test_second_attempt_or_generation_cannot_reopen_a_manually_retired_slot (test_manual_reconciliation.ManualReconciliationTests.test_second_attempt_or_generation_cannot_reopen_a_manually_retired_slot)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/2cd898e3d2ec/consilium_reconciliation/tests/persistence/test_manual_reconciliation.py", line 97, in test_second_attempt_or_generation_cannot_reopen_a_manually_retired_slot
+    self.accept()
+  File "/workspace/scratch/2cd898e3d2ec/consilium_reconciliation/tests/persistence/test_manual_reconciliation.py", line 35, in accept
+    review = review or self.review()
+                       ^^^^^^^^^^^^^
+  File "/workspace/scratch/2cd898e3d2ec/consilium_reconciliation/tests/persistence/test_manual_reconciliation.py", line 32, in review
+    return self.store.manual_reconciliation.review(**{**args, **updates})
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'SQLiteStore' object has no attribute 'manual_reconciliation'
+
+======================================================================
+ERROR: test_unknown_delivery_survives_manual_continuation_and_restart_without_resend (test_manual_reconciliation.ManualReconciliationTests.test_unknown_delivery_survives_manual_continuation_and_restart_without_resend)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/2cd898e3d2ec/consilium_reconciliation/tests/persistence/test_manual_reconciliation.py", line 44, in test_unknown_delivery_survives_manual_continuation_and_restart_without_resend
+    record = self.accept(); self.reopen()
+             ^^^^^^^^^^^^^
+  File "/workspace/scratch/2cd898e3d2ec/consilium_reconciliation/tests/persistence/test_manual_reconciliation.py", line 35, in accept
+    review = review or self.review()
+                       ^^^^^^^^^^^^^
+  File "/workspace/scratch/2cd898e3d2ec/consilium_reconciliation/tests/persistence/test_manual_reconciliation.py", line 32, in review
+    return self.store.manual_reconciliation.review(**{**args, **updates})
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'SQLiteStore' object has no attribute 'manual_reconciliation'
+
+----------------------------------------------------------------------
+Ran 13 tests in 0.138s
+
+FAILED (errors=13)

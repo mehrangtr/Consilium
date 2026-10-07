@@ -1,0 +1,143 @@
+..EE..E..E...E
+======================================================================
+ERROR: test_deleted_record_and_tampered_record_are_detected_on_restart (test_manual_reconciliation.ManualReconciliationTests.test_deleted_record_and_tampered_record_are_detected_on_restart) (sql='DELETE FROM manual_operation_reconciliations')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/2cd898e3d2ec/consilium_reconciliation/tests/persistence/test_manual_reconciliation.py", line 115, in test_deleted_record_and_tampered_record_are_detected_on_restart
+    with SQLiteStore(backup) as good: good.backup(self.path.with_name("bad.sqlite3"))
+         ^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/2cd898e3d2ec/consilium_reconciliation/src/consilium/shell/storage.py", line 153, in __init__
+    self.manual_reconciliation.check_integrity()
+  File "/workspace/scratch/2cd898e3d2ec/consilium_reconciliation/src/consilium/shell/manual_reconciliation.py", line 130, in check_integrity
+    self.get(UUID(row[0]), UUID(row[1])); actual.add(tuple(row))
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/2cd898e3d2ec/consilium_reconciliation/src/consilium/shell/manual_reconciliation.py", line 102, in get
+    or self._attempts(round_id, participant_id) != review.attempts
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/2cd898e3d2ec/consilium_reconciliation/src/consilium/shell/manual_reconciliation.py", line 17, in _attempts
+    return tuple(self.store.ledger.get_attempt(UUID(row[0])) for row in rows)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/2cd898e3d2ec/consilium_reconciliation/src/consilium/shell/manual_reconciliation.py", line 17, in <genexpr>
+    return tuple(self.store.ledger.get_attempt(UUID(row[0])) for row in rows)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/2cd898e3d2ec/consilium_reconciliation/src/consilium/shell/ledger.py", line 52, in get_attempt
+    response_contract=self.store.artifacts.get_contract(intent))
+                      ^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'SQLiteStore' object has no attribute 'artifacts'
+
+======================================================================
+ERROR: test_deleted_record_and_tampered_record_are_detected_on_restart (test_manual_reconciliation.ManualReconciliationTests.test_deleted_record_and_tampered_record_are_detected_on_restart) (sql="UPDATE manual_operation_reconciliations SET record_hash='0000000000000000000000000000000000000000000000000000000000000000'")
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/2cd898e3d2ec/consilium_reconciliation/tests/persistence/test_manual_reconciliation.py", line 115, in test_deleted_record_and_tampered_record_are_detected_on_restart
+    with SQLiteStore(backup) as good: good.backup(self.path.with_name("bad.sqlite3"))
+         ^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/2cd898e3d2ec/consilium_reconciliation/src/consilium/shell/storage.py", line 153, in __init__
+    self.manual_reconciliation.check_integrity()
+  File "/workspace/scratch/2cd898e3d2ec/consilium_reconciliation/src/consilium/shell/manual_reconciliation.py", line 130, in check_integrity
+    self.get(UUID(row[0]), UUID(row[1])); actual.add(tuple(row))
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/2cd898e3d2ec/consilium_reconciliation/src/consilium/shell/manual_reconciliation.py", line 102, in get
+    or self._attempts(round_id, participant_id) != review.attempts
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/2cd898e3d2ec/consilium_reconciliation/src/consilium/shell/manual_reconciliation.py", line 17, in _attempts
+    return tuple(self.store.ledger.get_attempt(UUID(row[0])) for row in rows)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/2cd898e3d2ec/consilium_reconciliation/src/consilium/shell/manual_reconciliation.py", line 17, in <genexpr>
+    return tuple(self.store.ledger.get_attempt(UUID(row[0])) for row in rows)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/2cd898e3d2ec/consilium_reconciliation/src/consilium/shell/ledger.py", line 52, in get_attempt
+    response_contract=self.store.artifacts.get_contract(intent))
+                      ^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'SQLiteStore' object has no attribute 'artifacts'
+
+======================================================================
+ERROR: test_late_response_is_quarantined_without_changing_retired_attempt (test_manual_reconciliation.ManualReconciliationTests.test_late_response_is_quarantined_without_changing_retired_attempt)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/2cd898e3d2ec/consilium_reconciliation/tests/persistence/test_manual_reconciliation.py", line 91, in test_late_response_is_quarantined_without_changing_retired_attempt
+    self.reopen()
+  File "/workspace/scratch/2cd898e3d2ec/consilium_reconciliation/tests/persistence/test_ledger.py", line 64, in reopen
+    self.store = SQLiteStore(self.path)
+                 ^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/2cd898e3d2ec/consilium_reconciliation/src/consilium/shell/storage.py", line 153, in __init__
+    self.manual_reconciliation.check_integrity()
+  File "/workspace/scratch/2cd898e3d2ec/consilium_reconciliation/src/consilium/shell/manual_reconciliation.py", line 130, in check_integrity
+    self.get(UUID(row[0]), UUID(row[1])); actual.add(tuple(row))
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/2cd898e3d2ec/consilium_reconciliation/src/consilium/shell/manual_reconciliation.py", line 102, in get
+    or self._attempts(round_id, participant_id) != review.attempts
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/2cd898e3d2ec/consilium_reconciliation/src/consilium/shell/manual_reconciliation.py", line 17, in _attempts
+    return tuple(self.store.ledger.get_attempt(UUID(row[0])) for row in rows)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/2cd898e3d2ec/consilium_reconciliation/src/consilium/shell/manual_reconciliation.py", line 17, in <genexpr>
+    return tuple(self.store.ledger.get_attempt(UUID(row[0])) for row in rows)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/2cd898e3d2ec/consilium_reconciliation/src/consilium/shell/ledger.py", line 52, in get_attempt
+    response_contract=self.store.artifacts.get_contract(intent))
+                      ^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'SQLiteStore' object has no attribute 'artifacts'
+
+======================================================================
+ERROR: test_process_exit_after_commit_preserves_manual_reconciliation_and_prior_attempt (test_manual_reconciliation.ManualReconciliationTests.test_process_exit_after_commit_preserves_manual_reconciliation_and_prior_attempt)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/2cd898e3d2ec/consilium_reconciliation/tests/persistence/test_manual_reconciliation.py", line 155, in test_process_exit_after_commit_preserves_manual_reconciliation_and_prior_attempt
+    def test_process_exit_after_commit_preserves_manual_reconciliation_and_prior_attempt(self): self.crash(False)
+                                                                                                ^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/2cd898e3d2ec/consilium_reconciliation/tests/persistence/test_manual_reconciliation.py", line 147, in crash
+    self.store=SQLiteStore(self.path)
+               ^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/2cd898e3d2ec/consilium_reconciliation/src/consilium/shell/storage.py", line 153, in __init__
+    self.manual_reconciliation.check_integrity()
+  File "/workspace/scratch/2cd898e3d2ec/consilium_reconciliation/src/consilium/shell/manual_reconciliation.py", line 130, in check_integrity
+    self.get(UUID(row[0]), UUID(row[1])); actual.add(tuple(row))
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/2cd898e3d2ec/consilium_reconciliation/src/consilium/shell/manual_reconciliation.py", line 102, in get
+    or self._attempts(round_id, participant_id) != review.attempts
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/2cd898e3d2ec/consilium_reconciliation/src/consilium/shell/manual_reconciliation.py", line 17, in _attempts
+    return tuple(self.store.ledger.get_attempt(UUID(row[0])) for row in rows)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/2cd898e3d2ec/consilium_reconciliation/src/consilium/shell/manual_reconciliation.py", line 17, in <genexpr>
+    return tuple(self.store.ledger.get_attempt(UUID(row[0])) for row in rows)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/2cd898e3d2ec/consilium_reconciliation/src/consilium/shell/ledger.py", line 52, in get_attempt
+    response_contract=self.store.artifacts.get_contract(intent))
+                      ^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'SQLiteStore' object has no attribute 'artifacts'
+
+======================================================================
+ERROR: test_unknown_delivery_survives_manual_continuation_and_restart_without_resend (test_manual_reconciliation.ManualReconciliationTests.test_unknown_delivery_survives_manual_continuation_and_restart_without_resend)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/2cd898e3d2ec/consilium_reconciliation/tests/persistence/test_manual_reconciliation.py", line 44, in test_unknown_delivery_survives_manual_continuation_and_restart_without_resend
+    record = self.accept(); self.reopen()
+                            ^^^^^^^^^^^^^
+  File "/workspace/scratch/2cd898e3d2ec/consilium_reconciliation/tests/persistence/test_ledger.py", line 64, in reopen
+    self.store = SQLiteStore(self.path)
+                 ^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/2cd898e3d2ec/consilium_reconciliation/src/consilium/shell/storage.py", line 153, in __init__
+    self.manual_reconciliation.check_integrity()
+  File "/workspace/scratch/2cd898e3d2ec/consilium_reconciliation/src/consilium/shell/manual_reconciliation.py", line 130, in check_integrity
+    self.get(UUID(row[0]), UUID(row[1])); actual.add(tuple(row))
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/2cd898e3d2ec/consilium_reconciliation/src/consilium/shell/manual_reconciliation.py", line 102, in get
+    or self._attempts(round_id, participant_id) != review.attempts
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/2cd898e3d2ec/consilium_reconciliation/src/consilium/shell/manual_reconciliation.py", line 17, in _attempts
+    return tuple(self.store.ledger.get_attempt(UUID(row[0])) for row in rows)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/2cd898e3d2ec/consilium_reconciliation/src/consilium/shell/manual_reconciliation.py", line 17, in <genexpr>
+    return tuple(self.store.ledger.get_attempt(UUID(row[0])) for row in rows)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/2cd898e3d2ec/consilium_reconciliation/src/consilium/shell/ledger.py", line 52, in get_attempt
+    response_contract=self.store.artifacts.get_contract(intent))
+                      ^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'SQLiteStore' object has no attribute 'artifacts'
+
+----------------------------------------------------------------------
+Ran 13 tests in 0.506s
+
+FAILED (errors=5)

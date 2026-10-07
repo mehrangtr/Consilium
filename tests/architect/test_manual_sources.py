@@ -303,7 +303,7 @@ os._exit(93)
         path = Path(self.temp.name) / "v6.sqlite3"
         historical = self.create_v6(path)
         with SQLiteStore(path) as upgraded:
-            self.assertEqual(upgraded._db.execute("PRAGMA user_version").fetchone()[0], 8)
+            self.assertEqual(upgraded._db.execute("PRAGMA user_version").fetchone()[0], 9)
             self.assertEqual([tuple(r) for r in upgraded._db.execute(
                 "SELECT version,checksum FROM schema_migrations WHERE version<=6")], historical)
 

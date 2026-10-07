@@ -21,9 +21,10 @@ from consilium.shell.schema_v5 import V5_STATEMENTS, V5_TABLES
 from consilium.shell.schema_v6 import V6_STATEMENTS, V6_TABLES
 from consilium.shell.schema_v7 import V7_STATEMENTS, V7_TABLES
 from consilium.shell.schema_v8 import V8_STATEMENTS, V8_TABLES
+from consilium.shell.schema_v9 import V9_STATEMENTS, V9_TABLES
 
 APPLICATION_ID = 0x434F4E53
-SCHEMA_VERSION = 8
+SCHEMA_VERSION = 9
 V1_STATEMENTS = (
     """CREATE TABLE schema_migrations(
         version INTEGER PRIMARY KEY, checksum TEXT NOT NULL CHECK(length(checksum)=64),
@@ -116,7 +117,7 @@ class SQLiteStore:
                 self._db.execute("PRAGMA foreign_keys=OFF")
             with self._transaction():
                 version = self._check_owner()
-                migrations = {1: V1_STATEMENTS, 2: V2_STATEMENTS, 3: V3_STATEMENTS, 4: V4_STATEMENTS, 5: V5_STATEMENTS, 6: V6_STATEMENTS, 7: V7_STATEMENTS, 8: V8_STATEMENTS}
+                migrations = {1: V1_STATEMENTS, 2: V2_STATEMENTS, 3: V3_STATEMENTS, 4: V4_STATEMENTS, 5: V5_STATEMENTS, 6: V6_STATEMENTS, 7: V7_STATEMENTS, 8: V8_STATEMENTS, 9: V9_STATEMENTS}
                 checksums = {v: hashlib.sha256(_json(sql).encode("utf-8")).hexdigest() for v, sql in migrations.items()}
                 if version == 0:
                     # executescript() is deliberately excluded from this transaction.
@@ -129,7 +130,7 @@ class SQLiteStore:
                 recorded = self._db.execute("SELECT version,checksum FROM schema_migrations ORDER BY version").fetchall()
                 if [(r["version"], r["checksum"]) for r in recorded] != [(v, checksums[v]) for v in range(1, version+1)]:
                     raise SchemaError("Migration history does not match this schema")
-                if self._table_names() != {1: _TABLES, 2: V2_TABLES, 3: V3_TABLES, 4: V4_TABLES, 5: V5_TABLES, 6: V6_TABLES, 7: V7_TABLES, 8: V8_TABLES}[version]:
+                if self._table_names() != {1: _TABLES, 2: V2_TABLES, 3: V3_TABLES, 4: V4_TABLES, 5: V5_TABLES, 6: V6_TABLES, 7: V7_TABLES, 8: V8_TABLES, 9: V9_TABLES}[version]:
                     raise SchemaError("Storage schema is incomplete or has unknown tables")
                 # Validate the old checkpoint before touching its schema.
                 for row in self._db.execute("SELECT debate_id FROM debates").fetchall():
@@ -139,7 +140,7 @@ class SQLiteStore:
                         self._db.execute(statement)
                     self._db.execute("INSERT INTO schema_migrations VALUES(?,?,?)", (target, checksums[target], self._now()))
                     self._db.execute("PRAGMA user_version=" + str(target))
-                if self._table_names() != V8_TABLES:
+                if self._table_names() != V9_TABLES:
                     raise SchemaError("Migrated schema is inconsistent")
                 if self._db.execute("PRAGMA quick_check").fetchone()[0] != "ok" or self._db.execute("PRAGMA foreign_key_check").fetchall():
                     raise SchemaError("Storage integrity check failed")
@@ -147,8 +148,11 @@ class SQLiteStore:
                     self.checkpoint(UUID(row["debate_id"]))
                 from consilium.shell.ledger import OperationLedger
                 self.ledger = OperationLedger(self)
+                from consilium.shell.manual_reconciliation import ManualReconciliationLedger
+                self.manual_reconciliation = ManualReconciliationLedger(self)
                 from consilium.shell.artifacts import ArtifactLedger
                 self.artifacts = ArtifactLedger(self)
+                self.manual_reconciliation.check_integrity()
                 self.ledger.check_integrity()
                 from consilium.shell.questions import QuestionLedger
                 self.questions = QuestionLedger(self)
@@ -353,6 +357,8 @@ class SQLiteStore:
                                    (str(intent.debate_id),)).fetchone()
             if row is None or row["round_id"] != str(intent.round_id) or intent.participant_id not in RoundSpec.model_validate_json(row["spec_json"]).participant_ids:
                 raise Conflict("Intent does not belong to the registered round")
+            if self.manual_reconciliation.get(intent.round_id, intent.participant_id) is not None:
+                raise Conflict("This round slot explicitly continues manually; prior operations cannot be reopened")
             binding = self._db.execute("SELECT connection_id,revision,spec_json FROM bindings WHERE debate_id=? AND participant_id=?",
                                        (str(intent.debate_id), str(intent.participant_id))).fetchone()
             if binding is None or (binding["connection_id"], binding["revision"]) != (str(intent.connection_id), intent.connection_revision):
@@ -432,6 +438,8 @@ class SQLiteStore:
             payload.update(self.artifacts.export_fields(debate_id))
             payload.update(self.manual_sources.export_fields(debate_id))
             payload.update(self.manual_rounds.export_fields(debate_id))
+            payload["manual_operation_reconciliations"] = [r.model_dump(mode="json")
+                for r in self.manual_reconciliation.for_debate(debate_id)]
             self._public(payload)
             return payload
 

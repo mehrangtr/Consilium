@@ -85,8 +85,18 @@ class OperationLedger:
 
     def _current(self, record, expected_revision, *, active=True):
         self.store._checked_debate(record.intent.debate_id, expected_revision)
+        if self.store.manual_reconciliation.for_operation(record.intent.identity.logical_operation_id) is not None:
+            raise Conflict("Prior operation was explicitly retired for manual continuation")
         if (active and record.active_revision != expected_revision) or not self._current_binding_and_round(record):
             raise Conflict("Attempt revision, round or connection is stale")
+
+    def _has_outstanding(self, debate_id, *, excluding=None):
+        rows = self._db.execute("SELECT a.attempt_id,o.logical_operation_id FROM attempts a "
+            "JOIN operations o USING(logical_operation_id) WHERE o.debate_id=? "
+            "AND a.state IN ('SENT','UNKNOWN_DELIVERY','RESPONSE_PENDING','RESPONSE_RECEIVED','VALIDATED')",
+            (str(debate_id),)).fetchall()
+        return any(row["attempt_id"] != str(excluding)
+            and self.store.manual_reconciliation.for_operation(UUID(row["logical_operation_id"])) is None for row in rows)
 
     def _change(self, record, expected_revision, state, kind, *, request=None, validation=None):
         self._db.execute("UPDATE attempts SET state=?,active_revision=?,request_json=COALESCE(?,request_json),"
@@ -118,10 +128,7 @@ class OperationLedger:
                 # Persisted synthetic/local facts do not establish token counts
                 # or the live conversation's history. P04 prepares, never sends.
                 raise Conflict("Policy-managed transport awaits trusted live observers")
-            outstanding = self._db.execute("""SELECT a.attempt_id FROM attempts a JOIN operations o USING(logical_operation_id)
-                WHERE o.debate_id=? AND a.state IN ('SENT','UNKNOWN_DELIVERY','RESPONSE_PENDING','RESPONSE_RECEIVED','VALIDATED') LIMIT 1""",
-                (str(record.intent.debate_id),)).fetchone()
-            if outstanding is not None:
+            if self._has_outstanding(record.intent.debate_id):
                 raise Conflict("The serial P02 runner must resolve its outstanding operation first")
             return self._change(record, expected_revision, transition(record.state, "SEND"), "SEND_STARTED", request=request)
 
@@ -155,11 +162,14 @@ class OperationLedger:
             if (result.identity != record.intent.identity or result.request_hash != record.intent.request_hash
                     or result.connection_id != record.intent.connection_id or result.connection_revision != record.intent.connection_revision):
                 raise Conflict("Result belongs to a different frozen operation or connection")
-            if record.result == result:
-                return self.store.checkpoint(record.intent.debate_id)
             if record.request is None:
                 raise Conflict("A result cannot precede a dispatch")
-            if record.result is not None:
+            if self.store.manual_reconciliation.for_operation(record.intent.identity.logical_operation_id) is not None:
+                self._quarantine(record, result_json, result_hash, "MANUALLY_RECONCILED_OPERATION")
+                rejected = True
+            elif record.result == result:
+                return self.store.checkpoint(record.intent.debate_id)
+            elif record.result is not None:
                 self._quarantine(record, result_json, result_hash, "RESULT_CONFLICT")
                 rejected = True
             elif (self.store.checkpoint(record.intent.debate_id).revision != expected_revision
@@ -226,6 +236,9 @@ class OperationLedger:
     def resume(self, attempt_id: UUID) -> ResumePlan:
         with self.store._transaction(write=False):
             record = self.get_attempt(attempt_id)
+            if self.store.manual_reconciliation.for_operation(record.intent.identity.logical_operation_id) is not None:
+                return ResumePlan(attempt=record, action=ResumeAction.WAIT_FOR_DECISION,
+                    reason="MANUAL_CONTINUATION_PRIOR_DELIVERY_UNCHANGED")
             action = resume_action(record.state)
             current = self._current_binding_and_round(record)
             wait = self._db.execute("SELECT wait_state FROM debates WHERE debate_id=?", (str(record.intent.debate_id),)).fetchone()[0]
@@ -234,11 +247,7 @@ class OperationLedger:
                     or record.state != AttemptState.PREPARED and record.active_revision != self.store.checkpoint(record.intent.debate_id).revision):
                 action = ResumeAction.WAIT_FOR_DECISION
                 reason = "REVISION_OR_WAIT_GATE_CHANGED_NO_AUTOMATIC_SEND"
-            outstanding = self._db.execute("""SELECT a.attempt_id FROM attempts a JOIN operations o USING(logical_operation_id)
-                WHERE o.debate_id=? AND a.attempt_id<>? AND a.state IN
-                ('SENT','UNKNOWN_DELIVERY','RESPONSE_PENDING','RESPONSE_RECEIVED','VALIDATED') LIMIT 1""",
-                (str(record.intent.debate_id), str(attempt_id))).fetchone()
-            if record.state == AttemptState.PREPARED and outstanding is not None:
+            if record.state == AttemptState.PREPARED and self._has_outstanding(record.intent.debate_id, excluding=attempt_id):
                 action, reason = ResumeAction.WAIT_FOR_DECISION, "OUTSTANDING_OPERATION_NO_AUTOMATIC_SEND"
             if record.state != AttemptState.CONFIRMED and not current:
                 action = ResumeAction.WAIT_FOR_DECISION
@@ -254,8 +263,9 @@ class OperationLedger:
         spec = RoundSpec.model_validate_json(row["spec_json"])
         if spec.round_id != round_id:
             raise Conflict("Decision must refer to the current round")
-        rows = self._db.execute("""SELECT o.participant_id,c.attempt_id FROM operations o LEFT JOIN canonical_results c
+        rows = self._db.execute("""SELECT o.participant_id,o.logical_operation_id,c.attempt_id FROM operations o LEFT JOIN canonical_results c
             USING(logical_operation_id) WHERE o.round_id=?""", (str(round_id),)).fetchall()
+        rows = [r for r in rows if self.store.manual_reconciliation.for_operation(UUID(r["logical_operation_id"])) is None]
         manual = {str(r.candidate.participant_id) for r in self.store.manual_sources.for_debate(debate_id)
                   if r.candidate.round_spec.round_id == round_id and r.alignment == "ALIGNED"}
         manual |= {str(r.candidate.participant_id) for r in self.store.manual_rounds.for_debate(debate_id)

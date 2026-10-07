@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "status": "COMPLETE_WITHOUT_REPLAY",
+  "original_receipt_commit": "f5d41849307ae56aa97918481ddd35c9c93eb313",
+  "fresh_read_proof": {
+    "checked_at": "2026-10-07T19:43:01.867Z",
+    "native_ref": "12b8a607a33773b7338f5bd376d61151a3d87de4",
+    "ops_ref": "afc779b49f0b72be09dca065484fb23459f3cf50",
+    "ops_merge_base": "53555c5d163a4e6e027f05d2b0f281a504cf5fcc"
+  },
+  "imports": [
+    {
+      "name": "ops_branch",
+      "id": "39cebeb33d9daea37a8e4ace7b43492aab94a840b295c07f61ec2072776b5e92",
+      "state": "VERIFIED_COMPLETE",
+      "observed_sha": "53555c5d163a4e6e027f05d2b0f281a504cf5fcc"
+    },
+    {
+      "name": "delivery_head_update",
+      "id": "ea775ce888da976c0fe2919785fbd9c767d6a54b25659a92d6f646dbff70069a",
+      "state": "VERIFIED_COMPLETE",
+      "observed_sha": "12b8a607a33773b7338f5bd376d61151a3d87de4"
+    },
+    {
+      "name": "main_update",
+      "id": "60b61315ee23aacaca1b5f8824a3ae4dda538e589287a46a17da51f39e8f52d3",
+      "state": "VERIFIED_COMPLETE",
+      "observed_sha": "12b8a607a33773b7338f5bd376d61151a3d87de4"
+    }
+  ],
+  "non_guard_server_timestamp_records": [
+    {
+      "name": "ops_check_update",
+      "state": "VERIFIED_COMPLETE",
+      "observed_sha": "2f8243cacb662eed1acec71b602fef1573a5c977",
+      "kind": "ISOLATED_FILE_UPDATE_SERVER_COMMIT"
+    },
+    {
+      "name": "ops_package_create",
+      "state": "VERIFIED_COMPLETE",
+      "observed_sha": "4bb24bb97511c3750550c896527c664a7b795af7",
+      "kind": "ISOLATED_NEW_FILE_SERVER_COMMIT"
+    },
+    {
+      "name": "ops_package_repair",
+      "state": "VERIFIED_COMPLETE",
+      "observed_sha": "afc779b49f0b72be09dca065484fb23459f3cf50",
+      "kind": "ISOLATED_FILE_UPDATE_SERVER_COMMIT"
+    },
+    {
+      "name": "final_receipt_creation",
+      "state": "VERIFIED_COMPLETE",
+      "observed_sha": "f5d41849307ae56aa97918481ddd35c9c93eb313",
+      "kind": "FINAL_METADATA_FILE_SERVER_COMMIT"
+    }
+  ],
+  "remote_mutation_calls": 0,
+  "local_database": "OUTSIDE_REPOSITORY"
+}

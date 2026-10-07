@@ -32,8 +32,9 @@ class ManualSourceLedger:
                 or ConnectionSpec.model_validate_json(binding["spec_json"]) != candidate.connection):
             raise Conflict("Manual candidate does not match the current round and binding")
         # A pending/sent operation cannot silently be replaced by manual content.
-        if self._db.execute("SELECT 1 FROM operations WHERE round_id=? AND participant_id=?",
-                            (str(candidate.round_spec.round_id), str(candidate.participant_id))).fetchone():
+        operations = self._db.execute("SELECT logical_operation_id FROM operations WHERE round_id=? AND participant_id=?",
+                            (str(candidate.round_spec.round_id), str(candidate.participant_id))).fetchall()
+        if any(self.store.manual_reconciliation.for_operation(UUID(row[0])) is None for row in operations):
             raise Conflict("An existing operation requires explicit reconciliation before manual replacement")
 
     def stage_answer(self, *, candidate_id, round_spec, participant_id, actual_prompt, round_seen, answer,

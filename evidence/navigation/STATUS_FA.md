@@ -2,7 +2,7 @@
 
 این نما خودکار از `ROADMAP.json`، `PROGRESS.json` و `CHECKS.json` ساخته شده است. ویرایش دستی مرجع نیست؛ پس از تغییر مبنا فرمان تولید را دوباره اجرا کنید.
 
-شناسهٔ مبنای نما: `86c12af23016dae4840cae3895fe6260ee9047fe1f65f0331ec73eaf0dbd0cd9`.
+شناسهٔ مبنای نما: `52a4469b9be7ed2a52bffec13ddacae832988cc528399043fe1be2cb57f1eb91`.
 
 مرحلهٔ فعلی: `P04`. آخرین مرحلهٔ پذیرفته‌شده: `P03`.
 
@@ -27,8 +27,25 @@
     "Bounded external connector waits, durable publication permits, canonical later-round input/policies and manual-first-round decision gate verified: 484 tests and 27 product process exits per actual OS, plus 5 Work Mode JS wait cases. Full P04 remains open.",
     "Manual critique batches, later answers, V8 migration and multiline initial/later CLI entry verified: 516 tests and 29 actual product process exits on each native OS; zero skipped tests or live calls. Full P04 remains open."
   ],
-  "working_changes": [],
-  "next_action": "در P04-002 تطبیق صریح عملیات قبلی را طراحی و آزمون کن؛ سپس منشأ زنده و مشاهده و اندازه‌گیری معتبر اتصال و همهٔ معیارهای P04 را بازبینی کن. نقد دستی، پاسخ دورهای بعد و جای ورود چندخطی تکمیل شده‌اند؛ دوباره نساز. P05 و ارسال زنده هنوز آغاز نشوند.",
+  "working_changes": [
+    "src/consilium/core/manual_reconciliation.py",
+    "src/consilium/shell/manual_reconciliation.py",
+    "src/consilium/shell/manual_reconciliation_review.py",
+    "src/consilium/shell/schema_v9.py",
+    "tools/reconcile_manual.py",
+    "tests/persistence/test_manual_reconciliation.py",
+    "tests/architect/test_reconciled_manual_context.py",
+    "docs/decisions/ADR-024-P04-EXPLICIT-MANUAL-RECONCILIATION_FA.md",
+    "docs/P04_MANUAL_RECONCILIATION_RUNBOOK_FA.md",
+    "evidence/publication/MANUAL_ROUND_REMOTE_JOURNAL_IMPORT.json",
+    "evidence/p04/MANUAL_RECONCILIATION_CHECKPOINT.json",
+    "evidence/publication/MANUAL_ROUND_PUBLICATION_CHECKPOINT.json",
+    "evidence/p04/reconciliation-development/reconciliation-red.txt",
+    "evidence/p04/reconciliation-development/reconciliation-green-first.txt",
+    "evidence/p04/reconciliation-development/reconciliation-green-second.txt",
+    "evidence/p04/reconciliation-development/reconciliation-focused.txt"
+  ],
+  "next_action": "بازبینی جدا و آزمون کامل تطبیق دستی، اجرای واقعی ویندوز و لینوکس و انتشار بستهٔ دقیق را تکمیل کن؛ سپس مشاهده‌گرهای معتبر منشأ و تاریخچه و توکن در P04-002. P05 هنوز مسدود است.",
   "next_command": "python tools/development_supervisor.py local",
   "startup_commands": [
     "python tools/qualityctl.py status",
@@ -50,31 +67,32 @@
     "Historical executor stall recovered on this turn. Original staged checkout is preserved; continuation uses a fresh worktree from verified public main. Do not republish old local metadata.",
     "HISTORICAL: Typed multi-target source contracts are MOCK-only. Provider JSON supplies text/scores/aliases; local contract supplies identities/rubric. Full Council, Manual/LIVE acceptance and durable later-round admission remain open.",
     "HISTORICAL: Later-round durable receipt now rebuilds all aligned prior canonical sources and the stored continuation decision. Live budget/history facts remain unverified; policy-managed send stays blocked. Manual critiques and later-round manual answers still pending.",
-    "Manual later answers/critiques use exact historical canonical views and explicit destination grants; no remote token/history proof is minted. Existing operations still block manual replacement until explicit reconciliation. GUI entry remains P12."
+    "Manual later answers/critiques use exact historical canonical views and explicit destination grants; no remote token/history proof is minted. Existing operations still block manual replacement until explicit reconciliation. GUI entry remains P12.",
+    "Explicit manual reconciliation preserves all prior attempt states. It never re-verifies delivery, authorizes a retry, accepts complete received results or clears unrelated user/wait checkpoints."
   ],
   "next_task": {
     "id": "P04-002",
     "phase": "P04",
-    "status": "MANUAL_ROUND_AND_ENTRY_NATIVE_VERIFIED",
+    "status": "EXPLICIT_MANUAL_RECONCILIATION_LOCAL_IN_PROGRESS",
     "title_fa": "نمای مجاز، ثبت پایدار شواهد کنترل و ورودی دورها",
     "completed_fa": "نقد دستی چندهدفه و پاسخ دستی دورهای بعد و ورود چندخطی اولیه و بعدی، همراه نسخهٔ هشت پایگاه، تکمیل شدند؛ ۵۱۶ آزمون و ۲۹ قطع واقعی پردازهٔ محصول در هر دو محیط موفق‌اند.",
-    "remaining_fa": "تطبیق صریح عملیات قبلی، منشأ زنده و مشاهده و اندازه‌گیری معتبر اتصال و بازبینی و پذیرش کامل P04.",
-    "next_action_fa": "در P04-002 تطبیق صریح عملیات قبلی را طراحی و آزمون کن؛ سپس منشأ زنده و مشاهده و اندازه‌گیری معتبر اتصال و همهٔ معیارهای P04 را بازبینی کن. نقد دستی، پاسخ دورهای بعد و جای ورود چندخطی تکمیل شده‌اند؛ دوباره نساز. P05 و ارسال زنده هنوز آغاز نشوند.",
+    "remaining_fa": "بازبینی جدا و آزمون کامل تطبیق دستی، اجرای واقعی ویندوز و لینوکس و انتشار بستهٔ دقیق را تکمیل کن؛ سپس مشاهده‌گرهای معتبر منشأ و تاریخچه و توکن در P04-002. P05 هنوز مسدود است.",
+    "next_action_fa": "بازبینی جدا و آزمون کامل تطبیق دستی، اجرای واقعی ویندوز و لینوکس و انتشار بستهٔ دقیق را تکمیل کن؛ سپس مشاهده‌گرهای معتبر منشأ و تاریخچه و توکن در P04-002. P05 هنوز مسدود است.",
     "done_when_fa": "شواهد و ورودی منجمد با نسخه و منشأ و مقصد روشن پایدارند؛ بازیابی و نشت و بودجه و حفظ قیود در تمام نماهای لازم آزموده شده‌اند؛ شواهد هر دو محیط و بازبینی کامل معیارهای مرحله موجود است."
   },
   "unfinished_work": {
     "schema_version": 1,
-    "updated_at_utc": "2026-10-07T18:06:16.788518+00:00",
+    "updated_at_utc": "2026-10-07T19:53:04.892244+00:00",
     "canonical_location": "PROGRESS.json:resume.unfinished_work",
-    "continuation_instruction": "Continue explicit prior-product-operation reconciliation in P04-002, then trusted live observation and full P04 exit review. Do not rebuild completed manual/round/source slices or replay P03. P05 remains blocked.",
+    "continuation_instruction": "بازبینی جدا و آزمون کامل تطبیق دستی، اجرای واقعی ویندوز و لینوکس و انتشار بستهٔ دقیق را تکمیل کن؛ سپس مشاهده‌گرهای معتبر منشأ و تاریخچه و توکن در P04-002. P05 هنوز مسدود است.",
     "items": [
       {
         "id": "P04-002",
         "phase": "P04",
-        "status": "MANUAL_ROUND_AND_ENTRY_NATIVE_VERIFIED",
+        "status": "EXPLICIT_MANUAL_RECONCILIATION_LOCAL_IN_PROGRESS",
         "title_fa": "نمای مجاز، ثبت پایدار شواهد کنترل و ورودی دورها",
         "completed_fa": "نقد دستی چندهدفه و پاسخ دستی دورهای بعد و ورود چندخطی اولیه و بعدی، همراه نسخهٔ هشت پایگاه، تکمیل شدند؛ ۵۱۶ آزمون و ۲۹ قطع واقعی پردازهٔ محصول در هر دو محیط موفق‌اند.",
-        "remaining_fa": "تطبیق صریح عملیات قبلی، منشأ زنده و مشاهده و اندازه‌گیری معتبر اتصال و بازبینی و پذیرش کامل P04.",
+        "remaining_fa": "بازبینی جدا و آزمون کامل تطبیق دستی، اجرای واقعی ویندوز و لینوکس و انتشار بستهٔ دقیق را تکمیل کن؛ سپس مشاهده‌گرهای معتبر منشأ و تاریخچه و توکن در P04-002. P05 هنوز مسدود است.",
         "next_action_fa": "در P04-002 تطبیق صریح عملیات قبلی را طراحی و آزمون کن؛ سپس منشأ زنده و مشاهده و اندازه‌گیری معتبر اتصال و همهٔ معیارهای P04 را بازبینی کن. نقد دستی، پاسخ دورهای بعد و جای ورود چندخطی تکمیل شده‌اند؛ دوباره نساز. P05 و ارسال زنده هنوز آغاز نشوند.",
         "done_when_fa": "شواهد و ورودی منجمد با نسخه و منشأ و مقصد روشن پایدارند؛ بازیابی و نشت و بودجه و حفظ قیود در تمام نماهای لازم آزموده شده‌اند؛ شواهد هر دو محیط و بازبینی کامل معیارهای مرحله موجود است."
       }
@@ -747,18 +765,19 @@
     "mutable_replay": "NEVER_AUTOMATIC_AFTER_UNKNOWN",
     "immutable_retry": "ONE_PER_REQUEST_PLAN_AFTER_INDEPENDENT_ABSENCE_PROOF",
     "current_source_tree_verified": true,
-    "local_new_publication_journal_sync": "DEFERRED_WHILE_LOCAL_EXECUTOR_UNAVAILABLE"
+    "local_new_publication_journal_sync": "COMPLETE_WITHOUT_REPLAY"
   },
   "previous_publication_reconciliation": {
     "status": "VERIFIED_COMPLETE",
-    "main": "22cd94156b0853999081f6ced0efa9ccd21cf323",
-    "pr": 9,
+    "main": "f5d41849307ae56aa97918481ddd35c9c93eb313",
+    "pr": 10,
     "native_runs": [
-      37642514269,
-      37646529622
+      37660566040,
+      37664954217
     ],
-    "handoff_files": 824,
-    "local_journal_import": "COMPLETE_WITHOUT_REPLAY"
+    "handoff_files": 837,
+    "local_journal_import": "COMPLETE_WITHOUT_REPLAY",
+    "sync_report": "evidence/publication/MANUAL_ROUND_REMOTE_JOURNAL_IMPORT.json"
   }
 }
 ```

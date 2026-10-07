@@ -258,6 +258,8 @@ class OperationLedger:
             USING(logical_operation_id) WHERE o.round_id=?""", (str(round_id),)).fetchall()
         manual = {str(r.candidate.participant_id) for r in self.store.manual_sources.for_debate(debate_id)
                   if r.candidate.round_spec.round_id == round_id and r.alignment == "ALIGNED"}
+        manual |= {str(r.candidate.participant_id) for r in self.store.manual_rounds.for_debate(debate_id)
+                   if r.candidate.round_spec.round_id == round_id and r.alignment == "ALIGNED"}
         generated = {r["participant_id"] for r in rows}
         if (generated | manual != {str(x) for x in spec.participant_ids}
                 or generated & manual or any(r["attempt_id"] is None for r in rows)):

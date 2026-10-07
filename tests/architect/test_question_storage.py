@@ -174,7 +174,7 @@ os._exit(91)
         with SQLiteStore(path) as upgraded:
             self.assertEqual(upgraded.get_debate(self.debate.debate_id),self.debate)
             self.assertEqual(upgraded.checkpoint(self.debate.debate_id).revision,0)
-            self.assertEqual(upgraded._db.execute("PRAGMA user_version").fetchone()[0],7)
+            self.assertEqual(upgraded._db.execute("PRAGMA user_version").fetchone()[0],8)
             self.assertEqual(upgraded._db.execute("SELECT COUNT(*) FROM schema_migrations WHERE applied_at='historic'").fetchone()[0],2)
 
     def test_failed_v3_upgrade_preserves_v2(self):

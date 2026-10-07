@@ -178,14 +178,18 @@ class ArtifactLedger:
             raise SchemaError("Source batch differs from its canonical result or publication event")
         return record
 
-    def for_debate(self, debate_id: UUID) -> tuple[CanonicalSourceBatch, ...]:
+    def for_debate(self, debate_id: UUID, *, through_revision=None) -> tuple[CanonicalSourceBatch, ...]:
         if not self._db.in_transaction:
             with self.store._transaction(write=False):
-                return self.for_debate(debate_id)
+                return self.for_debate(debate_id,through_revision=through_revision)
         self.store.get_debate(debate_id)
         self.store.checkpoint(debate_id)
-        events = self._db.execute("SELECT payload_json FROM events WHERE debate_id=? "
-            "AND kind='SOURCE_BATCH_PUBLISHED' ORDER BY sequence", (_identifier(debate_id),)).fetchall()
+        sql="SELECT payload_json FROM events WHERE debate_id=? AND kind='SOURCE_BATCH_PUBLISHED'"
+        args=[_identifier(debate_id)]
+        if through_revision is not None:
+            from consilium.shell.storage import _revision
+            sql+=" AND revision<=?";args.append(_revision(through_revision))
+        events = self._db.execute(sql+" ORDER BY sequence",args).fetchall()
         records = tuple(self.get(UUID(json.loads(e[0])["logical_operation_id"])) for e in events)
         if any(r is None or r.sources[0].item.debate_id != debate_id for r in records):
             raise SchemaError("Source batches do not match their debate")

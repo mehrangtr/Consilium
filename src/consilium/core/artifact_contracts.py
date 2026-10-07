@@ -100,28 +100,28 @@ class CritiquesOutput(VersionedOutput):
     critiques: Annotated[tuple[CritiqueOutput, ...], Field(min_length=1)]
 
 
+def decode_response_json(content: str, max_bytes: int) -> str:
+    """Shared strict JSON decoder; no identity, provenance or acceptance authority."""
+    if type(content) is not str or len(content.encode("utf-8")) > max_bytes:
+        raise ValueError("Response exceeds its frozen byte budget")
+    def unique_keys(pairs):
+        data = {}
+        for key,value in pairs:
+            if key in data: raise ValueError("Duplicate response key")
+            data[key] = value
+        return data
+    def reject_constant(value): raise ValueError("Non-finite JSON constant")
+    data=json.loads(content,object_pairs_hook=unique_keys,parse_constant=reject_constant)
+    return json.dumps(data,ensure_ascii=False,allow_nan=False)
+
+
 def parse_artifact_response(content: str, contract: ArtifactResponseContract) -> AnswerOutput | CritiquesOutput:
     """Strict wire JSON; exact target coverage, without leaking rejected text."""
     contract = ArtifactResponseContract.model_validate(contract)
     try:
-        if type(content) is not str or len(content.encode("utf-8")) > contract.max_response_bytes:
-            raise ValueError("Response exceeds its frozen byte budget")
-
-        def unique_keys(pairs):
-            data = {}
-            for key, value in pairs:
-                if key in data:
-                    raise ValueError("Duplicate response key")
-                data[key] = value
-            return data
-
-        def reject_constant(value):
-            raise ValueError("Non-finite JSON constant")
-
-        data = json.loads(content, object_pairs_hook=unique_keys, parse_constant=reject_constant)
         # Validate in JSON mode so JSON arrays become immutable tuples, while
         # scalar coercions (string scores, boolean versions) remain forbidden.
-        clean = json.dumps(data, ensure_ascii=False, allow_nan=False)
+        clean = decode_response_json(content,contract.max_response_bytes)
         if contract.kind == "ANSWER":
             return AnswerOutput.model_validate_json(clean)
         output = CritiquesOutput.model_validate_json(clean)

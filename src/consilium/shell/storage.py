@@ -20,9 +20,10 @@ from consilium.shell.schema_v4 import V4_STATEMENTS, V4_TABLES
 from consilium.shell.schema_v5 import V5_STATEMENTS, V5_TABLES
 from consilium.shell.schema_v6 import V6_STATEMENTS, V6_TABLES
 from consilium.shell.schema_v7 import V7_STATEMENTS, V7_TABLES
+from consilium.shell.schema_v8 import V8_STATEMENTS, V8_TABLES
 
 APPLICATION_ID = 0x434F4E53
-SCHEMA_VERSION = 7
+SCHEMA_VERSION = 8
 V1_STATEMENTS = (
     """CREATE TABLE schema_migrations(
         version INTEGER PRIMARY KEY, checksum TEXT NOT NULL CHECK(length(checksum)=64),
@@ -115,7 +116,7 @@ class SQLiteStore:
                 self._db.execute("PRAGMA foreign_keys=OFF")
             with self._transaction():
                 version = self._check_owner()
-                migrations = {1: V1_STATEMENTS, 2: V2_STATEMENTS, 3: V3_STATEMENTS, 4: V4_STATEMENTS, 5: V5_STATEMENTS, 6: V6_STATEMENTS, 7: V7_STATEMENTS}
+                migrations = {1: V1_STATEMENTS, 2: V2_STATEMENTS, 3: V3_STATEMENTS, 4: V4_STATEMENTS, 5: V5_STATEMENTS, 6: V6_STATEMENTS, 7: V7_STATEMENTS, 8: V8_STATEMENTS}
                 checksums = {v: hashlib.sha256(_json(sql).encode("utf-8")).hexdigest() for v, sql in migrations.items()}
                 if version == 0:
                     # executescript() is deliberately excluded from this transaction.
@@ -128,7 +129,7 @@ class SQLiteStore:
                 recorded = self._db.execute("SELECT version,checksum FROM schema_migrations ORDER BY version").fetchall()
                 if [(r["version"], r["checksum"]) for r in recorded] != [(v, checksums[v]) for v in range(1, version+1)]:
                     raise SchemaError("Migration history does not match this schema")
-                if self._table_names() != {1: _TABLES, 2: V2_TABLES, 3: V3_TABLES, 4: V4_TABLES, 5: V5_TABLES, 6: V6_TABLES, 7: V7_TABLES}[version]:
+                if self._table_names() != {1: _TABLES, 2: V2_TABLES, 3: V3_TABLES, 4: V4_TABLES, 5: V5_TABLES, 6: V6_TABLES, 7: V7_TABLES, 8: V8_TABLES}[version]:
                     raise SchemaError("Storage schema is incomplete or has unknown tables")
                 # Validate the old checkpoint before touching its schema.
                 for row in self._db.execute("SELECT debate_id FROM debates").fetchall():
@@ -138,7 +139,7 @@ class SQLiteStore:
                         self._db.execute(statement)
                     self._db.execute("INSERT INTO schema_migrations VALUES(?,?,?)", (target, checksums[target], self._now()))
                     self._db.execute("PRAGMA user_version=" + str(target))
-                if self._table_names() != V7_TABLES:
+                if self._table_names() != V8_TABLES:
                     raise SchemaError("Migrated schema is inconsistent")
                 if self._db.execute("PRAGMA quick_check").fetchone()[0] != "ok" or self._db.execute("PRAGMA foreign_key_check").fetchall():
                     raise SchemaError("Storage integrity check failed")
@@ -160,6 +161,9 @@ class SQLiteStore:
                 self.sources.check_integrity()
                 from consilium.shell.admissions import AdmissionLedger
                 self.admissions = AdmissionLedger(self)
+                from consilium.shell.manual_rounds import ManualRoundLedger
+                self.manual_rounds = ManualRoundLedger(self)
+                self.manual_rounds.check_integrity()
                 self.admissions.check_integrity()
                 self.artifacts.check_integrity()
             self._db.execute("PRAGMA foreign_keys=ON")
@@ -427,6 +431,7 @@ class SQLiteStore:
             payload.update(self.sources.export_fields(debate_id))
             payload.update(self.artifacts.export_fields(debate_id))
             payload.update(self.manual_sources.export_fields(debate_id))
+            payload.update(self.manual_rounds.export_fields(debate_id))
             self._public(payload)
             return payload
 

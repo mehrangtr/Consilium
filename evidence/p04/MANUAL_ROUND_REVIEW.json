@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "phase": "P04",
+  "scope": "MANUAL_REVIEW_LATER_ANSWER_AND_CLI_ENTRY_SLICE",
+  "status": "PASS_LOCAL_NATIVE_PENDING_REMOTE_NATIVE",
+  "source_digest": "e97465f7dfe8c2977f1d2058021d41bc0040dffa4145cfff2c9776372b6d35be",
+  "reviewer_independent": false,
+  "method": "Separate author pass against canonical prompts, source history, authority boundary, migration history, failure retention and negative cases; not an independent reviewer.",
+  "criteria": [
+    {
+      "id": "durable_manual_critique_batch",
+      "result": "PASS",
+      "reason": "Exact target coverage and canonical aliases; 1–10 strict scores; local IDs and MANUAL provenance; atomic acceptance, rollback and restart."
+    },
+    {
+      "id": "later_manual_answer_and_history",
+      "result": "PASS",
+      "reason": "Historical sources filtered before hydration; exact text and stored continuation survive restart without recursive reconstruction."
+    },
+    {
+      "id": "authority_and_privacy",
+      "result": "PASS",
+      "reason": "Explicit hash/revision approval; required per-source destination grants; escaped secrets blocked; no response-file authority; stale revision or binding rejected."
+    },
+    {
+      "id": "multiline_entry",
+      "result": "PASS",
+      "reason": "Initial and later CLI entry preserves spaces and blank lines; EOF cancels before staging; file intake remains available."
+    },
+    {
+      "id": "gate_and_previous_operation",
+      "result": "PASS",
+      "reason": "Aligned accepted participants satisfy round evidence only; next round requires user decision; every existing operation blocks silent manual replacement."
+    },
+    {
+      "id": "migration_and_crash",
+      "result": "PASS_LOCAL_NATIVE",
+      "reason": "Populated V7 upgrade retains all published V1–V7 checksums; failed V8 rollback and two actual process-exit boundaries pass."
+    },
+    {
+      "id": "native_windows_linux",
+      "result": "PENDING",
+      "reason": "Fresh local Linux native graph passed; remote Windows/Linux run not yet started."
+    }
+  ],
+  "local_native": {
+    "receipt": "evidence/targets/Linux/20261007T172324Z_46c2bfbe/RUN.json",
+    "sha256": "1d20b50c166e89e685dcd11f0b81d17afd90940fbc8d8f0e78274e337d58048c",
+    "supervisor_state": "evidence/development-supervisor/eb21b5b2c266477cbfd438a3425954c7/STATE.json",
+    "tests": 516,
+    "architect_tests": 220,
+    "skipped": 0
+  },
+  "new_tests": 32,
+  "live_provider_calls": 0,
+  "paid_calls": 0,
+  "phase_accepted": false,
+  "limitations": [
+    "Manual mode must be explicitly registered; an existing product operation still requires a future explicit reconciliation path.",
+    "Local byte cap is not remote token measurement or history proof.",
+    "GUI textarea is scheduled P12, not implemented by this CLI slice.",
+    "Process exits do not prove power-loss durability; hashes do not authenticate fully coordinated database rewrites.",
+    "Full P04 criteria and trusted live observers remain open."
+  ]
+}

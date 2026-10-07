@@ -1,0 +1,23 @@
+{
+  "initial_red": {
+    "reason": "Implementation module absent before coding",
+    "log_sha256": "414174ac6d01cd74a41403cf3072770112a0a86d149b976e90464f2fadc84c30"
+  },
+  "first_implementation_run": {
+    "tests": 23,
+    "errors": 1,
+    "source_digest": "dac8f2c4365ccb09e2a178cd02e76d22c1e597e120c3a1f1ab4e6e1c2cbecd5e",
+    "log_sha256": "0f81b16ebd4700a8fda838be6eb2493582bef0b447ece31c31f51b9cbebf9ce8",
+    "cause": "Pending-operation fixture omitted mandatory adopted-question admission evidence; core correctly rejected it before the intended manual-replacement assertion.",
+    "fix": "Construct a valid policy-admitted prepared operation, then prove manual replacement stays blocked; assertion remains."
+  },
+  "second_run": {
+    "tests": 30,
+    "errors": 2,
+    "log_sha256": "012826b61e9a936e5f6c6920203c1e966c36f752e202262a548e083e71f529ba",
+    "cause": "Two policy-operation fixtures inherited an unspecified output-token reserve; explicit fixture generation parameters are now provided. No assertion removed."
+  },
+  "author_review_corrections": [
+    "Manual critique target aliases now match the canonical blind prompt aliases B/C; they are not independently renumbered A/B. Exact canonical peer-target assertion added."
+  ]
+}

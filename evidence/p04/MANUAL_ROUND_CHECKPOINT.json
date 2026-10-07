@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "phase": "P04",
+  "status": "LOCAL_NATIVE_VERIFIED_REMOTE_NATIVE_AND_PUBLICATION_PENDING",
+  "source_digest": "e97465f7dfe8c2977f1d2058021d41bc0040dffa4145cfff2c9776372b6d35be",
+  "local_native": {
+    "receipt": "evidence/targets/Linux/20261007T172324Z_46c2bfbe/RUN.json",
+    "sha256": "1d20b50c166e89e685dcd11f0b81d17afd90940fbc8d8f0e78274e337d58048c",
+    "supervisor_state": "evidence/development-supervisor/eb21b5b2c266477cbfd438a3425954c7/STATE.json",
+    "tests": 516,
+    "architect_tests": 220,
+    "skipped": 0
+  },
+  "phase_accepted": false,
+  "reviewer_independent": false,
+  "next_action": "Verify fresh actual Windows/Linux reports, publish this exact source and verified handoff. Then explicit prior-operation reconciliation, trusted live observers and full P04 review; never start P05 early."
+}

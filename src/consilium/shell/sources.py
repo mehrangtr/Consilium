@@ -112,14 +112,18 @@ class SourceLedger:
             raise SchemaError("Source publication does not match its committed event")
         return record
 
-    def for_debate(self, debate_id: UUID) -> tuple[CanonicalAnswerSource, ...]:
+    def for_debate(self, debate_id: UUID, *, through_revision=None) -> tuple[CanonicalAnswerSource, ...]:
         if not self._db.in_transaction:
             with self.store._transaction(write=False):
-                return self.for_debate(debate_id)
+                return self.for_debate(debate_id, through_revision=through_revision)
         self.store.get_debate(debate_id)
         self.store.checkpoint(debate_id)
-        rows = self._db.execute("SELECT payload_json FROM events WHERE debate_id=? "
-            "AND kind='CONTEXT_SOURCE_PUBLISHED' ORDER BY sequence", (_identifier(debate_id),)).fetchall()
+        sql="SELECT payload_json FROM events WHERE debate_id=? AND kind='CONTEXT_SOURCE_PUBLISHED'"
+        args=[_identifier(debate_id)]
+        if through_revision is not None:
+            from consilium.shell.storage import _revision
+            sql+=" AND revision<=?";args.append(_revision(through_revision))
+        rows = self._db.execute(sql+" ORDER BY sequence",args).fetchall()
         records = tuple(self.get(UUID(json.loads(row[0])["logical_operation_id"])) for row in rows)
         if any(record is None or record.source.item.debate_id != debate_id for record in records):
             raise SchemaError("Source collection does not match its debate's publication events")
@@ -136,9 +140,13 @@ class SourceLedger:
         if through_revision is not None:
             from consilium.shell.storage import _revision
             through_revision = _revision(through_revision)
-        groups = [(r.published_revision, (r.source,)) for r in self.for_debate(debate_id)]
-        groups += [(r.published_revision, r.sources) for r in self.store.artifacts.for_debate(debate_id)]
+        # Filter event revisions before hydrating records: a historical manual
+        # frame must not read its own acceptance or a future dependent frame.
+        groups = [(r.published_revision, (r.source,)) for r in self.for_debate(debate_id,through_revision=through_revision)]
+        groups += [(r.published_revision, r.sources) for r in self.store.artifacts.for_debate(debate_id,through_revision=through_revision)]
         groups += [(r.accepted_revision, (r.source,)) for r in self.store.manual_sources.for_debate(debate_id)
+                   if r.alignment == "ALIGNED"]
+        groups += [(r.accepted_revision, r.sources) for r in self.store.manual_rounds.for_debate(debate_id,through_revision=through_revision)
                    if r.alignment == "ALIGNED"]
         return tuple(source for revision, sources in sorted(groups, key=lambda x: x[0])
                      if through_revision is None or revision <= through_revision for source in sources)

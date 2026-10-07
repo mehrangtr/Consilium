@@ -235,6 +235,26 @@ os._exit(93)
     def test_real_process_exit_after_commit_preserves_manual_answer(self):
         self.crash_case(False)
 
+    def test_real_cli_initial_multiline_slot_retains_exact_entered_answer(self):
+        prompt=Path(self.temp.name)/"prompt.txt";prompt.write_text(self.prompt,encoding="utf-8")
+        answer="  پاسخ دستی\n\nمخالفت محفوظ  ";candidate=UUID(int=6)
+        result=subprocess.run([sys.executable,str(ROOT/'tools/manual_answer.py'),'--database',str(self.path),'--revision',str(self.revision),
+            'enter','--candidate-id',str(candidate),'--debate-id',str(self.debate.debate_id),'--round-id',str(self.round.round_id),
+            '--participant-id',str(UUID(int=2)),'--actual-prompt-file',str(prompt),'--round-seen'],
+            input=(answer+'\nEND MANUAL '+str(candidate)+'\n').encode(),capture_output=True,timeout=15)
+        self.assertEqual(result.returncode,0,result.stderr.decode())
+        self.assertEqual(self.store.manual_sources.get_candidate(candidate).answer,answer)
+        self.assertIsNone(self.store.manual_sources.get(candidate))
+
+    def test_initial_manual_slot_eof_does_not_stage_a_partial_answer(self):
+        prompt=Path(self.temp.name)/"prompt.txt";prompt.write_text(self.prompt,encoding="utf-8")
+        result=subprocess.run([sys.executable,str(ROOT/'tools/manual_answer.py'),'--database',str(self.path),'--revision',str(self.revision),
+            'enter','--candidate-id',str(UUID(int=6)),'--debate-id',str(self.debate.debate_id),'--round-id',str(self.round.round_id),
+            '--participant-id',str(UUID(int=2)),'--actual-prompt-file',str(prompt)],input=b'partial\n',capture_output=True,timeout=15)
+        self.assertEqual(result.returncode,0,result.stderr.decode())
+        self.assertEqual(json.loads(result.stdout.decode().splitlines()[-1])['status'],'CANCELLED_NOT_STAGED')
+        self.assertEqual(self.store._db.execute('SELECT count(*) FROM manual_answer_candidates').fetchone()[0],0)
+
     def test_cli_eof_keeps_staged_content_unaccepted(self):
         c = self.stage()
         result = subprocess.run([sys.executable, str(ROOT / "tools/manual_answer.py"), "--database", str(self.path),
@@ -283,7 +303,7 @@ os._exit(93)
         path = Path(self.temp.name) / "v6.sqlite3"
         historical = self.create_v6(path)
         with SQLiteStore(path) as upgraded:
-            self.assertEqual(upgraded._db.execute("PRAGMA user_version").fetchone()[0], 7)
+            self.assertEqual(upgraded._db.execute("PRAGMA user_version").fetchone()[0], 8)
             self.assertEqual([tuple(r) for r in upgraded._db.execute(
                 "SELECT version,checksum FROM schema_migrations WHERE version<=6")], historical)
 

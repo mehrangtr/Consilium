@@ -192,7 +192,7 @@ class AdmissionMigrationTests(unittest.TestCase):
             with closing(sqlite3.connect(path)) as before:
                 recorded = before.execute("SELECT * FROM schema_migrations ORDER BY version").fetchall()
             with SQLiteStore(path) as upgraded:
-                self.assertEqual(upgraded._db.execute("PRAGMA user_version").fetchone()[0], 7)
+                self.assertEqual(upgraded._db.execute("PRAGMA user_version").fetchone()[0], 8)
                 self.assertEqual([tuple(r) for r in upgraded._db.execute(
                     "SELECT * FROM schema_migrations WHERE version<=3 ORDER BY version")], recorded)
                 self.assertEqual(upgraded._db.execute("PRAGMA foreign_keys").fetchone()[0], 1)

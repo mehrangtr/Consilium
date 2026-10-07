@@ -1,10 +1,86 @@
 {
   "schema_version": 1,
   "phase": "P04",
-  "status": "IMPLEMENTED_LOCAL_VERIFIED_NATIVE_PENDING_NOT_PHASE_ACCEPTED",
-  "scope": "CANONICAL_P02_MOCK_ANSWER_STORAGE_ONLY_NOT_PHASE_ACCEPTANCE",
-  "focused_tests": 21,
-  "local_check": "PASS",
-  "native": "PENDING",
-  "next": "Continue P04-002: real/Manual answer and critique source contracts and durable later-round admission; do not start P05 or enable live dispatch."
+  "status": "CANONICAL_MOCK_SOURCE_STORAGE_VERIFIED_NOT_PHASE_ACCEPTED",
+  "source_digest": "bd3d5640089d4ee858090412dc0d3fd4dfde8a5e03bf449fde1c2ed8336b309b",
+  "code_commit": "520bb5d5f321afbef744cd604438795737dccfe6",
+  "workflow_run_id": 37598676779,
+  "workflow_url": "https://github.com/mehrangtr/Consilium/actions/runs/37598676779",
+  "native_targets": [
+    {
+      "target": "Windows",
+      "status": "PASS",
+      "control_tests": 88,
+      "foundation_tests": 60,
+      "persistence_tests": 80,
+      "browser_probe_tests": 44,
+      "architect_tests": 116,
+      "evidence": {
+        "path": "evidence/targets/Windows/20261007T091006Z_d44d8f06/RUN.json",
+        "sha256": "14fffc2c07b2ed1c2f016f6b7bbd1c38970866abe3d3d0944f8b5bac387a814b"
+      }
+    },
+    {
+      "target": "Linux",
+      "status": "PASS",
+      "control_tests": 88,
+      "foundation_tests": 60,
+      "persistence_tests": 80,
+      "browser_probe_tests": 44,
+      "architect_tests": 116,
+      "evidence": {
+        "path": "evidence/targets/Linux/20261007T090955Z_4c9a6cca/RUN.json",
+        "sha256": "6dc3795add51fb777443b93b7fbdeeaea8effdb197e61e3b753eac5bd33a3e3a"
+      }
+    }
+  ],
+  "native_artifacts": [
+    {
+      "target": "Windows",
+      "artifact_id": 11471482559,
+      "sha256": "00a417ffaf5520a1aa09220f09d26583ba0db7f18bbf82f39b38adfda0d39602"
+    },
+    {
+      "target": "Linux",
+      "artifact_id": 11471108903,
+      "sha256": "50e9fa04f890ab51c7658ae7d7d2feb973aa4fc43c64408ada1e717ac2a40ff2"
+    }
+  ],
+  "tests_per_os": 388,
+  "real_process_exit_cases_per_os": 21,
+  "focused_source_tests": 21,
+  "phase_check_receipt": {
+    "phase": "P04",
+    "receipt": "evidence/runs/20261007T093522Z_1047630995/RUN.json",
+    "sha256": "998208d851c81af315e1bd8f031b024aa1224de506d9e1c202be399b92b8407e"
+  },
+  "review": {
+    "path": "evidence/p04/CANONICAL_SOURCE_STORAGE_REVIEW.json",
+    "sha256": "165d14afd4fc18a5a6111ce301cd78b0d47d108df8446cbedc2b501ff7e2d951",
+    "independent": false,
+    "result": "PASS_FOR_IMPLEMENTED_SLICE_ONLY"
+  },
+  "verified_scope": [
+    "Canonical P02 mock answer reconstructed from confirmed result, exact request, attempt and registered round.",
+    "Atomic source/event/checkpoint publication; two additional real process-exit boundaries.",
+    "Replacement, deletion, rehashed content tampering, stale writes and reclassification rejected.",
+    "Separate operations survive equal request hashes; historical sources survive binding changes.",
+    "V1-V4 checksums preserved; V5 rollback verified.",
+    "Aggregate native recorder bounded at 120 seconds; components retain 60-second cap."
+  ],
+  "limitations": [
+    "Only confirmed P02MockAnswer.v1 sources are supported. Council critiques and real/Manual validation are not implemented by this slice.",
+    "Later-round durable admission, full P04 exit criteria and full product conformance remain open.",
+    "Hash checks are not authenticated protection against fully coordinated database rewrites.",
+    "Answer-only publication is not a multi-target critique collection; define a versioned contract before extending it."
+  ],
+  "failed_previous_attempt": {
+    "path": "evidence/p04/NATIVE_FAILURE_37597483032.json",
+    "sha256": "cfbd1a6960ac650270a3e7bf9c760a7e90e9facf03f30a1a827a3e6b1c064377",
+    "superseded_by_successful_run": 37598676779
+  },
+  "live_provider_calls": 0,
+  "paid_calls": 0,
+  "phase_accepted": false,
+  "continuation": "Continue P04-002 source contracts and durable later-round admission; do not start P05 or enable live dispatch."
 }

@@ -11,9 +11,9 @@
     "expected_failures": 0,
     "unexpected_successes": 0
   },
-  "python": "3.12.14 (main, Aug 13 2026, 02:47:42) [GCC 13.3.0]",
-  "date": "2026-10-07T09:35:26.158967+00:00",
-  "platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
+  "python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+  "date": "2026-10-07T09:10:11.601856+00:00",
+  "platform": "Windows-2025Server-10.0.26100-SP0",
   "source_files_before": {
     "tools/qualityctl.py": "6e6720263ad59ed623d3f966e2edff8cfb25ee8e59456bec973c8dcd36171ba3",
     "tools/run_control_tests.py": "c2844ce3de623d84c514784702a7ff861e8f60ec60f40a1aaee54fad4dcb73cf",
@@ -30,8 +30,8 @@
     "tests/test_target_checks.py": "e118411a53a9850b4073791138b07f671bcad0117c626a8657e14926b954b539"
   },
   "host": {
-    "system": "Linux",
-    "python": "3.12.14"
+    "system": "Windows",
+    "python": "3.12.10"
   },
   "source_digest_before": "bd3d5640089d4ee858090412dc0d3fd4dfde8a5e03bf449fde1c2ed8336b309b",
   "source_digest_after": "bd3d5640089d4ee858090412dc0d3fd4dfde8a5e03bf449fde1c2ed8336b309b",

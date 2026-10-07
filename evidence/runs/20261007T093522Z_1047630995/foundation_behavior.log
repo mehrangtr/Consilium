@@ -1,0 +1,66 @@
+test_all_scenarios_execute_without_network (test_foundation.AdapterTests.test_all_scenarios_execute_without_network) ... ok
+test_api_success_binds_result_to_request (test_foundation.AdapterTests.test_api_success_binds_result_to_request) ... ok
+test_browser_success_has_browser_capabilities (test_foundation.AdapterTests.test_browser_success_has_browser_capabilities) ... ok
+test_delayed_response_past_deadline_is_pending (test_foundation.AdapterTests.test_delayed_response_past_deadline_is_pending) ... ok
+test_delayed_response_uses_virtual_time (test_foundation.AdapterTests.test_delayed_response_uses_virtual_time) ... ok
+test_expired_session_does_not_send (test_foundation.AdapterTests.test_expired_session_does_not_send) ... ok
+test_invalid_json_is_a_received_but_invalid_response (test_foundation.AdapterTests.test_invalid_json_is_a_received_but_invalid_response) ... ok
+test_mock_does_not_advertise_unimplemented_operations (test_foundation.AdapterTests.test_mock_does_not_advertise_unimplemented_operations) ... ok
+test_mock_satisfies_the_adapter_protocol (test_foundation.AdapterTests.test_mock_satisfies_the_adapter_protocol) ... ok
+test_partial_response_does_not_become_complete (test_foundation.AdapterTests.test_partial_response_does_not_become_complete) ... ok
+test_probe_cannot_rebind_a_recorded_attempt_to_a_new_connection (test_foundation.AdapterTests.test_probe_cannot_rebind_a_recorded_attempt_to_a_new_connection) ... ok
+test_probe_cannot_rebind_a_recorded_attempt_to_new_input (test_foundation.AdapterTests.test_probe_cannot_rebind_a_recorded_attempt_to_new_input) ... ok
+test_probe_keeps_frozen_request_hash (test_foundation.AdapterTests.test_probe_keeps_frozen_request_hash) ... ok
+test_quota_rejection_does_not_send (test_foundation.AdapterTests.test_quota_rejection_does_not_send) ... ok
+test_same_attempt_cannot_be_sent_twice (test_foundation.AdapterTests.test_same_attempt_cannot_be_sent_twice) ... ok
+test_timeout_after_delivery_preserves_confirmed_delivery (test_foundation.AdapterTests.test_timeout_after_delivery_preserves_confirmed_delivery) ... ok
+test_timeout_after_send_stays_unknown (test_foundation.AdapterTests.test_timeout_after_send_stays_unknown) ... ok
+test_timeout_before_send_is_provably_not_sent (test_foundation.AdapterTests.test_timeout_before_send_is_provably_not_sent) ... ok
+test_unknown_observation_does_not_trigger_retry (test_foundation.AdapterTests.test_unknown_observation_does_not_trigger_retry) ... ok
+test_unseen_attempt_cannot_be_proved_not_sent (test_foundation.AdapterTests.test_unseen_attempt_cannot_be_proved_not_sent) ... ok
+test_wrong_transport_mode_is_rejected_before_recording_send (test_foundation.AdapterTests.test_wrong_transport_mode_is_rejected_before_recording_send) ... ok
+test_blank_prompt_is_rejected_without_echoing_input (test_foundation.ContractTests.test_blank_prompt_is_rejected_without_echoing_input) ... ok
+test_blind_review_is_default (test_foundation.ContractTests.test_blind_review_is_default) ... ok
+test_capabilities_cannot_silently_claim_live_verification (test_foundation.ContractTests.test_capabilities_cannot_silently_claim_live_verification) ... ok
+test_complete_result_cannot_claim_unknown_delivery (test_foundation.ContractTests.test_complete_result_cannot_claim_unknown_delivery) ... ok
+test_critique_requires_reason_and_real_numeric_score (test_foundation.ContractTests.test_critique_requires_reason_and_real_numeric_score) ... ok
+test_custom_decision_requires_instruction (test_foundation.ContractTests.test_custom_decision_requires_instruction) ... ok
+test_duplicate_debate_participants_are_rejected (test_foundation.ContractTests.test_duplicate_debate_participants_are_rejected) ... ok
+test_empty_complete_response_is_rejected (test_foundation.ContractTests.test_empty_complete_response_is_rejected) ... ok
+test_empty_messages_are_rejected (test_foundation.ContractTests.test_empty_messages_are_rejected) ... ok
+test_frozen_input_cannot_be_mutated (test_foundation.ContractTests.test_frozen_input_cannot_be_mutated) ... ok
+test_generation_identity_is_independent (test_foundation.ContractTests.test_generation_identity_is_independent) ... ok
+test_hash_changes_when_generation_parameters_change (test_foundation.ContractTests.test_hash_changes_when_generation_parameters_change) ... ok
+test_hash_is_reproducible_after_json_round_trip (test_foundation.ContractTests.test_hash_is_reproducible_after_json_round_trip) ... ok
+test_hash_preserves_exact_prompt_bytes (test_foundation.ContractTests.test_hash_preserves_exact_prompt_bytes) ... ok
+test_invalid_response_failure_requires_an_invalid_received_response (test_foundation.ContractTests.test_invalid_response_failure_requires_an_invalid_received_response) ... ok
+test_manual_answer_records_actual_prompt_and_round_visibility (test_foundation.ContractTests.test_manual_answer_records_actual_prompt_and_round_visibility) ... ok
+test_mismatched_request_hash_is_rejected (test_foundation.ContractTests.test_mismatched_request_hash_is_rejected) ... ok
+test_model_copy_does_not_bypass_validation (test_foundation.ContractTests.test_model_copy_does_not_bypass_validation) ... ok
+test_nil_identity_is_rejected (test_foundation.ContractTests.test_nil_identity_is_rejected) ... ok
+test_non_custom_decision_cannot_smuggle_instruction (test_foundation.ContractTests.test_non_custom_decision_cannot_smuggle_instruction) ... ok
+test_non_finite_generation_parameter_is_rejected (test_foundation.ContractTests.test_non_finite_generation_parameter_is_rejected) ... ok
+test_operation_identity_is_not_content_hash (test_foundation.ContractTests.test_operation_identity_is_not_content_hash) ... ok
+test_retry_preserves_logical_identity_and_changes_attempt (test_foundation.ContractTests.test_retry_preserves_logical_identity_and_changes_attempt) ... ok
+test_reused_identity_fields_are_rejected (test_foundation.ContractTests.test_reused_identity_fields_are_rejected) ... ok
+test_schema_generation_for_all_contracts (test_foundation.ContractTests.test_schema_generation_for_all_contracts) ... ok
+test_schema_version_cannot_be_boolean (test_foundation.ContractTests.test_schema_version_cannot_be_boolean) ... ok
+test_strings_and_booleans_are_not_revision_numbers (test_foundation.ContractTests.test_strings_and_booleans_are_not_revision_numbers) ... ok
+test_targeted_round_requires_target (test_foundation.ContractTests.test_targeted_round_requires_target) ... ok
+test_unrelated_connection_cannot_receive_intent (test_foundation.ContractTests.test_unrelated_connection_cannot_receive_intent) ... ok
+test_credentials_are_not_fields_in_public_connection (test_foundation.PrivateBoundaryTests.test_credentials_are_not_fields_in_public_connection) ... ok
+test_environment_secret_is_not_in_repr_or_public_spec (test_foundation.PrivateBoundaryTests.test_environment_secret_is_not_in_repr_or_public_spec) ... ok
+test_existing_profile_cannot_resolve_back_into_source (test_foundation.PrivateBoundaryTests.test_existing_profile_cannot_resolve_back_into_source) ... ok
+test_private_field_aliases_cannot_escape_the_public_boundary (test_foundation.PrivateBoundaryTests.test_private_field_aliases_cannot_escape_the_public_boundary) ... ok
+test_private_profile_must_be_outside_source (test_foundation.PrivateBoundaryTests.test_private_profile_must_be_outside_source) ... ok
+test_public_boundary_accepts_nonsecret_report (test_foundation.PrivateBoundaryTests.test_public_boundary_accepts_nonsecret_report) ... ok
+test_public_boundary_rejects_known_secret_without_echo (test_foundation.PrivateBoundaryTests.test_public_boundary_rejects_known_secret_without_echo) ... ok
+test_public_boundary_rejects_multiline_known_secret (test_foundation.PrivateBoundaryTests.test_public_boundary_rejects_multiline_known_secret) ... ok
+test_public_boundary_rejects_secret_field_even_with_short_value (test_foundation.PrivateBoundaryTests.test_public_boundary_rejects_secret_field_even_with_short_value) ... ok
+test_pure_core_does_not_import_transport_or_storage (test_foundation.PrivateBoundaryTests.test_pure_core_does_not_import_transport_or_storage) ... ok
+
+----------------------------------------------------------------------
+Ran 60 tests in 0.048s
+
+OK
+{"phase": "P01", "scope": "APPLICATION_FOUNDATION_OFFLINE_NOT_FULL_V1_CONFORMANCE", "status": "PASS", "counts": {"tests": 60, "failures": 0, "errors": 0, "skipped": 0}}

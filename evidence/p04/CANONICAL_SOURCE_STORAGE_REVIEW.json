@@ -31,8 +31,13 @@
   "known_limits": [
     "Only confirmed P02MockAnswer.v1 sources are supported. Council critiques and real/Manual validation are not implemented by this slice.",
     "Later-round durable admission, full P04 exit criteria and full product conformance remain open.",
-    "Hash checks are not authenticated protection against fully coordinated database rewrites."
+    "Hash checks are not authenticated protection against fully coordinated database rewrites.",
+    "Answer-only publication is not a multi-target critique collection; define a versioned contract before extending it."
   ],
   "local_focused_tests": 21,
-  "native_verification": "PENDING_FOR_CURRENT_SOURCE"
+  "native_verification": "PASS_BOTH_ACTUAL_OS",
+  "source_digest": "bd3d5640089d4ee858090412dc0d3fd4dfde8a5e03bf449fde1c2ed8336b309b",
+  "native_workflow_run_id": 37598676779,
+  "native_tests_per_os": 388,
+  "real_process_exit_cases_per_os": 21
 }

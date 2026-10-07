@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "status": "SOURCE_AND_NATIVE_EVIDENCE_VERIFIED_REBUILT_ON_GITHUB",
+  "prior_publication": "2593abb0815bff62f1fd5e45766d55e40bbae6ad",
+  "source_digest": "bd3d5640089d4ee858090412dc0d3fd4dfde8a5e03bf449fde1c2ed8336b309b",
+  "code_commit": "520bb5d5f321afbef744cd604438795737dccfe6",
+  "native_workflow_run_id": 37598676779,
+  "tests_per_os": 388,
+  "real_process_exit_cases_per_os": 21,
+  "local_executor": "UNRESPONSIVE; bounded waits stopped; no blind mutation retries",
+  "local_import_error": "Earlier local import serialization error caused a failed configured run; corrected import and subsequent configured run passed. Final delivery revalidates original native artifacts on a fresh runner.",
+  "helper_run_id": "37601625963",
+  "phase_accepted": false,
+  "remaining_publication_work": "Primary assistant must fetch delivery branch and verify it before leased main update."
+}

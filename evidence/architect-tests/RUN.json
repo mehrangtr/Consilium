@@ -3,14 +3,14 @@
   "scope": "P04_QUESTION_CONTEXT_AND_POLICY_OFFLINE_NOT_FULL_PHASE_ACCEPTANCE",
   "status": "PASS",
   "counts": {
-    "tests": 170,
+    "tests": 188,
     "failures": 0,
     "errors": 0,
     "skipped": 0
   },
-  "source_digest_before": "9ccf9055fc12fd9def8aafb9e7669573e6cf0ca8273e8629bdf4ab5d4da83208",
-  "source_digest_after": "9ccf9055fc12fd9def8aafb9e7669573e6cf0ca8273e8629bdf4ab5d4da83208",
-  "date_utc": "2026-10-07T12:33:47.092852+00:00",
+  "source_digest_before": "32ecd7ffb6844ec1a3a7f863e81cb4a1c817f2369345dba435df27c9f98f720a",
+  "source_digest_after": "32ecd7ffb6844ec1a3a7f863e81cb4a1c817f2369345dba435df27c9f98f720a",
+  "date_utc": "2026-10-07T15:34:13.915364+00:00",
   "host": {
     "system": "Linux",
     "python": "3.12.14"
@@ -541,6 +541,78 @@
     },
     {
       "id": "test_question_storage.QuestionStorageTests.test_wrong_snapshot_and_changed_constraint_not_recorded",
+      "status": "PASS"
+    },
+    {
+      "id": "test_round_admission.ManualRoundGateTests.test_accepted_aligned_answer_still_needs_explicit_user_continuation",
+      "status": "PASS"
+    },
+    {
+      "id": "test_round_admission.ManualRoundGateTests.test_accepted_diverged_answer_cannot_complete_aligned_round",
+      "status": "PASS"
+    },
+    {
+      "id": "test_round_admission.ManualRoundGateTests.test_staged_unaccepted_answer_cannot_open_decision_gate",
+      "status": "PASS"
+    },
+    {
+      "id": "test_round_admission.RoundAdmissionTests.test_binding_change_invalidates_current_receipt_but_preserves_history",
+      "status": "PASS"
+    },
+    {
+      "id": "test_round_admission.RoundAdmissionTests.test_budget_privacy_and_history_uncertainty_fail_closed",
+      "status": "PASS"
+    },
+    {
+      "id": "test_round_admission.RoundAdmissionTests.test_complete_manual_round_requires_explicit_decision_and_preserves_manual_origin",
+      "status": "PASS"
+    },
+    {
+      "id": "test_round_admission.RoundAdmissionTests.test_context_without_stored_custom_instruction_is_rejected",
+      "status": "PASS"
+    },
+    {
+      "id": "test_round_admission.RoundAdmissionTests.test_deleted_admission_is_detected_on_restart",
+      "status": "PASS"
+    },
+    {
+      "id": "test_round_admission.RoundAdmissionTests.test_exact_canonical_sources_grants_budget_and_custom_instruction_survive_restart",
+      "status": "PASS"
+    },
+    {
+      "id": "test_round_admission.RoundAdmissionTests.test_failed_final_insert_rolls_back_all_intent_and_policy_records",
+      "status": "PASS"
+    },
+    {
+      "id": "test_round_admission.RoundAdmissionTests.test_historical_source_selection_respects_publication_revision",
+      "status": "PASS"
+    },
+    {
+      "id": "test_round_admission.RoundAdmissionTests.test_missing_or_stale_transfer_permission_blocks_before_intent",
+      "status": "PASS"
+    },
+    {
+      "id": "test_round_admission.RoundAdmissionTests.test_omitted_dissent_cannot_self_authorize_a_smaller_snapshot",
+      "status": "PASS"
+    },
+    {
+      "id": "test_round_admission.RoundAdmissionTests.test_process_exit_after_commit_preserves_complete_packet",
+      "status": "PASS"
+    },
+    {
+      "id": "test_round_admission.RoundAdmissionTests.test_process_exit_before_receipt_insert_leaves_no_partial_intent",
+      "status": "PASS"
+    },
+    {
+      "id": "test_round_admission.RoundAdmissionTests.test_rehashed_policy_tamper_still_disagrees_with_committed_event",
+      "status": "PASS"
+    },
+    {
+      "id": "test_round_admission.RoundAdmissionTests.test_saved_policy_is_not_permission_to_send",
+      "status": "PASS"
+    },
+    {
+      "id": "test_round_admission.RoundAdmissionTests.test_source_semantic_secret_is_checked_before_json_escaping",
       "status": "PASS"
     },
     {

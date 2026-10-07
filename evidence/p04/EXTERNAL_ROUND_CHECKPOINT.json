@@ -1,12 +1,12 @@
 {
   "schema_version": 1,
   "phase": "P04",
-  "status": "LOCAL_VERIFIED_NATIVE_DELIVERY_PENDING",
+  "status": "EXTERNAL_GUARD_AND_DURABLE_ROUND_NATIVE_VERIFIED_NOT_PHASE_ACCEPTED",
   "phase_accepted": false,
   "recorded_at_utc": "2026-10-07T14:48:34.094145+00:00",
   "live_provider_calls": 0,
   "paid_calls": 0,
-  "native_evidence": "PENDING_NEW_SOURCE",
+  "native_evidence": "ACTUAL_WINDOWS_AND_LINUX_GRAPH_VERIFIED",
   "implemented": [
     "bounded connector wait with durable publication permits and read reconciliation",
     "canonical later-round sources, transfer grants, policy and exact frozen input committed with operation intent",
@@ -22,5 +22,1615 @@
     "trusted live provenance and live token/history observers",
     "full P04 criterion review and acceptance"
   ],
-  "source_digest": null
+  "source_digest": "32ecd7ffb6844ec1a3a7f863e81cb4a1c817f2369345dba435df27c9f98f720a",
+  "code_commit": "c077474d3216e90621f569840bd73a0cc191a076",
+  "native_run_id": "37642514269",
+  "target_reports": [
+    {
+      "target": "Windows",
+      "report": {
+        "path": "evidence/targets/Windows/20261007T151835Z_5fc189e8/RUN.json",
+        "sha256": "3ca05bf7842991fd78b3b8b86a6ff857ea796283c4785a27e4be3d9007cc656d"
+      },
+      "status": "PASS",
+      "source_matches_current": true,
+      "scope": "RECORDED_TARGET_ARTIFACTS_NOT_PHASE_ACCEPTANCE"
+    },
+    {
+      "target": "Linux",
+      "report": {
+        "path": "evidence/targets/Linux/20261007T151831Z_768c9d99/RUN.json",
+        "sha256": "5af3908eef9cf9348fa6309ceb44711bc796cd6a00421b2309dfb27dedeb2366"
+      },
+      "status": "PASS",
+      "source_matches_current": true,
+      "scope": "RECORDED_TARGET_ARTIFACTS_NOT_PHASE_ACCEPTANCE"
+    }
+  ],
+  "configured_phase_run": {
+    "receipt": "evidence/runs/20261007T153334Z_c71371c7c7/RUN.json",
+    "sha256": "98424045a8afb094208336c5e21fdfba0511b174c25795356a785f48351e8e9d",
+    "status": "PASS",
+    "source_matches_current": true,
+    "checks": [
+      {
+        "id": "scope_inventory",
+        "status": "PASS",
+        "counts": null,
+        "error": null
+      },
+      {
+        "id": "development_regression",
+        "status": "PASS",
+        "counts": {
+          "tests": 112,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        "error": null
+      },
+      {
+        "id": "foundation_behavior",
+        "status": "PASS",
+        "counts": {
+          "tests": 60,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        "error": null
+      },
+      {
+        "id": "environment_lock",
+        "status": "PASS",
+        "counts": null,
+        "error": null
+      },
+      {
+        "id": "native_target_matrix",
+        "status": "PASS",
+        "counts": null,
+        "error": null
+      },
+      {
+        "id": "persistence_durable_kernel",
+        "status": "PASS",
+        "counts": {
+          "tests": 80,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        "error": null
+      },
+      {
+        "id": "browser_probe_preflight_and_durability",
+        "status": "PASS",
+        "counts": {
+          "tests": 44,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        "error": null
+      },
+      {
+        "id": "architect_and_independent_context",
+        "status": "PASS",
+        "counts": {
+          "tests": 188,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        "error": null
+      }
+    ],
+    "scope": "LATEST_COMPLETED_CONFIGURED_RUN; NOT_PHASE_ACCEPTANCE"
+  },
+  "tests_per_native_target": 484,
+  "product_process_exit_cases_per_native_target": 27,
+  "development_supervisor_snapshots": [
+    {
+      "path": "evidence/development-supervisor/5eb64a4826db45d1b7e8b2c398c3b4a3/STATE.json",
+      "sha256": "1f9567a530f1eed096e6553484d15147d55ccf00e2e524d932fbfc5a51de64e4",
+      "state": {
+        "schema_version": 1,
+        "scope": "OWNED_OFFLINE_DEVELOPMENT_NOT_CHAT_SESSION_CONTROL",
+        "status": "PASS",
+        "idle_seconds": 300,
+        "hard_seconds": 900,
+        "phase_advanced": false,
+        "source_digest": "32ecd7ffb6844ec1a3a7f863e81cb4a1c817f2369345dba435df27c9f98f720a",
+        "steps": [
+          {
+            "step": "native",
+            "attempt": 1,
+            "nonce": "f960247743b84fbc9986b2affd670694",
+            "status": "COMPLETE",
+            "log": "evidence/development-supervisor/5eb64a4826db45d1b7e8b2c398c3b4a3/native_1/OUTPUT.log",
+            "worker_pid": 8616,
+            "last_completed_milestone": "native_receipt_and_pointer_written",
+            "retained_proof": {
+              "artifacts": [
+                {
+                  "original_path": "evidence/targets/Windows/20261007T151835Z_5fc189e8/RUN.json",
+                  "path": "evidence/development-supervisor/5eb64a4826db45d1b7e8b2c398c3b4a3/native_1/proofs/evidence/targets/Windows/20261007T151835Z_5fc189e8/RUN.json",
+                  "sha256": "3ca05bf7842991fd78b3b8b86a6ff857ea796283c4785a27e4be3d9007cc656d"
+                },
+                {
+                  "original_path": "evidence/targets/Windows/20261007T151835Z_5fc189e8/CHECK.log",
+                  "path": "evidence/development-supervisor/5eb64a4826db45d1b7e8b2c398c3b4a3/native_1/proofs/evidence/targets/Windows/20261007T151835Z_5fc189e8/CHECK.log",
+                  "sha256": "8022d0b5d6a0913724bbd5ed70a9a35d3c45f3d3bcc23eeaeb339095a1b0f814"
+                },
+                {
+                  "original_path": "evidence/targets/Windows/20261007T151835Z_5fc189e8/maintenance_report.json",
+                  "path": "evidence/development-supervisor/5eb64a4826db45d1b7e8b2c398c3b4a3/native_1/proofs/evidence/targets/Windows/20261007T151835Z_5fc189e8/maintenance_report.json",
+                  "sha256": "55fd68b88fef9b5634a68699be6cdfeee507cabe4ec236b9de5726779954d601"
+                },
+                {
+                  "original_path": "evidence/targets/Windows/20261007T151835Z_5fc189e8/environment_report.json",
+                  "path": "evidence/development-supervisor/5eb64a4826db45d1b7e8b2c398c3b4a3/native_1/proofs/evidence/targets/Windows/20261007T151835Z_5fc189e8/environment_report.json",
+                  "sha256": "139206dccc8c5502356ea1222127683aef7437024b9bf1becbcc97494a5d9d62"
+                },
+                {
+                  "original_path": "evidence/targets/Windows/20261007T151835Z_5fc189e8/control_report.json",
+                  "path": "evidence/development-supervisor/5eb64a4826db45d1b7e8b2c398c3b4a3/native_1/proofs/evidence/targets/Windows/20261007T151835Z_5fc189e8/control_report.json",
+                  "sha256": "51c59092dcff81a162acbe94d405da31f1e0d9b0d5fd5a6777bc24a7f136da83"
+                },
+                {
+                  "original_path": "evidence/targets/Windows/20261007T151835Z_5fc189e8/control_junit.xml",
+                  "path": "evidence/development-supervisor/5eb64a4826db45d1b7e8b2c398c3b4a3/native_1/proofs/evidence/targets/Windows/20261007T151835Z_5fc189e8/control_junit.xml",
+                  "sha256": "f56ce28d44a33c2adc54291dbf812a570e0f2ee8ab130205f05156e55f24de5e"
+                },
+                {
+                  "original_path": "evidence/targets/Windows/20261007T151835Z_5fc189e8/foundation_report.json",
+                  "path": "evidence/development-supervisor/5eb64a4826db45d1b7e8b2c398c3b4a3/native_1/proofs/evidence/targets/Windows/20261007T151835Z_5fc189e8/foundation_report.json",
+                  "sha256": "0babd64b8cd096275a4a8c5253219c8206d7252502e9a1fd1c731dde5a2da310"
+                },
+                {
+                  "original_path": "evidence/targets/Windows/20261007T151835Z_5fc189e8/foundation_junit.xml",
+                  "path": "evidence/development-supervisor/5eb64a4826db45d1b7e8b2c398c3b4a3/native_1/proofs/evidence/targets/Windows/20261007T151835Z_5fc189e8/foundation_junit.xml",
+                  "sha256": "7c775438c51a685195abba490548262de4759e5d29d91293ad3bbf5bea68179d"
+                },
+                {
+                  "original_path": "evidence/targets/Windows/20261007T151835Z_5fc189e8/persistence_report.json",
+                  "path": "evidence/development-supervisor/5eb64a4826db45d1b7e8b2c398c3b4a3/native_1/proofs/evidence/targets/Windows/20261007T151835Z_5fc189e8/persistence_report.json",
+                  "sha256": "3f5d4af16f87727a44c9d7ac2cd29d3dcc4f9d50167756da764bf8ec2be9696c"
+                },
+                {
+                  "original_path": "evidence/targets/Windows/20261007T151835Z_5fc189e8/persistence_junit.xml",
+                  "path": "evidence/development-supervisor/5eb64a4826db45d1b7e8b2c398c3b4a3/native_1/proofs/evidence/targets/Windows/20261007T151835Z_5fc189e8/persistence_junit.xml",
+                  "sha256": "5cd1552b18f130d7b707bb43c28d6bcc66506d51f9a582ac6f3c244ec606ad57"
+                },
+                {
+                  "original_path": "evidence/targets/Windows/20261007T151835Z_5fc189e8/browser_probe_report.json",
+                  "path": "evidence/development-supervisor/5eb64a4826db45d1b7e8b2c398c3b4a3/native_1/proofs/evidence/targets/Windows/20261007T151835Z_5fc189e8/browser_probe_report.json",
+                  "sha256": "58b1edfcaa15530891151e0a1e8605fd43f73510cc64cf0ea9c7e283d0f97e0c"
+                },
+                {
+                  "original_path": "evidence/targets/Windows/20261007T151835Z_5fc189e8/browser_probe_junit.xml",
+                  "path": "evidence/development-supervisor/5eb64a4826db45d1b7e8b2c398c3b4a3/native_1/proofs/evidence/targets/Windows/20261007T151835Z_5fc189e8/browser_probe_junit.xml",
+                  "sha256": "cc96cd3d9eb9caaf9925bbf12a0aab6a3fb6e60c3968367ad7be5c7476ed39a9"
+                },
+                {
+                  "original_path": "evidence/targets/Windows/20261007T151835Z_5fc189e8/architect_report.json",
+                  "path": "evidence/development-supervisor/5eb64a4826db45d1b7e8b2c398c3b4a3/native_1/proofs/evidence/targets/Windows/20261007T151835Z_5fc189e8/architect_report.json",
+                  "sha256": "3b8f620d18d1f360324ca14fc16d4cb947760f4a23f87ff9acd7f50692f6bb9c"
+                },
+                {
+                  "original_path": "evidence/targets/Windows/20261007T151835Z_5fc189e8/architect_junit.xml",
+                  "path": "evidence/development-supervisor/5eb64a4826db45d1b7e8b2c398c3b4a3/native_1/proofs/evidence/targets/Windows/20261007T151835Z_5fc189e8/architect_junit.xml",
+                  "sha256": "49e38f8ded73ebbb155fcf98e012b4d39fb02516a0014d610cc68f2f09bb468a"
+                },
+                {
+                  "original_path": "evidence/targets/Windows/20261007T151835Z_5fc189e8/smoke_1.log",
+                  "path": "evidence/development-supervisor/5eb64a4826db45d1b7e8b2c398c3b4a3/native_1/proofs/evidence/targets/Windows/20261007T151835Z_5fc189e8/smoke_1.log",
+                  "sha256": "dccc8cd55b4601cc71a8d4093dfb7d3ebc12ad2eba8be1b5daff0df1d5238f2a"
+                },
+                {
+                  "original_path": "evidence/targets/Windows/20261007T151835Z_5fc189e8/smoke_2.log",
+                  "path": "evidence/development-supervisor/5eb64a4826db45d1b7e8b2c398c3b4a3/native_1/proofs/evidence/targets/Windows/20261007T151835Z_5fc189e8/smoke_2.log",
+                  "sha256": "7f1fb92b413eba680699ebd452daf20594034efe4b736eccf521e6502b78f808"
+                },
+                {
+                  "original_path": "evidence/targets/Windows/20261007T151835Z_5fc189e8/smoke_3.log",
+                  "path": "evidence/development-supervisor/5eb64a4826db45d1b7e8b2c398c3b4a3/native_1/proofs/evidence/targets/Windows/20261007T151835Z_5fc189e8/smoke_3.log",
+                  "sha256": "d143e266287719e20a13cf27c6b06d2ed2e2d893d64d643055145b20e7a8a37a"
+                },
+                {
+                  "original_path": "evidence/targets/Windows/20261007T151835Z_5fc189e8/smoke_4.log",
+                  "path": "evidence/development-supervisor/5eb64a4826db45d1b7e8b2c398c3b4a3/native_1/proofs/evidence/targets/Windows/20261007T151835Z_5fc189e8/smoke_4.log",
+                  "sha256": "548adda30d2a0cb29267304ba5c5dfb3f45339336f603ef0f21666b41a52f48e"
+                }
+              ],
+              "errors": []
+            },
+            "stop_reason": null,
+            "returncode": 0,
+            "reconciliation": {
+              "status": "VERIFIED_COMPLETE",
+              "receipt": "evidence/targets/Windows/20261007T151835Z_5fc189e8/RUN.json",
+              "sha256": "3ca05bf7842991fd78b3b8b86a6ff857ea796283c4785a27e4be3d9007cc656d"
+            }
+          }
+        ],
+        "remaining_steps": [],
+        "next_action": "REVIEW_CURRENT_PHASE_EXIT_CRITERIA_NOT_AUTOMATIC_ACCEPTANCE"
+      }
+    },
+    {
+      "path": "evidence/development-supervisor/b6b1e56bb9e74dbc8ef2808f58707827/STATE.json",
+      "sha256": "ccdbdc3f06a1678947222d8a8a8ed5863a1e09eb2e3343b447ff4772332eb968",
+      "state": {
+        "schema_version": 1,
+        "scope": "OWNED_OFFLINE_DEVELOPMENT_NOT_CHAT_SESSION_CONTROL",
+        "status": "PASS",
+        "idle_seconds": 300,
+        "hard_seconds": 900,
+        "phase_advanced": false,
+        "source_digest": "32ecd7ffb6844ec1a3a7f863e81cb4a1c817f2369345dba435df27c9f98f720a",
+        "steps": [
+          {
+            "step": "native",
+            "attempt": 1,
+            "nonce": "112fb8a345fa4de48ebfa4c8e3b0f0fe",
+            "status": "COMPLETE",
+            "log": "evidence/development-supervisor/b6b1e56bb9e74dbc8ef2808f58707827/native_1/OUTPUT.log",
+            "worker_pid": 2461,
+            "last_completed_milestone": "native_receipt_and_pointer_written",
+            "retained_proof": {
+              "artifacts": [
+                {
+                  "original_path": "evidence/targets/Linux/20261007T151831Z_768c9d99/RUN.json",
+                  "path": "evidence/development-supervisor/b6b1e56bb9e74dbc8ef2808f58707827/native_1/proofs/evidence/targets/Linux/20261007T151831Z_768c9d99/RUN.json",
+                  "sha256": "5af3908eef9cf9348fa6309ceb44711bc796cd6a00421b2309dfb27dedeb2366"
+                },
+                {
+                  "original_path": "evidence/targets/Linux/20261007T151831Z_768c9d99/CHECK.log",
+                  "path": "evidence/development-supervisor/b6b1e56bb9e74dbc8ef2808f58707827/native_1/proofs/evidence/targets/Linux/20261007T151831Z_768c9d99/CHECK.log",
+                  "sha256": "0104fbebb652374d394c2da0a876b8268a556974ef0137dd6a6ee8debfe7aade"
+                },
+                {
+                  "original_path": "evidence/targets/Linux/20261007T151831Z_768c9d99/maintenance_report.json",
+                  "path": "evidence/development-supervisor/b6b1e56bb9e74dbc8ef2808f58707827/native_1/proofs/evidence/targets/Linux/20261007T151831Z_768c9d99/maintenance_report.json",
+                  "sha256": "8b15f4bd12af724299f9cf5a73d1f8ca68c479fa6daaa247512b0f78fec9e6b6"
+                },
+                {
+                  "original_path": "evidence/targets/Linux/20261007T151831Z_768c9d99/environment_report.json",
+                  "path": "evidence/development-supervisor/b6b1e56bb9e74dbc8ef2808f58707827/native_1/proofs/evidence/targets/Linux/20261007T151831Z_768c9d99/environment_report.json",
+                  "sha256": "3a88435f03074e8f4bcb8b2e14cd99c89e7f60680dcfed790edeaeda621b6321"
+                },
+                {
+                  "original_path": "evidence/targets/Linux/20261007T151831Z_768c9d99/control_report.json",
+                  "path": "evidence/development-supervisor/b6b1e56bb9e74dbc8ef2808f58707827/native_1/proofs/evidence/targets/Linux/20261007T151831Z_768c9d99/control_report.json",
+                  "sha256": "b9ddef4493816ae19684023a758dc2f8c8447777bea8ced1a9be292be02847df"
+                },
+                {
+                  "original_path": "evidence/targets/Linux/20261007T151831Z_768c9d99/control_junit.xml",
+                  "path": "evidence/development-supervisor/b6b1e56bb9e74dbc8ef2808f58707827/native_1/proofs/evidence/targets/Linux/20261007T151831Z_768c9d99/control_junit.xml",
+                  "sha256": "9960941d7f6f6b81fce061537e1e788f5dd9996f3b174873cf9fd0dd256c0b73"
+                },
+                {
+                  "original_path": "evidence/targets/Linux/20261007T151831Z_768c9d99/foundation_report.json",
+                  "path": "evidence/development-supervisor/b6b1e56bb9e74dbc8ef2808f58707827/native_1/proofs/evidence/targets/Linux/20261007T151831Z_768c9d99/foundation_report.json",
+                  "sha256": "f12624434d2f3c62512a728953ec2f46bac0344a8b9db377094dbf27adeb7e3b"
+                },
+                {
+                  "original_path": "evidence/targets/Linux/20261007T151831Z_768c9d99/foundation_junit.xml",
+                  "path": "evidence/development-supervisor/b6b1e56bb9e74dbc8ef2808f58707827/native_1/proofs/evidence/targets/Linux/20261007T151831Z_768c9d99/foundation_junit.xml",
+                  "sha256": "8d407155e6b1dc1ca1a1e921d0e9a05eafbc0bc1f2ae07f4b67e55f664a99949"
+                },
+                {
+                  "original_path": "evidence/targets/Linux/20261007T151831Z_768c9d99/persistence_report.json",
+                  "path": "evidence/development-supervisor/b6b1e56bb9e74dbc8ef2808f58707827/native_1/proofs/evidence/targets/Linux/20261007T151831Z_768c9d99/persistence_report.json",
+                  "sha256": "ad592185ac42c06a088bf9a23de92e274096f7afc46732d5efcb678d7e970cf4"
+                },
+                {
+                  "original_path": "evidence/targets/Linux/20261007T151831Z_768c9d99/persistence_junit.xml",
+                  "path": "evidence/development-supervisor/b6b1e56bb9e74dbc8ef2808f58707827/native_1/proofs/evidence/targets/Linux/20261007T151831Z_768c9d99/persistence_junit.xml",
+                  "sha256": "e7036cde446d2adba65acaf62d19b0abaaf454e3786469915e6b33e598fc4a78"
+                },
+                {
+                  "original_path": "evidence/targets/Linux/20261007T151831Z_768c9d99/browser_probe_report.json",
+                  "path": "evidence/development-supervisor/b6b1e56bb9e74dbc8ef2808f58707827/native_1/proofs/evidence/targets/Linux/20261007T151831Z_768c9d99/browser_probe_report.json",
+                  "sha256": "d04a993ab30bcf085cdcd1ae940e03eae3b0788588d7ea6951daa6c3b4f44d51"
+                },
+                {
+                  "original_path": "evidence/targets/Linux/20261007T151831Z_768c9d99/browser_probe_junit.xml",
+                  "path": "evidence/development-supervisor/b6b1e56bb9e74dbc8ef2808f58707827/native_1/proofs/evidence/targets/Linux/20261007T151831Z_768c9d99/browser_probe_junit.xml",
+                  "sha256": "d8f4b9cf44201197e9b0abd379f0abe06283fecf6ebbcb10369218643d16e702"
+                },
+                {
+                  "original_path": "evidence/targets/Linux/20261007T151831Z_768c9d99/architect_report.json",
+                  "path": "evidence/development-supervisor/b6b1e56bb9e74dbc8ef2808f58707827/native_1/proofs/evidence/targets/Linux/20261007T151831Z_768c9d99/architect_report.json",
+                  "sha256": "bc74d4d2133e9e4b17198d124afe4325bb56c1123923c7887977399d498c9600"
+                },
+                {
+                  "original_path": "evidence/targets/Linux/20261007T151831Z_768c9d99/architect_junit.xml",
+                  "path": "evidence/development-supervisor/b6b1e56bb9e74dbc8ef2808f58707827/native_1/proofs/evidence/targets/Linux/20261007T151831Z_768c9d99/architect_junit.xml",
+                  "sha256": "8667f41d96aaf393d9bfa8efcb0f895ed3b6e7d495dde4984a8e831b53b8bb34"
+                },
+                {
+                  "original_path": "evidence/targets/Linux/20261007T151831Z_768c9d99/smoke_1.log",
+                  "path": "evidence/development-supervisor/b6b1e56bb9e74dbc8ef2808f58707827/native_1/proofs/evidence/targets/Linux/20261007T151831Z_768c9d99/smoke_1.log",
+                  "sha256": "0a729e4476a9b344dc682a29222ad056696e54ed4d7a766d7fdb1bc23fbbf51b"
+                },
+                {
+                  "original_path": "evidence/targets/Linux/20261007T151831Z_768c9d99/smoke_2.log",
+                  "path": "evidence/development-supervisor/b6b1e56bb9e74dbc8ef2808f58707827/native_1/proofs/evidence/targets/Linux/20261007T151831Z_768c9d99/smoke_2.log",
+                  "sha256": "1d443a03f806ba82ee14428b37fe14a8eec939bce7bb84ae91509391c308c293"
+                },
+                {
+                  "original_path": "evidence/targets/Linux/20261007T151831Z_768c9d99/smoke_3.log",
+                  "path": "evidence/development-supervisor/b6b1e56bb9e74dbc8ef2808f58707827/native_1/proofs/evidence/targets/Linux/20261007T151831Z_768c9d99/smoke_3.log",
+                  "sha256": "c5e55ecba4ba59ecbb19aef4ee64b3bdf29193a956c7c142e4e2d8ff71942b3f"
+                },
+                {
+                  "original_path": "evidence/targets/Linux/20261007T151831Z_768c9d99/smoke_4.log",
+                  "path": "evidence/development-supervisor/b6b1e56bb9e74dbc8ef2808f58707827/native_1/proofs/evidence/targets/Linux/20261007T151831Z_768c9d99/smoke_4.log",
+                  "sha256": "c0f9912ddf5ff1b7da8238eca477f91f6e05f5dacc4b500d8b09a38e64be327e"
+                }
+              ],
+              "errors": []
+            },
+            "stop_reason": null,
+            "returncode": 0,
+            "reconciliation": {
+              "status": "VERIFIED_COMPLETE",
+              "receipt": "evidence/targets/Linux/20261007T151831Z_768c9d99/RUN.json",
+              "sha256": "5af3908eef9cf9348fa6309ceb44711bc796cd6a00421b2309dfb27dedeb2366"
+            }
+          }
+        ],
+        "remaining_steps": [],
+        "next_action": "REVIEW_CURRENT_PHASE_EXIT_CRITERIA_NOT_AUTOMATIC_ACCEPTANCE"
+      }
+    },
+    {
+      "path": "evidence/development-supervisor/df659d379c974e2ca79fb715bcafbc6c/STATE.json",
+      "sha256": "e0a3b66cb25def76a1804801414a8f65532eb11541c759cc617b9fff32441a3b",
+      "state": {
+        "schema_version": 1,
+        "scope": "OWNED_OFFLINE_DEVELOPMENT_NOT_CHAT_SESSION_CONTROL",
+        "status": "PASS",
+        "idle_seconds": 300,
+        "hard_seconds": 900,
+        "phase_advanced": false,
+        "source_digest": "32ecd7ffb6844ec1a3a7f863e81cb4a1c817f2369345dba435df27c9f98f720a",
+        "steps": [
+          {
+            "step": "phase",
+            "attempt": 1,
+            "nonce": "d448429b489b4f0daf2aafe0b4dc665b",
+            "status": "COMPLETE",
+            "log": "evidence/development-supervisor/df659d379c974e2ca79fb715bcafbc6c/phase_1/OUTPUT.log",
+            "worker_pid": 2442,
+            "last_completed_milestone": "configured_phase_receipt_written",
+            "retained_proof": {
+              "artifacts": [
+                {
+                  "original_path": "evidence/runs/20261007T153334Z_c71371c7c7/RUN.json",
+                  "path": "evidence/development-supervisor/df659d379c974e2ca79fb715bcafbc6c/phase_1/proofs/evidence/runs/20261007T153334Z_c71371c7c7/RUN.json",
+                  "sha256": "98424045a8afb094208336c5e21fdfba0511b174c25795356a785f48351e8e9d"
+                },
+                {
+                  "original_path": "evidence/runs/20261007T153334Z_c71371c7c7/scope_inventory.log",
+                  "path": "evidence/development-supervisor/df659d379c974e2ca79fb715bcafbc6c/phase_1/proofs/evidence/runs/20261007T153334Z_c71371c7c7/scope_inventory.log",
+                  "sha256": "dc8b07686975868faaa8f09a0ec3150d8f3db2a13ca2975832f2d3b92e9e4dec"
+                },
+                {
+                  "original_path": "evidence/runs/20261007T153334Z_c71371c7c7/development_regression.log",
+                  "path": "evidence/development-supervisor/df659d379c974e2ca79fb715bcafbc6c/phase_1/proofs/evidence/runs/20261007T153334Z_c71371c7c7/development_regression.log",
+                  "sha256": "6e187d9bd08b486715babcc6a2553b7301ed83bd77eb764a4edab1fe19f412ad"
+                },
+                {
+                  "original_path": "evidence/runs/20261007T153334Z_c71371c7c7/development_regression.xml",
+                  "path": "evidence/development-supervisor/df659d379c974e2ca79fb715bcafbc6c/phase_1/proofs/evidence/runs/20261007T153334Z_c71371c7c7/development_regression.xml",
+                  "sha256": "9960941d7f6f6b81fce061537e1e788f5dd9996f3b174873cf9fd0dd256c0b73"
+                },
+                {
+                  "original_path": "evidence/runs/20261007T153334Z_c71371c7c7/foundation_behavior.log",
+                  "path": "evidence/development-supervisor/df659d379c974e2ca79fb715bcafbc6c/phase_1/proofs/evidence/runs/20261007T153334Z_c71371c7c7/foundation_behavior.log",
+                  "sha256": "53c580376048e33a11c353466c0c9844c343bd1e7cc9173658312cd79cfc3c71"
+                },
+                {
+                  "original_path": "evidence/runs/20261007T153334Z_c71371c7c7/foundation_behavior.xml",
+                  "path": "evidence/development-supervisor/df659d379c974e2ca79fb715bcafbc6c/phase_1/proofs/evidence/runs/20261007T153334Z_c71371c7c7/foundation_behavior.xml",
+                  "sha256": "8d407155e6b1dc1ca1a1e921d0e9a05eafbc0bc1f2ae07f4b67e55f664a99949"
+                },
+                {
+                  "original_path": "evidence/runs/20261007T153334Z_c71371c7c7/environment_lock.log",
+                  "path": "evidence/development-supervisor/df659d379c974e2ca79fb715bcafbc6c/phase_1/proofs/evidence/runs/20261007T153334Z_c71371c7c7/environment_lock.log",
+                  "sha256": "d483169b60e63849270f8eff398d77e6a63bd69a8a83f685541a7a9ed2e037b3"
+                },
+                {
+                  "original_path": "evidence/runs/20261007T153334Z_c71371c7c7/native_target_matrix.log",
+                  "path": "evidence/development-supervisor/df659d379c974e2ca79fb715bcafbc6c/phase_1/proofs/evidence/runs/20261007T153334Z_c71371c7c7/native_target_matrix.log",
+                  "sha256": "27f233ec7f9bee7a65275c5574218581d507d9b23ef8834b10f616cacc65a3ab"
+                },
+                {
+                  "original_path": "evidence/runs/20261007T153334Z_c71371c7c7/persistence_durable_kernel.log",
+                  "path": "evidence/development-supervisor/df659d379c974e2ca79fb715bcafbc6c/phase_1/proofs/evidence/runs/20261007T153334Z_c71371c7c7/persistence_durable_kernel.log",
+                  "sha256": "7f56629f3c06c36308c1eabab079575c1c87e237393c2f38c9d17b75f8e42628"
+                },
+                {
+                  "original_path": "evidence/runs/20261007T153334Z_c71371c7c7/persistence_durable_kernel.xml",
+                  "path": "evidence/development-supervisor/df659d379c974e2ca79fb715bcafbc6c/phase_1/proofs/evidence/runs/20261007T153334Z_c71371c7c7/persistence_durable_kernel.xml",
+                  "sha256": "e7036cde446d2adba65acaf62d19b0abaaf454e3786469915e6b33e598fc4a78"
+                },
+                {
+                  "original_path": "evidence/runs/20261007T153334Z_c71371c7c7/browser_probe_preflight_and_durability.log",
+                  "path": "evidence/development-supervisor/df659d379c974e2ca79fb715bcafbc6c/phase_1/proofs/evidence/runs/20261007T153334Z_c71371c7c7/browser_probe_preflight_and_durability.log",
+                  "sha256": "00452c8e88335db68a207effd0ad4b3f07999e1306f3625db8097a08375ce77b"
+                },
+                {
+                  "original_path": "evidence/runs/20261007T153334Z_c71371c7c7/browser_probe_preflight_and_durability.xml",
+                  "path": "evidence/development-supervisor/df659d379c974e2ca79fb715bcafbc6c/phase_1/proofs/evidence/runs/20261007T153334Z_c71371c7c7/browser_probe_preflight_and_durability.xml",
+                  "sha256": "d8f4b9cf44201197e9b0abd379f0abe06283fecf6ebbcb10369218643d16e702"
+                },
+                {
+                  "original_path": "evidence/runs/20261007T153334Z_c71371c7c7/architect_and_independent_context.log",
+                  "path": "evidence/development-supervisor/df659d379c974e2ca79fb715bcafbc6c/phase_1/proofs/evidence/runs/20261007T153334Z_c71371c7c7/architect_and_independent_context.log",
+                  "sha256": "ff35cf676823d4da6f595a7fe38a8d744d8335cea8e25903e33241a29b31ef21"
+                },
+                {
+                  "original_path": "evidence/runs/20261007T153334Z_c71371c7c7/architect_and_independent_context.xml",
+                  "path": "evidence/development-supervisor/df659d379c974e2ca79fb715bcafbc6c/phase_1/proofs/evidence/runs/20261007T153334Z_c71371c7c7/architect_and_independent_context.xml",
+                  "sha256": "8667f41d96aaf393d9bfa8efcb0f895ed3b6e7d495dde4984a8e831b53b8bb34"
+                }
+              ],
+              "errors": []
+            },
+            "stop_reason": null,
+            "returncode": 0,
+            "reconciliation": {
+              "status": "VERIFIED_COMPLETE",
+              "receipt": "evidence/runs/20261007T153334Z_c71371c7c7/RUN.json",
+              "sha256": "98424045a8afb094208336c5e21fdfba0511b174c25795356a785f48351e8e9d"
+            }
+          }
+        ],
+        "remaining_steps": [],
+        "next_action": "REVIEW_CURRENT_PHASE_EXIT_CRITERIA_NOT_AUTOMATIC_ACCEPTANCE"
+      }
+    }
+  ],
+  "publication_journal": {
+    "blob": "cc4c7e53e783933247c782e1bd09ad5224673100",
+    "uncompressed_sha256": "3f84bbbd81bdd73a13e95cac17dc9e6b4472c8bf370faba40fc77724c1d87b87",
+    "snapshot": {
+      "scope": "OWNED_DEVELOPMENT_PUBLICATION_CALLS_NOT_PRODUCT_OPERATIONS",
+      "operations": [
+        {
+          "id": "19b1b8486e5eb8b4186b5c1a4e39e5eb0b293031237aecce04b9ba9df420796e",
+          "plan": {
+            "expected_sha": "685fa873f99b9b66af187c151e74b3a984071540",
+            "kind": "GIT_OBJECT",
+            "request_sha256": "32ecd7ffb6844ec1a3a7f863e81cb4a1c817f2369345dba435df27c9f98f720a",
+            "resource": "mehrangtr/Consilium/blob/685fa873f99b9b66af187c151e74b3a984071540",
+            "source_digest": "32ecd7ffb6844ec1a3a7f863e81cb4a1c817f2369345dba435df27c9f98f720a"
+          },
+          "state": "VERIFIED_COMPLETE",
+          "attempts": 1,
+          "nonce": "88bc6030342041e7bd1ac9edd0b43041",
+          "deadline": 1791384737.6207309,
+          "observed_sha": "685fa873f99b9b66af187c151e74b3a984071540",
+          "reason": null
+        },
+        {
+          "id": "bb306b2b05e64bc878ee620910866968844d9e233e91af717f83bd21044b12da",
+          "plan": {
+            "expected_sha": "685fa873f99b9b66af187c151e74b3a984071540",
+            "kind": "GIT_OBJECT",
+            "request_sha256": "45bd3184522e932d5fbb29fb3412b055cb4224158d623f4ea6e0e16af17038af",
+            "resource": "mehrangtr/Consilium/blob/685fa873f99b9b66af187c151e74b3a984071540",
+            "source_digest": "32ecd7ffb6844ec1a3a7f863e81cb4a1c817f2369345dba435df27c9f98f720a"
+          },
+          "state": "VERIFIED_COMPLETE",
+          "attempts": 1,
+          "nonce": "5e9ca9b4489649d3bc0e85c402c9e84a",
+          "deadline": 1791384785.9483914,
+          "observed_sha": "685fa873f99b9b66af187c151e74b3a984071540",
+          "reason": "SESSION_INTERRUPTED"
+        },
+        {
+          "id": "1e47a3deb2e4d9fdb14b1fdf3fe6ef972123d845dc60abfab6a80e97e21841cb",
+          "plan": {
+            "expected_sha": "d352e3fca21eb3a5661e669f70485d311b1753f7",
+            "kind": "GIT_OBJECT",
+            "request_sha256": "1acf9b6e854b955c9ccd4d6919fcef734af71b7146148c27acdbdbf0eead53dd",
+            "resource": "mehrangtr/Consilium/blob/d352e3fca21eb3a5661e669f70485d311b1753f7",
+            "source_digest": "32ecd7ffb6844ec1a3a7f863e81cb4a1c817f2369345dba435df27c9f98f720a"
+          },
+          "state": "VERIFIED_COMPLETE",
+          "attempts": 1,
+          "nonce": "51b45b6e8b9543418d0fe2679e040f75",
+          "deadline": 1791384869.624542,
+          "observed_sha": "d352e3fca21eb3a5661e669f70485d311b1753f7",
+          "reason": null
+        },
+        {
+          "id": "c89a8554699d6b8d07c1338f28cbc78ce218abf3e42ee7b920b2c33fae74da81",
+          "plan": {
+            "expected_sha": "c1fcd94f678bf75b755485df77ea95d052916860",
+            "kind": "GIT_OBJECT",
+            "request_sha256": "b1feb910a67dea1345ccc82f30b937be4bf3d861584e31aa9944857a442cb7ac",
+            "resource": "mehrangtr/Consilium/blob/c1fcd94f678bf75b755485df77ea95d052916860",
+            "source_digest": "32ecd7ffb6844ec1a3a7f863e81cb4a1c817f2369345dba435df27c9f98f720a"
+          },
+          "state": "VERIFIED_NOT_APPLIED",
+          "attempts": 2,
+          "nonce": "67766858ff494a918e6181a47f5d1601",
+          "deadline": 1791384883.4627562,
+          "observed_sha": null,
+          "reason": "CONNECTOR_ERROR"
+        },
+        {
+          "id": "dab11b480acfff0d729ed726da1ce1a523af5a3b43324061f5d01dc0c71df362",
+          "plan": {
+            "expected_sha": "47fa9bd0d7b550a5e1eca1d10275b61a101b4c10",
+            "kind": "GIT_OBJECT",
+            "request_sha256": "67d6590962d5b8d0d376ad4550870998ccda5a350ca0e75943287a28532a2351",
+            "resource": "mehrangtr/Consilium/blob/47fa9bd0d7b550a5e1eca1d10275b61a101b4c10",
+            "source_digest": "32ecd7ffb6844ec1a3a7f863e81cb4a1c817f2369345dba435df27c9f98f720a"
+          },
+          "state": "VERIFIED_COMPLETE",
+          "attempts": 1,
+          "nonce": "9c8ebd8a5acc456f9c4cab3300d4090f",
+          "deadline": 1791385054.838439,
+          "observed_sha": "47fa9bd0d7b550a5e1eca1d10275b61a101b4c10",
+          "reason": null
+        },
+        {
+          "id": "9c0ab70c384c3b8fff06a78deaf1efd9a8b815ff58f90f2c44bdd33f37ebf517",
+          "plan": {
+            "expected_sha": "3d41bc49d06fc6ea9b559d43caf0608c6ea8aaee",
+            "kind": "GIT_OBJECT",
+            "request_sha256": "1a6f38be4d83fe8c40f0c76e810ce5105b7a8f4a8ac125aa3b1c9fb4c79ece84",
+            "resource": "mehrangtr/Consilium/blob/3d41bc49d06fc6ea9b559d43caf0608c6ea8aaee",
+            "source_digest": "32ecd7ffb6844ec1a3a7f863e81cb4a1c817f2369345dba435df27c9f98f720a"
+          },
+          "state": "VERIFIED_COMPLETE",
+          "attempts": 1,
+          "nonce": "a7f7c261631f47cfbd69d8ed41568c91",
+          "deadline": 1791385054.8404176,
+          "observed_sha": "3d41bc49d06fc6ea9b559d43caf0608c6ea8aaee",
+          "reason": null
+        },
+        {
+          "id": "96b65c61db98cd8ab4997041482a0cc74b3616504822e321048796e733847932",
+          "plan": {
+            "expected_sha": "17ac65aba097d8936f1f15d5c1ffe81cec920c6b",
+            "kind": "GIT_OBJECT",
+            "request_sha256": "5ac2a496a1aff69ea28a52fe84c31d18e75a64c2ab6264b63bbf1bd150550333",
+            "resource": "mehrangtr/Consilium/blob/17ac65aba097d8936f1f15d5c1ffe81cec920c6b",
+            "source_digest": "32ecd7ffb6844ec1a3a7f863e81cb4a1c817f2369345dba435df27c9f98f720a"
+          },
+          "state": "VERIFIED_COMPLETE",
+          "attempts": 1,
+          "nonce": "931be2b455464cfcaa074df55530b4f4",
+          "deadline": 1791385077.6999342,
+          "observed_sha": "17ac65aba097d8936f1f15d5c1ffe81cec920c6b",
+          "reason": null
+        },
+        {
+          "id": "6ad856529f5c9a746fd724bb1dfedc2806b1d01b0b6dfd0c35120ed47db689c0",
+          "plan": {
+            "expected_sha": "fa608b803fae73ef2e75905483668e99474d9bad",
+            "kind": "GIT_OBJECT",
+            "request_sha256": "d503729326bd46f18a2e7ed927ce0869e84746b9b82497c060abbe8c26aff63e",
+            "resource": "mehrangtr/Consilium/blob/fa608b803fae73ef2e75905483668e99474d9bad",
+            "source_digest": "32ecd7ffb6844ec1a3a7f863e81cb4a1c817f2369345dba435df27c9f98f720a"
+          },
+          "state": "VERIFIED_COMPLETE",
+          "attempts": 1,
+          "nonce": "5f11f47215cb4e34a06040886a352596",
+          "deadline": 1791385077.70141,
+          "observed_sha": "fa608b803fae73ef2e75905483668e99474d9bad",
+          "reason": null
+        },
+        {
+          "id": "e6029f87f8b7f2fc0811e4fa8e311e26b9c323a4f9d18307cd0acc209a58eaf1",
+          "plan": {
+            "expected_sha": "9caf343e6ac71824ed5cf75e7b59d48e8e49efbd",
+            "kind": "GIT_OBJECT",
+            "request_sha256": "8c6d1ab7636c46d08824da46f757a37621790d0ad2e6c32ec455997ac7fafa1d",
+            "resource": "mehrangtr/Consilium/blob/9caf343e6ac71824ed5cf75e7b59d48e8e49efbd",
+            "source_digest": "32ecd7ffb6844ec1a3a7f863e81cb4a1c817f2369345dba435df27c9f98f720a"
+          },
+          "state": "VERIFIED_COMPLETE",
+          "attempts": 1,
+          "nonce": "ad762c2b660b45dd9984e6ca3ce2aa47",
+          "deadline": 1791385100.6898944,
+          "observed_sha": "9caf343e6ac71824ed5cf75e7b59d48e8e49efbd",
+          "reason": null
+        },
+        {
+          "id": "34fc1cbd63b6ebb98d58b5de8cec5cf60c1589c1c7cf0f5b7884aada89dd7cb3",
+          "plan": {
+            "expected_sha": "a1c131f90f980b1d646b765db9d53f4c9ab8efd4",
+            "kind": "GIT_OBJECT",
+            "request_sha256": "15f7237750c8b79ec29751a8479252ef09023cfd9707290d2aa1d17b2dbd3ced",
+            "resource": "mehrangtr/Consilium/blob/a1c131f90f980b1d646b765db9d53f4c9ab8efd4",
+            "source_digest": "32ecd7ffb6844ec1a3a7f863e81cb4a1c817f2369345dba435df27c9f98f720a"
+          },
+          "state": "VERIFIED_COMPLETE",
+          "attempts": 1,
+          "nonce": "26a17c9bc17e4ebe9c6fdec878d9142e",
+          "deadline": 1791385100.683359,
+          "observed_sha": "a1c131f90f980b1d646b765db9d53f4c9ab8efd4",
+          "reason": null
+        },
+        {
+          "id": "18010e795c5281521f3793667de3e37cf71c1cc0c9d1a141cc78ce0645385130",
+          "plan": {
+            "expected_sha": "2fa1abd2192be173185de635208216dce031abfd",
+            "kind": "GIT_OBJECT",
+            "request_sha256": "b1305732c59ffa71df3870bd4accba5d5c7ab3cdcc9aafb2a71797edc99ec697",
+            "resource": "mehrangtr/Consilium/blob/2fa1abd2192be173185de635208216dce031abfd",
+            "source_digest": "32ecd7ffb6844ec1a3a7f863e81cb4a1c817f2369345dba435df27c9f98f720a"
+          },
+          "state": "VERIFIED_COMPLETE",
+          "attempts": 1,
+          "nonce": "be615f444951476f8a4e2a607b151567",
+          "deadline": 1791385163.6994698,
+          "observed_sha": "2fa1abd2192be173185de635208216dce031abfd",
+          "reason": null
+        },
+        {
+          "id": "cd1911ba236ae9af14da64e90a664cbc4b2c1850af4f84c21b4ee091c0a1a0b0",
+          "plan": {
+            "expected_sha": "161948957943eef6d2e425d32bd2c6f673299f4f",
+            "kind": "GIT_OBJECT",
+            "request_sha256": "4f6bd27f8a24a145361c4c1f4b5bae085b43fb507e8782e7588d35af921c7f4e",
+            "resource": "mehrangtr/Consilium/blob/161948957943eef6d2e425d32bd2c6f673299f4f",
+            "source_digest": "32ecd7ffb6844ec1a3a7f863e81cb4a1c817f2369345dba435df27c9f98f720a"
+          },
+          "state": "VERIFIED_COMPLETE",
+          "attempts": 1,
+          "nonce": "75910fdf274544ea8409a59fce2c1566",
+          "deadline": 1791385163.7100015,
+          "observed_sha": "161948957943eef6d2e425d32bd2c6f673299f4f",
+          "reason": null
+        },
+        {
+          "id": "4603b6b6888478fdb1c1e0210819749e474da7089960ed6d12bc42c1814cffc5",
+          "plan": {
+            "expected_sha": "065c773ef956b4284e3c6c33cef97423f4b577be",
+            "kind": "GIT_OBJECT",
+            "request_sha256": "d54cb213b8ee7aa97cb8edd11122938f1dcacd3dacc26cf8bc5bf2a5254adc4b",
+            "resource": "mehrangtr/Consilium/blob/065c773ef956b4284e3c6c33cef97423f4b577be",
+            "source_digest": "32ecd7ffb6844ec1a3a7f863e81cb4a1c817f2369345dba435df27c9f98f720a"
+          },
+          "state": "VERIFIED_COMPLETE",
+          "attempts": 1,
+          "nonce": "408089e79c5b49429e5be6f696cdaec9",
+          "deadline": 1791385186.9783127,
+          "observed_sha": "065c773ef956b4284e3c6c33cef97423f4b577be",
+          "reason": null
+        },
+        {
+          "id": "8af11ee2aa4c027f105f9a8bc506133785ee9058cdd782591262b59373e62a49",
+          "plan": {
+            "expected_sha": "54e4c704c74c7f7bfafd9c0db11cb9ae024f735d",
+            "kind": "GIT_OBJECT",
+            "request_sha256": "c0ddd850f4d59e08952c8ae54135aea1765902b06d544038d276abcd4fac38e9",
+            "resource": "mehrangtr/Consilium/blob/54e4c704c74c7f7bfafd9c0db11cb9ae024f735d",
+            "source_digest": "32ecd7ffb6844ec1a3a7f863e81cb4a1c817f2369345dba435df27c9f98f720a"
+          },
+          "state": "VERIFIED_COMPLETE",
+          "attempts": 1,
+          "nonce": "33a96361754f445eaffe3e972f9b91b4",
+          "deadline": 1791385186.9921415,
+          "observed_sha": "54e4c704c74c7f7bfafd9c0db11cb9ae024f735d",
+          "reason": null
+        },
+        {
+          "id": "3cdda1fef1cbd2f9f3cf4e2ef7cd0c28eb07fbdaacb750b0758c65018b387566",
+          "plan": {
+            "expected_sha": "f41963866ec17063158e2b37d54e7aed6dcd7811",
+            "kind": "GIT_OBJECT",
+            "request_sha256": "0a056010335c45db34047f7cf020059e512b010d0f1adcefd8a5ca87bfc5b17b",
+            "resource": "mehrangtr/Consilium/blob/f41963866ec17063158e2b37d54e7aed6dcd7811",
+            "source_digest": "32ecd7ffb6844ec1a3a7f863e81cb4a1c817f2369345dba435df27c9f98f720a"
+          },
+          "state": "VERIFIED_COMPLETE",
+          "attempts": 1,
+          "nonce": "207126bac951426095c0aaf075d37fd6",
+          "deadline": 1791385207.852352,
+          "observed_sha": "f41963866ec17063158e2b37d54e7aed6dcd7811",
+          "reason": null
+        },
+        {
+          "id": "eae560e6c1ea1ffd0c6e9d89770a3ad25dfc7674a915639463e1a3bffe506f02",
+          "plan": {
+            "expected_sha": "5749b72828e446714a642976d35c8219b6be4b14",
+            "kind": "GIT_OBJECT",
+            "request_sha256": "8e5cd29000ec0115d819cf093d1930e7839074f84da749cf905054ef1b90b7b1",
+            "resource": "mehrangtr/Consilium/blob/5749b72828e446714a642976d35c8219b6be4b14",
+            "source_digest": "32ecd7ffb6844ec1a3a7f863e81cb4a1c817f2369345dba435df27c9f98f720a"
+          },
+          "state": "VERIFIED_COMPLETE",
+          "attempts": 1,
+          "nonce": "5a7c930f3d634ea089910e00afdccfd2",
+          "deadline": 1791385207.8501048,
+          "observed_sha": "5749b72828e446714a642976d35c8219b6be4b14",
+          "reason": null
+        },
+        {
+          "id": "05a0fea79a68be9c2d3ffb339a1878ccc75d2f95bc7f7cec26a6989fef8a6bdb",
+          "plan": {
+            "expected_sha": "53756414cf84f3a9ac40492cca33874f54392abd",
+            "kind": "GIT_OBJECT",
+            "request_sha256": "3ff4509b321f2a5904674f26861b20f5a48869bf7a8027e52acf471779450665",
+            "resource": "mehrangtr/Consilium/blob/53756414cf84f3a9ac40492cca33874f54392abd",
+            "source_digest": "32ecd7ffb6844ec1a3a7f863e81cb4a1c817f2369345dba435df27c9f98f720a"
+          },
+          "state": "VERIFIED_COMPLETE",
+          "attempts": 1,
+          "nonce": "a3ab8958095c47e6873bf73b4fc76b98",
+          "deadline": 1791385288.2565877,
+          "observed_sha": "53756414cf84f3a9ac40492cca33874f54392abd",
+          "reason": null
+        },
+        {
+          "id": "37ff5fab983a196a1903d9a42205f920e7e2adf9067143dab6f0f4821ff31a8e",
+          "plan": {
+            "expected_sha": "62d674cc9fb09737cde8eba14ccd66f7cd74460f",
+            "kind": "GIT_OBJECT",
+            "request_sha256": "2a3d85f0e8b0477ba8d51f8a0b6d185001f006ef384b4b36c4598835fa254c48",
+            "resource": "mehrangtr/Consilium/blob/62d674cc9fb09737cde8eba14ccd66f7cd74460f",
+            "source_digest": "32ecd7ffb6844ec1a3a7f863e81cb4a1c817f2369345dba435df27c9f98f720a"
+          },
+          "state": "VERIFIED_COMPLETE",
+          "attempts": 1,
+          "nonce": "b1ee0a7d9a05447880eae0ee9f40670a",
+          "deadline": 1791385288.2842836,
+          "observed_sha": "62d674cc9fb09737cde8eba14ccd66f7cd74460f",
+          "reason": null
+        },
+        {
+          "id": "2dcafab157c9ec53bd4924e5d9a86fbe96d14bdaff4e9ef58ed0c0059676449e",
+          "plan": {
+            "expected_sha": "3b416d198f9012208e86d7a962e82a0179cb4447",
+            "kind": "GIT_OBJECT",
+            "request_sha256": "ee716cd9a89e4c4bd1064fbde1ae7db710914789b1af994568bd8f040ee506bb",
+            "resource": "mehrangtr/Consilium/blob/3b416d198f9012208e86d7a962e82a0179cb4447",
+            "source_digest": "32ecd7ffb6844ec1a3a7f863e81cb4a1c817f2369345dba435df27c9f98f720a"
+          },
+          "state": "VERIFIED_COMPLETE",
+          "attempts": 1,
+          "nonce": "a98152012a9f479cb31d56b3dcc46c84",
+          "deadline": 1791385313.4327962,
+          "observed_sha": "3b416d198f9012208e86d7a962e82a0179cb4447",
+          "reason": "SESSION_INTERRUPTED"
+        },
+        {
+          "id": "121bcf165f9db8077ace3e94f0bed2e34eea3f23a2fe74ce17e91147abaaa37a",
+          "plan": {
+            "expected_sha": "a785337723c823aacf05c5fa632d2f2bfda446c0",
+            "kind": "GIT_OBJECT",
+            "request_sha256": "3b83a9459d06a1f4107f1fc3d9667f5458b256a547150a4bef2c3c61356fda50",
+            "resource": "mehrangtr/Consilium/blob/a785337723c823aacf05c5fa632d2f2bfda446c0",
+            "source_digest": "32ecd7ffb6844ec1a3a7f863e81cb4a1c817f2369345dba435df27c9f98f720a"
+          },
+          "state": "VERIFIED_COMPLETE",
+          "attempts": 1,
+          "nonce": "bf3d7e8d30ed414e93ea2af58d6a2679",
+          "deadline": 1791385313.4146457,
+          "observed_sha": "a785337723c823aacf05c5fa632d2f2bfda446c0",
+          "reason": "SESSION_INTERRUPTED"
+        },
+        {
+          "id": "6003c56960f2e5a6478dd005d82b31b79bbb66be713fae29b9969f8a8fc318d8",
+          "plan": {
+            "expected_sha": "c92eb88cb4218d1513be55159540439a15b4e8c9",
+            "kind": "GIT_OBJECT",
+            "request_sha256": "303124aaea006a8367dbd7e5327263f739153226ef001bb42eca2154b5ce6d95",
+            "resource": "mehrangtr/Consilium/blob/c92eb88cb4218d1513be55159540439a15b4e8c9",
+            "source_digest": "32ecd7ffb6844ec1a3a7f863e81cb4a1c817f2369345dba435df27c9f98f720a"
+          },
+          "state": "VERIFIED_COMPLETE",
+          "attempts": 1,
+          "nonce": "6ead506dcade427884cddab9d42fa97f",
+          "deadline": 1791385502.9123669,
+          "observed_sha": "c92eb88cb4218d1513be55159540439a15b4e8c9",
+          "reason": null
+        },
+        {
+          "id": "66004bfae210fbf1828f73925214eab8bbb06d82c388b67047b2118da2b6e0e0",
+          "plan": {
+            "expected_sha": "b8b87afb47151ad0d5eb01b944ded46e5356d46c",
+            "kind": "GIT_OBJECT",
+            "request_sha256": "1e9f7b9e3ae0e25251fc451a28fa4c125638e12dcd200c254447e8b27a4186bf",
+            "resource": "mehrangtr/Consilium/blob/b8b87afb47151ad0d5eb01b944ded46e5356d46c",
+            "source_digest": "32ecd7ffb6844ec1a3a7f863e81cb4a1c817f2369345dba435df27c9f98f720a"
+          },
+          "state": "VERIFIED_COMPLETE",
+          "attempts": 1,
+          "nonce": "35c5a911abda4f2782806e43cb14dcab",
+          "deadline": 1791385514.9580112,
+          "observed_sha": "b8b87afb47151ad0d5eb01b944ded46e5356d46c",
+          "reason": null
+        },
+        {
+          "id": "edf417136c73177c4110c0ed1afe88d43d7f2abd1ed9a526749440b9cd210154",
+          "plan": {
+            "expected_sha": "9677e8346760c3dd161967e1c5a7e2b0595a2bab",
+            "kind": "GIT_OBJECT",
+            "request_sha256": "de7f1658f251fddd05c6d001498d7aeb3d2640e6e79fd36bb68f33079c37dd66",
+            "resource": "mehrangtr/Consilium/blob/9677e8346760c3dd161967e1c5a7e2b0595a2bab",
+            "source_digest": "32ecd7ffb6844ec1a3a7f863e81cb4a1c817f2369345dba435df27c9f98f720a"
+          },
+          "state": "VERIFIED_COMPLETE",
+          "attempts": 2,
+          "nonce": "6b12744c112f4e6cbc24474a1d5aa16e",
+          "deadline": 1791385643.7703485,
+          "observed_sha": "9677e8346760c3dd161967e1c5a7e2b0595a2bab",
+          "reason": "CONNECTOR_ERROR"
+        },
+        {
+          "id": "83ddb702ff1e80af7f59d61646639f222c24977c50acfdb8a96d64a7e18de2e8",
+          "plan": {
+            "expected_sha": "9677e8346760c3dd161967e1c5a7e2b0595a2bab",
+            "kind": "GIT_OBJECT",
+            "request_sha256": "9669c8aa7d7eef8b883b9d60d64e5c22a8ddf5c8985a8eb8d5a70cf98fbb5708",
+            "resource": "mehrangtr/Consilium/blob/9677e8346760c3dd161967e1c5a7e2b0595a2bab",
+            "source_digest": "32ecd7ffb6844ec1a3a7f863e81cb4a1c817f2369345dba435df27c9f98f720a"
+          },
+          "state": "VERIFIED_COMPLETE",
+          "attempts": 2,
+          "nonce": "362d976709034b2993a95fbbccff880b",
+          "deadline": 1791385832.5361238,
+          "observed_sha": "9677e8346760c3dd161967e1c5a7e2b0595a2bab",
+          "reason": "CONNECTOR_ERROR"
+        },
+        {
+          "id": "056274800292ebda50cd4ab150cc93ac9f03bce901fe66b5b89b96ba17e4931d",
+          "plan": {
+            "expected_sha": "3295d57f44cdd09182555580164c4b3cf2282dd7",
+            "kind": "GIT_OBJECT",
+            "request_sha256": "7bc117b1ef09ed0549a3f6256d7674043df19550df21665a84bbff8dd2eb9631",
+            "resource": "mehrangtr/Consilium/tree/3295d57f44cdd09182555580164c4b3cf2282dd7",
+            "source_digest": "32ecd7ffb6844ec1a3a7f863e81cb4a1c817f2369345dba435df27c9f98f720a"
+          },
+          "state": "VERIFIED_COMPLETE",
+          "attempts": 1,
+          "nonce": "c4471c9a5f894b00bcc14e73e4cf2914",
+          "deadline": 1791386081.9041376,
+          "observed_sha": "3295d57f44cdd09182555580164c4b3cf2282dd7",
+          "reason": null
+        },
+        {
+          "id": "47c9deb223d089788e3b6609b72575bac0db9211899aa4ab990d3c9e9773acc3",
+          "plan": {
+            "expected_sha": "c077474d3216e90621f569840bd73a0cc191a076",
+            "kind": "REF_UPDATE",
+            "request_sha256": "a8c0ac9df411e720527edea68d059c0987c8469b1922419bc62ccd3382746687",
+            "resource": "mehrangtr/Consilium/refs/heads/p04-external-round-native-20261007",
+            "source_digest": "32ecd7ffb6844ec1a3a7f863e81cb4a1c817f2369345dba435df27c9f98f720a"
+          },
+          "state": "VERIFIED_COMPLETE",
+          "attempts": 1,
+          "nonce": "e952c366a5654c07b052b7da9b662977",
+          "deadline": 1791386260.4906607,
+          "observed_sha": "c077474d3216e90621f569840bd73a0cc191a076",
+          "reason": "CONNECTOR_ERROR"
+        }
+      ],
+      "events": [
+        {
+          "sequence": 1,
+          "operation_id": "19b1b8486e5eb8b4186b5c1a4e39e5eb0b293031237aecce04b9ba9df420796e",
+          "state": "IN_FLIGHT",
+          "nonce": "88bc6030342041e7bd1ac9edd0b43041",
+          "at": 1791384712.6208255
+        },
+        {
+          "sequence": 2,
+          "operation_id": "19b1b8486e5eb8b4186b5c1a4e39e5eb0b293031237aecce04b9ba9df420796e",
+          "state": "VERIFIED_COMPLETE",
+          "nonce": "88bc6030342041e7bd1ac9edd0b43041",
+          "at": 1791384724.4304738
+        },
+        {
+          "sequence": 3,
+          "operation_id": "bb306b2b05e64bc878ee620910866968844d9e233e91af717f83bd21044b12da",
+          "state": "IN_FLIGHT",
+          "nonce": "5e9ca9b4489649d3bc0e85c402c9e84a",
+          "at": 1791384760.9488735
+        },
+        {
+          "sequence": 4,
+          "operation_id": "bb306b2b05e64bc878ee620910866968844d9e233e91af717f83bd21044b12da",
+          "state": "UNKNOWN",
+          "nonce": "5e9ca9b4489649d3bc0e85c402c9e84a",
+          "at": 1791384811.9314287
+        },
+        {
+          "sequence": 5,
+          "operation_id": "bb306b2b05e64bc878ee620910866968844d9e233e91af717f83bd21044b12da",
+          "state": "VERIFIED_COMPLETE",
+          "nonce": "5e9ca9b4489649d3bc0e85c402c9e84a",
+          "at": 1791384812.2930703
+        },
+        {
+          "sequence": 6,
+          "operation_id": "c89a8554699d6b8d07c1338f28cbc78ce218abf3e42ee7b920b2c33fae74da81",
+          "state": "IN_FLIGHT",
+          "nonce": "a31aff723fc449a487f9c914680ceb51",
+          "at": 1791384844.623414
+        },
+        {
+          "sequence": 7,
+          "operation_id": "1e47a3deb2e4d9fdb14b1fdf3fe6ef972123d845dc60abfab6a80e97e21841cb",
+          "state": "IN_FLIGHT",
+          "nonce": "51b45b6e8b9543418d0fe2679e040f75",
+          "at": 1791384844.62464
+        },
+        {
+          "sequence": 8,
+          "operation_id": "c89a8554699d6b8d07c1338f28cbc78ce218abf3e42ee7b920b2c33fae74da81",
+          "state": "UNKNOWN",
+          "nonce": "a31aff723fc449a487f9c914680ceb51",
+          "at": 1791384857.2847214
+        },
+        {
+          "sequence": 9,
+          "operation_id": "c89a8554699d6b8d07c1338f28cbc78ce218abf3e42ee7b920b2c33fae74da81",
+          "state": "VERIFIED_NOT_APPLIED",
+          "nonce": "a31aff723fc449a487f9c914680ceb51",
+          "at": 1791384858.1123462
+        },
+        {
+          "sequence": 10,
+          "operation_id": "c89a8554699d6b8d07c1338f28cbc78ce218abf3e42ee7b920b2c33fae74da81",
+          "state": "IN_FLIGHT",
+          "nonce": "67766858ff494a918e6181a47f5d1601",
+          "at": 1791384858.4628437
+        },
+        {
+          "sequence": 11,
+          "operation_id": "1e47a3deb2e4d9fdb14b1fdf3fe6ef972123d845dc60abfab6a80e97e21841cb",
+          "state": "VERIFIED_COMPLETE",
+          "nonce": "51b45b6e8b9543418d0fe2679e040f75",
+          "at": 1791384868.3185134
+        },
+        {
+          "sequence": 12,
+          "operation_id": "c89a8554699d6b8d07c1338f28cbc78ce218abf3e42ee7b920b2c33fae74da81",
+          "state": "UNKNOWN",
+          "nonce": "67766858ff494a918e6181a47f5d1601",
+          "at": 1791384868.3189256
+        },
+        {
+          "sequence": 13,
+          "operation_id": "c89a8554699d6b8d07c1338f28cbc78ce218abf3e42ee7b920b2c33fae74da81",
+          "state": "VERIFIED_NOT_APPLIED",
+          "nonce": "67766858ff494a918e6181a47f5d1601",
+          "at": 1791384869.103888
+        },
+        {
+          "sequence": 14,
+          "operation_id": "dab11b480acfff0d729ed726da1ce1a523af5a3b43324061f5d01dc0c71df362",
+          "state": "IN_FLIGHT",
+          "nonce": "9c8ebd8a5acc456f9c4cab3300d4090f",
+          "at": 1791385029.8385196
+        },
+        {
+          "sequence": 15,
+          "operation_id": "9c0ab70c384c3b8fff06a78deaf1efd9a8b815ff58f90f2c44bdd33f37ebf517",
+          "state": "IN_FLIGHT",
+          "nonce": "a7f7c261631f47cfbd69d8ed41568c91",
+          "at": 1791385029.8405077
+        },
+        {
+          "sequence": 16,
+          "operation_id": "dab11b480acfff0d729ed726da1ce1a523af5a3b43324061f5d01dc0c71df362",
+          "state": "VERIFIED_COMPLETE",
+          "nonce": "9c8ebd8a5acc456f9c4cab3300d4090f",
+          "at": 1791385040.1605968
+        },
+        {
+          "sequence": 17,
+          "operation_id": "9c0ab70c384c3b8fff06a78deaf1efd9a8b815ff58f90f2c44bdd33f37ebf517",
+          "state": "VERIFIED_COMPLETE",
+          "nonce": "a7f7c261631f47cfbd69d8ed41568c91",
+          "at": 1791385051.9688897
+        },
+        {
+          "sequence": 18,
+          "operation_id": "96b65c61db98cd8ab4997041482a0cc74b3616504822e321048796e733847932",
+          "state": "IN_FLIGHT",
+          "nonce": "931be2b455464cfcaa074df55530b4f4",
+          "at": 1791385052.7000215
+        },
+        {
+          "sequence": 19,
+          "operation_id": "6ad856529f5c9a746fd724bb1dfedc2806b1d01b0b6dfd0c35120ed47db689c0",
+          "state": "IN_FLIGHT",
+          "nonce": "5f11f47215cb4e34a06040886a352596",
+          "at": 1791385052.701554
+        },
+        {
+          "sequence": 20,
+          "operation_id": "6ad856529f5c9a746fd724bb1dfedc2806b1d01b0b6dfd0c35120ed47db689c0",
+          "state": "VERIFIED_COMPLETE",
+          "nonce": "5f11f47215cb4e34a06040886a352596",
+          "at": 1791385074.9556537
+        },
+        {
+          "sequence": 21,
+          "operation_id": "96b65c61db98cd8ab4997041482a0cc74b3616504822e321048796e733847932",
+          "state": "VERIFIED_COMPLETE",
+          "nonce": "931be2b455464cfcaa074df55530b4f4",
+          "at": 1791385074.9661446
+        },
+        {
+          "sequence": 22,
+          "operation_id": "34fc1cbd63b6ebb98d58b5de8cec5cf60c1589c1c7cf0f5b7884aada89dd7cb3",
+          "state": "IN_FLIGHT",
+          "nonce": "26a17c9bc17e4ebe9c6fdec878d9142e",
+          "at": 1791385075.6834764
+        },
+        {
+          "sequence": 23,
+          "operation_id": "e6029f87f8b7f2fc0811e4fa8e311e26b9c323a4f9d18307cd0acc209a58eaf1",
+          "state": "IN_FLIGHT",
+          "nonce": "ad762c2b660b45dd9984e6ca3ce2aa47",
+          "at": 1791385075.689957
+        },
+        {
+          "sequence": 24,
+          "operation_id": "34fc1cbd63b6ebb98d58b5de8cec5cf60c1589c1c7cf0f5b7884aada89dd7cb3",
+          "state": "VERIFIED_COMPLETE",
+          "nonce": "26a17c9bc17e4ebe9c6fdec878d9142e",
+          "at": 1791385099.0632744
+        },
+        {
+          "sequence": 25,
+          "operation_id": "e6029f87f8b7f2fc0811e4fa8e311e26b9c323a4f9d18307cd0acc209a58eaf1",
+          "state": "VERIFIED_COMPLETE",
+          "nonce": "ad762c2b660b45dd9984e6ca3ce2aa47",
+          "at": 1791385099.0653212
+        },
+        {
+          "sequence": 26,
+          "operation_id": "18010e795c5281521f3793667de3e37cf71c1cc0c9d1a141cc78ce0645385130",
+          "state": "IN_FLIGHT",
+          "nonce": "be615f444951476f8a4e2a607b151567",
+          "at": 1791385138.6995554
+        },
+        {
+          "sequence": 27,
+          "operation_id": "cd1911ba236ae9af14da64e90a664cbc4b2c1850af4f84c21b4ee091c0a1a0b0",
+          "state": "IN_FLIGHT",
+          "nonce": "75910fdf274544ea8409a59fce2c1566",
+          "at": 1791385138.7100794
+        },
+        {
+          "sequence": 28,
+          "operation_id": "18010e795c5281521f3793667de3e37cf71c1cc0c9d1a141cc78ce0645385130",
+          "state": "VERIFIED_COMPLETE",
+          "nonce": "be615f444951476f8a4e2a607b151567",
+          "at": 1791385149.9317925
+        },
+        {
+          "sequence": 29,
+          "operation_id": "cd1911ba236ae9af14da64e90a664cbc4b2c1850af4f84c21b4ee091c0a1a0b0",
+          "state": "VERIFIED_COMPLETE",
+          "nonce": "75910fdf274544ea8409a59fce2c1566",
+          "at": 1791385161.261951
+        },
+        {
+          "sequence": 30,
+          "operation_id": "4603b6b6888478fdb1c1e0210819749e474da7089960ed6d12bc42c1814cffc5",
+          "state": "IN_FLIGHT",
+          "nonce": "408089e79c5b49429e5be6f696cdaec9",
+          "at": 1791385161.978469
+        },
+        {
+          "sequence": 31,
+          "operation_id": "8af11ee2aa4c027f105f9a8bc506133785ee9058cdd782591262b59373e62a49",
+          "state": "IN_FLIGHT",
+          "nonce": "33a96361754f445eaffe3e972f9b91b4",
+          "at": 1791385161.9922204
+        },
+        {
+          "sequence": 32,
+          "operation_id": "4603b6b6888478fdb1c1e0210819749e474da7089960ed6d12bc42c1814cffc5",
+          "state": "VERIFIED_COMPLETE",
+          "nonce": "408089e79c5b49429e5be6f696cdaec9",
+          "at": 1791385182.126982
+        },
+        {
+          "sequence": 33,
+          "operation_id": "8af11ee2aa4c027f105f9a8bc506133785ee9058cdd782591262b59373e62a49",
+          "state": "VERIFIED_COMPLETE",
+          "nonce": "33a96361754f445eaffe3e972f9b91b4",
+          "at": 1791385182.1274447
+        },
+        {
+          "sequence": 34,
+          "operation_id": "eae560e6c1ea1ffd0c6e9d89770a3ad25dfc7674a915639463e1a3bffe506f02",
+          "state": "IN_FLIGHT",
+          "nonce": "5a7c930f3d634ea089910e00afdccfd2",
+          "at": 1791385182.8502893
+        },
+        {
+          "sequence": 35,
+          "operation_id": "3cdda1fef1cbd2f9f3cf4e2ef7cd0c28eb07fbdaacb750b0758c65018b387566",
+          "state": "IN_FLIGHT",
+          "nonce": "207126bac951426095c0aaf075d37fd6",
+          "at": 1791385182.8524327
+        },
+        {
+          "sequence": 36,
+          "operation_id": "3cdda1fef1cbd2f9f3cf4e2ef7cd0c28eb07fbdaacb750b0758c65018b387566",
+          "state": "VERIFIED_COMPLETE",
+          "nonce": "207126bac951426095c0aaf075d37fd6",
+          "at": 1791385206.4579968
+        },
+        {
+          "sequence": 37,
+          "operation_id": "eae560e6c1ea1ffd0c6e9d89770a3ad25dfc7674a915639463e1a3bffe506f02",
+          "state": "VERIFIED_COMPLETE",
+          "nonce": "5a7c930f3d634ea089910e00afdccfd2",
+          "at": 1791385206.4632893
+        },
+        {
+          "sequence": 38,
+          "operation_id": "05a0fea79a68be9c2d3ffb339a1878ccc75d2f95bc7f7cec26a6989fef8a6bdb",
+          "state": "IN_FLIGHT",
+          "nonce": "a3ab8958095c47e6873bf73b4fc76b98",
+          "at": 1791385263.2567775
+        },
+        {
+          "sequence": 39,
+          "operation_id": "37ff5fab983a196a1903d9a42205f920e7e2adf9067143dab6f0f4821ff31a8e",
+          "state": "IN_FLIGHT",
+          "nonce": "b1ee0a7d9a05447880eae0ee9f40670a",
+          "at": 1791385263.2843778
+        },
+        {
+          "sequence": 40,
+          "operation_id": "05a0fea79a68be9c2d3ffb339a1878ccc75d2f95bc7f7cec26a6989fef8a6bdb",
+          "state": "VERIFIED_COMPLETE",
+          "nonce": "a3ab8958095c47e6873bf73b4fc76b98",
+          "at": 1791385273.9790173
+        },
+        {
+          "sequence": 41,
+          "operation_id": "37ff5fab983a196a1903d9a42205f920e7e2adf9067143dab6f0f4821ff31a8e",
+          "state": "VERIFIED_COMPLETE",
+          "nonce": "b1ee0a7d9a05447880eae0ee9f40670a",
+          "at": 1791385287.6675994
+        },
+        {
+          "sequence": 42,
+          "operation_id": "121bcf165f9db8077ace3e94f0bed2e34eea3f23a2fe74ce17e91147abaaa37a",
+          "state": "IN_FLIGHT",
+          "nonce": "bf3d7e8d30ed414e93ea2af58d6a2679",
+          "at": 1791385288.4147525
+        },
+        {
+          "sequence": 43,
+          "operation_id": "2dcafab157c9ec53bd4924e5d9a86fbe96d14bdaff4e9ef58ed0c0059676449e",
+          "state": "IN_FLIGHT",
+          "nonce": "a98152012a9f479cb31d56b3dcc46c84",
+          "at": 1791385288.4329443
+        },
+        {
+          "sequence": 44,
+          "operation_id": "121bcf165f9db8077ace3e94f0bed2e34eea3f23a2fe74ce17e91147abaaa37a",
+          "state": "UNKNOWN",
+          "nonce": "bf3d7e8d30ed414e93ea2af58d6a2679",
+          "at": 1791385473.615759
+        },
+        {
+          "sequence": 45,
+          "operation_id": "121bcf165f9db8077ace3e94f0bed2e34eea3f23a2fe74ce17e91147abaaa37a",
+          "state": "VERIFIED_COMPLETE",
+          "nonce": "bf3d7e8d30ed414e93ea2af58d6a2679",
+          "at": 1791385475.694834
+        },
+        {
+          "sequence": 46,
+          "operation_id": "2dcafab157c9ec53bd4924e5d9a86fbe96d14bdaff4e9ef58ed0c0059676449e",
+          "state": "UNKNOWN",
+          "nonce": "a98152012a9f479cb31d56b3dcc46c84",
+          "at": 1791385476.426
+        },
+        {
+          "sequence": 47,
+          "operation_id": "2dcafab157c9ec53bd4924e5d9a86fbe96d14bdaff4e9ef58ed0c0059676449e",
+          "state": "VERIFIED_COMPLETE",
+          "nonce": "a98152012a9f479cb31d56b3dcc46c84",
+          "at": 1791385477.181607
+        },
+        {
+          "sequence": 48,
+          "operation_id": "6003c56960f2e5a6478dd005d82b31b79bbb66be713fae29b9969f8a8fc318d8",
+          "state": "IN_FLIGHT",
+          "nonce": "6ead506dcade427884cddab9d42fa97f",
+          "at": 1791385477.9124491
+        },
+        {
+          "sequence": 49,
+          "operation_id": "6003c56960f2e5a6478dd005d82b31b79bbb66be713fae29b9969f8a8fc318d8",
+          "state": "VERIFIED_COMPLETE",
+          "nonce": "6ead506dcade427884cddab9d42fa97f",
+          "at": 1791385489.249404
+        },
+        {
+          "sequence": 50,
+          "operation_id": "66004bfae210fbf1828f73925214eab8bbb06d82c388b67047b2118da2b6e0e0",
+          "state": "IN_FLIGHT",
+          "nonce": "35c5a911abda4f2782806e43cb14dcab",
+          "at": 1791385489.9580977
+        },
+        {
+          "sequence": 51,
+          "operation_id": "66004bfae210fbf1828f73925214eab8bbb06d82c388b67047b2118da2b6e0e0",
+          "state": "VERIFIED_COMPLETE",
+          "nonce": "35c5a911abda4f2782806e43cb14dcab",
+          "at": 1791385501.154001
+        },
+        {
+          "sequence": 52,
+          "operation_id": "edf417136c73177c4110c0ed1afe88d43d7f2abd1ed9a526749440b9cd210154",
+          "state": "IN_FLIGHT",
+          "nonce": "c252321ba85f412a811241e4f1cb9817",
+          "at": 1791385603.3178957
+        },
+        {
+          "sequence": 53,
+          "operation_id": "edf417136c73177c4110c0ed1afe88d43d7f2abd1ed9a526749440b9cd210154",
+          "state": "UNKNOWN",
+          "nonce": "c252321ba85f412a811241e4f1cb9817",
+          "at": 1791385617.1746237
+        },
+        {
+          "sequence": 54,
+          "operation_id": "edf417136c73177c4110c0ed1afe88d43d7f2abd1ed9a526749440b9cd210154",
+          "state": "VERIFIED_NOT_APPLIED",
+          "nonce": "c252321ba85f412a811241e4f1cb9817",
+          "at": 1791385618.4082386
+        },
+        {
+          "sequence": 55,
+          "operation_id": "edf417136c73177c4110c0ed1afe88d43d7f2abd1ed9a526749440b9cd210154",
+          "state": "IN_FLIGHT",
+          "nonce": "6b12744c112f4e6cbc24474a1d5aa16e",
+          "at": 1791385618.7704327
+        },
+        {
+          "sequence": 56,
+          "operation_id": "edf417136c73177c4110c0ed1afe88d43d7f2abd1ed9a526749440b9cd210154",
+          "state": "UNKNOWN",
+          "nonce": "6b12744c112f4e6cbc24474a1d5aa16e",
+          "at": 1791385630.5231237
+        },
+        {
+          "sequence": 57,
+          "operation_id": "edf417136c73177c4110c0ed1afe88d43d7f2abd1ed9a526749440b9cd210154",
+          "state": "VERIFIED_NOT_APPLIED",
+          "nonce": "6b12744c112f4e6cbc24474a1d5aa16e",
+          "at": 1791385631.287154
+        },
+        {
+          "sequence": 58,
+          "operation_id": "83ddb702ff1e80af7f59d61646639f222c24977c50acfdb8a96d64a7e18de2e8",
+          "state": "IN_FLIGHT",
+          "nonce": "cf9deedf6e2b4279a0fc5d373af76060",
+          "at": 1791385771.6346717
+        },
+        {
+          "sequence": 59,
+          "operation_id": "83ddb702ff1e80af7f59d61646639f222c24977c50acfdb8a96d64a7e18de2e8",
+          "state": "UNKNOWN",
+          "nonce": "cf9deedf6e2b4279a0fc5d373af76060",
+          "at": 1791385786.3683918
+        },
+        {
+          "sequence": 60,
+          "operation_id": "83ddb702ff1e80af7f59d61646639f222c24977c50acfdb8a96d64a7e18de2e8",
+          "state": "VERIFIED_NOT_APPLIED",
+          "nonce": "cf9deedf6e2b4279a0fc5d373af76060",
+          "at": 1791385787.1395934
+        },
+        {
+          "sequence": 61,
+          "operation_id": "83ddb702ff1e80af7f59d61646639f222c24977c50acfdb8a96d64a7e18de2e8",
+          "state": "IN_FLIGHT",
+          "nonce": "362d976709034b2993a95fbbccff880b",
+          "at": 1791385787.5362117
+        },
+        {
+          "sequence": 62,
+          "operation_id": "83ddb702ff1e80af7f59d61646639f222c24977c50acfdb8a96d64a7e18de2e8",
+          "state": "UNKNOWN",
+          "nonce": "362d976709034b2993a95fbbccff880b",
+          "at": 1791385798.7935708
+        },
+        {
+          "sequence": 63,
+          "operation_id": "83ddb702ff1e80af7f59d61646639f222c24977c50acfdb8a96d64a7e18de2e8",
+          "state": "VERIFIED_NOT_APPLIED",
+          "nonce": "362d976709034b2993a95fbbccff880b",
+          "at": 1791385799.550295
+        },
+        {
+          "sequence": 64,
+          "operation_id": "056274800292ebda50cd4ab150cc93ac9f03bce901fe66b5b89b96ba17e4931d",
+          "state": "IN_FLIGHT",
+          "nonce": "c4471c9a5f894b00bcc14e73e4cf2914",
+          "at": 1791386036.9042168
+        },
+        {
+          "sequence": 65,
+          "operation_id": "056274800292ebda50cd4ab150cc93ac9f03bce901fe66b5b89b96ba17e4931d",
+          "state": "VERIFIED_COMPLETE",
+          "nonce": "c4471c9a5f894b00bcc14e73e4cf2914",
+          "at": 1791386047.6514988
+        },
+        {
+          "sequence": 66,
+          "operation_id": "47c9deb223d089788e3b6609b72575bac0db9211899aa4ab990d3c9e9773acc3",
+          "state": "IN_FLIGHT",
+          "nonce": "e952c366a5654c07b052b7da9b662977",
+          "at": 1791386215.4907718
+        },
+        {
+          "sequence": 67,
+          "operation_id": "47c9deb223d089788e3b6609b72575bac0db9211899aa4ab990d3c9e9773acc3",
+          "state": "UNKNOWN",
+          "nonce": "e952c366a5654c07b052b7da9b662977",
+          "at": 1791386225.0872474
+        },
+        {
+          "sequence": 68,
+          "operation_id": "47c9deb223d089788e3b6609b72575bac0db9211899aa4ab990d3c9e9773acc3",
+          "state": "VERIFIED_COMPLETE",
+          "nonce": "e952c366a5654c07b052b7da9b662977",
+          "at": 1791386225.9329631
+        },
+        {
+          "sequence": 69,
+          "operation_id": "edf417136c73177c4110c0ed1afe88d43d7f2abd1ed9a526749440b9cd210154",
+          "state": "VERIFIED_COMPLETE",
+          "nonce": "6b12744c112f4e6cbc24474a1d5aa16e",
+          "at": 1791386592.6817355
+        },
+        {
+          "sequence": 70,
+          "operation_id": "83ddb702ff1e80af7f59d61646639f222c24977c50acfdb8a96d64a7e18de2e8",
+          "state": "VERIFIED_COMPLETE",
+          "nonce": "362d976709034b2993a95fbbccff880b",
+          "at": 1791386593.0497136
+        }
+      ],
+      "retired_paths": [
+        "obsolete WIP PROGRESS single-blob publication; final native metadata will supersede it",
+        "single-blob test publication attempts; canonical source tree contains the exact required blob"
+      ],
+      "bulk_tree": "3295d57f44cdd09182555580164c4b3cf2282dd7",
+      "code_commit": "c077474d3216e90621f569840bd73a0cc191a076",
+      "branch": "p04-external-round-native-20261007",
+      "executor_disconnect": "Recovered read-only; ledger.py and sources.py were already stored and verified without another write",
+      "metadata_note": "First blob request-digest field mistakenly used source digest; corrected request digest read-verified separately without another write; original row retained. Create-branch returned normalized schema was read-verified against the actual ref.",
+      "local_failed_verification_attempts": [
+        {
+          "state": {
+            "schema_version": 1,
+            "scope": "OWNED_OFFLINE_DEVELOPMENT_NOT_CHAT_SESSION_CONTROL",
+            "status": "BLOCKED",
+            "idle_seconds": 300,
+            "hard_seconds": 900,
+            "phase_advanced": false,
+            "source_digest": "21f2d47f00025cb3a77d8b69ac201f1b24ade17c05613fca12808d87163b4a30",
+            "steps": [
+              {
+                "step": "check",
+                "attempt": 1,
+                "nonce": "243bced5d0a8499e99427aa71264c600",
+                "status": "INCOMPLETE",
+                "log": "evidence/development-supervisor/0bf0dcf1ea224cce9d93ce99fac46e81/check_1/OUTPUT.log",
+                "worker_pid": 7,
+                "last_completed_milestone": "architect_contract_tests_finished",
+                "retained_proof": {
+                  "artifacts": [
+                    {
+                      "original_path": "evidence/maintenance-check/RUN.json",
+                      "path": "evidence/development-supervisor/0bf0dcf1ea224cce9d93ce99fac46e81/check_1/proofs/evidence/maintenance-check/RUN.json",
+                      "sha256": "f3d1a025144d06ca4ea907e84138898c8258da1fbae2b1caa38bdb8295d7e5d7"
+                    },
+                    {
+                      "original_path": "evidence/environment/RUN.json",
+                      "path": "evidence/development-supervisor/0bf0dcf1ea224cce9d93ce99fac46e81/check_1/proofs/evidence/environment/RUN.json",
+                      "sha256": "3a88435f03074e8f4bcb8b2e14cd99c89e7f60680dcfed790edeaeda621b6321"
+                    },
+                    {
+                      "original_path": "evidence/control-tests/RUN.json",
+                      "path": "evidence/development-supervisor/0bf0dcf1ea224cce9d93ce99fac46e81/check_1/proofs/evidence/control-tests/RUN.json",
+                      "sha256": "7462403c0a00d217cd8a76333f2aa55d77a51be7b9304b670c748a7809fe4851"
+                    },
+                    {
+                      "original_path": "evidence/control-tests/JUNIT.xml",
+                      "path": "evidence/development-supervisor/0bf0dcf1ea224cce9d93ce99fac46e81/check_1/proofs/evidence/control-tests/JUNIT.xml",
+                      "sha256": "d41b41692ee42042a7faf0e50ace05d72cde3a6decc4718679ae2efd174bb252"
+                    },
+                    {
+                      "original_path": "evidence/foundation-tests/RUN.json",
+                      "path": "evidence/development-supervisor/0bf0dcf1ea224cce9d93ce99fac46e81/check_1/proofs/evidence/foundation-tests/RUN.json",
+                      "sha256": "2cc2d8736aaea6b6b0f40b997c1a5f1818ae3e71e26eb02a072c96ce064273aa"
+                    },
+                    {
+                      "original_path": "evidence/foundation-tests/JUNIT.xml",
+                      "path": "evidence/development-supervisor/0bf0dcf1ea224cce9d93ce99fac46e81/check_1/proofs/evidence/foundation-tests/JUNIT.xml",
+                      "sha256": "8d407155e6b1dc1ca1a1e921d0e9a05eafbc0bc1f2ae07f4b67e55f664a99949"
+                    },
+                    {
+                      "original_path": "evidence/persistence-tests/RUN.json",
+                      "path": "evidence/development-supervisor/0bf0dcf1ea224cce9d93ce99fac46e81/check_1/proofs/evidence/persistence-tests/RUN.json",
+                      "sha256": "c86d13f1b6c52f100057367f025fc214bd076f7d7996e50e8bd64eacddc11c67"
+                    },
+                    {
+                      "original_path": "evidence/persistence-tests/JUNIT.xml",
+                      "path": "evidence/development-supervisor/0bf0dcf1ea224cce9d93ce99fac46e81/check_1/proofs/evidence/persistence-tests/JUNIT.xml",
+                      "sha256": "e7036cde446d2adba65acaf62d19b0abaaf454e3786469915e6b33e598fc4a78"
+                    },
+                    {
+                      "original_path": "evidence/browser-probe-tests/RUN.json",
+                      "path": "evidence/development-supervisor/0bf0dcf1ea224cce9d93ce99fac46e81/check_1/proofs/evidence/browser-probe-tests/RUN.json",
+                      "sha256": "75834485ce7fed4cf6c95635ae4a0fe48bb2fb00732380c83408df916b49a8a0"
+                    },
+                    {
+                      "original_path": "evidence/browser-probe-tests/JUNIT.xml",
+                      "path": "evidence/development-supervisor/0bf0dcf1ea224cce9d93ce99fac46e81/check_1/proofs/evidence/browser-probe-tests/JUNIT.xml",
+                      "sha256": "d8f4b9cf44201197e9b0abd379f0abe06283fecf6ebbcb10369218643d16e702"
+                    },
+                    {
+                      "original_path": "evidence/architect-tests/RUN.json",
+                      "path": "evidence/development-supervisor/0bf0dcf1ea224cce9d93ce99fac46e81/check_1/proofs/evidence/architect-tests/RUN.json",
+                      "sha256": "76158fe71e72462860f04331d8796ee2820679cdca68d2c86b495e4180690f9b"
+                    },
+                    {
+                      "original_path": "evidence/architect-tests/JUNIT.xml",
+                      "path": "evidence/development-supervisor/0bf0dcf1ea224cce9d93ce99fac46e81/check_1/proofs/evidence/architect-tests/JUNIT.xml",
+                      "sha256": "8667f41d96aaf393d9bfa8efcb0f895ed3b6e7d495dde4984a8e831b53b8bb34"
+                    }
+                  ],
+                  "errors": []
+                },
+                "stop_reason": null,
+                "returncode": 1,
+                "reconciliation": {
+                  "status": "INCOMPLETE",
+                  "reason": "Receipt did not pass"
+                }
+              }
+            ],
+            "remaining_steps": [
+              "check"
+            ],
+            "next_action": "REPAIR_OR_VERIFY_check"
+          },
+          "original_state_sha256": "89a6b785fa915b6051f1ef47adc08a9424b75dacdbc8a9a8412873077c8bec19",
+          "original_log_sha256": "fdd4c5f2e19bd50ce86e858059373c65676ebf702af9f2cb468ffa1b9013702b",
+          "reason": "New test fixture shadowed unittest.TestCase.id; fixed without dropping assertions",
+          "diagnostic_excerpt": "test_changed_source_or_modified_receipt_blocks_reconciliation (test_development_supervisor.DevelopmentSupervisorTests.test_changed_source_or_modified_receipt_blocks_reconciliation) ... ok\ntest_completed_receipt_before_hang_is_reverified_and_queue_continues (test_development_supervisor.DevelopmentSupervisorTests.test_completed_receipt_before_hang_is_reverified_and_queue_continues) ... ok\ntest_default_is_five_minutes_since_progress_not_start (test_development_supervisor.DevelopmentSupervisorTests.test_default_is_five_minutes_since_progress_not_start) ... ok\ntest_incomplete_safe_check_retries_once_and_preserves_both_attempts (test_development_supervisor.DevelopmentSupervisorTests.test_incomplete_safe_check_retries_once_and_preserves_both_attempts) ... ok\ntest_missing_declared_artifact_cannot_be_reconciled_as_complete (test_development_supervisor.DevelopmentSupervisorTests.test_missing_declared_artifact_cannot_be_reconciled_as_complete) ... ok\ntest_nested_child_cannot_reset_owners_progress (test_development_supervisor.DevelopmentSupervisorTests.test_nested_child_cannot_reset_owners_progress) ... ok\ntest_nonreplayable_step_is_not_resent_after_timeout (test_development_supervisor.DevelopmentSupervisorTests.test_nonreplayable_step_is_not_resent_after_timeout) ... ok\ntest_old_pass_never_advances_to_next_command (test_development_supervisor.DevelopmentSupervisorTests.test_old_pass_never_advances_to_next_command) ... ok\ntest_output_noise_cannot_prevent_killing_parent_and_child (test_development_supervisor.DevelopmentSupervisorTests.test_output_noise_cannot_prevent_killing_parent_and_child) ... ok\ntest_successful_parent_does_not_leave_unfinished_child (test_development_supervisor.DevelopmentSupervisorTests.test_successful_parent_does_not_leave_unfinished_child) ... ok\ntest_wrong_nonce_pid_duplicate_milestone_and_sequence_are_not_progress (test_development_supervisor.DevelopmentSupervisorTests.test_wrong_nonce_pid_duplicate_milestone_and_sequence_are_not_progress) ... ok\ntest_native_evidence_survives_git_staging_and_checkout_byte_for_byte (test_git_preservation.GitEvidencePreservation.test_native_evidence_survives_git_staging_and_checkout_byte_for_byte) ... ok\ntest_failure_before_reports_exist_still_publishes_a_failed_checkpoint (test_native_recording.NativeRecordingControls.test_failure_before_reports_exist_still_publishes_a_failed_checkpoint) ... ok\ntest_old_mutable_reports_cannot_be_reused_as_a_fresh_native_run (test_native_recording.NativeRecordingControls.test_old_mutable_reports_cannot_be_reused_as_a_fresh_native_run) ... ok\ntest_timed_out_check_preserves_partial_log_and_failed_checkpoint (test_native_recording.NativeRecordingControls.test_timed_out_check_preserves_partial_log_and_failed_checkpoint) ... ok\ntest_default_command_still_blocks_on_phase_gate (test_phase_reporting.PhaseReportingControls.test_default_command_still_blocks_on_phase_gate) ... ok\ntest_reporting_blocked_phase_never_runs_or_accepts_it (test_phase_reporting.PhaseReportingControls.test_reporting_blocked_phase_never_runs_or_accepts_it) ... ok\ntest_reporting_option_never_hides_invalid_governance (test_phase_reporting.PhaseReportingControls.test_reporting_option_never_hides_invalid_governance) ... ok\ntest_exact_ref_read_resolves_without_repeating_write (test_publication_guard.PublicationGuardTests.test_exact_ref_read_resolves_without_repeating_write) ... ok\nTraceback (most recent call last):\n  File \"/workspace/scratch/2cd898e3d2ec/consilium_external_recovery/tools/run_control_tests.py\", line 96, in <module>\n    raise SystemExit(main())\n                     ^^^^^^\n  File \"/workspace/scratch/2cd898e3d2ec/consilium_external_recovery/tools/run_control_tests.py\", line 62, in main\n    result = unittest.TextTestRunner(verbosity=2, resultclass=RecordingResult).run(suite)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/runner.py\", line 240, in run\n    test(result)\n  File \"/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/suite.py\", line 84, in __call__\n    return self.run(*args, **kwds)\n           ^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/suite.py\", line 122, in run\n    test(result)\n  File \"/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/suite.py\", line 84, in __call__\n    return self.run(*args, **kwds)\n           ^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/suite.py\", line 122, in run\n    test(result)\n  File \"/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/suite.py\", line 84, in __call__\n    return self.run(*args, **kwds)\n           ^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/suite.py\", line 122, in run\n    test(result)\n  File \"/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/case.py\", line 690, in __call__\n    return self.run(*args, **kwds)\n           ^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/case.py\", line 648, in run\n    result.addSuccess(self)\n  File \"/workspace/scratch/2cd898e3d2ec/consilium_external_recovery/tools/run_control_tests.py\", line 24, in addSuccess\n    self.rows.append((test.id(), None, \"\"))\n                      ^^^^^^^^^\nTypeError: 'str' object is not callable\nAGENTS.md: LEXICAL_CHECK=PASS (rendering not certified)\nCONSILIUM_DEEP_GL_CL_COMPARISON_FA.md: LEXICAL_CHECK=PASS (rendering not certified)\nCONSILIUM_HANDOFF_AND_QUALITY_PROTOCOL_FA.md: LEXICAL_CHECK=PASS (rendering not certified)"
+        },
+        {
+          "state": {
+            "schema_version": 1,
+            "scope": "OWNED_OFFLINE_DEVELOPMENT_NOT_CHAT_SESSION_CONTROL",
+            "status": "BLOCKED",
+            "idle_seconds": 300,
+            "hard_seconds": 900,
+            "phase_advanced": false,
+            "source_digest": "ab369b1526cce9e82c8ee036cdc47b386df10f1650c1b5f985c3871b8dfa0098",
+            "steps": [
+              {
+                "step": "check",
+                "attempt": 1,
+                "nonce": "1ad0572ae0f641008275532327812884",
+                "status": "INCOMPLETE",
+                "log": "evidence/development-supervisor/198d62bcdc6c4fceb67ea5ddaccf4dd1/check_1/OUTPUT.log",
+                "worker_pid": 6,
+                "last_completed_milestone": "development_check_receipt_written",
+                "retained_proof": {
+                  "artifacts": [
+                    {
+                      "original_path": "evidence/maintenance-check/RUN.json",
+                      "path": "evidence/development-supervisor/198d62bcdc6c4fceb67ea5ddaccf4dd1/check_1/proofs/evidence/maintenance-check/RUN.json",
+                      "sha256": "faf3ca1047d573d7a5780d40e2966baf4713b5d820007c47c4e4abf15afa0c87"
+                    },
+                    {
+                      "original_path": "evidence/environment/RUN.json",
+                      "path": "evidence/development-supervisor/198d62bcdc6c4fceb67ea5ddaccf4dd1/check_1/proofs/evidence/environment/RUN.json",
+                      "sha256": "3a88435f03074e8f4bcb8b2e14cd99c89e7f60680dcfed790edeaeda621b6321"
+                    },
+                    {
+                      "original_path": "evidence/control-tests/RUN.json",
+                      "path": "evidence/development-supervisor/198d62bcdc6c4fceb67ea5ddaccf4dd1/check_1/proofs/evidence/control-tests/RUN.json",
+                      "sha256": "2fbfee1f7e9174c1542e75d4674bc6370d6a844179b51118472eff209954414b"
+                    },
+                    {
+                      "original_path": "evidence/control-tests/JUNIT.xml",
+                      "path": "evidence/development-supervisor/198d62bcdc6c4fceb67ea5ddaccf4dd1/check_1/proofs/evidence/control-tests/JUNIT.xml",
+                      "sha256": "9eb4f086c4a35a6df015bb49c014d7472b25d844c4de0b6800f17b32c80203fb"
+                    },
+                    {
+                      "original_path": "evidence/foundation-tests/RUN.json",
+                      "path": "evidence/development-supervisor/198d62bcdc6c4fceb67ea5ddaccf4dd1/check_1/proofs/evidence/foundation-tests/RUN.json",
+                      "sha256": "918f0eb06b3ee71269fae335ab24c60bbd409468e761e75511aa1c52ee4e3448"
+                    },
+                    {
+                      "original_path": "evidence/foundation-tests/JUNIT.xml",
+                      "path": "evidence/development-supervisor/198d62bcdc6c4fceb67ea5ddaccf4dd1/check_1/proofs/evidence/foundation-tests/JUNIT.xml",
+                      "sha256": "8d407155e6b1dc1ca1a1e921d0e9a05eafbc0bc1f2ae07f4b67e55f664a99949"
+                    },
+                    {
+                      "original_path": "evidence/persistence-tests/RUN.json",
+                      "path": "evidence/development-supervisor/198d62bcdc6c4fceb67ea5ddaccf4dd1/check_1/proofs/evidence/persistence-tests/RUN.json",
+                      "sha256": "743e32647d152b3a656142162cbb0a0607e582663a335ff46fe873393c854ec1"
+                    },
+                    {
+                      "original_path": "evidence/persistence-tests/JUNIT.xml",
+                      "path": "evidence/development-supervisor/198d62bcdc6c4fceb67ea5ddaccf4dd1/check_1/proofs/evidence/persistence-tests/JUNIT.xml",
+                      "sha256": "e7036cde446d2adba65acaf62d19b0abaaf454e3786469915e6b33e598fc4a78"
+                    },
+                    {
+                      "original_path": "evidence/browser-probe-tests/RUN.json",
+                      "path": "evidence/development-supervisor/198d62bcdc6c4fceb67ea5ddaccf4dd1/check_1/proofs/evidence/browser-probe-tests/RUN.json",
+                      "sha256": "f087de749480412d7dbbbb16a6147bd139d943175f51a93dc2868b34f6d7aba3"
+                    },
+                    {
+                      "original_path": "evidence/browser-probe-tests/JUNIT.xml",
+                      "path": "evidence/development-supervisor/198d62bcdc6c4fceb67ea5ddaccf4dd1/check_1/proofs/evidence/browser-probe-tests/JUNIT.xml",
+                      "sha256": "d8f4b9cf44201197e9b0abd379f0abe06283fecf6ebbcb10369218643d16e702"
+                    },
+                    {
+                      "original_path": "evidence/architect-tests/RUN.json",
+                      "path": "evidence/development-supervisor/198d62bcdc6c4fceb67ea5ddaccf4dd1/check_1/proofs/evidence/architect-tests/RUN.json",
+                      "sha256": "b219cf1ffdf446828de99abf2dcbb8dda72760a18d927ddb64e5f0994afd6b17"
+                    },
+                    {
+                      "original_path": "evidence/architect-tests/JUNIT.xml",
+                      "path": "evidence/development-supervisor/198d62bcdc6c4fceb67ea5ddaccf4dd1/check_1/proofs/evidence/architect-tests/JUNIT.xml",
+                      "sha256": "8667f41d96aaf393d9bfa8efcb0f895ed3b6e7d495dde4984a8e831b53b8bb34"
+                    }
+                  ],
+                  "errors": []
+                },
+                "stop_reason": null,
+                "returncode": 1,
+                "reconciliation": {
+                  "status": "INCOMPLETE",
+                  "reason": "Receipt did not pass"
+                }
+              }
+            ],
+            "remaining_steps": [
+              "check"
+            ],
+            "next_action": "REPAIR_OR_VERIFY_check"
+          },
+          "original_state_sha256": "b3d6cbc2fa2278576bc70a37287ea0cd8deb101b86dab54cc3a54d6bf5033496",
+          "original_log_sha256": "e6c07ed4d9b2c928b49499c3cc528069c77b73277cebb81d7821e2a2746deb7d",
+          "reason": "Verification observed source edits during its run; final frozen source rerun passed",
+          "diagnostic_excerpt": "test_changed_source_or_modified_receipt_blocks_reconciliation (test_development_supervisor.DevelopmentSupervisorTests.test_changed_source_or_modified_receipt_blocks_reconciliation) ... ok\ntest_completed_receipt_before_hang_is_reverified_and_queue_continues (test_development_supervisor.DevelopmentSupervisorTests.test_completed_receipt_before_hang_is_reverified_and_queue_continues) ... ok\ntest_default_is_five_minutes_since_progress_not_start (test_development_supervisor.DevelopmentSupervisorTests.test_default_is_five_minutes_since_progress_not_start) ... ok\ntest_incomplete_safe_check_retries_once_and_preserves_both_attempts (test_development_supervisor.DevelopmentSupervisorTests.test_incomplete_safe_check_retries_once_and_preserves_both_attempts) ... ok\ntest_missing_declared_artifact_cannot_be_reconciled_as_complete (test_development_supervisor.DevelopmentSupervisorTests.test_missing_declared_artifact_cannot_be_reconciled_as_complete) ... ok\ntest_nested_child_cannot_reset_owners_progress (test_development_supervisor.DevelopmentSupervisorTests.test_nested_child_cannot_reset_owners_progress) ... ok\ntest_nonreplayable_step_is_not_resent_after_timeout (test_development_supervisor.DevelopmentSupervisorTests.test_nonreplayable_step_is_not_resent_after_timeout) ... ok\ntest_old_pass_never_advances_to_next_command (test_development_supervisor.DevelopmentSupervisorTests.test_old_pass_never_advances_to_next_command) ... ok\ntest_output_noise_cannot_prevent_killing_parent_and_child (test_development_supervisor.DevelopmentSupervisorTests.test_output_noise_cannot_prevent_killing_parent_and_child) ... ok\ntest_successful_parent_does_not_leave_unfinished_child (test_development_supervisor.DevelopmentSupervisorTests.test_successful_parent_does_not_leave_unfinished_child) ... ok\ntest_wrong_nonce_pid_duplicate_milestone_and_sequence_are_not_progress (test_development_supervisor.DevelopmentSupervisorTests.test_wrong_nonce_pid_duplicate_milestone_and_sequence_are_not_progress) ... ok\ntest_native_evidence_survives_git_staging_and_checkout_byte_for_byte (test_git_preservation.GitEvidencePreservation.test_native_evidence_survives_git_staging_and_checkout_byte_for_byte) ... ok\ntest_failure_before_reports_exist_still_publishes_a_failed_checkpoint (test_native_recording.NativeRecordingControls.test_failure_before_reports_exist_still_publishes_a_failed_checkpoint) ... ok\ntest_old_mutable_reports_cannot_be_reused_as_a_fresh_native_run (test_native_recording.NativeRecordingControls.test_old_mutable_reports_cannot_be_reused_as_a_fresh_native_run) ... ok\ntest_timed_out_check_preserves_partial_log_and_failed_checkpoint (test_native_recording.NativeRecordingControls.test_timed_out_check_preserves_partial_log_and_failed_checkpoint) ... ok\ntest_default_command_still_blocks_on_phase_gate (test_phase_reporting.PhaseReportingControls.test_default_command_still_blocks_on_phase_gate) ... ok\ntest_reporting_blocked_phase_never_runs_or_accepts_it (test_phase_reporting.PhaseReportingControls.test_reporting_blocked_phase_never_runs_or_accepts_it) ... ok\ntest_reporting_option_never_hides_invalid_governance (test_phase_reporting.PhaseReportingControls.test_reporting_option_never_hides_invalid_governance) ... ok\ntest_exact_ref_read_resolves_without_repeating_write (test_publication_guard.PublicationGuardTests.test_exact_ref_read_resolves_without_repeating_write) ... ok\ntest_long_or_invalid_wait_and_unknown_error_text_are_rejected (test_publication_guard.PublicationGuardTests.test_long_or_invalid_wait_and_unknown_error_text_are_rejected) ... ok\ntest_mismatched_result_blocks_and_never_becomes_success (test_publication_guard.PublicationGuardTests.test_mismatched_result_blocks_and_never_becomes_success) ... ok\ntest_mutable_ref_never_retries_after_missing_or_old_read (test_publication_guard.PublicationGuardTests.test_mutable_ref_never_retries_after_missing_or_old_read) ... ok\ntest_new_plan_cannot_bypass_unknown_mutation_on_same_resource (test_publication_guard.PublicationGuardTests.test_new_plan_cannot_bypass_unknown_mutation_on_same_resource) ... ok\ntest_only_one_immutable_retry_and_old_attempt_cannot_finish_it (test_publication_guard.PublicationGuardTests.test_only_one_immutable_retry_and_old_attempt_cannot_finish_it) ... ok\ntest_payload_and_credentials_are_not_accepted_in_public_plan (test_publication_guard.PublicationGuardTests.test_payload_and_credentials_are_not_accepted_in_public_plan) ... ok\ntest_pending_intent_survives_restart_and_blocks_duplicate (test_publication_guard.PublicationGuardTests.test_pending_intent_survives_restart_and_blocks_duplicate) ... ok\ntest_repreparing_same_plan_keeps_completed_checkpoint (test_publication_guard.PublicationGuardTests.test_repreparing_same_plan_keeps_completed_checkpoint) ... ok\ntest_timeout_is_unknown_until_read_reconciliation (test_publication_guard.PublicationGuardTests.test_timeout_is_unknown_until_read_reconciliation) ... ok\ntest_two_connections_cannot_obtain_same_permit (test_publication_guard.PublicationGuardTests.test_two_connections_cannot_obtain_same_permit) ... ok\ntest_accepted_criterion_bytes_survive_later_changes (test_qualityctl.QualityControls.test_accepted_criterion_bytes_survive_later_changes) ... ok\ntest_accepted_phase_advances_only_one_step (test_qualityctl.QualityControls.test_accepted_phase_advances_only_one_step) ... ok\ntest_archive_byte_tampering_is_rejected (test_qualityctl.QualityControls.test_archive_byte_tampering_is_rejected) ... ok\ntest_archive_case_collisions_are_rejected (test_qualityctl.QualityControls.test_archive_case_collisions_are_rejected) ... ok\ntest_archive_unsafe_member_is_rejected (test_qualityctl.QualityControls.test_archive_unsafe_member_is_rejected) ... ok\ntest_build_products_do_not_change_source_but_real_code_does (test_qualityctl.QualityControls.test_build_products_do_not_change_source_but_real_code_does) ... ok\ntest_changed_baseline_is_rejected (test_qualityctl.QualityControls.test_changed_baseline_is_rejected) ... ok\ntest_changed_criterion_text_blocks (test_qualityctl.QualityControls.test_changed_criterion_text_blocks) ... ok\ntest_current_failed_run_without_junit_keeps_error_and_log (test_qualityctl.QualityControls.test_current_failed_run_without_junit_keeps_error_and_log) ... ok\ntest_current_run_from_older_source_is_explicit (test_qualityctl.QualityControls.test_current_run_from_older_source_is_explicit) ... ok\ntest_current_run_junit_tampering_blocks_handoff (test_qualityctl.QualityControls.test_current_run_junit_tampering_blocks_handoff) ... ok\ntest_current_run_log_tampering_blocks_handoff (test_qualityctl.QualityControls.test_current_run_log_tampering_blocks_handoff) ... ok\ntest_current_run_receipt_tampering_blocks_handoff (test_qualityctl.QualityControls.test_current_run_receipt_tampering_blocks_handoff) ... ok\ntest_duplicate_check_ids_are_rejected (test_qualityctl.QualityControls.test_duplicate_check_ids_are_rejected) ... ok\ntest_empty_multiline_environment_example_is_safe (test_qualityctl.QualityControls.test_empty_multiline_environment_example_is_safe) ... ok\ntest_existing_acceptance_evidence_can_be_preserved_without_advancing (test_qualityctl.QualityControls.test_existing_acceptance_evidence_can_be_preserved_without_advancing) ... ok\ntest_expensive_acceptance_check_is_not_silently_repeated (test_qualityctl.QualityControls.test_expensive_acceptance_check_is_not_silently_repeated) ... ok\ntest_fabricated_completed_status_is_rejected (test_qualityctl.QualityControls.test_fabricated_completed_status_is_rejected) ... ok\ntest_failed_work_in_progress_preserves_checkpoint_and_run (test_qualityctl.QualityControls.test_failed_work_in_progress_preserves_checkpoint_and_run) ... ok\ntest_failing_junit_overrides_zero_exit (test_qualityctl.QualityControls.test_failing_junit_overrides_zero_exit) ... ok\ntest_gate_lock_blocks_parallel_update (test_qualityctl.QualityControls.test_gate_lock_blocks_parallel_update) ... ok\ntest_handoff_includes_accepted_evidence (test_qualityctl.QualityControls.test_handoff_includes_accepted_evidence) ... ok\ntest_handoff_includes_generated_navigation (test_qualityctl.QualityControls.test_handoff_includes_generated_navigation) ... ok\ntest_handoff_keeps_native_report_graph_without_editing_source_allowlist (test_qualityctl.QualityControls.test_handoff_keeps_native_report_graph_without_editing_source_allowlist) ... ok\ntest_handoff_keeps_precise_in_phase_resume_point (test_qualityctl.QualityControls.test_handoff_keeps_precise_in_phase_resume_point) ... ok\ntest_handoff_roundtrip_preserves_source_fingerprint (test_qualityctl.QualityControls.test_handoff_roundtrip_preserves_source_fingerprint) ... ok"
+        }
+      ],
+      "source_tree_readback": "All 22 required source files exist in the expected bulk tree; the previously failed test blob was independently read and both legacy permits reconciled without another write.",
+      "retired_operations": [
+        "c89a8554699d6b8d07c1338f28cbc78ce218abf3e42ee7b920b2c33fae74da81"
+      ]
+    }
+  },
+  "next_action": "در P04-002 نقد دستی و پاسخ دستی دورهای بعد و تطبیق صریح عملیات قبلی را تکمیل کن؛ منشأ زنده و مشاهده و اندازه‌گیری معتبر اتصال را آماده و همهٔ معیارهای P04 را بازبینی کن. نمای پایدار دور بعد اکنون موجود است؛ آن را دوباره نساز. P05 و ارسال زنده هنوز آغاز نشوند.",
+  "publication_scope": "VERIFIED_DELIVERY_BRANCH_PRIMARY_MAIN_PUBLICATION_PENDING"
 }

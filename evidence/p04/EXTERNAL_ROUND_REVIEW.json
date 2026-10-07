@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "phase": "P04",
-  "status": "PASS_IMPLEMENTED_SLICE_LOCAL_NATIVE_PENDING",
+  "status": "PASS_IMPLEMENTED_SLICE_NATIVE_VERIFIED",
   "independent": false,
   "review_method": "same author, separate criterion-based pass",
   "phase_accepted": false,
@@ -33,8 +33,8 @@
     },
     {
       "id": "native_windows_linux",
-      "result": "PENDING",
-      "reason": "new code requires actual native reports before final delivery"
+      "result": "PASS",
+      "reason": "Fresh exact-source immutable native graphs and all configured checks verified"
     }
   ],
   "remaining": [
@@ -44,5 +44,114 @@
     "full P04 criterion review and acceptance"
   ],
   "local_test_fixture_failure": "new test initially shadowed unittest.TestCase.id; corrected without dropping assertions; failed supervisor log retained",
-  "local_source_change_rejection": "a verification attempt detected edits during execution; failed report retained and final source rerun required"
+  "local_source_change_rejection": "a verification attempt detected edits during execution; failed report retained and final source rerun required",
+  "source_digest": "32ecd7ffb6844ec1a3a7f863e81cb4a1c817f2369345dba435df27c9f98f720a",
+  "code_commit": "c077474d3216e90621f569840bd73a0cc191a076",
+  "native_run_id": "37642514269",
+  "target_reports": [
+    {
+      "target": "Windows",
+      "report": {
+        "path": "evidence/targets/Windows/20261007T151835Z_5fc189e8/RUN.json",
+        "sha256": "3ca05bf7842991fd78b3b8b86a6ff857ea796283c4785a27e4be3d9007cc656d"
+      },
+      "status": "PASS",
+      "source_matches_current": true,
+      "scope": "RECORDED_TARGET_ARTIFACTS_NOT_PHASE_ACCEPTANCE"
+    },
+    {
+      "target": "Linux",
+      "report": {
+        "path": "evidence/targets/Linux/20261007T151831Z_768c9d99/RUN.json",
+        "sha256": "5af3908eef9cf9348fa6309ceb44711bc796cd6a00421b2309dfb27dedeb2366"
+      },
+      "status": "PASS",
+      "source_matches_current": true,
+      "scope": "RECORDED_TARGET_ARTIFACTS_NOT_PHASE_ACCEPTANCE"
+    }
+  ],
+  "configured_phase_run": {
+    "receipt": "evidence/runs/20261007T153334Z_c71371c7c7/RUN.json",
+    "sha256": "98424045a8afb094208336c5e21fdfba0511b174c25795356a785f48351e8e9d",
+    "status": "PASS",
+    "source_matches_current": true,
+    "checks": [
+      {
+        "id": "scope_inventory",
+        "status": "PASS",
+        "counts": null,
+        "error": null
+      },
+      {
+        "id": "development_regression",
+        "status": "PASS",
+        "counts": {
+          "tests": 112,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        "error": null
+      },
+      {
+        "id": "foundation_behavior",
+        "status": "PASS",
+        "counts": {
+          "tests": 60,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        "error": null
+      },
+      {
+        "id": "environment_lock",
+        "status": "PASS",
+        "counts": null,
+        "error": null
+      },
+      {
+        "id": "native_target_matrix",
+        "status": "PASS",
+        "counts": null,
+        "error": null
+      },
+      {
+        "id": "persistence_durable_kernel",
+        "status": "PASS",
+        "counts": {
+          "tests": 80,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        "error": null
+      },
+      {
+        "id": "browser_probe_preflight_and_durability",
+        "status": "PASS",
+        "counts": {
+          "tests": 44,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        "error": null
+      },
+      {
+        "id": "architect_and_independent_context",
+        "status": "PASS",
+        "counts": {
+          "tests": 188,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        "error": null
+      }
+    ],
+    "scope": "LATEST_COMPLETED_CONFIGURED_RUN; NOT_PHASE_ACCEPTANCE"
+  },
+  "tests_per_native_target": 484,
+  "product_process_exit_cases_per_native_target": 27
 }

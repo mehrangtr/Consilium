@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "development_step_id": "ad476a6ae35942c08893f7102ec94f05",
+  "development_step_id": "d448429b489b4f0daf2aafe0b4dc665b",
   "artifacts": {
     "evidence/environment/RUN.json": {
       "path": "evidence/environment/RUN.json",
@@ -8,15 +8,15 @@
     },
     "evidence/control-tests/RUN.json": {
       "path": "evidence/control-tests/RUN.json",
-      "sha256": "ecb918787c58243e61e80de7902db69aadc4e634bf71908bc4f0f2c4b2c9b6c7"
+      "sha256": "105d8e918c7a9347bb194d025f10976e20300873a236dd4959b9f960dcdcfd51"
     },
     "evidence/control-tests/JUNIT.xml": {
       "path": "evidence/control-tests/JUNIT.xml",
-      "sha256": "d41b41692ee42042a7faf0e50ace05d72cde3a6decc4718679ae2efd174bb252"
+      "sha256": "9960941d7f6f6b81fce061537e1e788f5dd9996f3b174873cf9fd0dd256c0b73"
     },
     "evidence/foundation-tests/RUN.json": {
       "path": "evidence/foundation-tests/RUN.json",
-      "sha256": "cc13d2bc5b57642b750d0a96f534583ee56db8e348d53b73dd037d88bd5cab89"
+      "sha256": "cbc6874c2d2786747da4b704d552841a20d57626f051b284549c4b9f4f3c5711"
     },
     "evidence/foundation-tests/JUNIT.xml": {
       "path": "evidence/foundation-tests/JUNIT.xml",
@@ -24,7 +24,7 @@
     },
     "evidence/persistence-tests/RUN.json": {
       "path": "evidence/persistence-tests/RUN.json",
-      "sha256": "6ed9a5f7e23d81c3c3e85665b828b62a771295173c9aee814a383a916b980906"
+      "sha256": "878af851cc8ff8db62b5f76509c2f6a23210e1d124b4500935fecd52b7895c18"
     },
     "evidence/persistence-tests/JUNIT.xml": {
       "path": "evidence/persistence-tests/JUNIT.xml",
@@ -32,7 +32,7 @@
     },
     "evidence/browser-probe-tests/RUN.json": {
       "path": "evidence/browser-probe-tests/RUN.json",
-      "sha256": "07e589d555c2e0b9bc766d2ca93741d54409f4a41eb55c5397d44dbf710b1a7a"
+      "sha256": "35e4c78a5537d8240b0b4f456e7448332e247acf61d0ae8986c855148427420e"
     },
     "evidence/browser-probe-tests/JUNIT.xml": {
       "path": "evidence/browser-probe-tests/JUNIT.xml",
@@ -40,11 +40,11 @@
     },
     "evidence/architect-tests/RUN.json": {
       "path": "evidence/architect-tests/RUN.json",
-      "sha256": "d3b23055b8c1f4ab494212ec4a4394cd67b7b464c6f20181c308052e8cf2a413"
+      "sha256": "3d99757eb59eb521966587475db79e087092476be483a36bd034f49b690bd724"
     },
     "evidence/architect-tests/JUNIT.xml": {
       "path": "evidence/architect-tests/JUNIT.xml",
-      "sha256": "2d0cab98d861ae4ab3e0574060c60acef1b34e62e15b1b87ae83c71db3547fa6"
+      "sha256": "8667f41d96aaf393d9bfa8efcb0f895ed3b6e7d495dde4984a8e831b53b8bb34"
     }
   },
   "scope": "DEVELOPMENT_CHECK_WITH_SEPARATE_FOUNDATION_TESTS",
@@ -90,8 +90,8 @@
       "returncode": 0
     }
   ],
-  "source_digest_before": "9ccf9055fc12fd9def8aafb9e7669573e6cf0ca8273e8629bdf4ab5d4da83208",
-  "source_digest_after": "9ccf9055fc12fd9def8aafb9e7669573e6cf0ca8273e8629bdf4ab5d4da83208",
+  "source_digest_before": "32ecd7ffb6844ec1a3a7f863e81cb4a1c817f2369345dba435df27c9f98f720a",
+  "source_digest_after": "32ecd7ffb6844ec1a3a7f863e81cb4a1c817f2369345dba435df27c9f98f720a",
   "application_runtime_tests": "FOUNDATION_P02_KERNEL_P03_OFFLINE_PROBE_AND_P04_OFFLINE_SLICES",
   "application_phase_accepted": false,
   "static_type_check": "NOT_RUN",

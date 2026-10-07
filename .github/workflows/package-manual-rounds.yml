@@ -124,8 +124,13 @@ jobs:
           assert publication['code_commit']==CODE and publication['code_tree']==TREE and publication['source_digest']==SOURCE
           assert all(r['state']=='VERIFIED_COMPLETE' for r in publication['operations'])
           assert publication['commit_creation']['status']=='VERIFIED_COMPLETE'
-          assert publication['previous_publication_reconciliation']['status']=='COMPLETE_WITHOUT_REPLAY'
+          assert publication['previous_publication_reconciliation']['status']=='VERIFIED_COMPLETE'
+          assert publication['previous_publication_reconciliation']['mutation_replayed'] is False
+          assert publication['previous_publication_reconciliation']['receipt_commit']=='22cd94156b0853999081f6ced0efa9ccd21cf323'
           assert q.load(ROOT/'evidence/publication/EXTERNAL_ROUND_PUBLICATION_CHECKPOINT.json')['publication_complete'] is True
+          attempts=q.load(ROOT/'evidence/p04/MANUAL_ROUND_LOCAL_ATTEMPTS.json')
+          attempts['remote_packaging_failure']={"workflow_run_id":37663677135,"job_id":112937317840,"artifact_id":11500769771,"artifact_sha256":"96d72e58690012c9a1907de16211ecbe2cae3c6f4de479e69191cd16da610a62","status":"PACKAGING_FAILURE_BEFORE_PUBLICATION","product_tests_failed":0,"cause":"Packaging helper expected an import summary label instead of the durable journal's actual VERIFIED_COMPLETE state.","fix":"Require exact VERIFIED_COMPLETE, mutation_replayed false and original verified receipt commit; preserve all source/native assertions.","delivery_ref_absence_independently_verified":True,"test_assertions_removed":False}
+          (ROOT/'evidence/p04/MANUAL_ROUND_LOCAL_ATTEMPTS.json').write_bytes(q.encoded(attempts))
           progress=q.load(ROOT/'PROGRESS.json')
           accepted={p['id']:q.encoded(p) for p in progress['phases'] if p['id'] in {'P00','P01','P02','P03'}}
           assert progress['current_phase']=='P04' and progress['verified_application_requirements']==0

@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "status": "COMPLETED_VERIFIED_MAIN_PUBLICATION",
+  "prior_publication": "d0139378d379302fe2dd16508a52399be3434015",
+  "source_digest": "b48df0fd1894ca371aba3c9b81939f211da183d1fc48d26afce67a0e99979454",
+  "code_commit": "6c3b08fb735c3da2999b52b98e77e4df040a30fa",
+  "verified_publication_commit": "7e9fc063d692af99161cb4f922c266e1a20a66ee",
+  "verified_publication_tree": "760fa804c23de44e3b7c477b1af4cdfd558a65a3",
+  "native_run_id": "37610129815",
+  "additional_pull_request_checks": "37611540198; all three jobs succeeded",
+  "helper_run_id": "37610678495",
+  "pull_request": 7,
+  "phase": "P04",
+  "phase_accepted": false,
+  "verified_application_requirements": 0,
+  "tests_per_native_target": 419,
+  "process_exit_cases_per_native_target": 23,
+  "review_independent": false,
+  "handoff": {
+    "files": 794,
+    "sha256": "c1ee4d9ac3afcb994f92a829e626f9f1a9040892fc11f26baaf377628ef50a58",
+    "verification": "Downloaded archive; every member matched its published Git blob; source and both native report graphs matched."
+  },
+  "resolved_prior_discrepancy": "P04 phase source_commit/tests previously lagged resume. They now point to the current source and configured P04 run.",
+  "accepted_prior_phases": "P00-P03 records compared byte-for-byte unchanged",
+  "remaining_publication_work": "NONE",
+  "unfinished_development": "P04-002 explicit Manual/LIVE source acceptance contracts and durable later-round context/privacy/budget admission; full P04 acceptance remains open. P05 not started.",
+  "continuation_entry": "START_HERE_FA.md then PROGRESS.json.resume",
+  "helper_scope": "Operational helper branch is excluded from product and must not be merged.",
+  "bounded_external_calls_seconds": 35
+}

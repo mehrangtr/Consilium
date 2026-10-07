@@ -2,7 +2,7 @@
 
 این نما خودکار از `ROADMAP.json`، `PROGRESS.json` و `CHECKS.json` ساخته شده است. ویرایش دستی مرجع نیست؛ پس از تغییر مبنا فرمان تولید را دوباره اجرا کنید.
 
-شناسهٔ مبنای نما: `909b9de4d1857d8f58cbd5368e9884226b21d7c4f4ab94a247f4b771de646737`.
+شناسهٔ مبنای نما: `526f9e80a57691e26ad6dc2b2840dc164f59bb80984e7ae01fd1046c4cd7d895`.
 
 مرحلهٔ فعلی: `P04`. آخرین مرحلهٔ پذیرفته‌شده: `P03`.
 
@@ -22,15 +22,16 @@
     "P04-001 question contract, durable adoption and actual local CLI review completed; initial-context policy/intent preparation tested; 335 tests per actual native OS. Full P04 remains open.",
     "P04-002 durable initial admission and explicit later-round local projections verified: 367 tests and 19 real process exits per actual native OS; full P04 not accepted.",
     "P04-002 canonical mock-source storage and V5 migration verified: 388 tests and 21 real process exits per actual native OS; full phase remains open.",
-    "P04-002 frozen output schemas, typed mock answers and multi-target critique batches plus V6 migration verified: 419 tests and 23 real process exits per native OS. Full P04 remains open."
+    "P04-002 frozen output schemas, typed mock answers and multi-target critique batches plus V6 migration verified: 419 tests and 23 real process exits per native OS. Full P04 remains open.",
+    "Five-minute owned-process supervisor and P04-002 explicit initial manual-answer acceptance/V7 migration verified: 453 tests and 25 product process-exit cases per actual native OS. Full P04 remains open."
   ],
   "working_changes": [],
-  "next_action": "در همین P04-002 پذیرش صریح منابع دستی و منشأ آنها را با ثبت قابل بازیابی تعریف کن؛ منشأ زنده از متن یا برچسب اتصال گرفته نشود. سپس نمای دورهای بعد را از منابع رسمی با مجوز انتقال و بودجه به قصد عملیات در یک تراکنش وصل کن. حفظ قیود و مخالفت و بازیابی و عدم نشت را آزمون کن؛ همهٔ معیارهای P04 را بازبینی کن. P05 و ارسال زنده هنوز آغاز نشوند.",
-  "next_command": "python tools/qualityctl.py status",
+  "next_action": "در P04-002 نقد دستی و دورهای بعد و منشأ زنده و تطبیق صریح عملیات قبلی را تکمیل کن؛ نمای دور بعد را از منابع رسمی با مجوز انتقال و بودجه در یک تراکنش به قصد عملیات وصل کن. بازیابی و حفظ مخالفت و نشت و بودجه را آزمون و تمام معیارهای P04 را بازبینی کن. P05 و ارسال زنده هنوز آغاز نشوند.",
+  "next_command": "python tools/development_supervisor.py local",
   "startup_commands": [
     "python tools/qualityctl.py status",
     "python tools/qualityctl.py navigation --check",
-    "python tools/check.py"
+    "python tools/development_supervisor.py local"
   ],
   "inputs_missing": [],
   "known_quirks": [
@@ -50,27 +51,27 @@
   "next_task": {
     "id": "P04-002",
     "phase": "P04",
-    "status": "PARTIAL_TYPED_MOCK_SOURCE_BATCH_NATIVE_VERIFIED",
+    "status": "PARTIAL_MANUAL_INITIAL_ANSWER_NATIVE_VERIFIED",
     "title_fa": "نمای مجاز، ثبت پایدار شواهد کنترل و ورودی دورها",
-    "completed_fa": "قرارداد خروجی پیش از ارسال ثابت است؛ پاسخ یا نقد چندهدفه به نتیجهٔ رسمی و طرح و هدف‌های دقیق متصل می‌شود. ۳۱ آزمون تازه و مجموع ۴۱۹ آزمون با ۲۳ مورد قطع واقعی پردازه در هر محیط بومی موفق‌اند.",
-    "remaining_fa": "پذیرش صریح منابع دستی، شاهد منشأ زنده، اتصال پایدار نمای دور بعد به قصد و شواهد مجوز و بودجه و پذیرش کامل P04.",
-    "next_action_fa": "در همین P04-002 پذیرش صریح منابع دستی و منشأ آنها را با ثبت قابل بازیابی تعریف کن؛ منشأ زنده از متن یا برچسب اتصال گرفته نشود. سپس نمای دورهای بعد را از منابع رسمی با مجوز انتقال و بودجه به قصد عملیات در یک تراکنش وصل کن. حفظ قیود و مخالفت و بازیابی و عدم نشت را آزمون کن؛ همهٔ معیارهای P04 را بازبینی کن. P05 و ارسال زنده هنوز آغاز نشوند.",
+    "completed_fa": "ناظر پنج‌دقیقه‌ای و پذیرش صریح و پایدار پاسخ دستی اولیه همراه با مهاجرت نسخهٔ ۷ پیاده شده‌اند. ۴۵۳ آزمون و ۲۵ مورد قطع پردازهٔ محصول در هر دو محیط بومی موفق‌اند؛ قطع درخت پردازهٔ ناظر نیز در آزمون‌های کنترل اجرا شده است.",
+    "remaining_fa": "نقد دستی و دورهای بعد، تطبیق صریح عملیات قبلی، منشأ زندهٔ معتبر، اتصال پایدار نمای دور بعد به قصد و شواهد مجوز و بودجه و پذیرش کامل P04.",
+    "next_action_fa": "در P04-002 نقد دستی و دورهای بعد و منشأ زنده و تطبیق صریح عملیات قبلی را تکمیل کن؛ نمای دور بعد را از منابع رسمی با مجوز انتقال و بودجه در یک تراکنش به قصد عملیات وصل کن. بازیابی و حفظ مخالفت و نشت و بودجه را آزمون و تمام معیارهای P04 را بازبینی کن. P05 و ارسال زنده هنوز آغاز نشوند.",
     "done_when_fa": "شواهد و ورودی منجمد با نسخه و منشأ و مقصد روشن پایدارند؛ بازیابی و نشت و بودجه و حفظ قیود در تمام نماهای لازم آزموده شده‌اند؛ شواهد هر دو محیط و بازبینی کامل معیارهای مرحله موجود است."
   },
   "unfinished_work": {
     "schema_version": 1,
-    "updated_at_utc": "2026-10-07T10:56:27.287174+00:00",
+    "updated_at_utc": "2026-10-07T12:33:07.363642+00:00",
     "canonical_location": "PROGRESS.json:resume.unfinished_work",
-    "continuation_instruction": "PR6 and prior main d0139378d379302fe2dd16508a52399be3434015 are verified complete. Current typed-source slice is native-verified for b48df0fd1894ca371aba3c9b81939f211da183d1fc48d26afce67a0e99979454. Continue only remaining P04-002 Manual/provenance and durable later-round admission. Original staged checkout is preserved; do not republish it or repeat accepted provider probes.",
+    "continuation_instruction": "PR7 and previous main 48b61982442ca9258e4fa6961b98b221fc8927d5 were verified complete. Current watchdog/manual-initial-answer slice is native-verified for 9ccf9055fc12fd9def8aafb9e7669573e6cf0ca8273e8629bdf4ab5d4da83208. Continue only remaining P04-002 scope. Preserve accepted P00-P03 and historical failed evidence; do not replay accepted provider probes.",
     "items": [
       {
         "id": "P04-002",
         "phase": "P04",
-        "status": "PARTIAL_TYPED_MOCK_SOURCE_BATCH_NATIVE_VERIFIED",
+        "status": "PARTIAL_MANUAL_INITIAL_ANSWER_NATIVE_VERIFIED",
         "title_fa": "نمای مجاز، ثبت پایدار شواهد کنترل و ورودی دورها",
-        "completed_fa": "قرارداد خروجی پیش از ارسال ثابت است؛ پاسخ یا نقد چندهدفه به نتیجهٔ رسمی و طرح و هدف‌های دقیق متصل می‌شود. ۳۱ آزمون تازه و مجموع ۴۱۹ آزمون با ۲۳ مورد قطع واقعی پردازه در هر محیط بومی موفق‌اند.",
-        "remaining_fa": "پذیرش صریح منابع دستی، شاهد منشأ زنده، اتصال پایدار نمای دور بعد به قصد و شواهد مجوز و بودجه و پذیرش کامل P04.",
-        "next_action_fa": "در همین P04-002 پذیرش صریح منابع دستی و منشأ آنها را با ثبت قابل بازیابی تعریف کن؛ منشأ زنده از متن یا برچسب اتصال گرفته نشود. سپس نمای دورهای بعد را از منابع رسمی با مجوز انتقال و بودجه به قصد عملیات در یک تراکنش وصل کن. حفظ قیود و مخالفت و بازیابی و عدم نشت را آزمون کن؛ همهٔ معیارهای P04 را بازبینی کن. P05 و ارسال زنده هنوز آغاز نشوند.",
+        "completed_fa": "ناظر پنج‌دقیقه‌ای و پذیرش صریح و پایدار پاسخ دستی اولیه همراه با مهاجرت نسخهٔ ۷ پیاده شده‌اند. ۴۵۳ آزمون و ۲۵ مورد قطع پردازهٔ محصول در هر دو محیط بومی موفق‌اند؛ قطع درخت پردازهٔ ناظر نیز در آزمون‌های کنترل اجرا شده است.",
+        "remaining_fa": "نقد دستی و دورهای بعد، تطبیق صریح عملیات قبلی، منشأ زندهٔ معتبر، اتصال پایدار نمای دور بعد به قصد و شواهد مجوز و بودجه و پذیرش کامل P04.",
+        "next_action_fa": "در P04-002 نقد دستی و دورهای بعد و منشأ زنده و تطبیق صریح عملیات قبلی را تکمیل کن؛ نمای دور بعد را از منابع رسمی با مجوز انتقال و بودجه در یک تراکنش به قصد عملیات وصل کن. بازیابی و حفظ مخالفت و نشت و بودجه را آزمون و تمام معیارهای P04 را بازبینی کن. P05 و ارسال زنده هنوز آغاز نشوند.",
         "done_when_fa": "شواهد و ورودی منجمد با نسخه و منشأ و مقصد روشن پایدارند؛ بازیابی و نشت و بودجه و حفظ قیود در تمام نماهای لازم آزموده شده‌اند؛ شواهد هر دو محیط و بازبینی کامل معیارهای مرحله موجود است."
       }
     ],
@@ -683,23 +684,23 @@
   ],
   "last_verified_in_phase_checkpoint": {
     "phase": "P04",
-    "path": "evidence/p04/CANONICAL_SOURCE_STORAGE_CHECKPOINT.json",
-    "sha256": "483b7833aed52e107a3235987938c66f3e0f6f0aa3ece21a9efbe653eb388c9f",
-    "source_digest": "bd3d5640089d4ee858090412dc0d3fd4dfde8a5e03bf449fde1c2ed8336b309b",
+    "path": "evidence/p04/WATCHDOG_MANUAL_CHECKPOINT.json",
+    "sha256": "5bed3ec30cbd126ec1b37ddc56720ba0f99a7ef740e4a7dba252b521b8c862ef",
+    "source_digest": "9ccf9055fc12fd9def8aafb9e7669573e6cf0ca8273e8629bdf4ab5d4da83208",
     "phase_accepted": false
   },
   "native_evidence": {
-    "run_id": "37610129815",
-    "code_commit": "6c3b08fb735c3da2999b52b98e77e4df040a30fa",
-    "source_digest": "b48df0fd1894ca371aba3c9b81939f211da183d1fc48d26afce67a0e99979454",
-    "tests_per_target": 419,
-    "process_exit_cases_per_target": 23,
+    "run_id": "37621021028",
+    "code_commit": "1bcd3a3c419da0e001366dc5501e1aca8a30abd6",
+    "source_digest": "9ccf9055fc12fd9def8aafb9e7669573e6cf0ca8273e8629bdf4ab5d4da83208",
+    "tests_per_target": 453,
+    "process_exit_cases_per_target": 25,
     "target_reports": [
       {
         "target": "Windows",
         "report": {
-          "path": "evidence/targets/Windows/20261007T105146Z_a2808f5c/RUN.json",
-          "sha256": "75ceba38d9f09c5996445cb1242f4debf6a50ce0fad4936e9f221ba30845912a"
+          "path": "evidence/targets/Windows/20261007T122702Z_5bf8d204/RUN.json",
+          "sha256": "2ca00f0ea2b125a3a430413005f4a4794917e0c29d7f673090d92fd51fe6f77d"
         },
         "status": "PASS",
         "source_matches_current": true,
@@ -708,8 +709,8 @@
       {
         "target": "Linux",
         "report": {
-          "path": "evidence/targets/Linux/20261007T105132Z_48aaa2b1/RUN.json",
-          "sha256": "a375e546a6ed960b339c3da3c3351b5fe53a70743ee479747897873e012a7585"
+          "path": "evidence/targets/Linux/20261007T122651Z_b9a89bd9/RUN.json",
+          "sha256": "fb894dc845ed4b86fb189e82488c04afde37a4488edc72d2c4c5d46cf63091d1"
         },
         "status": "PASS",
         "source_matches_current": true,
@@ -717,7 +718,22 @@
       }
     ]
   },
-  "transfer_reviewed_file_count": 794
+  "transfer_reviewed_file_count": 813,
+  "developer_supervisor": {
+    "entry_command": "python tools/development_supervisor.py local",
+    "idle_seconds": 300,
+    "hard_seconds": 900,
+    "maximum_safe_retry": 1,
+    "owned_processes_only": true,
+    "external_mutations": "NOT_REPLAYED_AUTOMATICALLY",
+    "chat_session_control": "UNAVAILABLE",
+    "user_action_messages": "Only when real user action is needed, explain precise steps in bold large text.",
+    "native_verified": true,
+    "latest_state_snapshots": {
+      "path": "evidence/p04/WATCHDOG_MANUAL_CHECKPOINT.json",
+      "sha256": "5bed3ec30cbd126ec1b37ddc56720ba0f99a7ef740e4a7dba252b521b8c862ef"
+    }
+  }
 }
 ```
 

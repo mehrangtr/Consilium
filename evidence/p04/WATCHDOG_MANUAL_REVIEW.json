@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "phase": "P04",
-  "status": "PASS_LOCAL_IMPLEMENTED_SLICE_PENDING_NATIVE",
+  "status": "PASS_IMPLEMENTED_SLICE_ONLY",
   "reviewer": "Same coding assistant in separate criterion review",
   "independent": false,
   "method": "Inspect authority, transactions, historical migrations, failure paths and watchdog ownership; execute real process tests and CLI tests.",
@@ -16,7 +16,6 @@
     "V7 appends migrations without rewriting V1-V6"
   ],
   "remaining": [
-    "Native Windows and Linux verification pending for this exact source",
     "Manual critiques and later rounds",
     "Explicit reconciliation of existing operations",
     "Trusted live provenance",
@@ -41,5 +40,114 @@
     "Process exits do not prove power-loss durability",
     "Same-author review is not independent",
     "Declared manual round_seen is a user attestation, not provider observation"
-  ]
+  ],
+  "source_digest": "9ccf9055fc12fd9def8aafb9e7669573e6cf0ca8273e8629bdf4ab5d4da83208",
+  "code_commit": "1bcd3a3c419da0e001366dc5501e1aca8a30abd6",
+  "native_run_id": "37621021028",
+  "target_reports": [
+    {
+      "target": "Windows",
+      "report": {
+        "path": "evidence/targets/Windows/20261007T122702Z_5bf8d204/RUN.json",
+        "sha256": "2ca00f0ea2b125a3a430413005f4a4794917e0c29d7f673090d92fd51fe6f77d"
+      },
+      "status": "PASS",
+      "source_matches_current": true,
+      "scope": "RECORDED_TARGET_ARTIFACTS_NOT_PHASE_ACCEPTANCE"
+    },
+    {
+      "target": "Linux",
+      "report": {
+        "path": "evidence/targets/Linux/20261007T122651Z_b9a89bd9/RUN.json",
+        "sha256": "fb894dc845ed4b86fb189e82488c04afde37a4488edc72d2c4c5d46cf63091d1"
+      },
+      "status": "PASS",
+      "source_matches_current": true,
+      "scope": "RECORDED_TARGET_ARTIFACTS_NOT_PHASE_ACCEPTANCE"
+    }
+  ],
+  "configured_phase_run": {
+    "receipt": "evidence/runs/20261007T123307Z_fa252882af/RUN.json",
+    "sha256": "412dc435e2ea9c7689c403b6d59f7ba35b6d0cf7613f5b29d14dc10b1095dc57",
+    "status": "PASS",
+    "source_matches_current": true,
+    "checks": [
+      {
+        "id": "scope_inventory",
+        "status": "PASS",
+        "counts": null,
+        "error": null
+      },
+      {
+        "id": "development_regression",
+        "status": "PASS",
+        "counts": {
+          "tests": 99,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        "error": null
+      },
+      {
+        "id": "foundation_behavior",
+        "status": "PASS",
+        "counts": {
+          "tests": 60,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        "error": null
+      },
+      {
+        "id": "environment_lock",
+        "status": "PASS",
+        "counts": null,
+        "error": null
+      },
+      {
+        "id": "native_target_matrix",
+        "status": "PASS",
+        "counts": null,
+        "error": null
+      },
+      {
+        "id": "persistence_durable_kernel",
+        "status": "PASS",
+        "counts": {
+          "tests": 80,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        "error": null
+      },
+      {
+        "id": "browser_probe_preflight_and_durability",
+        "status": "PASS",
+        "counts": {
+          "tests": 44,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        "error": null
+      },
+      {
+        "id": "architect_and_independent_context",
+        "status": "PASS",
+        "counts": {
+          "tests": 170,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        "error": null
+      }
+    ],
+    "scope": "LATEST_COMPLETED_CONFIGURED_RUN; NOT_PHASE_ACCEPTANCE"
+  },
+  "tests_per_native_target": 453,
+  "product_process_exit_cases_per_native_target": 25
 }

@@ -3,14 +3,14 @@
   "scope": "P04_QUESTION_CONTEXT_AND_POLICY_OFFLINE_NOT_FULL_PHASE_ACCEPTANCE",
   "status": "PASS",
   "counts": {
-    "tests": 147,
+    "tests": 170,
     "failures": 0,
     "errors": 0,
     "skipped": 0
   },
-  "source_digest_before": "b48df0fd1894ca371aba3c9b81939f211da183d1fc48d26afce67a0e99979454",
-  "source_digest_after": "b48df0fd1894ca371aba3c9b81939f211da183d1fc48d26afce67a0e99979454",
-  "date_utc": "2026-10-07T10:57:05.693719+00:00",
+  "source_digest_before": "9ccf9055fc12fd9def8aafb9e7669573e6cf0ca8273e8629bdf4ab5d4da83208",
+  "source_digest_after": "9ccf9055fc12fd9def8aafb9e7669573e6cf0ca8273e8629bdf4ab5d4da83208",
+  "date_utc": "2026-10-07T12:33:47.092852+00:00",
   "host": {
     "system": "Linux",
     "python": "3.12.14"
@@ -349,6 +349,98 @@
     },
     {
       "id": "test_independent_context.IndependentContextTests.test_stale_recovery_and_wrong_participant_rejected",
+      "status": "PASS"
+    },
+    {
+      "id": "test_manual_sources.ExistingOperationManualGuardTests.test_prepared_operation_is_preserved_after_switch_to_manual",
+      "status": "PASS"
+    },
+    {
+      "id": "test_manual_sources.ManualSourceTests.test_accepted_content_survives_restart_with_exact_manual_provenance",
+      "status": "PASS"
+    },
+    {
+      "id": "test_manual_sources.ManualSourceTests.test_candidate_hash_detects_modified_answer",
+      "status": "PASS"
+    },
+    {
+      "id": "test_manual_sources.ManualSourceTests.test_change_during_user_review_fails_revision_guard",
+      "status": "PASS"
+    },
+    {
+      "id": "test_manual_sources.ManualSourceTests.test_cli_eof_keeps_staged_content_unaccepted",
+      "status": "PASS"
+    },
+    {
+      "id": "test_manual_sources.ManualSourceTests.test_connection_switch_invalidates_pending_acceptance",
+      "status": "PASS"
+    },
+    {
+      "id": "test_manual_sources.ManualSourceTests.test_diverged_prompt_is_retained_but_not_used_as_aligned_round_context",
+      "status": "PASS"
+    },
+    {
+      "id": "test_manual_sources.ManualSourceTests.test_double_acceptance_never_replaces_the_answer",
+      "status": "PASS"
+    },
+    {
+      "id": "test_manual_sources.ManualSourceTests.test_event_or_record_insert_failure_rolls_back_whole_acceptance",
+      "status": "PASS"
+    },
+    {
+      "id": "test_manual_sources.ManualSourceTests.test_exact_local_review_phrase_is_required_and_eof_does_not_accept",
+      "status": "PASS"
+    },
+    {
+      "id": "test_manual_sources.ManualSourceTests.test_failed_v7_migration_restores_v6_tables_and_checksums",
+      "status": "PASS"
+    },
+    {
+      "id": "test_manual_sources.ManualSourceTests.test_false_confirmation_wrong_hash_and_stale_revision_do_not_advance",
+      "status": "PASS"
+    },
+    {
+      "id": "test_manual_sources.ManualSourceTests.test_modified_candidate_and_deleted_acceptance_are_rejected_on_restart",
+      "status": "PASS"
+    },
+    {
+      "id": "test_manual_sources.ManualSourceTests.test_real_cli_stages_and_accepts_exact_content_without_provider_calls",
+      "status": "PASS"
+    },
+    {
+      "id": "test_manual_sources.ManualSourceTests.test_real_process_exit_after_commit_preserves_manual_answer",
+      "status": "PASS"
+    },
+    {
+      "id": "test_manual_sources.ManualSourceTests.test_real_process_exit_before_commit_rolls_back_acceptance_and_event",
+      "status": "PASS"
+    },
+    {
+      "id": "test_manual_sources.ManualSourceTests.test_rehashed_replacement_record_does_not_match_approval_event",
+      "status": "PASS"
+    },
+    {
+      "id": "test_manual_sources.ManualSourceTests.test_round_not_seen_is_diverged_even_if_prompt_matches",
+      "status": "PASS"
+    },
+    {
+      "id": "test_manual_sources.ManualSourceTests.test_secret_class_or_known_secret_is_not_persisted",
+      "status": "PASS"
+    },
+    {
+      "id": "test_manual_sources.ManualSourceTests.test_staging_is_not_acceptance_or_provider_confirmation",
+      "status": "PASS"
+    },
+    {
+      "id": "test_manual_sources.ManualSourceTests.test_submission_cannot_supply_approval_expected_prompt_or_live_provenance",
+      "status": "PASS"
+    },
+    {
+      "id": "test_manual_sources.ManualSourceTests.test_text_approval_claim_does_not_approve_itself",
+      "status": "PASS"
+    },
+    {
+      "id": "test_manual_sources.ManualSourceTests.test_v6_to_v7_preserves_published_migration_hashes",
       "status": "PASS"
     },
     {

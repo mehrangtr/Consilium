@@ -4,7 +4,7 @@
   "verified_application_requirements": 0,
   "status": "PASS",
   "counts": {
-    "tests": 88,
+    "tests": 99,
     "failures": 0,
     "errors": 0,
     "skipped": 0,
@@ -12,17 +12,18 @@
     "unexpected_successes": 0
   },
   "python": "3.12.14 (main, Aug 13 2026, 02:47:42) [GCC 13.3.0]",
-  "date": "2026-10-07T10:56:31.598770+00:00",
+  "date": "2026-10-07T12:33:17.059022+00:00",
   "platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
   "source_files_before": {
-    "tools/qualityctl.py": "6e6720263ad59ed623d3f966e2edff8cfb25ee8e59456bec973c8dcd36171ba3",
+    "tools/qualityctl.py": "700ea8d63b48d49a5c1efc0760eeb1b4a9f0197ec94c45a4f9aece5604a5ac1f",
     "tools/run_control_tests.py": "c2844ce3de623d84c514784702a7ff861e8f60ec60f40a1aaee54fad4dcb73cf",
-    "tools/check.py": "bd87bb4350423c5564609140e6aa0bf9b98be4a1c7c7b09efba401146193d3eb",
+    "tools/check.py": "64109691b85dfcf042b17b497237962b6d9a0a866709db0bb7f1fe397a48c57b",
     "tools/check_target_matrix.py": "f3867b261022d945892704bbea660019dc1f7b79faf313d64d3e205178a53a5f",
-    "tools/record_target_checks.py": "8f7eca7e798ffaa48f81b561d5e6ae0c96a0bddd703a00f7e8673a705cd128fe",
+    "tools/record_target_checks.py": "89a090867feac0cb6511516d2e2ee9f06e70cf89009601beea724a193a7444d3",
     "ROADMAP.json": "ee444b7e89a9b7724e970e1ed11e50b9762833587823fc01c331425480433cfd",
-    "PROGRESS.json": "d9d5689bd7727f3bc888c547e861019a4fdad7be80f860cf59261e15fbb3745c",
+    "PROGRESS.json": "6ce79375aa8200e5740ecd236403f35dd51d3643811d3e2a80e37de22cd2217b",
     "baseline/Consilium_User_Guarded_Governance_v1.3_Reviewed.zip": "8f898b60627c07ec9c4028ff4bfa510c1b5578c2dd1141fa8f2f16ed648fd742",
+    "tests/test_development_supervisor.py": "e40ae305b48f30a7b33786e98ad117f03bc4746bd189b27ba85525c927770eca",
     "tests/test_git_preservation.py": "ed93431b625d3ffd8f96207bec66775466202d3142b1b378c8709d8221801526",
     "tests/test_native_recording.py": "4a33cd2e61fd3c3f6fd1760c5a517b00d44a16188f76b30bf8560f8bb3eed078",
     "tests/test_phase_reporting.py": "1b86e6739ce79ca2f0e7be301defb3d5f6904ec10b4a635e26fd0fe1f6d22cda",
@@ -33,17 +34,18 @@
     "system": "Linux",
     "python": "3.12.14"
   },
-  "source_digest_before": "b48df0fd1894ca371aba3c9b81939f211da183d1fc48d26afce67a0e99979454",
-  "source_digest_after": "b48df0fd1894ca371aba3c9b81939f211da183d1fc48d26afce67a0e99979454",
+  "source_digest_before": "9ccf9055fc12fd9def8aafb9e7669573e6cf0ca8273e8629bdf4ab5d4da83208",
+  "source_digest_after": "9ccf9055fc12fd9def8aafb9e7669573e6cf0ca8273e8629bdf4ab5d4da83208",
   "source_files_after": {
-    "tools/qualityctl.py": "6e6720263ad59ed623d3f966e2edff8cfb25ee8e59456bec973c8dcd36171ba3",
+    "tools/qualityctl.py": "700ea8d63b48d49a5c1efc0760eeb1b4a9f0197ec94c45a4f9aece5604a5ac1f",
     "tools/run_control_tests.py": "c2844ce3de623d84c514784702a7ff861e8f60ec60f40a1aaee54fad4dcb73cf",
-    "tools/check.py": "bd87bb4350423c5564609140e6aa0bf9b98be4a1c7c7b09efba401146193d3eb",
+    "tools/check.py": "64109691b85dfcf042b17b497237962b6d9a0a866709db0bb7f1fe397a48c57b",
     "tools/check_target_matrix.py": "f3867b261022d945892704bbea660019dc1f7b79faf313d64d3e205178a53a5f",
-    "tools/record_target_checks.py": "8f7eca7e798ffaa48f81b561d5e6ae0c96a0bddd703a00f7e8673a705cd128fe",
+    "tools/record_target_checks.py": "89a090867feac0cb6511516d2e2ee9f06e70cf89009601beea724a193a7444d3",
     "ROADMAP.json": "ee444b7e89a9b7724e970e1ed11e50b9762833587823fc01c331425480433cfd",
-    "PROGRESS.json": "d9d5689bd7727f3bc888c547e861019a4fdad7be80f860cf59261e15fbb3745c",
+    "PROGRESS.json": "6ce79375aa8200e5740ecd236403f35dd51d3643811d3e2a80e37de22cd2217b",
     "baseline/Consilium_User_Guarded_Governance_v1.3_Reviewed.zip": "8f898b60627c07ec9c4028ff4bfa510c1b5578c2dd1141fa8f2f16ed648fd742",
+    "tests/test_development_supervisor.py": "e40ae305b48f30a7b33786e98ad117f03bc4746bd189b27ba85525c927770eca",
     "tests/test_git_preservation.py": "ed93431b625d3ffd8f96207bec66775466202d3142b1b378c8709d8221801526",
     "tests/test_native_recording.py": "4a33cd2e61fd3c3f6fd1760c5a517b00d44a16188f76b30bf8560f8bb3eed078",
     "tests/test_phase_reporting.py": "1b86e6739ce79ca2f0e7be301defb3d5f6904ec10b4a635e26fd0fe1f6d22cda",
@@ -52,6 +54,50 @@
   },
   "source_unchanged": true,
   "cases": [
+    {
+      "id": "test_development_supervisor.DevelopmentSupervisorTests.test_changed_source_or_modified_receipt_blocks_reconciliation",
+      "status": "PASS"
+    },
+    {
+      "id": "test_development_supervisor.DevelopmentSupervisorTests.test_completed_receipt_before_hang_is_reverified_and_queue_continues",
+      "status": "PASS"
+    },
+    {
+      "id": "test_development_supervisor.DevelopmentSupervisorTests.test_default_is_five_minutes_since_progress_not_start",
+      "status": "PASS"
+    },
+    {
+      "id": "test_development_supervisor.DevelopmentSupervisorTests.test_incomplete_safe_check_retries_once_and_preserves_both_attempts",
+      "status": "PASS"
+    },
+    {
+      "id": "test_development_supervisor.DevelopmentSupervisorTests.test_missing_declared_artifact_cannot_be_reconciled_as_complete",
+      "status": "PASS"
+    },
+    {
+      "id": "test_development_supervisor.DevelopmentSupervisorTests.test_nested_child_cannot_reset_owners_progress",
+      "status": "PASS"
+    },
+    {
+      "id": "test_development_supervisor.DevelopmentSupervisorTests.test_nonreplayable_step_is_not_resent_after_timeout",
+      "status": "PASS"
+    },
+    {
+      "id": "test_development_supervisor.DevelopmentSupervisorTests.test_old_pass_never_advances_to_next_command",
+      "status": "PASS"
+    },
+    {
+      "id": "test_development_supervisor.DevelopmentSupervisorTests.test_output_noise_cannot_prevent_killing_parent_and_child",
+      "status": "PASS"
+    },
+    {
+      "id": "test_development_supervisor.DevelopmentSupervisorTests.test_successful_parent_does_not_leave_unfinished_child",
+      "status": "PASS"
+    },
+    {
+      "id": "test_development_supervisor.DevelopmentSupervisorTests.test_wrong_nonce_pid_duplicate_milestone_and_sequence_are_not_progress",
+      "status": "PASS"
+    },
     {
       "id": "test_git_preservation.GitEvidencePreservation.test_native_evidence_survives_git_staging_and_checkout_byte_for_byte",
       "status": "PASS"

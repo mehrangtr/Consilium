@@ -340,7 +340,7 @@ class ArtifactMigrationTests(unittest.TestCase):
             p=Path(folder)/'state.sqlite3'; self.create_v5(p)
             with closing(sqlite3.connect(p)) as db: before=db.execute('SELECT * FROM schema_migrations ORDER BY version').fetchall()
             with SQLiteStore(p) as s:
-                self.assertEqual(s._db.execute('PRAGMA user_version').fetchone()[0],6)
+                self.assertEqual(s._db.execute('PRAGMA user_version').fetchone()[0],7)
                 self.assertEqual([tuple(r) for r in s._db.execute('SELECT * FROM schema_migrations WHERE version<=5 ORDER BY version')],before)
 
     def test_failed_v6_upgrade_rolls_back_to_v5(self):

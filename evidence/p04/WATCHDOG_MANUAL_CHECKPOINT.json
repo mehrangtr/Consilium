@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "phase": "P04",
+  "status": "WATCHDOG_MANUAL_LOCAL_VERIFIED_PENDING_NATIVE",
+  "previous_publication": {
+    "main": "48b61982442ca9258e4fa6961b98b221fc8927d5",
+    "pr": 7,
+    "merged": true,
+    "remaining_publication_work": "NONE"
+  },
+  "phase_accepted": false,
+  "local_test_total": 453,
+  "expected_native_test_total": 453,
+  "expected_product_process_exit_cases": 25,
+  "watchdog_default_idle_seconds": 300,
+  "next_action": "در P04-002 پس از شاهد بومی این برش، نقد دستی و منشأ زنده و تطبیق عملیات قبلی را تکمیل کن؛ نمای دور بعد را از منابع رسمی با مجوز انتقال و بودجه در یک تراکنش به قصد عملیات وصل کن. بازیابی و حفظ مخالفت و نشت و بودجه را آزمون و تمام معیارهای P04 را بازبینی کن. P05 و ارسال زنده هنوز آغاز نشوند.",
+  "source_digest": "40fa1dbf4f98ad5b120af59c3f0c6c4844fd0d7e27e57c41e29861d4e38458e2",
+  "code_commit": null,
+  "native_run_id": null
+}

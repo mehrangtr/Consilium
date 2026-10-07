@@ -135,6 +135,8 @@ class SourceLedger:
                 return self.context_sources(debate_id)
         groups = [(r.published_revision, (r.source,)) for r in self.for_debate(debate_id)]
         groups += [(r.published_revision, r.sources) for r in self.store.artifacts.for_debate(debate_id)]
+        groups += [(r.accepted_revision, (r.source,)) for r in self.store.manual_sources.for_debate(debate_id)
+                   if r.alignment == "ALIGNED"]
         return tuple(source for _, sources in sorted(groups, key=lambda x: x[0]) for source in sources)
 
     def check_integrity(self) -> None:

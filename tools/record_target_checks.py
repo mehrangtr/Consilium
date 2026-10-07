@@ -13,6 +13,7 @@ import uuid
 
 import qualityctl as q
 from check_target_matrix import validate_smoke_row
+from development_progress import milestone, step_id
 
 ROOT = Path(__file__).resolve().parents[1]
 # check.py runs several suites, each bounded to 60 seconds. The aggregate
@@ -64,6 +65,7 @@ def main():
     if isinstance(check_output, str):
         check_output = check_output.encode("utf-8")
     (folder / "CHECK.log").write_bytes(check_output)
+    milestone("native_development_check_finished")
     artifacts = {}
     artifacts["check_log"] = {"path": (folder / "CHECK.log").relative_to(ROOT).as_posix(),
                               "sha256": q.digest((folder / "CHECK.log").read_bytes())}
@@ -105,10 +107,11 @@ def main():
         artifacts["smoke_" + str(len(smoke) + 1) + "_log"] = {
             "path": log.relative_to(ROOT).as_posix(), "sha256": q.digest(raw_output)}
         smoke.append(row)
+        milestone("native_smoke_" + str(len(smoke)) + "_finished")
     after = q.source_digest(ROOT)
     for entry in artifacts.values():
         q.artifact(ROOT, entry)
-    report = {"phase": "P01", "scope": "NATIVE_TARGET_OFFLINE_EXECUTION",
+    report = {"phase": "P01", "development_step_id": step_id(), "scope": "NATIVE_TARGET_OFFLINE_EXECUTION",
               "status": "PASS" if code == 0 and not errors and before == after and all(x["status"] == "PASS" for x in smoke) else "FAIL",
               "check_returncode": code, "errors": errors,
               "source_digest_before": before, "source_digest_after": after,
@@ -121,6 +124,7 @@ def main():
     temp = pointer.with_name(pointer.name + "." + uuid.uuid4().hex + ".tmp")
     temp.write_bytes(q.encoded({"path": run_path.relative_to(ROOT).as_posix(), "sha256": q.digest(run_path.read_bytes())}))
     os.replace(temp, pointer)
+    milestone("native_receipt_and_pointer_written", receipt=run_path)
     print(json.dumps({"status": report["status"], "target": target, "report": run_path.relative_to(ROOT).as_posix()}))
     return int(report["status"] != "PASS")
 

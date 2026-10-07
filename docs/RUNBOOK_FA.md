@@ -10,7 +10,7 @@
 python3.12 -m venv .venv
 .venv/bin/python -m pip install -r requirements.lock
 .venv/bin/python tools/qualityctl.py navigation
-.venv/bin/python tools/check.py
+.venv/bin/python tools/development_supervisor.py local
 ```
 
 در ویندوز، برای پژوهشگر دارای محیط:
@@ -19,7 +19,7 @@ python3.12 -m venv .venv
 py -3.12 -m venv .venv
 .\.venv\Scripts\python.exe -m pip install -r requirements.lock
 .\.venv\Scripts\python.exe tools/qualityctl.py navigation
-.\.venv\Scripts\python.exe tools/check.py
+.\.venv\Scripts\python.exe tools/development_supervisor.py local
 ```
 
 این دستورهای بازتولید، تکلیف کاربر نیستند. دستیار آزمون ویندوز را در گردش‌کار دوردست انجام می‌دهد و گزارش را خودش دریافت می‌کند.
@@ -27,16 +27,16 @@ py -3.12 -m venv .venv
 ## بررسی و شواهد
 
 ```text
-python tools/record_target_checks.py
+python tools/development_supervisor.py native
 python tools/check_target_matrix.py
-python tools/run_current_phase.py
+python tools/development_supervisor.py phase
 ```
 
 فرمان اول، آزمون کنترل و پایه و هستهٔ ماندگاری و چهار سناریوی پایهٔ `CLI` را روی میزبان واقعی اجرا می‌کند. خروجی‌های قابل بازنویسی پیشین پاک می‌شوند؛ گزارش تازه، نسخهٔ محیط، هش منبع و فایل‌های ثابت نتیجه را ثبت می‌کند. آزمون ماندگاری، دوازده مورد قطع واقعی پردازه و مسیر تازهٔ ذخیره و ادامهٔ `CLI` را نیز اجرا می‌کند.
 
 فرمان دوم فقط با گزارش موفق هر دو محیط برای همین منبع موفق می‌شود. نبودن شاهد، هش متفاوت، گزارش نامعتبر یا آزمون ناموفق باعث انسداد می‌شود. فرمان سوم تمام بررسی‌های ثبت‌شدهٔ مرحلهٔ جاری و مراحل قبلی را اجرا می‌کند؛ پذیرش مرحله انجام نمی‌دهد.
 
-`python tools/check.py` بررسی نحو، وضعیت، نما، قالب متن، قفل محیط و سه مجموعهٔ آزمون را اجرا می‌کند. بررسی نوع ایستا و نمایش بصری همهٔ اسناد هنوز انجام نشده‌اند.
+`python tools/development_supervisor.py local` بررسی نحو، وضعیت، نما، قالب متن، قفل محیط و سه مجموعهٔ آزمون را اجرا می‌کند. بررسی نوع ایستا و نمایش بصری همهٔ اسناد هنوز انجام نشده‌اند.
 
 ## محدودهٔ ذخیره‌سازی
 

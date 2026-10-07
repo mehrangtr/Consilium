@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "phase": "P04",
+  "status": "PASS_LOCAL_IMPLEMENTED_SLICE_PENDING_NATIVE",
+  "reviewer": "Same coding assistant in separate criterion review",
+  "independent": false,
+  "method": "Inspect authority, transactions, historical migrations, failure paths and watchdog ownership; execute real process tests and CLI tests.",
+  "verified_scope": [
+    "Five-minute meaningful-progress guard with owned tree termination and a hard ceiling",
+    "Fresh per-execution source-bound receipt verification and failed/successful proof preservation",
+    "At most one explicitly replay-safe offline retry; block unresolved work",
+    "Initial manual answer review bound to content hash and current revision",
+    "MANUAL provenance only; claimed provider origin stays unverified",
+    "DIVERGED evidence retained, excluded from aligned context",
+    "Atomic manual acceptance/event/checkpoint and strict restart reconstruction",
+    "V7 appends migrations without rewriting V1-V6"
+  ],
+  "remaining": [
+    "Native Windows and Linux verification pending for this exact source",
+    "Manual critiques and later rounds",
+    "Explicit reconciliation of existing operations",
+    "Trusted live provenance",
+    "Atomic durable later-round grants/budget/context admission",
+    "Full P04 exit review and acceptance"
+  ],
+  "local_tests": {
+    "control": 99,
+    "foundation": 60,
+    "persistence": 80,
+    "browser_probe": 44,
+    "architect": 170,
+    "total": 453,
+    "status": "PASS_ON_LINUX_PREPUBLICATION_SOURCE"
+  },
+  "live_provider_calls": 0,
+  "paid_calls": 0,
+  "phase_accepted": false,
+  "limitations": [
+    "Ordinary owned POSIX session children only; not malicious detached processes",
+    "Cannot kill or restart ChatGPT or external connector services",
+    "Process exits do not prove power-loss durability",
+    "Same-author review is not independent",
+    "Declared manual round_seen is a user attestation, not provider observation"
+  ]
+}

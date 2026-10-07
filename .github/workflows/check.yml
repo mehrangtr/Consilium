@@ -8,7 +8,7 @@ env:
 jobs:
   check:
     name: Native ${{ matrix.target }}
-    timeout-minutes: 15
+    timeout-minutes: 20
     strategy:
       fail-fast: false
       matrix:
@@ -21,21 +21,34 @@ jobs:
             python: '3.12.10'
     runs-on: ${{ matrix.os }}
     steps:
-      - uses: actions/checkout@v7
+      - timeout-minutes: 5
+        uses: actions/checkout@v7
         with:
           persist-credentials: false
-      - uses: actions/setup-python@v7
+      - timeout-minutes: 5
+        uses: actions/setup-python@v7
         with:
           python-version: ${{ matrix.python }}
       - name: Remove inherited native reports from this disposable checkout
         run: python -c "import shutil; shutil.rmtree('evidence/targets', ignore_errors=True)"
       - run: python -m pip install -r requirements.lock
-      - run: python tools/record_target_checks.py
-      - uses: actions/upload-artifact@v7
+        timeout-minutes: 5
+      - run: python tools/development_supervisor.py native
+        timeout-minutes: 16
+      - timeout-minutes: 5
+        uses: actions/upload-artifact@v7
         if: always()
         with:
           name: native-target-${{ matrix.target }}
           path: evidence/targets/${{ matrix.target }}/
+          if-no-files-found: error
+          retention-days: 7
+      - timeout-minutes: 5
+        uses: actions/upload-artifact@v7
+        if: always()
+        with:
+          name: development-supervisor-${{ matrix.target }}
+          path: evidence/development-supervisor/
           if-no-files-found: error
           retention-days: 7
   validate:
@@ -43,33 +56,41 @@ jobs:
     needs: check
     if: always()
     runs-on: ubuntu-24.04
-    timeout-minutes: 15
+    timeout-minutes: 20
     steps:
-      - uses: actions/checkout@v7
+      - timeout-minutes: 5
+        uses: actions/checkout@v7
         with:
           persist-credentials: false
-      - uses: actions/setup-python@v7
+      - timeout-minutes: 5
+        uses: actions/setup-python@v7
         with:
           python-version: '3.12.14'
       - name: Remove inherited native reports from this disposable checkout
         run: python -c "import shutil; shutil.rmtree('evidence/targets', ignore_errors=True)"
       - run: python -m pip install -r requirements.lock
-      - uses: actions/download-artifact@v8
+        timeout-minutes: 5
+      - timeout-minutes: 5
+        uses: actions/download-artifact@v8
         continue-on-error: true
         with:
           name: native-target-Linux
           path: evidence/targets/Linux/
-      - uses: actions/download-artifact@v8
+      - timeout-minutes: 5
+        uses: actions/download-artifact@v8
         continue-on-error: true
         with:
           name: native-target-Windows
           path: evidence/targets/Windows/
       - name: Validate source hashes, host, dependencies, tests and smoke results
         run: python tools/check_target_matrix.py
+        timeout-minutes: 5
       - name: Record configured phase checks or report its blocker without acceptance
         if: always()
-        run: python tools/run_current_phase.py --report-blocked
-      - uses: actions/upload-artifact@v7
+        run: python tools/development_supervisor.py phase
+        timeout-minutes: 16
+      - timeout-minutes: 5
+        uses: actions/upload-artifact@v7
         if: always()
         with:
           name: combined-phase-evidence
@@ -78,5 +99,6 @@ jobs:
             evidence/target-matrix/
             evidence/runs/
             evidence/latest/
+            evidence/development-supervisor/
           if-no-files-found: error
           retention-days: 7

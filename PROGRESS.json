@@ -717,13 +717,16 @@
       "P04-002 canonical mock-source storage and V5 migration verified: 388 tests and 21 real process exits per actual native OS; full phase remains open.",
       "P04-002 frozen output schemas, typed mock answers and multi-target critique batches plus V6 migration verified: 419 tests and 23 real process exits per native OS. Full P04 remains open."
     ],
-    "working_changes": [],
-    "next_action": "در همین P04-002 پذیرش صریح منابع دستی و منشأ آنها را با ثبت قابل بازیابی تعریف کن؛ منشأ زنده از متن یا برچسب اتصال گرفته نشود. سپس نمای دورهای بعد را از منابع رسمی با مجوز انتقال و بودجه به قصد عملیات در یک تراکنش وصل کن. حفظ قیود و مخالفت و بازیابی و عدم نشت را آزمون کن؛ همهٔ معیارهای P04 را بازبینی کن. P05 و ارسال زنده هنوز آغاز نشوند.",
-    "next_command": "python tools/qualityctl.py status",
+    "working_changes": [
+      "Five-minute owned-process development supervisor and durable proof retention implemented; fresh native verification pending.",
+      "P04-002 explicit initial manual-answer staging/acceptance and V7 migration implemented; fresh native verification pending."
+    ],
+    "next_action": "ناظر و برش پذیرش دستی پیاده شده‌اند؛ ابتدا بررسی بومی همین تصویر منبع در ویندوز و لینوکس و بازبینی و انتشار و تحویل را کامل کن. سپس در P04-002 پس از شاهد بومی این برش، نقد دستی و منشأ زنده و تطبیق عملیات قبلی را تکمیل کن؛ نمای دور بعد را از منابع رسمی با مجوز انتقال و بودجه در یک تراکنش به قصد عملیات وصل کن. بازیابی و حفظ مخالفت و نشت و بودجه را آزمون و تمام معیارهای P04 را بازبینی کن. P05 و ارسال زنده هنوز آغاز نشوند.",
+    "next_command": "python tools/development_supervisor.py local",
     "startup_commands": [
       "python tools/qualityctl.py status",
       "python tools/qualityctl.py navigation --check",
-      "python tools/check.py"
+      "python tools/development_supervisor.py local"
     ],
     "inputs_missing": [],
     "known_quirks": [
@@ -743,27 +746,27 @@
     "next_task": {
       "id": "P04-002",
       "phase": "P04",
-      "status": "PARTIAL_TYPED_MOCK_SOURCE_BATCH_NATIVE_VERIFIED",
+      "status": "PARTIAL_MANUAL_ANSWER_PENDING_NATIVE",
       "title_fa": "نمای مجاز، ثبت پایدار شواهد کنترل و ورودی دورها",
       "completed_fa": "قرارداد خروجی پیش از ارسال ثابت است؛ پاسخ یا نقد چندهدفه به نتیجهٔ رسمی و طرح و هدف‌های دقیق متصل می‌شود. ۳۱ آزمون تازه و مجموع ۴۱۹ آزمون با ۲۳ مورد قطع واقعی پردازه در هر محیط بومی موفق‌اند.",
-      "remaining_fa": "پذیرش صریح منابع دستی، شاهد منشأ زنده، اتصال پایدار نمای دور بعد به قصد و شواهد مجوز و بودجه و پذیرش کامل P04.",
-      "next_action_fa": "در همین P04-002 پذیرش صریح منابع دستی و منشأ آنها را با ثبت قابل بازیابی تعریف کن؛ منشأ زنده از متن یا برچسب اتصال گرفته نشود. سپس نمای دورهای بعد را از منابع رسمی با مجوز انتقال و بودجه به قصد عملیات در یک تراکنش وصل کن. حفظ قیود و مخالفت و بازیابی و عدم نشت را آزمون کن؛ همهٔ معیارهای P04 را بازبینی کن. P05 و ارسال زنده هنوز آغاز نشوند.",
+      "remaining_fa": "نقد دستی و دورهای بعد، تطبیق صریح عملیات قبلی، منشأ زندهٔ معتبر، اتصال پایدار نمای دور بعد به قصد و شواهد مجوز و بودجه و پذیرش کامل P04.",
+      "next_action_fa": "در P04-002 پس از شاهد بومی این برش، نقد دستی و منشأ زنده و تطبیق عملیات قبلی را تکمیل کن؛ نمای دور بعد را از منابع رسمی با مجوز انتقال و بودجه در یک تراکنش به قصد عملیات وصل کن. بازیابی و حفظ مخالفت و نشت و بودجه را آزمون و تمام معیارهای P04 را بازبینی کن. P05 و ارسال زنده هنوز آغاز نشوند.",
       "done_when_fa": "شواهد و ورودی منجمد با نسخه و منشأ و مقصد روشن پایدارند؛ بازیابی و نشت و بودجه و حفظ قیود در تمام نماهای لازم آزموده شده‌اند؛ شواهد هر دو محیط و بازبینی کامل معیارهای مرحله موجود است."
     },
     "unfinished_work": {
       "schema_version": 1,
-      "updated_at_utc": "2026-10-07T10:56:27.287174+00:00",
+      "updated_at_utc": "2026-10-07T12:08:47.729178+00:00",
       "canonical_location": "PROGRESS.json:resume.unfinished_work",
-      "continuation_instruction": "PR6 and prior main d0139378d379302fe2dd16508a52399be3434015 are verified complete. Current typed-source slice is native-verified for b48df0fd1894ca371aba3c9b81939f211da183d1fc48d26afce67a0e99979454. Continue only remaining P04-002 Manual/provenance and durable later-round admission. Original staged checkout is preserved; do not republish it or repeat accepted provider probes.",
+      "continuation_instruction": "Previous main 48b61982442ca9258e4fa6961b98b221fc8927d5 and merged PR7 were reverified complete. Current supervisor/manual slice awaits fresh native verification and delivery. Preserve original staged checkout and accepted P00-P03 evidence; do not re-publish previous work or replay provider probes.",
       "items": [
         {
           "id": "P04-002",
           "phase": "P04",
-          "status": "PARTIAL_TYPED_MOCK_SOURCE_BATCH_NATIVE_VERIFIED",
+          "status": "PARTIAL_MANUAL_ANSWER_PENDING_NATIVE",
           "title_fa": "نمای مجاز، ثبت پایدار شواهد کنترل و ورودی دورها",
           "completed_fa": "قرارداد خروجی پیش از ارسال ثابت است؛ پاسخ یا نقد چندهدفه به نتیجهٔ رسمی و طرح و هدف‌های دقیق متصل می‌شود. ۳۱ آزمون تازه و مجموع ۴۱۹ آزمون با ۲۳ مورد قطع واقعی پردازه در هر محیط بومی موفق‌اند.",
-          "remaining_fa": "پذیرش صریح منابع دستی، شاهد منشأ زنده، اتصال پایدار نمای دور بعد به قصد و شواهد مجوز و بودجه و پذیرش کامل P04.",
-          "next_action_fa": "در همین P04-002 پذیرش صریح منابع دستی و منشأ آنها را با ثبت قابل بازیابی تعریف کن؛ منشأ زنده از متن یا برچسب اتصال گرفته نشود. سپس نمای دورهای بعد را از منابع رسمی با مجوز انتقال و بودجه به قصد عملیات در یک تراکنش وصل کن. حفظ قیود و مخالفت و بازیابی و عدم نشت را آزمون کن؛ همهٔ معیارهای P04 را بازبینی کن. P05 و ارسال زنده هنوز آغاز نشوند.",
+          "remaining_fa": "نقد دستی و دورهای بعد، تطبیق صریح عملیات قبلی، منشأ زندهٔ معتبر، اتصال پایدار نمای دور بعد به قصد و شواهد مجوز و بودجه و پذیرش کامل P04.",
+          "next_action_fa": "در P04-002 پس از شاهد بومی این برش، نقد دستی و منشأ زنده و تطبیق عملیات قبلی را تکمیل کن؛ نمای دور بعد را از منابع رسمی با مجوز انتقال و بودجه در یک تراکنش به قصد عملیات وصل کن. بازیابی و حفظ مخالفت و نشت و بودجه را آزمون و تمام معیارهای P04 را بازبینی کن. P05 و ارسال زنده هنوز آغاز نشوند.",
           "done_when_fa": "شواهد و ورودی منجمد با نسخه و منشأ و مقصد روشن پایدارند؛ بازیابی و نشت و بودجه و حفظ قیود در تمام نماهای لازم آزموده شده‌اند؛ شواهد هر دو محیط و بازبینی کامل معیارهای مرحله موجود است."
         }
       ],
@@ -1395,7 +1398,7 @@
             "sha256": "75ceba38d9f09c5996445cb1242f4debf6a50ce0fad4936e9f221ba30845912a"
           },
           "status": "PASS",
-          "source_matches_current": true,
+          "source_matches_current": false,
           "scope": "RECORDED_TARGET_ARTIFACTS_NOT_PHASE_ACCEPTANCE"
         },
         {
@@ -1405,12 +1408,23 @@
             "sha256": "a375e546a6ed960b339c3da3c3351b5fe53a70743ee479747897873e012a7585"
           },
           "status": "PASS",
-          "source_matches_current": true,
+          "source_matches_current": false,
           "scope": "RECORDED_TARGET_ARTIFACTS_NOT_PHASE_ACCEPTANCE"
         }
-      ]
+      ],
+      "scope": "HISTORICAL_PREVIOUS_SOURCE_NEW_CODE_NATIVE_VERIFICATION_PENDING"
     },
-    "transfer_reviewed_file_count": 794
+    "transfer_reviewed_file_count": 794,
+    "developer_supervisor": {
+      "entry_command": "python tools/development_supervisor.py local",
+      "idle_seconds": 300,
+      "hard_seconds": 900,
+      "maximum_safe_retry": 1,
+      "owned_processes_only": true,
+      "external_mutations": "NOT_REPLAYED_AUTOMATICALLY",
+      "chat_session_control": "UNAVAILABLE",
+      "user_action_messages": "Only when real user action is needed, explain precise steps in bold large text."
+    }
   },
-  "updated_at_utc": "2026-10-07T10:56:27.287174+00:00"
+  "updated_at_utc": "2026-10-07T12:08:47.729178+00:00"
 }

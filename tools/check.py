@@ -8,6 +8,7 @@ import subprocess
 import sys
 
 import qualityctl as q
+from development_progress import atomic_json, milestone, step_id
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -25,6 +26,7 @@ def main():
         results.append({"id": "state_navigation_python_syntax", "status": "PASS"})
     except (q.Blocked, SyntaxError, OSError, KeyError, ValueError) as exc:
         results.append({"id": "state_navigation_python_syntax", "status": "FAIL", "error": str(exc)})
+    milestone("state_navigation_python_syntax_finished")
     markdown = [name for name, _ in rows if name.endswith(".md")]
     markdown += list(q.NAVIGATION_FILES)
     commands = [
@@ -53,16 +55,24 @@ def main():
             results.append({"id": name, "status": "PASS" if code == 0 else "FAIL", "returncode": code})
         except (OSError, subprocess.TimeoutExpired) as exc:
             results.append({"id": name, "status": "FAIL", "error": type(exc).__name__})
+        milestone(name + "_finished")
     after = q.source_digest(ROOT)
     passed = before == after and all(x["status"] == "PASS" for x in results)
-    report = {"schema_version": 1, "scope": "DEVELOPMENT_CHECK_WITH_SEPARATE_FOUNDATION_TESTS" if has_application else "DEVELOPMENT_CONTROL_TOOLING_ONLY",
+    artifact_names = ["evidence/environment/RUN.json"]
+    for folder in ("control-tests", "foundation-tests", "persistence-tests", "browser-probe-tests", "architect-tests"):
+        artifact_names += ["evidence/" + folder + "/" + file for file in ("RUN.json", "JUNIT.xml")]
+    artifacts = {name: {"path": name, "sha256": q.digest((ROOT / name).read_bytes())}
+                 for name in artifact_names if (ROOT / name).is_file()}
+    report = {"schema_version": 1, "development_step_id": step_id(), "artifacts": artifacts,
+              "scope": "DEVELOPMENT_CHECK_WITH_SEPARATE_FOUNDATION_TESTS" if has_application else "DEVELOPMENT_CONTROL_TOOLING_ONLY",
               "status": "PASS" if passed else "FAIL", "checks": results,
               "source_digest_before": before, "source_digest_after": after,
               "application_runtime_tests": "FOUNDATION_P02_KERNEL_P03_OFFLINE_PROBE_AND_P04_OFFLINE_SLICES" if has_architect else "FOUNDATION_P02_KERNEL_AND_P03_OFFLINE_PROBE" if has_probe else "FOUNDATION_AND_P02_DURABLE_KERNEL" if has_persistence else "FOUNDATION_ONLY" if has_application else "NOT_RUN", "application_phase_accepted": False,
               "static_type_check": "NOT_RUN", "visual_rendering": "NOT_RUN"}
     destination = ROOT / "evidence/maintenance-check/RUN.json"
     destination.parent.mkdir(parents=True, exist_ok=True)
-    destination.write_bytes(q.encoded(report))
+    atomic_json(destination, report)
+    milestone("development_check_receipt_written", receipt=destination)
     print(q.encoded(report).decode())
     return int(not passed)
 

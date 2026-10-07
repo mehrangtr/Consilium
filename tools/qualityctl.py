@@ -193,6 +193,7 @@ def junit_counts(path):
 
 
 def run(root, phase):
+    from development_progress import milestone, step_id
     plan, progress, checks = selected(root, phase)
     before = source_digest(root)
     progress_hash = digest((root / "PROGRESS.json").read_bytes())
@@ -236,10 +237,11 @@ def run(root, phase):
                 message = str(exc)
         result.update(status="PASS" if ok else "FAIL", error=message)
         results.append(result)
+        milestone("configured_" + check["id"] + "_finished")
     after = source_digest(root)
     stable = (before == after
               and progress_hash == digest((root / "PROGRESS.json").read_bytes()))
-    receipt = {"schema_version": 1, "phase": phase, "plan_version": plan["plan_version"],
+    receipt = {"schema_version": 1, "development_step_id": step_id(), "phase": phase, "plan_version": plan["plan_version"],
                "source_digest_before": before, "source_digest_after": after,
                "progress_sha256": progress_hash, "checks": results,
                "status": "PASS" if stable and all(x["status"] == "PASS" for x in results) else "FAIL",
@@ -258,6 +260,7 @@ def run(root, phase):
         os.replace(temp, latest)
     finally:
         temp.unlink(missing_ok=True)
+    milestone("configured_phase_receipt_written", receipt=path)
     return path, receipt
 
 

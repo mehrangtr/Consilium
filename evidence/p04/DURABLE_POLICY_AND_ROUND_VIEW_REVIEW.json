@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "phase": "P04",
+  "scope": "IMPLEMENTED_SLICE_REVIEW_NOT_PHASE_ACCEPTANCE",
+  "source_digest": "edfe7e84230c4f0e286774fa4c8377d232690fd9ab4644208b05c0bc1d05da19",
+  "reviewer_independent": false,
+  "method": "Separate author review after implementation; no second researcher claimed.",
+  "status": "NATIVE_PROOF_PENDING",
+  "findings_fixed": [
+    {
+      "id": "P04-RV-016-A",
+      "finding": "A declared source from before adopted question revision could enter a later view.",
+      "change": "Reject sources earlier than the adopted revision.",
+      "test": "test_round_context.RoundContextTests.test_source_from_before_question_adoption_is_rejected"
+    },
+    {
+      "id": "P04-RV-016-B",
+      "finding": "A critique could reference an answer whose declared source revision was later than the critique.",
+      "change": "Require target answer from an earlier round and no later source revision.",
+      "test": "test_round_context.RoundContextTests.test_critique_cannot_reference_an_answer_from_its_future"
+    }
+  ],
+  "checks_reviewed": [
+    "Atomic intent/attempt/event/admission commit with failure and process-exit cases",
+    "Published migration checksums preserved and failed migration rolled back",
+    "Reload checks full facts, authorized reconstruction and preparation-event binding",
+    "Historical facts distinguished from current continuation eligibility",
+    "Missing local evidence and all policy-managed live sends blocked",
+    "Allowlisted blind metadata, explicit named identity authorization and explicit judge selection",
+    "Exact source grants; secret, unknown, stale, missing dissent and malformed provenance rejected",
+    "Provider text remains data, with no claim of perfect model prompt-injection resistance"
+  ],
+  "open_work": [
+    "Later-round canonical-source and ledger/budget integration",
+    "Full original P04 exit review and acceptance",
+    "Trusted live measurements/history belong to later adapter work"
+  ],
+  "live_provider_calls": 0,
+  "paid_calls": 0,
+  "local_test_counts": {
+    "control": 88,
+    "foundation": 60,
+    "persistence": 80,
+    "browser_probe": 44,
+    "architect": 95,
+    "total": 367
+  },
+  "local_maintenance_check": {
+    "path": "evidence/maintenance-check/RUN.json",
+    "sha256": "2074c3562926e924df51de8a02e703cae185420941226d283b95a59ceb9e20b4"
+  }
+}

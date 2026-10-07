@@ -108,12 +108,12 @@ class ContextPreparationTests(unittest.TestCase):
 
     def test_state_change_between_policy_read_and_intent_write_is_rejected(self):
         original=self.store.prepare_intent
-        def advance_before_write(intent):
+        def advance_before_write(intent, **kwargs):
             self.store.bind_connection(self.debate.debate_id,UUID(int=2),
                 self.connection.model_copy(update={"model_id":"changed"}),
                 expected_revision=3,expected_connection_revision=0,
                 actor="LOCAL_USER_FIXTURE",reason="explicit test change during preparation")
-            return original(intent)
+            return original(intent, **kwargs)
         with patch.object(self.store,"prepare_intent",side_effect=advance_before_write):
             with self.assertRaises(ValueError):self.prepare()
         self.assertEqual(self.store.prepared_intents(self.debate.debate_id),())

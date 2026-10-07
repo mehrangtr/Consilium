@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "phase": "P04",
+  "status": "LOCAL_TESTS_PASS_NATIVE_PROOF_PENDING",
+  "phase_accepted": false,
+  "source_digest": "edfe7e84230c4f0e286774fa4c8377d232690fd9ab4644208b05c0bc1d05da19",
+  "code_commit": null,
+  "completed_scope": [
+    "atomic initial admission evidence",
+    "explicit later-round local projections"
+  ],
+  "remaining": [
+    "later-round canonical source and ledger/budget integration",
+    "full P04 exit acceptance"
+  ],
+  "live_provider_calls": 0,
+  "paid_calls": 0,
+  "local_test_counts": {
+    "control": 88,
+    "foundation": 60,
+    "persistence": 80,
+    "browser_probe": 44,
+    "architect": 95,
+    "total": 367
+  },
+  "local_maintenance_check": {
+    "path": "evidence/maintenance-check/RUN.json",
+    "sha256": "2074c3562926e924df51de8a02e703cae185420941226d283b95a59ceb9e20b4"
+  }
+}

@@ -1,11 +1,12 @@
 """Bind initial context to actual stored state and prepare intent, without send.
 
-Admission attestations are checked but not yet durably stored. A live dispatcher
-must preserve/revalidate their evidence and remote history before transport.
-The existing MOCK-only demo is a separate foundation path.
+Admission facts and intent are committed atomically. These are local
+attestations, not proof of live measurements. Policy-managed transport stays
+disabled until trusted live observers are implemented in their later phase.
 """
 from consilium.core.contracts import ConnectionSpec, GenerationParameters, OperationIdentity, OperationIntent, RoundSpec
 from consilium.core.dispatch_policy import evaluate_dispatch_policy
+from consilium.core.admission_bundle import AdmissionBundle
 from consilium.core.independent_context import IndependentContext, recover_independent_context
 from consilium.shell.private import ensure_public_payload
 from consilium.shell.storage import Conflict, _revision
@@ -48,4 +49,7 @@ def prepare_independent_intent(store, *, context, connection: ConnectionSpec, id
             participant_id=context.participant_id, connection_id=connection.connection_id,
             expected_revision=expected_revision, connection_revision=expected_connection_revision,
             frozen_input=frozen, request_hash=frozen.content_hash)
-    return store.prepare_intent(intent), admission
+        bundle = AdmissionBundle(context=context, connection=connection,
+            connection_revision=expected_connection_revision, privacy=privacy, budget=budget,
+            history=history, admission=admission)
+    return store.prepare_intent(intent, admission_bundle=bundle), admission

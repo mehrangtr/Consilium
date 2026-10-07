@@ -2,7 +2,7 @@
 
 این نما خودکار از `ROADMAP.json`، `PROGRESS.json` و `CHECKS.json` ساخته شده است. ویرایش دستی مرجع نیست؛ پس از تغییر مبنا فرمان تولید را دوباره اجرا کنید.
 
-شناسهٔ مبنای نما: `eaf19fd6bc16692cff5b2fa866a0fcdab63ab8fa8dd390119c89220f220bf0e8`.
+شناسهٔ مبنای نما: `85d598217a12b7792c3c9e2861503c7c60d53ae3d54f7561f5acd4dd9a861517`.
 
 مرحلهٔ فعلی: `P04`. آخرین مرحلهٔ پذیرفته‌شده: `P03`.
 
@@ -21,8 +21,10 @@
     "P04 immutable question/adoption and initial independent context plus schema-v3 durable adoption tested: 305 tests on each actual native OS; phase not accepted.",
     "P04-001 question contract, durable adoption and actual local CLI review completed; initial-context policy/intent preparation tested; 335 tests per actual native OS. Full P04 remains open."
   ],
-  "working_changes": [],
-  "next_action": "شواهد ContextAdmission را با خود شواهد مجوز و بودجه و تاریخچه، در همان تراکنش ثبت قصد پایدار کن؛ بازگشایی و تعارض و قطع پردازه را بررسی کن. سپس زمینهٔ مجاز سایر دورها را بساز. هیچ ارسال زنده‌ای پیش از تکمیل این گیت فعال نشود.",
+  "working_changes": [
+    "P04-002 atomic initial admission and explicit later-round projections; 95 local slice tests; native validation pending"
+  ],
+  "next_action": "ابتدا رگرسیون کامل و شاهد تازهٔ هر دو محیط برای این منبع را ثبت کن. سپس نمای دورهای بعد را از منابع معتبر پایگاه بساز و با شواهد کنترل و ورودی منجمد در همان تراکنش ثبت کن؛ آزمون بودجه و عدم حذف قیود و مخالفت را پیش از پذیرش P04 کامل کن. ارسال زنده فعال نشود.",
   "next_command": "python tools/qualityctl.py status",
   "startup_commands": [
     "python tools/qualityctl.py status",
@@ -44,27 +46,27 @@
   "next_task": {
     "id": "P04-002",
     "phase": "P04",
-    "status": "PARTIAL_INITIAL_CONTEXT_POLICY_AND_PREPARATION_VERIFIED",
+    "status": "PARTIAL_DURABLE_INITIAL_ADMISSION_AND_LATER_PROJECTIONS_LOCAL_TESTS_PASS",
     "title_fa": "نمای مجاز، ثبت پایدار شواهد کنترل و ورودی دورها",
-    "completed_fa": "زمینهٔ اولیهٔ مستقل و بازیابی آن، کنترل محلی مجوز و بودجه و تاریخچه و آماده‌سازی قصد از وضعیت واقعی پیاده شده‌اند. ۳۳۵ آزمون در هر محیط بومی پاس است.",
-    "remaining_fa": "شواهد کنترل هنوز همراه قصد عملیات پایدار ذخیره نمی‌شوند؛ زمینهٔ مجاز دورهای بازبینی و هدفمند و جمع‌بندی و پذیرش کامل مرحلهٔ چهار باقی است. اندازه‌گیری توکن و مشاهدهٔ واقعی تاریخچه در این برش تأیید نشده‌اند.",
-    "next_action_fa": "شواهد ContextAdmission را با خود شواهد مجوز و بودجه و تاریخچه، در همان تراکنش ثبت قصد پایدار کن؛ بازگشایی و تعارض و قطع پردازه را بررسی کن. سپس زمینهٔ مجاز سایر دورها را بساز. هیچ ارسال زنده‌ای پیش از تکمیل این گیت فعال نشود.",
+    "completed_fa": "ثبت تراکنشی شواهد کنترل اولیه، بازیابی و کشف حذف و تعارض؛ نمای محلی نقد و هدفمند و جمع‌بندی با مجوز منبع و حفظ مخالفت پیاده شد. ۹۵ آزمون محلی مرحلهٔ چهار پاس است؛ شاهد تازهٔ بومی هنوز در انتظار اجراست.",
+    "remaining_fa": "اتصال نمای دورهای بعد به مخزن معتبر منابع شورا و ثبت تراکنشی شواهد مجوز و بودجهٔ همان نما؛ بازبینی کامل معیارهای مرحله و گیت. اندازه‌گیری زنده و مشاهدهٔ واقعی تاریخچه در این برش تأیید نشده‌اند.",
+    "next_action_fa": "ابتدا رگرسیون کامل و شاهد تازهٔ هر دو محیط برای این منبع را ثبت کن. سپس نمای دورهای بعد را از منابع معتبر پایگاه بساز و با شواهد کنترل و ورودی منجمد در همان تراکنش ثبت کن؛ آزمون بودجه و عدم حذف قیود و مخالفت را پیش از پذیرش P04 کامل کن. ارسال زنده فعال نشود.",
     "done_when_fa": "شواهد و ورودی منجمد با نسخه و منشأ و مقصد روشن پایدارند؛ بازیابی و نشت و بودجه و حفظ قیود در تمام نماهای لازم آزموده شده‌اند؛ شواهد هر دو محیط و بازبینی کامل معیارهای مرحله موجود است."
   },
   "unfinished_work": {
     "schema_version": 1,
-    "updated_at_utc": "2026-10-07T05:20:01.020452+00:00",
+    "updated_at_utc": "2026-10-07T05:55:12.320369+00:00",
     "canonical_location": "PROGRESS.json:resume.unfinished_work",
-    "continuation_instruction": "Continue P04-002 from verified 335-test source. Do not repeat P03 browser probes or redo completed P04-001. Persist admission evidence before enabling transport.",
+    "continuation_instruction": "Continue this P04-002 work from the new local source; obtain fresh both-OS proof, then persist later-round source/permission/budget evidence. Never replay P03 probes.",
     "items": [
       {
         "id": "P04-002",
         "phase": "P04",
-        "status": "PARTIAL_INITIAL_CONTEXT_POLICY_AND_PREPARATION_VERIFIED",
+        "status": "PARTIAL_DURABLE_INITIAL_ADMISSION_AND_LATER_PROJECTIONS_LOCAL_TESTS_PASS",
         "title_fa": "نمای مجاز، ثبت پایدار شواهد کنترل و ورودی دورها",
-        "completed_fa": "زمینهٔ اولیهٔ مستقل و بازیابی آن، کنترل محلی مجوز و بودجه و تاریخچه و آماده‌سازی قصد از وضعیت واقعی پیاده شده‌اند. ۳۳۵ آزمون در هر محیط بومی پاس است.",
-        "remaining_fa": "شواهد کنترل هنوز همراه قصد عملیات پایدار ذخیره نمی‌شوند؛ زمینهٔ مجاز دورهای بازبینی و هدفمند و جمع‌بندی و پذیرش کامل مرحلهٔ چهار باقی است. اندازه‌گیری توکن و مشاهدهٔ واقعی تاریخچه در این برش تأیید نشده‌اند.",
-        "next_action_fa": "شواهد ContextAdmission را با خود شواهد مجوز و بودجه و تاریخچه، در همان تراکنش ثبت قصد پایدار کن؛ بازگشایی و تعارض و قطع پردازه را بررسی کن. سپس زمینهٔ مجاز سایر دورها را بساز. هیچ ارسال زنده‌ای پیش از تکمیل این گیت فعال نشود.",
+        "completed_fa": "ثبت تراکنشی شواهد کنترل اولیه، بازیابی و کشف حذف و تعارض؛ نمای محلی نقد و هدفمند و جمع‌بندی با مجوز منبع و حفظ مخالفت پیاده شد. ۹۵ آزمون محلی مرحلهٔ چهار پاس است؛ شاهد تازهٔ بومی هنوز در انتظار اجراست.",
+        "remaining_fa": "اتصال نمای دورهای بعد به مخزن معتبر منابع شورا و ثبت تراکنشی شواهد مجوز و بودجهٔ همان نما؛ بازبینی کامل معیارهای مرحله و گیت. اندازه‌گیری زنده و مشاهدهٔ واقعی تاریخچه در این برش تأیید نشده‌اند.",
+        "next_action_fa": "ابتدا رگرسیون کامل و شاهد تازهٔ هر دو محیط برای این منبع را ثبت کن. سپس نمای دورهای بعد را از منابع معتبر پایگاه بساز و با شواهد کنترل و ورودی منجمد در همان تراکنش ثبت کن؛ آزمون بودجه و عدم حذف قیود و مخالفت را پیش از پذیرش P04 کامل کن. ارسال زنده فعال نشود.",
         "done_when_fa": "شواهد و ورودی منجمد با نسخه و منشأ و مقصد روشن پایدارند؛ بازیابی و نشت و بودجه و حفظ قیود در تمام نماهای لازم آزموده شده‌اند؛ شواهد هر دو محیط و بازبینی کامل معیارهای مرحله موجود است."
       }
     ],
@@ -246,7 +248,7 @@
     "distinguish_execution_from_verified_result": true,
     "external_tool_timeout_caveat": "A local timer cannot guarantee cancellation of the external connector. An unresponsive operation must be abandoned/reconciled; it must not block already valid source or acceptance metadata.",
     "large_transfer_policy": "Keep large optional history artifacts in the verified deliverable. Publish code and acceptance metadata independently. Do not repeatedly submit multi-megabyte connector arguments.",
-    "phase_barrier": "P02 accepted and publication verified. P03 is blocked by declined authentication; P04 remains blocked until genuine P03 criteria pass."
+    "phase_barrier": "P00-P03 accepted with immutable limited-scope evidence. P04 is in progress; P05-P16 remain blocked until P04 criteria and gate pass."
   },
   "public_publication": {
     "status": "COMPLETED_REVIEWED_SOURCE_AND_EVIDENCE_ON_MAIN",

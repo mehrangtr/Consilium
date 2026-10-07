@@ -110,6 +110,13 @@ class OperationLedger:
                 raise Conflict("Dispatch is blocked by an explicit wait gate")
             if record.state != AttemptState.PREPARED:
                 raise Conflict("An invoked attempt cannot be invoked again")
+            bundle = self.store.admissions.get(record.intent.identity.logical_operation_id)
+            if bundle is not None or self.store.questions.get_adopted(record.intent.debate_id) is not None:
+                self.store.admissions.require_current(request.intent.identity.attempt_id,
+                    expected_revision=expected_revision)
+                # Persisted synthetic/local facts do not establish token counts
+                # or the live conversation's history. P04 prepares, never sends.
+                raise Conflict("Policy-managed transport awaits trusted live observers")
             outstanding = self._db.execute("""SELECT a.attempt_id FROM attempts a JOIN operations o USING(logical_operation_id)
                 WHERE o.debate_id=? AND a.state IN ('SENT','UNKNOWN_DELIVERY','RESPONSE_PENDING','RESPONSE_RECEIVED','VALIDATED') LIMIT 1""",
                 (str(record.intent.debate_id),)).fetchone()

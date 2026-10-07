@@ -15,9 +15,10 @@ from consilium.core.contracts import ConnectionSpec, DebateSpec, OperationIntent
 from consilium.core.storage_contracts import StorageCheckpoint
 from consilium.shell.private import ensure_public_payload
 from consilium.shell.schema_v2 import V2_STATEMENTS, V2_TABLES
+from consilium.shell.schema_v3 import V3_STATEMENTS, V3_TABLES
 
 APPLICATION_ID = 0x434F4E53
-SCHEMA_VERSION = 2
+SCHEMA_VERSION = 3
 V1_STATEMENTS = (
     """CREATE TABLE schema_migrations(
         version INTEGER PRIMARY KEY, checksum TEXT NOT NULL CHECK(length(checksum)=64),
@@ -110,7 +111,7 @@ class SQLiteStore:
                 self._db.execute("PRAGMA foreign_keys=OFF")
             with self._transaction():
                 version = self._check_owner()
-                migrations = {1: V1_STATEMENTS, 2: V2_STATEMENTS}
+                migrations = {1: V1_STATEMENTS, 2: V2_STATEMENTS, 3: V3_STATEMENTS}
                 checksums = {v: hashlib.sha256(_json(sql).encode("utf-8")).hexdigest() for v, sql in migrations.items()}
                 if version == 0:
                     # executescript() is deliberately excluded from this transaction.
@@ -123,7 +124,7 @@ class SQLiteStore:
                 recorded = self._db.execute("SELECT version,checksum FROM schema_migrations ORDER BY version").fetchall()
                 if [(r["version"], r["checksum"]) for r in recorded] != [(v, checksums[v]) for v in range(1, version+1)]:
                     raise SchemaError("Migration history does not match this schema")
-                if self._table_names() != (_TABLES if version == 1 else V2_TABLES):
+                if self._table_names() != {1: _TABLES, 2: V2_TABLES, 3: V3_TABLES}[version]:
                     raise SchemaError("Storage schema is incomplete or has unknown tables")
                 # Validate the old checkpoint before touching its schema.
                 for row in self._db.execute("SELECT debate_id FROM debates").fetchall():
@@ -133,7 +134,7 @@ class SQLiteStore:
                         self._db.execute(statement)
                     self._db.execute("INSERT INTO schema_migrations VALUES(?,?,?)", (target, checksums[target], self._now()))
                     self._db.execute("PRAGMA user_version=" + str(target))
-                if self._table_names() != V2_TABLES:
+                if self._table_names() != V3_TABLES:
                     raise SchemaError("Migrated schema is inconsistent")
                 if self._db.execute("PRAGMA quick_check").fetchone()[0] != "ok" or self._db.execute("PRAGMA foreign_key_check").fetchall():
                     raise SchemaError("Storage integrity check failed")
@@ -142,6 +143,9 @@ class SQLiteStore:
                 from consilium.shell.ledger import OperationLedger
                 self.ledger = OperationLedger(self)
                 self.ledger.check_integrity()
+                from consilium.shell.questions import QuestionLedger
+                self.questions = QuestionLedger(self)
+                self.questions.check_integrity()
             self._db.execute("PRAGMA foreign_keys=ON")
             if self._db.execute("PRAGMA foreign_keys").fetchone()[0] != 1:
                 raise SchemaError("Runtime foreign key enforcement is unavailable")
@@ -161,7 +165,7 @@ class SQLiteStore:
     def _check_owner(self) -> int:
         version = self._db.execute("PRAGMA user_version").fetchone()[0]
         owner = self._db.execute("PRAGMA application_id").fetchone()[0]
-        if version not in {0, 1, SCHEMA_VERSION} or owner not in {0, APPLICATION_ID}:
+        if version not in {0, 1, 2, SCHEMA_VERSION} or owner not in {0, APPLICATION_ID}:
             raise SchemaError("Storage belongs to another application or schema version")
         if version == 0 and (owner != 0 or self._table_names()):
             raise SchemaError("Unversioned existing data cannot be adopted")
@@ -369,6 +373,7 @@ class SQLiteStore:
                        "prepared_intents": [x.model_dump(mode="json") for x in self.prepared_intents(debate_id)],
                        "events": events, "checkpoint": self.checkpoint(debate_id).model_dump(mode="json")}
             payload.update(self.ledger.export_fields(debate_id))
+            payload.update(self.questions.export_fields(debate_id))
             self._public(payload)
             return payload
 

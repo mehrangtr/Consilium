@@ -677,9 +677,9 @@
       "P04 contract draft and adversarial test matrix prepared; no P04 implementation yet"
     ],
     "working_changes": [
-      "P04 question contracts and independent context: 18 offline tests; native proof recording extended"
+      "P04 schema-v3 architect candidate storage and atomic user adoption; 33 slice tests"
     ],
-    "next_action": "مهاجرت نسخه‌دار پایگاه داده برای ثبت پیشنهاد و تأیید کاربر را با آزمون بازگشایی و تعارض نسخه بساز؛ سپس سیاست ارسال را تکمیل کن. دور مستقل هنوز به ارسال زنده متصل نیست.",
+    "next_action": "پس از بررسی بومی منبع تازه، رابط تعاملی تأیید را به QuestionLedger متصل کن؛ سپس سیاست حریم خصوصی و بودجه و مجوز تاریخچه را قبل از هر ارسال پیاده کن. مرحلهٔ چهار هنوز کامل نیست.",
     "next_command": "python tools/qualityctl.py status",
     "startup_commands": [
       "python tools/qualityctl.py status",
@@ -699,11 +699,11 @@
     "next_task": {
       "id": "P04-001",
       "phase": "P04",
-      "status": "OFFLINE_SLICE_AND_BOTH_NATIVE_TARGETS_VERIFIED_INTEGRATION_PENDING",
+      "status": "DURABLE_ADOPTION_IMPLEMENTED_LOCAL_VALIDATION_PENDING",
       "title_fa": "قرارداد اصل پرسش، پیشنهاد معمار و پذیرش نسخهٔ جدید",
-      "completed_fa": "پرسش و پیشنهاد و پذیرش نسخه و زمینهٔ اولیهٔ مستقل و بازیابی دقیق ورودی پیاده شدند؛ هجده آزمون محلی پاس شدند.",
-      "remaining_fa": "ثبت پایدار تأیید کاربر، مهاجرت پایگاه داده، سیاست حریم خصوصی و بودجه، تاریخچهٔ دوردست و پذیرش کامل مرحله باقی است. شاهد بومی این برش در هر دو محیط پاس شده است.",
-      "next_action_fa": "مهاجرت نسخه‌دار پایگاه داده برای ثبت پیشنهاد و تأیید کاربر را با آزمون بازگشایی و تعارض نسخه بساز؛ سپس سیاست ارسال را تکمیل کن. دور مستقل هنوز به ارسال زنده متصل نیست.",
+      "completed_fa": "قرارداد پرسش و زمینهٔ مستقل و بازیابی و ثبت پایدار نامزد و تأیید کاربر پیاده شد؛ ۳۳ آزمون این برش شامل قطع واقعی پردازه و مهاجرت نسخهٔ دو پاس شده‌اند.",
+      "remaining_fa": "بررسی کامل نسخهٔ جدید و شاهد بومی تازه؛ رابط تعاملی تأیید و سیاست حریم خصوصی و بودجه و اتصال به ارسال و تاریخچهٔ دوردست و پذیرش کامل مرحله باقی است.",
+      "next_action_fa": "پس از بررسی بومی منبع تازه، رابط تعاملی تأیید را به QuestionLedger متصل کن؛ سپس سیاست حریم خصوصی و بودجه و مجوز تاریخچه را قبل از هر ارسال پیاده کن. مرحلهٔ چهار هنوز کامل نیست.",
       "done_when_fa": "اصل متن و قیود دقیق محفوظ؛ پیشنهاد ناسازگار و پذیرش نامعتبر رد؛ تغییرهای مجاز قابل مقایسه؛ آزمون‌های واقعی و رگرسیون سبز؛ تحویل به‌روز."
     },
     "unfinished_work": {
@@ -715,11 +715,11 @@
         {
           "id": "P04-001",
           "phase": "P04",
-          "status": "OFFLINE_SLICE_AND_BOTH_NATIVE_TARGETS_VERIFIED_INTEGRATION_PENDING",
+          "status": "DURABLE_ADOPTION_IMPLEMENTED_LOCAL_VALIDATION_PENDING",
           "title_fa": "قرارداد اصل پرسش، پیشنهاد معمار و پذیرش نسخهٔ جدید",
-          "completed_fa": "پرسش و پیشنهاد و پذیرش نسخه و زمینهٔ اولیهٔ مستقل و بازیابی دقیق ورودی پیاده شدند؛ هجده آزمون محلی پاس شدند.",
-          "remaining_fa": "ثبت پایدار تأیید کاربر، مهاجرت پایگاه داده، سیاست حریم خصوصی و بودجه، تاریخچهٔ دوردست و پذیرش کامل مرحله باقی است. شاهد بومی این برش در هر دو محیط پاس شده است.",
-          "next_action_fa": "مهاجرت نسخه‌دار پایگاه داده برای ثبت پیشنهاد و تأیید کاربر را با آزمون بازگشایی و تعارض نسخه بساز؛ سپس سیاست ارسال را تکمیل کن. دور مستقل هنوز به ارسال زنده متصل نیست.",
+          "completed_fa": "قرارداد پرسش و زمینهٔ مستقل و بازیابی و ثبت پایدار نامزد و تأیید کاربر پیاده شد؛ ۳۳ آزمون این برش شامل قطع واقعی پردازه و مهاجرت نسخهٔ دو پاس شده‌اند.",
+          "remaining_fa": "بررسی کامل نسخهٔ جدید و شاهد بومی تازه؛ رابط تعاملی تأیید و سیاست حریم خصوصی و بودجه و اتصال به ارسال و تاریخچهٔ دوردست و پذیرش کامل مرحله باقی است.",
+          "next_action_fa": "پس از بررسی بومی منبع تازه، رابط تعاملی تأیید را به QuestionLedger متصل کن؛ سپس سیاست حریم خصوصی و بودجه و مجوز تاریخچه را قبل از هر ارسال پیاده کن. مرحلهٔ چهار هنوز کامل نیست.",
           "done_when_fa": "اصل متن و قیود دقیق محفوظ؛ پیشنهاد ناسازگار و پذیرش نامعتبر رد؛ تغییرهای مجاز قابل مقایسه؛ آزمون‌های واقعی و رگرسیون سبز؛ تحویل به‌روز."
         }
       ],
@@ -926,55 +926,62 @@
       "scope": "NATIVE_OFFLINE_REGRESSION; P04_IMPLEMENTATION_NOT_STARTED"
     },
     "native_checkpoint": {
-      "schema_version": 1,
-      "phase": "P04",
-      "status": "OFFLINE_SLICE_VERIFIED_NOT_PHASE_ACCEPTED",
-      "source_digest": "54424d1e1b4d8eec347fc67351ec3d3bb5f4cf705da82c1812076b0c14d804d5",
-      "code_commit": "f150ffa2ac35f198a5fe5e102850e232995b51ce",
-      "workflow_run_id": 37572086193,
-      "workflow_url": "https://github.com/mehrangtr/Consilium/actions/runs/37572086193",
-      "native_targets": [
-        {
-          "target": "Windows",
-          "status": "PASS",
-          "control_tests": 88,
-          "foundation_tests": 60,
-          "persistence_tests": 80,
-          "browser_probe_tests": 44,
-          "architect_tests": 18,
-          "evidence": {
-            "path": "evidence/targets/Windows/20261007T043439Z_53e985a1/RUN.json",
-            "sha256": "5d53a321c4a49622d669d3b2d62bd9ece9f3791fa0fd4c679d2bf4ebd314a28a"
-          }
-        },
-        {
-          "target": "Linux",
-          "status": "PASS",
-          "control_tests": 88,
-          "foundation_tests": 60,
-          "persistence_tests": 80,
-          "browser_probe_tests": 44,
-          "architect_tests": 18,
-          "evidence": {
-            "path": "evidence/targets/Linux/20261007T043419Z_c14161ac/RUN.json",
-            "sha256": "79cefdec0e882b46cd2a2e6f0def4168965c66932424990dd05c6b92540ca8c1"
-          }
-        }
-      ],
-      "phase_check_receipt": {
+      "status": "NOT_RUN_FOR_NEW_SCHEMA_V3_SOURCE",
+      "previous_proof": "evidence/p04/OFFLINE_SLICE_CHECKPOINT.json",
+      "notice": "Previous 290-test native proof is historical and does not certify these source changes."
+    },
+    "native_checkpoint_history": [
+      {
+        "schema_version": 1,
         "phase": "P04",
-        "receipt": "evidence/runs/20261007T043611Z_86a8480a5a/RUN.json",
-        "sha256": "a4bb9ac5a9ed3a0cf1a69e3137774b309d737c488812bca4f24aba269df611d0"
-      },
-      "review": "Separate author review: structural projection and recovery only; no independent reviewer; no live dispatch or remote-history guarantee.",
-      "remaining": [
-        "durable trusted-user adoption and versioned database migration",
-        "dispatch privacy and budget policy",
-        "remote conversation identity and history authorization",
-        "full P04 exits and acceptance review"
-      ],
-      "continuation": "Implement durable adoption before connecting this context to live dispatch. Do not replay P03 sends."
-    }
+        "status": "OFFLINE_SLICE_VERIFIED_NOT_PHASE_ACCEPTED",
+        "source_digest": "54424d1e1b4d8eec347fc67351ec3d3bb5f4cf705da82c1812076b0c14d804d5",
+        "code_commit": "f150ffa2ac35f198a5fe5e102850e232995b51ce",
+        "workflow_run_id": 37572086193,
+        "workflow_url": "https://github.com/mehrangtr/Consilium/actions/runs/37572086193",
+        "native_targets": [
+          {
+            "target": "Windows",
+            "status": "PASS",
+            "control_tests": 88,
+            "foundation_tests": 60,
+            "persistence_tests": 80,
+            "browser_probe_tests": 44,
+            "architect_tests": 18,
+            "evidence": {
+              "path": "evidence/targets/Windows/20261007T043439Z_53e985a1/RUN.json",
+              "sha256": "5d53a321c4a49622d669d3b2d62bd9ece9f3791fa0fd4c679d2bf4ebd314a28a"
+            }
+          },
+          {
+            "target": "Linux",
+            "status": "PASS",
+            "control_tests": 88,
+            "foundation_tests": 60,
+            "persistence_tests": 80,
+            "browser_probe_tests": 44,
+            "architect_tests": 18,
+            "evidence": {
+              "path": "evidence/targets/Linux/20261007T043419Z_c14161ac/RUN.json",
+              "sha256": "79cefdec0e882b46cd2a2e6f0def4168965c66932424990dd05c6b92540ca8c1"
+            }
+          }
+        ],
+        "phase_check_receipt": {
+          "phase": "P04",
+          "receipt": "evidence/runs/20261007T043611Z_86a8480a5a/RUN.json",
+          "sha256": "a4bb9ac5a9ed3a0cf1a69e3137774b309d737c488812bca4f24aba269df611d0"
+        },
+        "review": "Separate author review: structural projection and recovery only; no independent reviewer; no live dispatch or remote-history guarantee.",
+        "remaining": [
+          "durable trusted-user adoption and versioned database migration",
+          "dispatch privacy and budget policy",
+          "remote conversation identity and history authorization",
+          "full P04 exits and acceptance review"
+        ],
+        "continuation": "Implement durable adoption before connecting this context to live dispatch. Do not replay P03 sends."
+      }
+    ]
   },
   "updated_at_utc": "2026-10-06T23:09:35.140545+00:00"
 }

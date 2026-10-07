@@ -1,0 +1,64 @@
+name: Package verified P04 typed-source handoff
+'on':
+  push:
+    branches: [ops-p04-typed-handoff-20261007]
+permissions:
+  contents: write
+  actions: read
+jobs:
+  deliver:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 12
+    env:
+      PYTHONUTF8: '1'
+      PYTHONIOENCODING: utf-8
+      TESTED_CODE_SHA: 6c3b08fb735c3da2999b52b98e77e4df040a30fa
+      TESTED_SOURCE_DIGEST: b48df0fd1894ca371aba3c9b81939f211da183d1fc48d26afce67a0e99979454
+      NATIVE_RUN_ID: '37610129815'
+      DELIVERY_BRANCH: p04-typed-source-delivery-20261007
+      PAYLOAD_ROOT: ${{ github.workspace }}/payload
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          path: ops
+          persist-credentials: false
+      - uses: actions/checkout@v7
+        with:
+          ref: 6c3b08fb735c3da2999b52b98e77e4df040a30fa
+          path: payload
+          persist-credentials: true
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12.14'
+      - run: python -m pip install -r payload/requirements.lock
+      - uses: actions/download-artifact@v8
+        with:
+          name: native-target-Windows
+          path: payload/evidence/targets/Windows/
+          github-token: ${{ github.token }}
+          repository: ${{ github.repository }}
+          run-id: '37610129815'
+      - uses: actions/download-artifact@v8
+        with:
+          name: native-target-Linux
+          path: payload/evidence/targets/Linux/
+          github-token: ${{ github.token }}
+          repository: ${{ github.repository }}
+          run-id: '37610129815'
+      - name: Validate, reconcile phase metadata, verify archive and publish delivery branch
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python ops/.github/scripts/publish-typed-handoff.py
+      - uses: actions/upload-artifact@v7
+        if: always()
+        with:
+          name: p04-typed-source-verified-delivery
+          path: |
+            delivery/
+            payload/PROGRESS.json
+            payload/HANDOFF.json
+            payload/MANIFEST.json
+            payload/evidence/p04/TYPED_SOURCE_BATCH_CHECKPOINT.json
+            payload/evidence/p04/TYPED_SOURCE_BATCH_REVIEW.json
+          if-no-files-found: error
+          retention-days: 7

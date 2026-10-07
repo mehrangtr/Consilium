@@ -1,0 +1,202 @@
+{
+  "schema_version": 1,
+  "phase": "P04",
+  "status": "MANUAL_ROUND_MAIN_PUBLICATION_AND_HANDOFF_VERIFIED",
+  "publication_complete": true,
+  "phase_accepted": false,
+  "source_digest": "e97465f7dfe8c2977f1d2058021d41bc0040dffa4145cfff2c9776372b6d35be",
+  "code_commit": "53555c5d163a4e6e027f05d2b0f281a504cf5fcc",
+  "code_tree": "ae2db99dc2972710200423a0b5e577fb189f20ce",
+  "main_delivery_commit": "12b8a607a33773b7338f5bd376d61151a3d87de4",
+  "main_delivery_tree": "98a891a88530ade631b9f88c03aa2264d806a887",
+  "pr": {
+    "number": 10,
+    "url": "https://github.com/mehrangtr/Consilium/pull/10",
+    "merged": true,
+    "merge_commit": "12b8a607a33773b7338f5bd376d61151a3d87de4"
+  },
+  "native_run": 37660566040,
+  "delivery_pr_native_run": 37664954217,
+  "packaging_and_separate_verification_run": 37664185186,
+  "tests_per_target": 516,
+  "product_process_exit_cases_per_target": 29,
+  "skipped_tests": 0,
+  "live_provider_calls": 0,
+  "paid_model_calls": 0,
+  "handoff": {
+    "files": 837,
+    "artifact_id": 11502207443,
+    "artifact_url": "https://github.com/mehrangtr/Consilium/actions/runs/37664185186/artifacts/11502207443",
+    "outer_artifact_sha256": "9514739a86acc693af7629971227025f8eeb0d52deb7a0ba69b82c823d03c4e3",
+    "archive": "P04_MANUAL_ROUND_HANDOFF.zip",
+    "archive_sha256": "398f58ee70c02a937b3ce40e485046e1eadd58dfbed18edc8ae3abc6ed8c9975",
+    "snapshot_commit": "12b8a607a33773b7338f5bd376d61151a3d87de4",
+    "git_blobs_matched": 837,
+    "verification_job": 112939808138,
+    "verification_artifact_id": 11501664068,
+    "scope": "FROZEN_DELIVERY_SNAPSHOT_BEFORE_THIS_FINAL_METADATA_RECEIPT"
+  },
+  "remaining_publication_work": [],
+  "remaining_product_work": [
+    "P04-002 explicit previous product operation reconciliation; ambiguous sends must not silently become accepted manual replies.",
+    "Trusted live source/history/token observation for automatic adapters.",
+    "Full P04 exit review and phase acceptance; do not start P05."
+  ],
+  "unfinished_operational_work": [
+    {
+      "id": "LOCAL-PUBLICATION-JOURNAL-SYNC",
+      "status": "DEFERRED_EXECUTOR_UNAVAILABLE",
+      "impact": "No product loss or duplicate send: all remote writes were read/reconciled and terminal records are durable here and in PR 10; import without replay when the local execution service recovers.",
+      "next_action": "Verify current main and this receipt; import only terminal verified permit records into the local journal without running their mutable requests. Do not reset existing retired or accepted historical records."
+    }
+  ],
+  "remote_publication_journal": {
+    "ops_branch": {
+      "id": "39cebeb33d9daea37a8e4ace7b43492aab94a840b295c07f61ec2072776b5e92",
+      "plan": {
+        "kind": "REF_UPDATE",
+        "resource": "mehrangtr/Consilium/refs/heads/ops-p04-manual-rounds-rescue-20261007",
+        "expected_sha": "53555c5d163a4e6e027f05d2b0f281a504cf5fcc",
+        "request_sha256": "f04756e4e43ab21a8676e4e7443720daf028e1c29407a671810f293a9add41d8",
+        "source_digest": "e97465f7dfe8c2977f1d2058021d41bc0040dffa4145cfff2c9776372b6d35be"
+      },
+      "state": "VERIFIED_COMPLETE",
+      "nonce": "manual-ops-rescue-20261007-01",
+      "wait_seconds": 25,
+      "automatic_retry": false,
+      "local_sync": "DEFERRED_EXECUTOR_UNAVAILABLE",
+      "expected_previous": "ABSENT",
+      "request": {
+        "repository_full_name": "mehrangtr/Consilium",
+        "branch_name": "ops-p04-manual-rounds-rescue-20261007",
+        "sha": "53555c5d163a4e6e027f05d2b0f281a504cf5fcc"
+      },
+      "observed_sha": "53555c5d163a4e6e027f05d2b0f281a504cf5fcc"
+    },
+    "ops_check_update": {
+      "kind": "ISOLATED_FILE_UPDATE_SERVER_COMMIT",
+      "resource": "mehrangtr/Consilium/ops-p04-manual-rounds-rescue-20261007/.github/workflows/check.yml",
+      "expected_previous_head": "53555c5d163a4e6e027f05d2b0f281a504cf5fcc",
+      "expected_blob_before": "38c243c66381c4aabe24c25e388c3a4f0822a023",
+      "expected_content_sha256": "845d5ba5a894fba0d08c5071748bfbd14659b1a76c3a4ecb429a1042455ee16a",
+      "request_sha256": "cecd7954f23f52fd7f20d7c5de2b7797ea56940e24bdb9b3e93130fd788ba42b",
+      "source_digest": "e97465f7dfe8c2977f1d2058021d41bc0040dffa4145cfff2c9776372b6d35be",
+      "state": "VERIFIED_COMPLETE",
+      "wait_seconds": 25,
+      "automatic_retry": false,
+      "local_sync": "DEFERRED_EXECUTOR_UNAVAILABLE",
+      "observed_sha": "2f8243cacb662eed1acec71b602fef1573a5c977",
+      "observed_blob": "d1c7937d814cbb959709088591631c0f92f80dca"
+    },
+    "ops_package_create": {
+      "kind": "ISOLATED_NEW_FILE_SERVER_COMMIT",
+      "resource": "mehrangtr/Consilium/ops-p04-manual-rounds-rescue-20261007/.github/workflows/package-manual-rounds.yml",
+      "expected_previous_head": "2f8243cacb662eed1acec71b602fef1573a5c977",
+      "expected_content_sha256": "55ebca8d527f1c981558a3f10e01a7924fcf6b8746d3ecdce6c62d67e2123046",
+      "request_sha256": "58dee441e75dc52b182b36d99bebbc35ba6b71318cf3ed794975c56f6ec5b103",
+      "source_digest": "e97465f7dfe8c2977f1d2058021d41bc0040dffa4145cfff2c9776372b6d35be",
+      "state": "VERIFIED_COMPLETE",
+      "wait_seconds": 25,
+      "automatic_retry": false,
+      "local_sync": "DEFERRED_EXECUTOR_UNAVAILABLE",
+      "observed_sha": "4bb24bb97511c3750550c896527c664a7b795af7"
+    },
+    "ops_package_repair": {
+      "kind": "ISOLATED_FILE_UPDATE_SERVER_COMMIT",
+      "resource": "mehrangtr/Consilium/ops-p04-manual-rounds-rescue-20261007/.github/workflows/package-manual-rounds.yml",
+      "expected_previous_head": "4bb24bb97511c3750550c896527c664a7b795af7",
+      "expected_blob_before": "0aeec701022a46508e8b1d89b7bc1fad51ee639b",
+      "expected_content_sha256": "a62552b0b6a9ef0c480a647da3ccddc83a2fc50961d00719046a210a4b9feb5b",
+      "request_sha256": "aaa27479df18a2f9971e227fdf457be67ef7b3dabcbd671b39d297705e9bff05",
+      "source_digest": "e97465f7dfe8c2977f1d2058021d41bc0040dffa4145cfff2c9776372b6d35be",
+      "state": "VERIFIED_COMPLETE",
+      "wait_seconds": 25,
+      "automatic_retry": false,
+      "local_sync": "DEFERRED_EXECUTOR_UNAVAILABLE",
+      "previous_workflow_run": 37663677135,
+      "previous_failure_verified_before_mutation": true,
+      "delivery_ref_before": "VERIFIED_ABSENT",
+      "observed_sha": "afc779b49f0b72be09dca065484fb23459f3cf50",
+      "observed_blob": "7b50e9fa7d7529361b36c9e0f2cc7f11ba6c0e74"
+    },
+    "delivery_head_update": {
+      "id": "ea775ce888da976c0fe2919785fbd9c767d6a54b25659a92d6f646dbff70069a",
+      "plan": {
+        "kind": "REF_UPDATE",
+        "resource": "mehrangtr/Consilium/refs/heads/p04-manual-round-native-20261007",
+        "expected_sha": "12b8a607a33773b7338f5bd376d61151a3d87de4",
+        "request_sha256": "230437e6d43c905d3376c9347884b830baa9659bd8b036ba18b68e0bc41329ec",
+        "source_digest": "e97465f7dfe8c2977f1d2058021d41bc0040dffa4145cfff2c9776372b6d35be"
+      },
+      "nonce": "manual-round-head-20261007-once",
+      "state": "VERIFIED_COMPLETE",
+      "wait_seconds": 25,
+      "automatic_retry": false,
+      "local_sync": "DEFERRED_EXECUTOR_UNAVAILABLE",
+      "request": {
+        "repository_full_name": "mehrangtr/Consilium",
+        "branch_name": "p04-manual-round-native-20261007",
+        "sha": "12b8a607a33773b7338f5bd376d61151a3d87de4",
+        "expected_sha": "53555c5d163a4e6e027f05d2b0f281a504cf5fcc",
+        "force": false
+      },
+      "observed_sha": "12b8a607a33773b7338f5bd376d61151a3d87de4"
+    },
+    "main_update": {
+      "id": "60b61315ee23aacaca1b5f8824a3ae4dda538e589287a46a17da51f39e8f52d3",
+      "plan": {
+        "kind": "REF_UPDATE",
+        "resource": "mehrangtr/Consilium/refs/heads/main",
+        "expected_sha": "12b8a607a33773b7338f5bd376d61151a3d87de4",
+        "request_sha256": "4ea36d585bd1f334c0138bb06ba957a12e10edf65528137e01e7e1d54c657830",
+        "source_digest": "e97465f7dfe8c2977f1d2058021d41bc0040dffa4145cfff2c9776372b6d35be"
+      },
+      "nonce": "manual-round-main-20261007-once",
+      "state": "VERIFIED_COMPLETE",
+      "wait_seconds": 25,
+      "automatic_retry": false,
+      "local_sync": "DEFERRED_EXECUTOR_UNAVAILABLE",
+      "request": {
+        "repository_full_name": "mehrangtr/Consilium",
+        "branch_name": "main",
+        "sha": "12b8a607a33773b7338f5bd376d61151a3d87de4",
+        "expected_sha": "22cd94156b0853999081f6ced0efa9ccd21cf323",
+        "force": false
+      },
+      "gate": "DO_NOT_INVOKE_UNTIL_DELIVERY_PR_CI_SUCCEEDS",
+      "observed_sha": "12b8a607a33773b7338f5bd376d61151a3d87de4"
+    }
+  },
+  "failed_packaging_attempt_preserved": {
+    "run": 37663677135,
+    "artifact": 11500769771,
+    "report": "evidence/p04/MANUAL_ROUND_LOCAL_ATTEMPTS.json",
+    "product_test_failure": false
+  },
+  "manual_entry": {
+    "implemented": [
+      "CLI multiline initial answer",
+      "CLI multiline later answer",
+      "CLI multiline structured critique",
+      "file intake and explicit local acceptance"
+    ],
+    "gui": "PLANNED_P12",
+    "existing_operation_replacement": "BLOCKED_PENDING_EXPLICIT_RECONCILIATION",
+    "external_origin_verified": false
+  },
+  "provider_registry": {
+    "path": "SCOPE.json",
+    "services": [
+      "ChatGPT",
+      "Claude",
+      "Gemini",
+      "DeepSeek",
+      "Qwen"
+    ],
+    "specific_model_ids": "UNSELECTED_NULL",
+    "production_api_and_browser_adapters": "PLANNED"
+  },
+  "source_mutated_after_native_verification": false,
+  "next_action": "در P04-002 تطبیق صریح عملیات قبلی را طراحی و آزمون کن؛ سپس منشأ زنده و مشاهده و اندازه‌گیری معتبر اتصال و همهٔ معیارهای P04 را بازبینی کن. نقد دستی، پاسخ دورهای بعد و جای ورود چندخطی تکمیل شده‌اند؛ دوباره نساز. P05 و ارسال زنده هنوز آغاز نشوند.",
+  "receipt_transfer_note": "This final publication receipt is additional metadata after the verified 837-file archive. Preserve it alongside that frozen archive, and include it in the next planned TRANSFER_FILES source revision."
+}

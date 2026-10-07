@@ -1,0 +1,114 @@
+{
+  "schema_version": 1,
+  "phase": "P04",
+  "status": "PUBLICATION_AND_HANDOFF_VERIFIED_PRODUCT_PHASE_STILL_OPEN",
+  "publication_complete": true,
+  "remaining_publication_work": [],
+  "phase_accepted": false,
+  "verified_delivery_commit": "7f98871c5c028fc2852fc5d653fb37cfb390d5cd",
+  "main_verified_at_delivery": "7f98871c5c028fc2852fc5d653fb37cfb390d5cd",
+  "code_commit": "c077474d3216e90621f569840bd73a0cc191a076",
+  "source_digest": "32ecd7ffb6844ec1a3a7f863e81cb4a1c817f2369345dba435df27c9f98f720a",
+  "pull_request": {
+    "number": 9,
+    "url": "https://github.com/mehrangtr/Consilium/pull/9",
+    "merged": true,
+    "merge_commit": "7f98871c5c028fc2852fc5d653fb37cfb390d5cd"
+  },
+  "verification": {
+    "native_code_run": {
+      "id": 37642514269,
+      "status": "completed",
+      "conclusion": "success"
+    },
+    "native_delivery_pr_run": {
+      "id": 37646529622,
+      "status": "completed",
+      "conclusion": "success"
+    },
+    "packaging_run": {
+      "id": 37644826188,
+      "status": "completed",
+      "conclusion": "success"
+    },
+    "native_targets": [
+      "Windows",
+      "Linux"
+    ],
+    "tests_per_native_target": 484,
+    "product_process_exit_cases_per_native_target": 27,
+    "work_mode_js_wait_cases": 5,
+    "all_handoff_members_match_delivery_git_blobs": 824,
+    "source_changes_after_native_testing": 0,
+    "supervisor_receipt_graphs_verified": 3,
+    "accepted_phases_unchanged": [
+      "P00",
+      "P01",
+      "P02",
+      "P03"
+    ],
+    "configured_phase_receipt": "evidence/runs/20261007T153334Z_c71371c7c7/RUN.json",
+    "configured_phase_status": "PASS",
+    "separate_author_review": true,
+    "independent_reviewer": false
+  },
+  "handoff": {
+    "artifact_id": 11494365980,
+    "name": "verified-external-round-handoff",
+    "files": 824,
+    "outer_sha256": "4a0e77571ff0df77723af083c0a09ed9c436e8de5b3a7cfe64a46c4ad5509c03",
+    "inner_file": "P04_EXTERNAL_ROUND_HANDOFF.zip",
+    "inner_sha256": "8607fa617a5eab92214b2abada385588c7e7a2d96cd1c495b689fdd3077411fa",
+    "scope": "824 pinned files describe the prepublication delivery snapshot; this later publication receipt accompanies them. INCOMPLETE denotes the product phase, not failed publication."
+  },
+  "publication_guard": {
+    "verified_mutable_plan": {
+      "id": "edf0c8a9bbd58dcfd9fbf0c94bb213c2796bb41b34402ad3800d1b686c199405",
+      "plan": {
+        "kind": "REF_UPDATE",
+        "resource": "mehrangtr/Consilium/refs/heads/main",
+        "expected_sha": "7f98871c5c028fc2852fc5d653fb37cfb390d5cd",
+        "request_sha256": "458670d5d5a1816ed1edba9101a25caace5560a70cb8f2fb57ffbb87ec617d34",
+        "source_digest": "32ecd7ffb6844ec1a3a7f863e81cb4a1c817f2369345dba435df27c9f98f720a"
+      },
+      "state": "VERIFIED_COMPLETE",
+      "attempts": 1,
+      "nonce": "000001a117150057355389c1f90dba1e",
+      "deadline": 1791388674.743,
+      "observed_sha": "7f98871c5c028fc2852fc5d653fb37cfb390d5cd",
+      "reason": "EXEC_SERVER_TRANSPORT_OUTAGE_REMOTE_DURABLE_CHECKPOINT",
+      "planned_request": {
+        "repository_full_name": "mehrangtr/Consilium",
+        "branch_name": "main",
+        "sha": "7f98871c5c028fc2852fc5d653fb37cfb390d5cd",
+        "expected_sha": "e4935661655621426b683fe43e05d2469e784777",
+        "force": false
+      },
+      "verification": {
+        "primary_zip_files": 824,
+        "native_run": 37642514269,
+        "pr_native_run": 37646529622,
+        "all_status": "PASS",
+        "source_unchanged": true
+      },
+      "policy": "One mutable invocation only, expected_sha lease and force=false; read after ambiguity; never automatic replay.",
+      "storage": "Serialized PublicationGuard disaster checkpoint in PR 9; local SQLite unavailable. Import terminal record after executor recovery.",
+      "completed_at_utc": "2026-10-07T15:57:14.060Z"
+    },
+    "operational_journal_blob": "cc4c7e53e783933247c782e1bd09ad5224673100",
+    "retired_unneeded_wip_blob_plan": "c89a8554699d6b8d07c1338f28cbc78ce218abf3e42ee7b920b2c33fae74da81",
+    "outage_fallback": "Executor transport became unavailable after primary verification. The permitted ref plan was serialized durably in PR 9 before its one invocation; expected_sha and force=false were used, then actual main and merged PR read independently. No mutation was blindly replayed.",
+    "local_journal_import": "Deferred until executor recovers; completed remote plan and read evidence here prevent repeating publication. This is local operational bookkeeping and does not block the verified product source.",
+    "chat_and_mcp_cancellation_available": false
+  },
+  "remaining_product_work": [
+    "P04-002 manual critiques and later-round manual answers",
+    "Explicit reconciliation of previous product operations",
+    "Trusted live source/history observations and valid token measurements",
+    "Full original P04 exit review and acceptance"
+  ],
+  "next_action_fa": "در P04-002 نقد دستی و پاسخ دستی دورهای بعد و تطبیق صریح عملیات قبلی را تکمیل کن؛ منشأ زنده و مشاهده و اندازه‌گیری معتبر اتصال را آماده و همهٔ معیارهای P04 را بازبینی کن. نمای پایدار دور بعد اکنون موجود است؛ آن را دوباره نساز. P05 و ارسال زنده هنوز آغاز نشوند.",
+  "live_provider_calls": 0,
+  "paid_calls": 0,
+  "updated_at_utc": "2026-10-07T16:00:39.182Z"
+}

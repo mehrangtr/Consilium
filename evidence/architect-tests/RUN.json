@@ -3,14 +3,14 @@
   "scope": "P04_QUESTION_CONTRACTS_OFFLINE_NOT_FULL_PHASE_ACCEPTANCE",
   "status": "PASS",
   "counts": {
-    "tests": 10,
+    "tests": 18,
     "failures": 0,
     "errors": 0,
     "skipped": 0
   },
-  "source_digest_before": "23274d999d6e809c8878124aca03b1d0884b7c41d51965ed7ce8b8b05442230e",
-  "source_digest_after": "23274d999d6e809c8878124aca03b1d0884b7c41d51965ed7ce8b8b05442230e",
-  "date_utc": "2026-10-07T04:06:54.886680+00:00",
+  "source_digest_before": "54424d1e1b4d8eec347fc67351ec3d3bb5f4cf705da82c1812076b0c14d804d5",
+  "source_digest_after": "54424d1e1b4d8eec347fc67351ec3d3bb5f4cf705da82c1812076b0c14d804d5",
+  "date_utc": "2026-10-07T04:32:57.328456+00:00",
   "host": {
     "system": "Linux",
     "python": "3.12.14"
@@ -19,6 +19,38 @@
   "live_provider_calls": 0,
   "verified_application_requirements": 0,
   "cases": [
+    {
+      "id": "test_independent_context.IndependentContextTests.test_extra_context_fields_rejected",
+      "status": "PASS"
+    },
+    {
+      "id": "test_independent_context.IndependentContextTests.test_modified_payload_rejected_even_when_well_formed",
+      "status": "PASS"
+    },
+    {
+      "id": "test_independent_context.IndependentContextTests.test_original_constraints_and_assumptions_remain_visible",
+      "status": "PASS"
+    },
+    {
+      "id": "test_independent_context.IndependentContextTests.test_other_debate_round_or_participant_rejected",
+      "status": "PASS"
+    },
+    {
+      "id": "test_independent_context.IndependentContextTests.test_peer_content_cannot_be_supplied",
+      "status": "PASS"
+    },
+    {
+      "id": "test_independent_context.IndependentContextTests.test_provider_text_is_data_not_a_role",
+      "status": "PASS"
+    },
+    {
+      "id": "test_independent_context.IndependentContextTests.test_recovery_reconstructs_exact_bytes",
+      "status": "PASS"
+    },
+    {
+      "id": "test_independent_context.IndependentContextTests.test_stale_recovery_and_wrong_participant_rejected",
+      "status": "PASS"
+    },
     {
       "id": "test_question_contracts.QuestionContractsTests.test_changed_constraints_and_wrong_snapshot_rejected",
       "status": "PASS"

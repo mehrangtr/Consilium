@@ -88,7 +88,18 @@
         "reason": "Acceptance of already executed actual Claude UI probes and controlled sign-out. This static command validates captured live findings and hashes; it makes no browser call and does not independently authenticate observations. Separate manual review of original evidence is mandatory. Exclude it from future regression runs to prevent replaying live sends or relabeling old snapshots as current."
       }
     ],
-    "P04": [],
+    "P04": [
+      {
+        "id": "architect_and_independent_context",
+        "kind": "test",
+        "argv": [
+          "{python}",
+          "tools/run_architect_tests.py"
+        ],
+        "junit": "evidence/architect-tests/JUNIT.xml",
+        "scope": "P04_OFFLINE_QUESTION_AND_INITIAL_INDEPENDENT_CONTEXT_SLICE_NOT_FULL_PHASE"
+      }
+    ],
     "P05": [],
     "P06": [],
     "P07": [],

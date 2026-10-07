@@ -18,9 +18,10 @@ from consilium.shell.schema_v2 import V2_STATEMENTS, V2_TABLES
 from consilium.shell.schema_v3 import V3_STATEMENTS, V3_TABLES
 from consilium.shell.schema_v4 import V4_STATEMENTS, V4_TABLES
 from consilium.shell.schema_v5 import V5_STATEMENTS, V5_TABLES
+from consilium.shell.schema_v6 import V6_STATEMENTS, V6_TABLES
 
 APPLICATION_ID = 0x434F4E53
-SCHEMA_VERSION = 5
+SCHEMA_VERSION = 6
 V1_STATEMENTS = (
     """CREATE TABLE schema_migrations(
         version INTEGER PRIMARY KEY, checksum TEXT NOT NULL CHECK(length(checksum)=64),
@@ -113,7 +114,7 @@ class SQLiteStore:
                 self._db.execute("PRAGMA foreign_keys=OFF")
             with self._transaction():
                 version = self._check_owner()
-                migrations = {1: V1_STATEMENTS, 2: V2_STATEMENTS, 3: V3_STATEMENTS, 4: V4_STATEMENTS, 5: V5_STATEMENTS}
+                migrations = {1: V1_STATEMENTS, 2: V2_STATEMENTS, 3: V3_STATEMENTS, 4: V4_STATEMENTS, 5: V5_STATEMENTS, 6: V6_STATEMENTS}
                 checksums = {v: hashlib.sha256(_json(sql).encode("utf-8")).hexdigest() for v, sql in migrations.items()}
                 if version == 0:
                     # executescript() is deliberately excluded from this transaction.
@@ -126,7 +127,7 @@ class SQLiteStore:
                 recorded = self._db.execute("SELECT version,checksum FROM schema_migrations ORDER BY version").fetchall()
                 if [(r["version"], r["checksum"]) for r in recorded] != [(v, checksums[v]) for v in range(1, version+1)]:
                     raise SchemaError("Migration history does not match this schema")
-                if self._table_names() != {1: _TABLES, 2: V2_TABLES, 3: V3_TABLES, 4: V4_TABLES, 5: V5_TABLES}[version]:
+                if self._table_names() != {1: _TABLES, 2: V2_TABLES, 3: V3_TABLES, 4: V4_TABLES, 5: V5_TABLES, 6: V6_TABLES}[version]:
                     raise SchemaError("Storage schema is incomplete or has unknown tables")
                 # Validate the old checkpoint before touching its schema.
                 for row in self._db.execute("SELECT debate_id FROM debates").fetchall():
@@ -136,7 +137,7 @@ class SQLiteStore:
                         self._db.execute(statement)
                     self._db.execute("INSERT INTO schema_migrations VALUES(?,?,?)", (target, checksums[target], self._now()))
                     self._db.execute("PRAGMA user_version=" + str(target))
-                if self._table_names() != V5_TABLES:
+                if self._table_names() != V6_TABLES:
                     raise SchemaError("Migrated schema is inconsistent")
                 if self._db.execute("PRAGMA quick_check").fetchone()[0] != "ok" or self._db.execute("PRAGMA foreign_key_check").fetchall():
                     raise SchemaError("Storage integrity check failed")
@@ -144,6 +145,8 @@ class SQLiteStore:
                     self.checkpoint(UUID(row["debate_id"]))
                 from consilium.shell.ledger import OperationLedger
                 self.ledger = OperationLedger(self)
+                from consilium.shell.artifacts import ArtifactLedger
+                self.artifacts = ArtifactLedger(self)
                 self.ledger.check_integrity()
                 from consilium.shell.questions import QuestionLedger
                 self.questions = QuestionLedger(self)
@@ -154,6 +157,7 @@ class SQLiteStore:
                 from consilium.shell.sources import SourceLedger
                 self.sources = SourceLedger(self)
                 self.sources.check_integrity()
+                self.artifacts.check_integrity()
             self._db.execute("PRAGMA foreign_keys=ON")
             if self._db.execute("PRAGMA foreign_keys").fetchone()[0] != 1:
                 raise SchemaError("Runtime foreign key enforcement is unavailable")
@@ -320,9 +324,14 @@ class SQLiteStore:
                                  {"participant_id": participant, "connection_id": str(connection.connection_id), "connection_revision": revision,
                                   "actor": actor, "reason": reason, "continuation_decision_invalidated": invalidated})
 
-    def prepare_intent(self, intent: OperationIntent, *, admission_bundle=None) -> StorageCheckpoint:
+    def prepare_intent(self, intent: OperationIntent, *, admission_bundle=None, response_contract=None) -> StorageCheckpoint:
         intent = OperationIntent.model_validate(intent.model_dump(mode="python"))
         public = self._public(intent.model_dump(mode="json"))
+        if response_contract is not None:
+            from consilium.core.artifact_contracts import ArtifactResponseContract
+            response_contract = ArtifactResponseContract.model_validate(response_contract)
+            response_contract.require_intent(intent)
+            contract_json = self._public(response_contract.model_dump(mode="json"))
         if admission_bundle is not None:
             from consilium.core.admission_bundle import AdmissionBundle
             admission_bundle = AdmissionBundle.model_validate(admission_bundle)
@@ -346,6 +355,10 @@ class SQLiteStore:
                 self.admissions.validate_preparation(admission_bundle, intent)
             elif self.questions.get_adopted(intent.debate_id) is not None:
                 raise Conflict("Adopted-question operations require durable policy evidence")
+            if response_contract is not None:
+                if ConnectionSpec.model_validate_json(binding["spec_json"]).provider_id != "mock":
+                    raise Conflict("Typed source dispatch currently supports only the offline mock fixture")
+                self.artifacts.validate_preparation(response_contract, intent)
             ids = intent.identity
             self._db.execute("INSERT INTO operations VALUES(?,?,?,?,?,?,?)", (str(ids.logical_operation_id), str(intent.debate_id),
                 str(intent.round_id), str(intent.participant_id), None if ids.generation_id is None else str(ids.generation_id),
@@ -355,11 +368,17 @@ class SQLiteStore:
             payload = {"logical_operation_id": str(ids.logical_operation_id), "attempt_id": str(ids.attempt_id)}
             if admission_bundle is not None:
                 payload["admission_bundle_hash"] = admission_bundle.content_hash
+            if response_contract is not None:
+                payload["response_contract_hash"] = response_contract.content_hash
             checkpoint = self._advance(intent.debate_id, intent.expected_revision, "OPERATION_PREPARED", payload)
             if admission_bundle is not None:
                 self._db.execute("INSERT INTO context_admissions VALUES(?,?,?,?,?)",
                     (str(ids.logical_operation_id), str(ids.attempt_id), bundle_json,
                      admission_bundle.content_hash, checkpoint.event_sequence))
+            if response_contract is not None:
+                self._db.execute("INSERT INTO response_contracts VALUES(?,?,?,?,?)",
+                    (str(ids.logical_operation_id), str(ids.attempt_id), contract_json,
+                     response_contract.content_hash, checkpoint.event_sequence))
             return checkpoint
 
     def get_intent(self, attempt_id: UUID) -> OperationIntent:
@@ -402,6 +421,7 @@ class SQLiteStore:
             payload.update(self.questions.export_fields(debate_id))
             payload.update(self.admissions.export_fields(debate_id))
             payload.update(self.sources.export_fields(debate_id))
+            payload.update(self.artifacts.export_fields(debate_id))
             self._public(payload)
             return payload
 

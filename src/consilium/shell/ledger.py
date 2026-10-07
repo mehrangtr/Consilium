@@ -14,7 +14,7 @@ from consilium.core.contracts import (
 )
 from consilium.core.operation_states import (
     AttemptRecord, AttemptState, CapabilityBinding, ResponseValidation, ResumeAction, ResumePlan,
-    result_state, resume_action, transition, validate_p02_response,
+    result_state, resume_action, transition, validate_operation_response,
 )
 from consilium.shell.storage import Conflict, SchemaError, _identifier, _revision
 
@@ -48,7 +48,8 @@ class OperationLedger:
                 raise SchemaError("Stored transport result checksum differs")
             record = AttemptRecord(intent=intent, state=AttemptState(row["state"]), active_revision=row["active_revision"],
                 request=None if row["request_json"] is None else AdapterRequest.model_validate_json(row["request_json"]),
-                result=result, validation=None if row["validation_json"] is None else ResponseValidation.model_validate_json(row["validation_json"]))
+                result=result, validation=None if row["validation_json"] is None else ResponseValidation.model_validate_json(row["validation_json"]),
+                response_contract=self.store.artifacts.get_contract(intent))
         except (ValueError, ValidationError):
             raise SchemaError("Stored attempt or response is inconsistent") from None
         checkpoint = self.store.checkpoint(intent.debate_id)
@@ -185,7 +186,9 @@ class OperationLedger:
             self._current(record, expected_revision)
             if record.state != AttemptState.RESPONSE_RECEIVED:
                 raise Conflict("Only a complete stored response can be validated")
-            validation = validate_p02_response(record.result.content)
+            if record.response_contract is not None:
+                self.store.artifacts.validate_preparation(record.response_contract, record.intent)
+            validation = validate_operation_response(record.result.content, record.response_contract)
             state = transition(record.state, "VALIDATE_OK" if validation.valid else "VALIDATE_INVALID")
             checkpoint = self._change(record, expected_revision, state, "RESPONSE_VALIDATED", validation=validation)
             if not validation.valid:
@@ -198,6 +201,8 @@ class OperationLedger:
             self._current(record, expected_revision)
             if record.state != AttemptState.VALIDATED:
                 raise Conflict("Canonical confirmation needs positive stored validation")
+            if record.response_contract is not None:
+                self.store.artifacts.validate_preparation(record.response_contract, record.intent)
             checkpoint = self._change(record, expected_revision, transition(record.state, "CONFIRM"), "RESULT_CONFIRMED")
             self._db.execute("INSERT INTO canonical_results VALUES(?,?,?,?)", (str(record.intent.identity.logical_operation_id),
                 str(attempt_id), checkpoint.revision, checkpoint.event_sequence))

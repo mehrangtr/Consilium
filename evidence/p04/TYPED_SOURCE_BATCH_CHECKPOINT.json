@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "status": "LOCAL_VERIFIED_NATIVE_AND_DELIVERY_PENDING",
+  "phase": "P04",
+  "source_digest": "b48df0fd1894ca371aba3c9b81939f211da183d1fc48d26afce67a0e99979454",
+  "local_tests": 419,
+  "real_process_exit_cases": 23,
+  "live_provider_calls": 0,
+  "phase_accepted": false,
+  "next_action": "شواهد تازهٔ ویندوز و لینوکس برای همین منبع را دریافت و تطبیق بده؛ ردیف P04 را به اجرای تازه وصل کن و بستهٔ تحویل را راستی‌آزمایی کن. سپس فقط در P04-002 پذیرش صریح منابع دستی و اتصال پایدار نمای دور بعد را ادامه بده؛ ارسال زنده مسدود بماند.",
+  "prior_publication_verified": "d0139378d379302fe2dd16508a52399be3434015",
+  "previous_phase_row_discrepancy": "P04 phase source/tests fields lagged the newer resume; final receipt links will be reconciled."
+}

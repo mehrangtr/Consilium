@@ -13,6 +13,10 @@ class DurableRunner:
         capabilities = AdapterCapabilities.model_validate(adapter.capabilities.model_dump(mode="python"))
         if capabilities.mode != request.connection.mode:
             raise ValueError("Adapter and bound transport mode differ")
+        if self.store.ledger.get_attempt(request.intent.identity.attempt_id).response_contract is not None:
+            from consilium.adapters.mock import MockAdapter
+            if type(adapter) is not MockAdapter:
+                raise Conflict("Typed source contracts currently permit only the offline MockAdapter")
         checkpoint = self.store.ledger.begin_send(request, expected_revision=expected_revision)
         try:
             result = adapter.send(request)

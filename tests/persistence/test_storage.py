@@ -53,7 +53,7 @@ class StorageTests(unittest.TestCase):
         return value.model_copy(update=changes)
 
     def test_new_database_has_durable_settings_and_valid_schema(self):
-        self.assertEqual(self.store._db.execute("PRAGMA user_version").fetchone()[0], 5)
+        self.assertEqual(self.store._db.execute("PRAGMA user_version").fetchone()[0], 6)
         self.assertEqual(self.store._db.execute("PRAGMA journal_mode").fetchone()[0], "wal")
         self.assertEqual(self.store._db.execute("PRAGMA synchronous").fetchone()[0], 2)
         self.assertEqual(self.store._db.execute("PRAGMA foreign_keys").fetchone()[0], 1)
@@ -63,7 +63,7 @@ class StorageTests(unittest.TestCase):
         self.seeded(); original = self.store.export_debate(self.debate.debate_id)
         self.store.close(); self.store = SQLiteStore(self.path)
         self.assertEqual(self.store.export_debate(self.debate.debate_id), original)
-        self.assertEqual(self.store._db.execute("SELECT count(*) FROM schema_migrations").fetchone()[0], 5)
+        self.assertEqual(self.store._db.execute("SELECT count(*) FROM schema_migrations").fetchone()[0], 6)
 
     def test_future_schema_is_refused_without_downgrading_it(self):
         other = self.path.with_name("future.sqlite3")

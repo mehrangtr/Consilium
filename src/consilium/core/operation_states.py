@@ -9,6 +9,8 @@ from typing import Self
 
 from pydantic import ValidationError, model_validator
 
+from consilium.core.artifact_contracts import ArtifactResponseContract, parse_artifact_response
+
 from consilium.core.contracts import (
     AdapterCapabilities, AdapterRequest, ConnectionSpec, Contract, Failure, OperationIntent, ResponseState, Delivery,
     Revision, Sha256, Text, TransportResult,
@@ -123,6 +125,18 @@ def validate_p02_response(content: str) -> ResponseValidation:
                               valid=not issues, issues=issues)
 
 
+def validate_operation_response(content: str, contract: ArtifactResponseContract | None) -> ResponseValidation:
+    if contract is None:
+        return validate_p02_response(content)
+    try:
+        parse_artifact_response(content, contract)
+        issues = ()
+    except ValueError:
+        issues = ("INVALID_P04_SOURCE_OUTPUT",)
+    return ResponseValidation(schema_id=contract.validation_schema,
+        content_hash=hashlib.sha256(content.encode("utf-8")).hexdigest(), valid=not issues, issues=issues)
+
+
 class AttemptRecord(Contract):
     intent: OperationIntent
     state: AttemptState
@@ -130,9 +144,12 @@ class AttemptRecord(Contract):
     request: AdapterRequest | None = None
     result: TransportResult | None = None
     validation: ResponseValidation | None = None
+    response_contract: ArtifactResponseContract | None = None
 
     @model_validator(mode="after")
     def consistent_record(self) -> Self:
+        if self.response_contract is not None:
+            self.response_contract.require_intent(self.intent)
         if self.active_revision <= self.intent.expected_revision:
             raise ValueError("Attempt must refer to its committed revision")
         if self.state == AttemptState.PREPARED:
@@ -152,7 +169,7 @@ class AttemptRecord(Contract):
         if self.validation is not None:
             if self.result is None or self.result.response_state != ResponseState.COMPLETE or self.result.content is None:
                 raise ValueError("Validation requires a complete stored response")
-            if self.validation != validate_p02_response(self.result.content):
+            if self.validation != validate_operation_response(self.result.content, self.response_contract):
                 raise ValueError("Validation does not match the stored response")
         if self.state in {AttemptState.VALIDATED, AttemptState.CONFIRMED}:
             if self.validation is None or not self.validation.valid:

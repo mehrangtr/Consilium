@@ -2,7 +2,7 @@
 
 این نما خودکار از `ROADMAP.json`، `PROGRESS.json` و `CHECKS.json` ساخته شده است. ویرایش دستی مرجع نیست؛ پس از تغییر مبنا فرمان تولید را دوباره اجرا کنید.
 
-شناسهٔ مبنای نما: `5ea2c78d8183ac6ea3ae971f06de11db7bd432f47012da8fa2b88757043e0cab`.
+شناسهٔ مبنای نما: `12384173f37d5e09a578766dd077e3d22b78f0b4d80c471c426524f21785a744`.
 
 مرحلهٔ فعلی: `P04`. آخرین مرحلهٔ پذیرفته‌شده: `P03`.
 
@@ -23,8 +23,10 @@
     "P04-002 durable initial admission and explicit later-round local projections verified: 367 tests and 19 real process exits per actual native OS; full P04 not accepted.",
     "P04-002 canonical mock-source storage and V5 migration verified: 388 tests and 21 real process exits per actual native OS; full phase remains open."
   ],
-  "working_changes": [],
-  "next_action": "در همین P04-002 قرارداد نسخه‌دار منبع نقد چندهدفه و پاسخ واقعی یا دستی را با پیوند به تأیید روشن تعریف کن؛ قرارداد ذخیره پیش از گردش کامل شورا در P05 است. سپس نمای دورهای بعد را با منابع معتبر و مجوز و بودجه در همان تراکنش قصد ثبت کن. حفظ قیود و مخالفت و بازیابی را آزمون کن و بعد همهٔ معیارهای باز P04 را بازبینی کن. ارسال زنده فعال نشود.",
+  "working_changes": [
+    "P04-002 frozen output contracts, typed mock source batches and V6 migration; local checks PASS; fresh native proof/publication pending."
+  ],
+  "next_action": "شواهد تازهٔ ویندوز و لینوکس برای همین منبع را دریافت و تطبیق بده؛ ردیف P04 را به اجرای تازه وصل کن و بستهٔ تحویل را راستی‌آزمایی کن. سپس فقط در P04-002 پذیرش صریح منابع دستی و اتصال پایدار نمای دور بعد را ادامه بده؛ ارسال زنده مسدود بماند.",
   "next_command": "python tools/qualityctl.py status",
   "startup_commands": [
     "python tools/qualityctl.py status",
@@ -43,33 +45,33 @@
     "IndependentContext revision currently represents adoption revision. Live integration must separately validate current ledger revision after round/connection events; never conflate them.",
     "evidence/p04/IMPLEMENTATION_PLAN_FA.md is the historical initial design; its not-started wording is not current state. Use PROGRESS.json and latest P04 checkpoint.",
     "P04 admission facts are historical local attestations; require_current is not send authorization. Policy-managed begin_send is blocked. Later-round input authenticity must come from canonical storage, not provider text or untrusted saved packets.",
-    "Local executor stopped responding after verification; delivery was rebuilt on GitHub from exactly 520bb5d5f321afbef744cd604438795737dccfe6 and existing native artifacts. The helper workflow is not product source and must not be merged.",
-    "Current source publication is one mock Answer per confirmed operation; multi-target Critique storage needs an explicit versioned contract, not silent reuse or relabeling."
+    "Historical executor stall recovered on this turn. Original staged checkout is preserved; continuation uses a fresh worktree from verified public main. Do not republish old local metadata.",
+    "Typed multi-target source contracts are MOCK-only. Provider JSON supplies text/scores/aliases; local contract supplies identities/rubric. Full Council, Manual/LIVE acceptance and durable later-round admission remain open."
   ],
   "next_task": {
     "id": "P04-002",
     "phase": "P04",
-    "status": "PARTIAL_CANONICAL_MOCK_SOURCE_STORAGE_VERIFIED",
+    "status": "PARTIAL_TYPED_MOCK_SOURCE_BATCH_LOCAL_PASS_NATIVE_PENDING",
     "title_fa": "نمای مجاز، ثبت پایدار شواهد کنترل و ورودی دورها",
-    "completed_fa": "ثبت کنترل اولیه و نماهای خالص حفظ شده‌اند. مخزن پاسخ ساختگی به نتیجهٔ رسمی و تلاش و ورودی و دور دقیق متصل است؛ ۲۱ آزمون جدید و مجموع ۳۸۸ آزمون با ۲۱ مورد قطع واقعی پردازه در هر محیط بومی موفق‌اند.",
-    "remaining_fa": "قرارداد منبع نقد چندهدفه و پاسخ واقعی یا دستی، اتصال نمای دور بعد به قصد و شواهد مجوز و بودجه، معیارهای باز و پذیرش کامل مرحله.",
-    "next_action_fa": "در همین P04-002 قرارداد نسخه‌دار منبع نقد چندهدفه و پاسخ واقعی یا دستی را با پیوند به تأیید روشن تعریف کن؛ قرارداد ذخیره پیش از گردش کامل شورا در P05 است. سپس نمای دورهای بعد را با منابع معتبر و مجوز و بودجه در همان تراکنش قصد ثبت کن. حفظ قیود و مخالفت و بازیابی را آزمون کن و بعد همهٔ معیارهای باز P04 را بازبینی کن. ارسال زنده فعال نشود.",
+    "completed_fa": "قرارداد خروجی ثابت و ثبت اتمیک پاسخ یا نقد چندهدفه در V6 افزوده شده‌اند؛ ۴۱۹ آزمون محلی موفق‌اند. شاهد تازهٔ هر دو محیط و ثبت تحویل این برش هنوز لازم است.",
+    "remaining_fa": "شاهد بومی و تحویل این برش؛ واردکردن دستی با پذیرش صریح، منشأ زنده، اتصال نمای دور بعد به قصد و شواهد مجوز و بودجه و پذیرش کامل P04.",
+    "next_action_fa": "شواهد تازهٔ ویندوز و لینوکس برای همین منبع را دریافت و تطبیق بده؛ ردیف P04 را به اجرای تازه وصل کن و بستهٔ تحویل را راستی‌آزمایی کن. سپس فقط در P04-002 پذیرش صریح منابع دستی و اتصال پایدار نمای دور بعد را ادامه بده؛ ارسال زنده مسدود بماند.",
     "done_when_fa": "شواهد و ورودی منجمد با نسخه و منشأ و مقصد روشن پایدارند؛ بازیابی و نشت و بودجه و حفظ قیود در تمام نماهای لازم آزموده شده‌اند؛ شواهد هر دو محیط و بازبینی کامل معیارهای مرحله موجود است."
   },
   "unfinished_work": {
     "schema_version": 1,
-    "updated_at_utc": "2026-10-07T09:35:55.689891+00:00",
+    "updated_at_utc": "2026-10-07T10:42:38.758593+00:00",
     "canonical_location": "PROGRESS.json:resume.unfinished_work",
-    "continuation_instruction": "Old stalled publication completed at 2593abb0815bff62f1fd5e45766d55e40bbae6ad. New source bd3d5640089d4ee858090412dc0d3fd4dfde8a5e03bf449fde1c2ed8336b309b is native-verified. Continue remaining P04-002 contracts and durable later-round admission; do not repeat old probes or successful tests without a source change or real defect.",
+    "continuation_instruction": "Prior main publication d0139378d379302fe2dd16508a52399be3434015 and PR6 verified complete. Local staged history preserved in previous checkout and p04_resume_checkpoint. Continue current typed-source slice native evidence and handoff before further P04 work.",
     "items": [
       {
         "id": "P04-002",
         "phase": "P04",
-        "status": "PARTIAL_CANONICAL_MOCK_SOURCE_STORAGE_VERIFIED",
+        "status": "PARTIAL_TYPED_MOCK_SOURCE_BATCH_LOCAL_PASS_NATIVE_PENDING",
         "title_fa": "نمای مجاز، ثبت پایدار شواهد کنترل و ورودی دورها",
-        "completed_fa": "ثبت کنترل اولیه و نماهای خالص حفظ شده‌اند. مخزن پاسخ ساختگی به نتیجهٔ رسمی و تلاش و ورودی و دور دقیق متصل است؛ ۲۱ آزمون جدید و مجموع ۳۸۸ آزمون با ۲۱ مورد قطع واقعی پردازه در هر محیط بومی موفق‌اند.",
-        "remaining_fa": "قرارداد منبع نقد چندهدفه و پاسخ واقعی یا دستی، اتصال نمای دور بعد به قصد و شواهد مجوز و بودجه، معیارهای باز و پذیرش کامل مرحله.",
-        "next_action_fa": "در همین P04-002 قرارداد نسخه‌دار منبع نقد چندهدفه و پاسخ واقعی یا دستی را با پیوند به تأیید روشن تعریف کن؛ قرارداد ذخیره پیش از گردش کامل شورا در P05 است. سپس نمای دورهای بعد را با منابع معتبر و مجوز و بودجه در همان تراکنش قصد ثبت کن. حفظ قیود و مخالفت و بازیابی را آزمون کن و بعد همهٔ معیارهای باز P04 را بازبینی کن. ارسال زنده فعال نشود.",
+        "completed_fa": "قرارداد خروجی ثابت و ثبت اتمیک پاسخ یا نقد چندهدفه در V6 افزوده شده‌اند؛ ۴۱۹ آزمون محلی موفق‌اند. شاهد تازهٔ هر دو محیط و ثبت تحویل این برش هنوز لازم است.",
+        "remaining_fa": "شاهد بومی و تحویل این برش؛ واردکردن دستی با پذیرش صریح، منشأ زنده، اتصال نمای دور بعد به قصد و شواهد مجوز و بودجه و پذیرش کامل P04.",
+        "next_action_fa": "شواهد تازهٔ ویندوز و لینوکس برای همین منبع را دریافت و تطبیق بده؛ ردیف P04 را به اجرای تازه وصل کن و بستهٔ تحویل را راستی‌آزمایی کن. سپس فقط در P04-002 پذیرش صریح منابع دستی و اتصال پایدار نمای دور بعد را ادامه بده؛ ارسال زنده مسدود بماند.",
         "done_when_fa": "شواهد و ورودی منجمد با نسخه و منشأ و مقصد روشن پایدارند؛ بازیابی و نشت و بودجه و حفظ قیود در تمام نماهای لازم آزموده شده‌اند؛ شواهد هر دو محیط و بازبینی کامل معیارهای مرحله موجود است."
       }
     ],

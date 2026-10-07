@@ -453,7 +453,7 @@ class MigrationTests(unittest.TestCase):
                 old_events = db.execute("SELECT * FROM events ORDER BY sequence").fetchall()
                 old_attempt = db.execute("SELECT * FROM attempts").fetchone()
             with SQLiteStore(path) as store:
-                self.assertEqual(store._db.execute("PRAGMA user_version").fetchone()[0], 4)
+                self.assertEqual(store._db.execute("PRAGMA user_version").fetchone()[0], 5)
                 self.assertEqual(store._db.execute("SELECT checksum FROM schema_migrations WHERE version=1").fetchone()[0], old_hash)
                 self.assertEqual(store._db.execute("SELECT applied_at FROM schema_migrations WHERE version=1").fetchone()[0], "historic")
                 self.assertEqual(store.get_debate(debate.debate_id), debate)

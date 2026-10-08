@@ -1,0 +1,65 @@
+{
+  "scope": "TARGETED_DEV_QUALITY_NOT_FULL_STATIC_VERIFICATION",
+  "status": "PASS",
+  "source_digest_before": "5c44278b5f6a52c4276e4d7d7c17af2f3633cca8ae8db44cce4420be830767f7",
+  "source_digest_after": "5c44278b5f6a52c4276e4d7d7c17af2f3633cca8ae8db44cce4420be830767f7",
+  "checks": [
+    {
+      "id": "lint",
+      "status": "PASS",
+      "returncode": 0,
+      "elapsed_seconds": 0.025
+    },
+    {
+      "id": "types",
+      "status": "PASS",
+      "returncode": 0,
+      "elapsed_seconds": 0.525
+    },
+    {
+      "id": "conformance",
+      "status": "PASS",
+      "returncode": 0,
+      "elapsed_seconds": 0.04
+    },
+    {
+      "id": "transitions",
+      "status": "PASS",
+      "returncode": 0,
+      "elapsed_seconds": 0.151
+    },
+    {
+      "id": "properties_and_regressions",
+      "status": "PASS",
+      "returncode": 0,
+      "elapsed_seconds": 7.067
+    },
+    {
+      "id": "targeted_coverage",
+      "status": "PASS",
+      "returncode": 0,
+      "elapsed_seconds": 0.09
+    }
+  ],
+  "strict_type_targets": [
+    "src/consilium/core/evidence_provenance.py",
+    "src/consilium/core/rubrics.py",
+    "src/consilium/shell/evidence_store.py"
+  ],
+  "coverage_targets": [
+    "src/consilium/core/evidence_provenance.py",
+    "src/consilium/core/rubrics.py",
+    "src/consilium/shell/evidence_store.py"
+  ],
+  "coverage_minimum": 70,
+  "whole_product_type_checked": false,
+  "evidence_origin": {
+    "kind": "EXTRACTED_NATIVE_LOG_JSON",
+    "target": "Linux",
+    "source_log": {
+      "path": "evidence/targets/Linux/20261008T155709Z_225bf944/CHECK.log",
+      "sha256": "7a109a042a42144eddecf317ab4a029aa39ed1a5a17ebdb43a691f2d29011fec"
+    },
+    "workflow_run_id": 37804861086
+  }
+}

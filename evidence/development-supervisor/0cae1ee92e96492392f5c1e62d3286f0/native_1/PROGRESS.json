@@ -1,0 +1,10 @@
+{
+  "nonce": "cb02710f16dc4b48895ca96ae3ff824f",
+  "task_pid": 2280,
+  "sequence": 6,
+  "milestone": "native_receipt_and_pointer_written",
+  "receipt": {
+    "path": "/home/runner/work/Consilium/Consilium/evidence/targets/Linux/20261008T155709Z_225bf944/RUN.json",
+    "sha256": "8ff0a877cd345aabcb80181a97fb6321b06b762bf614482a18a5549d9d488d37"
+  }
+}

@@ -1,0 +1,188 @@
+{
+  "schema_version": 1,
+  "scope": "SOURCE_BOUND_NATIVE_RECHECK_NOT_P06_ACCEPTANCE",
+  "status": "PASS",
+  "source_digest": "5c44278b5f6a52c4276e4d7d7c17af2f3633cca8ae8db44cce4420be830767f7",
+  "date_utc": "2026-10-08T16:27:23.565788+00:00",
+  "workflow_run_id": 37804861086,
+  "workflow_url": "https://github.com/mehrangtr/Consilium/actions/runs/37804861086",
+  "tested_code_commit": "e3cfb53b3fed396b725659eafac9451edf248c53",
+  "native_targets": [
+    {
+      "target": "Windows",
+      "status": "PASS",
+      "source_matches_current": true,
+      "report": {
+        "path": "evidence/targets/Windows/20261008T155730Z_fefd9f7e/RUN.json",
+        "sha256": "861c5456e8a62fc970af870ae03a1b15ef9ea65bc10a60357fcfcfea7f60baaa"
+      },
+      "test_counts": {
+        "control": {
+          "tests": 117,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        "foundation": {
+          "tests": 60,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        "persistence": {
+          "tests": 104,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        "browser_probe": {
+          "tests": 44,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        "architect": {
+          "tests": 259,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        "council": {
+          "tests": 40,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        "quality": {
+          "tests": 15,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        "pilot": {
+          "tests": 17,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        }
+      },
+      "tests_total": 656
+    },
+    {
+      "target": "Linux",
+      "status": "PASS",
+      "source_matches_current": true,
+      "report": {
+        "path": "evidence/targets/Linux/20261008T155709Z_225bf944/RUN.json",
+        "sha256": "8ff0a877cd345aabcb80181a97fb6321b06b762bf614482a18a5549d9d488d37"
+      },
+      "test_counts": {
+        "control": {
+          "tests": 117,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        "foundation": {
+          "tests": 60,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        "persistence": {
+          "tests": 104,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        "browser_probe": {
+          "tests": 44,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        "architect": {
+          "tests": 259,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        "council": {
+          "tests": 40,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        "quality": {
+          "tests": 15,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        "pilot": {
+          "tests": 17,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        }
+      },
+      "tests_total": 656
+    }
+  ],
+  "tooling_records": [
+    {
+      "path": "evidence/quality-improvements/native-37804861086/Windows_TOOLING.json",
+      "sha256": "a02550ecdf5f35ac4711fc738a7205e98d9265b9686abf48d79434a20208567d"
+    },
+    {
+      "path": "evidence/quality-improvements/native-37804861086/Linux_TOOLING.json",
+      "sha256": "8cf1f7ba72469d9a95b4ecada26bc20d2573262cea139c84001f59d8cd227455"
+    }
+  ],
+  "dependency_audit": {
+    "path": "evidence/security-audit/native-37804861086/RUN.json",
+    "sha256": "44328f797469cf17d84517417893ee035db35a0861cf2903d21f9f080cda9cfc"
+  },
+  "archive_artifact_id": 11562192966,
+  "archive_sha256": "34ace76a6783cc7c0dd5d9fa19e10c340caaf066453a6cd916f1d2275217bd5f",
+  "all_four_workflow_jobs": "SUCCESS",
+  "accepted_P05_review": {
+    "path": "evidence/accepted/P05_9d8a5cb47cca/REVIEW.json",
+    "sha256": "3b829a028ce1a1fa3d79cf5562b9352fc85109deed89c2e4d7adf3bd3ab50c35"
+  },
+  "verified_P05_proof_references": 276,
+  "P05_merged_pr": 13,
+  "P05_merge_commit": "af60bdfa70046a75ce9bd4c5f6c56ae7cd4f9e2f",
+  "P06_preflight": {
+    "path": "evidence/p06/PREFLIGHT.json",
+    "sha256": "4029745404b1ff2a1c23d9f49fb1f46662daef659daacea55c264bfb0bda53c8"
+  },
+  "P06_evidence_barrier": {
+    "path": "evidence/p06/EVIDENCE.json",
+    "sha256": "90784edde21d57af2c0940251ce0fa4f85f59dab43a116d8bd252e54372a3ce7"
+  },
+  "P06_real_final_outputs": 0,
+  "P06_required_final_outputs": 24,
+  "phase_accepted": false,
+  "P06_status": "BLOCKED",
+  "verified_full_product_requirements": 0,
+  "protected_requirement_count": 30,
+  "reviewer_independent": false,
+  "paid_model_calls": 0,
+  "limits": [
+    "Targeted lint/types/coverage on three modules; not full static verification.",
+    "Pilot bookkeeping tests and scripted demos do not establish real-model quality.",
+    "APPROVED_ENHANCEMENTS.json is the frozen implementation checkpoint; current native evidence is recorded here.",
+    "License selection and later-phase/conditional enhancements remain unresolved."
+  ],
+  "native_supervisor_receipts": [
+    {
+      "path": "evidence/development-supervisor/61497e98197d4c3f9c618045ecabe3b5/STATE.json",
+      "sha256": "73aa3544ad01b24a9ac1cd393514121c4d94ae0ebe8c1e37dccbe008f1f151a0"
+    },
+    {
+      "path": "evidence/development-supervisor/0cae1ee92e96492392f5c1e62d3286f0/STATE.json",
+      "sha256": "18f26eeda7ba2f1f8f855b8dd8599a4a5419590bcd46774a5abfa9d84155b986"
+    }
+  ]
+}

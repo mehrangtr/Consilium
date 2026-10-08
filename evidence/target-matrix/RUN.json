@@ -1,34 +1,38 @@
 {
   "phase": "P01",
   "scope": "SELECTED_OS_FOUNDATION_GATE_NOT_FULL_V1_ACCEPTANCE",
-  "source_digest": "c01c0633233eb7b35a9cf6319f75497771632ddf7b3fe3ad6e0f7300bdf6dad8",
+  "source_digest": "5c44278b5f6a52c4276e4d7d7c17af2f3633cca8ae8db44cce4420be830767f7",
   "targets": [
     {
       "target": "Windows",
       "status": "PASS",
-      "control_tests": 115,
+      "control_tests": 117,
       "foundation_tests": 60,
       "persistence_tests": 104,
       "browser_probe_tests": 44,
       "architect_tests": 259,
       "council_tests": 40,
+      "quality_tests": 15,
+      "pilot_tests": 17,
       "evidence": {
-        "path": "evidence/targets/Windows/20261008T092548Z_c743026e/RUN.json",
-        "sha256": "a397686ffd0f7d9785f01a959ccf93a18ee6e670857d64e0fc7459007108d345"
+        "path": "evidence/targets/Windows/20261008T155730Z_fefd9f7e/RUN.json",
+        "sha256": "861c5456e8a62fc970af870ae03a1b15ef9ea65bc10a60357fcfcfea7f60baaa"
       }
     },
     {
       "target": "Linux",
       "status": "PASS",
-      "control_tests": 115,
+      "control_tests": 117,
       "foundation_tests": 60,
       "persistence_tests": 104,
       "browser_probe_tests": 44,
       "architect_tests": 259,
       "council_tests": 40,
+      "quality_tests": 15,
+      "pilot_tests": 17,
       "evidence": {
-        "path": "evidence/targets/Linux/20261008T092538Z_270c21cd/RUN.json",
-        "sha256": "3c403515a4843c634efd259f13c8d66af9d92a068cc988db2866a8c5f54fa703"
+        "path": "evidence/targets/Linux/20261008T155709Z_225bf944/RUN.json",
+        "sha256": "8ff0a877cd345aabcb80181a97fb6321b06b762bf614482a18a5549d9d488d37"
       }
     }
   ],

@@ -9,11 +9,11 @@ from typing import Self
 
 from pydantic import ValidationError, model_validator
 
-from consilium.core.artifact_contracts import ArtifactResponseContract, parse_artifact_response
+from consilium.core.artifact_contracts import ArtifactResponseContract, parse_artifact_response, validate_frozen_review_spans
 
 from consilium.core.contracts import (
     AdapterCapabilities, AdapterRequest, ConnectionSpec, Contract, Failure, OperationIntent, ResponseState, Delivery,
-    Revision, Sha256, Text, TransportResult,
+    FrozenInput, Revision, Sha256, Text, TransportResult,
 )
 
 
@@ -125,11 +125,13 @@ def validate_p02_response(content: str) -> ResponseValidation:
                               valid=not issues, issues=issues)
 
 
-def validate_operation_response(content: str, contract: ArtifactResponseContract | None) -> ResponseValidation:
+def validate_operation_response(content: str, contract: ArtifactResponseContract | None,
+                                frozen_input: FrozenInput | None = None) -> ResponseValidation:
     if contract is None:
         return validate_p02_response(content)
     try:
-        parse_artifact_response(content, contract)
+        output = parse_artifact_response(content, contract)
+        validate_frozen_review_spans(output, contract, frozen_input)
         issues = ()
     except ValueError:
         issues = ("INVALID_P04_SOURCE_OUTPUT",)
@@ -169,7 +171,7 @@ class AttemptRecord(Contract):
         if self.validation is not None:
             if self.result is None or self.result.response_state != ResponseState.COMPLETE or self.result.content is None:
                 raise ValueError("Validation requires a complete stored response")
-            if self.validation != validate_operation_response(self.result.content, self.response_contract):
+            if self.validation != validate_operation_response(self.result.content, self.response_contract, self.intent.frozen_input):
                 raise ValueError("Validation does not match the stored response")
         if self.state in {AttemptState.VALIDATED, AttemptState.CONFIRMED}:
             if self.validation is None or not self.validation.valid:

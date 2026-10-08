@@ -6,7 +6,8 @@ it cannot guarantee that free text does not reveal its author's identity.
 from typing import Literal, Self
 from uuid import UUID
 import json
-from pydantic import model_validator
+from pydantic import model_serializer, model_validator
+import hashlib
 
 from .contracts import Answer, ConnectionSpec, Contract, Critique, DebateSpec, FrozenInput, GenerationParameters, Identifier, Message, Revision, RoundSpec, Sha256, Text, UserDecision
 from .dispatch_policy import PolicyBlocked, destination_hash
@@ -64,6 +65,12 @@ class NamedReviewAuthorization(ViewAuthorization):
     identities: tuple[NamedIdentity, ...]
 
 
+class ReviewPresentation(Contract):
+    version: Literal['review-presentation.v1'] = 'review-presentation.v1'
+    seed: Sha256
+    rubric_version: Text
+
+
 class RoundContext(Contract):
     scope: Literal["AUTHORIZED_LOCAL_PROJECTION_NOT_LIVE_DISPATCH"] = "AUTHORIZED_LOCAL_PROJECTION_NOT_LIVE_DISPATCH"
     debate_id: Identifier
@@ -78,6 +85,14 @@ class RoundContext(Contract):
     grant_hashes: tuple[Sha256, ...]
     authorization_hashes: tuple[Sha256, ...]
     frozen_input: FrozenInput
+    presentation: ReviewPresentation | None = None
+
+    @model_serializer(mode='wrap')
+    def preserve_historical_bytes(self, handler):
+        result = handler(self)
+        if self.presentation is None:
+            result.pop('presentation', None)
+        return result
 
     @property
     def content_hash(self) -> str:
@@ -98,7 +113,8 @@ def build_round_context(*, question: AdoptedQuestion, debate: DebateSpec, round_
                         connection: ConnectionSpec, parameters: GenerationParameters,
                         judge_selection: JudgeSelection | None = None,
                         named_authorization: NamedReviewAuthorization | None = None,
-                        continuation_decision: UserDecision | None = None) -> RoundContext:
+                        continuation_decision: UserDecision | None = None,
+                        presentation: ReviewPresentation | None = None) -> RoundContext:
     question = AdoptedQuestion.model_validate(question)
     debate = DebateSpec.model_validate(debate)
     round_spec = RoundSpec.model_validate(round_spec)
@@ -143,7 +159,20 @@ def build_round_context(*, question: AdoptedQuestion, debate: DebateSpec, round_
             raise PolicyBlocked("SELECTED_JUDGE_MISMATCH")
     elif judge_selection is not None:
         raise PolicyBlocked("JUDGE_CONTROL_NOT_APPLICABLE")
-    aliases = {pid: _alias(i + 1) for i, pid in enumerate(debate.participant_ids)}
+    alias_order = debate.participant_ids
+    if presentation is not None:
+        presentation = ReviewPresentation.model_validate(presentation)
+        if round_spec.kind != 'REVIEW':
+            raise PolicyBlocked('REVIEW_PRESENTATION_OUTSIDE_REVIEW')
+        from .rubrics import get_rubric
+        get_rubric(presentation.rubric_version)
+        shuffled = sorted(alias_order, key=lambda pid: hashlib.sha256(
+            (presentation.seed + str(pid)).encode()).hexdigest())
+        # Latin rotation balances the first position across the reviewers of
+        # this round, while the persisted seed makes replay exact.
+        offset = debate.participant_ids.index(participant_id)
+        alias_order = tuple(shuffled[offset:] + shuffled[:offset])
+    aliases = {pid: _alias(i + 1) for i, pid in enumerate(alias_order)}
     names = {}
     # P05 final synthesis has its own recorded blind mitigation. Named peer
     # reviews do not silently turn that judge view into a named one. Preserve
@@ -181,7 +210,10 @@ def build_round_context(*, question: AdoptedQuestion, debate: DebateSpec, round_
         if isinstance(item, Answer):
             answer_map[item.answer_id] = item
             answer_sources[item.answer_id] = source
-    ordered = sorted(sources, key=lambda s: (s.source_round.number, s.content_hash))
+    def source_order(source):
+        author = source.item.participant_id if isinstance(source.item, Answer) else source.item.reviewer_id
+        return (source.source_round.number, aliases[author] if presentation else '', source.content_hash)
+    ordered = sorted(sources, key=source_order)
     refs = {s.item.answer_id: str(i + 1) for i, s in enumerate(ordered) if isinstance(s.item, Answer)}
     projected = []
     for source in ordered:
@@ -215,6 +247,10 @@ def build_round_context(*, question: AdoptedQuestion, debate: DebateSpec, round_
             "targets": round_spec.targets, "sources": projected}
     if continuation_decision is not None:
         data["continuation"] = {"kind": continuation_decision.kind, "instruction": continuation_decision.instruction}
+    if presentation is not None:
+        from .rubrics import rubric_payload
+        data['review_presentation'] = {'version': presentation.version, 'seed': presentation.seed}
+        data['scoring_rubric'] = rubric_payload(presentation.rubric_version)
     if round_spec.kind == 'SYNTHESIS' and continuation_decision is not None and continuation_decision.kind == 'FINISH':
         from .council_contracts import JudgeOutput
         data['judge_output_schema'] = JudgeOutput.model_json_schema()
@@ -231,11 +267,13 @@ def build_round_context(*, question: AdoptedQuestion, debate: DebateSpec, round_
         ledger_revision=expected_revision, role="JUDGE" if round_spec.kind == "SYNTHESIS" else "PARTICIPANT",
         visibility=visibility, snapshot_hash=question.original.content_hash,
         proposal_hash=question.proposal.content_hash, source_hashes=tuple(sorted(source_hashes)),
-        grant_hashes=tuple(sorted(_hash(g) for g in grants)), authorization_hashes=tuple(sorted(authorizations)), frozen_input=frozen)
+        grant_hashes=tuple(sorted(_hash(g) for g in grants)), authorization_hashes=tuple(sorted(authorizations)), frozen_input=frozen,
+        presentation=presentation)
 
 
 def recover_round_context(saved: RoundContext, **trusted_inputs) -> FrozenInput:
     saved = RoundContext.model_validate(saved)
+    trusted_inputs.setdefault('presentation', saved.presentation)
     rebuilt = build_round_context(**trusted_inputs)
     if saved != rebuilt:
         raise PolicyBlocked("ROUND_CONTEXT_RECONSTRUCTION_MISMATCH")

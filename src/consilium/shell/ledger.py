@@ -202,7 +202,7 @@ class OperationLedger:
                 raise Conflict("Only a complete stored response can be validated")
             if record.response_contract is not None:
                 self.store.artifacts.validate_preparation(record.response_contract, record.intent)
-            validation = validate_operation_response(record.result.content, record.response_contract)
+            validation = validate_operation_response(record.result.content, record.response_contract, record.intent.frozen_input)
             state = transition(record.state, "VALIDATE_OK" if validation.valid else "VALIDATE_INVALID")
             checkpoint = self._change(record, expected_revision, state, "RESPONSE_VALIDATED", validation=validation)
             if not validation.valid:

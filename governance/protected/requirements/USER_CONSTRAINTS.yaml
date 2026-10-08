@@ -1,0 +1,608 @@
+schema_version: 2
+project: Consilium
+policy:
+  user_requirements_are_protected: true
+  ai_recommendations_may_override_user_requirements: false
+  protected_change_requires: EXPLICIT_USER_APPROVAL
+  default_interactive_mode_requires_user_gate: true
+  browser_support_required_in_v1: true
+  canonical_requirements_file: requirements/USER_CONSTRAINTS.yaml
+  audit_aliases_are_not_new_user_requirements: true
+governance_version: 1.3.0
+effective_date: '2026-10-05'
+status_model:
+  protection:
+  - LOCKED
+  contract_status:
+  - PRESENT
+  - PARTIAL
+  - MISSING
+  implementation_status:
+  - IMPLEMENTED
+  - PARTIAL
+  - MISSING
+  - UNVERIFIED
+  verification_status:
+  - PASS
+  - FAIL
+  - NOT_RUN
+requirements:
+- id: UR-001
+  title: Browser/Web account support in V1
+  origin: USER
+  priority: MUST
+  lock: USER_APPROVAL_REQUIRED
+  requirement: Consilium must support a browser-based connection to provider websites in V1 using the user's real
+    logged-in account/session. Browser support may not be postponed to V2 without explicit user approval.
+  protection: LOCKED
+  contract_status: PRESENT
+  implementation_status: UNVERIFIED
+  verification_status: NOT_RUN
+  release_target: V1
+  legacy_status: ACCEPTED_IN_CONTRACT
+  prior_assessment_unverified: Browser Adapter and BROWSER connection are present; persistent-profile behavior exists,
+    but V1 release wording must be locked.
+  implementation_contract: MUST support Browser/Web Account connection using the user's real authorized logged-in
+    session in V1; MUST NOT postpone it to V2 without explicit user approval.
+  assessment_note: Contract and planned traceability are defined; application implementation and runtime tests were
+    not supplied.
+- id: UR-002
+  title: API + Browser connection modes
+  origin: USER
+  priority: MUST
+  lock: USER_APPROVAL_REQUIRED
+  requirement: The product must support both API and Browser/Web Account connection modes. Manual is an additional
+    fallback, not a replacement.
+  protection: LOCKED
+  contract_status: PRESENT
+  implementation_status: UNVERIFIED
+  verification_status: NOT_RUN
+  release_target: V1
+  legacy_status: ACCEPTED_IN_CONTRACT
+  prior_assessment_unverified: Connection enum includes API, BROWSER, MANUAL.
+  implementation_contract: MUST support API, Browser/Web Account and Manual fallback in V1. Manual supplements the
+    other paths and MUST NOT replace Browser.
+  assessment_note: Contract and planned traceability are defined; application implementation and runtime tests were
+    not supplied.
+- id: UR-003
+  title: User-controlled login and credentials
+  origin: USER
+  priority: MUST
+  lock: USER_APPROVAL_REQUIRED
+  requirement: The user performs login, including username/password/2FA/CAPTCHA. Raw passwords must not be persisted
+    by Consilium. Browser profile/session reuse is allowed.
+  protection: LOCKED
+  contract_status: PRESENT
+  implementation_status: UNVERIFIED
+  verification_status: NOT_RUN
+  release_target: V1
+  legacy_status: PARTIAL_NEEDS_FORMALIZATION
+  prior_assessment_unverified: WAITING_LOGIN/Open Login and secret-exclusion exist, but a normative no-raw-password-storage
+    clause is still required.
+  implementation_contract: MUST let the user perform login, password entry, 2FA and CAPTCHA. MUST NOT persist raw
+    passwords. Authorized local browser session reuse MAY exist; expiration MUST return control to the login gate.
+    Session secrets MUST remain outside source archives and Debate exports.
+  assessment_note: Contract and planned traceability are defined; application implementation and runtime tests were
+    not supplied.
+- id: UR-004
+  title: Real AI Council, not simple multi-chat
+  origin: USER
+  priority: MUST
+  lock: USER_APPROVAL_REQUIRED
+  requirement: The core flow must include independent answers, comparison, critique/peer review, further discussion/conflict
+    resolution, and final synthesis.
+  protection: LOCKED
+  contract_status: PRESENT
+  implementation_status: UNVERIFIED
+  verification_status: NOT_RUN
+  release_target: V1
+  legacy_status: ACCEPTED_IN_CONTRACT
+  prior_assessment_unverified: Independent answers, Blind Peer Review, conflict resolution, and synthesis are represented.
+  implementation_contract: MUST implement a real Council with independent first-round answers, comparison, structured
+    peer review, conflict/dissent analysis, user-controlled continuation and final synthesis. An interrupted independent
+    participant MUST NOT receive peer answers in its recovery input.
+  assessment_note: Contract and planned traceability are defined; application implementation and runtime tests were
+    not supplied.
+- id: UR-005
+  title: Prompt Architect before Round 1
+  origin: USER
+  priority: MUST
+  lock: USER_APPROVAL_REQUIRED
+  requirement: A Prompt Architect/Preflight stage must optimize the user's request before Round 1 while preserving
+    the user's original intent and constraints.
+  protection: LOCKED
+  contract_status: PRESENT
+  implementation_status: UNVERIFIED
+  verification_status: NOT_RUN
+  release_target: V1
+  legacy_status: PARTIAL_NEEDS_FORMALIZATION
+  prior_assessment_unverified: PLANNING mentions Prompt Architect/Preflight, but its I/O contract and intent-preservation
+    invariant are not yet formalized.
+  implementation_contract: MUST run Prompt Architect before Round 1 while preserving the original request and constraints.
+    Output MUST retain original_request, optimized_request, preserved_constraints, assumptions, transformations
+    and prompt_version. It MUST NOT silently change user intent.
+  assessment_note: Contract and planned traceability are defined; application implementation and runtime tests were
+    not supplied.
+- id: UR-006
+  title: Adaptive number of rounds
+  origin: USER
+  priority: MUST
+  lock: USER_APPROVAL_REQUIRED
+  requirement: The number of debate rounds must not be blindly fixed. Continuation must depend on actual disagreement,
+    new information, and the user's decision.
+  protection: LOCKED
+  contract_status: PRESENT
+  implementation_status: UNVERIFIED
+  verification_status: NOT_RUN
+  release_target: V1
+  legacy_status: ACCEPTED_IN_CONTRACT
+  prior_assessment_unverified: Contract states rounds are not necessarily predetermined.
+  implementation_contract: MUST support adaptive continuation based on disagreement, unresolved issues and new evidence
+    together with the user decision. A fixed round count MUST NOT replace normal interactive decisions.
+  assessment_note: Contract and planned traceability are defined; application implementation and runtime tests were
+    not supplied.
+- id: UR-007
+  title: User decision gate after each normal round
+  origin: USER
+  priority: MUST
+  lock: USER_APPROVAL_REQUIRED
+  requirement: In normal interactive V1, no next round may start until the user chooses Finish, Continue, Custom
+    Instruction, or Pause.
+  protection: LOCKED
+  contract_status: PRESENT
+  implementation_status: UNVERIFIED
+  verification_status: NOT_RUN
+  release_target: V1
+  legacy_status: ACCEPTED_IN_CONTRACT
+  prior_assessment_unverified: WAITING_USER_DECISION is explicitly required.
+  implementation_contract: MUST persist a current user decision of Finish, Continue, Custom Instruction or Pause
+    after every normal interactive round before proceeding. Analyzer advice MUST NOT authorize a next round. Explicit
+    opt-in batch policies MAY exist with scope, budget and audit metadata.
+  assessment_note: Contract and planned traceability are defined; application implementation and runtime tests were
+    not supplied.
+- id: UR-008
+  title: Targeted next rounds
+  origin: USER
+  priority: MUST
+  lock: USER_APPROVAL_REQUIRED
+  requirement: A next round must be able to target only the unresolved issue(s) rather than repeat the entire debate.
+  protection: LOCKED
+  contract_status: PRESENT
+  implementation_status: UNVERIFIED
+  verification_status: NOT_RUN
+  release_target: V1
+  legacy_status: PARTIAL_NEEDS_FORMALIZATION
+  prior_assessment_unverified: Custom Instruction and unresolved conflicts exist; a Targeted Round Planner contract
+    is still needed.
+  implementation_contract: MUST support targeted continuation restricted to unresolved issues, conflicts, claims
+    or custom instructions. The selected scope MUST be persisted. A full-repeat round MAY be chosen explicitly by
+    the user or with a recorded planning reason; the targeted capability remains mandatory.
+  assessment_note: Contract and planned traceability are defined; application implementation and runtime tests were
+    not supplied.
+- id: UR-009
+  title: Structured peer review with accept/reject reasoning
+  origin: USER
+  priority: MUST
+  lock: USER_APPROVAL_REQUIRED
+  requirement: Peer review must support Strength, Weakness, Accepted Point, Rejected Point, Reason, Score, and at
+    least Accept / Partially Accept / Reject semantics.
+  protection: LOCKED
+  contract_status: PRESENT
+  implementation_status: UNVERIFIED
+  verification_status: NOT_RUN
+  release_target: V1
+  legacy_status: PARTIAL_NEEDS_FORMALIZATION
+  prior_assessment_unverified: accepted_points, rejected_points, peer findings, and scores exist, but a normative
+    schema is missing.
+  implementation_contract: MUST provide strengths, weaknesses, accepted_points, partially_accepted_points, rejected_points,
+    reasons, unresolved_questions and numeric score in a structured peer review. Each proposition MUST identify
+    its source response/revision and support ACCEPT, PARTIALLY_ACCEPT or REJECT with a reason. Invalid or incomplete
+    structured output MUST remain marked invalid/incomplete; it MUST NOT silently acquire a fabricated score.
+  assessment_note: Contract and planned traceability are defined; application implementation and runtime tests were
+    not supplied.
+- id: UR-010
+  title: Blind peer review by default
+  origin: USER
+  priority: MUST
+  lock: USER_APPROVAL_REQUIRED
+  requirement: Peer review must default to anonymized labels (A/B/C/...) rather than provider/model names. Named
+    review may be an explicit user or benchmark option.
+  protection: LOCKED
+  contract_status: PRESENT
+  implementation_status: UNVERIFIED
+  verification_status: NOT_RUN
+  release_target: V1
+  legacy_status: PARTIAL_NEEDS_FORMALIZATION
+  prior_assessment_unverified: Blind Peer Review is present, but default policy is not yet normative.
+  implementation_contract: MUST default to blind peer labels and keep the trusted identity mapping outside review
+    packets. Named review MAY be enabled explicitly. Known limits from retained native conversation context or identifying
+    source text MUST be disclosed; a model-name substring test alone MUST NOT certify complete anonymity.
+  assessment_note: Contract and planned traceability are defined; application implementation and runtime tests were
+    not supplied.
+- id: UR-011
+  title: Judge selected by the user
+  origin: USER
+  priority: MUST
+  lock: USER_APPROVAL_REQUIRED
+  requirement: The final Judge must never be hardcoded or silently selected. The user makes the final selection.
+    Recommendations are allowed; final selection is not automatic.
+  protection: LOCKED
+  contract_status: PRESENT
+  implementation_status: UNVERIFIED
+  verification_status: NOT_RUN
+  release_target: V1
+  legacy_status: ACCEPTED_IN_CONTRACT
+  prior_assessment_unverified: WAITING_JUDGE_SELECTION and user-controlled judge selection are explicit.
+  implementation_contract: MUST require a current persisted explicit user-selected Judge before synthesis. Finish
+    MUST lead to WAITING_JUDGE_SELECTION when no valid selection exists. A recommendation MUST NOT silently select
+    or replace the Judge.
+  assessment_note: Contract and planned traceability are defined; application implementation and runtime tests were
+    not supplied.
+- id: UR-012
+  title: Disclosure when Judge participated earlier
+  origin: USER
+  priority: MUST
+  lock: USER_APPROVAL_REQUIRED
+  requirement: If the selected Judge participated in earlier rounds, the final report must disclose that participation
+    and any applied bias-mitigation mode.
+  protection: LOCKED
+  contract_status: PRESENT
+  implementation_status: UNVERIFIED
+  verification_status: NOT_RUN
+  release_target: V1
+  legacy_status: PARTIAL_NEEDS_FORMALIZATION
+  prior_assessment_unverified: Bias disclosure appears in the v1.1 delta proposal, not yet in the canonical contract.
+  implementation_contract: MUST disclose whether the selected Judge participated earlier, the rounds, whether its
+    prior answers entered synthesis and the actual bias-mitigation mode. Disclosure MUST be derived from recorded
+    participation rather than a default false flag.
+  assessment_note: Contract and planned traceability are defined; application implementation and runtime tests were
+    not supplied.
+- id: UR-013
+  title: Preserve minority/dissent
+  origin: USER
+  priority: MUST
+  lock: USER_APPROVAL_REQUIRED
+  requirement: Consensus must never silently erase important minority positions or unresolved dissent.
+  protection: LOCKED
+  contract_status: PRESENT
+  implementation_status: UNVERIFIED
+  verification_status: NOT_RUN
+  release_target: V1
+  legacy_status: ACCEPTED_IN_CONTRACT
+  prior_assessment_unverified: Dissent and unresolved issues are explicit synthesis inputs.
+  implementation_contract: MUST preserve important minority views, dissent and unresolved issues in canonical history,
+    synthesis inputs and final reports. Compression or a Claim Graph MUST NOT replace or erase raw evidence.
+  assessment_note: Contract and planned traceability are defined; application implementation and runtime tests were
+    not supplied.
+- id: UR-014
+  title: Consensus is not truth
+  origin: USER
+  priority: MUST
+  lock: USER_APPROVAL_REQUIRED
+  requirement: Agreement/consensus measures represent agreement only and must not be presented as truth probability
+    or calibrated correctness without independent evidence.
+  protection: LOCKED
+  contract_status: PRESENT
+  implementation_status: UNVERIFIED
+  verification_status: NOT_RUN
+  release_target: V1
+  legacy_status: PARTIAL_NEEDS_FORMALIZATION
+  prior_assessment_unverified: The architecture separates consensus from dissent/unresolved issues, but the invariant
+    is not yet explicit.
+  implementation_contract: MUST distinguish agreement, evidence, uncertainty and independently evaluated correctness.
+    Agreement MUST NOT be reported as calibrated truth probability without a separately specified supporting evaluation.
+  assessment_note: Contract and planned traceability are defined; application implementation and runtime tests were
+    not supplied.
+- id: UR-015
+  title: Manual Response Mode in V1
+  origin: USER
+  priority: MUST
+  lock: USER_APPROVAL_REQUIRED
+  requirement: Manual response entry remains a first-class V1 fallback and must re-enter the same peer-review/analysis/user-decision
+    pipeline.
+  protection: LOCKED
+  contract_status: PRESENT
+  implementation_status: UNVERIFIED
+  verification_status: NOT_RUN
+  release_target: V1
+  legacy_status: ACCEPTED_IN_CONTRACT
+  prior_assessment_unverified: Manual Response Contract is explicit.
+  implementation_contract: MUST provide first-class Manual fallback in V1 that enters the same peer-review, analysis
+    and user-decision pipeline. The actual prompt, source, edit state and continuity divergence MUST be recorded
+    without pretending a manually pasted response is an API result.
+  assessment_note: Contract and planned traceability are defined; application implementation and runtime tests were
+    not supplied.
+- id: UR-016
+  title: Account switch preserves Debate
+  origin: USER
+  priority: MUST
+  lock: USER_APPROVAL_REQUIRED
+  requirement: Switching from Account A to Account B must preserve the same Debate and history, with an auditable
+    account-switch event.
+  protection: LOCKED
+  contract_status: PRESENT
+  implementation_status: UNVERIFIED
+  verification_status: NOT_RUN
+  release_target: V1
+  legacy_status: ACCEPTED_IN_CONTRACT
+  prior_assessment_unverified: Explicitly stated as a non-negotiable principle.
+  implementation_contract: MUST preserve the Debate ID and history across an account switch. The actor, reason and
+    old/new binding identifiers MUST be recorded. A conversation MAY change when required, but the Debate MUST NOT
+    silently become a new one.
+  assessment_note: Contract and planned traceability are defined; application implementation and runtime tests were
+    not supplied.
+- id: UR-017
+  title: New topic creates new Debate
+  origin: USER
+  priority: MUST
+  lock: USER_APPROVAL_REQUIRED
+  requirement: A genuinely new topic must create a new Debate ID and new provider conversations.
+  protection: LOCKED
+  contract_status: PRESENT
+  implementation_status: UNVERIFIED
+  verification_status: NOT_RUN
+  release_target: V1
+  legacy_status: ACCEPTED_IN_CONTRACT
+  prior_assessment_unverified: Explicit New Topic contract exists.
+  implementation_contract: MUST create a new Debate ID and new provider conversations for a genuinely new topic.
+    Previous context MUST NOT silently leak into the new Debate.
+  assessment_note: Contract and planned traceability are defined; application implementation and runtime tests were
+    not supplied.
+- id: UR-018
+  title: Reuse valid provider conversation
+  origin: USER
+  priority: MUST
+  lock: USER_APPROVAL_REQUIRED
+  requirement: While a provider conversation is valid, the same provider/account/conversation should be reused across
+    rounds by default. New threads require a recovery event, explicit user request, account switch, or thread unavailability.
+  protection: LOCKED
+  contract_status: PRESENT
+  implementation_status: UNVERIFIED
+  verification_status: NOT_RUN
+  release_target: V1
+  legacy_status: PROTECTED_FROM_AI_OVERRIDE
+  prior_assessment_unverified: Native continuation is defined. This requirement must not be weakened by a 'stateless-by-default'
+    interpretation.
+  implementation_contract: MUST reuse a valid identity-verified provider/account/conversation across rounds by default.
+    Explicit user requests for a new thread MUST be honored and audited even when the old thread is valid. Other
+    changes require unavailability, necessary account switch or a recorded recovery reason. Local-state recovery
+    MUST remain possible without forced new threads every round.
+  assessment_note: Contract and planned traceability are defined; application implementation and runtime tests were
+    not supplied.
+- id: UR-019
+  title: Conversation loss must not destroy Debate
+  origin: USER
+  priority: MUST
+  lock: USER_APPROVAL_REQUIRED
+  requirement: Old Chat Lost must never imply Debate Lost. Local state remains authoritative and recovery must be
+    possible.
+  protection: LOCKED
+  contract_status: PRESENT
+  implementation_status: UNVERIFIED
+  verification_status: NOT_RUN
+  release_target: V1
+  legacy_status: ACCEPTED_IN_CONTRACT
+  prior_assessment_unverified: Foundational contract principle.
+  implementation_contract: MUST preserve and resume the same Debate when a provider conversation is lost. Local
+    canonical state MUST remain authoritative; a reconstructed context MUST respect the authorized view of the interrupted
+    stage.
+  assessment_note: Contract and planned traceability are defined; application implementation and runtime tests were
+    not supplied.
+- id: UR-020
+  title: Cross-account and cross-provider recovery
+  origin: USER
+  priority: MUST
+  lock: USER_APPROVAL_REQUIRED
+  requirement: Recovery must support same-provider/new-account and cross-provider continuation while preserving
+    provenance and requiring privacy/consent controls.
+  protection: LOCKED
+  contract_status: PRESENT
+  implementation_status: UNVERIFIED
+  verification_status: NOT_RUN
+  release_target: V1
+  legacy_status: ACCEPTED_IN_CONTRACT
+  prior_assessment_unverified: Both recovery modes exist; privacy firewall is a compatible enhancement.
+  implementation_contract: MUST support same-provider/new-account and cross-provider recovery with provenance. Before
+    transferring Debate context to another provider, explicit current consent or a preauthorized policy covering
+    that provider and data classes MUST exist. The event MUST record source, target, policy/consent ID, actor, time,
+    recovery ID and transferred data classes. Passwords, API keys, session cookies, auth tokens and browser storage
+    secrets MUST NOT enter recovery packets.
+  assessment_note: Contract and planned traceability are defined; application implementation and runtime tests were
+    not supplied.
+- id: UR-021
+  title: Preserve full step-by-step history
+  origin: USER
+  priority: MUST
+  lock: USER_APPROVAL_REQUIRED
+  requirement: The project must preserve Master Debate history, per-model history, round analyses, user decisions,
+    final per-model assessments, and the final report.
+  protection: LOCKED
+  contract_status: PRESENT
+  implementation_status: UNVERIFIED
+  verification_status: NOT_RUN
+  release_target: V1
+  legacy_status: PARTIAL_NEEDS_FORMALIZATION
+  prior_assessment_unverified: Core history primitives exist, but the artifact layout is not fully formalized.
+  implementation_contract: MUST preserve the original request, prompt versions, all round inputs/results, raw participant
+    contributions, structured reviews, analyses, user decisions/custom instructions, account/conversation/recovery
+    changes, cumulative participant histories, final per-model assessments, Judge result, final report and provenance/audit
+    metadata. Any retention/deletion operation MUST be explicit and auditable.
+  assessment_note: Contract and planned traceability are defined; application implementation and runtime tests were
+    not supplied.
+- id: UR-022
+  title: Cumulative per-model Markdown history
+  origin: USER
+  priority: MUST
+  lock: USER_APPROVAL_REQUIRED
+  requirement: Each participant should have a cumulative human-readable file (e.g. participants/claude.md) containing
+    all of that model's contributions across rounds for the same Debate.
+  protection: LOCKED
+  contract_status: PRESENT
+  implementation_status: UNVERIFIED
+  verification_status: NOT_RUN
+  release_target: V1
+  legacy_status: MISSING_FROM_CURRENT_CONTRACT
+  prior_assessment_unverified: No explicit participants/<model>.md artifact contract was found in the current document.
+  implementation_contract: MUST generate and refresh cumulative participants/<participant_id>.md histories for all
+    rounds of each Debate without overwriting another participant using the same model name. Friendly model names
+    MAY appear in titles; stable participant identity MUST remain available.
+  assessment_note: Contract and planned traceability are defined; application implementation and runtime tests were
+    not supplied.
+- id: UR-023
+  title: Separate final assessment per model
+  origin: USER
+  priority: MUST
+  lock: USER_APPROVAL_REQUIRED
+  requirement: Each participant should have a separate final assessment artifact (e.g. assessments/claude.md) summarizing
+    final position, changes, evidence, unresolved issues, and relation to consensus/dissent.
+  protection: LOCKED
+  contract_status: PRESENT
+  implementation_status: UNVERIFIED
+  verification_status: NOT_RUN
+  release_target: V1
+  legacy_status: MISSING_FROM_CURRENT_CONTRACT
+  prior_assessment_unverified: No explicit assessments/<model>.md artifact contract was found in the current document.
+  implementation_contract: MUST produce a separate assessments/<participant_id>.md artifact with final position,
+    evolution, accepted/rejected claims, evidence, uncertainty, unresolved issues and consensus/dissent relation.
+  assessment_note: Contract and planned traceability are defined; application implementation and runtime tests were
+    not supplied.
+- id: UR-024
+  title: Master debate.md artifact
+  origin: USER
+  priority: MUST
+  lock: USER_APPROVAL_REQUIRED
+  requirement: Every Debate must have a human-readable debate.md master artifact.
+  protection: LOCKED
+  contract_status: PRESENT
+  implementation_status: UNVERIFIED
+  verification_status: NOT_RUN
+  release_target: V1
+  legacy_status: ACCEPTED_IN_CONTRACT
+  prior_assessment_unverified: debate.md is explicitly defined.
+  implementation_contract: MUST produce a human-readable debate.md master history for every Debate, regenerable
+    from the matching canonical revision.
+  assessment_note: Contract and planned traceability are defined; application implementation and runtime tests were
+    not supplied.
+- id: UR-025
+  title: Markdown must remain part of the project
+  origin: USER
+  priority: MUST
+  lock: USER_APPROVAL_REQUIRED
+  requirement: Markdown must not be removed. It may be derived/regenerated from canonical state, but should be updated
+    at important checkpoints rather than only at final completion.
+  protection: LOCKED
+  contract_status: PRESENT
+  implementation_status: UNVERIFIED
+  verification_status: NOT_RUN
+  release_target: V1
+  legacy_status: ACCEPTED_WITH_ROLE_CHANGE
+  prior_assessment_unverified: Markdown exists; role changes to derived human-readable export to avoid multiple
+    sources of truth.
+  implementation_contract: MUST retain Markdown and refresh required human-readable histories at important confirmed
+    checkpoints, including round/user-decision/recovery changes, rather than only at COMPLETED. Artifacts MUST identify
+    the source revision; file publication MUST NOT be claimed atomic with a database transaction.
+  assessment_note: Contract and planned traceability are defined; application implementation and runtime tests were
+    not supplied.
+- id: UR-026
+  title: JSON must remain available
+  origin: USER
+  priority: MUST
+  lock: USER_APPROVAL_REQUIRED
+  requirement: JSON must remain available for machine-readable export/recovery. It need not be the canonical operational
+    source of truth.
+  protection: LOCKED
+  contract_status: PRESENT
+  implementation_status: UNVERIFIED
+  verification_status: NOT_RUN
+  release_target: V1
+  legacy_status: ACCEPTED_WITH_ROLE_CHANGE
+  prior_assessment_unverified: JSON exists for recovery/export/machine-readable use.
+  implementation_contract: MUST retain versioned JSON export for machine-readable history and controlled recovery/import.
+    JSON MAY be derived from SQLite; unvalidated exported JSON MUST NOT silently become active operational state.
+  assessment_note: Contract and planned traceability are defined; application implementation and runtime tests were
+    not supplied.
+- id: UR-027
+  title: Real resume semantics
+  origin: USER
+  priority: MUST
+  lock: USER_APPROVAL_REQUIRED
+  requirement: Resume must restore Debate, round, responses, reviews, user decisions, context, and connections—not
+    merely ask the question again.
+  protection: LOCKED
+  contract_status: PRESENT
+  implementation_status: UNVERIFIED
+  verification_status: NOT_RUN
+  release_target: V1
+  legacy_status: ACCEPTED_IN_CONTRACT
+  prior_assessment_unverified: Recovery/Checkpoint/Event Log design supports this.
+  implementation_contract: MUST resume Debate, round, responses, reviews, user decisions, context and connection
+    bindings from valid confirmed local state. Resume MUST NOT merely repeat the original question. Recovery MUST
+    classify pending operations and preserve the interrupted stage's authorized input view.
+  assessment_note: Contract and planned traceability are defined; application implementation and runtime tests were
+    not supplied.
+- id: UR-028
+  title: Crash resilience
+  origin: USER
+  priority: MUST
+  lock: USER_APPROVAL_REQUIRED
+  requirement: A crash during a Debate must not force a restart from zero. Restart must recover from the latest
+    confirmed valid state and pending operation classification.
+  protection: LOCKED
+  contract_status: PRESENT
+  implementation_status: UNVERIFIED
+  verification_status: NOT_RUN
+  release_target: V1
+  legacy_status: ACCEPTED_IN_CONTRACT
+  prior_assessment_unverified: Crash Recovery flow is explicit.
+  implementation_contract: MUST recover after a process crash from the latest confirmed valid state and classify
+    pending external operations. Durable intent MUST precede submission, and response/state/checkpoint/audit updates
+    MUST commit consistently in local state. Tests MUST distinguish process termination from power-loss durability.
+  assessment_note: Contract and planned traceability are defined; application implementation and runtime tests were
+    not supplied.
+- id: UR-029
+  title: No false success, no silent replacement, full auditability
+  origin: USER
+  priority: MUST
+  lock: USER_APPROVAL_REQUIRED
+  requirement: Uncertainty must never be treated as success; account/conversation/model/judge changes must never
+    be silent; the system must preserve an auditable explanation of what happened and why.
+  protection: LOCKED
+  contract_status: PRESENT
+  implementation_status: UNVERIFIED
+  verification_status: NOT_RUN
+  release_target: V1
+  legacy_status: ACCEPTED_IN_CONTRACT
+  prior_assessment_unverified: UNKNOWN_DELIVERY, No Silent Replacement, Event Log, Revision, and provenance are
+    explicit.
+  implementation_contract: MUST keep unknown delivery, accepted-result-pending, partial response, invalid response
+    and confirmed canonical result semantically distinct. A missing DOM message MUST NOT by itself prove non-delivery.
+    Blind ambiguous resubmission and false success are prohibited. Logical operation identity, attempt identity,
+    generation identity and content hash MUST remain distinct; a global UNIQUE(request_hash) MUST NOT suppress intentional
+    identical calls. All account/conversation/model/Judge changes MUST record actor and reason. Incomplete artifact
+    finalization MUST NOT be reported COMPLETED.
+  assessment_note: Contract and planned traceability are defined; application implementation and runtime tests were
+    not supplied.
+- id: UR-030
+  title: Bidi-safe Persian/English Markdown reports
+  origin: USER
+  priority: MUST
+  lock: USER_APPROVAL_REQUIRED
+  requirement: Every Markdown report generated by Consilium or any participating AI model must remain readable when
+    Persian RTL prose and English/LTR technical content are mixed. Technical identifiers, filenames, paths, enums,
+    commands, code, URLs, model names, and other LTR fragments must be isolated using inline code or dedicated blocks/lines.
+    Existing Markdown that already renders correctly must not be rewritten solely for this rule.
+  protection: LOCKED
+  contract_status: PRESENT
+  implementation_status: UNVERIFIED
+  verification_status: NOT_RUN
+  release_target: V1
+  legacy_status: PROTECTED_REQUIREMENT
+  prior_assessment_unverified: New protected user requirement. A central report-rendering and validation layer is
+    required so formatting does not depend on each model following bidi conventions perfectly.
+  implementation_contract: MUST route generated mixed Persian/English Markdown through a central structured-report,
+    renderer, formatter, validator and artifact-store pipeline. Technical identifiers, paths, enums, URLs, commands
+    and long LTR sequences MUST be isolated in inline code or dedicated blocks/lines. Already correctly rendered
+    Markdown MUST NOT be rewritten solely for this rule. A lexical checker alone MUST NOT certify the renderer or
+    semantic preservation; target-renderer and semantic tests remain mandatory.
+  assessment_note: Contract and planned traceability are defined; application implementation and runtime tests were
+    not supplied.

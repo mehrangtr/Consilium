@@ -22,62 +22,62 @@ jobs:
     runs-on: ${{ matrix.os }}
     steps:
       - timeout-minutes: 5
-        uses: actions/checkout@v7
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
         with:
           persist-credentials: false
       - timeout-minutes: 5
-        uses: actions/setup-python@v7
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7
         with:
           python-version: ${{ matrix.python }}
       - name: Remove inherited native reports from this disposable checkout
         run: python -c "import shutil; shutil.rmtree('evidence/targets', ignore_errors=True)"
-      - run: python -m pip install -r requirements.lock
+      - run: python -m pip install -r requirements.lock -r requirements-dev.lock
         timeout-minutes: 5
       - run: python tools/development_supervisor.py native
         timeout-minutes: 16
       - timeout-minutes: 5
-        uses: actions/upload-artifact@v7
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7
         if: always()
         with:
           name: native-target-${{ matrix.target }}
           path: evidence/targets/${{ matrix.target }}/
           if-no-files-found: error
-          retention-days: 7
+          retention-days: 30
       - timeout-minutes: 5
-        uses: actions/upload-artifact@v7
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7
         if: always()
         with:
           name: development-supervisor-${{ matrix.target }}
           path: evidence/development-supervisor/
           if-no-files-found: error
-          retention-days: 7
+          retention-days: 30
   validate:
     name: Validate both native report graphs
-    needs: check
+    needs: [check, dependency-audit]
     if: always()
     runs-on: ubuntu-24.04
     timeout-minutes: 20
     steps:
       - timeout-minutes: 5
-        uses: actions/checkout@v7
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
         with:
           persist-credentials: false
       - timeout-minutes: 5
-        uses: actions/setup-python@v7
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7
         with:
           python-version: '3.12.14'
       - name: Remove inherited native reports from this disposable checkout
         run: python -c "import shutil; shutil.rmtree('evidence/targets', ignore_errors=True)"
-      - run: python -m pip install -r requirements.lock
+      - run: python -m pip install -r requirements.lock -r requirements-dev.lock
         timeout-minutes: 5
       - timeout-minutes: 5
-        uses: actions/download-artifact@v8
+        uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8
         continue-on-error: true
         with:
           name: native-target-Linux
           path: evidence/targets/Linux/
       - timeout-minutes: 5
-        uses: actions/download-artifact@v8
+        uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8
         continue-on-error: true
         with:
           name: native-target-Windows
@@ -85,12 +85,18 @@ jobs:
       - name: Validate source hashes, host, dependencies, tests and smoke results
         run: python tools/check_target_matrix.py
         timeout-minutes: 5
+      - name: Require native and dependency audit jobs to succeed
+        if: always()
+        env:
+          NATIVE_RESULT: ${{ needs.check.result }}
+          AUDIT_RESULT: ${{ needs.dependency-audit.result }}
+        run: python -c "import os; assert os.environ['NATIVE_RESULT'] == os.environ['AUDIT_RESULT'] == 'success'"
       - name: Record configured phase checks or report its blocker without acceptance
         if: always()
         run: python tools/development_supervisor.py phase
         timeout-minutes: 16
       - timeout-minutes: 5
-        uses: actions/upload-artifact@v7
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7
         if: always()
         with:
           name: combined-phase-evidence
@@ -101,4 +107,19 @@ jobs:
             evidence/latest/
             evidence/development-supervisor/
           if-no-files-found: error
-          retention-days: 7
+          retention-days: 30
+  dependency-audit:
+    name: Dependency advisory audit
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7
+        with:
+          python-version: '3.12.14'
+      - run: python -m pip install -r requirements.lock -r requirements-dev.lock
+        timeout-minutes: 5
+      - run: python -m pip_audit -r requirements.lock -r requirements-dev.lock --timeout 15
+        timeout-minutes: 3

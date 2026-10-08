@@ -1,0 +1,20 @@
+{
+  "phase": "P06",
+  "mode": "evidence",
+  "status": "BLOCKED",
+  "scope": "REAL_PILOT_EVIDENCE_BARRIER",
+  "source_digest_before": "9a61ab6bf1da54fe5a8e7ce219ed01d4f8772b4627dfe79fc7d5d05032951c8e",
+  "source_digest_after": "9a61ab6bf1da54fe5a8e7ce219ed01d4f8772b4627dfe79fc7d5d05032951c8e",
+  "task_count": 8,
+  "method_count": 3,
+  "required_final_outputs": 24,
+  "recorded_final_outputs": 0,
+  "blockers": [
+    "NO_RECORDED_PRIVATE_REAL_PILOT_WORKSPACE",
+    "REAL_THREE_METHOD_OUTPUTS_AND_INTERMEDIATE_CALLS_INCOMPLETE",
+    "BLINDED_SCORING_AND_PRODUCT_FLOW_REVIEW_NOT_REGISTERED",
+    "ERROR_FINDINGS_AND_REESTIMATE_NOT_REGISTERED"
+  ],
+  "phase_accepted": false,
+  "model_superiority_claimed": false
+}

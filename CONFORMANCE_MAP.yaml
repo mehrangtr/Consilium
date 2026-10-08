@@ -1,0 +1,1261 @@
+{
+  "schema_version": 1,
+  "format": "JSON_SUBSET_OF_YAML",
+  "requirements_authority": "governance/PROJECTION.json",
+  "requirements": [
+    {
+      "id": "UR-001",
+      "title": "Browser/Web account support in V1",
+      "protection": "LOCKED",
+      "contract": "PRESENT",
+      "implementation": "MISSING",
+      "verification": "NOT_RUN",
+      "verification_scope": "FINAL_V1_NOT_RUN",
+      "code": [
+        "src/consilium/shell/browser_probe.py"
+      ],
+      "tests": [],
+      "phases": {
+        "id": "UR-001",
+        "label": "مرورگر در نسخهٔ اول",
+        "implementation": [
+          "P03",
+          "P09",
+          "P10"
+        ],
+        "early_verification": [
+          "P03",
+          "P09",
+          "P10"
+        ],
+        "final_verification": [
+          "P13",
+          "P15",
+          "P16"
+        ]
+      },
+      "limitations": "Component mapping; existence and historical tests do not verify the complete requirement on the changed source.",
+      "historical_evidence": []
+    },
+    {
+      "id": "UR-002",
+      "title": "API + Browser connection modes",
+      "protection": "LOCKED",
+      "contract": "PRESENT",
+      "implementation": "PARTIAL",
+      "verification": "NOT_RUN",
+      "verification_scope": "FINAL_V1_NOT_RUN",
+      "code": [
+        "src/consilium/ports/adapter.py"
+      ],
+      "tests": [],
+      "phases": {
+        "id": "UR-002",
+        "label": "سه مسیر API، مرورگر و دستی",
+        "implementation": [
+          "P05",
+          "P08",
+          "P09",
+          "P10"
+        ],
+        "early_verification": [
+          "P05",
+          "P08",
+          "P09",
+          "P10"
+        ],
+        "final_verification": [
+          "P13",
+          "P15",
+          "P16"
+        ]
+      },
+      "limitations": "Component mapping; existence and historical tests do not verify the complete requirement on the changed source.",
+      "historical_evidence": []
+    },
+    {
+      "id": "UR-003",
+      "title": "User-controlled login and credentials",
+      "protection": "LOCKED",
+      "contract": "PRESENT",
+      "implementation": "PARTIAL",
+      "verification": "NOT_RUN",
+      "verification_scope": "FINAL_V1_NOT_RUN",
+      "code": [
+        "src/consilium/shell/browser_probe.py"
+      ],
+      "tests": [],
+      "phases": {
+        "id": "UR-003",
+        "label": "ورود کاربر و نگهداری امن نشست",
+        "implementation": [
+          "P01",
+          "P03",
+          "P09"
+        ],
+        "early_verification": [
+          "P01",
+          "P03",
+          "P09"
+        ],
+        "final_verification": [
+          "P13",
+          "P15",
+          "P16"
+        ]
+      },
+      "limitations": "Component mapping; existence and historical tests do not verify the complete requirement on the changed source.",
+      "historical_evidence": []
+    },
+    {
+      "id": "UR-004",
+      "title": "Real AI Council, not simple multi-chat",
+      "protection": "LOCKED",
+      "contract": "PRESENT",
+      "implementation": "PARTIAL",
+      "verification": "NOT_RUN",
+      "verification_scope": "FINAL_V1_NOT_RUN",
+      "code": [
+        "src/consilium/shell/council.py"
+      ],
+      "tests": [
+        "tests/council/test_council.py::test_initial_context_excludes_already_generated_peer_answer"
+      ],
+      "phases": {
+        "id": "UR-004",
+        "label": "شورای واقعی و استقلال پاسخ",
+        "implementation": [
+          "P04",
+          "P05"
+        ],
+        "early_verification": [
+          "P04",
+          "P05",
+          "P06"
+        ],
+        "final_verification": [
+          "P13",
+          "P15",
+          "P16"
+        ]
+      },
+      "limitations": "Component mapping; existence and historical tests do not verify the complete requirement on the changed source.",
+      "historical_evidence": [
+        {
+          "path": "evidence/accepted/P05_9d8a5cb47cca/REVIEW.json",
+          "sha256": "3b829a028ce1a1fa3d79cf5562b9352fc85109deed89c2e4d7adf3bd3ab50c35",
+          "kind": "EXECUTED_AND_AUTHOR_REVIEW",
+          "freshness": "HISTORICAL_P05_SOURCE_ONLY",
+          "independent_review": false
+        }
+      ]
+    },
+    {
+      "id": "UR-005",
+      "title": "Prompt Architect before Round 1",
+      "protection": "LOCKED",
+      "contract": "PRESENT",
+      "implementation": "PARTIAL",
+      "verification": "NOT_RUN",
+      "verification_scope": "FINAL_V1_NOT_RUN",
+      "code": [
+        "src/consilium/core/question_contracts.py"
+      ],
+      "tests": [
+        "tests/council/test_council.py::test_initial_context_excludes_already_generated_peer_answer"
+      ],
+      "phases": {
+        "id": "UR-005",
+        "label": "معمار پیش از دور اول و حفظ نیت",
+        "implementation": [
+          "P04"
+        ],
+        "early_verification": [
+          "P04",
+          "P05",
+          "P06"
+        ],
+        "final_verification": [
+          "P13",
+          "P15",
+          "P16"
+        ]
+      },
+      "limitations": "Component mapping; existence and historical tests do not verify the complete requirement on the changed source.",
+      "historical_evidence": [
+        {
+          "path": "evidence/accepted/P05_9d8a5cb47cca/REVIEW.json",
+          "sha256": "3b829a028ce1a1fa3d79cf5562b9352fc85109deed89c2e4d7adf3bd3ab50c35",
+          "kind": "EXECUTED_AND_AUTHOR_REVIEW",
+          "freshness": "HISTORICAL_P05_SOURCE_ONLY",
+          "independent_review": false
+        }
+      ]
+    },
+    {
+      "id": "UR-006",
+      "title": "Adaptive number of rounds",
+      "protection": "LOCKED",
+      "contract": "PRESENT",
+      "implementation": "PARTIAL",
+      "verification": "NOT_RUN",
+      "verification_scope": "FINAL_V1_NOT_RUN",
+      "code": [
+        "src/consilium/shell/council.py"
+      ],
+      "tests": [
+        "tests/council/test_council.py::test_no_next_round_before_user_gate_and_analyst_cannot_decide"
+      ],
+      "phases": {
+        "id": "UR-006",
+        "label": "تعداد دور تطبیقی",
+        "implementation": [
+          "P05"
+        ],
+        "early_verification": [
+          "P05",
+          "P06"
+        ],
+        "final_verification": [
+          "P13",
+          "P15",
+          "P16"
+        ]
+      },
+      "limitations": "Component mapping; existence and historical tests do not verify the complete requirement on the changed source.",
+      "historical_evidence": [
+        {
+          "path": "evidence/accepted/P05_9d8a5cb47cca/REVIEW.json",
+          "sha256": "3b829a028ce1a1fa3d79cf5562b9352fc85109deed89c2e4d7adf3bd3ab50c35",
+          "kind": "EXECUTED_AND_AUTHOR_REVIEW",
+          "freshness": "HISTORICAL_P05_SOURCE_ONLY",
+          "independent_review": false
+        }
+      ]
+    },
+    {
+      "id": "UR-007",
+      "title": "User decision gate after each normal round",
+      "protection": "LOCKED",
+      "contract": "PRESENT",
+      "implementation": "PARTIAL",
+      "verification": "NOT_RUN",
+      "verification_scope": "FINAL_V1_NOT_RUN",
+      "code": [
+        "src/consilium/core/contracts.py"
+      ],
+      "tests": [
+        "tests/council/test_council.py::test_no_next_round_before_user_gate_and_analyst_cannot_decide"
+      ],
+      "phases": {
+        "id": "UR-007",
+        "label": "تصمیم کاربر بعد از هر دور عادی",
+        "implementation": [
+          "P02",
+          "P05",
+          "P12"
+        ],
+        "early_verification": [
+          "P02",
+          "P05",
+          "P12"
+        ],
+        "final_verification": [
+          "P13",
+          "P15",
+          "P16"
+        ]
+      },
+      "limitations": "Component mapping; existence and historical tests do not verify the complete requirement on the changed source.",
+      "historical_evidence": [
+        {
+          "path": "evidence/accepted/P05_9d8a5cb47cca/REVIEW.json",
+          "sha256": "3b829a028ce1a1fa3d79cf5562b9352fc85109deed89c2e4d7adf3bd3ab50c35",
+          "kind": "EXECUTED_AND_AUTHOR_REVIEW",
+          "freshness": "HISTORICAL_P05_SOURCE_ONLY",
+          "independent_review": false
+        }
+      ]
+    },
+    {
+      "id": "UR-008",
+      "title": "Targeted next rounds",
+      "protection": "LOCKED",
+      "contract": "PRESENT",
+      "implementation": "PARTIAL",
+      "verification": "NOT_RUN",
+      "verification_scope": "FINAL_V1_NOT_RUN",
+      "code": [
+        "src/consilium/core/round_context.py"
+      ],
+      "tests": [
+        "tests/council/test_council.py::test_full_mock_council_and_targeted_continuation_survive_restart"
+      ],
+      "phases": {
+        "id": "UR-008",
+        "label": "ادامهٔ هدفمند",
+        "implementation": [
+          "P04",
+          "P05"
+        ],
+        "early_verification": [
+          "P05",
+          "P06"
+        ],
+        "final_verification": [
+          "P13",
+          "P15",
+          "P16"
+        ]
+      },
+      "limitations": "Component mapping; existence and historical tests do not verify the complete requirement on the changed source.",
+      "historical_evidence": [
+        {
+          "path": "evidence/accepted/P05_9d8a5cb47cca/REVIEW.json",
+          "sha256": "3b829a028ce1a1fa3d79cf5562b9352fc85109deed89c2e4d7adf3bd3ab50c35",
+          "kind": "EXECUTED_AND_AUTHOR_REVIEW",
+          "freshness": "HISTORICAL_P05_SOURCE_ONLY",
+          "independent_review": false
+        }
+      ]
+    },
+    {
+      "id": "UR-009",
+      "title": "Structured peer review with accept/reject reasoning",
+      "protection": "LOCKED",
+      "contract": "PRESENT",
+      "implementation": "PARTIAL",
+      "verification": "NOT_RUN",
+      "verification_scope": "FINAL_V1_NOT_RUN",
+      "code": [
+        "src/consilium/core/contracts.py"
+      ],
+      "tests": [
+        "tests/council/test_council.py::test_unscored_reviews_preserve_explicit_status_without_fabricated_score"
+      ],
+      "phases": {
+        "id": "UR-009",
+        "label": "نقد ساختاریافته و دلیل/امتیاز",
+        "implementation": [
+          "P05"
+        ],
+        "early_verification": [
+          "P05",
+          "P06"
+        ],
+        "final_verification": [
+          "P13",
+          "P15",
+          "P16"
+        ]
+      },
+      "limitations": "Component mapping; existence and historical tests do not verify the complete requirement on the changed source.",
+      "historical_evidence": [
+        {
+          "path": "evidence/accepted/P05_9d8a5cb47cca/REVIEW.json",
+          "sha256": "3b829a028ce1a1fa3d79cf5562b9352fc85109deed89c2e4d7adf3bd3ab50c35",
+          "kind": "EXECUTED_AND_AUTHOR_REVIEW",
+          "freshness": "HISTORICAL_P05_SOURCE_ONLY",
+          "independent_review": false
+        }
+      ]
+    },
+    {
+      "id": "UR-010",
+      "title": "Blind peer review by default",
+      "protection": "LOCKED",
+      "contract": "PRESENT",
+      "implementation": "PARTIAL",
+      "verification": "NOT_RUN",
+      "verification_scope": "FINAL_V1_NOT_RUN",
+      "code": [
+        "src/consilium/core/round_context.py"
+      ],
+      "tests": [
+        "tests/council/test_council.py::test_review_metadata_is_blind_by_default"
+      ],
+      "phases": {
+        "id": "UR-010",
+        "label": "نقد بی‌نام به‌صورت پیش‌فرض",
+        "implementation": [
+          "P04",
+          "P05"
+        ],
+        "early_verification": [
+          "P04",
+          "P05",
+          "P06"
+        ],
+        "final_verification": [
+          "P13",
+          "P15",
+          "P16"
+        ]
+      },
+      "limitations": "Component mapping; existence and historical tests do not verify the complete requirement on the changed source.",
+      "historical_evidence": [
+        {
+          "path": "evidence/accepted/P05_9d8a5cb47cca/REVIEW.json",
+          "sha256": "3b829a028ce1a1fa3d79cf5562b9352fc85109deed89c2e4d7adf3bd3ab50c35",
+          "kind": "EXECUTED_AND_AUTHOR_REVIEW",
+          "freshness": "HISTORICAL_P05_SOURCE_ONLY",
+          "independent_review": false
+        }
+      ]
+    },
+    {
+      "id": "UR-011",
+      "title": "Judge selected by the user",
+      "protection": "LOCKED",
+      "contract": "PRESENT",
+      "implementation": "PARTIAL",
+      "verification": "NOT_RUN",
+      "verification_scope": "FINAL_V1_NOT_RUN",
+      "code": [
+        "src/consilium/shell/council.py"
+      ],
+      "tests": [
+        "tests/council/test_council.py::test_missing_wrong_stale_or_unconfirmed_judge_rejected"
+      ],
+      "phases": {
+        "id": "UR-011",
+        "label": "انتخاب نهایی داور توسط کاربر",
+        "implementation": [
+          "P02",
+          "P05",
+          "P12"
+        ],
+        "early_verification": [
+          "P05",
+          "P12"
+        ],
+        "final_verification": [
+          "P13",
+          "P15",
+          "P16"
+        ]
+      },
+      "limitations": "Component mapping; existence and historical tests do not verify the complete requirement on the changed source.",
+      "historical_evidence": [
+        {
+          "path": "evidence/accepted/P05_9d8a5cb47cca/REVIEW.json",
+          "sha256": "3b829a028ce1a1fa3d79cf5562b9352fc85109deed89c2e4d7adf3bd3ab50c35",
+          "kind": "EXECUTED_AND_AUTHOR_REVIEW",
+          "freshness": "HISTORICAL_P05_SOURCE_ONLY",
+          "independent_review": false
+        }
+      ]
+    },
+    {
+      "id": "UR-012",
+      "title": "Disclosure when Judge participated earlier",
+      "protection": "LOCKED",
+      "contract": "PRESENT",
+      "implementation": "PARTIAL",
+      "verification": "NOT_RUN",
+      "verification_scope": "FINAL_V1_NOT_RUN",
+      "code": [
+        "src/consilium/core/council_contracts.py"
+      ],
+      "tests": [
+        "tests/council/test_council.py::test_full_mock_council_and_targeted_continuation_survive_restart"
+      ],
+      "phases": {
+        "id": "UR-012",
+        "label": "افشای مشارکت قبلی داور",
+        "implementation": [
+          "P05",
+          "P07"
+        ],
+        "early_verification": [
+          "P05",
+          "P07"
+        ],
+        "final_verification": [
+          "P13",
+          "P15",
+          "P16"
+        ]
+      },
+      "limitations": "Component mapping; existence and historical tests do not verify the complete requirement on the changed source.",
+      "historical_evidence": [
+        {
+          "path": "evidence/accepted/P05_9d8a5cb47cca/REVIEW.json",
+          "sha256": "3b829a028ce1a1fa3d79cf5562b9352fc85109deed89c2e4d7adf3bd3ab50c35",
+          "kind": "EXECUTED_AND_AUTHOR_REVIEW",
+          "freshness": "HISTORICAL_P05_SOURCE_ONLY",
+          "independent_review": false
+        }
+      ]
+    },
+    {
+      "id": "UR-013",
+      "title": "Preserve minority/dissent",
+      "protection": "LOCKED",
+      "contract": "PRESENT",
+      "implementation": "PARTIAL",
+      "verification": "NOT_RUN",
+      "verification_scope": "FINAL_V1_NOT_RUN",
+      "code": [
+        "src/consilium/core/analyzers.py"
+      ],
+      "tests": [
+        "tests/council/test_council.py::test_initial_differences_remain_in_final_with_unscored_accepting_reviews"
+      ],
+      "phases": {
+        "id": "UR-013",
+        "label": "حفظ مخالفت و نظر اقلیت",
+        "implementation": [
+          "P04",
+          "P05",
+          "P07",
+          "P11"
+        ],
+        "early_verification": [
+          "P05",
+          "P07",
+          "P11",
+          "P14"
+        ],
+        "final_verification": [
+          "P13",
+          "P15",
+          "P16"
+        ]
+      },
+      "limitations": "Component mapping; existence and historical tests do not verify the complete requirement on the changed source.",
+      "historical_evidence": [
+        {
+          "path": "evidence/accepted/P05_9d8a5cb47cca/REVIEW.json",
+          "sha256": "3b829a028ce1a1fa3d79cf5562b9352fc85109deed89c2e4d7adf3bd3ab50c35",
+          "kind": "EXECUTED_AND_AUTHOR_REVIEW",
+          "freshness": "HISTORICAL_P05_SOURCE_ONLY",
+          "independent_review": false
+        }
+      ]
+    },
+    {
+      "id": "UR-014",
+      "title": "Consensus is not truth",
+      "protection": "LOCKED",
+      "contract": "PRESENT",
+      "implementation": "PARTIAL",
+      "verification": "NOT_RUN",
+      "verification_scope": "FINAL_V1_NOT_RUN",
+      "code": [
+        "src/consilium/core/council_contracts.py"
+      ],
+      "tests": [
+        "tests/council/test_council.py::test_final_output_cannot_claim_truth_probability_or_application_authority"
+      ],
+      "phases": {
+        "id": "UR-014",
+        "label": "توافق معادل حقیقت نیست",
+        "implementation": [
+          "P05",
+          "P06",
+          "P07"
+        ],
+        "early_verification": [
+          "P05",
+          "P06",
+          "P07",
+          "P14"
+        ],
+        "final_verification": [
+          "P13",
+          "P15",
+          "P16"
+        ]
+      },
+      "limitations": "Component mapping; existence and historical tests do not verify the complete requirement on the changed source.",
+      "historical_evidence": [
+        {
+          "path": "evidence/accepted/P05_9d8a5cb47cca/REVIEW.json",
+          "sha256": "3b829a028ce1a1fa3d79cf5562b9352fc85109deed89c2e4d7adf3bd3ab50c35",
+          "kind": "EXECUTED_AND_AUTHOR_REVIEW",
+          "freshness": "HISTORICAL_P05_SOURCE_ONLY",
+          "independent_review": false
+        }
+      ]
+    },
+    {
+      "id": "UR-015",
+      "title": "Manual Response Mode in V1",
+      "protection": "LOCKED",
+      "contract": "PRESENT",
+      "implementation": "PARTIAL",
+      "verification": "NOT_RUN",
+      "verification_scope": "FINAL_V1_NOT_RUN",
+      "code": [
+        "src/consilium/shell/manual_rounds.py"
+      ],
+      "tests": [
+        "tests/council/test_council.py::test_all_manual_council_including_selected_judge"
+      ],
+      "phases": {
+        "id": "UR-015",
+        "label": "پاسخ دستی در خط لولهٔ مشترک",
+        "implementation": [
+          "P05"
+        ],
+        "early_verification": [
+          "P05",
+          "P06",
+          "P11"
+        ],
+        "final_verification": [
+          "P13",
+          "P15",
+          "P16"
+        ]
+      },
+      "limitations": "Component mapping; existence and historical tests do not verify the complete requirement on the changed source.",
+      "historical_evidence": [
+        {
+          "path": "evidence/accepted/P05_9d8a5cb47cca/REVIEW.json",
+          "sha256": "3b829a028ce1a1fa3d79cf5562b9352fc85109deed89c2e4d7adf3bd3ab50c35",
+          "kind": "EXECUTED_AND_AUTHOR_REVIEW",
+          "freshness": "HISTORICAL_P05_SOURCE_ONLY",
+          "independent_review": false
+        }
+      ]
+    },
+    {
+      "id": "UR-016",
+      "title": "Account switch preserves Debate",
+      "protection": "LOCKED",
+      "contract": "PRESENT",
+      "implementation": "PARTIAL",
+      "verification": "NOT_RUN",
+      "verification_scope": "FINAL_V1_NOT_RUN",
+      "code": [
+        "src/consilium/shell/storage.py"
+      ],
+      "tests": [],
+      "phases": {
+        "id": "UR-016",
+        "label": "تعویض حساب با حفظ بحث",
+        "implementation": [
+          "P10",
+          "P11"
+        ],
+        "early_verification": [
+          "P10",
+          "P11"
+        ],
+        "final_verification": [
+          "P13",
+          "P15",
+          "P16"
+        ]
+      },
+      "limitations": "Component mapping; existence and historical tests do not verify the complete requirement on the changed source.",
+      "historical_evidence": []
+    },
+    {
+      "id": "UR-017",
+      "title": "New topic creates new Debate",
+      "protection": "LOCKED",
+      "contract": "PRESENT",
+      "implementation": "PARTIAL",
+      "verification": "NOT_RUN",
+      "verification_scope": "FINAL_V1_NOT_RUN",
+      "code": [
+        "src/consilium/core/independent_context.py"
+      ],
+      "tests": [
+        "tests/council/test_council.py::test_initial_context_excludes_already_generated_peer_answer"
+      ],
+      "phases": {
+        "id": "UR-017",
+        "label": "موضوع تازه، بحث تازه",
+        "implementation": [
+          "P01",
+          "P04",
+          "P05"
+        ],
+        "early_verification": [
+          "P04",
+          "P05",
+          "P10"
+        ],
+        "final_verification": [
+          "P13",
+          "P15",
+          "P16"
+        ]
+      },
+      "limitations": "Component mapping; existence and historical tests do not verify the complete requirement on the changed source.",
+      "historical_evidence": [
+        {
+          "path": "evidence/accepted/P05_9d8a5cb47cca/REVIEW.json",
+          "sha256": "3b829a028ce1a1fa3d79cf5562b9352fc85109deed89c2e4d7adf3bd3ab50c35",
+          "kind": "EXECUTED_AND_AUTHOR_REVIEW",
+          "freshness": "HISTORICAL_P05_SOURCE_ONLY",
+          "independent_review": false
+        }
+      ]
+    },
+    {
+      "id": "UR-018",
+      "title": "Reuse valid provider conversation",
+      "protection": "LOCKED",
+      "contract": "PRESENT",
+      "implementation": "PARTIAL",
+      "verification": "NOT_RUN",
+      "verification_scope": "FINAL_V1_NOT_RUN",
+      "code": [
+        "src/consilium/shell/context_observers.py"
+      ],
+      "tests": [],
+      "phases": {
+        "id": "UR-018",
+        "label": "استفاده از گفتگوی معتبر و رعایت انتخاب تازه",
+        "implementation": [
+          "P03",
+          "P04",
+          "P09",
+          "P11"
+        ],
+        "early_verification": [
+          "P03",
+          "P09",
+          "P11"
+        ],
+        "final_verification": [
+          "P13",
+          "P15",
+          "P16"
+        ]
+      },
+      "limitations": "Component mapping; existence and historical tests do not verify the complete requirement on the changed source.",
+      "historical_evidence": []
+    },
+    {
+      "id": "UR-019",
+      "title": "Conversation loss must not destroy Debate",
+      "protection": "LOCKED",
+      "contract": "PRESENT",
+      "implementation": "PARTIAL",
+      "verification": "NOT_RUN",
+      "verification_scope": "FINAL_V1_NOT_RUN",
+      "code": [
+        "src/consilium/shell/storage.py"
+      ],
+      "tests": [],
+      "phases": {
+        "id": "UR-019",
+        "label": "فقدان گفتگو، بحث را از بین نبرد",
+        "implementation": [
+          "P02",
+          "P11"
+        ],
+        "early_verification": [
+          "P02",
+          "P11"
+        ],
+        "final_verification": [
+          "P13",
+          "P15",
+          "P16"
+        ]
+      },
+      "limitations": "Component mapping; existence and historical tests do not verify the complete requirement on the changed source.",
+      "historical_evidence": []
+    },
+    {
+      "id": "UR-020",
+      "title": "Cross-account and cross-provider recovery",
+      "protection": "LOCKED",
+      "contract": "PRESENT",
+      "implementation": "PARTIAL",
+      "verification": "NOT_RUN",
+      "verification_scope": "FINAL_V1_NOT_RUN",
+      "code": [
+        "src/consilium/core/round_context.py"
+      ],
+      "tests": [
+        "tests/council/test_council.py::test_mixed_mock_manual_answers_and_reviews_share_pipeline"
+      ],
+      "phases": {
+        "id": "UR-020",
+        "label": "بازیابی میان حساب/ارائه‌دهنده با انتقال مجاز",
+        "implementation": [
+          "P04",
+          "P10",
+          "P11"
+        ],
+        "early_verification": [
+          "P04",
+          "P10",
+          "P11",
+          "P14"
+        ],
+        "final_verification": [
+          "P13",
+          "P15",
+          "P16"
+        ]
+      },
+      "limitations": "Component mapping; existence and historical tests do not verify the complete requirement on the changed source.",
+      "historical_evidence": [
+        {
+          "path": "evidence/accepted/P05_9d8a5cb47cca/REVIEW.json",
+          "sha256": "3b829a028ce1a1fa3d79cf5562b9352fc85109deed89c2e4d7adf3bd3ab50c35",
+          "kind": "EXECUTED_AND_AUTHOR_REVIEW",
+          "freshness": "HISTORICAL_P05_SOURCE_ONLY",
+          "independent_review": false
+        }
+      ]
+    },
+    {
+      "id": "UR-021",
+      "title": "Preserve full step-by-step history",
+      "protection": "LOCKED",
+      "contract": "PRESENT",
+      "implementation": "PARTIAL",
+      "verification": "NOT_RUN",
+      "verification_scope": "FINAL_V1_NOT_RUN",
+      "code": [
+        "src/consilium/shell/storage.py"
+      ],
+      "tests": [
+        "tests/council/test_council.py::test_full_mock_council_and_targeted_continuation_survive_restart"
+      ],
+      "phases": {
+        "id": "UR-021",
+        "label": "تاریخچهٔ کامل",
+        "implementation": [
+          "P02",
+          "P05",
+          "P07",
+          "P11"
+        ],
+        "early_verification": [
+          "P02",
+          "P05",
+          "P07",
+          "P11"
+        ],
+        "final_verification": [
+          "P13",
+          "P15",
+          "P16"
+        ]
+      },
+      "limitations": "Component mapping; existence and historical tests do not verify the complete requirement on the changed source.",
+      "historical_evidence": [
+        {
+          "path": "evidence/accepted/P05_9d8a5cb47cca/REVIEW.json",
+          "sha256": "3b829a028ce1a1fa3d79cf5562b9352fc85109deed89c2e4d7adf3bd3ab50c35",
+          "kind": "EXECUTED_AND_AUTHOR_REVIEW",
+          "freshness": "HISTORICAL_P05_SOURCE_ONLY",
+          "independent_review": false
+        }
+      ]
+    },
+    {
+      "id": "UR-022",
+      "title": "Cumulative per-model Markdown history",
+      "protection": "LOCKED",
+      "contract": "PRESENT",
+      "implementation": "PARTIAL",
+      "verification": "NOT_RUN",
+      "verification_scope": "FINAL_V1_NOT_RUN",
+      "code": [
+        "src/consilium/shell/council_export.py"
+      ],
+      "tests": [
+        "tests/council/test_council.py::test_checkpoint_markdown_json_participant_history_and_assessments_regenerate"
+      ],
+      "phases": {
+        "id": "UR-022",
+        "label": "پروندهٔ تجمعی هر شرکت‌کننده",
+        "implementation": [
+          "P05",
+          "P07"
+        ],
+        "early_verification": [
+          "P05",
+          "P07",
+          "P10"
+        ],
+        "final_verification": [
+          "P13",
+          "P15",
+          "P16"
+        ]
+      },
+      "limitations": "Component mapping; existence and historical tests do not verify the complete requirement on the changed source.",
+      "historical_evidence": [
+        {
+          "path": "evidence/accepted/P05_9d8a5cb47cca/REVIEW.json",
+          "sha256": "3b829a028ce1a1fa3d79cf5562b9352fc85109deed89c2e4d7adf3bd3ab50c35",
+          "kind": "EXECUTED_AND_AUTHOR_REVIEW",
+          "freshness": "HISTORICAL_P05_SOURCE_ONLY",
+          "independent_review": false
+        }
+      ]
+    },
+    {
+      "id": "UR-023",
+      "title": "Separate final assessment per model",
+      "protection": "LOCKED",
+      "contract": "PRESENT",
+      "implementation": "PARTIAL",
+      "verification": "NOT_RUN",
+      "verification_scope": "FINAL_V1_NOT_RUN",
+      "code": [
+        "src/consilium/shell/council_export.py"
+      ],
+      "tests": [
+        "tests/council/test_council.py::test_checkpoint_markdown_json_participant_history_and_assessments_regenerate"
+      ],
+      "phases": {
+        "id": "UR-023",
+        "label": "ارزیابی نهایی جداگانهٔ هر شرکت‌کننده",
+        "implementation": [
+          "P05",
+          "P07"
+        ],
+        "early_verification": [
+          "P05",
+          "P07",
+          "P14"
+        ],
+        "final_verification": [
+          "P13",
+          "P15",
+          "P16"
+        ]
+      },
+      "limitations": "Component mapping; existence and historical tests do not verify the complete requirement on the changed source.",
+      "historical_evidence": [
+        {
+          "path": "evidence/accepted/P05_9d8a5cb47cca/REVIEW.json",
+          "sha256": "3b829a028ce1a1fa3d79cf5562b9352fc85109deed89c2e4d7adf3bd3ab50c35",
+          "kind": "EXECUTED_AND_AUTHOR_REVIEW",
+          "freshness": "HISTORICAL_P05_SOURCE_ONLY",
+          "independent_review": false
+        }
+      ]
+    },
+    {
+      "id": "UR-024",
+      "title": "Master debate.md artifact",
+      "protection": "LOCKED",
+      "contract": "PRESENT",
+      "implementation": "PARTIAL",
+      "verification": "NOT_RUN",
+      "verification_scope": "FINAL_V1_NOT_RUN",
+      "code": [
+        "src/consilium/shell/council_export.py"
+      ],
+      "tests": [
+        "tests/council/test_council.py::test_checkpoint_markdown_json_participant_history_and_assessments_regenerate"
+      ],
+      "phases": {
+        "id": "UR-024",
+        "label": "پروندهٔ اصلی debate.md",
+        "implementation": [
+          "P05",
+          "P07"
+        ],
+        "early_verification": [
+          "P05",
+          "P07"
+        ],
+        "final_verification": [
+          "P13",
+          "P15",
+          "P16"
+        ]
+      },
+      "limitations": "Component mapping; existence and historical tests do not verify the complete requirement on the changed source.",
+      "historical_evidence": [
+        {
+          "path": "evidence/accepted/P05_9d8a5cb47cca/REVIEW.json",
+          "sha256": "3b829a028ce1a1fa3d79cf5562b9352fc85109deed89c2e4d7adf3bd3ab50c35",
+          "kind": "EXECUTED_AND_AUTHOR_REVIEW",
+          "freshness": "HISTORICAL_P05_SOURCE_ONLY",
+          "independent_review": false
+        }
+      ]
+    },
+    {
+      "id": "UR-025",
+      "title": "Markdown must remain part of the project",
+      "protection": "LOCKED",
+      "contract": "PRESENT",
+      "implementation": "PARTIAL",
+      "verification": "NOT_RUN",
+      "verification_scope": "FINAL_V1_NOT_RUN",
+      "code": [
+        "src/consilium/shell/council_export.py"
+      ],
+      "tests": [
+        "tests/council/test_council.py::test_checkpoint_markdown_json_participant_history_and_assessments_regenerate"
+      ],
+      "phases": {
+        "id": "UR-025",
+        "label": "Markdown در نقاط مهم",
+        "implementation": [
+          "P05",
+          "P07"
+        ],
+        "early_verification": [
+          "P05",
+          "P07",
+          "P11"
+        ],
+        "final_verification": [
+          "P13",
+          "P15",
+          "P16"
+        ]
+      },
+      "limitations": "Component mapping; existence and historical tests do not verify the complete requirement on the changed source.",
+      "historical_evidence": [
+        {
+          "path": "evidence/accepted/P05_9d8a5cb47cca/REVIEW.json",
+          "sha256": "3b829a028ce1a1fa3d79cf5562b9352fc85109deed89c2e4d7adf3bd3ab50c35",
+          "kind": "EXECUTED_AND_AUTHOR_REVIEW",
+          "freshness": "HISTORICAL_P05_SOURCE_ONLY",
+          "independent_review": false
+        }
+      ]
+    },
+    {
+      "id": "UR-026",
+      "title": "JSON must remain available",
+      "protection": "LOCKED",
+      "contract": "PRESENT",
+      "implementation": "PARTIAL",
+      "verification": "NOT_RUN",
+      "verification_scope": "FINAL_V1_NOT_RUN",
+      "code": [
+        "src/consilium/shell/council_export.py"
+      ],
+      "tests": [
+        "tests/council/test_council.py::test_checkpoint_markdown_json_participant_history_and_assessments_regenerate"
+      ],
+      "phases": {
+        "id": "UR-026",
+        "label": "JSON و بازیابی کنترل‌شده",
+        "implementation": [
+          "P02",
+          "P05",
+          "P07",
+          "P11"
+        ],
+        "early_verification": [
+          "P05",
+          "P07",
+          "P11"
+        ],
+        "final_verification": [
+          "P13",
+          "P15",
+          "P16"
+        ]
+      },
+      "limitations": "Component mapping; existence and historical tests do not verify the complete requirement on the changed source.",
+      "historical_evidence": [
+        {
+          "path": "evidence/accepted/P05_9d8a5cb47cca/REVIEW.json",
+          "sha256": "3b829a028ce1a1fa3d79cf5562b9352fc85109deed89c2e4d7adf3bd3ab50c35",
+          "kind": "EXECUTED_AND_AUTHOR_REVIEW",
+          "freshness": "HISTORICAL_P05_SOURCE_ONLY",
+          "independent_review": false
+        }
+      ]
+    },
+    {
+      "id": "UR-027",
+      "title": "Real resume semantics",
+      "protection": "LOCKED",
+      "contract": "PRESENT",
+      "implementation": "PARTIAL",
+      "verification": "NOT_RUN",
+      "verification_scope": "FINAL_V1_NOT_RUN",
+      "code": [
+        "src/consilium/shell/council.py"
+      ],
+      "tests": [
+        "tests/council/test_council.py::test_pause_reopen_and_resume_require_explicit_fresh_user_choice"
+      ],
+      "phases": {
+        "id": "UR-027",
+        "label": "ادامهٔ واقعی بحث از وضعیت ذخیره",
+        "implementation": [
+          "P02",
+          "P05",
+          "P11"
+        ],
+        "early_verification": [
+          "P02",
+          "P05",
+          "P11"
+        ],
+        "final_verification": [
+          "P13",
+          "P15",
+          "P16"
+        ]
+      },
+      "limitations": "Component mapping; existence and historical tests do not verify the complete requirement on the changed source.",
+      "historical_evidence": [
+        {
+          "path": "evidence/accepted/P05_9d8a5cb47cca/REVIEW.json",
+          "sha256": "3b829a028ce1a1fa3d79cf5562b9352fc85109deed89c2e4d7adf3bd3ab50c35",
+          "kind": "EXECUTED_AND_AUTHOR_REVIEW",
+          "freshness": "HISTORICAL_P05_SOURCE_ONLY",
+          "independent_review": false
+        }
+      ]
+    },
+    {
+      "id": "UR-028",
+      "title": "Crash resilience",
+      "protection": "LOCKED",
+      "contract": "PRESENT",
+      "implementation": "PARTIAL",
+      "verification": "NOT_RUN",
+      "verification_scope": "FINAL_V1_NOT_RUN",
+      "code": [
+        "src/consilium/shell/council.py"
+      ],
+      "tests": [
+        "tests/council/test_council.py::test_real_exit_after_analysis_commit"
+      ],
+      "phases": {
+        "id": "UR-028",
+        "label": "ادامه پس از خرابی",
+        "implementation": [
+          "P02",
+          "P05",
+          "P07",
+          "P11"
+        ],
+        "early_verification": [
+          "P02",
+          "P05",
+          "P07",
+          "P11"
+        ],
+        "final_verification": [
+          "P13",
+          "P15",
+          "P16"
+        ]
+      },
+      "limitations": "Component mapping; existence and historical tests do not verify the complete requirement on the changed source.",
+      "historical_evidence": [
+        {
+          "path": "evidence/accepted/P05_9d8a5cb47cca/REVIEW.json",
+          "sha256": "3b829a028ce1a1fa3d79cf5562b9352fc85109deed89c2e4d7adf3bd3ab50c35",
+          "kind": "EXECUTED_AND_AUTHOR_REVIEW",
+          "freshness": "HISTORICAL_P05_SOURCE_ONLY",
+          "independent_review": false
+        }
+      ]
+    },
+    {
+      "id": "UR-029",
+      "title": "No false success, no silent replacement, full auditability",
+      "protection": "LOCKED",
+      "contract": "PRESENT",
+      "implementation": "PARTIAL",
+      "verification": "NOT_RUN",
+      "verification_scope": "FINAL_V1_NOT_RUN",
+      "code": [
+        "src/consilium/core/operation_states.py"
+      ],
+      "tests": [
+        "tests/council/test_council.py::test_ambiguous_mock_delivery_cannot_resend_replace_or_finish"
+      ],
+      "phases": {
+        "id": "UR-029",
+        "label": "بدون موفقیت جعلی یا جایگزینی پنهانی",
+        "implementation": [
+          "P02",
+          "P03",
+          "P05",
+          "P08",
+          "P09",
+          "P10",
+          "P11"
+        ],
+        "early_verification": [
+          "P02",
+          "P03",
+          "P05",
+          "P08",
+          "P09",
+          "P10",
+          "P11"
+        ],
+        "final_verification": [
+          "P13",
+          "P15",
+          "P16"
+        ]
+      },
+      "limitations": "Component mapping; existence and historical tests do not verify the complete requirement on the changed source.",
+      "historical_evidence": [
+        {
+          "path": "evidence/accepted/P05_9d8a5cb47cca/REVIEW.json",
+          "sha256": "3b829a028ce1a1fa3d79cf5562b9352fc85109deed89c2e4d7adf3bd3ab50c35",
+          "kind": "EXECUTED_AND_AUTHOR_REVIEW",
+          "freshness": "HISTORICAL_P05_SOURCE_ONLY",
+          "independent_review": false
+        }
+      ]
+    },
+    {
+      "id": "UR-030",
+      "title": "Bidi-safe Persian/English Markdown reports",
+      "protection": "LOCKED",
+      "contract": "PRESENT",
+      "implementation": "PARTIAL",
+      "verification": "NOT_RUN",
+      "verification_scope": "FINAL_V1_NOT_RUN",
+      "code": [
+        "src/consilium/shell/council_export.py"
+      ],
+      "tests": [
+        "tests/council/test_council.py::test_literal_export_survives_fence_injection_and_technical_bidi"
+      ],
+      "phases": {
+        "id": "UR-030",
+        "label": "خوانایی فارسی/انگلیسی در گزارش‌ها",
+        "implementation": [
+          "P05",
+          "P07",
+          "P12"
+        ],
+        "early_verification": [
+          "P05",
+          "P07",
+          "P12"
+        ],
+        "final_verification": [
+          "P13",
+          "P15",
+          "P16"
+        ]
+      },
+      "limitations": "Component mapping; existence and historical tests do not verify the complete requirement on the changed source.",
+      "historical_evidence": [
+        {
+          "path": "evidence/accepted/P05_9d8a5cb47cca/REVIEW.json",
+          "sha256": "3b829a028ce1a1fa3d79cf5562b9352fc85109deed89c2e4d7adf3bd3ab50c35",
+          "kind": "EXECUTED_AND_AUTHOR_REVIEW",
+          "freshness": "HISTORICAL_P05_SOURCE_ONLY",
+          "independent_review": false
+        }
+      ]
+    }
+  ]
+}

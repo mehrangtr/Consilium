@@ -1,0 +1,96 @@
+{
+  "version": "operation-transitions.v1",
+  "authority": "src/consilium/core/operation_states.py::TRANSITIONS",
+  "recovery_automatic_send": false,
+  "recommendation_authorizes_round": false,
+  "operation_transitions": [
+    {
+      "from": "PREPARED",
+      "event": "SEND",
+      "to": "SENT",
+      "authority": "EXPLICIT_USER_DISPATCH",
+      "guard": "PREPARED_REVISION_AND_BINDING"
+    },
+    {
+      "from": "SENT",
+      "event": "RESULT_UNKNOWN_DELIVERY",
+      "to": "UNKNOWN_DELIVERY",
+      "authority": "TRUSTED_LEDGER_OBSERVATION",
+      "guard": "SENT_ATTEMPT_IDENTITY"
+    },
+    {
+      "from": "SENT",
+      "event": "RESULT_RESPONSE_PENDING",
+      "to": "RESPONSE_PENDING",
+      "authority": "TRUSTED_LEDGER_OBSERVATION",
+      "guard": "SENT_ATTEMPT_IDENTITY"
+    },
+    {
+      "from": "SENT",
+      "event": "RESULT_RESPONSE_RECEIVED",
+      "to": "RESPONSE_RECEIVED",
+      "authority": "TRUSTED_LEDGER_OBSERVATION",
+      "guard": "SENT_ATTEMPT_IDENTITY"
+    },
+    {
+      "from": "SENT",
+      "event": "RESULT_PARTIAL_RESPONSE",
+      "to": "PARTIAL_RESPONSE",
+      "authority": "TRUSTED_LEDGER_OBSERVATION",
+      "guard": "SENT_ATTEMPT_IDENTITY"
+    },
+    {
+      "from": "SENT",
+      "event": "RESULT_INVALID_RESPONSE",
+      "to": "INVALID_RESPONSE",
+      "authority": "TRUSTED_LEDGER_OBSERVATION",
+      "guard": "SENT_ATTEMPT_IDENTITY"
+    },
+    {
+      "from": "SENT",
+      "event": "RESULT_NOT_SENT",
+      "to": "NOT_SENT",
+      "authority": "TRUSTED_LEDGER_OBSERVATION",
+      "guard": "SENT_ATTEMPT_IDENTITY"
+    },
+    {
+      "from": "SENT",
+      "event": "RESULT_WAITING_LOGIN",
+      "to": "WAITING_LOGIN",
+      "authority": "TRUSTED_LEDGER_OBSERVATION",
+      "guard": "SENT_ATTEMPT_IDENTITY"
+    },
+    {
+      "from": "SENT",
+      "event": "INTERRUPTED",
+      "to": "UNKNOWN_DELIVERY",
+      "authority": "TRUSTED_LEDGER_OBSERVATION",
+      "guard": "SENT_ATTEMPT_IDENTITY"
+    },
+    {
+      "from": "RESPONSE_RECEIVED",
+      "event": "VALIDATE_OK",
+      "to": "VALIDATED",
+      "authority": "TRUSTED_LEDGER_OBSERVATION",
+      "guard": "STORED_SCHEMA_VALIDATION"
+    },
+    {
+      "from": "RESPONSE_RECEIVED",
+      "event": "VALIDATE_INVALID",
+      "to": "INVALID_RESPONSE",
+      "authority": "TRUSTED_LEDGER_OBSERVATION",
+      "guard": "STORED_SCHEMA_VALIDATION"
+    },
+    {
+      "from": "VALIDATED",
+      "event": "CONFIRM",
+      "to": "CONFIRMED",
+      "authority": "TRUSTED_LEDGER_OBSERVATION",
+      "guard": "VALIDATED_CURRENT_BINDING"
+    }
+  ],
+  "council_gates": {
+    "WAITING_DECISION": "EXPLICIT_CURRENT_USER_DECISION",
+    "WAITING_JUDGE_SELECTION": "EXPLICIT_CURRENT_USER_JUDGE_SELECTION"
+  }
+}

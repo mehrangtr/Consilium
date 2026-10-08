@@ -1,0 +1,111 @@
+schema_version: 1
+kind: DERIVED_CONFORMANCE_OBLIGATIONS_NOT_NEW_USER_REQUIREMENTS
+invariants:
+- id: INV-R01
+  text: Preserve original user request and protected constraints.
+  supports_user_ids:
+  - UR-005
+  - UR-021
+  verification_status: NOT_RUN
+  source: Prior review section 10.3
+- id: INV-R02
+  text: Freeze an authorized input view before every operation.
+  supports_user_ids:
+  - UR-004
+  - UR-010
+  - UR-027
+  verification_status: NOT_RUN
+  source: Prior review section 10.3
+- id: INV-R03
+  text: Never expose peer answers in an independent first-round input.
+  supports_user_ids:
+  - UR-004
+  verification_status: NOT_RUN
+  source: Prior review section 10.3
+- id: INV-R04
+  text: Persist execution intent before an external submission.
+  supports_user_ids:
+  - UR-028
+  - UR-029
+  verification_status: NOT_RUN
+  source: Prior review section 10.3
+- id: INV-R05
+  text: Never auto-resubmit an ambiguous operation without a valid policy.
+  supports_user_ids:
+  - UR-029
+  verification_status: NOT_RUN
+  source: Prior review section 10.3
+- id: INV-R06
+  text: Confirm at most one canonical result per logical operation.
+  supports_user_ids:
+  - UR-029
+  verification_status: NOT_RUN
+  source: Prior review section 10.3
+- id: INV-R07
+  text: Preserve every confirmed result in durable recoverable state.
+  supports_user_ids:
+  - UR-027
+  - UR-028
+  verification_status: NOT_RUN
+  source: Prior review section 10.3
+- id: INV-R08
+  text: Record account, conversation, model and judge changes.
+  supports_user_ids:
+  - UR-016
+  - UR-018
+  - UR-029
+  verification_status: NOT_RUN
+  source: Prior review section 10.3
+- id: INV-R09
+  text: Require a current user decision for the next interactive round.
+  supports_user_ids:
+  - UR-007
+  verification_status: NOT_RUN
+  source: Prior review section 10.3
+- id: INV-R10
+  text: Require an explicit, valid user-selected judge.
+  supports_user_ids:
+  - UR-011
+  verification_status: NOT_RUN
+  source: Prior review section 10.3
+- id: INV-R11
+  text: Keep model recommendations outside the authorization boundary.
+  supports_user_ids:
+  - UR-007
+  - UR-011
+  verification_status: NOT_RUN
+  source: Prior review section 10.3
+- id: INV-R12
+  text: Preserve dissent and unresolved issues in synthesis inputs.
+  supports_user_ids:
+  - UR-013
+  verification_status: NOT_RUN
+  source: Prior review section 10.3
+- id: INV-R13
+  text: Never mark incomplete finalization as COMPLETED.
+  supports_user_ids:
+  - UR-024
+  - UR-025
+  - UR-029
+  verification_status: NOT_RUN
+  source: Prior review section 10.3
+- id: INV-R14
+  text: Keep credentials and browser session data out of debate exports.
+  supports_user_ids:
+  - UR-003
+  - UR-020
+  verification_status: NOT_RUN
+  source: Prior review section 10.3
+- id: INV-R15
+  text: Preserve raw source content and record all derived edits.
+  supports_user_ids:
+  - UR-021
+  - UR-029
+  verification_status: NOT_RUN
+  source: Prior review section 10.3
+- id: INV-R16
+  text: Render required mixed-language reports without semantic rewriting.
+  supports_user_ids:
+  - UR-030
+  verification_status: NOT_RUN
+  source: Prior review section 10.3

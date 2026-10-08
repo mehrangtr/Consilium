@@ -36,6 +36,7 @@ class ArtifactLedger:
         self._validate_targets(contract)
 
     def _validate_targets(self, contract):
+        texts = {}
         for target in contract.targets:
             if target.logical_operation_id is None:
                 # Manual answers have no generated-operation identity. Read only
@@ -50,6 +51,7 @@ class ArtifactLedger:
                            and s.item.answer_id == target.answer_id and s.content_hash == target.source_hash]
                 if len(matches) != 1 or matches[0].provenance != 'MANUAL':
                     raise Conflict('Manual review target is not an exact prior accepted answer')
+                texts[target.alias] = matches[0].item.content
                 continue
             # Check graph direction before recursively reading any source batch.
             # A corrupted self/future reference must fail, never recurse forever.
@@ -67,6 +69,8 @@ class ArtifactLedger:
             if (len(matches) != 1 or matches[0].item.debate_id != contract.round_spec.debate_id
                     or matches[0].source_round.number >= contract.round_spec.number):
                 raise Conflict("Review target is not an exact prior canonical answer")
+            texts[target.alias] = matches[0].item.content
+        return texts
 
     def get_contract(self, intent) -> ArtifactResponseContract | None:
         if not self._db.in_transaction:
@@ -103,6 +107,15 @@ class ArtifactLedger:
             raise SchemaError("Output contract checksum differs from its preparation event")
         return contract
 
+    def validate_review_references(self, content, contract):
+        output = parse_artifact_response(content, contract)
+        if not isinstance(output, AnswerOutput):
+            texts = self._validate_targets(contract)
+            for critique in output.critiques:
+                for point in critique.points:
+                    if point.span is not None:
+                        point.span.validate_text(texts[critique.target_alias])
+
     def _reconstruct(self, operation_id, published_revision, data_class):
         result = self.store.ledger.canonical_result(operation_id)
         if result is None:
@@ -114,6 +127,7 @@ class ArtifactLedger:
             raise Conflict("Typed source publication requires its frozen output contract")
         self.validate_preparation(contract, attempt.intent)
         output = parse_artifact_response(result.content, contract)
+        self.validate_review_references(result.content, contract)
         intent = attempt.intent
         if isinstance(output, AnswerOutput):
             items = (Answer(answer_id=uuid5(operation_id, "consilium/typed-answer/v1"),

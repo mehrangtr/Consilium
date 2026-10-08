@@ -24,7 +24,7 @@ class Blocked(ValueError):
 
 MUTABLE = {"PROGRESS.json", "MANIFEST.json", "HANDOFF.json", "VALIDATION_REPORT.json"}
 IGNORED = {".git", ".venv", "venv", "node_modules", "__pycache__",
-           ".pytest_cache", ".mypy_cache", "evidence", ".auth", "profiles", "credentials", "build", "dist"}
+           ".pytest_cache", ".mypy_cache", ".ruff_cache", ".hypothesis", "evidence", ".auth", "profiles", "credentials", "build", "dist"}
 RESERVED = {"MANIFEST.json", "HANDOFF.json"}
 NAVIGATION_FILES = ("evidence/navigation/STATUS_FA.md", "evidence/navigation/BACKLOG_FA.md")
 BASELINE_SHA256 = "8f898b60627c07ec9c4028ff4bfa510c1b5578c2dd1141fa8f2f16ed648fd742"

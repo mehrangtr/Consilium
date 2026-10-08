@@ -1,0 +1,389 @@
+{
+  "schema_version": 1,
+  "authorization": {
+    "origin": "DIRECT_USER_MESSAGE",
+    "text": "همه مواردی که با تشخیص خودت و تایید من برای پروژه مفید بودند و کیفیت پروژه را بالا میبردند را اجرا کن",
+    "followup": "ادامه بده",
+    "scope": "Useful approved proposals; preserve phase order and specific conditions"
+  },
+  "original_proposal_file_sha256": "a4e830575199d313e0507dba0e832e0aa6bbb1dc431deb808f1a6600c7092d07",
+  "items": [
+    {
+      "id": "E01",
+      "title": "نقشهٔ زندهٔ خواسته، کد، آزمون و شاهد",
+      "source_aliases": [],
+      "source_kind": "REPORTED_PROPOSAL_NOT_IMPLEMENTATION_EVIDENCE",
+      "status": "IMPLEMENTED_PENDING_NATIVE_REVIEW",
+      "reason": "Implementation present; source-bound tests and fresh Windows evidence required.",
+      "paths": [
+        "CONFORMANCE_MAP.yaml",
+        "tools/check_conformance.py"
+      ],
+      "protected_requirements_override": false
+    },
+    {
+      "id": "E02",
+      "title": "دسترسی مستقیم و کنترل‌شده به بستهٔ حاکمیت",
+      "source_aliases": [],
+      "source_kind": "REPORTED_PROPOSAL_NOT_IMPLEMENTATION_EVIDENCE",
+      "status": "IMPLEMENTED_PENDING_NATIVE_REVIEW",
+      "reason": "Implementation present; source-bound tests and fresh Windows evidence required.",
+      "paths": [
+        "governance/PROJECTION.json"
+      ],
+      "protected_requirements_override": false
+    },
+    {
+      "id": "E03",
+      "title": "جداسازی محدود منطق شورا از ذخیره‌سازی",
+      "source_aliases": [],
+      "source_kind": "REPORTED_PROPOSAL_NOT_IMPLEMENTATION_EVIDENCE",
+      "status": "IMPLEMENTED_PENDING_NATIVE_REVIEW",
+      "reason": "Implementation present; source-bound tests and fresh Windows evidence required.",
+      "paths": [
+        "src/consilium/core/council_repository.py",
+        "src/consilium/shell/council_repository.py"
+      ],
+      "protected_requirements_override": false
+    },
+    {
+      "id": "E04",
+      "title": "مرز قابل تعویض برای تحلیل اختلاف",
+      "source_aliases": [],
+      "source_kind": "REPORTED_PROPOSAL_NOT_IMPLEMENTATION_EVIDENCE",
+      "status": "IMPLEMENTED_PENDING_NATIVE_REVIEW",
+      "reason": "Implementation present; source-bound tests and fresh Windows evidence required.",
+      "paths": [
+        "src/consilium/core/analyzers.py"
+      ],
+      "protected_requirements_override": false
+    },
+    {
+      "id": "E05",
+      "title": "ترتیب متوازن و قابل بازتولید در نقد کور",
+      "source_aliases": [],
+      "source_kind": "REPORTED_PROPOSAL_NOT_IMPLEMENTATION_EVIDENCE",
+      "status": "IMPLEMENTED_PENDING_NATIVE_REVIEW",
+      "reason": "Implementation present; source-bound tests and fresh Windows evidence required.",
+      "paths": [
+        "src/consilium/core/round_context.py"
+      ],
+      "protected_requirements_override": false
+    },
+    {
+      "id": "E06",
+      "title": "پیوند نقد به بخش دقیق پاسخ",
+      "source_aliases": [],
+      "source_kind": "REPORTED_PROPOSAL_NOT_IMPLEMENTATION_EVIDENCE",
+      "status": "IMPLEMENTED_PENDING_NATIVE_REVIEW",
+      "reason": "Implementation present; source-bound tests and fresh Windows evidence required.",
+      "paths": [
+        "src/consilium/core/contracts.py",
+        "src/consilium/core/artifact_contracts.py"
+      ],
+      "protected_requirements_override": false
+    },
+    {
+      "id": "E07",
+      "title": "تکمیل معیار امتیازدهی نسخه‌دار",
+      "source_aliases": [],
+      "source_kind": "REPORTED_PROPOSAL_NOT_IMPLEMENTATION_EVIDENCE",
+      "status": "IMPLEMENTED_PENDING_NATIVE_REVIEW",
+      "reason": "Implementation present; source-bound tests and fresh Windows evidence required.",
+      "paths": [
+        "src/consilium/core/rubrics.py"
+      ],
+      "protected_requirements_override": false
+    },
+    {
+      "id": "E08",
+      "title": "پایلوت واقعی و منصفانهٔ ارزش شورا",
+      "source_aliases": [],
+      "source_kind": "REPORTED_PROPOSAL_NOT_IMPLEMENTATION_EVIDENCE",
+      "status": "IN_PROGRESS",
+      "reason": "Preregistered pilot and atomic accounting implemented; real outputs, blind evaluation and reestimate remain uncollected.",
+      "paths": [
+        "docs/p06/PREREGISTRATION.json",
+        "tools/p06_pilot.py"
+      ],
+      "protected_requirements_override": false
+    },
+    {
+      "id": "E09",
+      "title": "ثبت مدت اجرا و تفکیک سنجیدهٔ بررسی خودکار",
+      "source_aliases": [],
+      "source_kind": "REPORTED_PROPOSAL_NOT_IMPLEMENTATION_EVIDENCE",
+      "status": "IMPLEMENTED_PENDING_NATIVE_REVIEW",
+      "reason": "Implementation present; source-bound tests and fresh Windows evidence required.",
+      "paths": [
+        "tools/check.py"
+      ],
+      "protected_requirements_override": false
+    },
+    {
+      "id": "E10",
+      "title": "آزمون توالی‌های متنوع رویدادها",
+      "source_aliases": [],
+      "source_kind": "REPORTED_PROPOSAL_NOT_IMPLEMENTATION_EVIDENCE",
+      "status": "IMPLEMENTED_PENDING_NATIVE_REVIEW",
+      "reason": "Implementation present; source-bound tests and fresh Windows evidence required.",
+      "paths": [
+        "tests/quality/test_quality.py"
+      ],
+      "protected_requirements_override": false
+    },
+    {
+      "id": "E11",
+      "title": "بررسی نوع، خوانایی و پوشش هدفمند",
+      "source_aliases": [],
+      "source_kind": "REPORTED_PROPOSAL_NOT_IMPLEMENTATION_EVIDENCE",
+      "status": "IMPLEMENTED_PENDING_NATIVE_REVIEW",
+      "reason": "Implementation present; source-bound tests and fresh Windows evidence required.",
+      "paths": [
+        "tools/check_quality.py"
+      ],
+      "protected_requirements_override": false
+    },
+    {
+      "id": "E12",
+      "title": "آزمون‌های خواناتر و تغییرهای کوچک",
+      "source_aliases": [],
+      "source_kind": "REPORTED_PROPOSAL_NOT_IMPLEMENTATION_EVIDENCE",
+      "status": "IMPLEMENTED_PENDING_NATIVE_REVIEW",
+      "reason": "Implementation present; source-bound tests and fresh Windows evidence required.",
+      "paths": [
+        "tests/quality/test_quality.py"
+      ],
+      "protected_requirements_override": false
+    },
+    {
+      "id": "E13",
+      "title": "قرارداد مشترک اتصال‌ها و فهرست قابلیت‌ها",
+      "source_aliases": [],
+      "source_kind": "REPORTED_PROPOSAL_NOT_IMPLEMENTATION_EVIDENCE",
+      "status": "IMPLEMENTED_PENDING_NATIVE_REVIEW",
+      "reason": "Implementation present; source-bound tests and fresh Windows evidence required.",
+      "paths": [
+        "PROVIDER_CAPABILITIES.json"
+      ],
+      "protected_requirements_override": false
+    },
+    {
+      "id": "E14",
+      "title": "تکمیل حفاظت از اسرار و خروجی‌های عمومی",
+      "source_aliases": [],
+      "source_kind": "REPORTED_PROPOSAL_NOT_IMPLEMENTATION_EVIDENCE",
+      "status": "IMPLEMENTED_PENDING_NATIVE_REVIEW",
+      "reason": "Implementation present; source-bound tests and fresh Windows evidence required.",
+      "paths": [
+        "src/consilium/shell/private.py"
+      ],
+      "protected_requirements_override": false
+    },
+    {
+      "id": "E15",
+      "title": "تثبیت نسخهٔ ابزارهای اجرای خودکار و بررسی وابستگی‌ها",
+      "source_aliases": [],
+      "source_kind": "REPORTED_PROPOSAL_NOT_IMPLEMENTATION_EVIDENCE",
+      "status": "IMPLEMENTED_PENDING_NATIVE_REVIEW",
+      "reason": "Implementation present; source-bound tests and fresh Windows evidence required.",
+      "paths": [
+        ".github/workflows/check.yml",
+        ".github/dependabot.yml",
+        "governance/ACTIONS_PINS.json"
+      ],
+      "protected_requirements_override": false
+    },
+    {
+      "id": "E16",
+      "title": "گزارش خواندنی و نمایش درست فارسی و انگلیسی",
+      "source_aliases": [],
+      "source_kind": "REPORTED_PROPOSAL_NOT_IMPLEMENTATION_EVIDENCE",
+      "status": "SCHEDULED",
+      "reason": "P07 rendering and observed bidi QA remain in phase order.",
+      "paths": [
+        "src/consilium/shell/council_export.py"
+      ],
+      "protected_requirements_override": false
+    },
+    {
+      "id": "E17",
+      "title": "دموی آسان با رفتار صادقانه",
+      "source_aliases": [],
+      "source_kind": "REPORTED_PROPOSAL_NOT_IMPLEMENTATION_EVIDENCE",
+      "status": "IMPLEMENTED_PENDING_NATIVE_REVIEW",
+      "reason": "Implementation present; source-bound tests and fresh Windows evidence required.",
+      "paths": [
+        "src/consilium/shell/demo.py",
+        "src/consilium/__main__.py"
+      ],
+      "protected_requirements_override": false
+    },
+    {
+      "id": "E18",
+      "title": "معرفی عمومی و راهنمای مشارکت",
+      "source_aliases": [],
+      "source_kind": "REPORTED_PROPOSAL_NOT_IMPLEMENTATION_EVIDENCE",
+      "status": "IMPLEMENTED_PENDING_NATIVE_REVIEW",
+      "reason": "Implementation present; source-bound tests and fresh Windows evidence required.",
+      "paths": [
+        "README.md",
+        "CONTRIBUTING.md",
+        "SECURITY.md",
+        "CHANGELOG.md"
+      ],
+      "protected_requirements_override": false
+    },
+    {
+      "id": "E19",
+      "title": "انتخاب آگاهانهٔ مجوز انتشار",
+      "source_aliases": [],
+      "source_kind": "REPORTED_PROPOSAL_NOT_IMPLEMENTATION_EVIDENCE",
+      "status": "CHOICE_REQUIRED",
+      "reason": "Legal license type has not been selected; no grant inferred from general quality approval.",
+      "paths": [
+        "LICENSING.md"
+      ],
+      "protected_requirements_override": false
+    },
+    {
+      "id": "E20",
+      "title": "کاهش تکرار شواهد همراه حفظ نسخهٔ پایدار",
+      "source_aliases": [],
+      "source_kind": "REPORTED_PROPOSAL_NOT_IMPLEMENTATION_EVIDENCE",
+      "status": "IMPLEMENTED_PENDING_NATIVE_REVIEW",
+      "reason": "Implementation present; source-bound tests and fresh Windows evidence required.",
+      "paths": [
+        "src/consilium/shell/evidence_store.py"
+      ],
+      "protected_requirements_override": false
+    },
+    {
+      "id": "E21",
+      "title": "مشخصات روشن انتقال‌های وضعیت",
+      "source_aliases": [],
+      "source_kind": "REPORTED_PROPOSAL_NOT_IMPLEMENTATION_EVIDENCE",
+      "status": "IMPLEMENTED_PENDING_NATIVE_REVIEW",
+      "reason": "Implementation present; source-bound tests and fresh Windows evidence required.",
+      "paths": [
+        "transitions.yaml",
+        "tools/check_transitions.py"
+      ],
+      "protected_requirements_override": false
+    },
+    {
+      "id": "E22",
+      "title": "دفتر پیشنهادهای اختیاری با منشأ و تصمیم",
+      "source_aliases": [],
+      "source_kind": "REPORTED_PROPOSAL_NOT_IMPLEMENTATION_EVIDENCE",
+      "status": "IMPLEMENTED_PENDING_NATIVE_REVIEW",
+      "reason": "Implementation present; source-bound tests and fresh Windows evidence required.",
+      "paths": [
+        "APPROVED_ENHANCEMENTS.json"
+      ],
+      "protected_requirements_override": false
+    },
+    {
+      "id": "E23",
+      "title": "یادداشت ادامهٔ کوتاه و ثبت هزینه و محدودیت واقعی",
+      "source_aliases": [],
+      "source_kind": "REPORTED_PROPOSAL_NOT_IMPLEMENTATION_EVIDENCE",
+      "status": "IMPLEMENTED_PENDING_NATIVE_REVIEW",
+      "reason": "Implementation present; source-bound tests and fresh Windows evidence required.",
+      "paths": [
+        "PROGRESS.json"
+      ],
+      "protected_requirements_override": false
+    },
+    {
+      "id": "E24",
+      "title": "گراف ادعا، شاهد و مخالفت",
+      "source_aliases": [],
+      "source_kind": "REPORTED_PROPOSAL_NOT_IMPLEMENTATION_EVIDENCE",
+      "status": "SCHEDULED",
+      "reason": "Optional full claim graph after V1; exact spans implemented now.",
+      "paths": [],
+      "protected_requirements_override": false
+    },
+    {
+      "id": "E25",
+      "title": "جداکنندهٔ تصادفیِ هر درخواست",
+      "source_aliases": [],
+      "source_kind": "REPORTED_PROPOSAL_NOT_IMPLEMENTATION_EVIDENCE",
+      "status": "CONDITIONAL",
+      "reason": "Current transport uses strict JSON; random delimiters add no demonstrated benefit now.",
+      "paths": [],
+      "protected_requirements_override": false
+    },
+    {
+      "id": "E26",
+      "title": "حالت خودکار با سیاست صریح",
+      "source_aliases": [],
+      "source_kind": "REPORTED_PROPOSAL_NOT_IMPLEMENTATION_EVIDENCE",
+      "status": "POLICY_REQUIRED",
+      "reason": "Production auto mode requires a specific bounded user policy; interactive remains default.",
+      "paths": [],
+      "protected_requirements_override": false
+    },
+    {
+      "id": "N1",
+      "title": "Primary-source dependence",
+      "source_aliases": [
+        "GL"
+      ],
+      "source_kind": "REPORTED_NEW_SUGGESTION",
+      "status": "IMPLEMENTED_PENDING_NATIVE_REVIEW",
+      "paths": [
+        "src/consilium/core/evidence_provenance.py",
+        "src/consilium/core/rubrics.py",
+        "fixtures/review_claims.json"
+      ],
+      "protected_requirements_override": false
+    },
+    {
+      "id": "N2",
+      "title": "Evidence kinds",
+      "source_aliases": [
+        "GL"
+      ],
+      "source_kind": "REPORTED_NEW_SUGGESTION",
+      "status": "IMPLEMENTED_PENDING_NATIVE_REVIEW",
+      "paths": [
+        "src/consilium/core/evidence_provenance.py",
+        "src/consilium/core/rubrics.py",
+        "fixtures/review_claims.json"
+      ],
+      "protected_requirements_override": false
+    },
+    {
+      "id": "N3",
+      "title": "Official review rubric",
+      "source_aliases": [
+        "GL"
+      ],
+      "source_kind": "REPORTED_NEW_SUGGESTION",
+      "status": "IMPLEMENTED_PENDING_NATIVE_REVIEW",
+      "paths": [
+        "src/consilium/core/evidence_provenance.py",
+        "src/consilium/core/rubrics.py",
+        "fixtures/review_claims.json"
+      ],
+      "protected_requirements_override": false
+    },
+    {
+      "id": "N4",
+      "title": "Qualitative echo/stale-count fixture",
+      "source_aliases": [
+        "GL"
+      ],
+      "source_kind": "REPORTED_NEW_SUGGESTION",
+      "status": "IMPLEMENTED_PENDING_NATIVE_REVIEW",
+      "paths": [
+        "src/consilium/core/evidence_provenance.py",
+        "src/consilium/core/rubrics.py",
+        "fixtures/review_claims.json"
+      ],
+      "protected_requirements_override": false
+    }
+  ]
+}

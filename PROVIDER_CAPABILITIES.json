@@ -1,0 +1,137 @@
+{
+  "version": 1,
+  "authority": "SCOPE.json",
+  "mock_is_live_verification": false,
+  "providers": [
+    {
+      "id": "openai",
+      "service": "ChatGPT",
+      "account_access": "UNKNOWN",
+      "modes": {
+        "API": {
+          "required_for_v1": true,
+          "implementation": "PLANNED",
+          "live_verification": "NOT_RUN",
+          "capabilities": "UNKNOWN"
+        },
+        "BROWSER": {
+          "required_for_v1": true,
+          "implementation": "PLANNED",
+          "live_verification": "NOT_RUN",
+          "capabilities": "UNKNOWN"
+        },
+        "MANUAL": {
+          "required_for_v1": true,
+          "implementation": "GENERIC_PIPELINE_IMPLEMENTED",
+          "live_verification": "NOT_RUN",
+          "capabilities": "UNKNOWN"
+        }
+      }
+    },
+    {
+      "id": "anthropic",
+      "service": "Claude",
+      "account_access": "UNKNOWN",
+      "modes": {
+        "API": {
+          "required_for_v1": true,
+          "implementation": "PLANNED",
+          "live_verification": "NOT_RUN",
+          "capabilities": "UNKNOWN"
+        },
+        "BROWSER": {
+          "required_for_v1": true,
+          "implementation": "PLANNED",
+          "live_verification": "NOT_RUN",
+          "capabilities": "UNKNOWN"
+        },
+        "MANUAL": {
+          "required_for_v1": true,
+          "implementation": "GENERIC_PIPELINE_IMPLEMENTED",
+          "live_verification": "NOT_RUN",
+          "capabilities": "UNKNOWN"
+        }
+      }
+    },
+    {
+      "id": "google",
+      "service": "Gemini",
+      "account_access": "UNKNOWN",
+      "modes": {
+        "API": {
+          "required_for_v1": true,
+          "implementation": "PLANNED",
+          "live_verification": "NOT_RUN",
+          "capabilities": "UNKNOWN"
+        },
+        "BROWSER": {
+          "required_for_v1": true,
+          "implementation": "PLANNED",
+          "live_verification": "NOT_RUN",
+          "capabilities": "UNKNOWN"
+        },
+        "MANUAL": {
+          "required_for_v1": true,
+          "implementation": "GENERIC_PIPELINE_IMPLEMENTED",
+          "live_verification": "NOT_RUN",
+          "capabilities": "UNKNOWN"
+        }
+      }
+    },
+    {
+      "id": "deepseek",
+      "service": "DeepSeek",
+      "account_access": "UNKNOWN",
+      "modes": {
+        "API": {
+          "required_for_v1": true,
+          "implementation": "PLANNED",
+          "live_verification": "NOT_RUN",
+          "capabilities": "UNKNOWN"
+        },
+        "BROWSER": {
+          "required_for_v1": true,
+          "implementation": "PLANNED",
+          "live_verification": "NOT_RUN",
+          "capabilities": "UNKNOWN"
+        },
+        "MANUAL": {
+          "required_for_v1": true,
+          "implementation": "GENERIC_PIPELINE_IMPLEMENTED",
+          "live_verification": "NOT_RUN",
+          "capabilities": "UNKNOWN"
+        }
+      }
+    },
+    {
+      "id": "qwen",
+      "service": "Qwen",
+      "account_access": "UNKNOWN",
+      "modes": {
+        "API": {
+          "required_for_v1": true,
+          "implementation": "PLANNED",
+          "live_verification": "NOT_RUN",
+          "capabilities": "UNKNOWN"
+        },
+        "BROWSER": {
+          "required_for_v1": true,
+          "implementation": "PLANNED",
+          "live_verification": "NOT_RUN",
+          "capabilities": "UNKNOWN"
+        },
+        "MANUAL": {
+          "required_for_v1": true,
+          "implementation": "GENERIC_PIPELINE_IMPLEMENTED",
+          "live_verification": "NOT_RUN",
+          "capabilities": "UNKNOWN"
+        }
+      }
+    }
+  ],
+  "mock": {
+    "implementation": "IMPLEMENTED",
+    "verification": "TESTED_WITH_MOCK",
+    "certifies_live_providers": false
+  }
+}

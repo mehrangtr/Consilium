@@ -1,0 +1,407 @@
+schema_version: 1
+scope: NON_NORMATIVE_ALIAS_MAP
+canonical_user_ids: UR-001..UR-030
+policy: Audit labels never create new USER-origin requirements. Related recommendation variants are not identical
+  proposals.
+user_aliases:
+- audit_alias: UR-R01
+  canonical_ids:
+  - UR-004
+  relation: AGGREGATED_OR_DERIVED_READING
+- audit_alias: UR-R02
+  canonical_ids:
+  - UR-001
+  - UR-002
+  relation: AGGREGATED_OR_DERIVED_READING
+- audit_alias: UR-R03
+  canonical_ids:
+  - UR-001
+  relation: AGGREGATED_OR_DERIVED_READING
+- audit_alias: UR-R04
+  canonical_ids:
+  - UR-003
+  relation: AGGREGATED_OR_DERIVED_READING
+- audit_alias: UR-R05
+  canonical_ids:
+  - UR-005
+  relation: AGGREGATED_OR_DERIVED_READING
+- audit_alias: UR-R06
+  canonical_ids:
+  - UR-004
+  - UR-005
+  relation: AGGREGATED_OR_DERIVED_READING
+- audit_alias: UR-R07
+  canonical_ids:
+  - UR-009
+  relation: AGGREGATED_OR_DERIVED_READING
+- audit_alias: UR-R08
+  canonical_ids:
+  - UR-010
+  relation: AGGREGATED_OR_DERIVED_READING
+- audit_alias: UR-R09
+  canonical_ids:
+  - UR-006
+  relation: AGGREGATED_OR_DERIVED_READING
+- audit_alias: UR-R10
+  canonical_ids:
+  - UR-008
+  relation: AGGREGATED_OR_DERIVED_READING
+- audit_alias: UR-R11
+  canonical_ids:
+  - UR-007
+  relation: AGGREGATED_OR_DERIVED_READING
+- audit_alias: UR-R12
+  canonical_ids:
+  - UR-007
+  - UR-027
+  relation: AGGREGATED_OR_DERIVED_READING
+- audit_alias: UR-R13
+  canonical_ids:
+  - UR-011
+  - UR-029
+  relation: AGGREGATED_OR_DERIVED_READING
+- audit_alias: UR-R14
+  canonical_ids:
+  - UR-012
+  relation: AGGREGATED_OR_DERIVED_READING
+- audit_alias: UR-R15
+  canonical_ids:
+  - UR-013
+  - UR-014
+  relation: AGGREGATED_OR_DERIVED_READING
+- audit_alias: UR-R16
+  canonical_ids:
+  - UR-015
+  relation: AGGREGATED_OR_DERIVED_READING
+- audit_alias: UR-R17
+  canonical_ids:
+  - UR-016
+  relation: AGGREGATED_OR_DERIVED_READING
+- audit_alias: UR-R18
+  canonical_ids:
+  - UR-019
+  - UR-020
+  relation: AGGREGATED_OR_DERIVED_READING
+- audit_alias: UR-R19
+  canonical_ids:
+  - UR-018
+  relation: AGGREGATED_OR_DERIVED_READING
+- audit_alias: UR-R20
+  canonical_ids:
+  - UR-017
+  relation: AGGREGATED_OR_DERIVED_READING
+- audit_alias: UR-R21
+  canonical_ids:
+  - UR-005
+  - UR-021
+  relation: AGGREGATED_OR_DERIVED_READING
+- audit_alias: UR-R22
+  canonical_ids:
+  - UR-022
+  - UR-023
+  relation: AGGREGATED_OR_DERIVED_READING
+- audit_alias: UR-R23
+  canonical_ids:
+  - UR-024
+  - UR-025
+  - UR-026
+  relation: AGGREGATED_OR_DERIVED_READING
+- audit_alias: UR-R24
+  canonical_ids:
+  - UR-027
+  - UR-028
+  - UR-029
+  relation: AGGREGATED_OR_DERIVED_READING
+- audit_alias: UR-R25
+  canonical_ids:
+  - UR-029
+  relation: AGGREGATED_OR_DERIVED_READING
+- audit_alias: UR-R26
+  canonical_ids:
+  - UR-030
+  relation: AGGREGATED_OR_DERIVED_READING
+recommendation_aliases:
+- audit_alias: AR-R01
+  source_label: تفکیک هستهٔ مشورت و هستهٔ پایداری؛ چند سند
+  prior_disposition: پذیرش
+  guard: دو ماژول در یک برنامهٔ محلی کافی است؛ خدمت‌های مستقل اجباری نیستند
+  related_canonical_recommendations: []
+  relation: RELATED_AUDIT_VARIANT_NOT_IDENTITY
+- audit_alias: AR-R02
+  source_label: تفکیک خواستهٔ کاربر و توصیهٔ پژوهشگر؛ `GP` و نقدها
+  prior_disposition: پذیرش
+  guard: منشأ و دلیل تصمیم قابل ردیابی می‌شود
+  related_canonical_recommendations: []
+  relation: RELATED_AUDIT_VARIANT_NOT_IDENTITY
+- audit_alias: AR-R03
+  source_label: تغییر خواسته فقط با تصمیم ثبت‌شده؛ `GP`
+  prior_disposition: حفظ و دقیق‌سازی
+  guard: دلیل فنی، اثر، جایگزین و تأیید صریح کاربر لازم است
+  related_canonical_recommendations: []
+  relation: RELATED_AUDIT_VARIANT_NOT_IDENTITY
+- audit_alias: AR-R04
+  source_label: ساخت رابط دستی پیش از مرورگر؛ چند نقد
+  prior_disposition: پذیرش
+  guard: ترتیب توسعه را ساده می‌کند؛ محدودهٔ نسخهٔ اول تغییر نمی‌کند
+  related_canonical_recommendations:
+  - AR-021
+  relation: RELATED_AUDIT_VARIANT_NOT_IDENTITY
+- audit_alias: AR-R05
+  source_label: مرورگر به‌عنوان رابط اتصال مستقل؛ چند سند
+  prior_disposition: پذیرش
+  guard: تغییر صفحه در لایهٔ اتصال محدود می‌شود؛ مرورگر همچنان قابلیت نسخهٔ اول است
+  related_canonical_recommendations:
+  - AR-018
+  relation: RELATED_AUDIT_VARIANT_NOT_IDENTITY
+- audit_alias: AR-R06
+  source_label: مرورگر بعد از نسخهٔ اول یا قابلیت محصولی صرفاً اختیاری؛ `GL` و `CL`
+  prior_disposition: رد
+  guard: با خواستهٔ محفوظ ناسازگار است
+  related_canonical_recommendations:
+  - AR-018
+  relation: RELATED_AUDIT_VARIANT_NOT_IDENTITY
+- audit_alias: AR-R07
+  source_label: بازسازی مستقل از وضعیت محلی؛ `CL` و `GL`
+  prior_disposition: پذیرش با اصلاح
+  guard: قابلیت بازیابی مستقل، همراه با ترجیح ادامهٔ گفتگوی معتبر
+  related_canonical_recommendations:
+  - AR-019
+  relation: RELATED_AUDIT_VARIANT_NOT_IDENTITY
+- audit_alias: AR-R08
+  source_label: ساخت گفتگوی تازه به‌صورت پیش‌فرض؛ برداشت از پیشنهاد بدون حافظه
+  prior_disposition: رد
+  guard: استقلال صحت از گفتگو، مجوز کنارگذاشتن تداوم نیست
+  related_canonical_recommendations:
+  - AR-019
+  relation: RELATED_AUDIT_VARIANT_NOT_IDENTITY
+- audit_alias: AR-R09
+  source_label: زمینه‌ساز در ابتدای ساخت؛ `CL` و `COP`
+  prior_disposition: پذیرش
+  guard: دید مجاز، بازیابی و جلوگیری از تکرار زمینه یکجا تعریف می‌شوند
+  related_canonical_recommendations:
+  - AR-008
+  relation: RELATED_AUDIT_VARIANT_NOT_IDENTITY
+- audit_alias: AR-R10
+  source_label: برنامه‌ریزی سهمیه؛ `CL` و نقدها
+  prior_disposition: پذیرش
+  guard: تعداد پایه، سقف مجاز و هزینهٔ بازیابی یا اصلاح قالب آشکار شود
+  related_canonical_recommendations: []
+  relation: RELATED_AUDIT_VARIANT_NOT_IDENTITY
+- audit_alias: AR-R11
+  source_label: ثبت قصد پیش از فراخوانی؛ `GL` و `CL`
+  prior_disposition: پذیرش از ابتدا
+  guard: پیش‌نیاز پیگیری خرابی بین ارسال و دریافت است
+  related_canonical_recommendations:
+  - AR-003
+  relation: RELATED_AUDIT_VARIANT_NOT_IDENTITY
+- audit_alias: AR-R12
+  source_label: دفتر عملیات؛ چند سند
+  prior_disposition: پذیرش با اصلاح
+  guard: هویت منطقی از تلاش و هش محتوا جدا شود
+  related_canonical_recommendations:
+  - AR-004
+  relation: RELATED_AUDIT_VARIANT_NOT_IDENTITY
+- audit_alias: AR-R13
+  source_label: هش درخواست به‌عنوان کلید یکتای سراسری
+  prior_disposition: رد
+  guard: درخواست‌های عمدی یکسان و نمونه‌گیری مستقل را مسدود می‌کند
+  related_canonical_recommendations:
+  - AR-004
+  relation: RELATED_AUDIT_VARIANT_NOT_IDENTITY
+- audit_alias: AR-R14
+  source_label: نردبان تأیید؛ `GP` و نقدها
+  prior_disposition: پذیرش با اصلاح
+  guard: تحویل، نتیجه، اعتبارسنجی و ثبت مرجع جدا شوند
+  related_canonical_recommendations:
+  - AR-013
+  relation: RELATED_AUDIT_VARIANT_NOT_IDENTITY
+- audit_alias: AR-R15
+  source_label: تکرار امن برای همهٔ رابط‌های برنامه‌نویسی؛ `GL` و `CL`
+  prior_disposition: رد
+  guard: قرارداد و اثر همان عملیات تعیین‌کننده‌اند
+  related_canonical_recommendations:
+  - AR-004
+  relation: RELATED_AUDIT_VARIANT_NOT_IDENTITY
+- audit_alias: AR-R16
+  source_label: بررسی تحویل در مرورگر؛ چند سند
+  prior_disposition: پذیرش با اصلاح
+  guard: نشانی و هش تنها کافی نیستند؛ نبود شاهد، عدم تحویل را ثابت نمی‌کند
+  related_canonical_recommendations:
+  - AR-013
+  relation: RELATED_AUDIT_VARIANT_NOT_IDENTITY
+- audit_alias: AR-R17
+  source_label: پنج وضعیت برای همهٔ معناهای محصول؛ `GL` و `CL`
+  prior_disposition: پذیرش مشروط
+  guard: تنها با مرحله، علت انتظار، نقطهٔ ادامه و حفظ جدایی لغو و شکست
+  related_canonical_recommendations:
+  - AR-002
+  relation: RELATED_AUDIT_VARIANT_NOT_IDENTITY
+- audit_alias: AR-R18
+  source_label: انتقال‌ها به‌صورت داده؛ `GP` و `GL`
+  prior_disposition: پذیرش سبک
+  guard: فهرست معتبر رویداد و تابع نگهبان؛ اجرای آزاد متن شرط ممنوع
+  related_canonical_recommendations:
+  - AR-002
+  relation: RELATED_AUDIT_VARIANT_NOT_IDENTITY
+- audit_alias: AR-R19
+  source_label: پایگاه داده مرجع و خروجی‌های مشتق؛ چند سند
+  prior_disposition: پذیرش
+  guard: فایل‌های موردنیاز کاربر حفظ می‌شوند
+  related_canonical_recommendations:
+  - AR-001
+  relation: RELATED_AUDIT_VARIANT_NOT_IDENTITY
+- audit_alias: AR-R20
+  source_label: تصویر کامل در هر تغییر
+  prior_disposition: رد شکل سنگین
+  guard: ثبت هر تغییر پایدار؛ تصویر کامل دوره‌ای یا در نقاط مهم
+  related_canonical_recommendations: []
+  relation: RELATED_AUDIT_VARIANT_NOT_IDENTITY
+- audit_alias: AR-R21
+  source_label: گراف ادعای پیشرفته از شروع؛ `GP` و `QW`
+  prior_disposition: تعویق پیچیدگی
+  guard: در نسخهٔ اول رکورد سادهٔ نکته، شاهد و اختلاف با ارجاع کافی است
+  related_canonical_recommendations:
+  - AR-009
+  relation: RELATED_AUDIT_VARIANT_NOT_IDENTITY
+- audit_alias: AR-R22
+  source_label: حذف متن خام و جایگزینی کامل آن با گراف
+  prior_disposition: رد
+  guard: مدرک بررسی استخراج و نسبت‌دهی از بین می‌رود
+  related_canonical_recommendations:
+  - AR-009
+  relation: RELATED_AUDIT_VARIANT_NOT_IDENTITY
+- audit_alias: AR-R23
+  source_label: فایل تجمعی و ارزیابی جداگانهٔ مدل؛ چند سند
+  prior_disposition: حفظ و دقیق‌سازی
+  guard: نام دوستانه همراه شناسهٔ شرکت‌کننده و سابقهٔ تغییر اتصال
+  related_canonical_recommendations: []
+  relation: RELATED_AUDIT_VARIANT_NOT_IDENTITY
+- audit_alias: AR-R24
+  source_label: قالب‌بندی صحیح فارسی و انگلیسی؛ `GP` و نقدها
+  prior_disposition: حفظ و عملیاتی‌سازی
+  guard: تولید ساختاریافته، حفظ متن خام و کنترل نمایشگرهای هدف
+  related_canonical_recommendations: []
+  relation: RELATED_AUDIT_VARIANT_NOT_IDENTITY
+- audit_alias: AR-R25
+  source_label: آزمون خرابی کوچک از ابتدای ثبت؛ `GP` و `GL`
+  prior_disposition: پذیرش
+  guard: نخست با اتصال ساختگی؛ سپس اتصال واقعی و سناریوهای بیشتر
+  related_canonical_recommendations:
+  - AR-005
+  relation: RELATED_AUDIT_VARIANT_NOT_IDENTITY
+- audit_alias: AR-R26
+  source_label: تعویق تمام آزمون خرابی تا بعد از هسته؛ `QW-2` و `GR`
+  prior_disposition: رد
+  guard: پنجرهٔ ارسال نامعلوم در هستهٔ اولیه هم وجود دارد
+  related_canonical_recommendations:
+  - AR-005
+  relation: RELATED_AUDIT_VARIANT_NOT_IDENTITY
+- audit_alias: AR-R27
+  source_label: ارزیابی زود؛ `CL`، `GM` و `COP`
+  prior_disposition: پذیرش
+  guard: پایلوت پس از اولین مسیر کامل؛ جایگزین آزمون پایداری نیست
+  related_canonical_recommendations:
+  - AR-006
+  relation: RELATED_AUDIT_VARIANT_NOT_IDENTITY
+- audit_alias: AR-R28
+  source_label: حذف پایداری یا تغییر هویت فقط به‌علت نتیجهٔ منفی شورا
+  prior_disposition: رد
+  guard: فرضیهٔ کیفیت و تعهد محصول دو موضوع جدا هستند
+  related_canonical_recommendations:
+  - AR-006
+  relation: RELATED_AUDIT_VARIANT_NOT_IDENTITY
+- audit_alias: AR-R29
+  source_label: ادامهٔ خودکار برای آزمایش؛ `GL` و `CL`
+  prior_disposition: پذیرش محدود
+  guard: فقط سیاست صریح آزمایش یا اجرای دسته‌ای؛ حالت عادی تعاملی بماند
+  related_canonical_recommendations:
+  - AR-020
+  relation: RELATED_AUDIT_VARIANT_NOT_IDENTITY
+- audit_alias: AR-R30
+  source_label: توقف خودکار بر مبنای شباهت پاسخ‌ها
+  prior_disposition: رد شکل بی‌قید
+  guard: سیستم می‌تواند پایان را پیشنهاد دهد؛ گیت کاربر و داور حذف نشوند
+  related_canonical_recommendations:
+  - AR-012
+  - AR-020
+  relation: RELATED_AUDIT_VARIANT_NOT_IDENTITY
+- audit_alias: AR-R31
+  source_label: گراف ادعا، نقد خصمانه و داورهای متعدد
+  prior_disposition: تعویق امکانات افزوده
+  guard: ابتدا با فرضیهٔ مشخص و آزمایش جداسازی اثر ارزیابی شوند
+  related_canonical_recommendations:
+  - AR-009
+  - AR-011
+  relation: RELATED_AUDIT_VARIANT_NOT_IDENTITY
+- audit_alias: AR-R32
+  source_label: امتیاز شهرت پویا برای مدل‌ها
+  prior_disposition: تعویق
+  guard: نمونهٔ کم و تفاوت کارها، رتبهٔ پایدار را توجیه نمی‌کند
+  related_canonical_recommendations: []
+  relation: RELATED_AUDIT_VARIANT_NOT_IDENTITY
+- audit_alias: AR-R33
+  source_label: ترمیم خودکار رابط مرورگر
+  prior_disposition: تعویق شکل پیشرفته
+  guard: بررسی سلامت و توقف امن لازم است؛ انتخاب خودکار دکمهٔ مشابه ریسک دارد
+  related_canonical_recommendations:
+  - AR-018
+  relation: RELATED_AUDIT_VARIANT_NOT_IDENTITY
+- audit_alias: AR-R34
+  source_label: پالایش با مدل کوچک برای حذف تزریق
+  prior_disposition: رد به‌عنوان تضمین
+  guard: پالایش مدل‌محور می‌تواند کمکی باشد؛ مرز مجوز را تعیین نمی‌کند
+  related_canonical_recommendations:
+  - AR-016
+  relation: RELATED_AUDIT_VARIANT_NOT_IDENTITY
+- audit_alias: AR-R35
+  source_label: جداسازی اسرار، انتقال کنترل‌شدهٔ زمینه
+  prior_disposition: پذیرش پایه
+  guard: ارجاع اعتبارنامه، پیش‌نمایش تغییر حساس و سیاست محدوده‌دار
+  related_canonical_recommendations:
+  - AR-010
+  relation: RELATED_AUDIT_VARIANT_NOT_IDENTITY
+- audit_alias: AR-R36
+  source_label: زنجیرهٔ هش و دفتر فقط‌افزودنی
+  prior_disposition: پذیرش محدود یا تعویق حفاظت پیشرفته
+  guard: برای خرابی مفید؛ تضمین مقابله با دسترسی کامل محلی نیست
+  related_canonical_recommendations: []
+  relation: RELATED_AUDIT_VARIANT_NOT_IDENTITY
+- audit_alias: AR-R37
+  source_label: اثبات رسمی با `TLA+` یا ابزار مشابه
+  prior_disposition: تعویق
+  guard: قواعد مستقل و آزمون خرابی زودتر ارزش می‌دهند؛ دامنهٔ مدل رسمی بعداً روشن شود
+  related_canonical_recommendations:
+  - AR-015
+  relation: RELATED_AUDIT_VARIANT_NOT_IDENTITY
+- audit_alias: AR-R38
+  source_label: معماری کامل بازسازی از رویدادها
+  prior_disposition: تعویق
+  guard: ثبت عملیاتی، دادهٔ نسخه‌دار و دفتر حسابرسی برای شروع کافی است
+  related_canonical_recommendations:
+  - AR-014
+  relation: RELATED_AUDIT_VARIANT_NOT_IDENTITY
+- audit_alias: AR-R39
+  source_label: پشتهٔ ساده، خط فرمان و رابط بعدی؛ چند نقد
+  prior_disposition: پذیرش به‌عنوان انتخاب فنی
+  guard: زبان و کتابخانه روش اجرا هستند؛ نیاز محصول را تعیین نمی‌کنند
+  related_canonical_recommendations:
+  - AR-021
+  relation: RELATED_AUDIT_VARIANT_NOT_IDENTITY
+- audit_alias: AR-R40
+  source_label: درگاه عمومی، بازار افزونه و بستهٔ توسعه
+  prior_disposition: تعویق
+  guard: قرارداد رابط کافی است؛ اکوسیستم عمومی برای نسخهٔ اول ضروری نیست
+  related_canonical_recommendations: []
+  relation: RELATED_AUDIT_VARIANT_NOT_IDENTITY
+- audit_alias: AR-R41
+  source_label: توقف کامل مستندسازی؛ چند نقد
+  prior_disposition: رد شکل مطلق
+  guard: تکرار بی‌فایده کم شود؛ تصمیم، قرارداد و شواهد آزمون باید ثبت شوند
+  related_canonical_recommendations: []
+  relation: RELATED_AUDIT_VARIANT_NOT_IDENTITY
+- audit_alias: AR-R42
+  source_label: وعدهٔ تحویل قطعی در هفت روز یا چند هفته
+  prior_disposition: رد به‌عنوان تعهد
+  guard: زمان به وضعیت کد، مهارت، سرویس و مشکلات اتصال وابسته است؛ معیار خروج معتبرتر است
+  related_canonical_recommendations: []
+  relation: RELATED_AUDIT_VARIANT_NOT_IDENTITY

@@ -5,7 +5,7 @@
   "application_source_commit": "ddf33b24f41aa2c5ee0609800bd9f440165b72b5",
   "current_phase": "P06",
   "verified_application_requirements": 0,
-  "governance_check_note": "مراحل P00 تا P05 پذیرفته شده‌اند؛ P06 به دلیل تنظیم‌نشدن بررسی‌ها و نبود شاهد واقعی مسدود است. همهٔ ۳۰ خواستهٔ اصلی محفوظ‌اند؛ تأیید جامع محصول هنوز انجام نشده است.",
+  "governance_check_note": "مرحله‌های P00 تا P05 به‌صورت تاریخی پذیرفته شده‌اند؛ P06 در انتظار شواهد واقعی است. اصلاح‌های کیفیت پس از P05 هنوز پذیرش بومی تازه ندارند؛ پذیرش نهایی محصول 0/30 است.",
   "phases": [
     {
       "id": "P00",
@@ -345,17 +345,23 @@
     {
       "id": "P06",
       "status": "BLOCKED",
-      "actual_engineering_hours": 0,
-      "external_wait_hours": 0,
+      "actual_engineering_hours": null,
+      "external_wait_hours": null,
       "source_commit": null,
-      "outputs": [],
+      "outputs": [
+        "docs/p06/PREREGISTRATION.json",
+        "tools/p06_pilot.py",
+        "src/consilium/core/pilot.py",
+        "src/consilium/shell/pilot.py"
+      ],
       "tests": [],
       "exit_evidence": [],
       "blockers": [
-        "P06 acceptance checks and real-model pilot evidence are not configured or collected in this accepted-source checkpoint."
+        "پاسخ واقعی هر سه روش و امتیاز کور هنوز جمع‌آوری نشده‌اند؛ دسترسی و شناسهٔ مدل‌های منتخب تأیید نشده است.",
+        "زمان واقعی مهندسی مراحل قبلی اندازه‌گیری نشده و بازبرآورد مبتنی بر ساعت واقعی آماده نیست."
       ],
       "notes": [
-        "P05 native Windows/Linux and report matrix passed in workflow 37798211531. Its phase step correctly blocked on unfinished P06; this metadata records that actual blocker."
+        "طرح هشت مسئله و سه روش ثبت شده؛ ابزار ثبت اتمیک، کنترل بودجه و آماده‌سازی بدون جواب مرجع اجرا شده‌اند. موفقیت آزمون آفلاین، پذیرش مرحله نیست."
       ]
     },
     {
@@ -783,8 +789,14 @@
       "P00-P04 accepted phases and immutable evidence unchanged.",
       "P05 full offline council and mixed/manual pipeline formally accepted; 622 native cases and 39 product process exits per OS."
     ],
-    "working_changes": [],
-    "next_action": "در P06 طرح پایلوت را پیش از اجرا ثبت کن: ۶ تا ۱۰ وظیفهٔ نماینده و بودجه و معیار ارزیابی را انتخاب کن؛ سپس پاسخ واقعی مسیر دستی را برای شورا، یک مدل و استفادهٔ چندباره از همان مدل با بودجهٔ قابل مقایسه جمع‌آوری کن. ابتدا بررسی‌های معنادار P06 را پیکربندی کن؛ متن ساختگی شاهد کیفیت نیست و برتری مدل از نمونهٔ کوچک نتیجه گرفته نشود.",
+    "working_changes": [
+      "Approved quality improvements implemented locally; fresh source-bound native acceptance remains pending.",
+      "P06 preregistration, atomic private observation journal, protocol and negative tests implemented; zero real pilot outputs collected.",
+      "Final current-source Linux run: 639 passed tests (622 existing +17 pilot); full quality/native check remains failed due unavailable dev tools. Offline demo passed in 1.266 seconds with exact reopen and four objections.",
+      "Blocker-reporting completion receipts added; 13 supervisor regression tests pass locally. Native evidence from the previous quality source remains historical until fresh CI.",
+      "Current control suite passes 117 tests after blocker receipt repair; both native reports for the exact new source remain pending."
+    ],
+    "next_action": "ابتدا وابستگی‌های توسعهٔ قفل‌شده و انتشار مجاز شواهد را تکمیل و نسخهٔ تازه را در هر دو محیط بررسی کن؛ سپس مدل‌های رایگان با دسترسی واقعی را برای پایلوت تعیین و ۲۴ خروجی نهاییِ سه روش را از مسیر واقعی دستی محصول، همراه همهٔ فراخوانی‌های میانی، امتیاز کور، یافته‌ها و بازبرآورد ثبت کن. شاهد ساختگی و ساعت تخمینی جای نتیجهٔ واقعی ننشیند.",
     "next_command": "python tools/qualityctl.py status",
     "startup_commands": [
       "python tools/qualityctl.py status",
@@ -794,54 +806,35 @@
     "next_task": {
       "id": "P06-001",
       "phase": "P06",
-      "status": "BLOCKED",
+      "status": "BLOCKED_REAL_EVIDENCE",
       "title_fa": "پایلوت زودهنگام کیفیت",
-      "next_action_fa": "در P06 طرح پایلوت را پیش از اجرا ثبت کن: ۶ تا ۱۰ وظیفهٔ نماینده و بودجه و معیار ارزیابی را انتخاب کن؛ سپس پاسخ واقعی مسیر دستی را برای شورا، یک مدل و استفادهٔ چندباره از همان مدل با بودجهٔ قابل مقایسه جمع‌آوری کن. ابتدا بررسی‌های معنادار P06 را پیکربندی کن؛ متن ساختگی شاهد کیفیت نیست و برتری مدل از نمونهٔ کوچک نتیجه گرفته نشود.",
-      "completed_fa": "مرحلهٔ پنجم و همهٔ معیارهای پایان آن پذیرفته شدند؛ مرحلهٔ ششم آماده است.",
-      "remaining_fa": "طرح پایلوت، پاسخ و ارزیابی واقعی سه روش و اصلاح و بازبرآورد مرحلهٔ ششم هنوز انجام نشده‌اند.",
+      "next_action_fa": "ابتدا وابستگی‌های توسعهٔ قفل‌شده و انتشار مجاز شواهد را تکمیل و نسخهٔ تازه را در هر دو محیط بررسی کن؛ سپس مدل‌های رایگان با دسترسی واقعی را برای پایلوت تعیین و ۲۴ خروجی نهاییِ سه روش را از مسیر واقعی دستی محصول، همراه همهٔ فراخوانی‌های میانی، امتیاز کور، یافته‌ها و بازبرآورد ثبت کن. شاهد ساختگی و ساعت تخمینی جای نتیجهٔ واقعی ننشیند.",
+      "completed_fa": "آماده‌سازی پایلوت و دفتر ثبت اتمیک انجام شده؛ پذیرش P05 و همهٔ شاهدهای آن راستی‌آزمایی شده‌اند.",
+      "remaining_fa": "تأیید کامل اصلاح‌های کیفیت، شواهد ویندوزِ منبع تازه، انتشار باقی‌مانده، خروجی واقعی و امتیاز کور و بازبرآورد P06.",
       "done_when_fa": "هر سه معیار اصلی پایان P06 با شواهد واقعی بررسی و پذیرفته شوند."
     },
-    "inputs_missing": [],
+    "inputs_missing": [
+      "Accessible selected free models for real manual pilot",
+      "Measured prior engineering hours, or a reviewed treatment of their genuine absence"
+    ],
     "unfinished_work": {
       "phase": "P06",
       "items": [
         {
           "id": "P06-001",
           "status": "BLOCKED",
-          "instruction": "در P06 طرح پایلوت را پیش از اجرا ثبت کن: ۶ تا ۱۰ وظیفهٔ نماینده و بودجه و معیار ارزیابی را انتخاب کن؛ سپس پاسخ واقعی مسیر دستی را برای شورا، یک مدل و استفادهٔ چندباره از همان مدل با بودجهٔ قابل مقایسه جمع‌آوری کن. ابتدا بررسی‌های معنادار P06 را پیکربندی کن؛ متن ساختگی شاهد کیفیت نیست و برتری مدل از نمونهٔ کوچک نتیجه گرفته نشود."
+          "instruction": "ابتدا وابستگی‌های توسعهٔ قفل‌شده و انتشار مجاز شواهد را تکمیل و نسخهٔ تازه را در هر دو محیط بررسی کن؛ سپس مدل‌های رایگان با دسترسی واقعی را برای پایلوت تعیین و ۲۴ خروجی نهاییِ سه روش را از مسیر واقعی دستی محصول، همراه همهٔ فراخوانی‌های میانی، امتیاز کور، یافته‌ها و بازبرآورد ثبت کن. شاهد ساختگی و ساعت تخمینی جای نتیجهٔ واقعی ننشیند."
         }
       ],
-      "updated_at_utc": "2026-10-08T15:14:05.922432+00:00"
+      "updated_at_utc": "2026-10-08T14:31:46.902186+00:00"
     },
     "native_evidence": {
-      "run_id": 37756543373,
-      "code_commit": "ddf33b24f41aa2c5ee0609800bd9f440165b72b5",
-      "source_digest": "c01c0633233eb7b35a9cf6319f75497771632ddf7b3fe3ad6e0f7300bdf6dad8",
-      "tests_per_target": 622,
-      "council_tests_per_target": 40,
-      "process_exit_cases_per_target": 39,
-      "target_reports": [
-        {
-          "target": "Windows",
-          "report": {
-            "path": "evidence/targets/Windows/20261008T092548Z_c743026e/RUN.json",
-            "sha256": "a397686ffd0f7d9785f01a959ccf93a18ee6e670857d64e0fc7459007108d345"
-          },
-          "status": "PASS",
-          "source_matches_current": true,
-          "scope": "RECORDED_TARGET_ARTIFACTS_NOT_PHASE_ACCEPTANCE"
-        },
-        {
-          "target": "Linux",
-          "report": {
-            "path": "evidence/targets/Linux/20261008T092538Z_270c21cd/RUN.json",
-            "sha256": "3c403515a4843c634efd259f13c8d66af9d92a068cc988db2866a8c5f54fa703"
-          },
-          "status": "PASS",
-          "source_matches_current": true,
-          "scope": "RECORDED_TARGET_ARTIFACTS_NOT_PHASE_ACCEPTANCE"
-        }
-      ]
+      "scope": "CURRENT_WORKING_SOURCE_NOT_ACCEPTANCE",
+      "source_digest": "5c44278b5f6a52c4276e4d7d7c17af2f3633cca8ae8db44cce4420be830767f7",
+      "whole_native_status": "NOT_RUN",
+      "fresh_linux_status": "NOT_RUN",
+      "fresh_windows_status": "NOT_RUN",
+      "historical_P05_evidence": "resume.final_p05_checkpoint; accepted source only"
     },
     "last_verified_in_phase_checkpoint": {
       "phase": "P05",
@@ -965,23 +958,42 @@
       }
     },
     "known_quirks": [
-      "P06 checks are not configured. The current-phase supervisor reports BLOCKED until meaningful pilot checks are defined; this is not a failure of accepted P05.",
       "No real P06 model quality comparison has run. P05 mock/manual examples are synthetic, with unverified copied manual origins.",
       "Only exact offline mock adapter policy-managed sends are enabled. Live API/browser drivers retain original P08/P09 gates.",
       "Named peer review needs explicit authorization. The recorded FINISH judge projection independently blinds identity metadata; answer text is not identity-scrubbed.",
       "The owned-process 300s idle/900s hard supervisor cannot cancel ChatGPT/MCP. External calls have 25s bounded waits and ambiguous writes are read/reconciled before retry; server-generated commits never auto-retry.",
       "Historical P03 live browser sends/sign-out must not be replayed without a new scoped reason.",
-      "Workflow 37798211531 freshly passed both native targets and report hashes; its only failure is the unconfigured P06 phase step. P06 is explicitly BLOCKED; no acceptance is bypassed.",
-      "All 117 control tests pass locally after updating the old blocked-phase fixture to retain its explicit reason and isolate its files. Fresh native CI for this exact source is required.",
-      "Windows run 37801218935 retained as failed evidence. Its two new control tests exposed 8.3 path aliases; supervised roots/receipts are now resolved consistently. The architect suite also stopped at 60s; only its deadline is 90s, aggregate recording 240s, with 300/900 supervisor limits unchanged. All 117 controls pass locally after repair; fresh exact-source Windows/Linux CI remains required."
+      "P06 checks are now registered. Real-evidence checker deliberately blocks on missing live outputs/scoring/product-flow review/reestimate.",
+      "Current runtime lacks pinned hypothesis/ruff/mypy/coverage/pip-audit. Exact installation attempt failed; failures retained. Do not lower versions, skip tests or claim a successful advisory audit.",
+      "Windows run 37801218935 retained as failed evidence. Its two new control tests exposed 8.3 path aliases; supervised roots/receipts are now resolved consistently. The architect suite also stopped at 60s; only its deadline is 90s, aggregate recording 240s, with 300/900 supervisor limits unchanged. All 117 controls pass locally after repair; fresh exact-source Windows/Linux CI remains required.",
+      "P05 immutable acceptance is preserved at 0830c3b78f6f578e16ea0239c67c85c837b70ad5. The reviewed Windows repairs and retained failed evidence are now on edfabbe055ca0a9420ddf2f9271d300f67c64c72; exact-source native CI and P05 merge are pending."
     ],
     "developer_supervisor": {
       "idle_seconds": 300,
       "hard_seconds": 900,
-      "native_verified": true,
-      "scope": "OWNED_PROCESSES_NOT_CHATGPT_OR_MCP_CANCELLATION"
+      "native_verified": false,
+      "scope": "OWNED_PROCESSES_NOT_CHATGPT_OR_MCP_CANCELLATION",
+      "native_scope": "CURRENT_QUALITY_SOURCE_PENDING_BOTH_TARGETS"
     },
-    "transfer_reviewed_file_count": 1183
+    "transfer_reviewed_file_count": null,
+    "latest_followup_recheck": {
+      "path": "evidence/quality-improvements/RECHECK.json",
+      "sha256": "e54916946e2bb1884b782a084b2af0c986892631e65619b736a8bbc1b5b5d377",
+      "passed_linux_cases": 639,
+      "whole_native_check_status": "FAIL",
+      "new_windows_not_run": true
+    },
+    "historical_checkpoint_note": "Fields inside final_p04_checkpoint/final_p05_checkpoint describe their original acceptance-time source comparisons; they do not certify the current working source.",
+    "previous_local_quality_source": {
+      "source_digest": "9a61ab6bf1da54fe5a8e7ce219ed01d4f8772b4627dfe79fc7d5d05032951c8e",
+      "linux_report": {
+        "path": "evidence/targets/Linux/20261008T143749Z_4f24d565/RUN.json",
+        "sha256": "bf5119206b29e143508592eb87a436642bc76e052b16792f2d725090b6a3b8a6"
+      },
+      "passed_cases": 639,
+      "whole_native_status": "FAIL",
+      "scope": "HISTORICAL_LOCAL_CHECK"
+    }
   },
-  "updated_at_utc": "2026-10-08T15:14:05.922447+00:00"
+  "updated_at_utc": "2026-10-08T14:35:28.121466+00:00"
 }

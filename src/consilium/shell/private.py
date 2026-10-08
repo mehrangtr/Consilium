@@ -77,3 +77,22 @@ def ensure_public_payload(payload: object, forbidden_values: tuple[str, ...]) ->
         json.dumps(payload, ensure_ascii=False, allow_nan=False)
     except (TypeError, ValueError) as exc:
         raise PublicBoundaryError("Payload must contain finite JSON data") from None
+
+
+def redact_diagnostic(payload: object, forbidden_values: tuple[str, ...] = ()) -> object:
+    """Copy diagnostics, redact known secrets and credential fields; never rewrite sources."""
+    def clean(value):
+        if isinstance(value, str):
+            for secret in forbidden_values:
+                if secret:
+                    value = value.replace(secret, '[REDACTED]')
+            return re.sub(r'(?i)\bBearer\s+[^\s,;]+', 'Bearer [REDACTED]', value)
+        if isinstance(value, dict):
+            return {str(k): '[REDACTED]' if re.sub(r'[\s_-]+', '', str(k)).casefold()
+                    in _PRIVATE_FIELD_TOKENS else clean(v) for k, v in value.items()}
+        if isinstance(value, (list, tuple)):
+            return [clean(v) for v in value]
+        if value is None or type(value) in (bool, int, float):
+            return value
+        return '[UNSUPPORTED_DIAGNOSTIC]'
+    return clean(payload)

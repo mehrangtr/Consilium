@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "plan_version": "1.2",
-  "source_snapshot_digest": "fcd91750d945fdf8c421bb82a6a3707aec7ac3627cb90f6fcce75d15a8c59829",
+  "source_snapshot_digest": "af3aa954cb47da32effbe281005925fbaa448b93bb38f242636276f4d7a25875",
   "current_phase": "P06",
   "last_accepted_phase": "P05",
   "latest_current_phase_run": null,
@@ -9,10 +9,10 @@
     {
       "target": "Windows",
       "report": {
-        "path": "evidence/targets/Windows/20261008T092548Z_c743026e/RUN.json",
-        "sha256": "a397686ffd0f7d9785f01a959ccf93a18ee6e670857d64e0fc7459007108d345"
+        "path": "evidence/targets/Windows/20261008T153011Z_aa55bf27/RUN.json",
+        "sha256": "f4617947bcc6bd3e183c80d2fe3de38a06fdb0ba814b9ed5e99931d8934817e5"
       },
-      "status": "PASS",
+      "status": "FAIL",
       "source_matches_current": false,
       "scope": "RECORDED_TARGET_ARTIFACTS_NOT_PHASE_ACCEPTANCE"
     },
@@ -229,7 +229,8 @@
       "The owned-process 300s idle/900s hard supervisor cannot cancel ChatGPT/MCP. External calls have 25s bounded waits and ambiguous writes are read/reconciled before retry; server-generated commits never auto-retry.",
       "Historical P03 live browser sends/sign-out must not be replayed without a new scoped reason.",
       "Workflow 37798211531 freshly passed both native targets and report hashes; its only failure is the unconfigured P06 phase step. P06 is explicitly BLOCKED; no acceptance is bypassed.",
-      "All 117 control tests pass locally after updating the old blocked-phase fixture to retain its explicit reason and isolate its files. Fresh native CI for this exact source is required."
+      "All 117 control tests pass locally after updating the old blocked-phase fixture to retain its explicit reason and isolate its files. Fresh native CI for this exact source is required.",
+      "Windows run 37801218935 retained as failed evidence. Its two new control tests exposed 8.3 path aliases; supervised roots/receipts are now resolved consistently. The architect suite also stopped at 60s; only its deadline is 90s, aggregate recording 240s, with 300/900 supervisor limits unchanged. All 117 controls pass locally after repair; fresh exact-source Windows/Linux CI remains required."
     ],
     "developer_supervisor": {
       "idle_seconds": 300,

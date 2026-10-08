@@ -2,7 +2,7 @@
 
 این نما خودکار از `ROADMAP.json`، `PROGRESS.json` و `CHECKS.json` ساخته شده است. ویرایش دستی مرجع نیست؛ پس از تغییر مبنا فرمان تولید را دوباره اجرا کنید.
 
-شناسهٔ مبنای نما: `95e9a29dc35633e76e3d214a8c9453a32fd4e69b93367aebdf057f5af7b16de5`.
+شناسهٔ مبنای نما: `61808258703b5021e25b7215769335b32c8c67abd1155f211b12a71d17f32efd`.
 
 مرحلهٔ فعلی: `P06`. آخرین مرحلهٔ پذیرفته‌شده: `P05`.
 
@@ -207,7 +207,8 @@
     "The owned-process 300s idle/900s hard supervisor cannot cancel ChatGPT/MCP. External calls have 25s bounded waits and ambiguous writes are read/reconciled before retry; server-generated commits never auto-retry.",
     "Historical P03 live browser sends/sign-out must not be replayed without a new scoped reason.",
     "Workflow 37798211531 freshly passed both native targets and report hashes; its only failure is the unconfigured P06 phase step. P06 is explicitly BLOCKED; no acceptance is bypassed.",
-    "All 117 control tests pass locally after updating the old blocked-phase fixture to retain its explicit reason and isolate its files. Fresh native CI for this exact source is required."
+    "All 117 control tests pass locally after updating the old blocked-phase fixture to retain its explicit reason and isolate its files. Fresh native CI for this exact source is required.",
+    "Windows run 37801218935 retained as failed evidence. Its two new control tests exposed 8.3 path aliases; supervised roots/receipts are now resolved consistently. The architect suite also stopped at 60s; only its deadline is 90s, aggregate recording 240s, with 300/900 supervisor limits unchanged. All 117 controls pass locally after repair; fresh exact-source Windows/Linux CI remains required."
   ],
   "developer_supervisor": {
     "idle_seconds": 300,

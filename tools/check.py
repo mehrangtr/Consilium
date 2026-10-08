@@ -53,7 +53,7 @@ def main():
     for name, argv in commands:
         try:
             code = subprocess.run(argv, cwd=ROOT, stdin=subprocess.DEVNULL,
-                                  timeout=60, shell=False).returncode
+                                  timeout=90 if name == 'architect_contract_tests' else 60, shell=False).returncode
             results.append({"id": name, "status": "PASS" if code == 0 else "FAIL", "returncode": code})
         except (OSError, subprocess.TimeoutExpired) as exc:
             results.append({"id": name, "status": "FAIL", "error": type(exc).__name__})

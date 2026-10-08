@@ -19,8 +19,9 @@ ROOT = Path(__file__).resolve().parents[1]
 # check.py runs several suites, each bounded to 60 seconds. The aggregate
 # recorder needs room for those suites and its final source-bound report.
 # P05 Windows ran all 621 cases but exhausted 120s before the final receipt.
-# Keep 180s for the aggregate, below the supervisor's 300s idle limit.
-NATIVE_CHECK_BUDGET_SECONDS = 180
+# The Windows run 37801218935 cut the 259-case architect suite at 60s.
+# Allow that suite 90s and the aggregate 240s; retain the 300/900 supervisor limits.
+NATIVE_CHECK_BUDGET_SECONDS = 240
 
 
 def main():

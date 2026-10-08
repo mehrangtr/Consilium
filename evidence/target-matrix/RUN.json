@@ -1,7 +1,7 @@
 {
   "phase": "P01",
   "scope": "SELECTED_OS_FOUNDATION_GATE_NOT_FULL_V1_ACCEPTANCE",
-  "source_digest": "5c44278b5f6a52c4276e4d7d7c17af2f3633cca8ae8db44cce4420be830767f7",
+  "source_digest": "72926f3b9597fd1487babd4ec80ebe1cd990960eeedf73d401e62615429cbd64",
   "targets": [
     {
       "target": "Windows",
@@ -13,10 +13,10 @@
       "architect_tests": 259,
       "council_tests": 40,
       "quality_tests": 15,
-      "pilot_tests": 17,
+      "pilot_tests": 53,
       "evidence": {
-        "path": "evidence/targets/Windows/20261008T155730Z_fefd9f7e/RUN.json",
-        "sha256": "861c5456e8a62fc970af870ae03a1b15ef9ea65bc10a60357fcfcfea7f60baaa"
+        "path": "evidence/targets/Windows/20261008T185118Z_0d03f97b/RUN.json",
+        "sha256": "229896e5d2af0ebf21576d6f7c3ebe564e30fb36ba70e04d91fc07cb9dfead5b"
       }
     },
     {
@@ -29,10 +29,10 @@
       "architect_tests": 259,
       "council_tests": 40,
       "quality_tests": 15,
-      "pilot_tests": 17,
+      "pilot_tests": 53,
       "evidence": {
-        "path": "evidence/targets/Linux/20261008T155709Z_225bf944/RUN.json",
-        "sha256": "8ff0a877cd345aabcb80181a97fb6321b06b762bf614482a18a5549d9d488d37"
+        "path": "evidence/targets/Linux/20261008T185108Z_2d7b8c96/RUN.json",
+        "sha256": "4d0fff74776159b77c620ca4329c9e5f1aa8103b824ffa561e8bf41c2666b334"
       }
     }
   ],

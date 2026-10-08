@@ -1,0 +1,185 @@
+{
+  "phase": "P05",
+  "scope": "P05_FULL_OFFLINE_COUNCIL_NOT_LIVE_PROVIDER_CERTIFICATION",
+  "status": "PASS",
+  "counts": {
+    "tests": 40,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "source_digest_before": "72926f3b9597fd1487babd4ec80ebe1cd990960eeedf73d401e62615429cbd64",
+  "source_digest_after": "72926f3b9597fd1487babd4ec80ebe1cd990960eeedf73d401e62615429cbd64",
+  "date_utc": "2026-10-08T18:52:44.595214+00:00",
+  "host": {
+    "system": "Windows",
+    "python": "3.12.10"
+  },
+  "windows_execution": "THIS_RUN",
+  "real_process_exit_cases": 6,
+  "manual_origin": "USER_ACCEPTED_SYNTHETIC_FIXTURES_NOT_AUTHENTICATED_EXTERNAL_GENERATION",
+  "live_provider_calls": 0,
+  "verified_application_requirements": 0,
+  "cases": [
+    {
+      "id": "test_council.CouncilCase.test_all_manual_council_including_selected_judge",
+      "status": "PASS"
+    },
+    {
+      "id": "test_council.CouncilCase.test_ambiguous_mock_delivery_cannot_resend_replace_or_finish",
+      "status": "PASS"
+    },
+    {
+      "id": "test_council.CouncilCase.test_analysis_hash_or_event_tampering_detected_on_reopen",
+      "status": "PASS"
+    },
+    {
+      "id": "test_council.CouncilCase.test_checkpoint_markdown_json_participant_history_and_assessments_regenerate",
+      "status": "PASS"
+    },
+    {
+      "id": "test_council.CouncilCase.test_cli_new_preserves_question_and_waits_for_architect_user_review",
+      "status": "PASS"
+    },
+    {
+      "id": "test_council.CouncilCase.test_cli_pause_resume_and_checkpoint_exports_use_real_processes",
+      "status": "PASS"
+    },
+    {
+      "id": "test_council.CouncilCase.test_completed_record_deletion_detected_even_when_row_is_missing",
+      "status": "PASS"
+    },
+    {
+      "id": "test_council.CouncilCase.test_explicit_named_peer_review_still_gives_selected_judge_blind_metadata",
+      "status": "PASS"
+    },
+    {
+      "id": "test_council.CouncilCase.test_failed_v10_upgrade_rolls_back_with_no_new_records",
+      "status": "PASS"
+    },
+    {
+      "id": "test_council.CouncilCase.test_final_cannot_reopen_with_active_wait_state",
+      "status": "PASS"
+    },
+    {
+      "id": "test_council.CouncilCase.test_final_output_cannot_claim_truth_probability_or_application_authority",
+      "status": "PASS"
+    },
+    {
+      "id": "test_council.CouncilCase.test_finish_requires_peer_review_and_valid_user_selected_judge",
+      "status": "PASS"
+    },
+    {
+      "id": "test_council.CouncilCase.test_full_mock_council_and_targeted_continuation_survive_restart",
+      "status": "PASS"
+    },
+    {
+      "id": "test_council.CouncilCase.test_incomplete_critique_cannot_complete_round_or_gain_default_score",
+      "status": "PASS"
+    },
+    {
+      "id": "test_council.CouncilCase.test_initial_context_excludes_already_generated_peer_answer",
+      "status": "PASS"
+    },
+    {
+      "id": "test_council.CouncilCase.test_initial_differences_remain_in_final_with_unscored_accepting_reviews",
+      "status": "PASS"
+    },
+    {
+      "id": "test_council.CouncilCase.test_invalid_judge_json_never_becomes_a_canonical_source",
+      "status": "PASS"
+    },
+    {
+      "id": "test_council.CouncilCase.test_judge_connection_change_does_not_silently_replace_selected_judge",
+      "status": "PASS"
+    },
+    {
+      "id": "test_council.CouncilCase.test_judge_schema_rejects_boolean_or_float_version",
+      "status": "PASS"
+    },
+    {
+      "id": "test_council.CouncilCase.test_late_previous_round_execution_cannot_change_new_round",
+      "status": "PASS"
+    },
+    {
+      "id": "test_council.CouncilCase.test_literal_export_survives_fence_injection_and_technical_bidi",
+      "status": "PASS"
+    },
+    {
+      "id": "test_council.CouncilCase.test_live_or_subclassed_driver_cannot_use_mock_permissions",
+      "status": "PASS"
+    },
+    {
+      "id": "test_council.CouncilCase.test_missing_wrong_stale_or_unconfirmed_judge_rejected",
+      "status": "PASS"
+    },
+    {
+      "id": "test_council.CouncilCase.test_mixed_mock_manual_answers_and_reviews_share_pipeline",
+      "status": "PASS"
+    },
+    {
+      "id": "test_council.CouncilCase.test_no_next_round_before_user_gate_and_analyst_cannot_decide",
+      "status": "PASS"
+    },
+    {
+      "id": "test_council.CouncilCase.test_pause_reopen_and_resume_require_explicit_fresh_user_choice",
+      "status": "PASS"
+    },
+    {
+      "id": "test_council.CouncilCase.test_real_exit_after_analysis_commit",
+      "status": "PASS"
+    },
+    {
+      "id": "test_council.CouncilCase.test_real_exit_after_final_commit",
+      "status": "PASS"
+    },
+    {
+      "id": "test_council.CouncilCase.test_real_exit_after_judge_commit",
+      "status": "PASS"
+    },
+    {
+      "id": "test_council.CouncilCase.test_real_exit_before_analysis_commit",
+      "status": "PASS"
+    },
+    {
+      "id": "test_council.CouncilCase.test_real_exit_before_final_commit",
+      "status": "PASS"
+    },
+    {
+      "id": "test_council.CouncilCase.test_real_exit_before_judge_commit",
+      "status": "PASS"
+    },
+    {
+      "id": "test_council.CouncilCase.test_review_metadata_is_blind_by_default",
+      "status": "PASS"
+    },
+    {
+      "id": "test_council.CouncilCase.test_selected_judge_receives_frozen_output_schema_and_all_dissent",
+      "status": "PASS"
+    },
+    {
+      "id": "test_council.CouncilCase.test_single_reviewer_round_is_rejected_without_consuming_user_decision",
+      "status": "PASS"
+    },
+    {
+      "id": "test_council.CouncilCase.test_stale_and_old_round_decisions_leave_state_unchanged",
+      "status": "PASS"
+    },
+    {
+      "id": "test_council.CouncilCase.test_terminal_state_without_final_is_rejected_on_reopen",
+      "status": "PASS"
+    },
+    {
+      "id": "test_council.CouncilCase.test_transaction_rolls_back_analysis_or_final_record_failure",
+      "status": "PASS"
+    },
+    {
+      "id": "test_council.CouncilCase.test_unscored_reviews_preserve_explicit_status_without_fabricated_score",
+      "status": "PASS"
+    },
+    {
+      "id": "test_council.CouncilCase.test_v9_upgrade_preserves_all_old_migration_records_and_canonical_sources",
+      "status": "PASS"
+    }
+  ]
+}

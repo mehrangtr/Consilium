@@ -1,0 +1,181 @@
+{
+  "phase": "P06",
+  "status": "PASS_OFFLINE_SCOPE_ONLY",
+  "source_digest": "72926f3b9597fd1487babd4ec80ebe1cd990960eeedf73d401e62615429cbd64",
+  "code_commit": "1609b614c42d954cae48f5cc863bcc58a5919de9",
+  "native_run_id": 37827407312,
+  "reviewer": "SAME_AUTHOR_SEPARATE_REVIEW_PASS",
+  "reviewer_independent": false,
+  "targets": [
+    {
+      "target": "Windows",
+      "status": "PASS",
+      "source_matches_current": true,
+      "report": {
+        "path": "evidence/targets/Windows/20261008T185118Z_0d03f97b/RUN.json",
+        "sha256": "229896e5d2af0ebf21576d6f7c3ebe564e30fb36ba70e04d91fc07cb9dfead5b"
+      },
+      "test_counts": {
+        "control": {
+          "tests": 117,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0,
+          "expected_failures": 0,
+          "unexpected_successes": 0
+        },
+        "foundation": {
+          "tests": 60,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        "persistence": {
+          "tests": 104,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        "browser_probe": {
+          "tests": 44,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        "architect": {
+          "tests": 259,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        "council": {
+          "tests": 40,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        "quality": {
+          "tests": 15,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        "pilot": {
+          "tests": 53,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        }
+      },
+      "tests_total": 692
+    },
+    {
+      "target": "Linux",
+      "status": "PASS",
+      "source_matches_current": true,
+      "report": {
+        "path": "evidence/targets/Linux/20261008T185108Z_2d7b8c96/RUN.json",
+        "sha256": "4d0fff74776159b77c620ca4329c9e5f1aa8103b824ffa561e8bf41c2666b334"
+      },
+      "test_counts": {
+        "control": {
+          "tests": 117,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0,
+          "expected_failures": 0,
+          "unexpected_successes": 0
+        },
+        "foundation": {
+          "tests": 60,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        "persistence": {
+          "tests": 104,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        "browser_probe": {
+          "tests": 44,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        "architect": {
+          "tests": 259,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        "council": {
+          "tests": 40,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        "quality": {
+          "tests": 15,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        "pilot": {
+          "tests": 53,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        }
+      },
+      "tests_total": 692
+    }
+  ],
+  "tests_per_target": 692,
+  "pilot_tests_per_target": 53,
+  "protected_requirements_changed": false,
+  "preregistration_changed": false,
+  "budget_ceiling_changed": false,
+  "browser_used": false,
+  "real_model_calls": 0,
+  "real_final_outputs": 0,
+  "required_final_outputs": 24,
+  "checks": [
+    "Failure and repair chain remain within original call/time/token ceilings",
+    "Unknown delivery cannot authorize a retry",
+    "Shared architect physical accounting agrees",
+    "Frozen journal and atomic review manifests prevent racing replacement",
+    "Real process exits before commit and during export resume exact bytes",
+    "All score dimensions require complete finite judgments and reasons",
+    "Private mapping and reference material are separate from generation packets",
+    "Valid scores alone cannot bypass product-flow and measured-hours acceptance barriers"
+  ],
+  "known_limits": [
+    "Manual origin and evaluator independence are unauthenticated claims",
+    "Unknown UI token counts remain null; actual token equality is not established",
+    "A six-stage method cannot complete after a failed call within six calls",
+    "Answer text may reveal model identity despite metadata blinding",
+    "Actual model evaluation, product-flow review and measured-hours reestimate remain missing"
+  ],
+  "phase_accepted": false,
+  "model_superiority_claimed": false,
+  "retained_failed_native_runs": [
+    37825818261,
+    37826682214
+  ],
+  "targeted_quality": [
+    {
+      "path": "evidence/p06/offline-native-37827407312/TARGETED_QUALITY_Windows.json",
+      "sha256": "7ee28d4703661de6fafcbc9ef15e81892f3b675d45c753bd0ac54a45519fb01e"
+    },
+    {
+      "path": "evidence/p06/offline-native-37827407312/TARGETED_QUALITY_Linux.json",
+      "sha256": "4b4e697c1615868a091a3242e5de342462008ce0842d0cab21045180e0dfe52d"
+    }
+  ],
+  "dependency_audit": {
+    "path": "evidence/security-audit/native-37827407312/RUN.json",
+    "sha256": "4e442228449095f4a07d7021d4ef7e5aff99c4b20ebd59864d6e71fbd9dcaaeb"
+  }
+}

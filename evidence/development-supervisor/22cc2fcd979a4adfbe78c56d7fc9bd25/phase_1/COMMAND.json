@@ -1,0 +1,10 @@
+{
+  "command": [
+    "/opt/hostedtoolcache/Python/3.12.14/x64/bin/python",
+    "tools/run_current_phase.py",
+    "--report-blocked"
+  ],
+  "root": "/home/runner/work/Consilium/Consilium",
+  "nonce": "caaf3aa5fdf4447bb4efb0bb4046f4c1",
+  "supervisor_pid": 2540
+}

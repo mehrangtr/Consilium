@@ -1,0 +1,64 @@
+{
+  "scope": "TARGETED_DEV_QUALITY_NOT_FULL_STATIC_VERIFICATION",
+  "status": "PASS",
+  "source_digest_before": "72926f3b9597fd1487babd4ec80ebe1cd990960eeedf73d401e62615429cbd64",
+  "source_digest_after": "72926f3b9597fd1487babd4ec80ebe1cd990960eeedf73d401e62615429cbd64",
+  "checks": [
+    {
+      "id": "lint",
+      "status": "PASS",
+      "returncode": 0,
+      "elapsed_seconds": 0.063
+    },
+    {
+      "id": "types",
+      "status": "PASS",
+      "returncode": 0,
+      "elapsed_seconds": 0.516
+    },
+    {
+      "id": "conformance",
+      "status": "PASS",
+      "returncode": 0,
+      "elapsed_seconds": 0.078
+    },
+    {
+      "id": "transitions",
+      "status": "PASS",
+      "returncode": 0,
+      "elapsed_seconds": 0.172
+    },
+    {
+      "id": "properties_and_regressions",
+      "status": "PASS",
+      "returncode": 0,
+      "elapsed_seconds": 9.312
+    },
+    {
+      "id": "targeted_coverage",
+      "status": "PASS",
+      "returncode": 0,
+      "elapsed_seconds": 0.109
+    }
+  ],
+  "strict_type_targets": [
+    "src/consilium/core/evidence_provenance.py",
+    "src/consilium/core/rubrics.py",
+    "src/consilium/shell/evidence_store.py"
+  ],
+  "coverage_targets": [
+    "src/consilium/core/evidence_provenance.py",
+    "src/consilium/core/rubrics.py",
+    "src/consilium/shell/evidence_store.py"
+  ],
+  "coverage_minimum": 70,
+  "whole_product_type_checked": false,
+  "extraction": {
+    "origin": "DERIVED_FROM_HASH_VERIFIED_NATIVE_CHECK_LOG",
+    "source": {
+      "path": "evidence/targets/Windows/20261008T185118Z_0d03f97b/CHECK.log",
+      "sha256": "15095fcc020c18d0ab8d34630759baf70fdf3f97f36de3d63b72e972c648059c"
+    },
+    "standalone_original_report_claimed": false
+  }
+}

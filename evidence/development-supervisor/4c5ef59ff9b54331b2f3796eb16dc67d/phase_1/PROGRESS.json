@@ -1,0 +1,10 @@
+{
+  "nonce": "508bdab9e8c04ec48d29f4b6c57d427d",
+  "task_pid": 2528,
+  "sequence": 1,
+  "milestone": "blocked_phase_recorded",
+  "receipt": {
+    "path": "/home/runner/work/Consilium/Consilium/evidence/phase-blockers/acf511efef5e454fbb22b70235100939/RUN.json",
+    "sha256": "55b4a1acd7bc295f7677b902cdcf17a84f58bb9eefa13e83e0d724c2833624c4"
+  }
+}

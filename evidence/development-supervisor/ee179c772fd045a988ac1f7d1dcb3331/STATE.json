@@ -1,0 +1,155 @@
+{
+  "schema_version": 1,
+  "scope": "OWNED_OFFLINE_DEVELOPMENT_NOT_CHAT_SESSION_CONTROL",
+  "status": "BLOCKED",
+  "idle_seconds": 300,
+  "hard_seconds": 900,
+  "phase_advanced": false,
+  "source_digest": "8d0987440f18b10372be78709efb0199805be403c774c21ca5792c0c07826fbd",
+  "steps": [
+    {
+      "step": "native",
+      "attempt": 1,
+      "nonce": "eddd012f5d854fc3813a90efbed19e4a",
+      "status": "INCOMPLETE",
+      "log": "evidence/development-supervisor/ee179c772fd045a988ac1f7d1dcb3331/native_1/OUTPUT.log",
+      "worker_pid": 1592,
+      "last_completed_milestone": "native_smoke_4_finished",
+      "retained_proof": {
+        "artifacts": [
+          {
+            "original_path": "evidence/targets/Windows/20261008T183936Z_df06fd29/RUN.json",
+            "path": "evidence/development-supervisor/ee179c772fd045a988ac1f7d1dcb3331/native_1/proofs/evidence/targets/Windows/20261008T183936Z_df06fd29/RUN.json",
+            "sha256": "8f50669c5613eb3b658ce3873dfcec76d4e3515bb5c632b6e7b9cbc606ec105e"
+          },
+          {
+            "original_path": "evidence/targets/Windows/20261008T183936Z_df06fd29/CHECK.log",
+            "path": "evidence/development-supervisor/ee179c772fd045a988ac1f7d1dcb3331/native_1/proofs/evidence/targets/Windows/20261008T183936Z_df06fd29/CHECK.log",
+            "sha256": "928d4ee6b8e7cdc179766c22603f8e1157adc62bbadedec14542540d67286b21"
+          },
+          {
+            "original_path": "evidence/targets/Windows/20261008T183936Z_df06fd29/maintenance_report.json",
+            "path": "evidence/development-supervisor/ee179c772fd045a988ac1f7d1dcb3331/native_1/proofs/evidence/targets/Windows/20261008T183936Z_df06fd29/maintenance_report.json",
+            "sha256": "9870f58bdaf30aa4fda600ee22c8b59c32509b39c93c7c2342b0dcb4daf07372"
+          },
+          {
+            "original_path": "evidence/targets/Windows/20261008T183936Z_df06fd29/environment_report.json",
+            "path": "evidence/development-supervisor/ee179c772fd045a988ac1f7d1dcb3331/native_1/proofs/evidence/targets/Windows/20261008T183936Z_df06fd29/environment_report.json",
+            "sha256": "139206dccc8c5502356ea1222127683aef7437024b9bf1becbcc97494a5d9d62"
+          },
+          {
+            "original_path": "evidence/targets/Windows/20261008T183936Z_df06fd29/control_report.json",
+            "path": "evidence/development-supervisor/ee179c772fd045a988ac1f7d1dcb3331/native_1/proofs/evidence/targets/Windows/20261008T183936Z_df06fd29/control_report.json",
+            "sha256": "cf1547199afc4fb17e18f20ab77642c64a5a2d31dcd5320f1307ecb2e2b7056d"
+          },
+          {
+            "original_path": "evidence/targets/Windows/20261008T183936Z_df06fd29/control_junit.xml",
+            "path": "evidence/development-supervisor/ee179c772fd045a988ac1f7d1dcb3331/native_1/proofs/evidence/targets/Windows/20261008T183936Z_df06fd29/control_junit.xml",
+            "sha256": "dc41a12bba431ca33f98b95445c373fd2f4030f6f44d49393d5c8c65d3bb6b86"
+          },
+          {
+            "original_path": "evidence/targets/Windows/20261008T183936Z_df06fd29/foundation_report.json",
+            "path": "evidence/development-supervisor/ee179c772fd045a988ac1f7d1dcb3331/native_1/proofs/evidence/targets/Windows/20261008T183936Z_df06fd29/foundation_report.json",
+            "sha256": "592cdc990c44da6a6484f788d60f512531bce37983e255dafac7e6c7153848cc"
+          },
+          {
+            "original_path": "evidence/targets/Windows/20261008T183936Z_df06fd29/foundation_junit.xml",
+            "path": "evidence/development-supervisor/ee179c772fd045a988ac1f7d1dcb3331/native_1/proofs/evidence/targets/Windows/20261008T183936Z_df06fd29/foundation_junit.xml",
+            "sha256": "7c775438c51a685195abba490548262de4759e5d29d91293ad3bbf5bea68179d"
+          },
+          {
+            "original_path": "evidence/targets/Windows/20261008T183936Z_df06fd29/persistence_report.json",
+            "path": "evidence/development-supervisor/ee179c772fd045a988ac1f7d1dcb3331/native_1/proofs/evidence/targets/Windows/20261008T183936Z_df06fd29/persistence_report.json",
+            "sha256": "5e9bccbc714a702ebba0938d97fa2efe7617b4d3e8edd50082e36f7b970a83a1"
+          },
+          {
+            "original_path": "evidence/targets/Windows/20261008T183936Z_df06fd29/persistence_junit.xml",
+            "path": "evidence/development-supervisor/ee179c772fd045a988ac1f7d1dcb3331/native_1/proofs/evidence/targets/Windows/20261008T183936Z_df06fd29/persistence_junit.xml",
+            "sha256": "302fcb323734105787efe34b9e2728b19788dbc67d2a1ff033e4a22971d608a7"
+          },
+          {
+            "original_path": "evidence/targets/Windows/20261008T183936Z_df06fd29/browser_probe_report.json",
+            "path": "evidence/development-supervisor/ee179c772fd045a988ac1f7d1dcb3331/native_1/proofs/evidence/targets/Windows/20261008T183936Z_df06fd29/browser_probe_report.json",
+            "sha256": "573198b9a8d2240404e523835db182616dd599148abd5e0fbfcf1678adf30194"
+          },
+          {
+            "original_path": "evidence/targets/Windows/20261008T183936Z_df06fd29/browser_probe_junit.xml",
+            "path": "evidence/development-supervisor/ee179c772fd045a988ac1f7d1dcb3331/native_1/proofs/evidence/targets/Windows/20261008T183936Z_df06fd29/browser_probe_junit.xml",
+            "sha256": "cc96cd3d9eb9caaf9925bbf12a0aab6a3fb6e60c3968367ad7be5c7476ed39a9"
+          },
+          {
+            "original_path": "evidence/targets/Windows/20261008T183936Z_df06fd29/architect_report.json",
+            "path": "evidence/development-supervisor/ee179c772fd045a988ac1f7d1dcb3331/native_1/proofs/evidence/targets/Windows/20261008T183936Z_df06fd29/architect_report.json",
+            "sha256": "012e85ffee3356cc65b8ab9f76a90018ef1cb04d8831c437805aba14e0d1f9f5"
+          },
+          {
+            "original_path": "evidence/targets/Windows/20261008T183936Z_df06fd29/architect_junit.xml",
+            "path": "evidence/development-supervisor/ee179c772fd045a988ac1f7d1dcb3331/native_1/proofs/evidence/targets/Windows/20261008T183936Z_df06fd29/architect_junit.xml",
+            "sha256": "1f75c76880d07546153368668ae3d17731bd3e25d730d0b6167c3d42832ab1c5"
+          },
+          {
+            "original_path": "evidence/targets/Windows/20261008T183936Z_df06fd29/council_report.json",
+            "path": "evidence/development-supervisor/ee179c772fd045a988ac1f7d1dcb3331/native_1/proofs/evidence/targets/Windows/20261008T183936Z_df06fd29/council_report.json",
+            "sha256": "0de3d908ac4acaae56a719466739a0eacf2a3f786173fb2d2c578d495f887c9e"
+          },
+          {
+            "original_path": "evidence/targets/Windows/20261008T183936Z_df06fd29/council_junit.xml",
+            "path": "evidence/development-supervisor/ee179c772fd045a988ac1f7d1dcb3331/native_1/proofs/evidence/targets/Windows/20261008T183936Z_df06fd29/council_junit.xml",
+            "sha256": "0ed8a1b5428e9ab36395144968b2235367b62d7339553232441f9a25b09808ef"
+          },
+          {
+            "original_path": "evidence/targets/Windows/20261008T183936Z_df06fd29/quality_report.json",
+            "path": "evidence/development-supervisor/ee179c772fd045a988ac1f7d1dcb3331/native_1/proofs/evidence/targets/Windows/20261008T183936Z_df06fd29/quality_report.json",
+            "sha256": "6d796f469ab664a683bec8bbe2eaab6a90ea4d9f610da3c931610df791cef676"
+          },
+          {
+            "original_path": "evidence/targets/Windows/20261008T183936Z_df06fd29/quality_junit.xml",
+            "path": "evidence/development-supervisor/ee179c772fd045a988ac1f7d1dcb3331/native_1/proofs/evidence/targets/Windows/20261008T183936Z_df06fd29/quality_junit.xml",
+            "sha256": "9b04e187587cdea37ba284aa4e4f6bcb206e535d0c3131a654dddfb07bf58e9f"
+          },
+          {
+            "original_path": "evidence/targets/Windows/20261008T183936Z_df06fd29/pilot_report.json",
+            "path": "evidence/development-supervisor/ee179c772fd045a988ac1f7d1dcb3331/native_1/proofs/evidence/targets/Windows/20261008T183936Z_df06fd29/pilot_report.json",
+            "sha256": "300df669515f9495b917dd641a1e0fcddfffc3b2a507c7e749ffcf81d5b21da0"
+          },
+          {
+            "original_path": "evidence/targets/Windows/20261008T183936Z_df06fd29/pilot_junit.xml",
+            "path": "evidence/development-supervisor/ee179c772fd045a988ac1f7d1dcb3331/native_1/proofs/evidence/targets/Windows/20261008T183936Z_df06fd29/pilot_junit.xml",
+            "sha256": "e2114a714d61ec1fa87189bedd9429eeb38d2301f77eaf4fbaad600eded702c0"
+          },
+          {
+            "original_path": "evidence/targets/Windows/20261008T183936Z_df06fd29/smoke_1.log",
+            "path": "evidence/development-supervisor/ee179c772fd045a988ac1f7d1dcb3331/native_1/proofs/evidence/targets/Windows/20261008T183936Z_df06fd29/smoke_1.log",
+            "sha256": "cb1a9913b6d9ad1d914bb4e6cd5453083592749d0fecab003450d5483f87a044"
+          },
+          {
+            "original_path": "evidence/targets/Windows/20261008T183936Z_df06fd29/smoke_2.log",
+            "path": "evidence/development-supervisor/ee179c772fd045a988ac1f7d1dcb3331/native_1/proofs/evidence/targets/Windows/20261008T183936Z_df06fd29/smoke_2.log",
+            "sha256": "99b0dc438aec3faa16971691f9095f59e91329c7e83c76a52928b389dc78f90c"
+          },
+          {
+            "original_path": "evidence/targets/Windows/20261008T183936Z_df06fd29/smoke_3.log",
+            "path": "evidence/development-supervisor/ee179c772fd045a988ac1f7d1dcb3331/native_1/proofs/evidence/targets/Windows/20261008T183936Z_df06fd29/smoke_3.log",
+            "sha256": "2e865448597c5184a1199c94dffcf2d811152d81ef6ea2f4ae1d624023babc83"
+          },
+          {
+            "original_path": "evidence/targets/Windows/20261008T183936Z_df06fd29/smoke_4.log",
+            "path": "evidence/development-supervisor/ee179c772fd045a988ac1f7d1dcb3331/native_1/proofs/evidence/targets/Windows/20261008T183936Z_df06fd29/smoke_4.log",
+            "sha256": "70b63ebe3599787c054a21381d51163e70d74c4f957db9cd7f5cc5d30fdc596e"
+          }
+        ],
+        "errors": []
+      },
+      "stop_reason": null,
+      "returncode": 1,
+      "reconciliation": {
+        "status": "INCOMPLETE",
+        "reason": "Receipt did not pass"
+      }
+    }
+  ],
+  "remaining_steps": [
+    "native"
+  ],
+  "next_action": "REPAIR_OR_VERIFY_native"
+}

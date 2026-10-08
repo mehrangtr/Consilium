@@ -1,0 +1,11 @@
+{
+  "status": "PASS",
+  "scope": "PINNED_DEPENDENCY_ADVISORY_AUDIT",
+  "workflow_run_id": 37827407312,
+  "source_digest": "72926f3b9597fd1487babd4ec80ebe1cd990960eeedf73d401e62615429cbd64",
+  "full_local_runtime_install_claimed": false,
+  "evidence": {
+    "path": "evidence/security-audit/native-37827407312/AUDIT.log",
+    "sha256": "d3442a68f5c378c45c2016091f13afb2ccf67cee5e2c6f359edccc2993c5b288"
+  }
+}

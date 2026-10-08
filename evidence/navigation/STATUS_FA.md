@@ -2,7 +2,7 @@
 
 این نما خودکار از `ROADMAP.json`، `PROGRESS.json` و `CHECKS.json` ساخته شده است. ویرایش دستی مرجع نیست؛ پس از تغییر مبنا فرمان تولید را دوباره اجرا کنید.
 
-شناسهٔ مبنای نما: `508aeeb7cfbd754641316278d3b660549e7fc52a34239726c68efb4d97b21039`.
+شناسهٔ مبنای نما: `b62beeb9e88df28f542fdf493566d665fc689fdb9bcf05718617b490b3deb43a`.
 
 مرحلهٔ فعلی: `P06`. آخرین مرحلهٔ پذیرفته‌شده: `P05`.
 
@@ -60,8 +60,151 @@
   },
   "native_evidence": {
     "scope": "CURRENT_P06_OFFLINE_SOURCE_NOT_PHASE_ACCEPTANCE",
-    "whole_native_status": "PENDING_FRESH_BOTH_TARGETS",
-    "phase_accepted": false
+    "source_digest": "72926f3b9597fd1487babd4ec80ebe1cd990960eeedf73d401e62615429cbd64",
+    "whole_native_status": "PASS",
+    "source_matches_current": true,
+    "workflow_run_id": 37827407312,
+    "tests_per_target": 692,
+    "targets": [
+      {
+        "target": "Windows",
+        "status": "PASS",
+        "source_matches_current": true,
+        "report": {
+          "path": "evidence/targets/Windows/20261008T185118Z_0d03f97b/RUN.json",
+          "sha256": "229896e5d2af0ebf21576d6f7c3ebe564e30fb36ba70e04d91fc07cb9dfead5b"
+        },
+        "test_counts": {
+          "control": {
+            "tests": 117,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0,
+            "expected_failures": 0,
+            "unexpected_successes": 0
+          },
+          "foundation": {
+            "tests": 60,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0
+          },
+          "persistence": {
+            "tests": 104,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0
+          },
+          "browser_probe": {
+            "tests": 44,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0
+          },
+          "architect": {
+            "tests": 259,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0
+          },
+          "council": {
+            "tests": 40,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0
+          },
+          "quality": {
+            "tests": 15,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0
+          },
+          "pilot": {
+            "tests": 53,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0
+          }
+        },
+        "tests_total": 692
+      },
+      {
+        "target": "Linux",
+        "status": "PASS",
+        "source_matches_current": true,
+        "report": {
+          "path": "evidence/targets/Linux/20261008T185108Z_2d7b8c96/RUN.json",
+          "sha256": "4d0fff74776159b77c620ca4329c9e5f1aa8103b824ffa561e8bf41c2666b334"
+        },
+        "test_counts": {
+          "control": {
+            "tests": 117,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0,
+            "expected_failures": 0,
+            "unexpected_successes": 0
+          },
+          "foundation": {
+            "tests": 60,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0
+          },
+          "persistence": {
+            "tests": 104,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0
+          },
+          "browser_probe": {
+            "tests": 44,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0
+          },
+          "architect": {
+            "tests": 259,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0
+          },
+          "council": {
+            "tests": 40,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0
+          },
+          "quality": {
+            "tests": 15,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0
+          },
+          "pilot": {
+            "tests": 53,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0
+          }
+        },
+        "tests_total": 692
+      }
+    ],
+    "dependency_audit": {
+      "path": "evidence/security-audit/native-37827407312/RUN.json",
+      "sha256": "4e442228449095f4a07d7021d4ef7e5aff99c4b20ebd59864d6e71fbd9dcaaeb"
+    },
+    "supervisor_receipts": [
+      {
+        "path": "evidence/development-supervisor/e36ddc0f8d834e059997a4920466843c/STATE.json",
+        "sha256": "c8ede7171bf2036679d5c94e61a1938561bfea52490d3764dbc0331350a7fa59"
+      },
+      {
+        "path": "evidence/development-supervisor/fe40182b2cdf444097adb04850001658/STATE.json",
+        "sha256": "a4b0f73f306153536bbf5153ae7f7f5f80b3ac2c9fd172e91af1a16e82784863"
+      }
+    ]
   },
   "last_verified_in_phase_checkpoint": {
     "phase": "P05",
@@ -191,27 +334,27 @@
     "300s idle/900s hard limits supervise owned processes, not ChatGPT/MCP. External calls use 25s waits and ambiguous writes are read/reconciled; server commits never auto-retry.",
     "P03 historical browser sends/sign-out must not be replayed without a new scoped reason.",
     "P06 checker blocks until live protocol outputs, blind scoring, actual product-flow review, error findings and measured-hours reestimate are registered.",
-    "Pinned development tools and advisory audit passed on CI 37804861086. The local runtime may still lack them; its old failure remains preserved.",
     "Failed Windows run 37801218935 is retained. Resolved 8.3 paths and the measured 90s architect deadline passed on both native OSs; aggregate 240s and 300/900 supervisor limits remain.",
-    "The original P05 acceptance digest is c01c0633; previous 5c44278b source has historical verification; current P06 source requires new verification, without relabeling the original acceptance snapshot.",
-    "License choice and scheduled/conditional enhancements remain open; native test success does not close them or establish full 30-requirement conformance."
+    "License choice and scheduled/conditional enhancements remain open; native test success does not close them or establish full 30-requirement conformance.",
+    "Original P05 acceptance c01c0633 remains immutable; current P06 source 72926f3b has separate native verification.",
+    "Pinned development tools and advisory audit passed on native CI 37827407312; the failed local runtime check and earlier native lint failures remain preserved."
   ],
   "developer_supervisor": {
     "idle_seconds": 300,
     "hard_seconds": 900,
-    "native_verified": false,
+    "native_verified": true,
     "scope": "OWNED_PROCESSES_NOT_CHATGPT_OR_MCP_CANCELLATION",
-    "native_scope": "CURRENT_SOURCE_PENDING_FRESH_BOTH_TARGETS",
-    "native_run_id": 37804861086
+    "native_scope": "CURRENT_P06_OFFLINE_SOURCE_BOTH_NATIVE_TARGETS_VERIFIED",
+    "native_run_id": 37827407312
   },
   "transfer_reviewed_file_count": null,
   "latest_followup_recheck": {
-    "path": "evidence/quality-improvements/native-37804861086/RECHECK.json",
-    "sha256": "a559ce5eed513407858952e5f4a98071c99c8708d8d9742e587a22e67e53107f",
-    "tests_per_target": 656,
+    "path": "evidence/p06/offline-native-37827407312/REVIEW.json",
+    "sha256": "cb794a8e63a943b4913fd2952af033aade917c5095eca2e70b113422833cf831",
+    "tests_per_target": 692,
     "whole_native_check_status": "PASS",
     "fresh_windows_status": "PASS",
-    "scope": "CURRENT_SOURCE_NOT_P06_ACCEPTANCE"
+    "scope": "CURRENT_SOURCE_OFFLINE_ONLY_NOT_P06_ACCEPTANCE"
   },
   "historical_checkpoint_note": "Fields inside final_p04_checkpoint/final_p05_checkpoint describe their original acceptance-time source comparisons; they do not certify the current working source.",
   "previous_local_quality_source": {
@@ -398,7 +541,7 @@
     ]
   },
   "p06_offline_work": {
-    "status": "IMPLEMENTED_PENDING_NATIVE_REVIEW",
+    "status": "VERIFIED_OFFLINE_ONLY",
     "real_model_runs": 0,
     "real_final_outputs": 0,
     "required_final_outputs": 24,
@@ -410,7 +553,7 @@
       "Descriptive paired comparisons and crash-safe private registration"
     ],
     "real_evaluation_status": "BLOCKED_ACCESS_AND_MEASURED_ENGINEERING_HOURS",
-    "source_digest": "8d0987440f18b10372be78709efb0199805be403c774c21ca5792c0c07826fbd",
+    "source_digest": "72926f3b9597fd1487babd4ec80ebe1cd990960eeedf73d401e62615429cbd64",
     "local_pilot_tests": {
       "tests": 53,
       "failures": 0,
@@ -421,7 +564,21 @@
     "local_failure_receipt": {
       "path": "evidence/development-supervisor/e78fdd10ee9d447a92be5596fe4fcf8e/STATE.json",
       "sha256": "cc3df7bc79ca64c87dc30ac1786033c2a653b14f5a8d9babfe514479e98cdb95"
+    },
+    "code_commit": "1609b614c42d954cae48f5cc863bcc58a5919de9",
+    "native_run_id": 37827407312,
+    "pilot_tests_per_target": 53,
+    "whole_native_tests_per_target": 692,
+    "review": {
+      "path": "evidence/p06/offline-native-37827407312/REVIEW.json",
+      "sha256": "cb794a8e63a943b4913fd2952af033aade917c5095eca2e70b113422833cf831"
     }
+  },
+  "p06_offline_publication": {
+    "pr_number": 15,
+    "pr_url": "https://github.com/mehrangtr/Consilium/pull/15",
+    "status": "REVIEWED_AND_NATIVE_VERIFIED",
+    "phase_accepted": false
   }
 }
 ```

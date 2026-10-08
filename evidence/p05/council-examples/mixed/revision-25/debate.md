@@ -1,0 +1,222 @@
+# تاریخچهٔ شورا
+
+شناسهٔ بحث: `00000000-0000-0000-0000-000000000001`
+
+پرسش اصلی:
+
+```text
+  انتخاب روش پژوهش
+با حفظ محدودیت‌ها  
+```
+
+وضعیت: `WAITING_DECISION`
+
+توافق به معنی احتمال درستی نیست.
+
+
+## دور `1`
+
+منشأ: `MOCK`
+
+```text
+MAJORITY
+```
+
+
+## دور `1`
+
+منشأ: `MANUAL`
+
+```text
+MINORITY_DISSENT: missing evidence
+```
+
+
+## دور `2`
+
+منشأ: `MOCK`
+
+```text
+{
+  "critique_id": "520b43f3-8a40-5cf0-ac6c-7799a9954a9c",
+  "debate_id": "00000000-0000-0000-0000-000000000001",
+  "round_id": "e1928e2c-4455-4840-9e97-ac9dea6e2828",
+  "reviewer_id": "00000000-0000-0000-0000-000000000002",
+  "target_answer_id": "259c8c0a-7bd3-54e5-acc7-57d06c099a49",
+  "points": [
+    {
+      "verdict": "PARTIALLY_ACCEPT",
+      "reference": "evidence",
+      "reason": "MINORITY_DISSENT: independent evidence is missing"
+    },
+    {
+      "verdict": "ACCEPT",
+      "reference": "cost",
+      "reason": "constraint preserved"
+    }
+  ],
+  "score": 6,
+  "scoring_reason": "Explicit rubric; missing evidence reduces confidence",
+  "rubric_version": "council-rubric.v1",
+  "strengths": [
+    "constraint preserved"
+  ],
+  "weaknesses": [
+    "missing evidence"
+  ]
+}
+```
+
+
+## دور `2`
+
+منشأ: `MANUAL`
+
+```text
+{
+  "critique_id": "cd455ec0-9f8c-5a01-b757-9623d1250b19",
+  "debate_id": "00000000-0000-0000-0000-000000000001",
+  "round_id": "e1928e2c-4455-4840-9e97-ac9dea6e2828",
+  "reviewer_id": "00000000-0000-0000-0000-000000000003",
+  "target_answer_id": "c00281bb-5cae-53b4-b0b7-e0d52e60d714",
+  "points": [
+    {
+      "verdict": "PARTIALLY_ACCEPT",
+      "reference": "evidence",
+      "reason": "MINORITY_DISSENT: independent evidence is missing"
+    },
+    {
+      "verdict": "ACCEPT",
+      "reference": "cost",
+      "reason": "constraint preserved"
+    }
+  ],
+  "score": 6,
+  "scoring_reason": "Explicit rubric; missing evidence reduces confidence",
+  "rubric_version": "manual-rubric.v1",
+  "strengths": [
+    "constraint preserved"
+  ],
+  "weaknesses": [
+    "missing evidence"
+  ]
+}
+```
+
+
+## تصمیم‌های کاربر
+
+
+```text
+{
+  "decision": {
+    "debate_id": "00000000-0000-0000-0000-000000000001",
+    "decision_id": "a5c327f9-a2c4-4579-b460-1beccc00bc41",
+    "expected_revision": 13,
+    "instruction": null,
+    "kind": "PAUSE",
+    "round_id": "29c1d791-3a57-4800-b16e-112949ebf720"
+  },
+  "actor": "EXPLICIT_OFFLINE_TEST_USER"
+}
+```
+
+```text
+{
+  "decision": {
+    "debate_id": "00000000-0000-0000-0000-000000000001",
+    "decision_id": "9804a02d-28ca-4d14-952f-9d1abe58ba96",
+    "expected_revision": 15,
+    "instruction": null,
+    "kind": "CONTINUE",
+    "round_id": "29c1d791-3a57-4800-b16e-112949ebf720"
+  },
+  "actor": "EXPLICIT_OFFLINE_TEST_USER"
+}
+```
+
+
+## تحلیل دور
+
+```text
+{
+  "debate_id": "00000000-0000-0000-0000-000000000001",
+  "round_id": "29c1d791-3a57-4800-b16e-112949ebf720",
+  "input_revision": 12,
+  "source_hashes": [
+    "58f977a64ccbc86009e3aba6e0e83994f432315da136d0b73fb69ed1bbd7b2d9",
+    "fc4dd5be779a04c58d1ea1c7b6bb84e7875a007d9ad7386f8fe8079b6b8c8d76"
+  ],
+  "objections": [
+    {
+      "issue_id": "45d7fe56-a4b4-50b1-853a-84bc454758f8",
+      "source_hash": "58f977a64ccbc86009e3aba6e0e83994f432315da136d0b73fb69ed1bbd7b2d9",
+      "reference": "INDEPENDENT_ANSWER_DIFFERENCE",
+      "reason": "MAJORITY",
+      "verdict": "DIFFERENT_ANSWERS"
+    },
+    {
+      "issue_id": "fba56f69-3f24-57f6-a0b9-19bcbd214bf9",
+      "source_hash": "fc4dd5be779a04c58d1ea1c7b6bb84e7875a007d9ad7386f8fe8079b6b8c8d76",
+      "reference": "INDEPENDENT_ANSWER_DIFFERENCE",
+      "reason": "MINORITY_DISSENT: missing evidence",
+      "verdict": "DIFFERENT_ANSWERS"
+    }
+  ],
+  "recommendation": "REVIEW",
+  "recommendation_authorizes_round": false,
+  "agreement_is_truth_probability": false,
+  "method": "DETERMINISTIC_REPORTED_DIFFERENCES_NOT_SEMANTIC_TRUTH"
+}
+```
+
+
+## تحلیل دور
+
+```text
+{
+  "debate_id": "00000000-0000-0000-0000-000000000001",
+  "round_id": "e1928e2c-4455-4840-9e97-ac9dea6e2828",
+  "input_revision": 24,
+  "source_hashes": [
+    "58f977a64ccbc86009e3aba6e0e83994f432315da136d0b73fb69ed1bbd7b2d9",
+    "fc4dd5be779a04c58d1ea1c7b6bb84e7875a007d9ad7386f8fe8079b6b8c8d76",
+    "2b34667cb7955109bd55f02fd83dc94eee0742cc855573ac969961e3e64807bc",
+    "cce5d6274ad28b07b84e42ab935a9239d14104229c09846dff942a80831df1e1"
+  ],
+  "objections": [
+    {
+      "issue_id": "49383dd9-8926-54bb-9b5e-ab27e7b67f62",
+      "source_hash": "2b34667cb7955109bd55f02fd83dc94eee0742cc855573ac969961e3e64807bc",
+      "reference": "evidence",
+      "reason": "MINORITY_DISSENT: independent evidence is missing",
+      "verdict": "PARTIALLY_ACCEPT"
+    },
+    {
+      "issue_id": "d3d026a6-9a53-5365-8cd7-18cd43ec4767",
+      "source_hash": "cce5d6274ad28b07b84e42ab935a9239d14104229c09846dff942a80831df1e1",
+      "reference": "evidence",
+      "reason": "MINORITY_DISSENT: independent evidence is missing",
+      "verdict": "PARTIALLY_ACCEPT"
+    },
+    {
+      "issue_id": "45d7fe56-a4b4-50b1-853a-84bc454758f8",
+      "source_hash": "58f977a64ccbc86009e3aba6e0e83994f432315da136d0b73fb69ed1bbd7b2d9",
+      "reference": "INDEPENDENT_ANSWER_DIFFERENCE",
+      "reason": "MAJORITY",
+      "verdict": "DIFFERENT_ANSWERS"
+    },
+    {
+      "issue_id": "fba56f69-3f24-57f6-a0b9-19bcbd214bf9",
+      "source_hash": "fc4dd5be779a04c58d1ea1c7b6bb84e7875a007d9ad7386f8fe8079b6b8c8d76",
+      "reference": "INDEPENDENT_ANSWER_DIFFERENCE",
+      "reason": "MINORITY_DISSENT: missing evidence",
+      "verdict": "DIFFERENT_ANSWERS"
+    }
+  ],
+  "recommendation": "TARGETED",
+  "recommendation_authorizes_round": false,
+  "agreement_is_truth_probability": false,
+  "method": "DETERMINISTIC_REPORTED_DIFFERENCES_NOT_SEMANTIC_TRUTH"
+}
+```

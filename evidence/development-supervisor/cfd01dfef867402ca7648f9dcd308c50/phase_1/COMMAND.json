@@ -1,0 +1,10 @@
+{
+  "command": [
+    "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+    "tools/run_current_phase.py",
+    "--report-blocked"
+  ],
+  "root": "/workspace/scratch/96afc5b34761/consilium-p05",
+  "nonce": "0304e6d918f5492f8b8015aa814ee9b3",
+  "supervisor_pid": 5
+}

@@ -1,0 +1,63 @@
+{
+  "phase": "P05",
+  "status": "FULL_PHASE_ACCEPTED",
+  "source_digest": "c01c0633233eb7b35a9cf6319f75497771632ddf7b3fe3ad6e0f7300bdf6dad8",
+  "code_commit": "ddf33b24f41aa2c5ee0609800bd9f440165b72b5",
+  "native_run_id": 37756543373,
+  "native_run_conclusion": "success",
+  "targets": [
+    {
+      "target": "Windows",
+      "report": {
+        "path": "evidence/targets/Windows/20261008T092548Z_c743026e/RUN.json",
+        "sha256": "a397686ffd0f7d9785f01a959ccf93a18ee6e670857d64e0fc7459007108d345"
+      },
+      "status": "PASS",
+      "source_matches_current": true,
+      "scope": "RECORDED_TARGET_ARTIFACTS_NOT_PHASE_ACCEPTANCE"
+    },
+    {
+      "target": "Linux",
+      "report": {
+        "path": "evidence/targets/Linux/20261008T092538Z_270c21cd/RUN.json",
+        "sha256": "3c403515a4843c634efd259f13c8d66af9d92a068cc988db2866a8c5f54fa703"
+      },
+      "status": "PASS",
+      "source_matches_current": true,
+      "scope": "RECORDED_TARGET_ARTIFACTS_NOT_PHASE_ACCEPTANCE"
+    }
+  ],
+  "tests_per_target": 622,
+  "council_tests_per_target": 40,
+  "product_process_exit_cases_per_target": 39,
+  "supervisor_receipts": [
+    {
+      "path": "evidence/development-supervisor/5c46770cd8514b6080c561e0fbfdf9d8/STATE.json",
+      "sha256": "d85cea99a9c7ef51c488a5f5a64f216ce869b6c8a55ae0321db32a811117d38b",
+      "steps": [
+        "native"
+      ]
+    },
+    {
+      "path": "evidence/development-supervisor/a757ba25d02749588492f2bc92707aaa/STATE.json",
+      "sha256": "55d9bf20564dc2f5819505384138cb5bdd659f49da2c1c4921d3efcc5ae408be",
+      "steps": [
+        "native"
+      ]
+    }
+  ],
+  "reviewer_independent": false,
+  "phase_accepted": true,
+  "live_provider_calls": 0,
+  "paid_calls": 0,
+  "configured_receipt": "evidence/runs/20261008T093202Z_2c8a59775c/RUN.json",
+  "accepted_review": "evidence/accepted/P05_9d8a5cb47cca/REVIEW.json",
+  "accepted_review_sha256": "3b829a028ce1a1fa3d79cf5562b9352fc85109deed89c2e4d7adf3bd3ab50c35",
+  "all_original_exit_criteria_pass": true,
+  "remaining_in_P05": [],
+  "next_phase": "P06",
+  "formal_supervisor_receipt": {
+    "path": "evidence/development-supervisor/cfd01dfef867402ca7648f9dcd308c50/STATE.json",
+    "sha256": "3838810b319b19b3d8ec2a7ae72d9c5a3d1ac4c49df9a15e3492b9d9f024e68d"
+  }
+}

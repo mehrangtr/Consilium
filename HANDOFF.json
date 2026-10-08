@@ -1,16 +1,16 @@
 {
   "schema_version": 1,
   "plan_version": "1.2",
-  "source_snapshot_digest": "a8cb0b5371a5cf89c917b2039e5756bdc4c9875d7aff8a69ed65ab8d1d5001a4",
-  "current_phase": "P05",
-  "last_accepted_phase": "P04",
+  "source_snapshot_digest": "c01c0633233eb7b35a9cf6319f75497771632ddf7b3fe3ad6e0f7300bdf6dad8",
+  "current_phase": "P06",
+  "last_accepted_phase": "P05",
   "latest_current_phase_run": null,
   "native_target_runs": [
     {
       "target": "Windows",
       "report": {
-        "path": "evidence/targets/Windows/20261007T213134Z_852f5a32/RUN.json",
-        "sha256": "53b928a14137cd954a022851ec31ccd9ab3c86f9e6dbb58fceb5fca1a3183acf"
+        "path": "evidence/targets/Windows/20261008T092548Z_c743026e/RUN.json",
+        "sha256": "a397686ffd0f7d9785f01a959ccf93a18ee6e670857d64e0fc7459007108d345"
       },
       "status": "PASS",
       "source_matches_current": true,
@@ -19,8 +19,8 @@
     {
       "target": "Linux",
       "report": {
-        "path": "evidence/targets/Linux/20261007T213059Z_f6ac87c9/RUN.json",
-        "sha256": "e177aefd4993f30a420735d85c26c07678090ecff0959e3723eb81e8bacd27cb"
+        "path": "evidence/targets/Linux/20261008T092538Z_270c21cd/RUN.json",
+        "sha256": "3c403515a4843c634efd259f13c8d66af9d92a068cc988db2866a8c5f54fa703"
       },
       "status": "PASS",
       "source_matches_current": true,
@@ -29,63 +29,61 @@
   ],
   "last_acceptance_matches_current_source": true,
   "application_source_supplied": true,
-  "application_source_commit": "10c27c56187299120b2545ddca65014ec17bacff",
+  "application_source_commit": "ddf33b24f41aa2c5ee0609800bd9f440165b72b5",
   "verified_application_requirements": 0,
   "state_label": "INCOMPLETE",
-  "next_action": "در P05-001 مسیر کامل داخلی شورا با اتصال ساختگی و دستی را از معمار تا تصمیم کاربر، نقد، دور هدفمند و انتخاب داور طراحی و آزمون کن. ابتدا بررسی‌های P05 و معیار پایان برش را ثبت کن؛ هیچ ارسال زنده یا هزینه‌ای آغاز نشود.",
+  "next_action": "در P06 طرح پایلوت را پیش از اجرا ثبت کن: ۶ تا ۱۰ وظیفهٔ نماینده و بودجه و معیار ارزیابی را انتخاب کن؛ سپس پاسخ واقعی مسیر دستی را برای شورا، یک مدل و استفادهٔ چندباره از همان مدل با بودجهٔ قابل مقایسه جمع‌آوری کن. ابتدا بررسی‌های معنادار P06 را پیکربندی کن؛ متن ساختگی شاهد کیفیت نیست و برتری مدل از نمونهٔ کوچک نتیجه گرفته نشود.",
   "resume": {
-    "phase": "P05",
-    "last_verified_checkpoint": "P04",
+    "phase": "P06",
+    "last_verified_checkpoint": "P05",
     "completed_work": [
-      "P00-P02 acceptance preserved",
-      "P03 current-context defect fixed; 44 probe tests and 272 total per actual native OS",
-      "P03 actual positive/observer-loss/controlled sign-out evidence and corrected five-provider estimate accepted",
-      "P04 immutable question/adoption and initial independent context plus schema-v3 durable adoption tested: 305 tests on each actual native OS; phase not accepted.",
-      "P04-001 question contract, durable adoption and actual local CLI review completed; initial-context policy/intent preparation tested; 335 tests per actual native OS. Full P04 remains open.",
-      "P04-002 durable initial admission and explicit later-round local projections verified: 367 tests and 19 real process exits per actual native OS; full P04 not accepted.",
-      "P04-002 canonical mock-source storage and V5 migration verified: 388 tests and 21 real process exits per actual native OS; full phase remains open.",
-      "P04-002 frozen output schemas, typed mock answers and multi-target critique batches plus V6 migration verified: 419 tests and 23 real process exits per native OS. Full P04 remains open.",
-      "Five-minute owned-process supervisor and P04-002 explicit initial manual-answer acceptance/V7 migration verified: 453 tests and 25 product process-exit cases per actual native OS. Full P04 remains open.",
-      "Bounded external connector waits, durable publication permits, canonical later-round input/policies and manual-first-round decision gate verified: 484 tests and 27 product process exits per actual OS, plus 5 Work Mode JS wait cases. Full P04 remains open.",
-      "Manual critique batches, later answers, V8 migration and multiline initial/later CLI entry verified: 516 tests and 29 actual product process exits on each native OS; zero skipped tests or live calls. Full P04 remains open.",
-      "Explicit manual operation reconciliation and V9 migration verified: 538 tests and 31 actual product process exits per native OS; prior delivery facts preserved and late responses quarantined. Full P04 remains open.",
-      "P04 full original context phase formally accepted: 579 tests/33 product process exits per actual native OS; immutable exit review preserved."
+      "P00-P04 accepted phases and immutable evidence unchanged.",
+      "P05 full offline council and mixed/manual pipeline formally accepted; 622 native cases and 39 product process exits per OS."
     ],
     "working_changes": [],
-    "next_action": "در P05-001 مسیر کامل داخلی شورا با اتصال ساختگی و دستی را از معمار تا تصمیم کاربر، نقد، دور هدفمند و انتخاب داور طراحی و آزمون کن. ابتدا بررسی‌های P05 و معیار پایان برش را ثبت کن؛ هیچ ارسال زنده یا هزینه‌ای آغاز نشود.",
-    "next_command": "python tools/development_supervisor.py check",
-    "note": "Update this record with precise subtask and pending work during development.",
+    "next_action": "در P06 طرح پایلوت را پیش از اجرا ثبت کن: ۶ تا ۱۰ وظیفهٔ نماینده و بودجه و معیار ارزیابی را انتخاب کن؛ سپس پاسخ واقعی مسیر دستی را برای شورا، یک مدل و استفادهٔ چندباره از همان مدل با بودجهٔ قابل مقایسه جمع‌آوری کن. ابتدا بررسی‌های معنادار P06 را پیکربندی کن؛ متن ساختگی شاهد کیفیت نیست و برتری مدل از نمونهٔ کوچک نتیجه گرفته نشود.",
+    "next_command": "python tools/qualityctl.py status",
     "startup_commands": [
       "python tools/qualityctl.py status",
       "python tools/qualityctl.py navigation --check",
       "python tools/development_supervisor.py check"
     ],
     "next_task": {
-      "id": "P05-001",
-      "phase": "P05",
-      "status": "READY_NOT_STARTED",
-      "title_fa": "اولین مسیر کامل داخلی شورا",
-      "next_action_fa": "در P05-001 مسیر کامل داخلی شورا با اتصال ساختگی و دستی را از معمار تا تصمیم کاربر، نقد، دور هدفمند و انتخاب داور طراحی و آزمون کن. ابتدا بررسی‌های P05 و معیار پایان برش را ثبت کن؛ هیچ ارسال زنده یا هزینه‌ای آغاز نشود.",
-      "remaining_fa": "کار مرحلهٔ پنج هنوز آغاز نشده است.",
-      "done_when_fa": "یک بحث کامل و یک دور هدفمند با گیت‌های واقعی محلی و انتخاب داور و منشأ و خروجی و ادامهٔ پایدار آزموده شوند."
+      "id": "P06-001",
+      "phase": "P06",
+      "status": "READY",
+      "title_fa": "پایلوت زودهنگام کیفیت",
+      "next_action_fa": "در P06 طرح پایلوت را پیش از اجرا ثبت کن: ۶ تا ۱۰ وظیفهٔ نماینده و بودجه و معیار ارزیابی را انتخاب کن؛ سپس پاسخ واقعی مسیر دستی را برای شورا، یک مدل و استفادهٔ چندباره از همان مدل با بودجهٔ قابل مقایسه جمع‌آوری کن. ابتدا بررسی‌های معنادار P06 را پیکربندی کن؛ متن ساختگی شاهد کیفیت نیست و برتری مدل از نمونهٔ کوچک نتیجه گرفته نشود.",
+      "completed_fa": "مرحلهٔ پنجم و همهٔ معیارهای پایان آن پذیرفته شدند؛ مرحلهٔ ششم آماده است.",
+      "remaining_fa": "طرح پایلوت، پاسخ و ارزیابی واقعی سه روش و اصلاح و بازبرآورد مرحلهٔ ششم هنوز انجام نشده‌اند.",
+      "done_when_fa": "هر سه معیار اصلی پایان P06 با شواهد واقعی بررسی و پذیرفته شوند."
     },
     "inputs_missing": [],
     "unfinished_work": {
-      "phase": "P05",
-      "items": [],
-      "note": "P04 has no unfinished scoped task; P05 is ready and not implemented."
+      "phase": "P06",
+      "items": [
+        {
+          "id": "P06-001",
+          "status": "READY",
+          "instruction": "در P06 طرح پایلوت را پیش از اجرا ثبت کن: ۶ تا ۱۰ وظیفهٔ نماینده و بودجه و معیار ارزیابی را انتخاب کن؛ سپس پاسخ واقعی مسیر دستی را برای شورا، یک مدل و استفادهٔ چندباره از همان مدل با بودجهٔ قابل مقایسه جمع‌آوری کن. ابتدا بررسی‌های معنادار P06 را پیکربندی کن؛ متن ساختگی شاهد کیفیت نیست و برتری مدل از نمونهٔ کوچک نتیجه گرفته نشود."
+        }
+      ],
+      "continuation_instruction": "در P06 طرح پایلوت را پیش از اجرا ثبت کن: ۶ تا ۱۰ وظیفهٔ نماینده و بودجه و معیار ارزیابی را انتخاب کن؛ سپس پاسخ واقعی مسیر دستی را برای شورا، یک مدل و استفادهٔ چندباره از همان مدل با بودجهٔ قابل مقایسه جمع‌آوری کن. ابتدا بررسی‌های معنادار P06 را پیکربندی کن؛ متن ساختگی شاهد کیفیت نیست و برتری مدل از نمونهٔ کوچک نتیجه گرفته نشود.",
+      "updated_at_utc": "2026-10-08T09:38:06.237503+00:00"
     },
     "native_evidence": {
-      "run_id": 37689915269,
-      "source_digest": "a8cb0b5371a5cf89c917b2039e5756bdc4c9875d7aff8a69ed65ab8d1d5001a4",
-      "tests_per_target": 579,
-      "process_exit_cases_per_target": 33,
+      "run_id": 37756543373,
+      "code_commit": "ddf33b24f41aa2c5ee0609800bd9f440165b72b5",
+      "source_digest": "c01c0633233eb7b35a9cf6319f75497771632ddf7b3fe3ad6e0f7300bdf6dad8",
+      "tests_per_target": 622,
+      "council_tests_per_target": 40,
+      "process_exit_cases_per_target": 39,
       "target_reports": [
         {
           "target": "Windows",
           "report": {
-            "path": "evidence/targets/Windows/20261007T213134Z_852f5a32/RUN.json",
-            "sha256": "53b928a14137cd954a022851ec31ccd9ab3c86f9e6dbb58fceb5fca1a3183acf"
+            "path": "evidence/targets/Windows/20261008T092548Z_c743026e/RUN.json",
+            "sha256": "a397686ffd0f7d9785f01a959ccf93a18ee6e670857d64e0fc7459007108d345"
           },
           "status": "PASS",
           "source_matches_current": true,
@@ -94,8 +92,8 @@
         {
           "target": "Linux",
           "report": {
-            "path": "evidence/targets/Linux/20261007T213059Z_f6ac87c9/RUN.json",
-            "sha256": "e177aefd4993f30a420735d85c26c07678090ecff0959e3723eb81e8bacd27cb"
+            "path": "evidence/targets/Linux/20261008T092538Z_270c21cd/RUN.json",
+            "sha256": "3c403515a4843c634efd259f13c8d66af9d92a068cc988db2866a8c5f54fa703"
           },
           "status": "PASS",
           "source_matches_current": true,
@@ -104,19 +102,12 @@
       ]
     },
     "last_verified_in_phase_checkpoint": {
-      "phase": "P04",
-      "path": "evidence/accepted/P04_1113045dc1c2/REVIEW.json",
-      "sha256": "ffe937cac4829551d8372836fb59bb5215d86d1079cc4766687de27c1dfc4eaf",
+      "phase": "P05",
+      "path": "evidence/accepted/P05_9d8a5cb47cca/REVIEW.json",
+      "sha256": "3b829a028ce1a1fa3d79cf5562b9352fc85109deed89c2e4d7adf3bd3ab50c35",
+      "source_digest": "c01c0633233eb7b35a9cf6319f75497771632ddf7b3fe3ad6e0f7300bdf6dad8",
       "phase_accepted": true
     },
-    "known_quirks": [
-      "P05 checks are not yet configured; the phase portion of supervisor local reports BLOCKED until P05 defines meaningful checks. Supervisor check reproduces the accepted source regression.",
-      "Policy-managed live sends remain blocked; only an offline mock observer exists. Real model IDs/tokenizers/history observers require original P08/P09 verification.",
-      "Manual content preserves unverified external origin; user action is required for adoption/acceptance/reconciliation.",
-      "P03 historical browser sends and controlled sign-out must not be replayed without a new scoped reason.",
-      "Owned-process idle 300s/hard 900s watchdog cannot cancel ChatGPT/MCP; external mutations reconcile before any retry."
-    ],
-    "transfer_reviewed_file_count": 933,
     "final_p04_checkpoint": {
       "phase": "P04",
       "status": "FULL_PHASE_ACCEPTED",
@@ -167,7 +158,85 @@
       ],
       "next_phase": "P05",
       "remaining_in_P04": []
-    }
+    },
+    "final_p05_checkpoint": {
+      "phase": "P05",
+      "status": "FULL_PHASE_ACCEPTED",
+      "source_digest": "c01c0633233eb7b35a9cf6319f75497771632ddf7b3fe3ad6e0f7300bdf6dad8",
+      "code_commit": "ddf33b24f41aa2c5ee0609800bd9f440165b72b5",
+      "native_run_id": 37756543373,
+      "native_run_conclusion": "success",
+      "targets": [
+        {
+          "target": "Windows",
+          "report": {
+            "path": "evidence/targets/Windows/20261008T092548Z_c743026e/RUN.json",
+            "sha256": "a397686ffd0f7d9785f01a959ccf93a18ee6e670857d64e0fc7459007108d345"
+          },
+          "status": "PASS",
+          "source_matches_current": true,
+          "scope": "RECORDED_TARGET_ARTIFACTS_NOT_PHASE_ACCEPTANCE"
+        },
+        {
+          "target": "Linux",
+          "report": {
+            "path": "evidence/targets/Linux/20261008T092538Z_270c21cd/RUN.json",
+            "sha256": "3c403515a4843c634efd259f13c8d66af9d92a068cc988db2866a8c5f54fa703"
+          },
+          "status": "PASS",
+          "source_matches_current": true,
+          "scope": "RECORDED_TARGET_ARTIFACTS_NOT_PHASE_ACCEPTANCE"
+        }
+      ],
+      "tests_per_target": 622,
+      "council_tests_per_target": 40,
+      "product_process_exit_cases_per_target": 39,
+      "supervisor_receipts": [
+        {
+          "path": "evidence/development-supervisor/5c46770cd8514b6080c561e0fbfdf9d8/STATE.json",
+          "sha256": "d85cea99a9c7ef51c488a5f5a64f216ce869b6c8a55ae0321db32a811117d38b",
+          "steps": [
+            "native"
+          ]
+        },
+        {
+          "path": "evidence/development-supervisor/a757ba25d02749588492f2bc92707aaa/STATE.json",
+          "sha256": "55d9bf20564dc2f5819505384138cb5bdd659f49da2c1c4921d3efcc5ae408be",
+          "steps": [
+            "native"
+          ]
+        }
+      ],
+      "reviewer_independent": false,
+      "phase_accepted": true,
+      "live_provider_calls": 0,
+      "paid_calls": 0,
+      "configured_receipt": "evidence/runs/20261008T093202Z_2c8a59775c/RUN.json",
+      "accepted_review": "evidence/accepted/P05_9d8a5cb47cca/REVIEW.json",
+      "accepted_review_sha256": "3b829a028ce1a1fa3d79cf5562b9352fc85109deed89c2e4d7adf3bd3ab50c35",
+      "all_original_exit_criteria_pass": true,
+      "remaining_in_P05": [],
+      "next_phase": "P06",
+      "formal_supervisor_receipt": {
+        "path": "evidence/development-supervisor/cfd01dfef867402ca7648f9dcd308c50/STATE.json",
+        "sha256": "3838810b319b19b3d8ec2a7ae72d9c5a3d1ac4c49df9a15e3492b9d9f024e68d"
+      }
+    },
+    "known_quirks": [
+      "P06 checks are not configured. The current-phase supervisor reports BLOCKED until meaningful pilot checks are defined; this is not a failure of accepted P05.",
+      "No real P06 model quality comparison has run. P05 mock/manual examples are synthetic, with unverified copied manual origins.",
+      "Only exact offline mock adapter policy-managed sends are enabled. Live API/browser drivers retain original P08/P09 gates.",
+      "Named peer review needs explicit authorization. The recorded FINISH judge projection independently blinds identity metadata; answer text is not identity-scrubbed.",
+      "The owned-process 300s idle/900s hard supervisor cannot cancel ChatGPT/MCP. External calls have 25s bounded waits and ambiguous writes are read/reconciled before retry; server-generated commits never auto-retry.",
+      "Historical P03 live browser sends/sign-out must not be replayed without a new scoped reason."
+    ],
+    "developer_supervisor": {
+      "idle_seconds": 300,
+      "hard_seconds": 900,
+      "native_verified": true,
+      "scope": "OWNED_PROCESSES_NOT_CHATGPT_OR_MCP_CANCELLATION"
+    },
+    "transfer_reviewed_file_count": 1183
   },
   "security_note": "Allowlist and basic patterns only; manually review before sharing."
 }

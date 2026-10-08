@@ -1,0 +1,94 @@
+{
+  "schema_version": 1,
+  "scope": "OWNED_OFFLINE_DEVELOPMENT_NOT_CHAT_SESSION_CONTROL",
+  "status": "PASS",
+  "idle_seconds": 300,
+  "hard_seconds": 900,
+  "phase_advanced": false,
+  "source_digest": "a8cb0b5371a5cf89c917b2039e5756bdc4c9875d7aff8a69ed65ab8d1d5001a4",
+  "steps": [
+    {
+      "step": "check",
+      "attempt": 1,
+      "nonce": "0d9896f8bed74f4a8a745186e68dc2ad",
+      "status": "COMPLETE",
+      "log": "evidence/development-supervisor/19390e3a746247c1b0816c6b1d7a3c53/check_1/OUTPUT.log",
+      "worker_pid": 6,
+      "last_completed_milestone": "development_check_receipt_written",
+      "retained_proof": {
+        "artifacts": [
+          {
+            "original_path": "evidence/maintenance-check/RUN.json",
+            "path": "evidence/development-supervisor/19390e3a746247c1b0816c6b1d7a3c53/check_1/proofs/evidence/maintenance-check/RUN.json",
+            "sha256": "114909761c83c6499f03a5391319928608e62ab7e613cd2231876ca1951e35d2"
+          },
+          {
+            "original_path": "evidence/environment/RUN.json",
+            "path": "evidence/development-supervisor/19390e3a746247c1b0816c6b1d7a3c53/check_1/proofs/evidence/environment/RUN.json",
+            "sha256": "3a88435f03074e8f4bcb8b2e14cd99c89e7f60680dcfed790edeaeda621b6321"
+          },
+          {
+            "original_path": "evidence/control-tests/RUN.json",
+            "path": "evidence/development-supervisor/19390e3a746247c1b0816c6b1d7a3c53/check_1/proofs/evidence/control-tests/RUN.json",
+            "sha256": "14d2217978ac085d323d6bcab45f0b98e9e6ac7ce4716c25b76e796517927dba"
+          },
+          {
+            "original_path": "evidence/control-tests/JUNIT.xml",
+            "path": "evidence/development-supervisor/19390e3a746247c1b0816c6b1d7a3c53/check_1/proofs/evidence/control-tests/JUNIT.xml",
+            "sha256": "9960941d7f6f6b81fce061537e1e788f5dd9996f3b174873cf9fd0dd256c0b73"
+          },
+          {
+            "original_path": "evidence/foundation-tests/RUN.json",
+            "path": "evidence/development-supervisor/19390e3a746247c1b0816c6b1d7a3c53/check_1/proofs/evidence/foundation-tests/RUN.json",
+            "sha256": "f8534f7b65bc85280f646b747f68a65f42c02958c219156de4691b2117faa2c0"
+          },
+          {
+            "original_path": "evidence/foundation-tests/JUNIT.xml",
+            "path": "evidence/development-supervisor/19390e3a746247c1b0816c6b1d7a3c53/check_1/proofs/evidence/foundation-tests/JUNIT.xml",
+            "sha256": "8d407155e6b1dc1ca1a1e921d0e9a05eafbc0bc1f2ae07f4b67e55f664a99949"
+          },
+          {
+            "original_path": "evidence/persistence-tests/RUN.json",
+            "path": "evidence/development-supervisor/19390e3a746247c1b0816c6b1d7a3c53/check_1/proofs/evidence/persistence-tests/RUN.json",
+            "sha256": "20626ec88fae6ee7fd38d4fb887f9d7e86a40103add3763476f55a3f6741a025"
+          },
+          {
+            "original_path": "evidence/persistence-tests/JUNIT.xml",
+            "path": "evidence/development-supervisor/19390e3a746247c1b0816c6b1d7a3c53/check_1/proofs/evidence/persistence-tests/JUNIT.xml",
+            "sha256": "d8f658daff1d882f8be7378768e1b15d9614519b14818008d32a97a7956c1a55"
+          },
+          {
+            "original_path": "evidence/browser-probe-tests/RUN.json",
+            "path": "evidence/development-supervisor/19390e3a746247c1b0816c6b1d7a3c53/check_1/proofs/evidence/browser-probe-tests/RUN.json",
+            "sha256": "0042c899760ba4b0f5b8988e6d6e6be819ae1bae78a22bf056303c00c56a855c"
+          },
+          {
+            "original_path": "evidence/browser-probe-tests/JUNIT.xml",
+            "path": "evidence/development-supervisor/19390e3a746247c1b0816c6b1d7a3c53/check_1/proofs/evidence/browser-probe-tests/JUNIT.xml",
+            "sha256": "d8f4b9cf44201197e9b0abd379f0abe06283fecf6ebbcb10369218643d16e702"
+          },
+          {
+            "original_path": "evidence/architect-tests/RUN.json",
+            "path": "evidence/development-supervisor/19390e3a746247c1b0816c6b1d7a3c53/check_1/proofs/evidence/architect-tests/RUN.json",
+            "sha256": "ba005e20d13d1e0b7e6f92eed89f9e642d22279c36418af24116fc89639539ba"
+          },
+          {
+            "original_path": "evidence/architect-tests/JUNIT.xml",
+            "path": "evidence/development-supervisor/19390e3a746247c1b0816c6b1d7a3c53/check_1/proofs/evidence/architect-tests/JUNIT.xml",
+            "sha256": "6e462a4e5f5974f35ff70dba932347c21e29694d4768a9df34e5fdb09ccd9913"
+          }
+        ],
+        "errors": []
+      },
+      "stop_reason": null,
+      "returncode": 0,
+      "reconciliation": {
+        "status": "VERIFIED_COMPLETE",
+        "receipt": "evidence/maintenance-check/RUN.json",
+        "sha256": "114909761c83c6499f03a5391319928608e62ab7e613cd2231876ca1951e35d2"
+      }
+    }
+  ],
+  "remaining_steps": [],
+  "next_action": "REVIEW_CURRENT_PHASE_EXIT_CRITERIA_NOT_AUTOMATIC_ACCEPTANCE"
+}

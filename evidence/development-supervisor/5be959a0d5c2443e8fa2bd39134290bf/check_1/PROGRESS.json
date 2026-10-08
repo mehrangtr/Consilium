@@ -1,0 +1,10 @@
+{
+  "nonce": "72c3457d6dea4d2280bc2245844a1ea6",
+  "task_pid": 7,
+  "sequence": 10,
+  "milestone": "development_check_receipt_written",
+  "receipt": {
+    "path": "/workspace/scratch/96afc5b34761/consilium-p05/evidence/maintenance-check/RUN.json",
+    "sha256": "d48312e9a96a2d1b3859ff7dffbfae8ff2991973957fd46d2dddd9eee436f4cf"
+  }
+}

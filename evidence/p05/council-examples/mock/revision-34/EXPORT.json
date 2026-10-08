@@ -1,0 +1,10 @@
+{
+  "debate_id": "00000000-0000-0000-0000-000000000001",
+  "files": {
+    "debate.json": "001cbebdff214bf8410521d69494af98bc29e248d4579049d8196025c8d63774",
+    "debate.md": "a7aa02fc8df3d7b981f039348bbbd3ea17a3aa94ebf575f27623d61186aa9c37",
+    "participants/participant-1.md": "c4fbf483090060354f77b295d549b78234fc76bc4603114fc9a01f2e014d2772",
+    "participants/participant-2.md": "424cd327842249ec5df166d98c9339b94cf771d341cf7e9ea9f9615525707a9b"
+  },
+  "revision": 34
+}

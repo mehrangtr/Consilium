@@ -1,0 +1,47 @@
+{
+  "phase": "P05",
+  "status": "DRAFT_NATIVE_PENDING",
+  "source_digest": "c01c0633233eb7b35a9cf6319f75497771632ddf7b3fe3ad6e0f7300bdf6dad8",
+  "reviewer": "Codex author in a separate criteria-based review; not an independent reviewer",
+  "method": "Separate source/contract review after implementation, red/green trust-boundary cases, actual process exits, native report/hash verification before acceptance",
+  "impact_assessment": "V1-V9 SQL and prior accepted proofs remain unchanged. V10 round records/terminal gate; explicit unscored critiques; mixed manual targets; old manual frame hashes retain omitted judge field. No live driver permission enabled.",
+  "date_utc": "2026-10-08T09:27:07.829315+00:00",
+  "findings": [
+    {
+      "kind": "DEFECT",
+      "state": "CLOSED",
+      "id": "P05-R1",
+      "details": "New council event enum and nested read transactions prevented initial runs; fixed, complete/recovery/process-exit tests passed."
+    },
+    {
+      "kind": "DEFECT",
+      "state": "CLOSED",
+      "id": "P05-R2",
+      "details": "Initial differences could disappear after later accepting reviews; preserve initial reported differences cumulatively and keep final minority evidence."
+    },
+    {
+      "kind": "DEFECT",
+      "state": "CLOSED",
+      "id": "P05-R3",
+      "details": "Incomplete judge JSON could become canonical before final validation; validate the nested contract before operation confirmation and manual acceptance."
+    },
+    {
+      "kind": "DEFECT",
+      "state": "CLOSED",
+      "id": "P05-R4",
+      "details": "Named peer review conflicted with reported blind judge mitigation; final FINISH judge view now independently blinds metadata and full named-review/final/reopen test added."
+    },
+    {
+      "kind": "DEFECT",
+      "state": "CLOSED",
+      "id": "P05-R5",
+      "details": "Windows completed all 621 first-run cases but aggregate 120s budget expired before maintenance receipt; measured suite durations 114.926s plus hashing/startup; aggregate budget 180s, individual 60s and supervisor 300/900s unchanged; fresh native verification pending."
+    }
+  ],
+  "scope_limits": [
+    "Synthetic fixtures test control and manual pipeline; external manual generation is not authenticated.",
+    "P06 real quality pilot and P08/P09 live drivers remain unopened.",
+    "Deterministic analysis reports differences; it does not establish semantic truth.",
+    "Separate author review is not independent review."
+  ]
+}

@@ -1,0 +1,801 @@
+test_all_manual_council_including_selected_judge (test_council.CouncilCase.test_all_manual_council_including_selected_judge) ... ERROR
+test_ambiguous_mock_delivery_cannot_resend_replace_or_finish (test_council.CouncilCase.test_ambiguous_mock_delivery_cannot_resend_replace_or_finish) ... ERROR
+test_analysis_hash_or_event_tampering_detected_on_reopen (test_council.CouncilCase.test_analysis_hash_or_event_tampering_detected_on_reopen) ... ERROR
+test_checkpoint_markdown_json_participant_history_and_assessments_regenerate (test_council.CouncilCase.test_checkpoint_markdown_json_participant_history_and_assessments_regenerate) ... ERROR
+test_completed_record_deletion_detected_even_when_row_is_missing (test_council.CouncilCase.test_completed_record_deletion_detected_even_when_row_is_missing) ... ERROR
+test_final_output_cannot_claim_truth_probability_or_application_authority (test_council.CouncilCase.test_final_output_cannot_claim_truth_probability_or_application_authority) ... ERROR
+test_finish_requires_peer_review_and_valid_user_selected_judge (test_council.CouncilCase.test_finish_requires_peer_review_and_valid_user_selected_judge) ... ERROR
+test_full_mock_council_and_targeted_continuation_survive_restart (test_council.CouncilCase.test_full_mock_council_and_targeted_continuation_survive_restart) ... ERROR
+test_incomplete_critique_cannot_complete_round_or_gain_default_score (test_council.CouncilCase.test_incomplete_critique_cannot_complete_round_or_gain_default_score) ... ERROR
+test_initial_context_excludes_already_generated_peer_answer (test_council.CouncilCase.test_initial_context_excludes_already_generated_peer_answer) ... ERROR
+test_judge_connection_change_does_not_silently_replace_selected_judge (test_council.CouncilCase.test_judge_connection_change_does_not_silently_replace_selected_judge) ... ERROR
+test_literal_export_survives_fence_injection_and_technical_bidi (test_council.CouncilCase.test_literal_export_survives_fence_injection_and_technical_bidi) ... ok
+test_live_or_subclassed_driver_cannot_use_mock_permissions (test_council.CouncilCase.test_live_or_subclassed_driver_cannot_use_mock_permissions) ... ERROR
+test_missing_wrong_stale_or_unconfirmed_judge_rejected (test_council.CouncilCase.test_missing_wrong_stale_or_unconfirmed_judge_rejected) ... ERROR
+test_mixed_mock_manual_answers_and_reviews_share_pipeline (test_council.CouncilCase.test_mixed_mock_manual_answers_and_reviews_share_pipeline) ... ERROR
+test_no_next_round_before_user_gate_and_analyst_cannot_decide (test_council.CouncilCase.test_no_next_round_before_user_gate_and_analyst_cannot_decide) ... ERROR
+test_pause_reopen_and_resume_require_explicit_fresh_user_choice (test_council.CouncilCase.test_pause_reopen_and_resume_require_explicit_fresh_user_choice) ... ERROR
+test_real_exit_after_analysis_commit (test_council.CouncilCase.test_real_exit_after_analysis_commit) ... ERROR
+test_real_exit_after_final_commit (test_council.CouncilCase.test_real_exit_after_final_commit) ... ERROR
+test_real_exit_after_judge_commit (test_council.CouncilCase.test_real_exit_after_judge_commit) ... ERROR
+test_real_exit_before_analysis_commit (test_council.CouncilCase.test_real_exit_before_analysis_commit) ... ERROR
+test_real_exit_before_final_commit (test_council.CouncilCase.test_real_exit_before_final_commit) ... ERROR
+test_real_exit_before_judge_commit (test_council.CouncilCase.test_real_exit_before_judge_commit) ... ERROR
+test_review_metadata_is_blind_by_default (test_council.CouncilCase.test_review_metadata_is_blind_by_default) ... ERROR
+test_stale_and_old_round_decisions_leave_state_unchanged (test_council.CouncilCase.test_stale_and_old_round_decisions_leave_state_unchanged) ... ERROR
+test_transaction_rolls_back_analysis_or_final_record_failure (test_council.CouncilCase.test_transaction_rolls_back_analysis_or_final_record_failure) ... ERROR
+test_unscored_reviews_preserve_explicit_status_without_fabricated_score (test_council.CouncilCase.test_unscored_reviews_preserve_explicit_status_without_fabricated_score) ... ERROR
+
+======================================================================
+ERROR: test_all_manual_council_including_selected_judge (test_council.CouncilCase.test_all_manual_council_including_selected_judge)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/96afc5b34761/consilium-p05/tests/council/test_council.py", line 144, in test_all_manual_council_including_selected_judge
+    self.through_review();result=self.finish();self.reopen()
+    ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/tests/council/test_council.py", line 101, in through_review
+    self.complete_round(); self.decide('CONTINUE'); self.start('REVIEW'); self.complete_round()
+    ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/tests/council/test_council.py", line 98, in complete_round
+    return self.council.seal_round(debate_id=self.debate.debate_id,expected_revision=self.revision)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/src/consilium/shell/council.py", line 214, in seal_round
+    cp = self._put('ANALYSIS', analysis, expected_revision, 'COUNCIL_ANALYZED', uuid5(spec.round_id, 'analysis'))
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/src/consilium/shell/council.py", line 198, in _put
+    cp = self.store._advance(record.debate_id, revision, event_kind, {'record_id': str(record_id),
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/src/consilium/shell/storage.py", line 272, in _advance
+    return self.checkpoint(debate_id)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/src/consilium/shell/storage.py", line 255, in checkpoint
+    return StorageCheckpoint(debate_id=debate_id, revision=row["revision"], event_sequence=row["sequence"], event_kind=row["kind"])
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/pydantic/main.py", line 263, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+pydantic_core._pydantic_core.ValidationError: 1 validation error for StorageCheckpoint
+event_kind
+  Input should be 'DEBATE_CREATED', 'ROUND_REGISTERED', 'CONNECTION_BOUND', 'OPERATION_PREPARED', 'SEND_STARTED', 'SEND_INTERRUPTED', 'RESULT_RECORDED', 'RESULT_REJECTED', 'RESPONSE_VALIDATED', 'RESULT_CONFIRMED', 'WAITING_DECISION', 'USER_DECISION', 'RETRY_PREPARED', 'QUESTION_ADOPTED', 'CONTEXT_SOURCE_PUBLISHED', 'SOURCE_BATCH_PUBLISHED', 'MANUAL_ANSWER_ACCEPTED', 'MANUAL_ROUND_ACCEPTED' or 'MANUAL_OPERATIONS_RECONCILED' [type=literal_error]
+    For further information visit https://errors.pydantic.dev/2.13/v/literal_error
+
+======================================================================
+ERROR: test_ambiguous_mock_delivery_cannot_resend_replace_or_finish (test_council.CouncilCase.test_ambiguous_mock_delivery_cannot_resend_replace_or_finish)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/96afc5b34761/consilium-p05/tests/council/test_council.py", line 213, in test_ambiguous_mock_delivery_cannot_resend_replace_or_finish
+    request=self.prepare();adapter=MockAdapter(scenario=Scenario.TIMEOUT_AFTER_SEND)
+            ^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/tests/council/test_council.py", line 64, in prepare
+    return self.council.prepare_mock(**{**args,**changes})
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/src/consilium/shell/council.py", line 140, in prepare_mock
+    receipt, budget, history = observe_context(store=self.store, context=context, connection=connection,
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/src/consilium/shell/context_observers.py", line 73, in observe_context
+    with store._transaction(write=False):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/contextlib.py", line 137, in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/src/consilium/shell/storage.py", line 206, in _transaction
+    self._db.execute("BEGIN IMMEDIATE" if write else "BEGIN")
+sqlite3.OperationalError: cannot start a transaction within a transaction
+
+======================================================================
+ERROR: test_analysis_hash_or_event_tampering_detected_on_reopen (test_council.CouncilCase.test_analysis_hash_or_event_tampering_detected_on_reopen)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/96afc5b34761/consilium-p05/tests/council/test_council.py", line 258, in test_analysis_hash_or_event_tampering_detected_on_reopen
+    self.complete_round();self.store._db.execute("UPDATE council_records SET record_hash=?",('0'*64,));self.store.close()
+    ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/tests/council/test_council.py", line 97, in complete_round
+    for pid in self.round.participant_ids: self.submit(pid)
+                                           ^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/tests/council/test_council.py", line 90, in submit
+    request=self.prepare(pid)
+            ^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/tests/council/test_council.py", line 64, in prepare
+    return self.council.prepare_mock(**{**args,**changes})
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/src/consilium/shell/council.py", line 140, in prepare_mock
+    receipt, budget, history = observe_context(store=self.store, context=context, connection=connection,
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/src/consilium/shell/context_observers.py", line 73, in observe_context
+    with store._transaction(write=False):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/contextlib.py", line 137, in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/src/consilium/shell/storage.py", line 206, in _transaction
+    self._db.execute("BEGIN IMMEDIATE" if write else "BEGIN")
+sqlite3.OperationalError: cannot start a transaction within a transaction
+
+======================================================================
+ERROR: test_checkpoint_markdown_json_participant_history_and_assessments_regenerate (test_council.CouncilCase.test_checkpoint_markdown_json_participant_history_and_assessments_regenerate)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/96afc5b34761/consilium-p05/tests/council/test_council.py", line 243, in test_checkpoint_markdown_json_participant_history_and_assessments_regenerate
+    self.through_review();root=Path(self.temp.name)/'exports';early=export_council(self.store,self.debate.debate_id,root)
+    ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/tests/council/test_council.py", line 101, in through_review
+    self.complete_round(); self.decide('CONTINUE'); self.start('REVIEW'); self.complete_round()
+    ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/tests/council/test_council.py", line 97, in complete_round
+    for pid in self.round.participant_ids: self.submit(pid)
+                                           ^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/tests/council/test_council.py", line 90, in submit
+    request=self.prepare(pid)
+            ^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/tests/council/test_council.py", line 64, in prepare
+    return self.council.prepare_mock(**{**args,**changes})
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/src/consilium/shell/council.py", line 140, in prepare_mock
+    receipt, budget, history = observe_context(store=self.store, context=context, connection=connection,
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/src/consilium/shell/context_observers.py", line 73, in observe_context
+    with store._transaction(write=False):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/contextlib.py", line 137, in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/src/consilium/shell/storage.py", line 206, in _transaction
+    self._db.execute("BEGIN IMMEDIATE" if write else "BEGIN")
+sqlite3.OperationalError: cannot start a transaction within a transaction
+
+======================================================================
+ERROR: test_completed_record_deletion_detected_even_when_row_is_missing (test_council.CouncilCase.test_completed_record_deletion_detected_even_when_row_is_missing)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/96afc5b34761/consilium-p05/tests/council/test_council.py", line 268, in test_completed_record_deletion_detected_even_when_row_is_missing
+    self.through_review();self.finish();self.store._db.execute("DELETE FROM council_records WHERE kind='FINAL'");self.store.close()
+    ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/tests/council/test_council.py", line 101, in through_review
+    self.complete_round(); self.decide('CONTINUE'); self.start('REVIEW'); self.complete_round()
+    ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/tests/council/test_council.py", line 97, in complete_round
+    for pid in self.round.participant_ids: self.submit(pid)
+                                           ^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/tests/council/test_council.py", line 90, in submit
+    request=self.prepare(pid)
+            ^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/tests/council/test_council.py", line 64, in prepare
+    return self.council.prepare_mock(**{**args,**changes})
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/src/consilium/shell/council.py", line 140, in prepare_mock
+    receipt, budget, history = observe_context(store=self.store, context=context, connection=connection,
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/src/consilium/shell/context_observers.py", line 73, in observe_context
+    with store._transaction(write=False):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/contextlib.py", line 137, in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/src/consilium/shell/storage.py", line 206, in _transaction
+    self._db.execute("BEGIN IMMEDIATE" if write else "BEGIN")
+sqlite3.OperationalError: cannot start a transaction within a transaction
+
+======================================================================
+ERROR: test_final_output_cannot_claim_truth_probability_or_application_authority (test_council.CouncilCase.test_final_output_cannot_claim_truth_probability_or_application_authority)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/96afc5b34761/consilium-p05/tests/council/test_council.py", line 228, in test_final_output_cannot_claim_truth_probability_or_application_authority
+    self.through_review();self.decide('FINISH');self.select()
+    ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/tests/council/test_council.py", line 101, in through_review
+    self.complete_round(); self.decide('CONTINUE'); self.start('REVIEW'); self.complete_round()
+    ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/tests/council/test_council.py", line 97, in complete_round
+    for pid in self.round.participant_ids: self.submit(pid)
+                                           ^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/tests/council/test_council.py", line 90, in submit
+    request=self.prepare(pid)
+            ^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/tests/council/test_council.py", line 64, in prepare
+    return self.council.prepare_mock(**{**args,**changes})
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/src/consilium/shell/council.py", line 140, in prepare_mock
+    receipt, budget, history = observe_context(store=self.store, context=context, connection=connection,
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/src/consilium/shell/context_observers.py", line 73, in observe_context
+    with store._transaction(write=False):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/contextlib.py", line 137, in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/src/consilium/shell/storage.py", line 206, in _transaction
+    self._db.execute("BEGIN IMMEDIATE" if write else "BEGIN")
+sqlite3.OperationalError: cannot start a transaction within a transaction
+
+======================================================================
+ERROR: test_finish_requires_peer_review_and_valid_user_selected_judge (test_council.CouncilCase.test_finish_requires_peer_review_and_valid_user_selected_judge)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/96afc5b34761/consilium-p05/tests/council/test_council.py", line 161, in test_finish_requires_peer_review_and_valid_user_selected_judge
+    self.complete_round()
+  File "/workspace/scratch/96afc5b34761/consilium-p05/tests/council/test_council.py", line 97, in complete_round
+    for pid in self.round.participant_ids: self.submit(pid)
+                                           ^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/tests/council/test_council.py", line 90, in submit
+    request=self.prepare(pid)
+            ^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/tests/council/test_council.py", line 64, in prepare
+    return self.council.prepare_mock(**{**args,**changes})
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/src/consilium/shell/council.py", line 140, in prepare_mock
+    receipt, budget, history = observe_context(store=self.store, context=context, connection=connection,
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/src/consilium/shell/context_observers.py", line 73, in observe_context
+    with store._transaction(write=False):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/contextlib.py", line 137, in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/src/consilium/shell/storage.py", line 206, in _transaction
+    self._db.execute("BEGIN IMMEDIATE" if write else "BEGIN")
+sqlite3.OperationalError: cannot start a transaction within a transaction
+
+======================================================================
+ERROR: test_full_mock_council_and_targeted_continuation_survive_restart (test_council.CouncilCase.test_full_mock_council_and_targeted_continuation_survive_restart)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/96afc5b34761/consilium-p05/tests/council/test_council.py", line 118, in test_full_mock_council_and_targeted_continuation_survive_restart
+    self.through_review(); self.decide('CUSTOM'); self.start('TARGETED',('only missing evidence',)); self.complete_round()
+    ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/tests/council/test_council.py", line 101, in through_review
+    self.complete_round(); self.decide('CONTINUE'); self.start('REVIEW'); self.complete_round()
+    ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/tests/council/test_council.py", line 97, in complete_round
+    for pid in self.round.participant_ids: self.submit(pid)
+                                           ^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/tests/council/test_council.py", line 90, in submit
+    request=self.prepare(pid)
+            ^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/tests/council/test_council.py", line 64, in prepare
+    return self.council.prepare_mock(**{**args,**changes})
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/src/consilium/shell/council.py", line 140, in prepare_mock
+    receipt, budget, history = observe_context(store=self.store, context=context, connection=connection,
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/src/consilium/shell/context_observers.py", line 73, in observe_context
+    with store._transaction(write=False):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/contextlib.py", line 137, in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/src/consilium/shell/storage.py", line 206, in _transaction
+    self._db.execute("BEGIN IMMEDIATE" if write else "BEGIN")
+sqlite3.OperationalError: cannot start a transaction within a transaction
+
+======================================================================
+ERROR: test_incomplete_critique_cannot_complete_round_or_gain_default_score (test_council.CouncilCase.test_incomplete_critique_cannot_complete_round_or_gain_default_score)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/96afc5b34761/consilium-p05/tests/council/test_council.py", line 206, in test_incomplete_critique_cannot_complete_round_or_gain_default_score
+    self.complete_round();self.decide('CONTINUE');self.start('REVIEW');request=self.prepare()
+    ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/tests/council/test_council.py", line 97, in complete_round
+    for pid in self.round.participant_ids: self.submit(pid)
+                                           ^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/tests/council/test_council.py", line 90, in submit
+    request=self.prepare(pid)
+            ^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/tests/council/test_council.py", line 64, in prepare
+    return self.council.prepare_mock(**{**args,**changes})
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/src/consilium/shell/council.py", line 140, in prepare_mock
+    receipt, budget, history = observe_context(store=self.store, context=context, connection=connection,
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/src/consilium/shell/context_observers.py", line 73, in observe_context
+    with store._transaction(write=False):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/contextlib.py", line 137, in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/src/consilium/shell/storage.py", line 206, in _transaction
+    self._db.execute("BEGIN IMMEDIATE" if write else "BEGIN")
+sqlite3.OperationalError: cannot start a transaction within a transaction
+
+======================================================================
+ERROR: test_initial_context_excludes_already_generated_peer_answer (test_council.CouncilCase.test_initial_context_excludes_already_generated_peer_answer)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/96afc5b34761/consilium-p05/tests/council/test_council.py", line 190, in test_initial_context_excludes_already_generated_peer_answer
+    self.submit(self.pid[0],'PEER_DO_NOT_LEAK');request=self.prepare(self.pid[1])
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/tests/council/test_council.py", line 90, in submit
+    request=self.prepare(pid)
+            ^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/tests/council/test_council.py", line 64, in prepare
+    return self.council.prepare_mock(**{**args,**changes})
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/src/consilium/shell/council.py", line 140, in prepare_mock
+    receipt, budget, history = observe_context(store=self.store, context=context, connection=connection,
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/src/consilium/shell/context_observers.py", line 73, in observe_context
+    with store._transaction(write=False):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/contextlib.py", line 137, in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/src/consilium/shell/storage.py", line 206, in _transaction
+    self._db.execute("BEGIN IMMEDIATE" if write else "BEGIN")
+sqlite3.OperationalError: cannot start a transaction within a transaction
+
+======================================================================
+ERROR: test_judge_connection_change_does_not_silently_replace_selected_judge (test_council.CouncilCase.test_judge_connection_change_does_not_silently_replace_selected_judge)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/96afc5b34761/consilium-p05/tests/council/test_council.py", line 235, in test_judge_connection_change_does_not_silently_replace_selected_judge
+    self.through_review();self.decide('FINISH');self.select()
+    ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/tests/council/test_council.py", line 101, in through_review
+    self.complete_round(); self.decide('CONTINUE'); self.start('REVIEW'); self.complete_round()
+    ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/tests/council/test_council.py", line 97, in complete_round
+    for pid in self.round.participant_ids: self.submit(pid)
+                                           ^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/tests/council/test_council.py", line 90, in submit
+    request=self.prepare(pid)
+            ^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/tests/council/test_council.py", line 64, in prepare
+    return self.council.prepare_mock(**{**args,**changes})
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/src/consilium/shell/council.py", line 140, in prepare_mock
+    receipt, budget, history = observe_context(store=self.store, context=context, connection=connection,
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/src/consilium/shell/context_observers.py", line 73, in observe_context
+    with store._transaction(write=False):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/contextlib.py", line 137, in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/src/consilium/shell/storage.py", line 206, in _transaction
+    self._db.execute("BEGIN IMMEDIATE" if write else "BEGIN")
+sqlite3.OperationalError: cannot start a transaction within a transaction
+
+======================================================================
+ERROR: test_live_or_subclassed_driver_cannot_use_mock_permissions (test_council.CouncilCase.test_live_or_subclassed_driver_cannot_use_mock_permissions)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/96afc5b34761/consilium-p05/tests/council/test_council.py", line 222, in test_live_or_subclassed_driver_cannot_use_mock_permissions
+    request=self.prepare()
+            ^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/tests/council/test_council.py", line 64, in prepare
+    return self.council.prepare_mock(**{**args,**changes})
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/src/consilium/shell/council.py", line 140, in prepare_mock
+    receipt, budget, history = observe_context(store=self.store, context=context, connection=connection,
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/src/consilium/shell/context_observers.py", line 73, in observe_context
+    with store._transaction(write=False):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/contextlib.py", line 137, in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/src/consilium/shell/storage.py", line 206, in _transaction
+    self._db.execute("BEGIN IMMEDIATE" if write else "BEGIN")
+sqlite3.OperationalError: cannot start a transaction within a transaction
+
+======================================================================
+ERROR: test_missing_wrong_stale_or_unconfirmed_judge_rejected (test_council.CouncilCase.test_missing_wrong_stale_or_unconfirmed_judge_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/96afc5b34761/consilium-p05/tests/council/test_council.py", line 167, in test_missing_wrong_stale_or_unconfirmed_judge_rejected
+    self.through_review();self.decide('FINISH');before=self.revision
+    ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/tests/council/test_council.py", line 101, in through_review
+    self.complete_round(); self.decide('CONTINUE'); self.start('REVIEW'); self.complete_round()
+    ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/tests/council/test_council.py", line 97, in complete_round
+    for pid in self.round.participant_ids: self.submit(pid)
+                                           ^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/tests/council/test_council.py", line 90, in submit
+    request=self.prepare(pid)
+            ^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/tests/council/test_council.py", line 64, in prepare
+    return self.council.prepare_mock(**{**args,**changes})
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/src/consilium/shell/council.py", line 140, in prepare_mock
+    receipt, budget, history = observe_context(store=self.store, context=context, connection=connection,
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/src/consilium/shell/context_observers.py", line 73, in observe_context
+    with store._transaction(write=False):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/contextlib.py", line 137, in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/src/consilium/shell/storage.py", line 206, in _transaction
+    self._db.execute("BEGIN IMMEDIATE" if write else "BEGIN")
+sqlite3.OperationalError: cannot start a transaction within a transaction
+
+======================================================================
+ERROR: test_mixed_mock_manual_answers_and_reviews_share_pipeline (test_council.CouncilCase.test_mixed_mock_manual_answers_and_reviews_share_pipeline)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/96afc5b34761/consilium-p05/tests/council/test_council.py", line 133, in test_mixed_mock_manual_answers_and_reviews_share_pipeline
+    self.through_review(); self.decide('CUSTOM');self.start('TARGETED',('missing evidence',));self.complete_round();result=self.finish()
+    ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/tests/council/test_council.py", line 101, in through_review
+    self.complete_round(); self.decide('CONTINUE'); self.start('REVIEW'); self.complete_round()
+    ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/tests/council/test_council.py", line 97, in complete_round
+    for pid in self.round.participant_ids: self.submit(pid)
+                                           ^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/tests/council/test_council.py", line 90, in submit
+    request=self.prepare(pid)
+            ^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/tests/council/test_council.py", line 64, in prepare
+    return self.council.prepare_mock(**{**args,**changes})
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/src/consilium/shell/council.py", line 140, in prepare_mock
+    receipt, budget, history = observe_context(store=self.store, context=context, connection=connection,
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/src/consilium/shell/context_observers.py", line 73, in observe_context
+    with store._transaction(write=False):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/contextlib.py", line 137, in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/src/consilium/shell/storage.py", line 206, in _transaction
+    self._db.execute("BEGIN IMMEDIATE" if write else "BEGIN")
+sqlite3.OperationalError: cannot start a transaction within a transaction
+
+======================================================================
+ERROR: test_no_next_round_before_user_gate_and_analyst_cannot_decide (test_council.CouncilCase.test_no_next_round_before_user_gate_and_analyst_cannot_decide)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/96afc5b34761/consilium-p05/tests/council/test_council.py", line 150, in test_no_next_round_before_user_gate_and_analyst_cannot_decide
+    analysis=self.complete_round();before=self.revision
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/tests/council/test_council.py", line 97, in complete_round
+    for pid in self.round.participant_ids: self.submit(pid)
+                                           ^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/tests/council/test_council.py", line 90, in submit
+    request=self.prepare(pid)
+            ^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/tests/council/test_council.py", line 64, in prepare
+    return self.council.prepare_mock(**{**args,**changes})
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/src/consilium/shell/council.py", line 140, in prepare_mock
+    receipt, budget, history = observe_context(store=self.store, context=context, connection=connection,
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/src/consilium/shell/context_observers.py", line 73, in observe_context
+    with store._transaction(write=False):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/contextlib.py", line 137, in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/src/consilium/shell/storage.py", line 206, in _transaction
+    self._db.execute("BEGIN IMMEDIATE" if write else "BEGIN")
+sqlite3.OperationalError: cannot start a transaction within a transaction
+
+======================================================================
+ERROR: test_pause_reopen_and_resume_require_explicit_fresh_user_choice (test_council.CouncilCase.test_pause_reopen_and_resume_require_explicit_fresh_user_choice)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/96afc5b34761/consilium-p05/tests/council/test_council.py", line 175, in test_pause_reopen_and_resume_require_explicit_fresh_user_choice
+    self.complete_round();self.decide('PAUSE');self.reopen()
+    ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/tests/council/test_council.py", line 97, in complete_round
+    for pid in self.round.participant_ids: self.submit(pid)
+                                           ^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/tests/council/test_council.py", line 90, in submit
+    request=self.prepare(pid)
+            ^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/tests/council/test_council.py", line 64, in prepare
+    return self.council.prepare_mock(**{**args,**changes})
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/src/consilium/shell/council.py", line 140, in prepare_mock
+    receipt, budget, history = observe_context(store=self.store, context=context, connection=connection,
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/src/consilium/shell/context_observers.py", line 73, in observe_context
+    with store._transaction(write=False):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/contextlib.py", line 137, in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/src/consilium/shell/storage.py", line 206, in _transaction
+    self._db.execute("BEGIN IMMEDIATE" if write else "BEGIN")
+sqlite3.OperationalError: cannot start a transaction within a transaction
+
+======================================================================
+ERROR: test_real_exit_after_analysis_commit (test_council.CouncilCase.test_real_exit_after_analysis_commit)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/96afc5b34761/consilium-p05/tests/council/test_council.py", line 311, in test_real_exit_after_analysis_commit
+    for pid in self.pid:self.submit(pid)
+                        ^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/tests/council/test_council.py", line 90, in submit
+    request=self.prepare(pid)
+            ^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/tests/council/test_council.py", line 64, in prepare
+    return self.council.prepare_mock(**{**args,**changes})
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/src/consilium/shell/council.py", line 140, in prepare_mock
+    receipt, budget, history = observe_context(store=self.store, context=context, connection=connection,
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/src/consilium/shell/context_observers.py", line 73, in observe_context
+    with store._transaction(write=False):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/contextlib.py", line 137, in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/src/consilium/shell/storage.py", line 206, in _transaction
+    self._db.execute("BEGIN IMMEDIATE" if write else "BEGIN")
+sqlite3.OperationalError: cannot start a transaction within a transaction
+
+======================================================================
+ERROR: test_real_exit_after_final_commit (test_council.CouncilCase.test_real_exit_after_final_commit)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/96afc5b34761/consilium-p05/tests/council/test_council.py", line 323, in test_real_exit_after_final_commit
+    self.through_review();self.decide('FINISH');self.select();self.submit(self.pid[0],self.judge_output());self.crash('final',True)
+    ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/tests/council/test_council.py", line 101, in through_review
+    self.complete_round(); self.decide('CONTINUE'); self.start('REVIEW'); self.complete_round()
+    ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/tests/council/test_council.py", line 97, in complete_round
+    for pid in self.round.participant_ids: self.submit(pid)
+                                           ^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/tests/council/test_council.py", line 90, in submit
+    request=self.prepare(pid)
+            ^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/tests/council/test_council.py", line 64, in prepare
+    return self.council.prepare_mock(**{**args,**changes})
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/src/consilium/shell/council.py", line 140, in prepare_mock
+    receipt, budget, history = observe_context(store=self.store, context=context, connection=connection,
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/src/consilium/shell/context_observers.py", line 73, in observe_context
+    with store._transaction(write=False):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/contextlib.py", line 137, in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/src/consilium/shell/storage.py", line 206, in _transaction
+    self._db.execute("BEGIN IMMEDIATE" if write else "BEGIN")
+sqlite3.OperationalError: cannot start a transaction within a transaction
+
+======================================================================
+ERROR: test_real_exit_after_judge_commit (test_council.CouncilCase.test_real_exit_after_judge_commit)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/96afc5b34761/consilium-p05/tests/council/test_council.py", line 317, in test_real_exit_after_judge_commit
+    self.through_review();self.decide('FINISH');self.crash('judge',True)
+    ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/tests/council/test_council.py", line 101, in through_review
+    self.complete_round(); self.decide('CONTINUE'); self.start('REVIEW'); self.complete_round()
+    ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/tests/council/test_council.py", line 97, in complete_round
+    for pid in self.round.participant_ids: self.submit(pid)
+                                           ^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/tests/council/test_council.py", line 90, in submit
+    request=self.prepare(pid)
+            ^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/tests/council/test_council.py", line 64, in prepare
+    return self.council.prepare_mock(**{**args,**changes})
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/src/consilium/shell/council.py", line 140, in prepare_mock
+    receipt, budget, history = observe_context(store=self.store, context=context, connection=connection,
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/src/consilium/shell/context_observers.py", line 73, in observe_context
+    with store._transaction(write=False):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/contextlib.py", line 137, in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/src/consilium/shell/storage.py", line 206, in _transaction
+    self._db.execute("BEGIN IMMEDIATE" if write else "BEGIN")
+sqlite3.OperationalError: cannot start a transaction within a transaction
+
+======================================================================
+ERROR: test_real_exit_before_analysis_commit (test_council.CouncilCase.test_real_exit_before_analysis_commit)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/96afc5b34761/consilium-p05/tests/council/test_council.py", line 308, in test_real_exit_before_analysis_commit
+    for pid in self.pid:self.submit(pid)
+                        ^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/tests/council/test_council.py", line 90, in submit
+    request=self.prepare(pid)
+            ^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/tests/council/test_council.py", line 64, in prepare
+    return self.council.prepare_mock(**{**args,**changes})
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/src/consilium/shell/council.py", line 140, in prepare_mock
+    receipt, budget, history = observe_context(store=self.store, context=context, connection=connection,
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/src/consilium/shell/context_observers.py", line 73, in observe_context
+    with store._transaction(write=False):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/contextlib.py", line 137, in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/src/consilium/shell/storage.py", line 206, in _transaction
+    self._db.execute("BEGIN IMMEDIATE" if write else "BEGIN")
+sqlite3.OperationalError: cannot start a transaction within a transaction
+
+======================================================================
+ERROR: test_real_exit_before_final_commit (test_council.CouncilCase.test_real_exit_before_final_commit)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/96afc5b34761/consilium-p05/tests/council/test_council.py", line 320, in test_real_exit_before_final_commit
+    self.through_review();self.decide('FINISH');self.select();self.submit(self.pid[0],self.judge_output());self.crash('final',False)
+    ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/tests/council/test_council.py", line 101, in through_review
+    self.complete_round(); self.decide('CONTINUE'); self.start('REVIEW'); self.complete_round()
+    ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/tests/council/test_council.py", line 97, in complete_round
+    for pid in self.round.participant_ids: self.submit(pid)
+                                           ^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/tests/council/test_council.py", line 90, in submit
+    request=self.prepare(pid)
+            ^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/tests/council/test_council.py", line 64, in prepare
+    return self.council.prepare_mock(**{**args,**changes})
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/src/consilium/shell/council.py", line 140, in prepare_mock
+    receipt, budget, history = observe_context(store=self.store, context=context, connection=connection,
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/src/consilium/shell/context_observers.py", line 73, in observe_context
+    with store._transaction(write=False):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/contextlib.py", line 137, in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/src/consilium/shell/storage.py", line 206, in _transaction
+    self._db.execute("BEGIN IMMEDIATE" if write else "BEGIN")
+sqlite3.OperationalError: cannot start a transaction within a transaction
+
+======================================================================
+ERROR: test_real_exit_before_judge_commit (test_council.CouncilCase.test_real_exit_before_judge_commit)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/96afc5b34761/consilium-p05/tests/council/test_council.py", line 314, in test_real_exit_before_judge_commit
+    self.through_review();self.decide('FINISH');self.crash('judge',False)
+    ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/tests/council/test_council.py", line 101, in through_review
+    self.complete_round(); self.decide('CONTINUE'); self.start('REVIEW'); self.complete_round()
+    ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/tests/council/test_council.py", line 97, in complete_round
+    for pid in self.round.participant_ids: self.submit(pid)
+                                           ^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/tests/council/test_council.py", line 90, in submit
+    request=self.prepare(pid)
+            ^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/tests/council/test_council.py", line 64, in prepare
+    return self.council.prepare_mock(**{**args,**changes})
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/src/consilium/shell/council.py", line 140, in prepare_mock
+    receipt, budget, history = observe_context(store=self.store, context=context, connection=connection,
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/src/consilium/shell/context_observers.py", line 73, in observe_context
+    with store._transaction(write=False):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/contextlib.py", line 137, in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/src/consilium/shell/storage.py", line 206, in _transaction
+    self._db.execute("BEGIN IMMEDIATE" if write else "BEGIN")
+sqlite3.OperationalError: cannot start a transaction within a transaction
+
+======================================================================
+ERROR: test_review_metadata_is_blind_by_default (test_council.CouncilCase.test_review_metadata_is_blind_by_default)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/96afc5b34761/consilium-p05/tests/council/test_council.py", line 194, in test_review_metadata_is_blind_by_default
+    self.complete_round();self.decide('CONTINUE');self.start('REVIEW');request=self.prepare()
+    ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/tests/council/test_council.py", line 97, in complete_round
+    for pid in self.round.participant_ids: self.submit(pid)
+                                           ^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/tests/council/test_council.py", line 90, in submit
+    request=self.prepare(pid)
+            ^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/tests/council/test_council.py", line 64, in prepare
+    return self.council.prepare_mock(**{**args,**changes})
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/src/consilium/shell/council.py", line 140, in prepare_mock
+    receipt, budget, history = observe_context(store=self.store, context=context, connection=connection,
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/src/consilium/shell/context_observers.py", line 73, in observe_context
+    with store._transaction(write=False):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/contextlib.py", line 137, in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/src/consilium/shell/storage.py", line 206, in _transaction
+    self._db.execute("BEGIN IMMEDIATE" if write else "BEGIN")
+sqlite3.OperationalError: cannot start a transaction within a transaction
+
+======================================================================
+ERROR: test_stale_and_old_round_decisions_leave_state_unchanged (test_council.CouncilCase.test_stale_and_old_round_decisions_leave_state_unchanged)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/96afc5b34761/consilium-p05/tests/council/test_council.py", line 183, in test_stale_and_old_round_decisions_leave_state_unchanged
+    self.through_review();before=self.revision
+    ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/tests/council/test_council.py", line 101, in through_review
+    self.complete_round(); self.decide('CONTINUE'); self.start('REVIEW'); self.complete_round()
+    ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/tests/council/test_council.py", line 97, in complete_round
+    for pid in self.round.participant_ids: self.submit(pid)
+                                           ^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/tests/council/test_council.py", line 90, in submit
+    request=self.prepare(pid)
+            ^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/tests/council/test_council.py", line 64, in prepare
+    return self.council.prepare_mock(**{**args,**changes})
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/src/consilium/shell/council.py", line 140, in prepare_mock
+    receipt, budget, history = observe_context(store=self.store, context=context, connection=connection,
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/src/consilium/shell/context_observers.py", line 73, in observe_context
+    with store._transaction(write=False):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/contextlib.py", line 137, in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/src/consilium/shell/storage.py", line 206, in _transaction
+    self._db.execute("BEGIN IMMEDIATE" if write else "BEGIN")
+sqlite3.OperationalError: cannot start a transaction within a transaction
+
+======================================================================
+ERROR: test_transaction_rolls_back_analysis_or_final_record_failure (test_council.CouncilCase.test_transaction_rolls_back_analysis_or_final_record_failure)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/96afc5b34761/consilium-p05/tests/council/test_council.py", line 273, in test_transaction_rolls_back_analysis_or_final_record_failure
+    for pid in self.pid:self.submit(pid)
+                        ^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/tests/council/test_council.py", line 90, in submit
+    request=self.prepare(pid)
+            ^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/tests/council/test_council.py", line 64, in prepare
+    return self.council.prepare_mock(**{**args,**changes})
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/src/consilium/shell/council.py", line 140, in prepare_mock
+    receipt, budget, history = observe_context(store=self.store, context=context, connection=connection,
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/src/consilium/shell/context_observers.py", line 73, in observe_context
+    with store._transaction(write=False):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/contextlib.py", line 137, in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/src/consilium/shell/storage.py", line 206, in _transaction
+    self._db.execute("BEGIN IMMEDIATE" if write else "BEGIN")
+sqlite3.OperationalError: cannot start a transaction within a transaction
+
+======================================================================
+ERROR: test_unscored_reviews_preserve_explicit_status_without_fabricated_score (test_council.CouncilCase.test_unscored_reviews_preserve_explicit_status_without_fabricated_score)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/96afc5b34761/consilium-p05/tests/council/test_council.py", line 200, in test_unscored_reviews_preserve_explicit_status_without_fabricated_score
+    self.complete_round();self.decide('CONTINUE');self.start('REVIEW')
+    ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/tests/council/test_council.py", line 97, in complete_round
+    for pid in self.round.participant_ids: self.submit(pid)
+                                           ^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/tests/council/test_council.py", line 90, in submit
+    request=self.prepare(pid)
+            ^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/tests/council/test_council.py", line 64, in prepare
+    return self.council.prepare_mock(**{**args,**changes})
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/src/consilium/shell/council.py", line 140, in prepare_mock
+    receipt, budget, history = observe_context(store=self.store, context=context, connection=connection,
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/src/consilium/shell/context_observers.py", line 73, in observe_context
+    with store._transaction(write=False):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/contextlib.py", line 137, in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/src/consilium/shell/storage.py", line 206, in _transaction
+    self._db.execute("BEGIN IMMEDIATE" if write else "BEGIN")
+sqlite3.OperationalError: cannot start a transaction within a transaction
+
+----------------------------------------------------------------------
+Ran 27 tests in 0.506s
+
+FAILED (errors=26)

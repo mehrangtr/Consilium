@@ -1,0 +1,147 @@
+{
+  "phase": "P05",
+  "status": "PASS",
+  "scope": "EXECUTED_P05_OFFLINE_COUNCIL_EXIT_EXAMPLES",
+  "host": {
+    "system": "Linux",
+    "python": "3.12.14"
+  },
+  "date_utc": "2026-10-08T09:33:48.473786+00:00",
+  "source_digest_before": "c01c0633233eb7b35a9cf6319f75497771632ddf7b3fe3ad6e0f7300bdf6dad8",
+  "source_digest_after": "c01c0633233eb7b35a9cf6319f75497771632ddf7b3fe3ad6e0f7300bdf6dad8",
+  "live_provider_calls": 0,
+  "paid_calls": 0,
+  "full_v1_conformance_claimed": false,
+  "examples": [
+    {
+      "mode": "mock",
+      "fixture_scope": "SCRIPTED_MOCK_AND_USER_ACCEPTED_SYNTHETIC_MANUAL_TEXT",
+      "external_origin_verified": false,
+      "restart_exact": true,
+      "automatic_send": false,
+      "final_revision": 58,
+      "round_kinds": [
+        "INDEPENDENT",
+        "REVIEW",
+        "TARGETED",
+        "SYNTHESIS"
+      ],
+      "canonical_provenance": [
+        "MOCK"
+      ],
+      "preserved_objection_count": 4,
+      "artifacts": {
+        "mock/revision-17/EXPORT.json": "1ebf7e687b8ad230bb8913e7fd9a52acc47b5a201b1eab627d6aac0923711d4e",
+        "mock/revision-17/debate.json": "895aef32eb6b238c3214d9131d115505172d24bf491303a470bf1bf57a841c20",
+        "mock/revision-17/debate.md": "3551520b13ea23acfce76f24ee2eb193ee3f948d89c6de0376b5ed590098ba1d",
+        "mock/revision-17/participants/participant-1.md": "1c10ec8b5a498fcc02ad8f84f7d2601cbd13d9eb996782b4333360dc1450509f",
+        "mock/revision-17/participants/participant-2.md": "10575e43f76c81ce7d6dc22d38518f065525cdc922a9d04c65fd889586ad0d3f",
+        "mock/revision-34/EXPORT.json": "b7457822080802739962bbab709a0119da09f1cb6638eb848d9d923ec307af18",
+        "mock/revision-34/debate.json": "001cbebdff214bf8410521d69494af98bc29e248d4579049d8196025c8d63774",
+        "mock/revision-34/debate.md": "a7aa02fc8df3d7b981f039348bbbd3ea17a3aa94ebf575f27623d61186aa9c37",
+        "mock/revision-34/participants/participant-1.md": "c4fbf483090060354f77b295d549b78234fc76bc4603114fc9a01f2e014d2772",
+        "mock/revision-34/participants/participant-2.md": "424cd327842249ec5df166d98c9339b94cf771d341cf7e9ea9f9615525707a9b",
+        "mock/revision-49/EXPORT.json": "8204d037673b24ac22d7a2ba77ad499d53af517545f324bef5c511eaf7822eac",
+        "mock/revision-49/debate.json": "df422677e30083aa69f3f6f683bcfb9cf1b2ecb940e48d9d40c8743aaf9eb8f0",
+        "mock/revision-49/debate.md": "1c1c29d740ec066d238386b79e93e9170171b068921db566cfd8d120ca0ece4a",
+        "mock/revision-49/participants/participant-1.md": "72067cf46caf7fb35c1995056b2b4555d6d966766d280433a31a865558dc5481",
+        "mock/revision-49/participants/participant-2.md": "7d99559e434f4468a6fcab495ca0de0c4c0e02ea504aed073effa9fa7cd671f8",
+        "mock/revision-58/EXPORT.json": "4bb2d8bb3e367eb6561b855af1cf0ee7e6102dc1858d5bc3a3f25054f98a40d5",
+        "mock/revision-58/assessments/participant-1.md": "32ea464e3732c1d437ac2bf9add2b6fffe49b7561ecef44394d9058e2ac182da",
+        "mock/revision-58/assessments/participant-2.md": "7393e2e71a55cef0d8d4151791940548145f64be6bef8f247c3b68e566135b46",
+        "mock/revision-58/debate.json": "5eadc2d605135794a5e2be1d2993d38bbaf3637de84c649fca9d9235dcf4e042",
+        "mock/revision-58/debate.md": "ef3956b46d023288d0b9acd79b6b29226b3a305320ed4fd34db8fadf08cce07b",
+        "mock/revision-58/final.md": "628efb821693f894646b69a58c2ac3436157008e1d1f39b75b4176a994e3dfd6",
+        "mock/revision-58/participants/participant-1.md": "661e47834282b70f2463ddef55661ae9215dc1a938d0aff16969c3ba2c65f961",
+        "mock/revision-58/participants/participant-2.md": "7d99559e434f4468a6fcab495ca0de0c4c0e02ea504aed073effa9fa7cd671f8"
+      }
+    },
+    {
+      "mode": "mixed",
+      "fixture_scope": "SCRIPTED_MOCK_AND_USER_ACCEPTED_SYNTHETIC_MANUAL_TEXT",
+      "external_origin_verified": false,
+      "restart_exact": true,
+      "automatic_send": false,
+      "final_revision": 44,
+      "round_kinds": [
+        "INDEPENDENT",
+        "REVIEW",
+        "TARGETED",
+        "SYNTHESIS"
+      ],
+      "canonical_provenance": [
+        "MANUAL",
+        "MOCK"
+      ],
+      "preserved_objection_count": 4,
+      "artifacts": {
+        "mixed/revision-13/EXPORT.json": "30d48f6457926fe18fdb0477ff6467f9b547c8e7442b75a5c6e1afa9e138345c",
+        "mixed/revision-13/debate.json": "620c0902604f32f55b791f6cea3c490b7ee887f70fa13298b09e0293f3fa133a",
+        "mixed/revision-13/debate.md": "0b17a29c1b8146dca8ff9eb5cbca59c36037b4be0d880d7f905ec9567dce8682",
+        "mixed/revision-13/participants/participant-1.md": "1c10ec8b5a498fcc02ad8f84f7d2601cbd13d9eb996782b4333360dc1450509f",
+        "mixed/revision-13/participants/participant-2.md": "b10e5b261f78ca93399db3633390e75d19b03764dbf188a262cbffe7bbb56135",
+        "mixed/revision-25/EXPORT.json": "53c10c1e0c2fee775ce63f37f909bed2f1db453a0170b07fdad4ebed3942c58e",
+        "mixed/revision-25/debate.json": "99c8823ae58ec34607da4b1608f7046598c9fdc1ea6f71fc413d21a4ab52b2a4",
+        "mixed/revision-25/debate.md": "b56910e070d371de072a0b41014a42b099f8ad2fe23207a58ac4bb47780f520f",
+        "mixed/revision-25/participants/participant-1.md": "2a854587c50d14e8a748ba58d279ab73905628269fb4e6fd8b11d834872e73ed",
+        "mixed/revision-25/participants/participant-2.md": "6ebdd08d2eecbf2bb51e5d799a136f3fe78eb63507abf95d4323748537600743",
+        "mixed/revision-35/EXPORT.json": "f12aa0b0b7fd153cb45f58539f049002f5c052f0d562a9bfc7fd9e086dfd3aa8",
+        "mixed/revision-35/debate.json": "af1cf44c85902eabea73877152cf2db3eb71ccbd172c344fffd654327dbba147",
+        "mixed/revision-35/debate.md": "9f52e78e98394a7d53a52665a268003399767308533fe892d0efb7bc57d8fe2d",
+        "mixed/revision-35/participants/participant-1.md": "955eb6d3448ef97edd24de7ad01cbfa5b57b7ddcf54c747cf1fbbeb091450d7d",
+        "mixed/revision-35/participants/participant-2.md": "e8df0a569adac5db368e5e57a3c875b319851b8828f1e66db777be5fba26276f",
+        "mixed/revision-44/EXPORT.json": "10c1e00670d5e832dbf0529c88f0f9ecbc10ca1cad72683eec10b1823dbf98c5",
+        "mixed/revision-44/assessments/participant-1.md": "12ec440010c95ec43bdaeb38e3b83e5abe67b6260c0cdf9b3df3c20d29b54b68",
+        "mixed/revision-44/assessments/participant-2.md": "f43a723b0759ad6aca65c2b642e449ef83e38253fc9ddaabaade986aec5a6b7f",
+        "mixed/revision-44/debate.json": "19e7f77e1c3e88790bd9a8fd25c32712d972fdf62130f6df29fff024ce1c92f7",
+        "mixed/revision-44/debate.md": "e30bac68aeca83eddfeaba6e88368c0ed5814c933b8611dcc0f0510df4b4af38",
+        "mixed/revision-44/final.md": "8cbdc059e8bcd7519290f741074911e36baff14f030d70a1dd6acba9d8439b44",
+        "mixed/revision-44/participants/participant-1.md": "f755ecd072753a4b5e7256e531af17a609893d3f7ef685638fe72b2ddafb9cd1",
+        "mixed/revision-44/participants/participant-2.md": "e8df0a569adac5db368e5e57a3c875b319851b8828f1e66db777be5fba26276f"
+      }
+    },
+    {
+      "mode": "manual",
+      "fixture_scope": "SCRIPTED_MOCK_AND_USER_ACCEPTED_SYNTHETIC_MANUAL_TEXT",
+      "external_origin_verified": false,
+      "restart_exact": true,
+      "automatic_send": false,
+      "final_revision": 25,
+      "round_kinds": [
+        "INDEPENDENT",
+        "REVIEW",
+        "TARGETED",
+        "SYNTHESIS"
+      ],
+      "canonical_provenance": [
+        "MANUAL"
+      ],
+      "preserved_objection_count": 4,
+      "artifacts": {
+        "manual/revision-16/EXPORT.json": "09a494b80215b3b961cd352c3afaf5a6867ea3e974a97ab88e4a8ea361db101a",
+        "manual/revision-16/debate.json": "4711e4ce40b4d94cd24f43842050e3a6100a3009e304587ac0c9cc622246904d",
+        "manual/revision-16/debate.md": "2cfd4fac6033e2e40abff3bb351aaa827d618bf8b4ad107b15f9575c788b343b",
+        "manual/revision-16/participants/participant-1.md": "9c22ef77d3a64dd89ad24614562bb8b41cd6caa4762c3175312e8f5e8a465b35",
+        "manual/revision-16/participants/participant-2.md": "5f3ae13d72845d205977e41243b4eece34c28aad5718da1f6fb849e8a0c17e6f",
+        "manual/revision-21/EXPORT.json": "0341f739dcd333c336eccd605a57afd301607e0f4d4433848c597a1f48ade8b0",
+        "manual/revision-21/debate.json": "fa81896e108893f097bf6be35272c8a37cd660fe40181b73622214ce8f7e2d64",
+        "manual/revision-21/debate.md": "51ca287a8a63ff841b512416ba0e5501445f5405759e97d468a6368dcd3aab38",
+        "manual/revision-21/participants/participant-1.md": "671d7e5d2f204b4010bc156b02647b04d6731c6b47991c2e536b7483a7cc20f5",
+        "manual/revision-21/participants/participant-2.md": "dd426921de8cc5a9a85f15bdbb70295f66531eca691d03f3ff677b6bfac84c91",
+        "manual/revision-25/EXPORT.json": "5994acf06435ed550a3b8f510bae537403127fa34d8f8f0136e9c51d7fcc3904",
+        "manual/revision-25/assessments/participant-1.md": "f663fd2eeacc513c8a3a8d90e3d0d5aae762000d7d45f2657fbaa1d5b0542614",
+        "manual/revision-25/assessments/participant-2.md": "9fdd14f5c90cd69094df7fd61cb3e50e8943f90db88aa0fe34d3ab2c89e277dd",
+        "manual/revision-25/debate.json": "19cdb4b7a410ae4d50f31ebd4d2fbd3c190eb6cc26b9bd07c67b0b375021cb77",
+        "manual/revision-25/debate.md": "5fe829ccf3f982ae16b3a353413a247b4cecbc08dc60b9940fa4b3e26262f87a",
+        "manual/revision-25/final.md": "d1c93315ec4a673a280d021815590bf48ffe12bd61b07583c3b83ae751a9ccdc",
+        "manual/revision-25/participants/participant-1.md": "b02b60cebb5fd7c89b3908f2ce69950f1354b4c5c8c233e8776894e3b9b69ade",
+        "manual/revision-25/participants/participant-2.md": "dd426921de8cc5a9a85f15bdbb70295f66531eca691d03f3ff677b6bfac84c91",
+        "manual/revision-9/EXPORT.json": "84f6f5182c9959f29f2ef98007c435dd37522ad18215e0d2635f3df6788f386b",
+        "manual/revision-9/debate.json": "1480fb65bbbea200bfd3e7fd85ecf5b16b0c6d387ff8b7a2c0ebe11cda093422",
+        "manual/revision-9/debate.md": "76abfdc7f0d38100a8a62a4d37bd530217b3960cdd446652e738217a766065f1",
+        "manual/revision-9/participants/participant-1.md": "ee6298e27c8e76bb27c945e4c9d8c1dd9ea12dc3a7a716b14f172e4d29f4383b",
+        "manual/revision-9/participants/participant-2.md": "b10e5b261f78ca93399db3633390e75d19b03764dbf188a262cbffe7bbb56135"
+      }
+    }
+  ]
+}

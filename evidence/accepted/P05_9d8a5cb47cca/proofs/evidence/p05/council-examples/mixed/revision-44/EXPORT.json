@@ -1,0 +1,13 @@
+{
+  "debate_id": "00000000-0000-0000-0000-000000000001",
+  "files": {
+    "assessments/participant-1.md": "12ec440010c95ec43bdaeb38e3b83e5abe67b6260c0cdf9b3df3c20d29b54b68",
+    "assessments/participant-2.md": "f43a723b0759ad6aca65c2b642e449ef83e38253fc9ddaabaade986aec5a6b7f",
+    "debate.json": "19e7f77e1c3e88790bd9a8fd25c32712d972fdf62130f6df29fff024ce1c92f7",
+    "debate.md": "e30bac68aeca83eddfeaba6e88368c0ed5814c933b8611dcc0f0510df4b4af38",
+    "final.md": "8cbdc059e8bcd7519290f741074911e36baff14f030d70a1dd6acba9d8439b44",
+    "participants/participant-1.md": "f755ecd072753a4b5e7256e531af17a609893d3f7ef685638fe72b2ddafb9cd1",
+    "participants/participant-2.md": "e8df0a569adac5db368e5e57a3c875b319851b8828f1e66db777be5fba26276f"
+  },
+  "revision": 44
+}

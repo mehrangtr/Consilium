@@ -1,0 +1,234 @@
+test_all_manual_council_including_selected_judge (test_council.CouncilCase.test_all_manual_council_including_selected_judge) ... ok
+test_ambiguous_mock_delivery_cannot_resend_replace_or_finish (test_council.CouncilCase.test_ambiguous_mock_delivery_cannot_resend_replace_or_finish) ... ok
+test_analysis_hash_or_event_tampering_detected_on_reopen (test_council.CouncilCase.test_analysis_hash_or_event_tampering_detected_on_reopen) ... ok
+test_checkpoint_markdown_json_participant_history_and_assessments_regenerate (test_council.CouncilCase.test_checkpoint_markdown_json_participant_history_and_assessments_regenerate) ... ok
+test_completed_record_deletion_detected_even_when_row_is_missing (test_council.CouncilCase.test_completed_record_deletion_detected_even_when_row_is_missing) ... ok
+test_final_output_cannot_claim_truth_probability_or_application_authority (test_council.CouncilCase.test_final_output_cannot_claim_truth_probability_or_application_authority) ... ok
+test_finish_requires_peer_review_and_valid_user_selected_judge (test_council.CouncilCase.test_finish_requires_peer_review_and_valid_user_selected_judge) ... ok
+test_full_mock_council_and_targeted_continuation_survive_restart (test_council.CouncilCase.test_full_mock_council_and_targeted_continuation_survive_restart) ... ERROR
+test_incomplete_critique_cannot_complete_round_or_gain_default_score (test_council.CouncilCase.test_incomplete_critique_cannot_complete_round_or_gain_default_score) ... ok
+test_initial_context_excludes_already_generated_peer_answer (test_council.CouncilCase.test_initial_context_excludes_already_generated_peer_answer) ... ok
+test_judge_connection_change_does_not_silently_replace_selected_judge (test_council.CouncilCase.test_judge_connection_change_does_not_silently_replace_selected_judge) ... ok
+test_literal_export_survives_fence_injection_and_technical_bidi (test_council.CouncilCase.test_literal_export_survives_fence_injection_and_technical_bidi) ... ok
+test_live_or_subclassed_driver_cannot_use_mock_permissions (test_council.CouncilCase.test_live_or_subclassed_driver_cannot_use_mock_permissions) ... ok
+test_missing_wrong_stale_or_unconfirmed_judge_rejected (test_council.CouncilCase.test_missing_wrong_stale_or_unconfirmed_judge_rejected) ... ok
+test_mixed_mock_manual_answers_and_reviews_share_pipeline (test_council.CouncilCase.test_mixed_mock_manual_answers_and_reviews_share_pipeline) ... ok
+test_no_next_round_before_user_gate_and_analyst_cannot_decide (test_council.CouncilCase.test_no_next_round_before_user_gate_and_analyst_cannot_decide) ... ok
+test_pause_reopen_and_resume_require_explicit_fresh_user_choice (test_council.CouncilCase.test_pause_reopen_and_resume_require_explicit_fresh_user_choice) ... ERROR
+test_real_exit_after_analysis_commit (test_council.CouncilCase.test_real_exit_after_analysis_commit) ... ERROR
+test_real_exit_after_final_commit (test_council.CouncilCase.test_real_exit_after_final_commit) ... ERROR
+test_real_exit_after_judge_commit (test_council.CouncilCase.test_real_exit_after_judge_commit) ... ERROR
+test_real_exit_before_analysis_commit (test_council.CouncilCase.test_real_exit_before_analysis_commit) ... ERROR
+test_real_exit_before_final_commit (test_council.CouncilCase.test_real_exit_before_final_commit) ... ERROR
+test_real_exit_before_judge_commit (test_council.CouncilCase.test_real_exit_before_judge_commit) ... ERROR
+test_review_metadata_is_blind_by_default (test_council.CouncilCase.test_review_metadata_is_blind_by_default) ... ok
+test_stale_and_old_round_decisions_leave_state_unchanged (test_council.CouncilCase.test_stale_and_old_round_decisions_leave_state_unchanged) ... ok
+test_transaction_rolls_back_analysis_or_final_record_failure (test_council.CouncilCase.test_transaction_rolls_back_analysis_or_final_record_failure) ... ok
+test_unscored_reviews_preserve_explicit_status_without_fabricated_score (test_council.CouncilCase.test_unscored_reviews_preserve_explicit_status_without_fabricated_score) ... ok
+
+======================================================================
+ERROR: test_full_mock_council_and_targeted_continuation_survive_restart (test_council.CouncilCase.test_full_mock_council_and_targeted_continuation_survive_restart)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/96afc5b34761/consilium-p05/tests/council/test_council.py", line 121, in test_full_mock_council_and_targeted_continuation_survive_restart
+    self.assertEqual(self.council.recover(self.debate.debate_id)['next_action'],'USE_FINAL')
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/src/consilium/shell/council.py", line 339, in recover
+    attempts = tuple(self.store.ledger.resume(UUID(a['intent']['identity']['attempt_id'])).model_dump(mode='json') for a in snapshot['attempts'])
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/src/consilium/shell/council.py", line 339, in <genexpr>
+    attempts = tuple(self.store.ledger.resume(UUID(a['intent']['identity']['attempt_id'])).model_dump(mode='json') for a in snapshot['attempts'])
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/src/consilium/shell/ledger.py", line 241, in resume
+    with self.store._transaction(write=False):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/contextlib.py", line 137, in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/src/consilium/shell/storage.py", line 206, in _transaction
+    self._db.execute("BEGIN IMMEDIATE" if write else "BEGIN")
+sqlite3.OperationalError: cannot start a transaction within a transaction
+
+======================================================================
+ERROR: test_pause_reopen_and_resume_require_explicit_fresh_user_choice (test_council.CouncilCase.test_pause_reopen_and_resume_require_explicit_fresh_user_choice)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/96afc5b34761/consilium-p05/tests/council/test_council.py", line 176, in test_pause_reopen_and_resume_require_explicit_fresh_user_choice
+    self.assertEqual(self.council.recover(self.debate.debate_id)['next_action'],'PAUSED')
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/src/consilium/shell/council.py", line 339, in recover
+    attempts = tuple(self.store.ledger.resume(UUID(a['intent']['identity']['attempt_id'])).model_dump(mode='json') for a in snapshot['attempts'])
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/src/consilium/shell/council.py", line 339, in <genexpr>
+    attempts = tuple(self.store.ledger.resume(UUID(a['intent']['identity']['attempt_id'])).model_dump(mode='json') for a in snapshot['attempts'])
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/src/consilium/shell/ledger.py", line 241, in resume
+    with self.store._transaction(write=False):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/contextlib.py", line 137, in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/src/consilium/shell/storage.py", line 206, in _transaction
+    self._db.execute("BEGIN IMMEDIATE" if write else "BEGIN")
+sqlite3.OperationalError: cannot start a transaction within a transaction
+
+======================================================================
+ERROR: test_real_exit_after_analysis_commit (test_council.CouncilCase.test_real_exit_after_analysis_commit)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/96afc5b34761/consilium-p05/tests/council/test_council.py", line 312, in test_real_exit_after_analysis_commit
+    self.crash('analysis',True);self.assertEqual(self.council._wait(self.debate.debate_id),'WAITING_DECISION')
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/tests/council/test_council.py", line 305, in crash
+    self.assertFalse(self.council.recover(self.debate.debate_id)['automatic_send'])
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/src/consilium/shell/council.py", line 339, in recover
+    attempts = tuple(self.store.ledger.resume(UUID(a['intent']['identity']['attempt_id'])).model_dump(mode='json') for a in snapshot['attempts'])
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/src/consilium/shell/council.py", line 339, in <genexpr>
+    attempts = tuple(self.store.ledger.resume(UUID(a['intent']['identity']['attempt_id'])).model_dump(mode='json') for a in snapshot['attempts'])
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/src/consilium/shell/ledger.py", line 241, in resume
+    with self.store._transaction(write=False):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/contextlib.py", line 137, in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/src/consilium/shell/storage.py", line 206, in _transaction
+    self._db.execute("BEGIN IMMEDIATE" if write else "BEGIN")
+sqlite3.OperationalError: cannot start a transaction within a transaction
+
+======================================================================
+ERROR: test_real_exit_after_final_commit (test_council.CouncilCase.test_real_exit_after_final_commit)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/96afc5b34761/consilium-p05/tests/council/test_council.py", line 323, in test_real_exit_after_final_commit
+    self.through_review();self.decide('FINISH');self.select();self.submit(self.pid[0],self.judge_output());self.crash('final',True)
+                                                                                                           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/tests/council/test_council.py", line 305, in crash
+    self.assertFalse(self.council.recover(self.debate.debate_id)['automatic_send'])
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/src/consilium/shell/council.py", line 339, in recover
+    attempts = tuple(self.store.ledger.resume(UUID(a['intent']['identity']['attempt_id'])).model_dump(mode='json') for a in snapshot['attempts'])
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/src/consilium/shell/council.py", line 339, in <genexpr>
+    attempts = tuple(self.store.ledger.resume(UUID(a['intent']['identity']['attempt_id'])).model_dump(mode='json') for a in snapshot['attempts'])
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/src/consilium/shell/ledger.py", line 241, in resume
+    with self.store._transaction(write=False):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/contextlib.py", line 137, in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/src/consilium/shell/storage.py", line 206, in _transaction
+    self._db.execute("BEGIN IMMEDIATE" if write else "BEGIN")
+sqlite3.OperationalError: cannot start a transaction within a transaction
+
+======================================================================
+ERROR: test_real_exit_after_judge_commit (test_council.CouncilCase.test_real_exit_after_judge_commit)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/96afc5b34761/consilium-p05/tests/council/test_council.py", line 317, in test_real_exit_after_judge_commit
+    self.through_review();self.decide('FINISH');self.crash('judge',True)
+                                                ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/tests/council/test_council.py", line 305, in crash
+    self.assertFalse(self.council.recover(self.debate.debate_id)['automatic_send'])
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/src/consilium/shell/council.py", line 339, in recover
+    attempts = tuple(self.store.ledger.resume(UUID(a['intent']['identity']['attempt_id'])).model_dump(mode='json') for a in snapshot['attempts'])
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/src/consilium/shell/council.py", line 339, in <genexpr>
+    attempts = tuple(self.store.ledger.resume(UUID(a['intent']['identity']['attempt_id'])).model_dump(mode='json') for a in snapshot['attempts'])
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/src/consilium/shell/ledger.py", line 241, in resume
+    with self.store._transaction(write=False):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/contextlib.py", line 137, in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/src/consilium/shell/storage.py", line 206, in _transaction
+    self._db.execute("BEGIN IMMEDIATE" if write else "BEGIN")
+sqlite3.OperationalError: cannot start a transaction within a transaction
+
+======================================================================
+ERROR: test_real_exit_before_analysis_commit (test_council.CouncilCase.test_real_exit_before_analysis_commit)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/96afc5b34761/consilium-p05/tests/council/test_council.py", line 309, in test_real_exit_before_analysis_commit
+    self.crash('analysis',False);self.assertEqual(self.council._wait(self.debate.debate_id),'ACTIVE')
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/tests/council/test_council.py", line 305, in crash
+    self.assertFalse(self.council.recover(self.debate.debate_id)['automatic_send'])
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/src/consilium/shell/council.py", line 339, in recover
+    attempts = tuple(self.store.ledger.resume(UUID(a['intent']['identity']['attempt_id'])).model_dump(mode='json') for a in snapshot['attempts'])
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/src/consilium/shell/council.py", line 339, in <genexpr>
+    attempts = tuple(self.store.ledger.resume(UUID(a['intent']['identity']['attempt_id'])).model_dump(mode='json') for a in snapshot['attempts'])
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/src/consilium/shell/ledger.py", line 241, in resume
+    with self.store._transaction(write=False):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/contextlib.py", line 137, in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/src/consilium/shell/storage.py", line 206, in _transaction
+    self._db.execute("BEGIN IMMEDIATE" if write else "BEGIN")
+sqlite3.OperationalError: cannot start a transaction within a transaction
+
+======================================================================
+ERROR: test_real_exit_before_final_commit (test_council.CouncilCase.test_real_exit_before_final_commit)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/96afc5b34761/consilium-p05/tests/council/test_council.py", line 320, in test_real_exit_before_final_commit
+    self.through_review();self.decide('FINISH');self.select();self.submit(self.pid[0],self.judge_output());self.crash('final',False)
+                                                                                                           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/tests/council/test_council.py", line 305, in crash
+    self.assertFalse(self.council.recover(self.debate.debate_id)['automatic_send'])
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/src/consilium/shell/council.py", line 339, in recover
+    attempts = tuple(self.store.ledger.resume(UUID(a['intent']['identity']['attempt_id'])).model_dump(mode='json') for a in snapshot['attempts'])
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/src/consilium/shell/council.py", line 339, in <genexpr>
+    attempts = tuple(self.store.ledger.resume(UUID(a['intent']['identity']['attempt_id'])).model_dump(mode='json') for a in snapshot['attempts'])
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/src/consilium/shell/ledger.py", line 241, in resume
+    with self.store._transaction(write=False):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/contextlib.py", line 137, in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/src/consilium/shell/storage.py", line 206, in _transaction
+    self._db.execute("BEGIN IMMEDIATE" if write else "BEGIN")
+sqlite3.OperationalError: cannot start a transaction within a transaction
+
+======================================================================
+ERROR: test_real_exit_before_judge_commit (test_council.CouncilCase.test_real_exit_before_judge_commit)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/96afc5b34761/consilium-p05/tests/council/test_council.py", line 314, in test_real_exit_before_judge_commit
+    self.through_review();self.decide('FINISH');self.crash('judge',False)
+                                                ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/tests/council/test_council.py", line 305, in crash
+    self.assertFalse(self.council.recover(self.debate.debate_id)['automatic_send'])
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/src/consilium/shell/council.py", line 339, in recover
+    attempts = tuple(self.store.ledger.resume(UUID(a['intent']['identity']['attempt_id'])).model_dump(mode='json') for a in snapshot['attempts'])
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/src/consilium/shell/council.py", line 339, in <genexpr>
+    attempts = tuple(self.store.ledger.resume(UUID(a['intent']['identity']['attempt_id'])).model_dump(mode='json') for a in snapshot['attempts'])
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/src/consilium/shell/ledger.py", line 241, in resume
+    with self.store._transaction(write=False):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/contextlib.py", line 137, in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+  File "/workspace/scratch/96afc5b34761/consilium-p05/src/consilium/shell/storage.py", line 206, in _transaction
+    self._db.execute("BEGIN IMMEDIATE" if write else "BEGIN")
+sqlite3.OperationalError: cannot start a transaction within a transaction
+
+----------------------------------------------------------------------
+Ran 27 tests in 8.151s
+
+FAILED (errors=8)

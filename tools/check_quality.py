@@ -40,6 +40,8 @@ def main():
             proc = subprocess.run(argv, cwd=ROOT, env=environment, capture_output=True, timeout=45, stdin=subprocess.DEVNULL)
             (folder / (name + '.log')).write_bytes(proc.stdout + proc.stderr)
             row = {'id': name, 'status': 'PASS' if proc.returncode == 0 else 'FAIL', 'returncode': proc.returncode}
+            if proc.returncode:
+                print((proc.stdout + proc.stderr).decode('utf-8', errors='replace'))
         except (OSError, subprocess.TimeoutExpired) as exc:
             row = {'id': name, 'status': 'FAIL', 'error': type(exc).__name__}
         row['elapsed_seconds'] = round(time.monotonic() - started, 3)

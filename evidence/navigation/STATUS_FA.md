@@ -2,7 +2,7 @@
 
 این نما خودکار از `ROADMAP.json`، `PROGRESS.json` و `CHECKS.json` ساخته شده است. ویرایش دستی مرجع نیست؛ پس از تغییر مبنا فرمان تولید را دوباره اجرا کنید.
 
-شناسهٔ مبنای نما: `bc0cdeb3250b0a400a4f7e5ceda2d91d3e950e8552def01644f8b3a7d4544c56`.
+شناسهٔ مبنای نما: `95e9a29dc35633e76e3d214a8c9453a32fd4e69b93367aebdf057f5af7b16de5`.
 
 مرحلهٔ فعلی: `P06`. آخرین مرحلهٔ پذیرفته‌شده: `P05`.
 
@@ -206,7 +206,8 @@
     "Named peer review needs explicit authorization. The recorded FINISH judge projection independently blinds identity metadata; answer text is not identity-scrubbed.",
     "The owned-process 300s idle/900s hard supervisor cannot cancel ChatGPT/MCP. External calls have 25s bounded waits and ambiguous writes are read/reconciled before retry; server-generated commits never auto-retry.",
     "Historical P03 live browser sends/sign-out must not be replayed without a new scoped reason.",
-    "Workflow 37798211531 freshly passed both native targets and report hashes; its only failure is the unconfigured P06 phase step. P06 is explicitly BLOCKED; no acceptance is bypassed."
+    "Workflow 37798211531 freshly passed both native targets and report hashes; its only failure is the unconfigured P06 phase step. P06 is explicitly BLOCKED; no acceptance is bypassed.",
+    "All 117 control tests pass locally after updating the old blocked-phase fixture to retain its explicit reason and isolate its files. Fresh native CI for this exact source is required."
   ],
   "developer_supervisor": {
     "idle_seconds": 300,

@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "plan_version": "1.2",
-  "source_snapshot_digest": "a906fe767f13c8d4af6f8f7b2daae717f5af80c78a6b9ebd8ad19049741cd72e",
+  "source_snapshot_digest": "fcd91750d945fdf8c421bb82a6a3707aec7ac3627cb90f6fcce75d15a8c59829",
   "current_phase": "P06",
   "last_accepted_phase": "P05",
   "latest_current_phase_run": null,
@@ -228,7 +228,8 @@
       "Named peer review needs explicit authorization. The recorded FINISH judge projection independently blinds identity metadata; answer text is not identity-scrubbed.",
       "The owned-process 300s idle/900s hard supervisor cannot cancel ChatGPT/MCP. External calls have 25s bounded waits and ambiguous writes are read/reconciled before retry; server-generated commits never auto-retry.",
       "Historical P03 live browser sends/sign-out must not be replayed without a new scoped reason.",
-      "Workflow 37798211531 freshly passed both native targets and report hashes; its only failure is the unconfigured P06 phase step. P06 is explicitly BLOCKED; no acceptance is bypassed."
+      "Workflow 37798211531 freshly passed both native targets and report hashes; its only failure is the unconfigured P06 phase step. P06 is explicitly BLOCKED; no acceptance is bypassed.",
+      "All 117 control tests pass locally after updating the old blocked-phase fixture to retain its explicit reason and isolate its files. Fresh native CI for this exact source is required."
     ],
     "developer_supervisor": {
       "idle_seconds": 300,

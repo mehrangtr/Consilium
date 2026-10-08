@@ -3,6 +3,8 @@ import contextlib
 import io
 import json
 import unittest
+import tempfile
+from pathlib import Path
 from unittest.mock import patch
 
 import qualityctl as q
@@ -11,11 +13,16 @@ import run_current_phase as phase_runner
 
 class PhaseReportingControls(unittest.TestCase):
     def test_reporting_blocked_phase_never_runs_or_accepts_it(self):
-        progress = {"phases": [{"id": "P03", "status": "BLOCKED"}]}
+        progress = {"phases": [{"id": "P03", "status": "BLOCKED", "blockers": ["Synthetic pending evidence"]}]}
         output = io.StringIO()
-        with patch.object(q, "state", return_value=({}, progress, "P03")), patch.object(q, "navigation"), \
+        with tempfile.TemporaryDirectory() as location:
+            root = Path(location)
+            (root / 'PROGRESS.json').write_text(json.dumps(progress))
+            (root / 'CHECKS.json').write_text('{}')
+            with patch.object(phase_runner, 'ROOT', root), \
+             patch.object(q, "state", return_value=({}, progress, "P03")), patch.object(q, "navigation"), \
              patch.object(q, "run") as run, contextlib.redirect_stdout(output):
-            self.assertEqual(phase_runner.main(report_blocked=True), 0)
+                self.assertEqual(phase_runner.main(report_blocked=True), 0)
         run.assert_not_called()
         report = json.loads(output.getvalue())
         self.assertEqual((report["status"], report["execution"]), ("BLOCKED", "NOT_RUN"))

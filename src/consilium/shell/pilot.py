@@ -54,6 +54,9 @@ class PilotJournal:
             raise ValueError('Observation digest differs from its exact bytes')
         with self._connect() as connection:
             connection.execute('BEGIN IMMEDIATE')
+            if (connection.execute("SELECT 1 FROM sqlite_master WHERE type='table' AND name='review_artifacts'").fetchone()
+                    and connection.execute("SELECT 1 FROM review_artifacts WHERE name='BLINDED.json'").fetchone()):
+                raise ValueError('A frozen blinded journal cannot receive additional observations')
             rows = connection.execute('SELECT observation FROM calls ORDER BY sequence').fetchall()
             calls = tuple(PilotCall(**json.loads(row[0])) for row in rows)
             summarize(calls + (call,), self.task_ids, self.max_calls)

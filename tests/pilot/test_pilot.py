@@ -15,17 +15,20 @@ from consilium.shell.pilot import PilotJournal
 
 
 def call(identifier, method='SINGLE', stage='ARCHITECT', model='baseline', origin='MANUAL', **kw):
+    kw.setdefault('final', kw.get('outcome', 'SUCCESS') == 'SUCCESS' and stage in {'SINGLE', 'SYNTHESIS'})
     return PilotCall(call_id=identifier, task_id='task', method=method, provider='declared',
         model_id=model, prompt_sha256=hashlib.sha256(b'prompt').hexdigest(),
         response_sha256=hashlib.sha256(b'response').hexdigest(), origin=origin,
-        elapsed_seconds=1, cost=0, stage=stage, final=stage in {'SINGLE', 'SYNTHESIS'}, **kw)
+        elapsed_seconds=1, cost=0, stage=stage, **kw)
 
 
 def protocol(method, second_model='baseline'):
     stages = ['ARCHITECT', 'SINGLE'] if method == 'SINGLE' else [
         'ARCHITECT', 'INDEPENDENT', 'INDEPENDENT', 'REVIEW', 'REVIEW', 'SYNTHESIS']
     return tuple(call(method + str(i), method, stage,
-        second_model if i in {2, 4} else 'baseline') for i, stage in enumerate(stages))
+        second_model if i in {2, 4} else 'baseline',
+        shared_architect_call_id='common-task' if stage == 'ARCHITECT' else None)
+        for i, stage in enumerate(stages))
 
 
 class PilotTests(unittest.TestCase):
@@ -35,6 +38,9 @@ class PilotTests(unittest.TestCase):
         self.assertEqual(report['status'], 'READY_FOR_BLINDED_REVIEW')
         self.assertEqual(report['real_manual_final_outputs'], 3)
         self.assertEqual(report['recorded_calls'], 14)
+        self.assertEqual(report['unique_observed_model_calls'], 12)
+        self.assertEqual(report['shared_architect_reuses'], 2)
+        self.assertEqual(report['observed_elapsed_seconds'], 12)
         self.assertFalse(report['phase_accepted'])
         self.assertFalse(report['external_origin_authenticated'])
         self.assertEqual(report['output_budget_verification'], 'PARTIAL_UNKNOWN_TOKENS')
@@ -180,6 +186,110 @@ journal.append(PilotCall(**json.loads(sys.argv[2])), b'prompt', b'response')
                 'blind', '--workspace', directory], capture_output=True, timeout=10)
             self.assertEqual(result.returncode, 2)
             self.assertFalse((Path(directory) / 'BLINDED.json').exists())
+
+    def test_definite_failure_and_linked_repair_consume_original_allowance(self):
+        architect, final = protocol('SINGLE')
+        failure = call('failed', stage='SINGLE', outcome='FAILED', failure_reason='Observed UI error')
+        report = summarize((architect, failure, replace(final, repair_of='failed')), ('task',))
+        self.assertEqual(report['failed_attempts'], 1)
+        self.assertEqual(report['repair_attempts'], 1)
+        row = report['per_task_method'][0]
+        self.assertEqual((row['calls'], row['remaining_call_allowance']), (3, 3))
+        self.assertTrue(row['protocol_complete'])
+
+    def test_failure_without_success_never_counts_as_final_output(self):
+        failed = call('failed', stage='SINGLE', outcome='FAILED', failure_reason='No answer arrived')
+        report = summarize((protocol('SINGLE')[0], failed), ('task',))
+        self.assertEqual(report['real_manual_final_outputs'], 0)
+        self.assertEqual(report['unresolved_failure_groups'], 1)
+
+    def test_unknown_delivery_blocks_resend_even_with_a_repair_label(self):
+        unknown = call('ambiguous', stage='SINGLE', outcome='UNKNOWN', failure_reason='Delivery cannot be determined')
+        before = (protocol('SINGLE')[0], unknown)
+        self.assertEqual(summarize(before, ('task',))['unknown_attempts'], 1)
+        for link in (None, 'ambiguous'):
+            with self.subTest(link=link), self.assertRaises(ValueError):
+                summarize(before + (replace(protocol('SINGLE')[-1], repair_of=link),), ('task',))
+
+    def test_failed_attempt_cannot_be_skipped_or_repaired_by_another_model(self):
+        failed = call('failed', stage='SINGLE', outcome='FAILED', failure_reason='Observed error')
+        for changes in ({}, {'repair_of': 'absent'}, {'repair_of': 'failed', 'model_id': 'switched'},
+                        {'repair_of': 'failed', 'provider': 'other-provider'}):
+            with self.subTest(changes=changes), self.assertRaises(ValueError):
+                summarize((protocol('SINGLE')[0], failed,
+                    replace(protocol('SINGLE')[-1], **changes)), ('task',))
+
+    def test_repair_chain_must_bind_latest_failed_attempt(self):
+        first = call('first', stage='SINGLE', outcome='FAILED', failure_reason='First error')
+        second = call('second', stage='SINGLE', outcome='FAILED', failure_reason='Second error', repair_of='first')
+        start = (protocol('SINGLE')[0], first, second)
+        repaired = replace(protocol('SINGLE')[-1], repair_of='second')
+        self.assertEqual(summarize(start + (repaired,), ('task',))['repair_attempts'], 2)
+        with self.assertRaises(ValueError):
+            summarize(start + (replace(repaired, repair_of='first'),), ('task',))
+
+    def test_multiround_failure_does_not_raise_the_six_call_ceiling(self):
+        calls = protocol('REPEATED_SINGLE')
+        failed = replace(calls[-1], call_id='failed', outcome='FAILED', final=False, failure_reason='Observed error')
+        prior = calls[:-1] + (failed,)
+        row = summarize(prior, ('task',))['per_task_method'][0]
+        self.assertEqual(row['remaining_call_allowance'], 0)
+        self.assertFalse(row['protocol_complete'])
+        with self.assertRaises(ValueError):
+            summarize(prior + (replace(calls[-1], repair_of='failed'),), ('task',))
+
+    def test_failed_attempts_still_obey_output_and_time_ceilings(self):
+        failed = call('failed', stage='SINGLE', outcome='FAILED', failure_reason='Partial output then error')
+        for changes in ({'output_tokens': 2001}, {'elapsed_seconds': 601}):
+            with self.subTest(changes=changes), self.assertRaises(ValueError):
+                summarize((replace(failed, **changes),), ('task',))
+
+    def test_outcome_and_attempt_link_fields_reject_fabricated_combinations(self):
+        for changes in ({'outcome': 'MAYBE'}, {'outcome': []}, {'outcome': 'FAILED'},
+                        {'failure_reason': 'unexpected'}, {'repair_of': ''},
+                        {'shared_architect_call_id': True}, {'prompt_sha256': True}):
+            with self.subTest(changes=changes), self.assertRaises(ValueError):
+                replace(call('one'), **changes)
+        with self.assertRaises(ValueError):
+            call('one', stage='SINGLE', shared_architect_call_id='not-architect')
+        with self.assertRaises(ValueError):
+            call('one', stage='SINGLE', outcome='FAILED', failure_reason='Error', final=True)
+
+    def test_failure_at_a_foreign_protocol_stage_is_rejected(self):
+        with self.assertRaises(ValueError):
+            summarize((call('foreign', method='COUNCIL', stage='SINGLE',
+                outcome='FAILED', failure_reason='Error'),), ('task',))
+
+    def test_legacy_complete_calls_need_explicit_physical_architect_link(self):
+        calls = protocol('SINGLE') + protocol('REPEATED_SINGLE') + protocol('COUNCIL', 'other')
+        legacy = tuple(replace(c, shared_architect_call_id=None) for c in calls)
+        report = summarize(legacy, ('task',))
+        self.assertEqual(report['status'], 'INCOMPLETE')
+        self.assertFalse(report['shared_architect_links_complete'])
+
+    def test_shared_architect_cannot_disagree_on_actual_time_or_usage(self):
+        first = protocol('SINGLE')[0]
+        second = protocol('COUNCIL', 'other')[0]
+        for changes in ({'elapsed_seconds': 2}, {'input_tokens': 10}, {'origin': 'MOCK'},
+                        {'shared_architect_call_id': 'a-different-call'}):
+            changed = replace(second, **changes)
+            if 'shared_architect_call_id' in changes:
+                self.assertFalse(summarize((first, changed), ('task',))['shared_architect_links_complete'])
+            else:
+                with self.subTest(changes=changes), self.assertRaises(ValueError):
+                    summarize((first, changed), ('task',))
+
+    def test_journal_reopens_failed_attempt_and_repair_without_losing_evidence(self):
+        with tempfile.TemporaryDirectory() as directory:
+            journal = PilotJournal(Path(directory), ('task',))
+            failed = call('failed', stage='SINGLE', outcome='FAILED', failure_reason='Observed failure')
+            for observation in (protocol('SINGLE')[0], failed):
+                journal.append(observation, b'prompt', b'response')
+            reopened = PilotJournal(Path(directory), ('task',))
+            repaired = replace(protocol('SINGLE')[-1], repair_of='failed')
+            reopened.append(repaired, b'prompt', b'response')
+            self.assertEqual(reopened.calls(), (protocol('SINGLE')[0], failed, repaired))
+            self.assertEqual(summarize(reopened.calls(), ('task',))['repair_attempts'], 1)
 
 
 if __name__ == '__main__':

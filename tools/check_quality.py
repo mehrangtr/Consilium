@@ -21,6 +21,9 @@ def main():
     environment = dict(os.environ, PYTHONPATH=str(ROOT / 'src'), COVERAGE_FILE=str(folder / '.coverage'))
     commands = [
         ('lint', [sys.executable, '-m', 'ruff', 'check', '--no-cache', *TARGETS,
+                  'src/consilium/core/pilot.py', 'src/consilium/core/pilot_review.py',
+                  'src/consilium/shell/pilot.py', 'src/consilium/shell/pilot_review.py',
+                  'tools/p06_pilot.py', 'tools/check_p06.py',
                   'src/consilium/core/analyzers.py', 'src/consilium/core/council_repository.py',
                   'src/consilium/shell/council_repository.py', 'src/consilium/shell/demo.py', 'src/consilium/__main__.py']),
         ('types', [sys.executable, '-m', 'mypy', '--strict', '--follow-imports=skip', *TARGETS]),

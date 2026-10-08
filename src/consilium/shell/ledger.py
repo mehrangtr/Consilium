@@ -108,7 +108,7 @@ class OperationLedger:
             {"attempt_id": str(record.intent.identity.attempt_id), "logical_operation_id": str(record.intent.identity.logical_operation_id),
              "state": state.value})
 
-    def begin_send(self, request: AdapterRequest, *, expected_revision: int):
+    def begin_send(self, request: AdapterRequest, *, expected_revision: int, offline_mock: bool = False):
         request = AdapterRequest.model_validate(request.model_dump(mode="python"))
         with self.store._transaction():
             record = self.get_attempt(request.intent.identity.attempt_id)
@@ -127,7 +127,11 @@ class OperationLedger:
                     expected_revision=expected_revision)
                 # Persisted synthetic/local facts do not establish token counts
                 # or the live conversation's history. P04 prepares, never sends.
-                raise Conflict("Policy-managed transport awaits trusted live observers")
+                observation = getattr(bundle, 'observation', None)
+                if (offline_mock is not True or request.connection.provider_id != 'mock'
+                        or request.connection.model_id != 'mock-v1' or observation is None
+                        or observation.scope != 'OFFLINE_OBSERVER_NOT_LIVE_CERTIFICATION'):
+                    raise Conflict("Policy-managed transport awaits trusted live observers")
             if self._has_outstanding(record.intent.debate_id):
                 raise Conflict("The serial P02 runner must resolve its outstanding operation first")
             return self._change(record, expected_revision, transition(record.state, "SEND"), "SEND_STARTED", request=request)
@@ -234,7 +238,8 @@ class OperationLedger:
         return record.result
 
     def resume(self, attempt_id: UUID) -> ResumePlan:
-        with self.store._transaction(write=False):
+        from contextlib import nullcontext
+        with (nullcontext() if self._db.in_transaction else self.store._transaction(write=False)):
             record = self.get_attempt(attempt_id)
             if self.store.manual_reconciliation.for_operation(record.intent.identity.logical_operation_id) is not None:
                 return ResumePlan(attempt=record, action=ResumeAction.WAIT_FOR_DECISION,

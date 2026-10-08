@@ -109,7 +109,27 @@
         "scope": "EXECUTED_OFFLINE_CONTEXT_EXIT_EXAMPLES_NOT_LIVE_PROVIDER_CERTIFICATION"
       }
     ],
-    "P05": [],
+    "P05": [
+      {
+        "id": "council_offline_pipeline",
+        "kind": "test",
+        "argv": [
+          "{python}",
+          "tools/run_council_tests.py"
+        ],
+        "junit": "evidence/council-tests/JUNIT.xml",
+        "scope": "P05_FULL_OFFLINE_COUNCIL_NOT_LIVE_PROVIDER_CERTIFICATION"
+      },
+      {
+        "id": "council_exit_examples",
+        "kind": "static",
+        "argv": [
+          "{python}",
+          "tools/record_p05_council_examples.py"
+        ],
+        "scope": "EXECUTED_P05_OFFLINE_COUNCIL_EXIT_EXAMPLES"
+      }
+    ],
     "P06": [],
     "P07": [],
     "P08": [],

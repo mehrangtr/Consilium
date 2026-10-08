@@ -5,7 +5,7 @@
   "application_source_commit": "10c27c56187299120b2545ddca65014ec17bacff",
   "current_phase": "P05",
   "verified_application_requirements": 0,
-  "governance_check_note": "مرحله‌های P00 تا P03 پذیرفته شده‌اند؛ P04 در جریان است. ۳۰ خواسته محفوظ‌اند و پذیرش کامل اجرایی محصول 0/30 است.",
+  "governance_check_note": "مراحل P00 تا P04 پذیرفته شده‌اند؛ P05 در جریان است. همهٔ ۳۰ خواسته محفوظ‌اند.",
   "phases": [
     {
       "id": "P00",
@@ -315,15 +315,17 @@
     },
     {
       "id": "P05",
-      "status": "READY",
-      "actual_engineering_hours": 0,
+      "status": "IN_PROGRESS",
+      "actual_engineering_hours": null,
       "external_wait_hours": 0,
       "source_commit": null,
       "outputs": [],
       "tests": [],
       "exit_evidence": [],
       "blockers": [],
-      "notes": []
+      "notes": [
+        "P05 started from accepted main 7d25e68; full offline council, explicit decisions and judge, mixed mock/manual provenance, checkpoint exports and crash verification are required."
+      ]
     },
     {
       "id": "P06",
@@ -774,7 +776,9 @@
       "Explicit manual operation reconciliation and V9 migration verified: 538 tests and 31 actual product process exits per native OS; prior delivery facts preserved and late responses quarantined. Full P04 remains open.",
       "P04 full original context phase formally accepted: 579 tests/33 product process exits per actual native OS; immutable exit review preserved."
     ],
-    "working_changes": [],
+    "working_changes": [
+      "P05 council implementation in progress"
+    ],
     "next_action": "در P05-001 مسیر کامل داخلی شورا با اتصال ساختگی و دستی را از معمار تا تصمیم کاربر، نقد، دور هدفمند و انتخاب داور طراحی و آزمون کن. ابتدا بررسی‌های P05 و معیار پایان برش را ثبت کن؛ هیچ ارسال زنده یا هزینه‌ای آغاز نشود.",
     "next_command": "python tools/development_supervisor.py check",
     "note": "Update this record with precise subtask and pending work during development.",
@@ -786,17 +790,19 @@
     "next_task": {
       "id": "P05-001",
       "phase": "P05",
-      "status": "READY_NOT_STARTED",
+      "status": "IN_PROGRESS",
       "title_fa": "اولین مسیر کامل داخلی شورا",
       "next_action_fa": "در P05-001 مسیر کامل داخلی شورا با اتصال ساختگی و دستی را از معمار تا تصمیم کاربر، نقد، دور هدفمند و انتخاب داور طراحی و آزمون کن. ابتدا بررسی‌های P05 و معیار پایان برش را ثبت کن؛ هیچ ارسال زنده یا هزینه‌ای آغاز نشود.",
-      "remaining_fa": "کار مرحلهٔ پنج هنوز آغاز نشده است.",
+      "remaining_fa": "پیاده‌سازی، آزمون منفی، شاهد بومی هر دو محیط و پذیرش پایان مرحله باقی است.",
       "done_when_fa": "یک بحث کامل و یک دور هدفمند با گیت‌های واقعی محلی و انتخاب داور و منشأ و خروجی و ادامهٔ پایدار آزموده شوند."
     },
     "inputs_missing": [],
     "unfinished_work": {
       "phase": "P05",
-      "items": [],
-      "note": "P04 has no unfinished scoped task; P05 is ready and not implemented."
+      "items": [
+        "Full council implementation, tests, native OS evidence, acceptance and publication"
+      ],
+      "note": "No P05 completion claim."
     },
     "native_evidence": {
       "run_id": 37689915269,

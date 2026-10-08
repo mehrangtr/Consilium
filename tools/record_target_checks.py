@@ -46,6 +46,9 @@ def main():
     if (ROOT / "tools/run_architect_tests.py").is_file():
         inputs.update(architect_report="evidence/architect-tests/RUN.json",
                       architect_junit="evidence/architect-tests/JUNIT.xml")
+    if (ROOT / "tools/run_council_tests.py").is_file():
+        inputs.update(council_report="evidence/council-tests/RUN.json",
+                      council_junit="evidence/council-tests/JUNIT.xml")
     # Historical immutable reports remain intact; mutable outputs must be fresh.
     for original in inputs.values():
         (ROOT / original).unlink(missing_ok=True)

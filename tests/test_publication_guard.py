@@ -98,3 +98,36 @@ class PublicationGuardTests(unittest.TestCase):
             with self.subTest(value=value), self.assertRaises(Blocked): self.guard.begin(self.operation_id, wait_seconds=value)
         a = self.guard.begin(self.operation_id)
         with self.assertRaises(Blocked): self.guard.unknown(self.operation_id, a["nonce"], reason="private provider output")
+
+    def server_commit(self):
+        import hashlib
+        from publication_guard import canonical
+        evidence={'commit_sha':'e'*40,'tree_sha':'a'*40,'parent_shas':['b'*40],'message_sha256':'c'*64}
+        request={key:value for key,value in evidence.items() if key!='commit_sha'}
+        operation=self.guard.prepare(dict(self.plan,kind='SERVER_COMMIT',
+            request_sha256=hashlib.sha256(canonical(request).encode()).hexdigest()))['id']
+        return operation,evidence
+
+    def test_server_commit_requires_independently_read_exact_tree_parents_and_message(self):
+        operation,evidence=self.server_commit();attempt=self.guard.begin(operation)
+        self.guard.unknown(operation,attempt['nonce'])
+        for changes in ({'tree_sha':'f'*40},{'parent_shas':['f'*40]},{'message_sha256':'f'*64}):
+            result=self.guard.reconcile_commit(operation,attempt['nonce'],observed_commit={**evidence,**changes})
+            self.assertEqual(result['state'],'BLOCKED')
+            with self.assertRaises(Blocked):self.guard.begin(operation)
+        result=self.guard.reconcile_commit(operation,attempt['nonce'],observed_commit=evidence)
+        self.assertEqual(result['state'],'VERIFIED_COMPLETE');self.assertEqual(result['observed_sha'],'e'*40)
+        self.assertEqual(result['attempts'],1)
+
+    def test_server_commit_never_uses_immutable_object_retry_or_sha_only_reconciliation(self):
+        operation,evidence=self.server_commit();attempt=self.guard.begin(operation)
+        with self.assertRaises(Blocked):self.guard.reconcile(operation,attempt['nonce'],observed_sha='a'*40)
+        self.guard.unknown(operation,attempt['nonce'])
+        with self.assertRaises(Blocked):self.guard.begin(operation)
+        with self.assertRaises(Blocked):self.guard.reconcile_commit(operation,'old-nonce',observed_commit=evidence)
+
+    def test_server_commit_rejects_unbounded_or_missing_evidence(self):
+        operation,evidence=self.server_commit();attempt=self.guard.begin(operation)
+        for changes in ({'parent_shas':[]},{'commit_sha':'invalid'},{'message_sha256':'invalid'},{'extra':'private'}):
+            with self.subTest(changes=changes),self.assertRaises(Blocked):
+                self.guard.reconcile_commit(operation,attempt['nonce'],observed_commit={**evidence,**changes})

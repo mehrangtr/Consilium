@@ -18,10 +18,11 @@ class ManualRoundLedger:
             raise Conflict('Manual round requires an adopted question')
         sources = tuple((s for s in self.store.sources.context_sources(round_spec.debate_id, through_revision=revision) if s.source_round.number < round_spec.number))
         decision = self.store.admissions.continuation_for(round_spec)
+        judge = self.store.council.authorization(round_spec, revision) if round_spec.kind == 'SYNTHESIS' else None
         for value in (question, decision, *sources):
             ensure_public_payload(value.model_dump(mode='json'), self.store._forbidden_values)
-        context = build_round_context(question=question, debate=self.store.get_debate(round_spec.debate_id), round_spec=round_spec, participant_id=participant_id, expected_revision=revision, sources=sources, required_source_hashes=tuple((s.content_hash for s in sources)), grants=grants, connection=connection, parameters=parameters, named_authorization=named_authorization, continuation_decision=decision)
-        return ManualRoundFrame(round_spec=round_spec, participant_id=participant_id, connection=connection, connection_revision=connection_revision, context=context, sources=sources, grants=grants, continuation_decision=decision, named_authorization=named_authorization, rubric_version=rubric_version, max_context_bytes=max_context_bytes)
+        context = build_round_context(question=question, debate=self.store.get_debate(round_spec.debate_id), round_spec=round_spec, participant_id=participant_id, expected_revision=revision, sources=sources, required_source_hashes=tuple((s.content_hash for s in sources)), grants=grants, connection=connection, parameters=parameters, named_authorization=named_authorization, continuation_decision=decision, judge_selection=judge)
+        return ManualRoundFrame(round_spec=round_spec, participant_id=participant_id, connection=connection, connection_revision=connection_revision, context=context, sources=sources, grants=grants, continuation_decision=decision, named_authorization=named_authorization, rubric_version=rubric_version, max_context_bytes=max_context_bytes, judge_selection=judge)
 
     def _validate_frame(self, frame):
         row = self._db.execute('SELECT spec_json FROM rounds WHERE round_id=? AND debate_id=?', (str(frame.round_spec.round_id), str(frame.round_spec.debate_id))).fetchone()

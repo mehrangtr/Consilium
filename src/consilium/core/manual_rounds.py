@@ -2,11 +2,11 @@
 from typing import Annotated, Literal, Self
 from uuid import uuid5
 import json
-from pydantic import Field, model_validator
+from pydantic import Field, model_validator, model_serializer
 from .artifact_contracts import CritiquesOutput, VersionedOutput, decode_response_json
 from .contracts import Answer, ConnectionSpec, Contract, Critique, Identifier, Revision, Sha256, RoundSpec, Text, UserDecision
 from .question_contracts import _hash
-from .round_context import ContextSource, NamedReviewAuthorization, RoundContext, TransferGrant
+from .round_context import ContextSource, NamedReviewAuthorization, RoundContext, TransferGrant, JudgeSelection
 
 class ManualReviewTarget(Contract):
     alias: Annotated[str, Field(pattern='^[A-Z]{1,12}$')]
@@ -24,8 +24,16 @@ class ManualRoundFrame(Contract):
     grants: tuple[TransferGrant, ...]
     continuation_decision: UserDecision
     named_authorization: NamedReviewAuthorization | None = None
+    judge_selection: JudgeSelection | None = None
     rubric_version: Text = 'manual-rubric.v1'
     max_context_bytes: Annotated[int, Field(ge=1, le=1048576)] = 1048576
+
+    @model_serializer(mode='wrap')
+    def preserve_historical_schema(self, handler):
+        data = handler(self)
+        if self.judge_selection is None:
+            data.pop('judge_selection', None)
+        return data
 
     @property
     def staged_revision(self):
@@ -52,8 +60,10 @@ class ManualRoundFrame(Contract):
 
     @model_validator(mode='after')
     def bounded_role(self) -> Self:
-        if self.round_spec.kind not in {'REVIEW', 'TARGETED'} or self.round_spec.number < 2 or self.connection.mode != 'MANUAL' or (self.participant_id not in self.round_spec.participant_ids) or ((self.context.debate_id, self.context.round_id, self.context.participant_id) != (self.round_spec.debate_id, self.round_spec.round_id, self.participant_id)) or (len(self.sources) != len({s.content_hash for s in self.sources})) or ({s.content_hash for s in self.sources} != set(self.context.source_hashes)) or (len(self.expected_prompt.encode('utf-8')) > self.max_context_bytes) or (self.round_spec.kind == 'REVIEW' and (not self.targets)):
+        if self.round_spec.kind not in {'REVIEW', 'TARGETED', 'SYNTHESIS'} or self.round_spec.number < 2 or self.connection.mode != 'MANUAL' or (self.participant_id not in self.round_spec.participant_ids) or ((self.context.debate_id, self.context.round_id, self.context.participant_id) != (self.round_spec.debate_id, self.round_spec.round_id, self.participant_id)) or (len(self.sources) != len({s.content_hash for s in self.sources})) or ({s.content_hash for s in self.sources} != set(self.context.source_hashes)) or (len(self.expected_prompt.encode('utf-8')) > self.max_context_bytes) or (self.round_spec.kind == 'REVIEW' and (not self.targets)):
             raise ValueError('Manual round frame role, canonical view or local byte limit is invalid')
+        if (self.round_spec.kind == 'SYNTHESIS') != (self.judge_selection is not None):
+            raise ValueError('Synthesis requires a selected judge')
         return self
 
     @property
@@ -118,12 +128,15 @@ class ManualRoundCandidate(Contract):
             raise ValueError('Manual candidate exceeds its local byte limit')
         if self.round_spec.kind == 'REVIEW':
             self.critique_output()
+        elif self.round_spec.kind == 'SYNTHESIS':
+            from .council_contracts import JudgeOutput
+            JudgeOutput.model_validate_json(decode_response_json(self.content, 262144))
         return self
 
 def manual_round_sources(candidate: ManualRoundCandidate, accepted_revision: int) -> tuple[ContextSource, ...]:
     c = ManualRoundCandidate.model_validate(candidate)
     r = c.round_spec
-    if r.kind == 'TARGETED':
+    if r.kind in {'TARGETED', 'SYNTHESIS'}:
         items = (Answer(answer_id=uuid5(c.candidate_id, 'consilium/manual-round-answer/v1'), debate_id=r.debate_id, round_id=r.round_id, participant_id=c.participant_id, content=c.content, provenance='MANUAL', used_prompt=c.actual_prompt, round_seen=c.round_seen, logical_operation_id=None),)
     else:
         by_alias = {item.target_alias: item for item in c.critique_output().critiques}

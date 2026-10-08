@@ -142,7 +142,7 @@ class ContextObserverTests(unittest.TestCase):
         self.prepare(); expected=self.store.admissions.get(self.identity.logical_operation_id)
         self.store.close();self.store=SQLiteStore(self.path)
         self.assertEqual(expected,self.store.admissions.get(self.identity.logical_operation_id))
-        self.assertEqual(self.store._db.execute("PRAGMA user_version").fetchone()[0],9)
+        self.assertEqual(self.store._db.execute("PRAGMA user_version").fetchone()[0],10)
 
     def crash_case(self,before):
         receipt,budget,history=self.observe()

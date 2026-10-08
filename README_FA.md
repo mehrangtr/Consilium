@@ -22,3 +22,5 @@ python tools/run_consilium.py durable-mock --database ../local-demo.sqlite3 --qu
 ```text
 python tools/record_p04_context_examples.py
 ```
+
+مسیر شورای مرحلهٔ پنجم، فرمان‌های توقف و ادامه و انتخاب داور و خروجی پایه در [راهنمای شورای مرحلهٔ پنجم](docs/P05_COUNCIL_RUNBOOK_FA.md) توضیح داده شده است. پذیرش مرحله و آزمون بومی باید از `PROGRESS.json` و گزارش‌های وابسته به منبع بررسی شود.

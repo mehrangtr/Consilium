@@ -262,7 +262,7 @@ class SourceMigrationTests(unittest.TestCase):
             with closing(sqlite3.connect(path)) as db:
                 before = db.execute("SELECT * FROM schema_migrations ORDER BY version").fetchall()
             with SQLiteStore(path) as upgraded:
-                self.assertEqual(upgraded._db.execute("PRAGMA user_version").fetchone()[0], 9)
+                self.assertEqual(upgraded._db.execute("PRAGMA user_version").fetchone()[0], 10)
                 self.assertEqual([tuple(r) for r in upgraded._db.execute("SELECT * FROM schema_migrations WHERE version<=4 ORDER BY version")], before)
                 self.assertEqual(upgraded._db.execute("SELECT COUNT(*) FROM canonical_context_sources").fetchone()[0], 0)
 

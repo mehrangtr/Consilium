@@ -16,7 +16,7 @@ from .question_contracts import _hash
 
 class ReviewTarget(Contract):
     alias: Annotated[str, Field(pattern=r"^[A-Z]{1,12}$")]
-    logical_operation_id: Identifier
+    logical_operation_id: Identifier | None
     answer_id: Identifier
     source_hash: Sha256
 
@@ -50,7 +50,7 @@ class ArtifactResponseContract(Contract):
             if not self.targets or self.rubric_version is None:
                 raise ValueError("Review requires explicit targets and a local rubric")
             for field in ("alias", "answer_id", "source_hash", "logical_operation_id"):
-                values = [getattr(t, field) for t in self.targets]
+                values = [getattr(t, field) for t in self.targets if getattr(t, field) is not None]
                 if len(values) != len(set(values)):
                     raise ValueError("Review targets must be unambiguous and unique")
         elif self.targets or self.rubric_version is not None:
@@ -90,7 +90,7 @@ class AnswerOutput(VersionedOutput):
 class CritiqueOutput(Contract):
     target_alias: Annotated[str, Field(pattern=r"^[A-Z]{1,12}$")]
     points: Annotated[tuple[PeerPoint, ...], Field(min_length=1)]
-    score: Annotated[int, Field(ge=1, le=10)]
+    score: Annotated[int, Field(ge=1, le=10)] | Literal['NOT_SCORED']
     scoring_reason: Text
     strengths: tuple[Text, ...] = ()
     weaknesses: tuple[Text, ...] = ()
@@ -123,7 +123,11 @@ def parse_artifact_response(content: str, contract: ArtifactResponseContract) ->
         # scalar coercions (string scores, boolean versions) remain forbidden.
         clean = decode_response_json(content,contract.max_response_bytes)
         if contract.kind == "ANSWER":
-            return AnswerOutput.model_validate_json(clean)
+            output = AnswerOutput.model_validate_json(clean)
+            if contract.round_spec.kind == 'SYNTHESIS':
+                from .council_contracts import JudgeOutput
+                JudgeOutput.model_validate_json(decode_response_json(output.answer, contract.max_response_bytes))
+            return output
         output = CritiquesOutput.model_validate_json(clean)
         actual = [x.target_alias for x in output.critiques]
         if len(actual) != len(set(actual)) or set(actual) != {x.alias for x in contract.targets}:

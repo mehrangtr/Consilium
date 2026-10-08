@@ -447,3 +447,32 @@ else:s.council.finalize(debate_id=d,expected_revision=r)
         self.assertEqual(result.attempt.state.value,'INVALID_RESPONSE')
         self.assertIsNone(self.store.artifacts.get(request.intent.identity.logical_operation_id))
         with self.assertRaises(Conflict):self.council.finalize(debate_id=self.debate.debate_id,expected_revision=self.revision)
+
+    def test_explicit_named_peer_review_still_gives_selected_judge_blind_metadata(self):
+        from consilium.core.round_context import NamedIdentity, NamedReviewAuthorization
+        from consilium.core.dispatch_policy import destination_hash
+        # Configure the fixture before its first contribution; no product action
+        # uses a database edit to grant permissions.
+        self.debate=self.debate.model_copy(update={'review_visibility':'NAMED'})
+        self.store._db.execute('UPDATE debates SET spec_json=?',(self.store._public(self.debate.model_dump(mode='json')),))
+        self.complete_round();self.decide('CONTINUE');self.start('REVIEW')
+        for pid in self.pid:
+            connection,_=self.council.binding(self.debate.debate_id,pid)
+            authorization=NamedReviewAuthorization(debate_id=self.debate.debate_id,
+                destination_hash=destination_hash(connection),ledger_revision=self.revision,trusted_user_action_id=uuid4(),
+                identities=tuple(NamedIdentity(participant_id=p,provider_id='mock',model_id='mock-v1') for p in self.pid))
+            request=self.prepare(pid,named_authorization=authorization)
+            data=json.loads(request.intent.frozen_input.messages[1].content)
+            self.assertTrue(all('identity' in s for s in data['sources']))
+            contract=self.store.artifacts.get_contract(request.intent)
+            self.council.execute_mock(request,MockAdapter(response_content=self.review_content(contract.targets)),expected_revision=self.revision)
+        self.council.seal_round(debate_id=self.debate.debate_id,expected_revision=self.revision)
+        self.decide('FINISH');selected=self.select();request=self.prepare()
+        data=json.loads(request.intent.frozen_input.messages[1].content)
+        self.assertTrue(all('identity' not in s for s in data['sources']))
+        self.assertEqual(selected.bias_mitigation,'BLIND_ALL_EVIDENCE_WITH_DISSENT')
+        output=json.dumps({'schema_version':1,'answer':self.judge_output()})
+        self.council.execute_mock(request,MockAdapter(response_content=output),expected_revision=self.revision)
+        self.council.finalize(debate_id=self.debate.debate_id,expected_revision=self.revision)
+        self.reopen()
+        self.assertTrue(self.store.export_debate(self.debate.debate_id)['debate_completed'])

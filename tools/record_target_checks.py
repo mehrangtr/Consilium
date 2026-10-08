@@ -18,7 +18,9 @@ from development_progress import milestone, step_id
 ROOT = Path(__file__).resolve().parents[1]
 # check.py runs several suites, each bounded to 60 seconds. The aggregate
 # recorder needs room for those suites and its final source-bound report.
-NATIVE_CHECK_BUDGET_SECONDS = 120
+# P05 Windows ran all 621 cases but exhausted 120s before the final receipt.
+# Keep 180s for the aggregate, below the supervisor's 300s idle limit.
+NATIVE_CHECK_BUDGET_SECONDS = 180
 
 
 def main():

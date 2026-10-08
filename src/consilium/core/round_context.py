@@ -145,7 +145,12 @@ def build_round_context(*, question: AdoptedQuestion, debate: DebateSpec, round_
         raise PolicyBlocked("JUDGE_CONTROL_NOT_APPLICABLE")
     aliases = {pid: _alias(i + 1) for i, pid in enumerate(debate.participant_ids)}
     names = {}
-    if debate.review_visibility == "NAMED":
+    # P05 final synthesis has its own recorded blind mitigation. Named peer
+    # reviews do not silently turn that judge view into a named one. Preserve
+    # historical pre-P05 projections without a stored FINISH decision.
+    visibility = ('BLIND' if round_spec.kind == 'SYNTHESIS' and continuation_decision is not None
+                  and continuation_decision.kind == 'FINISH' else debate.review_visibility)
+    if visibility == "NAMED":
         if named_authorization is None:
             raise PolicyBlocked("EXPLICIT_NAMED_AUTHORIZATION_REQUIRED")
         authorized_names = check_authorization(named_authorization, NamedReviewAuthorization).identities
@@ -224,7 +229,7 @@ def build_round_context(*, question: AdoptedQuestion, debate: DebateSpec, round_
         parameters=parameters)
     return RoundContext(debate_id=debate.debate_id, round_id=round_spec.round_id, participant_id=participant_id,
         ledger_revision=expected_revision, role="JUDGE" if round_spec.kind == "SYNTHESIS" else "PARTICIPANT",
-        visibility=debate.review_visibility, snapshot_hash=question.original.content_hash,
+        visibility=visibility, snapshot_hash=question.original.content_hash,
         proposal_hash=question.proposal.content_hash, source_hashes=tuple(sorted(source_hashes)),
         grant_hashes=tuple(sorted(_hash(g) for g in grants)), authorization_hashes=tuple(sorted(authorizations)), frozen_input=frozen)
 

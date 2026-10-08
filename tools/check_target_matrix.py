@@ -51,6 +51,7 @@ def inspect_matrix(root):
     persistence_required = (root / "tools/run_persistence_tests.py").is_file()
     probe_required = (root / "tools/run_browser_probe_tests.py").is_file()
     architect_required = (root / "tools/run_architect_tests.py").is_file()
+    council_required = (root / "tools/run_council_tests.py").is_file()
     rows = []
     for target in targets:
         row = {"target": target, "status": "NOT_RUN"}
@@ -78,6 +79,8 @@ def inspect_matrix(root):
                 required_roles.update({"browser_probe_report", "browser_probe_junit"})
             if architect_required:
                 required_roles.update({"architect_report", "architect_junit"})
+            if council_required:
+                required_roles.update({"council_report", "council_junit"})
             q.require(required_roles.issubset(artifacts),
                       "Missing native artifacts")
             for reference_item in artifacts.values():
@@ -93,6 +96,9 @@ def inspect_matrix(root):
             if architect_required:
                 report_roles.append("architect_report")
                 junit_roles.append("architect_junit")
+            if council_required:
+                report_roles.append("council_report")
+                junit_roles.append("council_junit")
             for role in report_roles:
                 q.require(q.load(q.artifact(root, artifacts[role]))["status"] == "PASS", "Failed target subcheck")
             scopes = {"maintenance_report": "DEVELOPMENT_CHECK_WITH_SEPARATE_FOUNDATION_TESTS",
@@ -105,6 +111,8 @@ def inspect_matrix(root):
                 scopes["browser_probe_report"] = "P03_PROBE_RECORDER_OFFLINE_NOT_LIVE_BROWSER_ACCEPTANCE"
             if architect_required:
                 scopes["architect_report"] = "P04_QUESTION_CONTEXT_AND_POLICY_OFFLINE_NOT_FULL_PHASE_ACCEPTANCE"
+            if council_required:
+                scopes["council_report"] = "P05_FULL_OFFLINE_COUNCIL_NOT_LIVE_PROVIDER_CERTIFICATION"
             for role, expected_scope in scopes.items():
                 q.require(q.load(q.artifact(root, artifacts[role]))["scope"] == expected_scope,
                           "Incorrect target subcheck scope")

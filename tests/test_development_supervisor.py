@@ -6,6 +6,7 @@ import sys
 import tempfile
 import time
 import unittest
+import shutil
 
 import qualityctl as q
 from development_progress import atomic_json
@@ -125,3 +126,39 @@ class DevelopmentSupervisorTests(unittest.TestCase):
                           "artifacts": {"missing": {"path": "evidence/missing.log", "sha256": "0"*64}}})
         progress = {"receipt": {"path": str(path), "sha256": q.digest(path.read_bytes())}}
         self.assertEqual(reconcile(self.root, progress, "new", source)["status"], "INCOMPLETE")
+
+    def blocked_phase_fixture(self):
+        from test_qualityctl import QualityControls
+        fixture = QualityControls('runTest')
+        fixture.setUp()
+        self.addCleanup(fixture.tearDown)
+        root = fixture.root
+        state = q.load(root / 'PROGRESS.json')
+        state['phases'][0].update(status='BLOCKED', blockers=['No real phase evidence yet'])
+        fixture.write('PROGRESS.json', state)
+        tools = Path(__file__).resolve().parents[1] / 'tools'
+        for name in ('run_current_phase.py', 'development_progress.py'):
+            shutil.copy2(tools / name, root / 'tools' / name)
+        before = (root / 'PROGRESS.json').read_bytes()
+        step = Step('phase', (sys.executable, str(root / 'tools/run_current_phase.py'), '--report-blocked'), True)
+        path = supervise(root, (step,), idle_seconds=10, hard_seconds=20, retry_limit=0)
+        return root, before, json.loads(path.read_bytes())
+
+    def test_blocked_phase_reporting_finishes_supervised_task_without_accepting_phase(self):
+        root, before, state = self.blocked_phase_fixture()
+        self.assertEqual(state['status'], 'PASS', state)
+        self.assertEqual((root / 'PROGRESS.json').read_bytes(), before)
+        receipt = q.load(root / state['steps'][0]['reconciliation']['receipt'])
+        self.assertEqual(receipt['scope'], 'DEVELOPMENT_BLOCKER_RECORDING_ONLY')
+        self.assertEqual(receipt['phase_status'], 'BLOCKED')
+        self.assertEqual(receipt['execution'], 'NOT_RUN')
+        self.assertFalse(receipt['phase_accepted'])
+
+    def test_blocker_receipt_requires_its_retained_artifact(self):
+        root, _, state = self.blocked_phase_fixture()
+        row = state['steps'][0]
+        ref = row['reconciliation']
+        receipt = q.load(root / ref['receipt'])
+        (root / receipt['artifacts']['blocker']['path']).unlink()
+        progress = {'receipt': {'path': str(root / ref['receipt']), 'sha256': ref['sha256']}}
+        self.assertEqual(reconcile(root, progress, row['nonce'], state['source_digest'])['status'], 'INCOMPLETE')

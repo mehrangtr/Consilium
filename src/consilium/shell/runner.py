@@ -17,7 +17,9 @@ class DurableRunner:
             from consilium.adapters.mock import MockAdapter
             if type(adapter) is not MockAdapter:
                 raise Conflict("Typed source contracts currently permit only the offline MockAdapter")
-        checkpoint = self.store.ledger.begin_send(request, expected_revision=expected_revision)
+        from consilium.adapters.mock import MockAdapter
+        offline_mock = type(adapter) is MockAdapter and request.connection.provider_id == 'mock' and request.connection.model_id == 'mock-v1'
+        checkpoint = self.store.ledger.begin_send(request, expected_revision=expected_revision, offline_mock=offline_mock)
         try:
             result = adapter.send(request)
             result = TransportResult.model_validate(result.model_dump(mode="python"))

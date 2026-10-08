@@ -1,0 +1,105 @@
+{
+  "schema_version": 1,
+  "scope": "OWNED_OFFLINE_DEVELOPMENT_NOT_CHAT_SESSION_CONTROL",
+  "status": "BLOCKED",
+  "idle_seconds": 300,
+  "hard_seconds": 900,
+  "phase_advanced": false,
+  "source_digest": "cb51763a261cfbeeba2024f7bc2d59dba19130759defd3cf8ae3734125273ad1",
+  "steps": [
+    {
+      "step": "check",
+      "attempt": 1,
+      "nonce": "72c3457d6dea4d2280bc2245844a1ea6",
+      "status": "INCOMPLETE",
+      "log": "evidence/development-supervisor/5be959a0d5c2443e8fa2bd39134290bf/check_1/OUTPUT.log",
+      "worker_pid": 6,
+      "last_completed_milestone": "council_pipeline_tests_finished",
+      "retained_proof": {
+        "artifacts": [
+          {
+            "original_path": "evidence/maintenance-check/RUN.json",
+            "path": "evidence/development-supervisor/5be959a0d5c2443e8fa2bd39134290bf/check_1/proofs/evidence/maintenance-check/RUN.json",
+            "sha256": "d48312e9a96a2d1b3859ff7dffbfae8ff2991973957fd46d2dddd9eee436f4cf"
+          },
+          {
+            "original_path": "evidence/environment/RUN.json",
+            "path": "evidence/development-supervisor/5be959a0d5c2443e8fa2bd39134290bf/check_1/proofs/evidence/environment/RUN.json",
+            "sha256": "3a88435f03074e8f4bcb8b2e14cd99c89e7f60680dcfed790edeaeda621b6321"
+          },
+          {
+            "original_path": "evidence/control-tests/RUN.json",
+            "path": "evidence/development-supervisor/5be959a0d5c2443e8fa2bd39134290bf/check_1/proofs/evidence/control-tests/RUN.json",
+            "sha256": "ba07cf458932739bb5f4e66f8560a1df426aebd6337fdd2cc2d8fbd6eef97302"
+          },
+          {
+            "original_path": "evidence/control-tests/JUNIT.xml",
+            "path": "evidence/development-supervisor/5be959a0d5c2443e8fa2bd39134290bf/check_1/proofs/evidence/control-tests/JUNIT.xml",
+            "sha256": "9960941d7f6f6b81fce061537e1e788f5dd9996f3b174873cf9fd0dd256c0b73"
+          },
+          {
+            "original_path": "evidence/foundation-tests/RUN.json",
+            "path": "evidence/development-supervisor/5be959a0d5c2443e8fa2bd39134290bf/check_1/proofs/evidence/foundation-tests/RUN.json",
+            "sha256": "48e5b9b8acbc9e6f1d8f0f6faa63c671d3a616e25de1d0c0d679d21e14e1eec3"
+          },
+          {
+            "original_path": "evidence/foundation-tests/JUNIT.xml",
+            "path": "evidence/development-supervisor/5be959a0d5c2443e8fa2bd39134290bf/check_1/proofs/evidence/foundation-tests/JUNIT.xml",
+            "sha256": "8d407155e6b1dc1ca1a1e921d0e9a05eafbc0bc1f2ae07f4b67e55f664a99949"
+          },
+          {
+            "original_path": "evidence/persistence-tests/RUN.json",
+            "path": "evidence/development-supervisor/5be959a0d5c2443e8fa2bd39134290bf/check_1/proofs/evidence/persistence-tests/RUN.json",
+            "sha256": "0cde03c09813b121051d9258e859d3f3b530d6aa824a9c5e192b1b6fbbce0095"
+          },
+          {
+            "original_path": "evidence/persistence-tests/JUNIT.xml",
+            "path": "evidence/development-supervisor/5be959a0d5c2443e8fa2bd39134290bf/check_1/proofs/evidence/persistence-tests/JUNIT.xml",
+            "sha256": "589bb7ffd7a144bf7935674544cbbcb23da0ab18622ce546c3fe035fb956d3b8"
+          },
+          {
+            "original_path": "evidence/browser-probe-tests/RUN.json",
+            "path": "evidence/development-supervisor/5be959a0d5c2443e8fa2bd39134290bf/check_1/proofs/evidence/browser-probe-tests/RUN.json",
+            "sha256": "3aaf08fc799e2d73efe838f329d6806d31ec2f7e95b9f68efd936d9842b613f7"
+          },
+          {
+            "original_path": "evidence/browser-probe-tests/JUNIT.xml",
+            "path": "evidence/development-supervisor/5be959a0d5c2443e8fa2bd39134290bf/check_1/proofs/evidence/browser-probe-tests/JUNIT.xml",
+            "sha256": "d8f4b9cf44201197e9b0abd379f0abe06283fecf6ebbcb10369218643d16e702"
+          },
+          {
+            "original_path": "evidence/architect-tests/RUN.json",
+            "path": "evidence/development-supervisor/5be959a0d5c2443e8fa2bd39134290bf/check_1/proofs/evidence/architect-tests/RUN.json",
+            "sha256": "2a71eb5a5b1ebe5e5e7cd8a25907decab60fd5853fc7b5377b7887e36a9c3f1c"
+          },
+          {
+            "original_path": "evidence/architect-tests/JUNIT.xml",
+            "path": "evidence/development-supervisor/5be959a0d5c2443e8fa2bd39134290bf/check_1/proofs/evidence/architect-tests/JUNIT.xml",
+            "sha256": "5ea56abf9f20d5412f1de7f21afa47c67e20155a5caa40bd758d7edbc1b0703b"
+          },
+          {
+            "original_path": "evidence/council-tests/RUN.json",
+            "path": "evidence/development-supervisor/5be959a0d5c2443e8fa2bd39134290bf/check_1/proofs/evidence/council-tests/RUN.json",
+            "sha256": "b13d4d3b8a0033676958e51397270b1a0b44127daebb896f53eb3483802e4b86"
+          },
+          {
+            "original_path": "evidence/council-tests/JUNIT.xml",
+            "path": "evidence/development-supervisor/5be959a0d5c2443e8fa2bd39134290bf/check_1/proofs/evidence/council-tests/JUNIT.xml",
+            "sha256": "20bbd320477d30a4655b36d38ff6515911bdd731dcfb2918e02f03c9a058e119"
+          }
+        ],
+        "errors": []
+      },
+      "stop_reason": null,
+      "returncode": 1,
+      "reconciliation": {
+        "status": "INCOMPLETE",
+        "reason": "Receipt did not pass"
+      }
+    }
+  ],
+  "remaining_steps": [
+    "check"
+  ],
+  "next_action": "REPAIR_OR_VERIFY_check"
+}

@@ -26,13 +26,17 @@ class Scenario(StrEnum):
 
 class MockAdapter:
     def __init__(self, *, mode: Mode = "API", scenario: Scenario = Scenario.SUCCESS,
-                 latency_seconds: float = 1.0):
+                 latency_seconds: float = 1.0, response_content: str | None = None):
         if mode not in {"API", "BROWSER"} or not isinstance(scenario, Scenario):
             raise ValueError("Mock mode or scenario is invalid")
         if isinstance(latency_seconds, bool) or not isinstance(latency_seconds, (int, float)) \
                 or not math.isfinite(latency_seconds) or latency_seconds < 0:
             raise ValueError("Virtual latency must be finite and nonnegative")
         self._scenario = scenario
+        if response_content is not None and (type(response_content) is not str or not response_content.strip()
+                                            or len(response_content.encode('utf-8')) > 1048576):
+            raise ValueError('Mock fixture output must be bounded nonblank text')
+        self._response_content = response_content
         self._latency = float(latency_seconds)
         self._capabilities = AdapterCapabilities(mode=mode, verification="DECLARED_MOCK",
                                                 delivery_probe=True, idempotency=False,
@@ -58,7 +62,7 @@ class MockAdapter:
             raise ValueError("This attempt has already been invoked; do not silently resend")
         self._calls.append(request)
         delivery, state, failure = Delivery.CONFIRMED, ResponseState.COMPLETE, Failure.NONE
-        content, elapsed = '{"answer":"offline mock response"}', 0.0
+        content, elapsed = self._response_content or '{"answer":"offline mock response"}', 0.0
         remote_id = "mock-" + str(attempt)
         if self._scenario == Scenario.DELAYED:
             elapsed = min(self._latency, request.timeout_seconds)

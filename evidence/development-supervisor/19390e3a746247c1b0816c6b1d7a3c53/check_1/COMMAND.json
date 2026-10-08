@@ -1,0 +1,9 @@
+{
+  "command": [
+    "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+    "tools/check.py"
+  ],
+  "root": "/workspace/scratch/96afc5b34761/consilium-p05",
+  "nonce": "0d9896f8bed74f4a8a745186e68dc2ad",
+  "supervisor_pid": 5
+}

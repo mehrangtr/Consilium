@@ -18,7 +18,10 @@ from development_progress import milestone, step_id
 ROOT = Path(__file__).resolve().parents[1]
 # check.py runs several suites, each bounded to 60 seconds. The aggregate
 # recorder needs room for those suites and its final source-bound report.
-NATIVE_CHECK_BUDGET_SECONDS = 120
+# P05 Windows ran all 621 cases but exhausted 120s before the final receipt.
+# The Windows run 37801218935 cut the 259-case architect suite at 60s.
+# Allow that suite 90s and the aggregate 240s; retain the 300/900 supervisor limits.
+NATIVE_CHECK_BUDGET_SECONDS = 240
 
 
 def main():
@@ -46,6 +49,9 @@ def main():
     if (ROOT / "tools/run_architect_tests.py").is_file():
         inputs.update(architect_report="evidence/architect-tests/RUN.json",
                       architect_junit="evidence/architect-tests/JUNIT.xml")
+    if (ROOT / "tools/run_council_tests.py").is_file():
+        inputs.update(council_report="evidence/council-tests/RUN.json",
+                      council_junit="evidence/council-tests/JUNIT.xml")
     # Historical immutable reports remain intact; mutable outputs must be fresh.
     for original in inputs.values():
         (ROOT / original).unlink(missing_ok=True)

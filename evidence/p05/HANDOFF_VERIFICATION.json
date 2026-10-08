@@ -1,0 +1,17 @@
+{
+  "phase": "P05",
+  "status": "ACCEPTED_HANDOFF_VERIFIED",
+  "source_digest": "c01c0633233eb7b35a9cf6319f75497771632ddf7b3fe3ad6e0f7300bdf6dad8",
+  "archive_sha256": "977bc43a02bd9e77a8cc768c132d461fd745ab96fbeb261a2496f6e6afcec24a",
+  "files": 1183,
+  "next_phase": "P06",
+  "state_label": "INCOMPLETE",
+  "code_commit": "ddf33b24f41aa2c5ee0609800bd9f440165b72b5",
+  "native_run_id": 37756543373,
+  "full_v1_conformance_claimed": false,
+  "reviewer_independent": false,
+  "tests_per_native_target": 622,
+  "council_tests_per_target": 40,
+  "product_process_exit_cases_per_target": 39,
+  "archive_filename": "Consilium_P05_FINAL_HANDOFF.zip"
+}

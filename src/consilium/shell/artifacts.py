@@ -37,6 +37,20 @@ class ArtifactLedger:
 
     def _validate_targets(self, contract):
         for target in contract.targets:
+            if target.logical_operation_id is None:
+                # Manual answers have no generated-operation identity. Read only
+                # earlier manual events, before recursively hydrating their views.
+                initial = [r.source for r in self.store.manual_sources.for_debate(contract.round_spec.debate_id)
+                           if r.alignment == 'ALIGNED' and r.source.source_round.number < contract.round_spec.number]
+                rows = self._db.execute("SELECT a.candidate_id FROM manual_round_acceptances a JOIN rounds r USING(round_id) "
+                    "WHERE r.debate_id=? AND r.number<?", (str(contract.round_spec.debate_id), contract.round_spec.number)).fetchall()
+                records = [self.store.manual_rounds.get(UUID(row[0])) for row in rows]
+                manual = [s for record in records if record.alignment == 'ALIGNED' for s in record.sources]
+                matches = [s for s in initial + manual if isinstance(s.item, Answer)
+                           and s.item.answer_id == target.answer_id and s.content_hash == target.source_hash]
+                if len(matches) != 1 or matches[0].provenance != 'MANUAL':
+                    raise Conflict('Manual review target is not an exact prior accepted answer')
+                continue
             # Check graph direction before recursively reading any source batch.
             # A corrupted self/future reference must fail, never recurse forever.
             row = self._db.execute("SELECT r.spec_json FROM operations o JOIN rounds r ON o.round_id=r.round_id "

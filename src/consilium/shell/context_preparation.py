@@ -14,7 +14,7 @@ from consilium.shell.storage import Conflict, _revision
 
 def prepare_independent_intent(store, *, context, connection: ConnectionSpec, identity: OperationIdentity,
                                expected_revision: int, expected_connection_revision: int,
-                               parameters: GenerationParameters, privacy, budget, history, observation=None):
+                               parameters: GenerationParameters, privacy, budget, history, observation=None, response_contract=None):
     context = IndependentContext.model_validate(context)
     expected_connection_revision = _revision(expected_connection_revision)
     connection = ConnectionSpec.model_validate(connection)
@@ -54,13 +54,13 @@ def prepare_independent_intent(store, *, context, connection: ConnectionSpec, id
         bundle = bundle_class(context=context, connection=connection,
             connection_revision=expected_connection_revision, privacy=privacy, budget=budget,
             history=history, admission=admission, **({} if observation is None else {"observation": observation}))
-    return store.prepare_intent(intent, admission_bundle=bundle), admission
+    return store.prepare_intent(intent, admission_bundle=bundle, response_contract=response_contract), admission
 
 
 def prepare_round_intent(store, *, debate_id, round_id, participant_id, context,
                          connection, identity, expected_revision, expected_connection_revision,
                          parameters, grants, privacy, budget, history,
-                         judge_selection=None, named_authorization=None, observation=None):
+                         judge_selection=None, named_authorization=None, observation=None, response_contract=None):
     """Derive all required sources from storage, then atomically persist receipt."""
     from consilium.core.round_admission import RoundAdmissionBundle
     from consilium.core.round_context import RoundContext, recover_round_context
@@ -110,4 +110,4 @@ def prepare_round_intent(store, *, debate_id, round_id, participant_id, context,
             grants=grants, continuation_decision=decision, judge_selection=judge_selection, named_authorization=named_authorization,
             privacy=privacy, budget=budget, history=history, admission=admission,
             **({} if observation is None else {"observation": observation}))
-    return store.prepare_intent(intent, admission_bundle=bundle), admission
+    return store.prepare_intent(intent, admission_bundle=bundle, response_contract=response_contract), admission

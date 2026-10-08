@@ -23,7 +23,7 @@ class AdmissionLedger:
         if row is None:
             raise Conflict("Later-round context requires its stored continuation decision")
         decision = UserDecision.model_validate_json(row[0])
-        if decision.kind not in {"CONTINUE", "CUSTOM"}:
+        if decision.kind not in ({'FINISH'} if round_spec.kind == 'SYNTHESIS' else {"CONTINUE", "CUSTOM"}):
             raise Conflict("Stored decision does not permit continuation")
         return decision
 
@@ -86,6 +86,14 @@ class AdmissionLedger:
             event = self._db.execute("SELECT * FROM events WHERE sequence=?", (row["event_sequence"],)).fetchone()
             expected = {"logical_operation_id": logical, "attempt_id": row["prepared_attempt_id"],
                         "admission_bundle_hash": bundle.content_hash}
+            output_row = self._db.execute('SELECT contract_json,contract_hash FROM response_contracts WHERE logical_operation_id=?', (logical,)).fetchone()
+            if output_row is not None:
+                from consilium.core.artifact_contracts import ArtifactResponseContract
+                output = ArtifactResponseContract.model_validate_json(output_row[0])
+                output.require_intent(intent)
+                if output.content_hash != output_row[1]:
+                    raise ValueError('Output contract hash mismatch')
+                expected['response_contract_hash'] = output.content_hash
             if (len(marked) != 1 or event is None or event["kind"] != "OPERATION_PREPARED"
                     or event["debate_id"] != str(intent.debate_id)
                     or event["revision"] != intent.expected_revision + 1

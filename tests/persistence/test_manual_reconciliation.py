@@ -177,13 +177,14 @@ class ManualReconciliationTests(unittest.TestCase):
         self.store.close()
         with closing(sqlite3.connect(self.path,autocommit=True)) as db:
             db.execute("PRAGMA foreign_keys=OFF");db.execute("BEGIN")
+            db.execute("DROP TABLE council_records")
             db.execute("DROP TABLE manual_operation_reconciliations")
             for statement in V8_STATEMENTS[:4]:db.execute(statement)
             statement=next(s for s in V2_STATEMENTS if s.startswith("CREATE TABLE rejected_results("))
             db.execute(statement.replace("CREATE TABLE rejected_results(","CREATE TABLE rejected_results_old("))
             db.execute("INSERT INTO rejected_results_old SELECT * FROM rejected_results")
             db.execute("DROP TABLE rejected_results");db.execute("ALTER TABLE rejected_results_old RENAME TO rejected_results")
-            db.execute("DELETE FROM schema_migrations WHERE version=9");db.execute("PRAGMA user_version=8");db.execute("COMMIT")
+            db.execute("DELETE FROM schema_migrations WHERE version>=9");db.execute("PRAGMA user_version=8");db.execute("COMMIT")
         return old
 
     def test_v8_upgrade_preserves_attempt_and_every_published_migration_record(self):

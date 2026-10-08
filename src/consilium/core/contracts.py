@@ -111,7 +111,7 @@ class Critique(Contract):
     reviewer_id: Identifier
     target_answer_id: Identifier
     points: Annotated[tuple[PeerPoint, ...], Field(min_length=1)]
-    score: Annotated[int, Field(ge=1, le=10)]
+    score: Annotated[int, Field(ge=1, le=10)] | Literal['NOT_SCORED']
     scoring_reason: Text
     rubric_version: Text
     strengths: tuple[Text, ...] = ()

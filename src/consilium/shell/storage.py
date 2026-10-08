@@ -22,9 +22,10 @@ from consilium.shell.schema_v6 import V6_STATEMENTS, V6_TABLES
 from consilium.shell.schema_v7 import V7_STATEMENTS, V7_TABLES
 from consilium.shell.schema_v8 import V8_STATEMENTS, V8_TABLES
 from consilium.shell.schema_v9 import V9_STATEMENTS, V9_TABLES
+from consilium.shell.schema_v10 import V10_STATEMENTS, V10_TABLES
 
 APPLICATION_ID = 0x434F4E53
-SCHEMA_VERSION = 9
+SCHEMA_VERSION = 10
 V1_STATEMENTS = (
     """CREATE TABLE schema_migrations(
         version INTEGER PRIMARY KEY, checksum TEXT NOT NULL CHECK(length(checksum)=64),
@@ -117,7 +118,7 @@ class SQLiteStore:
                 self._db.execute("PRAGMA foreign_keys=OFF")
             with self._transaction():
                 version = self._check_owner()
-                migrations = {1: V1_STATEMENTS, 2: V2_STATEMENTS, 3: V3_STATEMENTS, 4: V4_STATEMENTS, 5: V5_STATEMENTS, 6: V6_STATEMENTS, 7: V7_STATEMENTS, 8: V8_STATEMENTS, 9: V9_STATEMENTS}
+                migrations = {1: V1_STATEMENTS, 2: V2_STATEMENTS, 3: V3_STATEMENTS, 4: V4_STATEMENTS, 5: V5_STATEMENTS, 6: V6_STATEMENTS, 7: V7_STATEMENTS, 8: V8_STATEMENTS, 9: V9_STATEMENTS, 10: V10_STATEMENTS}
                 checksums = {v: hashlib.sha256(_json(sql).encode("utf-8")).hexdigest() for v, sql in migrations.items()}
                 if version == 0:
                     # executescript() is deliberately excluded from this transaction.
@@ -130,7 +131,7 @@ class SQLiteStore:
                 recorded = self._db.execute("SELECT version,checksum FROM schema_migrations ORDER BY version").fetchall()
                 if [(r["version"], r["checksum"]) for r in recorded] != [(v, checksums[v]) for v in range(1, version+1)]:
                     raise SchemaError("Migration history does not match this schema")
-                if self._table_names() != {1: _TABLES, 2: V2_TABLES, 3: V3_TABLES, 4: V4_TABLES, 5: V5_TABLES, 6: V6_TABLES, 7: V7_TABLES, 8: V8_TABLES, 9: V9_TABLES}[version]:
+                if self._table_names() != {1: _TABLES, 2: V2_TABLES, 3: V3_TABLES, 4: V4_TABLES, 5: V5_TABLES, 6: V6_TABLES, 7: V7_TABLES, 8: V8_TABLES, 9: V9_TABLES, 10: V10_TABLES}[version]:
                     raise SchemaError("Storage schema is incomplete or has unknown tables")
                 # Validate the old checkpoint before touching its schema.
                 for row in self._db.execute("SELECT debate_id FROM debates").fetchall():
@@ -140,7 +141,7 @@ class SQLiteStore:
                         self._db.execute(statement)
                     self._db.execute("INSERT INTO schema_migrations VALUES(?,?,?)", (target, checksums[target], self._now()))
                     self._db.execute("PRAGMA user_version=" + str(target))
-                if self._table_names() != V9_TABLES:
+                if self._table_names() != V10_TABLES:
                     raise SchemaError("Migrated schema is inconsistent")
                 if self._db.execute("PRAGMA quick_check").fetchone()[0] != "ok" or self._db.execute("PRAGMA foreign_key_check").fetchall():
                     raise SchemaError("Storage integrity check failed")
@@ -148,6 +149,8 @@ class SQLiteStore:
                     self.checkpoint(UUID(row["debate_id"]))
                 from consilium.shell.ledger import OperationLedger
                 self.ledger = OperationLedger(self)
+                from consilium.shell.council import Council
+                self.council = Council(self)
                 from consilium.shell.manual_reconciliation import ManualReconciliationLedger
                 self.manual_reconciliation = ManualReconciliationLedger(self)
                 from consilium.shell.artifacts import ArtifactLedger
@@ -170,6 +173,7 @@ class SQLiteStore:
                 self.manual_rounds.check_integrity()
                 self.admissions.check_integrity()
                 self.artifacts.check_integrity()
+                self.council.check_integrity()
             self._db.execute("PRAGMA foreign_keys=ON")
             if self._db.execute("PRAGMA foreign_keys").fetchone()[0] != 1:
                 raise SchemaError("Runtime foreign key enforcement is unavailable")
@@ -417,7 +421,8 @@ class SQLiteStore:
         return tuple(self.get_intent(UUID(row["attempt_id"])) for row in rows)
 
     def export_debate(self, debate_id: UUID) -> dict:
-        with self._transaction(write=False):
+        from contextlib import nullcontext
+        with (nullcontext() if self._db.in_transaction else self._transaction(write=False)):
             debate = self.get_debate(debate_id)
             rounds = [RoundSpec.model_validate_json(row["spec_json"]).model_dump(mode="json") for row in self._db.execute(
                 "SELECT spec_json FROM rounds WHERE debate_id=? ORDER BY number", (str(debate_id),))]
@@ -440,6 +445,7 @@ class SQLiteStore:
             payload.update(self.manual_rounds.export_fields(debate_id))
             payload["manual_operation_reconciliations"] = [r.model_dump(mode="json")
                 for r in self.manual_reconciliation.for_debate(debate_id)]
+            payload.update(self.council.export_fields(debate_id))
             self._public(payload)
             return payload
 

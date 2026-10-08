@@ -1,0 +1,10 @@
+{
+  "nonce": "0304e6d918f5492f8b8015aa814ee9b3",
+  "task_pid": 7,
+  "sequence": 12,
+  "milestone": "configured_phase_receipt_written",
+  "receipt": {
+    "path": "/workspace/scratch/96afc5b34761/consilium-p05/evidence/runs/20261008T093202Z_2c8a59775c/RUN.json",
+    "sha256": "44551b0fb4cc040bf14b6ab4d7010c6114a82b828cc1d4428f5eca6e35a1ee67"
+  }
+}

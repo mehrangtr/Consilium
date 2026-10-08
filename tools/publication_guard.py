@@ -46,7 +46,7 @@ class PublicationGuard:
     def prepare(self, plan):
         if set(plan) != {"kind", "resource", "expected_sha", "request_sha256", "source_digest"}:
             raise Blocked("INVALID_PLAN_FIELDS")
-        if (plan["kind"] not in {"GIT_OBJECT", "REF_UPDATE"}
+        if (plan["kind"] not in {"GIT_OBJECT", "REF_UPDATE", "SERVER_COMMIT"}
                 or not isinstance(plan["resource"], str)
                 or not re.fullmatch(r"[A-Za-z0-9_./-]{1,200}", plan["resource"])
                 or not re.fullmatch(r"[0-9a-f]{40}", str(plan["expected_sha"]))
@@ -114,6 +114,8 @@ class PublicationGuard:
             raise Blocked("INVALID_READ_EVIDENCE")
         with self.db:
             row = self.inspect(operation_id)
+            if row['plan']['kind'] == 'SERVER_COMMIT':
+                raise Blocked('SERVER_COMMIT_REQUIRES_INDEPENDENT_CONTENT_EVIDENCE')
             if row["nonce"] != nonce or row["state"] not in {"IN_FLIGHT", "UNKNOWN", "BLOCKED", "VERIFIED_NOT_APPLIED"}:
                 raise Blocked("STALE_ATTEMPT")
             if observed_sha == row["plan"]["expected_sha"]:
@@ -129,6 +131,32 @@ class PublicationGuard:
             self._event(operation_id, state, nonce)
         return self.inspect(operation_id)
 
+    def reconcile_commit(self, operation_id, nonce, *, observed_commit):
+        # The server chooses author/committer timestamps, so the final commit
+        # SHA cannot be predicted by this connector. Bind its independently
+        # fetched tree, ordered parents and message hash to the prepared request.
+        if set(observed_commit) != {'commit_sha', 'tree_sha', 'parent_shas', 'message_sha256'}:
+            raise Blocked('INVALID_COMMIT_EVIDENCE')
+        if (not isinstance(observed_commit['parent_shas'], list) or not observed_commit['parent_shas']
+                or any(not re.fullmatch(r'[0-9a-f]{40}', str(value)) for value in
+                       [observed_commit['commit_sha'], observed_commit['tree_sha'], *observed_commit['parent_shas']])
+                or not re.fullmatch(r'[0-9a-f]{64}', str(observed_commit['message_sha256']))):
+            raise Blocked('INVALID_COMMIT_EVIDENCE')
+        request = {key: value for key, value in observed_commit.items() if key != 'commit_sha'}
+        request_hash = hashlib.sha256(canonical(request).encode()).hexdigest()
+        with self.db:
+            row = self.inspect(operation_id)
+            if (row['plan']['kind'] != 'SERVER_COMMIT' or row['nonce'] != nonce
+                    or row['state'] not in {'IN_FLIGHT', 'UNKNOWN', 'BLOCKED'}):
+                raise Blocked('STALE_OR_WRONG_COMMIT_ATTEMPT')
+            matched = (observed_commit['tree_sha'] == row['plan']['expected_sha']
+                       and request_hash == row['plan']['request_sha256'])
+            state = 'VERIFIED_COMPLETE' if matched else 'BLOCKED'
+            self.db.execute('UPDATE operations SET state=?,observed_sha=? WHERE id=?',
+                            (state, observed_commit['commit_sha'], operation_id))
+            self._event(operation_id, state, nonce)
+        return self.inspect(operation_id)
+
     def pending(self):
         return [self.inspect(row[0]) for row in self.db.execute(
             "SELECT id FROM operations WHERE state!='VERIFIED_COMPLETE' ORDER BY rowid")]
@@ -137,7 +165,7 @@ class PublicationGuard:
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--database", type=Path, required=True)
-    parser.add_argument("action", choices=("prepare", "begin", "unknown", "reconcile", "pending"))
+    parser.add_argument("action", choices=("prepare", "begin", "unknown", "reconcile", "reconcile_commit", "pending"))
     args = parser.parse_args()
     try:
         payload = json.load(sys.stdin) if args.action != "pending" else {}

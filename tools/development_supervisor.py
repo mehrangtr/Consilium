@@ -71,6 +71,7 @@ def read_progress(path: Path, nonce: str, task_pid: int | None, sequence: int,
 
 def reconcile(root: Path, progress: dict | None, nonce: str, source: str) -> dict:
     """Reopen the fresh receipt and every declared artifact; stale PASS is insufficient."""
+    root = root.resolve()
     try:
         q.require(progress is not None and progress.get("receipt") is not None, "No completed receipt")
         ref = progress["receipt"]
@@ -109,6 +110,7 @@ def reconcile(root: Path, progress: dict | None, nonce: str, source: str) -> dic
 
 def retain_receipt(root: Path, directory: Path, progress: dict | None, nonce: str) -> dict:
     """Preserve failed as well as successful results before mutable reports change."""
+    root = root.resolve()
     retained, errors = [], []
     try:
         q.require(progress is not None and progress.get("receipt"), "No receipt to preserve")
@@ -145,6 +147,7 @@ def retain_receipt(root: Path, directory: Path, progress: dict | None, nonce: st
 def supervise(root: Path, steps: tuple[Step, ...], *, idle_seconds: float = IDLE_SECONDS,
               hard_seconds: float = HARD_SECONDS, retry_limit: int = 1,
               clock=time.monotonic) -> Path:
+    root = root.resolve()
     if idle_seconds <= 0 or hard_seconds < idle_seconds or retry_limit not in (0, 1):
         raise ValueError("Invalid development guard limits")
     run = root / "evidence/development-supervisor" / uuid.uuid4().hex

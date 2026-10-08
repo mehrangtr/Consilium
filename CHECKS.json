@@ -130,7 +130,41 @@
         "scope": "EXECUTED_P05_OFFLINE_COUNCIL_EXIT_EXAMPLES"
       }
     ],
-    "P06": [],
+    "P06": [
+      {
+        "id": "p06_accounting_protocol",
+        "kind": "test",
+        "argv": [
+          "{python}",
+          "tools/run_pilot_tests.py"
+        ],
+        "junit": "evidence/pilot-tests/JUNIT.xml",
+        "scope": "OFFLINE_PILOT_ACCOUNTING_NOT_MODEL_QUALITY"
+      },
+      {
+        "id": "p06_preregistered_preflight",
+        "kind": "static",
+        "argv": [
+          "{python}",
+          "tools/check_p06.py",
+          "preflight"
+        ],
+        "scope": "PILOT_SETUP_NOT_REAL_QUALITY"
+      },
+      {
+        "id": "p06_real_quality_evidence",
+        "kind": "static",
+        "argv": [
+          "{python}",
+          "tools/check_p06.py",
+          "evidence"
+        ],
+        "scope": "REAL_OUTPUTS_REQUIRED_NO_MOCK_SUBSTITUTION",
+        "execution_mode": "REAL_EVALUATION",
+        "acceptance_only": true,
+        "reason": "Validate actual pilot collection and missing-evidence barrier; this command generates no model response and does not authenticate declared manual origin. It cannot pass until real scoring, product-flow and reestimate review are implemented and registered."
+      }
+    ],
     "P07": [],
     "P08": [],
     "P09": [],

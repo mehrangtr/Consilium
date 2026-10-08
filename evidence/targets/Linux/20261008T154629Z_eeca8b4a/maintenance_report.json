@@ -1,0 +1,112 @@
+{
+  "schema_version": 1,
+  "development_step_id": "8d21f1dc2bba4fd8b7c749ea96fae828",
+  "artifacts": {
+    "evidence/environment/RUN.json": {
+      "path": "evidence/environment/RUN.json",
+      "sha256": "3a88435f03074e8f4bcb8b2e14cd99c89e7f60680dcfed790edeaeda621b6321"
+    },
+    "evidence/control-tests/RUN.json": {
+      "path": "evidence/control-tests/RUN.json",
+      "sha256": "c9a98232d9a9aad6b472f1e252ec836923024531b9b4d48c294a5b76e3c57fe9"
+    },
+    "evidence/control-tests/JUNIT.xml": {
+      "path": "evidence/control-tests/JUNIT.xml",
+      "sha256": "5e01713271a9f8dad4cacafbb20a9c4d86c6e6ec06151dbd17c4353c6fa5ab47"
+    },
+    "evidence/foundation-tests/RUN.json": {
+      "path": "evidence/foundation-tests/RUN.json",
+      "sha256": "83a10b7d553ef970a97faf889b1d17a37a0250e1f64bcaed35288fc6feeef65f"
+    },
+    "evidence/foundation-tests/JUNIT.xml": {
+      "path": "evidence/foundation-tests/JUNIT.xml",
+      "sha256": "8d407155e6b1dc1ca1a1e921d0e9a05eafbc0bc1f2ae07f4b67e55f664a99949"
+    },
+    "evidence/persistence-tests/RUN.json": {
+      "path": "evidence/persistence-tests/RUN.json",
+      "sha256": "63b5efbca79d1e7314fd278b28f40d1f285d78eae571f3305dc4314efbbd63a5"
+    },
+    "evidence/persistence-tests/JUNIT.xml": {
+      "path": "evidence/persistence-tests/JUNIT.xml",
+      "sha256": "d8f658daff1d882f8be7378768e1b15d9614519b14818008d32a97a7956c1a55"
+    },
+    "evidence/browser-probe-tests/RUN.json": {
+      "path": "evidence/browser-probe-tests/RUN.json",
+      "sha256": "90389aefbd0736ff2a20724db0a51971e18bb714c9f43409bf9bd03603b085dc"
+    },
+    "evidence/browser-probe-tests/JUNIT.xml": {
+      "path": "evidence/browser-probe-tests/JUNIT.xml",
+      "sha256": "d8f4b9cf44201197e9b0abd379f0abe06283fecf6ebbcb10369218643d16e702"
+    },
+    "evidence/architect-tests/RUN.json": {
+      "path": "evidence/architect-tests/RUN.json",
+      "sha256": "6095c8e5a64826dddf5d7154c9bb5993646996a0ac6365d2769b6cbd67336c16"
+    },
+    "evidence/architect-tests/JUNIT.xml": {
+      "path": "evidence/architect-tests/JUNIT.xml",
+      "sha256": "6e462a4e5f5974f35ff70dba932347c21e29694d4768a9df34e5fdb09ccd9913"
+    },
+    "evidence/council-tests/RUN.json": {
+      "path": "evidence/council-tests/RUN.json",
+      "sha256": "c0b1072bf81fbdb8617b3815a1ce4382c670083e60ff761dac95104518718f3f"
+    },
+    "evidence/council-tests/JUNIT.xml": {
+      "path": "evidence/council-tests/JUNIT.xml",
+      "sha256": "0e2769e0c595f199f4fc99bc4b43ecc8b5a67e8cfd4802a978d2db055a2f6039"
+    }
+  },
+  "scope": "DEVELOPMENT_CHECK_WITH_SEPARATE_FOUNDATION_TESTS",
+  "status": "PASS",
+  "checks": [
+    {
+      "id": "state_navigation_python_syntax",
+      "status": "PASS"
+    },
+    {
+      "id": "control_tests",
+      "status": "PASS",
+      "returncode": 0
+    },
+    {
+      "id": "markdown_lexical",
+      "status": "PASS",
+      "returncode": 0
+    },
+    {
+      "id": "environment_lock",
+      "status": "PASS",
+      "returncode": 0
+    },
+    {
+      "id": "foundation_tests",
+      "status": "PASS",
+      "returncode": 0
+    },
+    {
+      "id": "persistence_tests",
+      "status": "PASS",
+      "returncode": 0
+    },
+    {
+      "id": "browser_probe_preparation_tests",
+      "status": "PASS",
+      "returncode": 0
+    },
+    {
+      "id": "architect_contract_tests",
+      "status": "PASS",
+      "returncode": 0
+    },
+    {
+      "id": "council_pipeline_tests",
+      "status": "PASS",
+      "returncode": 0
+    }
+  ],
+  "source_digest_before": "af3aa954cb47da32effbe281005925fbaa448b93bb38f242636276f4d7a25875",
+  "source_digest_after": "af3aa954cb47da32effbe281005925fbaa448b93bb38f242636276f4d7a25875",
+  "application_runtime_tests": "FOUNDATION_P02_KERNEL_P03_P04_AND_P05_OFFLINE_COUNCIL",
+  "application_phase_accepted": false,
+  "static_type_check": "NOT_RUN",
+  "visual_rendering": "NOT_RUN"
+}

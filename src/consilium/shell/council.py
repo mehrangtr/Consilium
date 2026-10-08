@@ -4,6 +4,7 @@ Model content is data. Only explicit local user actions decide continuation and
 select the judge. Recovery reads canonical state and never resends a request.
 """
 import json
+import hashlib
 from uuid import UUID, uuid4, uuid5
 
 from consilium.core.artifact_contracts import ArtifactResponseContract, ReviewTarget, decode_response_json
@@ -11,16 +12,19 @@ from consilium.core.contracts import (AdapterRequest, Answer, ConnectionSpec, Cr
     OperationIdentity, OperationIntent, RoundSpec, UserDecision)
 from consilium.core.council_contracts import FinalCouncilResult, JudgeOutput, Objection, RoundAnalysis, SelectedJudge
 from consilium.core.context_observations import HistorySnapshot
+from consilium.core.council_repository import CouncilRepository
+from consilium.core.analyzers import DeterministicAnalyzer
 from consilium.core.dispatch_policy import PrivacyDecision, destination_hash
 from consilium.core.independent_context import build_independent_context
 from consilium.core.operation_states import AttemptState
-from consilium.core.round_context import JudgeSelection, TransferGrant, build_round_context
+from consilium.core.round_context import JudgeSelection, TransferGrant, ReviewPresentation, build_round_context
 from consilium.shell.storage import Conflict, SchemaError, _identifier
 
 
 class Council:
-    def __init__(self, store):
-        self.store, self._db = store, store._db
+    def __init__(self, store, repository: CouncilRepository):
+        self.store, self.repository = store, repository
+        self.analyzer = DeterministicAnalyzer()
 
     @staticmethod
     def _explicit(actor, confirmed):
@@ -30,21 +34,17 @@ class Council:
     def revision(self, debate_id): return self.store.checkpoint(debate_id).revision
 
     def current_round(self, debate_id):
-        row = self._db.execute('SELECT spec_json FROM rounds WHERE debate_id=? ORDER BY number DESC LIMIT 1', (_identifier(debate_id),)).fetchone()
-        return None if row is None else RoundSpec.model_validate_json(row[0])
+        return self.repository.current_round(debate_id)
 
     def binding(self, debate_id, participant_id):
-        row = self._db.execute('SELECT spec_json,revision FROM bindings WHERE debate_id=? AND participant_id=?',
-                               (_identifier(debate_id), _identifier(participant_id))).fetchone()
-        if row is None: raise Conflict('Participant has no registered connection')
-        return ConnectionSpec.model_validate_json(row[0]), row[1]
+        return self.repository.binding(debate_id, participant_id)
 
     def _wait(self, debate_id):
-        return self._db.execute('SELECT wait_state FROM debates WHERE debate_id=?', (_identifier(debate_id),)).fetchone()[0]
+        return self.repository.wait_state(debate_id)
 
     def start_round(self, *, debate_id, round_id, kind, expected_revision, targets=(), participant_ids=None):
-        with self.store._transaction():
-            debate = self.store._checked_debate(debate_id, expected_revision)
+        with self.repository.transaction():
+            debate = self.repository.require_revision(debate_id, expected_revision)
             if self.store.questions.get_adopted(debate_id) is None or len(debate.participant_ids) < 2:
                 raise Conflict('A council requires an adopted question and at least two participants')
             previous = self.current_round(debate_id)
@@ -85,13 +85,12 @@ class Council:
         self._explicit(actor, confirmed)
         _identifier(user_action_id)
         parameters = parameters or GenerationParameters(max_output_tokens=256)
-        with self.store._transaction(write=False):
-            self.store._checked_debate(debate_id, expected_revision)
+        with self.repository.transaction(write=False):
+            self.repository.require_revision(debate_id, expected_revision)
             round_spec = self.current_round(debate_id)
             if round_spec is None or participant_id not in round_spec.participant_ids or self._wait(debate_id) != 'ACTIVE':
                 raise Conflict('No active council slot')
-            if self._db.execute('SELECT 1 FROM operations WHERE round_id=? AND participant_id=?',
-                                (str(round_spec.round_id), str(participant_id))).fetchone():
+            if self.repository.slot_exists(round_spec.round_id, participant_id):
                 raise Conflict('Resume the existing operation; do not create another slot')
             if any(s.source_round.round_id == round_spec.round_id and
                    (s.item.participant_id if isinstance(s.item, Answer) else s.item.reviewer_id) == participant_id
@@ -113,7 +112,9 @@ class Council:
                     participant_id=participant_id, expected_revision=expected_revision, sources=sources,
                     required_source_hashes=tuple(s.content_hash for s in sources), grants=grants, connection=connection,
                     parameters=parameters, continuation_decision=self.store.admissions.continuation_for(round_spec),
-                    judge_selection=judge, named_authorization=named_authorization)
+                    judge_selection=judge, named_authorization=named_authorization,
+                    presentation=ReviewPresentation(seed=hashlib.sha256(str(round_spec.round_id).encode()).hexdigest(),
+                        rubric_version='council-rubric.v1') if round_spec.kind == 'REVIEW' else None)
             targets = ()
             if round_spec.kind == 'REVIEW':
                 latest = {}
@@ -174,45 +175,24 @@ class Council:
 
     def _analyze(self, round_spec, revision):
         sources = self.store.sources.context_sources(round_spec.debate_id, through_revision=revision)
-        current = tuple(s for s in sources if s.source_round.round_id == round_spec.round_id)
-        authors = {s.item.participant_id if isinstance(s.item, Answer) else s.item.reviewer_id for s in current}
-        if authors != set(round_spec.participant_ids):
-            raise Conflict('Round analysis requires every canonical participant contribution')
-        objections = []
-        for s in sources:
-            if isinstance(s.item, Critique):
-                for i, point in enumerate(s.item.points):
-                    if point.verdict != 'ACCEPT':
-                        objections.append(Objection(issue_id=uuid5(s.item.critique_id, str(i)), source_hash=s.content_hash,
-                            reference=point.reference, reason=point.reason, verdict=point.verdict))
-        independent = tuple(s for s in sources if isinstance(s.item, Answer) and s.source_round.kind == 'INDEPENDENT')
-        if len({s.item.content for s in independent}) > 1:
-            for s in independent:
-                objections.append(Objection(issue_id=uuid5(s.item.answer_id, 'reported-difference'), source_hash=s.content_hash,
-                    reference='INDEPENDENT_ANSWER_DIFFERENCE', reason=s.item.content, verdict='DIFFERENT_ANSWERS'))
-        return RoundAnalysis(debate_id=round_spec.debate_id, round_id=round_spec.round_id, input_revision=revision,
-            source_hashes=tuple(s.content_hash for s in sources), objections=tuple(objections),
-            recommendation='REVIEW' if round_spec.kind == 'INDEPENDENT' else 'TARGETED' if objections else 'FINISH')
+        try:
+            return self.analyzer.analyze(round_spec, revision, sources)
+        except ValueError as exc:
+            raise Conflict(str(exc)) from None
 
     def _put(self, kind, record, revision, event_kind, record_id):
-        cp = self.store._advance(record.debate_id, revision, event_kind, {'record_id': str(record_id),
-            'round_id': str(record.round_id if hasattr(record, 'round_id') else record.synthesis_round.round_id),
-            'record_hash': record.content_hash})
-        round_id = record.round_id if hasattr(record, 'round_id') else record.synthesis_round.round_id
-        self._db.execute('INSERT INTO council_records VALUES(?,?,?,?,?,?,?)', (str(record_id), str(record.debate_id),
-            str(round_id), kind, self.store._public(record.model_dump(mode='json')), record.content_hash, cp.event_sequence))
-        return cp
+        return self.repository.put(kind, record, revision, event_kind, record_id)
 
     def seal_round(self, *, debate_id, expected_revision):
-        with self.store._transaction():
-            self.store._checked_debate(debate_id, expected_revision)
+        with self.repository.transaction():
+            self.repository.require_revision(debate_id, expected_revision)
             spec = self.current_round(debate_id)
             if spec is None or spec.kind == 'SYNTHESIS' or self._wait(debate_id) != 'ACTIVE':
                 raise Conflict('Only an active normal round can enter a decision gate')
-            self.store.ledger._round_confirmed(debate_id, spec.round_id)
+            self.repository.require_round_confirmed(debate_id, spec.round_id)
             analysis = self._analyze(spec, expected_revision)
             cp = self._put('ANALYSIS', analysis, expected_revision, 'COUNCIL_ANALYZED', uuid5(spec.round_id, 'analysis'))
-            self._db.execute("UPDATE debates SET wait_state='WAITING_DECISION' WHERE debate_id=?", (str(debate_id),))
+            self.repository.set_wait_state(debate_id, 'WAITING_DECISION')
             return analysis
 
     def decide(self, decision, *, actor, confirmed):
@@ -220,33 +200,28 @@ class Council:
         spec = self.current_round(decision.debate_id)
         if spec is None or spec.kind == 'SYNTHESIS' or self.get('ANALYSIS', spec.round_id) is None:
             raise Conflict('Decisions require the analyzed current normal round')
-        if decision.kind == 'FINISH' and not self._db.execute(
-            "SELECT 1 FROM rounds r JOIN council_records c USING(round_id) WHERE r.debate_id=? "
-            "AND c.kind='ANALYSIS' AND json_extract(r.spec_json,'$.kind')='REVIEW'",
-            (str(decision.debate_id),)).fetchone():
+        if decision.kind == 'FINISH' and not self.repository.has_review(decision.debate_id):
             raise Conflict('Finish requires a completed peer review before judge selection')
         return self.store.ledger.record_decision(decision, actor=actor)
 
     def resume_pause(self, *, debate_id, expected_revision, user_action_id, actor, confirmed):
         self._explicit(actor, confirmed); _identifier(user_action_id)
-        with self.store._transaction():
-            self.store._checked_debate(debate_id, expected_revision)
+        with self.repository.transaction():
+            self.repository.require_revision(debate_id, expected_revision)
             if self._wait(debate_id) != 'PAUSED': raise Conflict('Debate is not paused')
-            self._db.execute("UPDATE debates SET wait_state='WAITING_DECISION' WHERE debate_id=?", (str(debate_id),))
-            return self.store._advance(debate_id, expected_revision, 'COUNCIL_RESUMED',
+            self.repository.set_wait_state(debate_id, 'WAITING_DECISION')
+            return self.repository.advance(debate_id, expected_revision, 'COUNCIL_RESUMED',
                                       {'user_action_id': str(user_action_id), 'actor': actor})
 
     def select_judge(self, *, debate_id, participant_id, round_id, expected_revision, user_action_id, actor, confirmed,
                      bias_mitigation='BLIND_ALL_EVIDENCE_WITH_DISSENT'):
         self._explicit(actor, confirmed); _identifier(user_action_id)
-        with self.store._transaction():
-            debate = self.store._checked_debate(debate_id, expected_revision)
+        with self.repository.transaction():
+            debate = self.repository.require_revision(debate_id, expected_revision)
             old = self.current_round(debate_id)
             if self._wait(debate_id) != 'WAITING_JUDGE_SELECTION' or old is None or participant_id not in debate.participant_ids:
                 raise Conflict('Finish and valid explicit judge selection are required')
-            if not self._db.execute("SELECT 1 FROM rounds r JOIN council_records c USING(round_id) "
-                                    "WHERE r.debate_id=? AND c.kind='ANALYSIS' AND json_extract(r.spec_json,'$.kind')='REVIEW'",
-                                    (str(debate_id),)).fetchone():
+            if not self.repository.has_review(debate_id):
                 raise Conflict('A completed peer review is required before final synthesis')
             connection, binding_revision = self.binding(debate_id, participant_id)
             spec = RoundSpec(round_id=round_id, debate_id=debate_id, number=old.number+1, kind='SYNTHESIS', participant_ids=(participant_id,))
@@ -257,9 +232,9 @@ class Council:
                 participant_id=participant_id, connection=connection, connection_revision=binding_revision,
                 selected_revision=expected_revision+1, user_action_id=user_action_id, actor=actor,
                 participated_in_rounds=participation, bias_mitigation=bias_mitigation)
-            self._db.execute('INSERT INTO rounds VALUES(?,?,?,?)', (str(round_id), str(debate_id), spec.number, self.store._public(spec.model_dump(mode='json'))))
+            self.repository.register_synthesis(spec)
             self._put('JUDGE', selected, expected_revision, 'COUNCIL_JUDGE_SELECTED', user_action_id)
-            self._db.execute("UPDATE debates SET wait_state='ACTIVE' WHERE debate_id=?", (str(debate_id),))
+            self.repository.set_wait_state(debate_id, 'ACTIVE')
             return selected
 
     def _final(self, spec, revision):
@@ -278,28 +253,27 @@ class Council:
             output=output, preserved_objections=analysis.objections, completed_revision=revision+1)
 
     def finalize(self, *, debate_id, expected_revision):
-        with self.store._transaction():
-            self.store._checked_debate(debate_id, expected_revision)
+        with self.repository.transaction():
+            self.repository.require_revision(debate_id, expected_revision)
             spec = self.current_round(debate_id)
             if spec is None or spec.kind != 'SYNTHESIS' or self._wait(debate_id) != 'ACTIVE':
                 raise Conflict('A selected active synthesis is required')
             selected = self.get('JUDGE', spec.round_id)
             if self.binding(debate_id, selected.participant_id) != (selected.connection, selected.connection_revision):
                 raise Conflict('Judge binding changed; no silent replacement')
-            self.store.ledger._round_confirmed(debate_id, spec.round_id)
+            self.repository.require_round_confirmed(debate_id, spec.round_id)
             result = self._final(spec, expected_revision)
             self._put('FINAL', result, expected_revision, 'COUNCIL_COMPLETED', uuid5(spec.round_id, 'final'))
-            self._db.execute("UPDATE debates SET wait_state='COMPLETED' WHERE debate_id=?", (str(debate_id),))
+            self.repository.set_wait_state(debate_id, 'COMPLETED')
             return result
 
     def get(self, kind, round_id):
-        if not self._db.in_transaction:
-            with self.store._transaction(write=False): return self.get(kind, round_id)
+        if not self.repository.in_transaction:
+            with self.repository.transaction(write=False): return self.get(kind, round_id)
         kinds = {'ANALYSIS': (RoundAnalysis, 'COUNCIL_ANALYZED'), 'JUDGE': (SelectedJudge, 'COUNCIL_JUDGE_SELECTED'),
                  'FINAL': (FinalCouncilResult, 'COUNCIL_COMPLETED')}
         model, event_kind = kinds[kind]
-        row = self._db.execute('SELECT * FROM council_records WHERE round_id=? AND kind=?', (_identifier(round_id), kind)).fetchone()
-        marked = self._db.execute("SELECT * FROM events WHERE kind=? AND json_extract(payload_json,'$.round_id')=?", (event_kind, str(round_id))).fetchall()
+        row, marked = self.repository.record_and_events(kind, round_id, event_kind)
         if row is None:
             if marked: raise SchemaError('Council record removed while its event remains')
             return None
@@ -312,9 +286,8 @@ class Council:
             rev = record.input_revision+1 if kind == 'ANALYSIS' else record.selected_revision if kind == 'JUDGE' else record.completed_revision
             if (event['debate_id'], event['revision']) != (str(record.debate_id), rev) or json.loads(event['payload_json']) != expected:
                 raise ValueError('Council event graph mismatch')
-            round_row = self._db.execute('SELECT spec_json FROM rounds WHERE round_id=?', (str(round_id),)).fetchone()
-            if round_row is None: raise ValueError('Council round missing')
-            spec = RoundSpec.model_validate_json(round_row[0])
+            spec = self.repository.round_spec(round_id)
+            if spec is None: raise ValueError('Council round missing')
             if kind == 'ANALYSIS' and record != self._analyze(spec, record.input_revision):
                 raise ValueError('Analysis differs from canonical sources')
             if kind == 'JUDGE':
@@ -329,7 +302,7 @@ class Council:
             raise SchemaError('Stored council record is inconsistent') from None
 
     def export_fields(self, debate_id):
-        rows = self._db.execute('SELECT kind,round_id FROM council_records WHERE debate_id=? ORDER BY event_sequence', (_identifier(debate_id),)).fetchall()
+        rows = self.repository.entries(debate_id)
         records = [(kind, self.get(kind, UUID(rid))) for kind, rid in rows]
         final = next((r for kind, r in records if kind == 'FINAL'), None)
         return {'scope': 'P05_OFFLINE_COUNCIL_NOT_LIVE_PROVIDER_CERTIFICATION', 'debate_completed': final is not None,
@@ -338,20 +311,19 @@ class Council:
                 'final_council_result': None if final is None else final.model_dump(mode='json')}
 
     def recover(self, debate_id):
-        with self.store._transaction(write=False):
+        with self.repository.transaction(write=False):
             snapshot = self.store.export_debate(debate_id)
             attempts = tuple(self.store.ledger.resume(UUID(a['intent']['identity']['attempt_id'])).model_dump(mode='json') for a in snapshot['attempts'])
             return {'snapshot': snapshot, 'attempts': attempts, 'automatic_send': False,
                     'next_action': 'USE_FINAL' if snapshot['debate_completed'] else snapshot['wait_state']}
 
     def check_integrity(self):
-        rows = self._db.execute('SELECT kind,round_id,event_sequence FROM council_records').fetchall()
+        rows = self.repository.entries()
         for kind, rid, _ in rows: self.get(kind, UUID(rid))
         actual = {(r[1], r[2]) for r in rows}
-        marked = {(json.loads(r['payload_json'])['round_id'], r['sequence']) for r in self._db.execute(
-            "SELECT * FROM events WHERE kind IN ('COUNCIL_ANALYZED','COUNCIL_JUDGE_SELECTED','COUNCIL_COMPLETED')")}
+        marked = {(json.loads(r['payload_json'])['round_id'], r['sequence']) for r in self.repository.marked_events()}
         if actual != marked: raise SchemaError('Council event/record sets differ')
-        for row in self._db.execute('SELECT debate_id,wait_state FROM debates'):
-            final = self._db.execute("SELECT 1 FROM council_records WHERE debate_id=? AND kind='FINAL'", (row['debate_id'],)).fetchone()
-            if (row['wait_state'] == 'COMPLETED') != (final is not None):
+        for row in self.repository.debate_states():
+            final = self.repository.has_final(row['debate_id'])
+            if (row['wait_state'] == 'COMPLETED') != final:
                 raise SchemaError('Terminal wait state differs from the durable final result')

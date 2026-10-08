@@ -1,0 +1,10 @@
+{
+  "status": "PASS",
+  "scope": "SCRIPTED_MOCK_DEMO",
+  "elapsed_seconds": 1.266,
+  "restart_exact": true,
+  "preserved_objections": 4,
+  "live_calls": 0,
+  "paid_calls": 0,
+  "source_digest": "98a20dc79e6b8a4ebf3c315e314f25338eee249943a6227c49ab63e58db7085a"
+}

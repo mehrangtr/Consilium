@@ -7,7 +7,7 @@ import json
 from typing import Annotated, Any, Literal, Mapping, Self
 from uuid import UUID
 
-from pydantic import AfterValidator, BaseModel, ConfigDict, Field, field_validator, model_validator
+from pydantic import AfterValidator, BaseModel, ConfigDict, Field, field_validator, model_validator, model_serializer
 
 
 def _nonblank(value: str) -> str:
@@ -98,10 +98,41 @@ class Answer(Contract):
     logical_operation_id: Identifier | None = None
 
 
+class ReviewSpan(Contract):
+    answer_text_hash: Sha256
+    start_byte: Annotated[int, Field(ge=0)]
+    end_byte: Annotated[int, Field(ge=1)]
+    quote_hash: Sha256
+
+    @model_validator(mode='after')
+    def ordered(self) -> Self:
+        if self.start_byte >= self.end_byte:
+            raise ValueError('Review span must have a nonempty forward range')
+        return self
+
+    def validate_text(self, text: str) -> None:
+        import hashlib
+        raw = text.encode('utf-8')
+        if self.end_byte > len(raw) or hashlib.sha256(raw).hexdigest() != self.answer_text_hash:
+            raise ValueError('Review span belongs to a different answer version')
+        quote = raw[self.start_byte:self.end_byte]
+        quote.decode('utf-8')  # A range cannot split a Persian/Unicode character.
+        if hashlib.sha256(quote).hexdigest() != self.quote_hash:
+            raise ValueError('Review span quote checksum mismatch')
+
+
 class PeerPoint(Contract):
     verdict: Literal["ACCEPT", "PARTIALLY_ACCEPT", "REJECT"]
     reference: Text
     reason: Text
+    span: ReviewSpan | None = None
+
+    @model_serializer(mode='wrap')
+    def preserve_historical_schema(self, handler):
+        data = handler(self)
+        if self.span is None:
+            data.pop('span', None)
+        return data
 
 
 class Critique(Contract):

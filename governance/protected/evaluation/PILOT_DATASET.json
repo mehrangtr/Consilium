@@ -1,0 +1,251 @@
+{
+  "dataset_version": "pilot-synthetic-1.0",
+  "language": "fa",
+  "scope": "PROTOCOL_DIAGNOSTIC_PILOT_NOT_REPRESENTATIVE_PRODUCT_BENCHMARK",
+  "real_model_runs": 0,
+  "tasks": [
+    {
+      "task_id": "PILOT-001",
+      "category": "math",
+      "prompt": "نرخ پایهٔ یک رخداد ۲٪ است. آزمون در ۹۰٪ رخدادهای واقعی مثبت و در ۱۰٪ موارد بدون رخداد نیز مثبت است. احتمال رخداد پس از پاسخ مثبت را حساب کن؛ این صرفاً مسئلهٔ احتمالات است.",
+      "reference": {
+        "value": 0.15517241379310345,
+        "tolerance": 1e-06,
+        "explanation_required": true
+      },
+      "reference_type": "EXACT_OR_CONSTRAINT_RUBRIC"
+    },
+    {
+      "task_id": "PILOT-002",
+      "category": "math",
+      "prompt": "برای n شرکت‌کننده در دو دور، معمار یک، تحلیلگر دو و داور یک فراخوانی دارند. سقف کل ۱۴ است. بیشترین n صحیح چند است؟",
+      "reference": {
+        "n": 5,
+        "formula": "2*n+4"
+      },
+      "reference_type": "EXACT_OR_CONSTRAINT_RUBRIC"
+    },
+    {
+      "task_id": "PILOT-003",
+      "category": "math",
+      "prompt": "کار A دو دقیقه و B سه دقیقه مستقل‌اند. C دو دقیقه پس از A و D یک دقیقه پس از هر دو B و C اجرا می‌شوند. با ظرفیت موازی کافی، زمان کل کمینه چقدر است؟",
+      "reference": {
+        "minutes": 5
+      },
+      "reference_type": "EXACT_OR_CONSTRAINT_RUBRIC"
+    },
+    {
+      "task_id": "PILOT-004",
+      "category": "math",
+      "prompt": "از سه پاسخ با هزینه‌های ۲، ۴ و ۶ و کیفیت‌های ۷، ۹ و ۹ باید یکی را با هزینه حداکثر ۵ انتخاب کنیم. اول کیفیت بیشتر، سپس هزینه کمتر اولویت دارد. انتخاب و دلیل را بگو.",
+      "reference": {
+        "choice": 2,
+        "cost": 4,
+        "quality": 9
+      },
+      "reference_type": "EXACT_OR_CONSTRAINT_RUBRIC"
+    },
+    {
+      "task_id": "PILOT-005",
+      "category": "logic",
+      "prompt": "اگر همهٔ Aها B باشند و بعضی Bها C باشند، آیا حتماً بعضی Aها C هستند؟ یک مثال نقض بده.",
+      "reference": {
+        "answer": "NO",
+        "counterexample_required": true
+      },
+      "reference_type": "EXACT_OR_CONSTRAINT_RUBRIC"
+    },
+    {
+      "task_id": "PILOT-006",
+      "category": "logic",
+      "prompt": "دو فرستادن با متن و هش یکسان، اما شناسهٔ عملیات و نسل متفاوت عمداً برای دو نمونهٔ مستقل ساخته شده‌اند. آیا یکتایی سراسری هش باید یکی را حذف کند؟",
+      "reference": {
+        "answer": "NO",
+        "preserve_both_logical_operations": true
+      },
+      "reference_type": "EXACT_OR_CONSTRAINT_RUBRIC"
+    },
+    {
+      "task_id": "PILOT-007",
+      "category": "logic",
+      "prompt": "پنج مدل به یک ادعا توافق دارند و شاهد مستقل نداریم. آیا می‌توان احتمال حقیقت را صددرصد گزارش کرد؟",
+      "reference": {
+        "answer": "NO",
+        "distinguish_agreement_from_correctness": true
+      },
+      "reference_type": "EXACT_OR_CONSTRAINT_RUBRIC"
+    },
+    {
+      "task_id": "PILOT-008",
+      "category": "logic",
+      "prompt": "پس از ارسال مرورگر و قطع ارتباط، پیام در صفحهٔ بارگذاری ناقص دیده نمی‌شود. آیا این شاهد قطعیِ نرسیدن پیام است؟ رفتار بعدی را توضیح بده.",
+      "reference": {
+        "definite_absence": false,
+        "blind_resend": false,
+        "preserve_uncertainty": true
+      },
+      "reference_type": "EXACT_OR_CONSTRAINT_RUBRIC"
+    },
+    {
+      "task_id": "PILOT-009",
+      "category": "protocol",
+      "prompt": "مدل P در دور اول مستقل قطع شده است. مدل‌های Q و R جواب داده‌اند. بستهٔ بازیابی P باید چه چیزهایی را شامل یا حذف کند؟",
+      "reference": {
+        "include_original_request_and_constraints": true,
+        "include_peer_answers": false,
+        "same_debate_id": true
+      },
+      "reference_type": "EXACT_OR_CONSTRAINT_RUBRIC"
+    },
+    {
+      "task_id": "PILOT-010",
+      "category": "protocol",
+      "prompt": "کاربر Finish را انتخاب کرده اما داور معتبر انتخاب نشده است. وضعیت و عمل بعدی را مشخص کن.",
+      "reference": {
+        "state": "WAITING_JUDGE_SELECTION",
+        "start_synthesis": false
+      },
+      "reference_type": "EXACT_OR_CONSTRAINT_RUBRIC"
+    },
+    {
+      "task_id": "PILOT-011",
+      "category": "protocol",
+      "prompt": "حساب A منقضی شده و کاربر حساب B را انتخاب کرده است. شناسهٔ Debate چه شود و چه اتفاقی باید ثبت شود؟",
+      "reference": {
+        "same_debate_id": true,
+        "account_switch_audit": true,
+        "user_login_control": true
+      },
+      "reference_type": "EXACT_OR_CONSTRAINT_RUBRIC"
+    },
+    {
+      "task_id": "PILOT-012",
+      "category": "protocol",
+      "prompt": "نتیجهٔ داور در DB ذخیره شده ولی تولید final-report.md شکست خورده است. آیا COMPLETED درست است و چه چیزی باید دوباره اجرا شود؟",
+      "reference": {
+        "completed": false,
+        "retry_artifact_generation": true,
+        "rerun_judge_automatically": false
+      },
+      "reference_type": "EXACT_OR_CONSTRAINT_RUBRIC"
+    },
+    {
+      "task_id": "PILOT-013",
+      "category": "intent",
+      "prompt": "این درخواست را فقط روشن‌تر کن: «دو گزینه A و B را مقایسه کن؛ سقف هزینه ۲۰۰۰؛ فقط کار نرم‌افزار؛ شهروندی ویژه را فرض نکن». قیود را جدا و فرض تازه را افشا کن.",
+      "reference": {
+        "preserved": [
+          "A",
+          "B",
+          "2000",
+          "software",
+          "no_assumed_special_citizenship"
+        ],
+        "silent_assumptions": false
+      },
+      "reference_type": "EXACT_OR_CONSTRAINT_RUBRIC"
+    },
+    {
+      "task_id": "PILOT-014",
+      "category": "intent",
+      "prompt": "گفتگوی قدیمی معتبر است اما کاربر صریحاً گفتگوی تازه می‌خواهد. آیا ترجیح reuse باید درخواست صریح را نادیده بگیرد؟",
+      "reference": {
+        "honor_explicit_new_thread": true,
+        "audit_reason": true,
+        "keep_debate_unless_new_topic": true
+      },
+      "reference_type": "EXACT_OR_CONSTRAINT_RUBRIC"
+    },
+    {
+      "task_id": "PILOT-015",
+      "category": "intent",
+      "prompt": "برای انتقال زمینه از ارائه‌دهنده A به B، کاربر فقط انتقال متن عمومی را مجاز کرده است. بستهٔ پیشنهادی متن عمومی، API key و یادداشت خصوصی دارد. تصمیم را برای هر مورد جدا بنویس.",
+      "reference": {
+        "transfer": [
+          "public_text"
+        ],
+        "exclude": [
+          "api_key",
+          "private_note"
+        ],
+        "scoped_consent_recorded": true
+      },
+      "reference_type": "EXACT_OR_CONSTRAINT_RUBRIC"
+    },
+    {
+      "task_id": "PILOT-016",
+      "category": "intent",
+      "prompt": "سهمیهٔ رایگان تمام شد و کاربر قبلاً پرداخت خودکار را مجاز نکرده است. سه گزینهٔ سازگار با اختیار کاربر پیشنهاد بده.",
+      "reference": {
+        "auto_paid_fallback": false,
+        "options": [
+          "wait",
+          "manual",
+          "explicit_alternative_selection"
+        ]
+      },
+      "reference_type": "EXACT_OR_CONSTRAINT_RUBRIC"
+    },
+    {
+      "task_id": "PILOT-017",
+      "category": "design",
+      "prompt": "یک نقطهٔ اتصال کلید idempotency ندارد و گفتگو را سمت سرویس تغییر می‌دهد. نتیجهٔ ارسال مبهم است. یک سیاست بازیابی طراحی کن؛ از تضمین exactly-once بی‌پشتوانه پرهیز کن.",
+      "reference": {
+        "must_cover": [
+          "intent_before_submit",
+          "capability_specific_retry",
+          "verification",
+          "unknown_delivery",
+          "explicit_decision"
+        ],
+        "exactly_once_guarantee": false
+      },
+      "reference_type": "EXACT_OR_CONSTRAINT_RUBRIC"
+    },
+    {
+      "task_id": "PILOT-018",
+      "category": "design",
+      "prompt": "در تاریخچهٔ بومی یک مدل، نام و پاسخ قبلی خودش وجود دارد. حالا نقد همتایان با برچسب ناشناس انجام می‌شود. محدودیت ناشناس‌سازی و آزمون مناسب را بیان کن.",
+      "reference": {
+        "must_cover": [
+          "packet_identity_map_exclusion",
+          "native_history_limit",
+          "disclosure"
+        ],
+        "perfect_anonymity_claim": false
+      },
+      "reference_type": "EXACT_OR_CONSTRAINT_RUBRIC"
+    },
+    {
+      "task_id": "PILOT-019",
+      "category": "design",
+      "prompt": "روی ۲۰ مسئله اختلاف کیفیت شورا و تک‌مدل کوچک بود. آیا می‌توان کل پروژه را بی‌ارزش اعلام و مرورگر نسخهٔ اول را بدون اجازه حذف کرد؟ گام پژوهشی و تعهد محصول را جدا کن.",
+      "reference": {
+        "universal_no_value_claim": false,
+        "remove_protected_browser": false,
+        "must_cover": [
+          "uncertainty",
+          "paired_results",
+          "cost",
+          "protocol_revision"
+        ]
+      },
+      "reference_type": "EXACT_OR_CONSTRAINT_RUBRIC"
+    },
+    {
+      "task_id": "PILOT-020",
+      "category": "design",
+      "prompt": "دو دیدگاه مستند متعارض وجود دارد و داور یکی را انتخاب می‌کند. ساختار گزارش نهایی را بده تا مخالفت، دلیل انتخاب و مسئلهٔ باز محفوظ بماند.",
+      "reference": {
+        "must_cover": [
+          "selected_conclusion",
+          "evidence",
+          "preserved_dissent",
+          "unresolved_uncertainty",
+          "judge_disclosure"
+        ]
+      },
+      "reference_type": "EXACT_OR_CONSTRAINT_RUBRIC"
+    }
+  ]
+}

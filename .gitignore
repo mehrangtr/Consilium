@@ -16,3 +16,4 @@ evidence/git/*.bundle
 *.egg-info/
 build/
 dist/
+evidence/quality-tooling/.coverage

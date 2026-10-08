@@ -120,6 +120,13 @@ class ManualRoundCandidate(Contract):
         aliases = [c.target_alias for c in output.critiques]
         if len(aliases) != len(set(aliases)) or set(aliases) != {t.alias for t in self.frame.targets}:
             raise ValueError('Manual review must cover every frozen peer target exactly once')
+        texts = {t.alias: next(s.item.content for s in self.frame.sources
+                              if isinstance(s.item, Answer) and s.item.answer_id == t.answer_id
+                              and s.content_hash == t.source_hash) for t in self.frame.targets}
+        for critique in output.critiques:
+            for point in critique.points:
+                if point.span is not None:
+                    point.span.validate_text(texts[critique.target_alias])
         return output
 
     @model_validator(mode='after')

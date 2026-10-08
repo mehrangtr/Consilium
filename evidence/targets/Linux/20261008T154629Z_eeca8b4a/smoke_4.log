@@ -1,0 +1,26 @@
+{
+  "project": "Consilium",
+  "phase": "P01",
+  "scope": "OFFLINE_FOUNDATION_DEMO",
+  "debate_completed": false,
+  "live_provider_calls": 0,
+  "result": {
+    "identity": {
+      "logical_operation_id": "9710aa17-6b68-418b-b406-a51235031ccf",
+      "attempt_id": "6cc5364a-82e9-445f-bd46-e6bf447de4af",
+      "generation_id": null
+    },
+    "request_hash": "8d9463413a64d78b7c36158fbfa49451aeef55b0fa5eefa2becd7bb0820f943c",
+    "connection_id": "eaa1fc0a-4c13-4554-85ba-6a56cb18a1a5",
+    "connection_revision": 0,
+    "delivery": "CONFIRMED_DELIVERY",
+    "response_state": "PARTIAL",
+    "content": "{\"answer\":\"unfinished",
+    "failure": "TIMEOUT",
+    "response_id": "mock-6cc5364a-82e9-445f-bd46-e6bf447de4af",
+    "evidence": [
+      "MOCK_ONLY:partial"
+    ],
+    "elapsed_seconds": 2.0
+  }
+}

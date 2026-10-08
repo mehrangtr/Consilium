@@ -150,7 +150,8 @@ class SQLiteStore:
                 from consilium.shell.ledger import OperationLedger
                 self.ledger = OperationLedger(self)
                 from consilium.shell.council import Council
-                self.council = Council(self)
+                from consilium.shell.council_repository import SQLiteCouncilRepository
+                self.council = Council(self, SQLiteCouncilRepository(self))
                 from consilium.shell.manual_reconciliation import ManualReconciliationLedger
                 self.manual_reconciliation = ManualReconciliationLedger(self)
                 from consilium.shell.artifacts import ArtifactLedger

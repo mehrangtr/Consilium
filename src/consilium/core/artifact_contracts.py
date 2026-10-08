@@ -135,3 +135,21 @@ def parse_artifact_response(content: str, contract: ArtifactResponseContract) ->
         return output
     except (ValueError, TypeError, RecursionError, UnicodeError, ValidationError):
         raise ValueError("INVALID_P04_SOURCE_OUTPUT") from None
+
+
+def validate_frozen_review_spans(output, contract, frozen_input):
+    """A quote binds to the exact authorized bytes sent in this operation."""
+    if not isinstance(output, CritiquesOutput) or not any(p.span for c in output.critiques for p in c.points):
+        return
+    if frozen_input is None:
+        raise ValueError('Review spans require their frozen source projection')
+    try:
+        data = json.loads(frozen_input.messages[1].content)
+        texts = {s['source_hash']: s['content'] for s in data['sources'] if s['kind'] == 'ANSWER'}
+        targets = {t.alias: texts[t.source_hash] for t in contract.targets}
+        for critique in output.critiques:
+            for point in critique.points:
+                if point.span is not None:
+                    point.span.validate_text(targets[critique.target_alias])
+    except (KeyError, IndexError, TypeError, ValueError):
+        raise ValueError('INVALID_FROZEN_REVIEW_SPAN') from None

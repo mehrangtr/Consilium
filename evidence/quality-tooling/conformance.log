@@ -1,0 +1,1 @@
+{"scope": "TRACEABILITY_INTEGRITY_NOT_FINAL_V1_VERIFICATION", "status": "PASS", "protected_requirements": 30, "final_verified": 0, "implementation": {"MISSING": 1, "PARTIAL": 29}, "verification": {"NOT_RUN": 30}}

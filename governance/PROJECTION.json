@@ -1,0 +1,42 @@
+{
+  "authority": "IMMUTABLE_BASELINE_PACKAGE",
+  "package": "baseline/Consilium_User_Guarded_Governance_v1.3_Reviewed.zip",
+  "package_sha256": "8f898b60627c07ec9c4028ff4bfa510c1b5578c2dd1141fa8f2f16ed648fd742",
+  "files": [
+    {
+      "path": "governance/protected/requirements/USER_CONSTRAINTS.yaml",
+      "member": "consilium-governance/requirements/USER_CONSTRAINTS.yaml",
+      "sha256": "e6463ac45e8503158a5c3b12e0c93f1282e0605c848cd0df6818ca537497ee2c"
+    },
+    {
+      "path": "governance/protected/requirements/AI_RECOMMENDATIONS.yaml",
+      "member": "consilium-governance/requirements/AI_RECOMMENDATIONS.yaml",
+      "sha256": "10ba0b348dfd3461d5276e58594f02c6541f0c0231d6cabcbd294836bf796c62"
+    },
+    {
+      "path": "governance/protected/requirements/INVARIANTS.yaml",
+      "member": "consilium-governance/requirements/INVARIANTS.yaml",
+      "sha256": "e99e8553a28f3c65548bcc2a3268ff70925d7f22669ee16ab6add4053ca5e1ad"
+    },
+    {
+      "path": "governance/protected/requirements/AUDIT_ALIAS_MAP.yaml",
+      "member": "consilium-governance/requirements/AUDIT_ALIAS_MAP.yaml",
+      "sha256": "69e8470eca7a9d77b3f9727a57338d95f616e7cec28cd3c1bb6ab3a0947fad46"
+    },
+    {
+      "path": "governance/protected/evaluation/EVAL_RUBRIC_FA.md",
+      "member": "consilium-governance/evaluation/EVAL_RUBRIC_FA.md",
+      "sha256": "453cf01d7ea24dd49c4cb9b8da7c1ef9ee0de3d923ce8b9297d4efbfdae4e40a"
+    },
+    {
+      "path": "governance/protected/evaluation/PILOT_DATASET.json",
+      "member": "consilium-governance/evaluation/PILOT_DATASET.json",
+      "sha256": "3875fb029cefbec79b14e60e0a07c804686d2110eca18b42de9b8783777f274d"
+    },
+    {
+      "path": "governance/protected/governance/CHANGE_CONTROL.md",
+      "member": "consilium-governance/governance/CHANGE_CONTROL.md",
+      "sha256": "ecd3b2c8f5a5cec8c00478b475cc4993d68757807387374c3b267153846cd8b0"
+    }
+  ]
+}

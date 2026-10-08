@@ -2,7 +2,7 @@
 
 این نما خودکار از `ROADMAP.json`، `PROGRESS.json` و `CHECKS.json` ساخته شده است. ویرایش دستی مرجع نیست؛ پس از تغییر مبنا فرمان تولید را دوباره اجرا کنید.
 
-شناسهٔ مبنای نما: `61808258703b5021e25b7215769335b32c8c67abd1155f211b12a71d17f32efd`.
+شناسهٔ مبنای نما: `bec9ab0a67a22ae068e00d939054954928b6043436eaafaf678b07bc57f8f86c`.
 
 مرحلهٔ فعلی: `P06`. آخرین مرحلهٔ پذیرفته‌شده: `P05`.
 
@@ -15,12 +15,19 @@
   "phase": "P06",
   "last_verified_checkpoint": "P05",
   "completed_work": [
-    "P00-P04 accepted phases and immutable evidence unchanged.",
-    "P05 full offline council and mixed/manual pipeline formally accepted; 622 native cases and 39 product process exits per OS."
+    "P00–P05 acceptance snapshots and all 30 protected requirements remain unchanged.",
+    "P05 PR13 merged at af60bdfa70046a75ce9bd4c5f6c56ae7cd4f9e2f; original accepted source c01c0633 retains 622 tests/39 product process exits per OS.",
+    "P05 repaired-source CI 37803460536 passed 624 tests per OS before merge.",
+    "Current quality source 5c44278b passed all four CI jobs at 37804861086: 656 tests per native OS, both report graphs, and dependency advisory audit.",
+    "P06 preregistration and atomic private observation journal passed 17 accounting/protocol/crash tests on both OSs; preflight passes."
   ],
-  "working_changes": [],
-  "next_action": "در P06 طرح پایلوت را پیش از اجرا ثبت کن: ۶ تا ۱۰ وظیفهٔ نماینده و بودجه و معیار ارزیابی را انتخاب کن؛ سپس پاسخ واقعی مسیر دستی را برای شورا، یک مدل و استفادهٔ چندباره از همان مدل با بودجهٔ قابل مقایسه جمع‌آوری کن. ابتدا بررسی‌های معنادار P06 را پیکربندی کن؛ متن ساختگی شاهد کیفیت نیست و برتری مدل از نمونهٔ کوچک نتیجه گرفته نشود.",
-  "next_command": "python tools/qualityctl.py status",
+  "working_changes": [
+    "Current native report graphs, hash-verified archive, sanitized audit proof and final status are retained for quality PR14.",
+    "P06 real evaluation remains unexecuted: 0/24 final outputs and zero real calls recorded.",
+    "The failed old local tooling check and Windows CI 37801218935 remain historical evidence; they do not describe the latest passing source."
+  ],
+  "next_action": "برای نخستین مرحلهٔ ناتمام `P06`، دو مدل رایگان و حساب‌های واقعاً قابل دسترس را تعیین و تأیید کن؛ سپس ۲۴ خروجی نهاییِ سه روش را از مسیر واقعی دستی محصول با تمام فراخوانی‌های میانی ثبت کن. امتیاز کور، یافته‌های خطا و اصلاح و بازبرآورد مبتنی بر ساعات واقعی باید پیش از پذیرش آماده شوند.",
+  "next_command": "python tools/p06_pilot.py status --workspace /PRIVATE/P06_WORKSPACE",
   "startup_commands": [
     "python tools/qualityctl.py status",
     "python tools/qualityctl.py navigation --check",
@@ -29,52 +36,171 @@
   "next_task": {
     "id": "P06-001",
     "phase": "P06",
-    "status": "BLOCKED",
+    "status": "BLOCKED_REAL_EVIDENCE",
     "title_fa": "پایلوت زودهنگام کیفیت",
-    "next_action_fa": "در P06 طرح پایلوت را پیش از اجرا ثبت کن: ۶ تا ۱۰ وظیفهٔ نماینده و بودجه و معیار ارزیابی را انتخاب کن؛ سپس پاسخ واقعی مسیر دستی را برای شورا، یک مدل و استفادهٔ چندباره از همان مدل با بودجهٔ قابل مقایسه جمع‌آوری کن. ابتدا بررسی‌های معنادار P06 را پیکربندی کن؛ متن ساختگی شاهد کیفیت نیست و برتری مدل از نمونهٔ کوچک نتیجه گرفته نشود.",
-    "completed_fa": "مرحلهٔ پنجم و همهٔ معیارهای پایان آن پذیرفته شدند؛ مرحلهٔ ششم آماده است.",
-    "remaining_fa": "طرح پایلوت، پاسخ و ارزیابی واقعی سه روش و اصلاح و بازبرآورد مرحلهٔ ششم هنوز انجام نشده‌اند.",
+    "next_action_fa": "برای نخستین مرحلهٔ ناتمام `P06`، دو مدل رایگان و حساب‌های واقعاً قابل دسترس را تعیین و تأیید کن؛ سپس ۲۴ خروجی نهاییِ سه روش را از مسیر واقعی دستی محصول با تمام فراخوانی‌های میانی ثبت کن. امتیاز کور، یافته‌های خطا و اصلاح و بازبرآورد مبتنی بر ساعات واقعی باید پیش از پذیرش آماده شوند.",
+    "completed_fa": "`P05` ادغام شده؛ اصلاح‌های کیفیت و آماده‌سازی پایلوت روی هر دو محیط بومی موفق‌اند.",
+    "remaining_fa": "انتخاب مدل‌های قابل دسترس، ۲۴ خروجی واقعی و تمام مراحل میانی، امتیاز کور، یافته‌ها و بازبرآورد `P06`.",
     "done_when_fa": "هر سه معیار اصلی پایان P06 با شواهد واقعی بررسی و پذیرفته شوند."
   },
-  "inputs_missing": [],
+  "inputs_missing": [
+    "Accessible selected free models for real manual pilot",
+    "Measured prior engineering hours, or a reviewed treatment of their genuine absence"
+  ],
   "unfinished_work": {
     "phase": "P06",
     "items": [
       {
         "id": "P06-001",
         "status": "BLOCKED",
-        "instruction": "در P06 طرح پایلوت را پیش از اجرا ثبت کن: ۶ تا ۱۰ وظیفهٔ نماینده و بودجه و معیار ارزیابی را انتخاب کن؛ سپس پاسخ واقعی مسیر دستی را برای شورا، یک مدل و استفادهٔ چندباره از همان مدل با بودجهٔ قابل مقایسه جمع‌آوری کن. ابتدا بررسی‌های معنادار P06 را پیکربندی کن؛ متن ساختگی شاهد کیفیت نیست و برتری مدل از نمونهٔ کوچک نتیجه گرفته نشود."
+        "instruction": "برای نخستین مرحلهٔ ناتمام `P06`، دو مدل رایگان و حساب‌های واقعاً قابل دسترس را تعیین و تأیید کن؛ سپس ۲۴ خروجی نهاییِ سه روش را از مسیر واقعی دستی محصول با تمام فراخوانی‌های میانی ثبت کن. امتیاز کور، یافته‌های خطا و اصلاح و بازبرآورد مبتنی بر ساعات واقعی باید پیش از پذیرش آماده شوند."
       }
     ],
-    "updated_at_utc": "2026-10-08T15:14:05.922432+00:00"
+    "updated_at_utc": "2026-10-08T16:27:23.565788+00:00"
   },
   "native_evidence": {
-    "run_id": 37756543373,
-    "code_commit": "ddf33b24f41aa2c5ee0609800bd9f440165b72b5",
-    "source_digest": "c01c0633233eb7b35a9cf6319f75497771632ddf7b3fe3ad6e0f7300bdf6dad8",
-    "tests_per_target": 622,
-    "council_tests_per_target": 40,
-    "process_exit_cases_per_target": 39,
-    "target_reports": [
+    "scope": "CURRENT_QUALITY_SOURCE_NOT_P06_ACCEPTANCE",
+    "source_digest": "5c44278b5f6a52c4276e4d7d7c17af2f3633cca8ae8db44cce4420be830767f7",
+    "whole_native_status": "PASS",
+    "fresh_linux_status": "PASS",
+    "fresh_windows_status": "PASS",
+    "workflow_run_id": 37804861086,
+    "tests_per_target": 656,
+    "targets": [
       {
         "target": "Windows",
-        "report": {
-          "path": "evidence/targets/Windows/20261008T092548Z_c743026e/RUN.json",
-          "sha256": "a397686ffd0f7d9785f01a959ccf93a18ee6e670857d64e0fc7459007108d345"
-        },
         "status": "PASS",
         "source_matches_current": true,
-        "scope": "RECORDED_TARGET_ARTIFACTS_NOT_PHASE_ACCEPTANCE"
+        "report": {
+          "path": "evidence/targets/Windows/20261008T155730Z_fefd9f7e/RUN.json",
+          "sha256": "861c5456e8a62fc970af870ae03a1b15ef9ea65bc10a60357fcfcfea7f60baaa"
+        },
+        "test_counts": {
+          "control": {
+            "tests": 117,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0
+          },
+          "foundation": {
+            "tests": 60,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0
+          },
+          "persistence": {
+            "tests": 104,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0
+          },
+          "browser_probe": {
+            "tests": 44,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0
+          },
+          "architect": {
+            "tests": 259,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0
+          },
+          "council": {
+            "tests": 40,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0
+          },
+          "quality": {
+            "tests": 15,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0
+          },
+          "pilot": {
+            "tests": 17,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0
+          }
+        },
+        "tests_total": 656
       },
       {
         "target": "Linux",
-        "report": {
-          "path": "evidence/targets/Linux/20261008T092538Z_270c21cd/RUN.json",
-          "sha256": "3c403515a4843c634efd259f13c8d66af9d92a068cc988db2866a8c5f54fa703"
-        },
         "status": "PASS",
         "source_matches_current": true,
-        "scope": "RECORDED_TARGET_ARTIFACTS_NOT_PHASE_ACCEPTANCE"
+        "report": {
+          "path": "evidence/targets/Linux/20261008T155709Z_225bf944/RUN.json",
+          "sha256": "8ff0a877cd345aabcb80181a97fb6321b06b762bf614482a18a5549d9d488d37"
+        },
+        "test_counts": {
+          "control": {
+            "tests": 117,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0
+          },
+          "foundation": {
+            "tests": 60,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0
+          },
+          "persistence": {
+            "tests": 104,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0
+          },
+          "browser_probe": {
+            "tests": 44,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0
+          },
+          "architect": {
+            "tests": 259,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0
+          },
+          "council": {
+            "tests": 40,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0
+          },
+          "quality": {
+            "tests": 15,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0
+          },
+          "pilot": {
+            "tests": 17,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0
+          }
+        },
+        "tests_total": 656
+      }
+    ],
+    "dependency_audit": {
+      "path": "evidence/security-audit/native-37804861086/RUN.json",
+      "sha256": "44328f797469cf17d84517417893ee035db35a0861cf2903d21f9f080cda9cfc"
+    },
+    "historical_P05_evidence": "resume.final_p05_checkpoint; acceptance-time snapshot only",
+    "supervisor_receipts": [
+      {
+        "path": "evidence/development-supervisor/61497e98197d4c3f9c618045ecabe3b5/STATE.json",
+        "sha256": "73aa3544ad01b24a9ac1cd393514121c4d94ae0ebe8c1e37dccbe008f1f151a0"
+      },
+      {
+        "path": "evidence/development-supervisor/0cae1ee92e96492392f5c1e62d3286f0/STATE.json",
+        "sha256": "18f26eeda7ba2f1f8f855b8dd8599a4a5419590bcd46774a5abfa9d84155b986"
       }
     ]
   },
@@ -200,23 +326,72 @@
     }
   },
   "known_quirks": [
-    "P06 checks are not configured. The current-phase supervisor reports BLOCKED until meaningful pilot checks are defined; this is not a failure of accepted P05.",
-    "No real P06 model quality comparison has run. P05 mock/manual examples are synthetic, with unverified copied manual origins.",
-    "Only exact offline mock adapter policy-managed sends are enabled. Live API/browser drivers retain original P08/P09 gates.",
-    "Named peer review needs explicit authorization. The recorded FINISH judge projection independently blinds identity metadata; answer text is not identity-scrubbed.",
-    "The owned-process 300s idle/900s hard supervisor cannot cancel ChatGPT/MCP. External calls have 25s bounded waits and ambiguous writes are read/reconciled before retry; server-generated commits never auto-retry.",
-    "Historical P03 live browser sends/sign-out must not be replayed without a new scoped reason.",
-    "Workflow 37798211531 freshly passed both native targets and report hashes; its only failure is the unconfigured P06 phase step. P06 is explicitly BLOCKED; no acceptance is bypassed.",
-    "All 117 control tests pass locally after updating the old blocked-phase fixture to retain its explicit reason and isolate its files. Fresh native CI for this exact source is required.",
-    "Windows run 37801218935 retained as failed evidence. Its two new control tests exposed 8.3 path aliases; supervised roots/receipts are now resolved consistently. The architect suite also stopped at 60s; only its deadline is 90s, aggregate recording 240s, with 300/900 supervisor limits unchanged. All 117 controls pass locally after repair; fresh exact-source Windows/Linux CI remains required."
+    "No real P06 model quality comparison has run: 0/24 final outputs. Copied/manual origin claims are not authenticated by the journal alone.",
+    "Only offline mock policy-managed sends are enabled. Live API/browser drivers retain P08/P09 gates; real P06 responses use the authorized manual product flow.",
+    "Named peer review needs explicit authorization. FINISH metadata is blinded separately; answer text is not identity-scrubbed.",
+    "300s idle/900s hard limits supervise owned processes, not ChatGPT/MCP. External calls use 25s waits and ambiguous writes are read/reconciled; server commits never auto-retry.",
+    "P03 historical browser sends/sign-out must not be replayed without a new scoped reason.",
+    "P06 checker blocks until live protocol outputs, blind scoring, actual product-flow review, error findings and measured-hours reestimate are registered.",
+    "Pinned development tools and advisory audit passed on CI 37804861086. The local runtime may still lack them; its old failure remains preserved.",
+    "Failed Windows run 37801218935 is retained. Resolved 8.3 paths and the measured 90s architect deadline passed on both native OSs; aggregate 240s and 300/900 supervisor limits remain.",
+    "The original P05 acceptance digest is c01c0633; current 5c44278b source has new verification, without relabeling the original acceptance snapshot.",
+    "License choice and scheduled/conditional enhancements remain open; native test success does not close them or establish full 30-requirement conformance."
   ],
   "developer_supervisor": {
     "idle_seconds": 300,
     "hard_seconds": 900,
     "native_verified": true,
-    "scope": "OWNED_PROCESSES_NOT_CHATGPT_OR_MCP_CANCELLATION"
+    "scope": "OWNED_PROCESSES_NOT_CHATGPT_OR_MCP_CANCELLATION",
+    "native_scope": "CURRENT_QUALITY_SOURCE_BOTH_NATIVE_TARGETS_VERIFIED",
+    "native_run_id": 37804861086
   },
-  "transfer_reviewed_file_count": 1183
+  "transfer_reviewed_file_count": null,
+  "latest_followup_recheck": {
+    "path": "evidence/quality-improvements/native-37804861086/RECHECK.json",
+    "sha256": "a559ce5eed513407858952e5f4a98071c99c8708d8d9742e587a22e67e53107f",
+    "tests_per_target": 656,
+    "whole_native_check_status": "PASS",
+    "fresh_windows_status": "PASS",
+    "scope": "CURRENT_SOURCE_NOT_P06_ACCEPTANCE"
+  },
+  "historical_checkpoint_note": "Fields inside final_p04_checkpoint/final_p05_checkpoint describe their original acceptance-time source comparisons; they do not certify the current working source.",
+  "previous_local_quality_source": {
+    "source_digest": "9a61ab6bf1da54fe5a8e7ce219ed01d4f8772b4627dfe79fc7d5d05032951c8e",
+    "linux_report": {
+      "path": "evidence/targets/Linux/20261008T143749Z_4f24d565/RUN.json",
+      "sha256": "bf5119206b29e143508592eb87a436642bc76e052b16792f2d725090b6a3b8a6"
+    },
+    "passed_cases": 639,
+    "whole_native_status": "FAIL",
+    "scope": "HISTORICAL_LOCAL_CHECK"
+  },
+  "p05_publication": {
+    "status": "MERGED",
+    "pr_number": 13,
+    "pr_url": "https://github.com/mehrangtr/Consilium/pull/13",
+    "merge_commit": "af60bdfa70046a75ce9bd4c5f6c56ae7cd4f9e2f",
+    "fresh_repaired_source": "af3aa954cb47da32effbe281005925fbaa448b93bb38f242636276f4d7a25875",
+    "fresh_native_run_id": 37803460536,
+    "tests_per_target": 624
+  },
+  "approved_enhancement_verification": {
+    "source_manifest": "APPROVED_ENHANCEMENTS.json",
+    "manifest_scope": "FROZEN_IMPLEMENTATION_CHECKPOINT_BEFORE_NATIVE_VERIFICATION",
+    "current_native_status": "PASS_WITH_RECORDED_SCOPE_LIMITS",
+    "evidence": {
+      "path": "evidence/quality-improvements/native-37804861086/RECHECK.json",
+      "sha256": "a559ce5eed513407858952e5f4a98071c99c8708d8d9742e587a22e67e53107f"
+    },
+    "still_pending_ids": [
+      "E08",
+      "E16",
+      "E19",
+      "E24",
+      "E25",
+      "E26"
+    ],
+    "full_v1_conformance": "NOT_RUN"
+  }
 }
 ```
 
@@ -230,7 +405,7 @@
 | `P03` | `COMPLETED` | 0 |
 | `P04` | `COMPLETED` | 0 |
 | `P05` | `COMPLETED` | 0 |
-| `P06` | `BLOCKED` | 1 |
+| `P06` | `BLOCKED` | 2 |
 | `P07` | `BLOCKED` | 1 |
 | `P08` | `BLOCKED` | 1 |
 | `P09` | `BLOCKED` | 1 |

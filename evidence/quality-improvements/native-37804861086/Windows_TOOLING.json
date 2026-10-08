@@ -1,0 +1,65 @@
+{
+  "scope": "TARGETED_DEV_QUALITY_NOT_FULL_STATIC_VERIFICATION",
+  "status": "PASS",
+  "source_digest_before": "5c44278b5f6a52c4276e4d7d7c17af2f3633cca8ae8db44cce4420be830767f7",
+  "source_digest_after": "5c44278b5f6a52c4276e4d7d7c17af2f3633cca8ae8db44cce4420be830767f7",
+  "checks": [
+    {
+      "id": "lint",
+      "status": "PASS",
+      "returncode": 0,
+      "elapsed_seconds": 0.078
+    },
+    {
+      "id": "types",
+      "status": "PASS",
+      "returncode": 0,
+      "elapsed_seconds": 0.938
+    },
+    {
+      "id": "conformance",
+      "status": "PASS",
+      "returncode": 0,
+      "elapsed_seconds": 0.094
+    },
+    {
+      "id": "transitions",
+      "status": "PASS",
+      "returncode": 0,
+      "elapsed_seconds": 0.25
+    },
+    {
+      "id": "properties_and_regressions",
+      "status": "PASS",
+      "returncode": 0,
+      "elapsed_seconds": 14.25
+    },
+    {
+      "id": "targeted_coverage",
+      "status": "PASS",
+      "returncode": 0,
+      "elapsed_seconds": 0.156
+    }
+  ],
+  "strict_type_targets": [
+    "src/consilium/core/evidence_provenance.py",
+    "src/consilium/core/rubrics.py",
+    "src/consilium/shell/evidence_store.py"
+  ],
+  "coverage_targets": [
+    "src/consilium/core/evidence_provenance.py",
+    "src/consilium/core/rubrics.py",
+    "src/consilium/shell/evidence_store.py"
+  ],
+  "coverage_minimum": 70,
+  "whole_product_type_checked": false,
+  "evidence_origin": {
+    "kind": "EXTRACTED_NATIVE_LOG_JSON",
+    "target": "Windows",
+    "source_log": {
+      "path": "evidence/targets/Windows/20261008T155730Z_fefd9f7e/CHECK.log",
+      "sha256": "be69e0d3616ce4317e712a9a7f135fc4808bcfcb3568e2578208086bdceafa57"
+    },
+    "workflow_run_id": 37804861086
+  }
+}

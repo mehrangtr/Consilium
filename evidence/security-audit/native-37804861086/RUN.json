@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "scope": "DEPENDENCY_ADVISORY_AUDIT_AT_RECORDED_TIME",
+  "status": "PASS",
+  "source_digest": "5c44278b5f6a52c4276e4d7d7c17af2f3633cca8ae8db44cce4420be830767f7",
+  "workflow_run_id": 37804861086,
+  "job_id": 113406360340,
+  "code_commit": "e3cfb53b3fed396b725659eafac9451edf248c53",
+  "command": "python -m pip_audit -r requirements.lock -r requirements-dev.lock --timeout 15",
+  "no_known_vulnerabilities_found": true,
+  "lockfiles": [
+    {
+      "path": "requirements.lock",
+      "sha256": "8bccf0e7a28880363964898d3d9b0a7fa85f452495ca60212f383ed672fcca56"
+    },
+    {
+      "path": "requirements-dev.lock",
+      "sha256": "20476e8d356ecd50df79dbd982bd55e1decf129f04a2f67d1ce9cc10ab0b8328"
+    }
+  ],
+  "log_excerpt": {
+    "path": "evidence/security-audit/native-37804861086/AUDIT.log",
+    "sha256": "55b5326d0c8c575df04f66a8401d58d00f7b3e19320fbc5d8a499f9d3cf01e9c"
+  },
+  "limitations": [
+    "Known advisory databases at audit time; not proof that no vulnerabilities exist."
+  ],
+  "recorded_at_utc": "2026-10-08T16:27:23.565788+00:00"
+}

@@ -1,0 +1,177 @@
+schema_version: 1
+project: Consilium
+policy:
+  recommendations_are_advisory: true
+  recommendations_cannot_override_locked_user_requirements: true
+recommendations:
+- id: AR-001
+  title: SQLite as canonical operational source
+  origin: AI_RESEARCHER
+  decision: ACCEPT
+  necessity: Critical
+  reason: Avoids three competing sources of truth while preserving JSON/Markdown as derived artifacts.
+  compatibility_guard: Compatible with UR-024/025/026.
+- id: AR-002
+  title: State Machine as Data (transitions.yaml)
+  origin: AI_RESEARCHER
+  decision: ACCEPT
+  necessity: High
+  reason: Reduces drift between code, tests, and documentation.
+  compatibility_guard: Does not alter user behavior requirements.
+- id: AR-003
+  title: Write-ahead intent
+  origin: AI_RESEARCHER
+  decision: ACCEPT
+  necessity: Critical
+  reason: Makes crash recovery around external calls tractable.
+  compatibility_guard: Strengthens UR-027/028/029.
+- id: AR-004
+  title: Operation ledger + request_hash/idempotency
+  origin: AI_RESEARCHER
+  decision: ACCEPT
+  necessity: Critical
+  reason: Controls duplicate sends and UNKNOWN_DELIVERY handling.
+  compatibility_guard: Strengthens UR-029.
+  implementation_note: Content hash is integrity metadata, not a global uniqueness or remote exactly-once guarantee.
+    Use logical_operation_id, attempt_id and generation_id; retry follows endpoint capabilities and intent.
+- id: AR-005
+  title: Fault Injection Harness
+  origin: AI_RESEARCHER
+  decision: ACCEPT
+  necessity: Very High
+  reason: Proves recovery invariants instead of merely documenting them.
+  compatibility_guard: Testing enhancement only.
+  implementation_note: Start with small independently specified kill-point cases during kernel development. Passing
+    finite fault tests is bounded evidence, not absolute proof.
+- id: AR-006
+  title: Benchmark Suite
+  origin: AI_RESEARCHER
+  decision: ACCEPT
+  necessity: Very High
+  reason: Measures whether Council beats simpler baselines and exposes cost/quality tradeoffs.
+  compatibility_guard: Research/evaluation enhancement only.
+  implementation_note: Start a pilot with the first complete internal path; disclose equal-budget and actual-cost
+    baselines. A negative quality result does not authorize deleting protected requirements.
+- id: AR-007
+  title: Recovery Fidelity benchmark
+  origin: AI_RESEARCHER
+  decision: ACCEPT
+  necessity: High
+  reason: Measures task/constraint/claim preservation after recovery.
+  compatibility_guard: Compatible enhancement.
+  implementation_note: Report mechanical packet preservation separately from blinded human/automated quality deltas.
+    Do not publish an uncalibrated sum as a probability.
+- id: AR-008
+  title: Context compression pipeline
+  origin: AI_RESEARCHER
+  decision: ACCEPT_WITH_GUARDRAILS
+  necessity: High
+  reason: Controls context growth, but must preserve dissent, unresolved issues, provenance, and user constraints.
+  compatibility_guard: Must not violate UR-013/014/021.
+- id: AR-009
+  title: Claim/Evidence/Dissent graph
+  origin: AI_RESEARCHER
+  decision: ACCEPT
+  necessity: Medium-High
+  reason: Improves structured recovery and synthesis.
+  compatibility_guard: Compatible enhancement.
+  implementation_note: Optional derived Claim Graph after the baseline; retain raw source and inspect extraction
+    errors. No protected UR depends on this recommendation.
+- id: AR-010
+  title: Cross-provider privacy consent/firewall
+  origin: AI_RESEARCHER
+  decision: ACCEPT
+  necessity: Critical
+  reason: Prevents silent data transfer across providers.
+  compatibility_guard: Strengthens UR-020/029.
+- id: AR-011
+  title: Judge bias disclosure
+  origin: AI_RESEARCHER
+  decision: ACCEPT
+  necessity: High
+  reason: Makes participant-as-judge transparent.
+  compatibility_guard: Formalizes UR-012.
+- id: AR-012
+  title: Analyzer I/O schema and failure behavior
+  origin: AI_RESEARCHER
+  decision: ACCEPT
+  necessity: High
+  reason: Prevents fabricated agreement/recommendation numbers.
+  compatibility_guard: Strengthens UR-014/029.
+- id: AR-013
+  title: Confirmation ladder and per-provider timeout
+  origin: AI_RESEARCHER
+  decision: ACCEPT
+  necessity: High
+  reason: Makes UNKNOWN_DELIVERY classification precise.
+  compatibility_guard: Strengthens UR-029.
+  implementation_note: Separate delivery, result availability, validation and durable confirmation. Missing DOM
+    content is not a definite absence result.
+- id: AR-014
+  title: Full Event Sourcing as primary persistence
+  origin: AI_RESEARCHER
+  decision: DEFER
+  necessity: Low for V0/V1
+  reason: Adds complexity without enough near-term value; append-only events + snapshots are sufficient initially.
+  compatibility_guard: May be revisited later.
+- id: AR-015
+  title: TLA+ / Alloy formal verification
+  origin: AI_RESEARCHER
+  decision: DEFER
+  necessity: Medium
+  reason: Valuable after the state model stabilizes; premature before implementation feedback.
+  compatibility_guard: No user requirement impact.
+- id: AR-016
+  title: LLM-based recovery sanitizer
+  origin: AI_RESEARCHER
+  decision: REJECT_FOR_NOW
+  necessity: Low
+  reason: A sanitizer model can itself fail or be injected; structured schema + boundaries + flagging is safer initially.
+  compatibility_guard: Security may be revisited.
+- id: AR-017
+  title: Random per-request delimiter + schema validation
+  origin: AI_RESEARCHER
+  decision: ACCEPT
+  necessity: Medium
+  reason: Low-cost prompt-injection hardening.
+  compatibility_guard: Compatible enhancement.
+  implementation_note: Random delimiters and schema validation help structure content; they do not enforce authorization
+    or guarantee resistance to prompt injection.
+- id: AR-018
+  title: Self-healing browser adapter
+  origin: AI_RESEARCHER
+  decision: DEFER_TO_POST_BASELINE
+  necessity: Medium
+  reason: Useful after baseline Browser V1 behavior and health checks are stable.
+  compatibility_guard: Cannot be used to postpone Browser support required by UR-001.
+- id: AR-019
+  title: Stateless-by-default provider interaction
+  origin: AI_RESEARCHER
+  decision: MODIFY
+  necessity: High
+  reason: Useful only if correctness is stateless-capable while valid conversations remain preferred and reused.
+  compatibility_guard: Must not override UR-018.
+- id: AR-020
+  title: Decision Policy interactive|auto(policy_id)
+  origin: AI_RESEARCHER
+  decision: MODIFY
+  necessity: Optional
+  reason: Auto mode may exist only as explicit opt-in for benchmark/batch/headless use. Interactive V1 remains user-gated
+    by default.
+  compatibility_guard: Must not override UR-007.
+- id: AR-021
+  title: Manual-only V0 prototype
+  origin: AI_RESEARCHER
+  decision: ACCEPT_AS_INTERNAL_PROTOTYPE
+  necessity: Medium
+  reason: Useful for early testing, but cannot replace Browser support in V1.
+  compatibility_guard: Must not weaken UR-001/002/015.
+- id: AR-022
+  title: Generate Markdown only at COMPLETED
+  origin: AI_RESEARCHER
+  decision: REJECT
+  necessity: High
+  reason: Conflicts with cumulative human-readable history requirements.
+  compatibility_guard: Use checkpoint-derived Markdown updates instead; protects UR-021/022/024/025.
+  implementation_note: This is a rejected conflict, never an implementation dependency for UR-022/025/030.
+governance_version: 1.3.0

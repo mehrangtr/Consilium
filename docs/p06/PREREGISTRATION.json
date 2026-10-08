@@ -1,0 +1,62 @@
+{
+  "version": "p06-pilot.v1",
+  "preregistered_at_utc": "2026-10-08T13:10:10.691551+00:00",
+  "dataset": "governance/protected/evaluation/PILOT_DATASET.json",
+  "dataset_sha256": "3875fb029cefbec79b14e60e0a07c804686d2110eca18b42de9b8783777f274d",
+  "task_ids": [
+    "PILOT-001",
+    "PILOT-003",
+    "PILOT-005",
+    "PILOT-007",
+    "PILOT-008",
+    "PILOT-010",
+    "PILOT-015",
+    "PILOT-020"
+  ],
+  "methods": [
+    "SINGLE",
+    "REPEATED_SINGLE",
+    "COUNCIL"
+  ],
+  "max_calls_per_task_method": 6,
+  "common_architect_calls": 1,
+  "max_output_tokens_per_task_method": 2400,
+  "single_output_token_cap": 2000,
+  "multiround_output_token_cap_each": 400,
+  "max_elapsed_seconds_per_task_method": 600,
+  "max_cost": 0,
+  "paid_calls_authorized": false,
+  "manual_origin_authenticated": false,
+  "repair_calls_consume_same_budget": true,
+  "budget_type": "EQUAL_CEILINGS_DIFFERENT_ACTUAL_USAGE_MUST_BE_REPORTED",
+  "protocol": {
+    "SINGLE": "Common architect then one selected-model answer; unused call allowance is reported.",
+    "REPEATED_SINGLE": "Common architect; two independent answers, two critiques and one synthesis from the same model.",
+    "COUNCIL": "Common architect; two different model participants, two independent answers, two critiques, one explicitly chosen judge."
+  },
+  "blinding_seed": "consilium-p06-preregistered-20261008-v1",
+  "rubric_id": "p06-quality.v1",
+  "metrics": [
+    "constraint_preservation",
+    "reference_correctness",
+    "reasoning",
+    "dissent_coverage",
+    "observed_calls",
+    "observed_elapsed_seconds",
+    "observed_tokens",
+    "observed_cost",
+    "control_errors"
+  ],
+  "success_criteria": [
+    "All 24 final outputs recorded with exact prompt/response hashes and all intermediate calls accounted.",
+    "Blinded scoring against held-out task references with per-dimension reasons and explicit judge origin.",
+    "No authority violation, secret transfer or blind resend; a defect blocks acceptance.",
+    "Report paired differences per task and uncertainty; small sample does not establish general superiority."
+  ],
+  "unknown_tokens_policy": "Record null; do not claim equal actual tokens if the UI does not expose counts.",
+  "current_status": "PREREGISTERED_NOT_EXECUTED",
+  "real_model_runs": 0,
+  "mock_outputs_are_quality_evidence": false,
+  "engineering_hours_of_previous_phases": null,
+  "estimate_revision": "PENDING_MEASURED_ENGINEERING_HOURS_AND_ACTUAL_PILOT"
+}

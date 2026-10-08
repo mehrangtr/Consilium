@@ -1,0 +1,73 @@
+{
+  "scope": "LOCAL_RECHECK_NOT_NEW_PHASE_ACCEPTANCE",
+  "source_digest": "9a61ab6bf1da54fe5a8e7ce219ed01d4f8772b4627dfe79fc7d5d05032951c8e",
+  "accepted_P05_review": "evidence/accepted/P05_9d8a5cb47cca/REVIEW.json",
+  "accepted_P05_review_sha256": "3b829a028ce1a1fa3d79cf5562b9352fc85109deed89c2e4d7adf3bd3ab50c35",
+  "verified_P05_proof_references": 276,
+  "all_P05_original_criteria_pass": true,
+  "fresh_linux_report": {
+    "path": "evidence/targets/Linux/20261008T143749Z_4f24d565/RUN.json",
+    "sha256": "bf5119206b29e143508592eb87a436642bc76e052b16792f2d725090b6a3b8a6"
+  },
+  "fresh_test_counts": {
+    "maintenance_report": null,
+    "environment_report": null,
+    "control_report": {
+      "tests": 115,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "expected_failures": 0,
+      "unexpected_successes": 0
+    },
+    "foundation_report": {
+      "tests": 60,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "persistence_report": {
+      "tests": 104,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "browser_probe_report": {
+      "tests": 44,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "architect_report": {
+      "tests": 259,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "council_report": {
+      "tests": 40,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "pilot_report": {
+      "tests": 17,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  },
+  "passed_tests": 639,
+  "whole_native_check_status": "FAIL",
+  "fresh_windows": "NOT_RUN",
+  "fresh_quality_tooling": "BLOCKED_MISSING_DEV_DEPENDENCIES",
+  "dependency_install_returncode": 1,
+  "public_status": "P05_READY_STALE_MAIN_METADATA",
+  "publication": "AUTOMATIC_APPROVAL_REVIEW_REJECTED_INTERNAL_STATUS_PUBLICATION_PREVIOUSLY_NO_RETRY",
+  "P06_real_final_outputs": 0,
+  "P06_required_final_outputs": 24,
+  "paid_calls": 0,
+  "live_calls_this_turn": 0,
+  "reviewer_independent": false,
+  "date_utc": "2026-10-08T14:43:22.745501+00:00"
+}

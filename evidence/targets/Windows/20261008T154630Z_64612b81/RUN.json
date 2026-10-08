@@ -1,0 +1,229 @@
+{
+  "phase": "P01",
+  "development_step_id": "3511dbce076346798bc7eb74b8799231",
+  "scope": "NATIVE_TARGET_OFFLINE_EXECUTION",
+  "status": "PASS",
+  "check_returncode": 0,
+  "errors": [],
+  "source_digest_before": "af3aa954cb47da32effbe281005925fbaa448b93bb38f242636276f4d7a25875",
+  "source_digest_after": "af3aa954cb47da32effbe281005925fbaa448b93bb38f242636276f4d7a25875",
+  "host": {
+    "system": "Windows",
+    "python": "3.12.10"
+  },
+  "date_utc": "2026-10-08T15:47:52.800464+00:00",
+  "artifacts": {
+    "check_log": {
+      "path": "evidence/targets/Windows/20261008T154630Z_64612b81/CHECK.log",
+      "sha256": "414eca5680e9e736b8ab69e173feebf98173510b88a7a9deb2f25f79aa496b0e"
+    },
+    "maintenance_report": {
+      "path": "evidence/targets/Windows/20261008T154630Z_64612b81/maintenance_report.json",
+      "sha256": "1ebb756f5f51d920f6188ab4b799aa1fe98094ba14480c2a3eb2fc1a7e2126ec"
+    },
+    "environment_report": {
+      "path": "evidence/targets/Windows/20261008T154630Z_64612b81/environment_report.json",
+      "sha256": "139206dccc8c5502356ea1222127683aef7437024b9bf1becbcc97494a5d9d62"
+    },
+    "control_report": {
+      "path": "evidence/targets/Windows/20261008T154630Z_64612b81/control_report.json",
+      "sha256": "468392bdc315ce35a039577740cfc29da29fb11f57523bb4720297c7f60d9131"
+    },
+    "control_junit": {
+      "path": "evidence/targets/Windows/20261008T154630Z_64612b81/control_junit.xml",
+      "sha256": "dc41a12bba431ca33f98b95445c373fd2f4030f6f44d49393d5c8c65d3bb6b86"
+    },
+    "foundation_report": {
+      "path": "evidence/targets/Windows/20261008T154630Z_64612b81/foundation_report.json",
+      "sha256": "5d85dff82ff418eb030b178bb96a24683b9b515f3e6c0174a0774a2f0cae4965"
+    },
+    "foundation_junit": {
+      "path": "evidence/targets/Windows/20261008T154630Z_64612b81/foundation_junit.xml",
+      "sha256": "7c775438c51a685195abba490548262de4759e5d29d91293ad3bbf5bea68179d"
+    },
+    "persistence_report": {
+      "path": "evidence/targets/Windows/20261008T154630Z_64612b81/persistence_report.json",
+      "sha256": "d35617cb46c60977f4f712ee7cc7d9cfdaaa9a20e61800cf00f3ce6a23e847f4"
+    },
+    "persistence_junit": {
+      "path": "evidence/targets/Windows/20261008T154630Z_64612b81/persistence_junit.xml",
+      "sha256": "302fcb323734105787efe34b9e2728b19788dbc67d2a1ff033e4a22971d608a7"
+    },
+    "browser_probe_report": {
+      "path": "evidence/targets/Windows/20261008T154630Z_64612b81/browser_probe_report.json",
+      "sha256": "f4b63b4065b78ed0863cfe91717d2a1b6520f24856f838b60c923af9761846f1"
+    },
+    "browser_probe_junit": {
+      "path": "evidence/targets/Windows/20261008T154630Z_64612b81/browser_probe_junit.xml",
+      "sha256": "cc96cd3d9eb9caaf9925bbf12a0aab6a3fb6e60c3968367ad7be5c7476ed39a9"
+    },
+    "architect_report": {
+      "path": "evidence/targets/Windows/20261008T154630Z_64612b81/architect_report.json",
+      "sha256": "517427b0b36464446aaab5d7dc6bf5abe224c420df007a4748d981f90b861b3f"
+    },
+    "architect_junit": {
+      "path": "evidence/targets/Windows/20261008T154630Z_64612b81/architect_junit.xml",
+      "sha256": "1f75c76880d07546153368668ae3d17731bd3e25d730d0b6167c3d42832ab1c5"
+    },
+    "council_report": {
+      "path": "evidence/targets/Windows/20261008T154630Z_64612b81/council_report.json",
+      "sha256": "c931e126a3bbacdba3e6b0ed8b98f89f5c73076150b7da8c4458aeb43e712e2f"
+    },
+    "council_junit": {
+      "path": "evidence/targets/Windows/20261008T154630Z_64612b81/council_junit.xml",
+      "sha256": "0ed8a1b5428e9ab36395144968b2235367b62d7339553232441f9a25b09808ef"
+    },
+    "smoke_1_log": {
+      "path": "evidence/targets/Windows/20261008T154630Z_64612b81/smoke_1.log",
+      "sha256": "f6c7e62e70d659c293f91ca7b49dd4d4dc70fb24fc1de85de43c77ae6041198d"
+    },
+    "smoke_2_log": {
+      "path": "evidence/targets/Windows/20261008T154630Z_64612b81/smoke_2.log",
+      "sha256": "8fe1c02bbf0c3288a18c8ef3faf2c85cda366c931cd2501c2d00939e629ada2a"
+    },
+    "smoke_3_log": {
+      "path": "evidence/targets/Windows/20261008T154630Z_64612b81/smoke_3.log",
+      "sha256": "0c6474ae3a5dbc86462928670532c60da08a4641bd3e14e9fe3cfea4f9c0b3a5"
+    },
+    "smoke_4_log": {
+      "path": "evidence/targets/Windows/20261008T154630Z_64612b81/smoke_4.log",
+      "sha256": "a8c6a7584664f0de9531f655be8944b7e8a7bc11dbe36d8f71b1e97e8003c88e"
+    }
+  },
+  "smoke": [
+    {
+      "mode": "API",
+      "scenario": "success",
+      "returncode": 0,
+      "expected": 0,
+      "status": "PASS",
+      "output": {
+        "project": "Consilium",
+        "phase": "P01",
+        "scope": "OFFLINE_FOUNDATION_DEMO",
+        "debate_completed": false,
+        "live_provider_calls": 0,
+        "result": {
+          "identity": {
+            "logical_operation_id": "3c6c0a67-fc31-4b7f-8290-8fbf9ff7662f",
+            "attempt_id": "6647cdd9-d9a5-4351-a102-8bf59149f15f",
+            "generation_id": null
+          },
+          "request_hash": "8d9463413a64d78b7c36158fbfa49451aeef55b0fa5eefa2becd7bb0820f943c",
+          "connection_id": "7760c33c-0220-4544-98ec-f0c3e53fcbc3",
+          "connection_revision": 0,
+          "delivery": "CONFIRMED_DELIVERY",
+          "response_state": "COMPLETE",
+          "content": "{\"answer\":\"offline mock response\"}",
+          "failure": "NONE",
+          "response_id": "mock-6647cdd9-d9a5-4351-a102-8bf59149f15f",
+          "evidence": [
+            "MOCK_ONLY:success"
+          ],
+          "elapsed_seconds": 0.0
+        }
+      }
+    },
+    {
+      "mode": "BROWSER",
+      "scenario": "success",
+      "returncode": 0,
+      "expected": 0,
+      "status": "PASS",
+      "output": {
+        "project": "Consilium",
+        "phase": "P01",
+        "scope": "OFFLINE_FOUNDATION_DEMO",
+        "debate_completed": false,
+        "live_provider_calls": 0,
+        "result": {
+          "identity": {
+            "logical_operation_id": "a4e4310d-e29a-4cd9-b0e0-a17a77d635ae",
+            "attempt_id": "364b217d-d19d-4465-934f-3b678e9b52c9",
+            "generation_id": null
+          },
+          "request_hash": "8d9463413a64d78b7c36158fbfa49451aeef55b0fa5eefa2becd7bb0820f943c",
+          "connection_id": "196c5bda-418d-46e0-aa97-391fdf924559",
+          "connection_revision": 0,
+          "delivery": "CONFIRMED_DELIVERY",
+          "response_state": "COMPLETE",
+          "content": "{\"answer\":\"offline mock response\"}",
+          "failure": "NONE",
+          "response_id": "mock-364b217d-d19d-4465-934f-3b678e9b52c9",
+          "evidence": [
+            "MOCK_ONLY:success"
+          ],
+          "elapsed_seconds": 0.0
+        }
+      }
+    },
+    {
+      "mode": "BROWSER",
+      "scenario": "timeout_after_send",
+      "returncode": 2,
+      "expected": 2,
+      "status": "PASS",
+      "output": {
+        "project": "Consilium",
+        "phase": "P01",
+        "scope": "OFFLINE_FOUNDATION_DEMO",
+        "debate_completed": false,
+        "live_provider_calls": 0,
+        "result": {
+          "identity": {
+            "logical_operation_id": "d87ea175-a455-4eac-bf8f-de56bfa35ab0",
+            "attempt_id": "91b9b6b1-66ed-4d16-a2db-6ed8e4b5e70a",
+            "generation_id": null
+          },
+          "request_hash": "8d9463413a64d78b7c36158fbfa49451aeef55b0fa5eefa2becd7bb0820f943c",
+          "connection_id": "4ee1a8da-2fdd-400c-9106-fc9ee4fbd3a2",
+          "connection_revision": 0,
+          "delivery": "UNKNOWN_DELIVERY",
+          "response_state": "NONE",
+          "content": null,
+          "failure": "TIMEOUT",
+          "response_id": null,
+          "evidence": [
+            "MOCK_ONLY:timeout_after_send"
+          ],
+          "elapsed_seconds": 2.0
+        }
+      }
+    },
+    {
+      "mode": "API",
+      "scenario": "partial",
+      "returncode": 2,
+      "expected": 2,
+      "status": "PASS",
+      "output": {
+        "project": "Consilium",
+        "phase": "P01",
+        "scope": "OFFLINE_FOUNDATION_DEMO",
+        "debate_completed": false,
+        "live_provider_calls": 0,
+        "result": {
+          "identity": {
+            "logical_operation_id": "65b79f5e-252c-434b-90c2-365b6de22c3e",
+            "attempt_id": "b7503ecd-c3e0-4f06-9ee1-8e3b0ea17830",
+            "generation_id": null
+          },
+          "request_hash": "8d9463413a64d78b7c36158fbfa49451aeef55b0fa5eefa2becd7bb0820f943c",
+          "connection_id": "3e97e02a-215c-4a0b-afe2-68d5e6c4e32f",
+          "connection_revision": 0,
+          "delivery": "CONFIRMED_DELIVERY",
+          "response_state": "PARTIAL",
+          "content": "{\"answer\":\"unfinished",
+          "failure": "TIMEOUT",
+          "response_id": "mock-b7503ecd-c3e0-4f06-9ee1-8e3b0ea17830",
+          "evidence": [
+            "MOCK_ONLY:partial"
+          ],
+          "elapsed_seconds": 2.0
+        }
+      }
+    }
+  ],
+  "live_provider_calls": 0,
+  "full_v1_conformance": "NOT_RUN"
+}

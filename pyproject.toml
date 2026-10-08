@@ -6,8 +6,13 @@ build-backend = "setuptools.build_meta"
 name = "consilium-local"
 version = "0.1.0.dev1"
 description = "User-controlled local AI council; durable offline kernel under development"
+readme = "README.md"
 requires-python = ">=3.12,<3.13"
 dependencies = ["pydantic==2.13.5"]
+
+[project.urls]
+Repository = "https://github.com/mehrangtr/Consilium"
+Issues = "https://github.com/mehrangtr/Consilium/issues"
 
 [tool.setuptools.packages.find]
 where = ["src"]

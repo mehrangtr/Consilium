@@ -1,0 +1,45 @@
+{
+  "scope": "QUALITATIVE_SOURCE_DEPENDENCE_FIXTURE_NOT_MODEL_BENCHMARK",
+  "source_text_sha256": "a4e830575199d313e0507dba0e832e0aa6bbb1dc431deb808f1a6600c7092d07",
+  "raw_excerpts": [
+    "۶۲۱+ تست",
+    "من به GitHub دسترسی ندارم.",
+    "GR: تحلیل GP و CL"
+  ],
+  "declared_dependencies_not_measured_independence": true,
+  "sources": [
+    {
+      "identifier": "native-report",
+      "kind": "EXECUTED",
+      "parents": []
+    },
+    {
+      "identifier": "GP",
+      "kind": "REPORTED",
+      "parents": [
+        "native-report"
+      ]
+    },
+    {
+      "identifier": "GR",
+      "kind": "REPORTED",
+      "parents": [
+        "GP"
+      ]
+    },
+    {
+      "identifier": "QW",
+      "kind": "REPORTED",
+      "parents": [
+        "GR"
+      ]
+    }
+  ],
+  "expected_primary_sources": [
+    "native-report"
+  ],
+  "reported_test_count": 621,
+  "historical_verified_test_count": 622,
+  "expected_count_status": "STALE_REPORTED_VALUE",
+  "model_superiority_claimed": false
+}

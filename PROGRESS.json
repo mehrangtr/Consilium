@@ -5,7 +5,7 @@
   "application_source_commit": "ddf33b24f41aa2c5ee0609800bd9f440165b72b5",
   "current_phase": "P06",
   "verified_application_requirements": 0,
-  "governance_check_note": "مراحل P00 تا P05 پذیرفته شده‌اند؛ P06 آماده و شروع‌نشده است. همهٔ ۳۰ خواستهٔ اصلی محفوظ‌اند؛ تأیید جامع محصول هنوز انجام نشده است.",
+  "governance_check_note": "مراحل P00 تا P05 پذیرفته شده‌اند؛ P06 به دلیل تنظیم‌نشدن بررسی‌ها و نبود شاهد واقعی مسدود است. همهٔ ۳۰ خواستهٔ اصلی محفوظ‌اند؛ تأیید جامع محصول هنوز انجام نشده است.",
   "phases": [
     {
       "id": "P00",
@@ -344,15 +344,19 @@
     },
     {
       "id": "P06",
-      "status": "READY",
+      "status": "BLOCKED",
       "actual_engineering_hours": 0,
       "external_wait_hours": 0,
       "source_commit": null,
       "outputs": [],
       "tests": [],
       "exit_evidence": [],
-      "blockers": [],
-      "notes": []
+      "blockers": [
+        "P06 acceptance checks and real-model pilot evidence are not configured or collected in this accepted-source checkpoint."
+      ],
+      "notes": [
+        "P05 native Windows/Linux and report matrix passed in workflow 37798211531. Its phase step correctly blocked on unfinished P06; this metadata records that actual blocker."
+      ]
     },
     {
       "id": "P07",
@@ -790,7 +794,7 @@
     "next_task": {
       "id": "P06-001",
       "phase": "P06",
-      "status": "READY",
+      "status": "BLOCKED",
       "title_fa": "پایلوت زودهنگام کیفیت",
       "next_action_fa": "در P06 طرح پایلوت را پیش از اجرا ثبت کن: ۶ تا ۱۰ وظیفهٔ نماینده و بودجه و معیار ارزیابی را انتخاب کن؛ سپس پاسخ واقعی مسیر دستی را برای شورا، یک مدل و استفادهٔ چندباره از همان مدل با بودجهٔ قابل مقایسه جمع‌آوری کن. ابتدا بررسی‌های معنادار P06 را پیکربندی کن؛ متن ساختگی شاهد کیفیت نیست و برتری مدل از نمونهٔ کوچک نتیجه گرفته نشود.",
       "completed_fa": "مرحلهٔ پنجم و همهٔ معیارهای پایان آن پذیرفته شدند؛ مرحلهٔ ششم آماده است.",
@@ -803,12 +807,11 @@
       "items": [
         {
           "id": "P06-001",
-          "status": "READY",
+          "status": "BLOCKED",
           "instruction": "در P06 طرح پایلوت را پیش از اجرا ثبت کن: ۶ تا ۱۰ وظیفهٔ نماینده و بودجه و معیار ارزیابی را انتخاب کن؛ سپس پاسخ واقعی مسیر دستی را برای شورا، یک مدل و استفادهٔ چندباره از همان مدل با بودجهٔ قابل مقایسه جمع‌آوری کن. ابتدا بررسی‌های معنادار P06 را پیکربندی کن؛ متن ساختگی شاهد کیفیت نیست و برتری مدل از نمونهٔ کوچک نتیجه گرفته نشود."
         }
       ],
-      "continuation_instruction": "در P06 طرح پایلوت را پیش از اجرا ثبت کن: ۶ تا ۱۰ وظیفهٔ نماینده و بودجه و معیار ارزیابی را انتخاب کن؛ سپس پاسخ واقعی مسیر دستی را برای شورا، یک مدل و استفادهٔ چندباره از همان مدل با بودجهٔ قابل مقایسه جمع‌آوری کن. ابتدا بررسی‌های معنادار P06 را پیکربندی کن؛ متن ساختگی شاهد کیفیت نیست و برتری مدل از نمونهٔ کوچک نتیجه گرفته نشود.",
-      "updated_at_utc": "2026-10-08T09:38:06.237503+00:00"
+      "updated_at_utc": "2026-10-08T15:14:05.922432+00:00"
     },
     "native_evidence": {
       "run_id": 37756543373,
@@ -967,7 +970,8 @@
       "Only exact offline mock adapter policy-managed sends are enabled. Live API/browser drivers retain original P08/P09 gates.",
       "Named peer review needs explicit authorization. The recorded FINISH judge projection independently blinds identity metadata; answer text is not identity-scrubbed.",
       "The owned-process 300s idle/900s hard supervisor cannot cancel ChatGPT/MCP. External calls have 25s bounded waits and ambiguous writes are read/reconciled before retry; server-generated commits never auto-retry.",
-      "Historical P03 live browser sends/sign-out must not be replayed without a new scoped reason."
+      "Historical P03 live browser sends/sign-out must not be replayed without a new scoped reason.",
+      "Workflow 37798211531 freshly passed both native targets and report hashes; its only failure is the unconfigured P06 phase step. P06 is explicitly BLOCKED; no acceptance is bypassed."
     ],
     "developer_supervisor": {
       "idle_seconds": 300,
@@ -977,5 +981,5 @@
     },
     "transfer_reviewed_file_count": 1183
   },
-  "updated_at_utc": "2026-10-08T09:38:06.237523+00:00"
+  "updated_at_utc": "2026-10-08T15:14:05.922447+00:00"
 }

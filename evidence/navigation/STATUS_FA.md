@@ -2,7 +2,7 @@
 
 این نما خودکار از `ROADMAP.json`، `PROGRESS.json` و `CHECKS.json` ساخته شده است. ویرایش دستی مرجع نیست؛ پس از تغییر مبنا فرمان تولید را دوباره اجرا کنید.
 
-شناسهٔ مبنای نما: `9c1d52959b5e538e0ac58342740abe405703ecf1684984f2c4cfe1a357657086`.
+شناسهٔ مبنای نما: `bc0cdeb3250b0a400a4f7e5ceda2d91d3e950e8552def01644f8b3a7d4544c56`.
 
 مرحلهٔ فعلی: `P06`. آخرین مرحلهٔ پذیرفته‌شده: `P05`.
 
@@ -29,7 +29,7 @@
   "next_task": {
     "id": "P06-001",
     "phase": "P06",
-    "status": "READY",
+    "status": "BLOCKED",
     "title_fa": "پایلوت زودهنگام کیفیت",
     "next_action_fa": "در P06 طرح پایلوت را پیش از اجرا ثبت کن: ۶ تا ۱۰ وظیفهٔ نماینده و بودجه و معیار ارزیابی را انتخاب کن؛ سپس پاسخ واقعی مسیر دستی را برای شورا، یک مدل و استفادهٔ چندباره از همان مدل با بودجهٔ قابل مقایسه جمع‌آوری کن. ابتدا بررسی‌های معنادار P06 را پیکربندی کن؛ متن ساختگی شاهد کیفیت نیست و برتری مدل از نمونهٔ کوچک نتیجه گرفته نشود.",
     "completed_fa": "مرحلهٔ پنجم و همهٔ معیارهای پایان آن پذیرفته شدند؛ مرحلهٔ ششم آماده است.",
@@ -42,12 +42,11 @@
     "items": [
       {
         "id": "P06-001",
-        "status": "READY",
+        "status": "BLOCKED",
         "instruction": "در P06 طرح پایلوت را پیش از اجرا ثبت کن: ۶ تا ۱۰ وظیفهٔ نماینده و بودجه و معیار ارزیابی را انتخاب کن؛ سپس پاسخ واقعی مسیر دستی را برای شورا، یک مدل و استفادهٔ چندباره از همان مدل با بودجهٔ قابل مقایسه جمع‌آوری کن. ابتدا بررسی‌های معنادار P06 را پیکربندی کن؛ متن ساختگی شاهد کیفیت نیست و برتری مدل از نمونهٔ کوچک نتیجه گرفته نشود."
       }
     ],
-    "continuation_instruction": "در P06 طرح پایلوت را پیش از اجرا ثبت کن: ۶ تا ۱۰ وظیفهٔ نماینده و بودجه و معیار ارزیابی را انتخاب کن؛ سپس پاسخ واقعی مسیر دستی را برای شورا، یک مدل و استفادهٔ چندباره از همان مدل با بودجهٔ قابل مقایسه جمع‌آوری کن. ابتدا بررسی‌های معنادار P06 را پیکربندی کن؛ متن ساختگی شاهد کیفیت نیست و برتری مدل از نمونهٔ کوچک نتیجه گرفته نشود.",
-    "updated_at_utc": "2026-10-08T09:38:06.237503+00:00"
+    "updated_at_utc": "2026-10-08T15:14:05.922432+00:00"
   },
   "native_evidence": {
     "run_id": 37756543373,
@@ -206,7 +205,8 @@
     "Only exact offline mock adapter policy-managed sends are enabled. Live API/browser drivers retain original P08/P09 gates.",
     "Named peer review needs explicit authorization. The recorded FINISH judge projection independently blinds identity metadata; answer text is not identity-scrubbed.",
     "The owned-process 300s idle/900s hard supervisor cannot cancel ChatGPT/MCP. External calls have 25s bounded waits and ambiguous writes are read/reconciled before retry; server-generated commits never auto-retry.",
-    "Historical P03 live browser sends/sign-out must not be replayed without a new scoped reason."
+    "Historical P03 live browser sends/sign-out must not be replayed without a new scoped reason.",
+    "Workflow 37798211531 freshly passed both native targets and report hashes; its only failure is the unconfigured P06 phase step. P06 is explicitly BLOCKED; no acceptance is bypassed."
   ],
   "developer_supervisor": {
     "idle_seconds": 300,
@@ -228,7 +228,7 @@
 | `P03` | `COMPLETED` | 0 |
 | `P04` | `COMPLETED` | 0 |
 | `P05` | `COMPLETED` | 0 |
-| `P06` | `READY` | 0 |
+| `P06` | `BLOCKED` | 1 |
 | `P07` | `BLOCKED` | 1 |
 | `P08` | `BLOCKED` | 1 |
 | `P09` | `BLOCKED` | 1 |

@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "plan_version": "1.2",
-  "source_snapshot_digest": "c01c0633233eb7b35a9cf6319f75497771632ddf7b3fe3ad6e0f7300bdf6dad8",
+  "source_snapshot_digest": "a906fe767f13c8d4af6f8f7b2daae717f5af80c78a6b9ebd8ad19049741cd72e",
   "current_phase": "P06",
   "last_accepted_phase": "P05",
   "latest_current_phase_run": null,
@@ -13,7 +13,7 @@
         "sha256": "a397686ffd0f7d9785f01a959ccf93a18ee6e670857d64e0fc7459007108d345"
       },
       "status": "PASS",
-      "source_matches_current": true,
+      "source_matches_current": false,
       "scope": "RECORDED_TARGET_ARTIFACTS_NOT_PHASE_ACCEPTANCE"
     },
     {
@@ -23,11 +23,11 @@
         "sha256": "3c403515a4843c634efd259f13c8d66af9d92a068cc988db2866a8c5f54fa703"
       },
       "status": "PASS",
-      "source_matches_current": true,
+      "source_matches_current": false,
       "scope": "RECORDED_TARGET_ARTIFACTS_NOT_PHASE_ACCEPTANCE"
     }
   ],
-  "last_acceptance_matches_current_source": true,
+  "last_acceptance_matches_current_source": false,
   "application_source_supplied": true,
   "application_source_commit": "ddf33b24f41aa2c5ee0609800bd9f440165b72b5",
   "verified_application_requirements": 0,
@@ -51,7 +51,7 @@
     "next_task": {
       "id": "P06-001",
       "phase": "P06",
-      "status": "READY",
+      "status": "BLOCKED",
       "title_fa": "پایلوت زودهنگام کیفیت",
       "next_action_fa": "در P06 طرح پایلوت را پیش از اجرا ثبت کن: ۶ تا ۱۰ وظیفهٔ نماینده و بودجه و معیار ارزیابی را انتخاب کن؛ سپس پاسخ واقعی مسیر دستی را برای شورا، یک مدل و استفادهٔ چندباره از همان مدل با بودجهٔ قابل مقایسه جمع‌آوری کن. ابتدا بررسی‌های معنادار P06 را پیکربندی کن؛ متن ساختگی شاهد کیفیت نیست و برتری مدل از نمونهٔ کوچک نتیجه گرفته نشود.",
       "completed_fa": "مرحلهٔ پنجم و همهٔ معیارهای پایان آن پذیرفته شدند؛ مرحلهٔ ششم آماده است.",
@@ -64,12 +64,11 @@
       "items": [
         {
           "id": "P06-001",
-          "status": "READY",
+          "status": "BLOCKED",
           "instruction": "در P06 طرح پایلوت را پیش از اجرا ثبت کن: ۶ تا ۱۰ وظیفهٔ نماینده و بودجه و معیار ارزیابی را انتخاب کن؛ سپس پاسخ واقعی مسیر دستی را برای شورا، یک مدل و استفادهٔ چندباره از همان مدل با بودجهٔ قابل مقایسه جمع‌آوری کن. ابتدا بررسی‌های معنادار P06 را پیکربندی کن؛ متن ساختگی شاهد کیفیت نیست و برتری مدل از نمونهٔ کوچک نتیجه گرفته نشود."
         }
       ],
-      "continuation_instruction": "در P06 طرح پایلوت را پیش از اجرا ثبت کن: ۶ تا ۱۰ وظیفهٔ نماینده و بودجه و معیار ارزیابی را انتخاب کن؛ سپس پاسخ واقعی مسیر دستی را برای شورا، یک مدل و استفادهٔ چندباره از همان مدل با بودجهٔ قابل مقایسه جمع‌آوری کن. ابتدا بررسی‌های معنادار P06 را پیکربندی کن؛ متن ساختگی شاهد کیفیت نیست و برتری مدل از نمونهٔ کوچک نتیجه گرفته نشود.",
-      "updated_at_utc": "2026-10-08T09:38:06.237503+00:00"
+      "updated_at_utc": "2026-10-08T15:14:05.922432+00:00"
     },
     "native_evidence": {
       "run_id": 37756543373,
@@ -228,7 +227,8 @@
       "Only exact offline mock adapter policy-managed sends are enabled. Live API/browser drivers retain original P08/P09 gates.",
       "Named peer review needs explicit authorization. The recorded FINISH judge projection independently blinds identity metadata; answer text is not identity-scrubbed.",
       "The owned-process 300s idle/900s hard supervisor cannot cancel ChatGPT/MCP. External calls have 25s bounded waits and ambiguous writes are read/reconciled before retry; server-generated commits never auto-retry.",
-      "Historical P03 live browser sends/sign-out must not be replayed without a new scoped reason."
+      "Historical P03 live browser sends/sign-out must not be replayed without a new scoped reason.",
+      "Workflow 37798211531 freshly passed both native targets and report hashes; its only failure is the unconfigured P06 phase step. P06 is explicitly BLOCKED; no acceptance is bypassed."
     ],
     "developer_supervisor": {
       "idle_seconds": 300,

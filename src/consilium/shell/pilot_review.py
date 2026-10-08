@@ -1,12 +1,19 @@
 """Immutable private review material, atomically registered with the pilot journal."""
 import json
-from dataclasses import asdict
 import os
-from pathlib import Path
 import tempfile
+from dataclasses import asdict
+from pathlib import Path
 
 from consilium.core.pilot import PilotCall
-from consilium.core.pilot_review import blinded_material, decoded, digest, encoded, judge_references, validate_scores
+from consilium.core.pilot_review import (
+    blinded_material,
+    decoded,
+    digest,
+    encoded,
+    judge_references,
+    validate_scores,
+)
 from consilium.shell.pilot import PilotJournal
 
 

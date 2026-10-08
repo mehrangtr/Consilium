@@ -1,9 +1,9 @@
 """Private pilot observations with atomic, append-only SQLite accounting."""
-from dataclasses import asdict
-from contextlib import contextmanager
 import json
-from pathlib import Path
 import sqlite3
+from contextlib import contextmanager
+from dataclasses import asdict
+from pathlib import Path
 
 from consilium.core.pilot import PilotCall, summarize
 from consilium.shell.evidence_store import EvidenceStore

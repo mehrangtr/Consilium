@@ -3,17 +3,17 @@ import argparse
 import hashlib
 import json
 import os
-from pathlib import Path
 import sys
+from pathlib import Path
 
 import qualityctl as q
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / 'src'))
-from consilium.core.pilot import METHODS, summarize  # noqa: E402
-from consilium.core.rubrics import get_rubric  # noqa: E402
-from consilium.shell.pilot import PilotJournal  # noqa: E402
-from consilium.shell.pilot_review import PilotReviewStore  # noqa: E402
+from consilium.core.pilot import METHODS, summarize
+from consilium.core.rubrics import get_rubric
+from consilium.shell.pilot import PilotJournal
+from consilium.shell.pilot_review import PilotReviewStore
 
 
 def preflight():

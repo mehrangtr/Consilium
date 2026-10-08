@@ -3,15 +3,15 @@
 import argparse
 import hashlib
 import json
-from pathlib import Path
 import sys
+from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / 'src'))
-from consilium.core.pilot import PilotCall, summarize  # noqa: E402
-from consilium.shell.pilot import PilotJournal  # noqa: E402
-from consilium.shell.pilot_review import PilotReviewStore  # noqa: E402
-from consilium.shell.private import ensure_public_payload, redact_diagnostic  # noqa: E402
+from consilium.core.pilot import PilotCall, summarize
+from consilium.shell.pilot import PilotJournal
+from consilium.shell.pilot_review import PilotReviewStore
+from consilium.shell.private import ensure_public_payload, redact_diagnostic
 
 
 def main():

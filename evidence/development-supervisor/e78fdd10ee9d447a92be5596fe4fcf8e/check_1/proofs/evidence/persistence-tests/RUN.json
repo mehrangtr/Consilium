@@ -1,0 +1,457 @@
+{
+  "phase": "P02",
+  "scope": "P02_DURABILITY_OFFLINE_NOT_FULL_V1_ACCEPTANCE",
+  "status": "PASS",
+  "counts": {
+    "tests": 104,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "source_digest_before": "e96070df2e951b210d122bab2fe876cd66942c346cbc4dcf802023b0a32f71a1",
+  "source_digest_after": "e96070df2e951b210d122bab2fe876cd66942c346cbc4dcf802023b0a32f71a1",
+  "date_utc": "2026-10-08T18:33:57.465484+00:00",
+  "host": {
+    "system": "Linux",
+    "python": "3.12.14",
+    "sqlite": "3.53.1"
+  },
+  "live_provider_calls": 0,
+  "phase_accepted": false,
+  "process_exit_cases": [
+    "test_ledger.ProcessCrashTests.test_process_exit_before_send",
+    "test_ledger.ProcessCrashTests.test_process_exit_after_send_start_before_transport",
+    "test_ledger.ProcessCrashTests.test_process_exit_after_external_mock_send",
+    "test_ledger.ProcessCrashTests.test_process_exit_before_result_persistence",
+    "test_ledger.ProcessCrashTests.test_process_exit_inside_result_transaction",
+    "test_ledger.ProcessCrashTests.test_process_exit_after_result_persistence",
+    "test_ledger.ProcessCrashTests.test_process_exit_after_validation",
+    "test_ledger.ProcessCrashTests.test_process_exit_inside_confirmation_transaction",
+    "test_ledger.ProcessCrashTests.test_process_exit_after_confirmation",
+    "test_manual_reconciliation.ManualReconciliationTests.test_process_exit_after_commit_preserves_manual_reconciliation_and_prior_attempt",
+    "test_manual_reconciliation.ManualReconciliationTests.test_process_exit_before_record_commit_rolls_back_entire_manual_reconciliation",
+    "test_storage.StorageTests.test_actual_process_exit_after_intent_preserves_frozen_input_and_checkpoint",
+    "test_storage.StorageTests.test_actual_process_exit_before_intent_keeps_previous_checkpoint",
+    "test_storage.StorageTests.test_actual_process_exit_inside_intent_rolls_back_all_partial_writes"
+  ],
+  "process_exit_case_count": 14,
+  "external_transport": "MOCK_ONLY_SIMULATED_RECEIPTS_NOT_LIVE_PROVIDER_PROOF",
+  "cases": [
+    {
+      "id": "test_context_history_observer.CanonicalHistoryObserverTests.test_ambiguous_delivery_never_authorizes_remembered_history",
+      "status": "PASS"
+    },
+    {
+      "id": "test_context_history_observer.CanonicalHistoryObserverTests.test_confirmation_after_snapshot_cannot_rewrite_historical_authorization",
+      "status": "PASS"
+    },
+    {
+      "id": "test_context_history_observer.CanonicalHistoryObserverTests.test_only_confirmed_own_request_and_response_authorize_history",
+      "status": "PASS"
+    },
+    {
+      "id": "test_context_history_observer.CanonicalHistoryObserverTests.test_other_participant_or_new_binding_cannot_borrow_history",
+      "status": "PASS"
+    },
+    {
+      "id": "test_durable_cli.DurableCliTests.test_browser_mock_ambiguous_resume_keeps_the_same_attempt_and_never_resends",
+      "status": "PASS"
+    },
+    {
+      "id": "test_durable_cli.DurableCliTests.test_new_demo_cannot_overwrite_or_send_again_to_an_existing_database",
+      "status": "PASS"
+    },
+    {
+      "id": "test_durable_cli.DurableCliTests.test_persist_restart_and_resume_keep_original_question_and_one_canonical_result",
+      "status": "PASS"
+    },
+    {
+      "id": "test_durable_cli.DurableCliTests.test_resume_missing_database_does_not_create_a_blank_one",
+      "status": "PASS"
+    },
+    {
+      "id": "test_ledger.LedgerTests.test_a_conflicting_second_result_is_quarantined_without_replacing_canonical",
+      "status": "PASS"
+    },
+    {
+      "id": "test_ledger.LedgerTests.test_a_second_dispatch_waits_for_the_first_operation_to_be_resolved",
+      "status": "PASS"
+    },
+    {
+      "id": "test_ledger.LedgerTests.test_ambiguous_retry_is_denied_even_if_somebody_supplies_an_unsent_claim",
+      "status": "PASS"
+    },
+    {
+      "id": "test_ledger.LedgerTests.test_complete_raw_result_is_not_canonical_until_validated_and_confirmed",
+      "status": "PASS"
+    },
+    {
+      "id": "test_ledger.LedgerTests.test_confirmed_result_resume_uses_no_provider_calls",
+      "status": "PASS"
+    },
+    {
+      "id": "test_ledger.LedgerTests.test_connection_change_invalidates_an_unconsumed_continue_decision",
+      "status": "PASS"
+    },
+    {
+      "id": "test_ledger.LedgerTests.test_current_revision_cannot_reopen_an_old_decision_after_next_round",
+      "status": "PASS"
+    },
+    {
+      "id": "test_ledger.LedgerTests.test_decision_gate_cannot_open_for_an_unconfirmed_round",
+      "status": "PASS"
+    },
+    {
+      "id": "test_ledger.LedgerTests.test_dispatch_refuses_modified_frozen_input_or_connection",
+      "status": "PASS"
+    },
+    {
+      "id": "test_ledger.LedgerTests.test_duplicate_json_keys_and_wrong_response_shape_are_rejected",
+      "status": "PASS"
+    },
+    {
+      "id": "test_ledger.LedgerTests.test_exclusive_new_store_refuses_an_existing_database",
+      "status": "PASS"
+    },
+    {
+      "id": "test_ledger.LedgerTests.test_finish_waits_for_explicit_judge_and_does_not_complete_debate",
+      "status": "PASS"
+    },
+    {
+      "id": "test_ledger.LedgerTests.test_invalid_json_marked_complete_by_transport_is_not_confirmed",
+      "status": "PASS"
+    },
+    {
+      "id": "test_ledger.LedgerTests.test_invalid_state_transitions_are_rejected",
+      "status": "PASS"
+    },
+    {
+      "id": "test_ledger.LedgerTests.test_late_result_after_connection_change_is_quarantined",
+      "status": "PASS"
+    },
+    {
+      "id": "test_ledger.LedgerTests.test_new_current_revision_does_not_make_an_old_dispatch_result_current",
+      "status": "PASS"
+    },
+    {
+      "id": "test_ledger.LedgerTests.test_no_next_round_without_a_current_continue_decision",
+      "status": "PASS"
+    },
+    {
+      "id": "test_ledger.LedgerTests.test_partial_response_does_not_authorize_a_finish_decision",
+      "status": "PASS"
+    },
+    {
+      "id": "test_ledger.LedgerTests.test_prepare_and_resume_cannot_authorize_work_after_finish",
+      "status": "PASS"
+    },
+    {
+      "id": "test_ledger.LedgerTests.test_provider_is_called_outside_transaction_and_can_open_a_second_connection",
+      "status": "PASS"
+    },
+    {
+      "id": "test_ledger.LedgerTests.test_recording_the_exact_same_result_again_is_a_noop",
+      "status": "PASS"
+    },
+    {
+      "id": "test_ledger.LedgerTests.test_response_pending_unknown_partial_invalid_and_login_are_distinct",
+      "status": "PASS"
+    },
+    {
+      "id": "test_ledger.LedgerTests.test_result_with_foreign_identity_or_hash_is_refused",
+      "status": "PASS"
+    },
+    {
+      "id": "test_ledger.LedgerTests.test_result_with_known_secret_is_not_persisted",
+      "status": "PASS"
+    },
+    {
+      "id": "test_ledger.LedgerTests.test_resume_does_not_call_another_prepared_attempt_ready_while_send_is_unresolved",
+      "status": "PASS"
+    },
+    {
+      "id": "test_ledger.LedgerTests.test_retry_after_binding_change_is_denied",
+      "status": "PASS"
+    },
+    {
+      "id": "test_ledger.LedgerTests.test_retry_can_confirm_one_canonical_response_and_preserves_the_old_unsent_attempt",
+      "status": "PASS"
+    },
+    {
+      "id": "test_ledger.LedgerTests.test_retry_denies_missing_reason_unverified_capabilities_and_nonnegative_probe",
+      "status": "PASS"
+    },
+    {
+      "id": "test_ledger.LedgerTests.test_runner_exception_preserves_ambiguity_and_never_automatically_retries",
+      "status": "PASS"
+    },
+    {
+      "id": "test_ledger.LedgerTests.test_send_cannot_start_without_a_prepared_intent",
+      "status": "PASS"
+    },
+    {
+      "id": "test_ledger.LedgerTests.test_send_start_is_durable_and_reopen_never_calls_provider",
+      "status": "PASS"
+    },
+    {
+      "id": "test_ledger.LedgerTests.test_stale_unconfirmed_validation_resume_requires_a_decision",
+      "status": "PASS"
+    },
+    {
+      "id": "test_ledger.LedgerTests.test_stale_user_decision_cannot_override_a_new_binding_or_wait_state",
+      "status": "PASS"
+    },
+    {
+      "id": "test_ledger.LedgerTests.test_tampered_result_hash_is_rejected_on_reopen",
+      "status": "PASS"
+    },
+    {
+      "id": "test_ledger.LedgerTests.test_two_workers_cannot_dispatch_the_same_attempt_twice",
+      "status": "PASS"
+    },
+    {
+      "id": "test_ledger.LedgerTests.test_verified_unsent_retry_has_a_new_attempt_but_preserves_logical_generation_and_input",
+      "status": "PASS"
+    },
+    {
+      "id": "test_ledger.MigrationTests.test_failed_v2_upgrade_preserves_populated_v1_data_and_version",
+      "status": "PASS"
+    },
+    {
+      "id": "test_ledger.MigrationTests.test_v1_data_and_immutable_migration_hash_survive_upgrade",
+      "status": "PASS"
+    },
+    {
+      "id": "test_ledger.ProcessCrashTests.test_process_exit_before_send",
+      "status": "PASS"
+    },
+    {
+      "id": "test_ledger.ProcessCrashTests.test_process_exit_after_send_start_before_transport",
+      "status": "PASS"
+    },
+    {
+      "id": "test_ledger.ProcessCrashTests.test_process_exit_after_external_mock_send",
+      "status": "PASS"
+    },
+    {
+      "id": "test_ledger.ProcessCrashTests.test_process_exit_before_result_persistence",
+      "status": "PASS"
+    },
+    {
+      "id": "test_ledger.ProcessCrashTests.test_process_exit_inside_result_transaction",
+      "status": "PASS"
+    },
+    {
+      "id": "test_ledger.ProcessCrashTests.test_process_exit_after_result_persistence",
+      "status": "PASS"
+    },
+    {
+      "id": "test_ledger.ProcessCrashTests.test_process_exit_after_validation",
+      "status": "PASS"
+    },
+    {
+      "id": "test_ledger.ProcessCrashTests.test_process_exit_inside_confirmation_transaction",
+      "status": "PASS"
+    },
+    {
+      "id": "test_ledger.ProcessCrashTests.test_process_exit_after_confirmation",
+      "status": "PASS"
+    },
+    {
+      "id": "test_manual_reconciliation.ManualReconciliationTests.test_all_prior_operations_in_the_slot_are_reviewed_together",
+      "status": "PASS"
+    },
+    {
+      "id": "test_manual_reconciliation.ManualReconciliationTests.test_changed_attempt_after_review_requires_fresh_review",
+      "status": "PASS"
+    },
+    {
+      "id": "test_manual_reconciliation.ManualReconciliationTests.test_deleted_record_and_tampered_record_are_detected_on_restart",
+      "status": "PASS"
+    },
+    {
+      "id": "test_manual_reconciliation.ManualReconciliationTests.test_failed_v9_migration_rolls_back_without_changing_v8_history",
+      "status": "PASS"
+    },
+    {
+      "id": "test_manual_reconciliation.ManualReconciliationTests.test_final_insert_failure_rolls_back_binding_event_wait_state_and_record",
+      "status": "PASS"
+    },
+    {
+      "id": "test_manual_reconciliation.ManualReconciliationTests.test_hash_revision_actor_reason_and_confirmation_are_required_without_partial_write",
+      "status": "PASS"
+    },
+    {
+      "id": "test_manual_reconciliation.ManualReconciliationTests.test_late_response_is_quarantined_without_changing_retired_attempt",
+      "status": "PASS"
+    },
+    {
+      "id": "test_manual_reconciliation.ManualReconciliationTests.test_nonmanual_or_reused_connection_cannot_replace_the_binding",
+      "status": "PASS"
+    },
+    {
+      "id": "test_manual_reconciliation.ManualReconciliationTests.test_pending_login_allows_explicit_manual_choice_but_keeps_original_state",
+      "status": "PASS"
+    },
+    {
+      "id": "test_manual_reconciliation.ManualReconciliationTests.test_prepared_attempt_is_retired_without_becoming_not_sent_or_disappearing",
+      "status": "PASS"
+    },
+    {
+      "id": "test_manual_reconciliation.ManualReconciliationTests.test_process_exit_after_commit_preserves_manual_reconciliation_and_prior_attempt",
+      "status": "PASS"
+    },
+    {
+      "id": "test_manual_reconciliation.ManualReconciliationTests.test_process_exit_before_record_commit_rolls_back_entire_manual_reconciliation",
+      "status": "PASS"
+    },
+    {
+      "id": "test_manual_reconciliation.ManualReconciliationTests.test_received_validated_and_confirmed_results_cannot_be_replaced",
+      "status": "PASS"
+    },
+    {
+      "id": "test_manual_reconciliation.ManualReconciliationTests.test_second_attempt_or_generation_cannot_reopen_a_manually_retired_slot",
+      "status": "PASS"
+    },
+    {
+      "id": "test_manual_reconciliation.ManualReconciliationTests.test_terminal_cli_accepts_only_explicit_choice_at_the_current_hash_and_revision",
+      "status": "PASS"
+    },
+    {
+      "id": "test_manual_reconciliation.ManualReconciliationTests.test_terminal_eof_wrong_hash_and_blank_reason_cancel_without_mutation",
+      "status": "PASS"
+    },
+    {
+      "id": "test_manual_reconciliation.ManualReconciliationTests.test_terminal_explicit_choice_and_reason_create_no_transport_call",
+      "status": "PASS"
+    },
+    {
+      "id": "test_manual_reconciliation.ManualReconciliationTests.test_unknown_delivery_survives_manual_continuation_and_restart_without_resend",
+      "status": "PASS"
+    },
+    {
+      "id": "test_manual_reconciliation.ManualReconciliationTests.test_unrelated_wait_checkpoint_cannot_be_cleared",
+      "status": "PASS"
+    },
+    {
+      "id": "test_manual_reconciliation.ManualReconciliationTests.test_v8_upgrade_preserves_attempt_and_every_published_migration_record",
+      "status": "PASS"
+    },
+    {
+      "id": "test_storage.StorageTests.test_actual_process_exit_after_intent_preserves_frozen_input_and_checkpoint",
+      "status": "PASS"
+    },
+    {
+      "id": "test_storage.StorageTests.test_actual_process_exit_before_intent_keeps_previous_checkpoint",
+      "status": "PASS"
+    },
+    {
+      "id": "test_storage.StorageTests.test_actual_process_exit_inside_intent_rolls_back_all_partial_writes",
+      "status": "PASS"
+    },
+    {
+      "id": "test_storage.StorageTests.test_backup_contains_committed_intent_and_can_be_reopened",
+      "status": "PASS"
+    },
+    {
+      "id": "test_storage.StorageTests.test_backup_does_not_overwrite_existing_file_or_database",
+      "status": "PASS"
+    },
+    {
+      "id": "test_storage.StorageTests.test_checkpoint_cannot_be_rewound_while_newer_events_exist",
+      "status": "PASS"
+    },
+    {
+      "id": "test_storage.StorageTests.test_connection_cannot_be_bound_to_a_foreign_participant",
+      "status": "PASS"
+    },
+    {
+      "id": "test_storage.StorageTests.test_connection_revision_changes_and_stale_intent_is_refused",
+      "status": "PASS"
+    },
+    {
+      "id": "test_storage.StorageTests.test_debate_cannot_be_created_with_an_imported_revision",
+      "status": "PASS"
+    },
+    {
+      "id": "test_storage.StorageTests.test_duplicate_debate_is_not_silently_replaced",
+      "status": "PASS"
+    },
+    {
+      "id": "test_storage.StorageTests.test_duplicate_logical_operation_does_not_create_another_attempt",
+      "status": "PASS"
+    },
+    {
+      "id": "test_storage.StorageTests.test_exception_late_in_intent_transaction_leaves_no_half_commit",
+      "status": "PASS"
+    },
+    {
+      "id": "test_storage.StorageTests.test_failed_backup_closes_destination_and_removes_partial_file",
+      "status": "PASS"
+    },
+    {
+      "id": "test_storage.StorageTests.test_failed_migration_rolls_back_all_ddl",
+      "status": "PASS"
+    },
+    {
+      "id": "test_storage.StorageTests.test_future_schema_is_refused_without_downgrading_it",
+      "status": "PASS"
+    },
+    {
+      "id": "test_storage.StorageTests.test_intent_for_an_older_registered_round_is_refused",
+      "status": "PASS"
+    },
+    {
+      "id": "test_storage.StorageTests.test_known_private_material_is_refused_before_persistence",
+      "status": "PASS"
+    },
+    {
+      "id": "test_storage.StorageTests.test_migration_is_idempotent_on_reopen",
+      "status": "PASS"
+    },
+    {
+      "id": "test_storage.StorageTests.test_missing_schema_table_is_refused",
+      "status": "PASS"
+    },
+    {
+      "id": "test_storage.StorageTests.test_modified_migration_checksum_is_refused",
+      "status": "PASS"
+    },
+    {
+      "id": "test_storage.StorageTests.test_new_database_has_durable_settings_and_valid_schema",
+      "status": "PASS"
+    },
+    {
+      "id": "test_storage.StorageTests.test_old_debate_revision_or_wrong_round_cannot_prepare_intent",
+      "status": "PASS"
+    },
+    {
+      "id": "test_storage.StorageTests.test_original_request_and_constraints_survive_reopen_exactly",
+      "status": "PASS"
+    },
+    {
+      "id": "test_storage.StorageTests.test_prepare_persists_exact_frozen_input_event_and_checkpoint_together",
+      "status": "PASS"
+    },
+    {
+      "id": "test_storage.StorageTests.test_reused_attempt_id_rolls_back_new_operation_and_event",
+      "status": "PASS"
+    },
+    {
+      "id": "test_storage.StorageTests.test_round_cannot_reference_another_debate_or_participant",
+      "status": "PASS"
+    },
+    {
+      "id": "test_storage.StorageTests.test_same_input_hash_allows_two_intentional_logical_operations",
+      "status": "PASS"
+    },
+    {
+      "id": "test_storage.StorageTests.test_two_writers_cannot_both_apply_the_same_old_revision",
+      "status": "PASS"
+    },
+    {
+      "id": "test_storage.StorageTests.test_unowned_database_is_not_adopted",
+      "status": "PASS"
+    }
+  ]
+}

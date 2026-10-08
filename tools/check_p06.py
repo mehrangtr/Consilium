@@ -3,8 +3,8 @@ import argparse
 import hashlib
 import json
 import os
-from pathlib import Path
 import sys
+from pathlib import Path
 
 import qualityctl as q
 
@@ -13,6 +13,7 @@ sys.path.insert(0, str(ROOT / 'src'))
 from consilium.core.pilot import METHODS, summarize
 from consilium.core.rubrics import get_rubric
 from consilium.shell.pilot import PilotJournal
+from consilium.shell.pilot_review import PilotReviewStore
 
 
 def preflight():
@@ -36,6 +37,17 @@ def preflight():
     return plan
 
 
+def evidence_blockers(summary, score_review):
+    blockers = []
+    if summary['status'] != 'READY_FOR_BLINDED_REVIEW':
+        blockers.append('REAL_THREE_METHOD_OUTPUTS_AND_INTERMEDIATE_CALLS_INCOMPLETE')
+    if score_review is None:
+        blockers.append('BLINDED_SCORE_RECEIPT_MISSING_OR_INVALID')
+    # These product acceptance records do not exist yet; scores alone are insufficient.
+    blockers += ['PRODUCT_FLOW_REVIEW_NOT_REGISTERED', 'ERROR_FINDINGS_AND_REESTIMATE_NOT_REGISTERED']
+    return blockers
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('mode', choices=('preflight', 'evidence'))
@@ -43,6 +55,7 @@ def main():
     before = q.source_digest(ROOT)
     plan = preflight()
     blockers = []
+    score_review = None
     summary = summarize((), tuple(plan['task_ids']))
     if args.mode == 'evidence':
         location = os.environ.get('CONSILIUM_P06_WORKSPACE')
@@ -61,12 +74,13 @@ def main():
                     journal.objects.read(call.prompt_sha256)
                     journal.objects.read(call.response_sha256)
                 summary = summarize(calls, tuple(plan['task_ids']))
+                try:
+                    score_review = PilotReviewStore(journal).score_report(plan, (ROOT / plan['dataset']).read_bytes())
+                except (ValueError, OSError, KeyError, TypeError):
+                    score_review = None
             # Raw text and judge mapping are private. Their existence alone
             # cannot certify scores, repairs, product flow or actual hours.
-        if summary['status'] != 'READY_FOR_BLINDED_REVIEW':
-            blockers.append('REAL_THREE_METHOD_OUTPUTS_AND_INTERMEDIATE_CALLS_INCOMPLETE')
-        blockers += ['BLINDED_SCORING_AND_PRODUCT_FLOW_REVIEW_NOT_REGISTERED',
-                     'ERROR_FINDINGS_AND_REESTIMATE_NOT_REGISTERED']
+        blockers += evidence_blockers(summary, score_review)
     after = q.source_digest(ROOT)
     report = {'phase': 'P06', 'mode': args.mode,
         'status': 'BLOCKED' if blockers else 'PASS',
@@ -75,8 +89,10 @@ def main():
         'task_count': len(plan['task_ids']), 'method_count': len(plan['methods']),
         'required_final_outputs': summary['required_final_outputs'],
         'recorded_final_outputs': summary['real_manual_final_outputs'],
+        'blinded_scores_status': score_review['status'] if score_review else 'NOT_REGISTERED',
         'blockers': blockers, 'phase_accepted': False, 'model_superiority_claimed': False}
-    folder = ROOT / 'evidence/p06'; folder.mkdir(parents=True, exist_ok=True)
+    folder = ROOT / 'evidence/p06'
+    folder.mkdir(parents=True, exist_ok=True)
     (folder / (args.mode.upper() + '.json')).write_bytes(q.encoded(report))
     print(q.encoded(report).decode())
     return 2 if blockers else int(before != after)

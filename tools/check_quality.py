@@ -21,6 +21,9 @@ def main():
     environment = dict(os.environ, PYTHONPATH=str(ROOT / 'src'), COVERAGE_FILE=str(folder / '.coverage'))
     commands = [
         ('lint', [sys.executable, '-m', 'ruff', 'check', '--no-cache', *TARGETS,
+                  'src/consilium/core/pilot.py', 'src/consilium/core/pilot_review.py',
+                  'src/consilium/shell/pilot.py', 'src/consilium/shell/pilot_review.py',
+                  'tools/p06_pilot.py', 'tools/check_p06.py',
                   'src/consilium/core/analyzers.py', 'src/consilium/core/council_repository.py',
                   'src/consilium/shell/council_repository.py', 'src/consilium/shell/demo.py', 'src/consilium/__main__.py']),
         ('types', [sys.executable, '-m', 'mypy', '--strict', '--follow-imports=skip', *TARGETS]),
@@ -37,6 +40,8 @@ def main():
             proc = subprocess.run(argv, cwd=ROOT, env=environment, capture_output=True, timeout=45, stdin=subprocess.DEVNULL)
             (folder / (name + '.log')).write_bytes(proc.stdout + proc.stderr)
             row = {'id': name, 'status': 'PASS' if proc.returncode == 0 else 'FAIL', 'returncode': proc.returncode}
+            if proc.returncode:
+                print((proc.stdout + proc.stderr).decode('utf-8', errors='replace'))
         except (OSError, subprocess.TimeoutExpired) as exc:
             row = {'id': name, 'status': 'FAIL', 'error': type(exc).__name__}
         row['elapsed_seconds'] = round(time.monotonic() - started, 3)

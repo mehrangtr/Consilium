@@ -1,0 +1,10 @@
+{
+  "nonce": "eddd012f5d854fc3813a90efbed19e4a",
+  "task_pid": 948,
+  "sequence": 6,
+  "milestone": "native_receipt_and_pointer_written",
+  "receipt": {
+    "path": "D:\\a\\Consilium\\Consilium\\evidence\\targets\\Windows\\20261008T183936Z_df06fd29\\RUN.json",
+    "sha256": "8f50669c5613eb3b658ce3873dfcec76d4e3515bb5c632b6e7b9cbc606ec105e"
+  }
+}

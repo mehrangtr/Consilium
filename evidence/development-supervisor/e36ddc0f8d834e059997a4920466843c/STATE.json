@@ -1,0 +1,154 @@
+{
+  "schema_version": 1,
+  "scope": "OWNED_OFFLINE_DEVELOPMENT_NOT_CHAT_SESSION_CONTROL",
+  "status": "PASS",
+  "idle_seconds": 300,
+  "hard_seconds": 900,
+  "phase_advanced": false,
+  "source_digest": "72926f3b9597fd1487babd4ec80ebe1cd990960eeedf73d401e62615429cbd64",
+  "steps": [
+    {
+      "step": "native",
+      "attempt": 1,
+      "nonce": "fb32eff382aa4b3686045ed436d4cfaf",
+      "status": "COMPLETE",
+      "log": "evidence/development-supervisor/e36ddc0f8d834e059997a4920466843c/native_1/OUTPUT.log",
+      "worker_pid": 2487,
+      "last_completed_milestone": "native_smoke_4_finished",
+      "retained_proof": {
+        "artifacts": [
+          {
+            "original_path": "evidence/targets/Linux/20261008T185108Z_2d7b8c96/RUN.json",
+            "path": "evidence/development-supervisor/e36ddc0f8d834e059997a4920466843c/native_1/proofs/evidence/targets/Linux/20261008T185108Z_2d7b8c96/RUN.json",
+            "sha256": "4d0fff74776159b77c620ca4329c9e5f1aa8103b824ffa561e8bf41c2666b334"
+          },
+          {
+            "original_path": "evidence/targets/Linux/20261008T185108Z_2d7b8c96/CHECK.log",
+            "path": "evidence/development-supervisor/e36ddc0f8d834e059997a4920466843c/native_1/proofs/evidence/targets/Linux/20261008T185108Z_2d7b8c96/CHECK.log",
+            "sha256": "715ef0cead21e76885c863d0d4caa778311f1b3f6032cf892ca1579c6a4bce36"
+          },
+          {
+            "original_path": "evidence/targets/Linux/20261008T185108Z_2d7b8c96/maintenance_report.json",
+            "path": "evidence/development-supervisor/e36ddc0f8d834e059997a4920466843c/native_1/proofs/evidence/targets/Linux/20261008T185108Z_2d7b8c96/maintenance_report.json",
+            "sha256": "ca7ba039edc4d8f22ed2d38bb71c8e0ae9f592e485932d1fbdc1400a5400d10f"
+          },
+          {
+            "original_path": "evidence/targets/Linux/20261008T185108Z_2d7b8c96/environment_report.json",
+            "path": "evidence/development-supervisor/e36ddc0f8d834e059997a4920466843c/native_1/proofs/evidence/targets/Linux/20261008T185108Z_2d7b8c96/environment_report.json",
+            "sha256": "3a88435f03074e8f4bcb8b2e14cd99c89e7f60680dcfed790edeaeda621b6321"
+          },
+          {
+            "original_path": "evidence/targets/Linux/20261008T185108Z_2d7b8c96/control_report.json",
+            "path": "evidence/development-supervisor/e36ddc0f8d834e059997a4920466843c/native_1/proofs/evidence/targets/Linux/20261008T185108Z_2d7b8c96/control_report.json",
+            "sha256": "7227bf578b674c9aefc2af62c78d9a7c7a627ef800e68dcdd7199b80c0074084"
+          },
+          {
+            "original_path": "evidence/targets/Linux/20261008T185108Z_2d7b8c96/control_junit.xml",
+            "path": "evidence/development-supervisor/e36ddc0f8d834e059997a4920466843c/native_1/proofs/evidence/targets/Linux/20261008T185108Z_2d7b8c96/control_junit.xml",
+            "sha256": "5e01713271a9f8dad4cacafbb20a9c4d86c6e6ec06151dbd17c4353c6fa5ab47"
+          },
+          {
+            "original_path": "evidence/targets/Linux/20261008T185108Z_2d7b8c96/foundation_report.json",
+            "path": "evidence/development-supervisor/e36ddc0f8d834e059997a4920466843c/native_1/proofs/evidence/targets/Linux/20261008T185108Z_2d7b8c96/foundation_report.json",
+            "sha256": "41df7a4d275c051bda2a326279ffda58aa40a3590aa068b08d894b1788e1ea84"
+          },
+          {
+            "original_path": "evidence/targets/Linux/20261008T185108Z_2d7b8c96/foundation_junit.xml",
+            "path": "evidence/development-supervisor/e36ddc0f8d834e059997a4920466843c/native_1/proofs/evidence/targets/Linux/20261008T185108Z_2d7b8c96/foundation_junit.xml",
+            "sha256": "8d407155e6b1dc1ca1a1e921d0e9a05eafbc0bc1f2ae07f4b67e55f664a99949"
+          },
+          {
+            "original_path": "evidence/targets/Linux/20261008T185108Z_2d7b8c96/persistence_report.json",
+            "path": "evidence/development-supervisor/e36ddc0f8d834e059997a4920466843c/native_1/proofs/evidence/targets/Linux/20261008T185108Z_2d7b8c96/persistence_report.json",
+            "sha256": "2706644bc6334b22a86b1211838525ddf9acdacbb7b538b3bb7c9e37e377dcc6"
+          },
+          {
+            "original_path": "evidence/targets/Linux/20261008T185108Z_2d7b8c96/persistence_junit.xml",
+            "path": "evidence/development-supervisor/e36ddc0f8d834e059997a4920466843c/native_1/proofs/evidence/targets/Linux/20261008T185108Z_2d7b8c96/persistence_junit.xml",
+            "sha256": "d8f658daff1d882f8be7378768e1b15d9614519b14818008d32a97a7956c1a55"
+          },
+          {
+            "original_path": "evidence/targets/Linux/20261008T185108Z_2d7b8c96/browser_probe_report.json",
+            "path": "evidence/development-supervisor/e36ddc0f8d834e059997a4920466843c/native_1/proofs/evidence/targets/Linux/20261008T185108Z_2d7b8c96/browser_probe_report.json",
+            "sha256": "93f8446b4a0f21311db21389ecd3737c70665e7fa2bdaf347901ab508a0a94db"
+          },
+          {
+            "original_path": "evidence/targets/Linux/20261008T185108Z_2d7b8c96/browser_probe_junit.xml",
+            "path": "evidence/development-supervisor/e36ddc0f8d834e059997a4920466843c/native_1/proofs/evidence/targets/Linux/20261008T185108Z_2d7b8c96/browser_probe_junit.xml",
+            "sha256": "d8f4b9cf44201197e9b0abd379f0abe06283fecf6ebbcb10369218643d16e702"
+          },
+          {
+            "original_path": "evidence/targets/Linux/20261008T185108Z_2d7b8c96/architect_report.json",
+            "path": "evidence/development-supervisor/e36ddc0f8d834e059997a4920466843c/native_1/proofs/evidence/targets/Linux/20261008T185108Z_2d7b8c96/architect_report.json",
+            "sha256": "012d09f3603c2289b6dcf1e786a1d17b8135345822dcc53959bdce1d35025211"
+          },
+          {
+            "original_path": "evidence/targets/Linux/20261008T185108Z_2d7b8c96/architect_junit.xml",
+            "path": "evidence/development-supervisor/e36ddc0f8d834e059997a4920466843c/native_1/proofs/evidence/targets/Linux/20261008T185108Z_2d7b8c96/architect_junit.xml",
+            "sha256": "6e462a4e5f5974f35ff70dba932347c21e29694d4768a9df34e5fdb09ccd9913"
+          },
+          {
+            "original_path": "evidence/targets/Linux/20261008T185108Z_2d7b8c96/council_report.json",
+            "path": "evidence/development-supervisor/e36ddc0f8d834e059997a4920466843c/native_1/proofs/evidence/targets/Linux/20261008T185108Z_2d7b8c96/council_report.json",
+            "sha256": "75b6019b1f8552c22ebbc919ae7c87addb8d3925d0d069e28a231ac43641ae05"
+          },
+          {
+            "original_path": "evidence/targets/Linux/20261008T185108Z_2d7b8c96/council_junit.xml",
+            "path": "evidence/development-supervisor/e36ddc0f8d834e059997a4920466843c/native_1/proofs/evidence/targets/Linux/20261008T185108Z_2d7b8c96/council_junit.xml",
+            "sha256": "0e2769e0c595f199f4fc99bc4b43ecc8b5a67e8cfd4802a978d2db055a2f6039"
+          },
+          {
+            "original_path": "evidence/targets/Linux/20261008T185108Z_2d7b8c96/quality_report.json",
+            "path": "evidence/development-supervisor/e36ddc0f8d834e059997a4920466843c/native_1/proofs/evidence/targets/Linux/20261008T185108Z_2d7b8c96/quality_report.json",
+            "sha256": "4bc309e35c51f50a746d71a7e0484eb76f084e45dc8fd723281c7fe6f63f78cb"
+          },
+          {
+            "original_path": "evidence/targets/Linux/20261008T185108Z_2d7b8c96/quality_junit.xml",
+            "path": "evidence/development-supervisor/e36ddc0f8d834e059997a4920466843c/native_1/proofs/evidence/targets/Linux/20261008T185108Z_2d7b8c96/quality_junit.xml",
+            "sha256": "93219cb3e3cc52ebb1c2dbec9345b6ddb473867f09d4c32be0c1d3027fbf9f95"
+          },
+          {
+            "original_path": "evidence/targets/Linux/20261008T185108Z_2d7b8c96/pilot_report.json",
+            "path": "evidence/development-supervisor/e36ddc0f8d834e059997a4920466843c/native_1/proofs/evidence/targets/Linux/20261008T185108Z_2d7b8c96/pilot_report.json",
+            "sha256": "1297cf7db0c2904ab361fb35fe51c02b9108db8ab7aed73436633687d2572207"
+          },
+          {
+            "original_path": "evidence/targets/Linux/20261008T185108Z_2d7b8c96/pilot_junit.xml",
+            "path": "evidence/development-supervisor/e36ddc0f8d834e059997a4920466843c/native_1/proofs/evidence/targets/Linux/20261008T185108Z_2d7b8c96/pilot_junit.xml",
+            "sha256": "9da9618f96dd84de9b61fad0d268d63e601ded9113799dbd90b25a8096a4881d"
+          },
+          {
+            "original_path": "evidence/targets/Linux/20261008T185108Z_2d7b8c96/smoke_1.log",
+            "path": "evidence/development-supervisor/e36ddc0f8d834e059997a4920466843c/native_1/proofs/evidence/targets/Linux/20261008T185108Z_2d7b8c96/smoke_1.log",
+            "sha256": "04bd78e43b8a95c0e490dfb96eefb085e8750293ed32c84aa895ecc29ff346ca"
+          },
+          {
+            "original_path": "evidence/targets/Linux/20261008T185108Z_2d7b8c96/smoke_2.log",
+            "path": "evidence/development-supervisor/e36ddc0f8d834e059997a4920466843c/native_1/proofs/evidence/targets/Linux/20261008T185108Z_2d7b8c96/smoke_2.log",
+            "sha256": "63300dd4768affeda3cc9d0a1a456512b0c7e1a7f301d7fbd8493b20dd49eb12"
+          },
+          {
+            "original_path": "evidence/targets/Linux/20261008T185108Z_2d7b8c96/smoke_3.log",
+            "path": "evidence/development-supervisor/e36ddc0f8d834e059997a4920466843c/native_1/proofs/evidence/targets/Linux/20261008T185108Z_2d7b8c96/smoke_3.log",
+            "sha256": "c1487b0ab18225b99eaf0d6c7fee08e76017bd1783912d410871409f345fdeb6"
+          },
+          {
+            "original_path": "evidence/targets/Linux/20261008T185108Z_2d7b8c96/smoke_4.log",
+            "path": "evidence/development-supervisor/e36ddc0f8d834e059997a4920466843c/native_1/proofs/evidence/targets/Linux/20261008T185108Z_2d7b8c96/smoke_4.log",
+            "sha256": "dfd203334352063103a099f73cf67cc81436793e13a26ae529c9018afbf96977"
+          }
+        ],
+        "errors": []
+      },
+      "stop_reason": null,
+      "returncode": 0,
+      "reconciliation": {
+        "status": "VERIFIED_COMPLETE",
+        "receipt": "evidence/targets/Linux/20261008T185108Z_2d7b8c96/RUN.json",
+        "sha256": "4d0fff74776159b77c620ca4329c9e5f1aa8103b824ffa561e8bf41c2666b334"
+      }
+    }
+  ],
+  "remaining_steps": [],
+  "next_action": "REVIEW_CURRENT_PHASE_EXIT_CRITERIA_NOT_AUTOMATIC_ACCEPTANCE"
+}

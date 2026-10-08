@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "scope": "OWNED_OFFLINE_DEVELOPMENT_NOT_CHAT_SESSION_CONTROL",
+  "status": "PASS",
+  "idle_seconds": 300,
+  "hard_seconds": 900,
+  "phase_advanced": false,
+  "source_digest": "e4401835cff48997e9bc5c4b9b7a1ca82b3575bfd56b73762cfaa6d0a9c416d5",
+  "steps": [
+    {
+      "step": "phase",
+      "attempt": 1,
+      "nonce": "1d5e7f7ca30742f193909dff7a4398e4",
+      "status": "COMPLETE",
+      "log": "evidence/development-supervisor/39481d2c5e404cda99e048dfcc18635c/phase_1/OUTPUT.log",
+      "worker_pid": 2514,
+      "last_completed_milestone": "blocked_phase_recorded",
+      "retained_proof": {
+        "artifacts": [
+          {
+            "original_path": "evidence/phase-blockers/f0930177aa15447e9e49834c41e55270/RUN.json",
+            "path": "evidence/development-supervisor/39481d2c5e404cda99e048dfcc18635c/phase_1/proofs/evidence/phase-blockers/f0930177aa15447e9e49834c41e55270/RUN.json",
+            "sha256": "2397af4f53e936d9bfd83efe3d4dcdbd6b3c08cb9c8d76c044a1f9020be5b290"
+          },
+          {
+            "original_path": "evidence/phase-blockers/f0930177aa15447e9e49834c41e55270/BLOCKER.json",
+            "path": "evidence/development-supervisor/39481d2c5e404cda99e048dfcc18635c/phase_1/proofs/evidence/phase-blockers/f0930177aa15447e9e49834c41e55270/BLOCKER.json",
+            "sha256": "732ee488df6998cb222ff5ac8f8808b7f70e68f163988c6d111156b7ff54417b"
+          }
+        ],
+        "errors": []
+      },
+      "stop_reason": null,
+      "returncode": 0,
+      "reconciliation": {
+        "status": "VERIFIED_COMPLETE",
+        "receipt": "evidence/phase-blockers/f0930177aa15447e9e49834c41e55270/RUN.json",
+        "sha256": "2397af4f53e936d9bfd83efe3d4dcdbd6b3c08cb9c8d76c044a1f9020be5b290"
+      }
+    }
+  ],
+  "remaining_steps": [],
+  "next_action": "REVIEW_CURRENT_PHASE_EXIT_CRITERIA_NOT_AUTOMATIC_ACCEPTANCE"
+}

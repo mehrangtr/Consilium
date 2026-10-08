@@ -1,0 +1,86 @@
+{
+  "scope": "APPROVED_QUALITY_IMPROVEMENTS_OFFLINE_NOT_MODEL_QUALITY",
+  "status": "PASS",
+  "source_digest_before": "72926f3b9597fd1487babd4ec80ebe1cd990960eeedf73d401e62615429cbd64",
+  "source_digest_after": "72926f3b9597fd1487babd4ec80ebe1cd990960eeedf73d401e62615429cbd64",
+  "counts": {
+    "tests": 15,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "date_utc": "2026-10-08T18:52:54.982811+00:00",
+  "host": {
+    "system": "Windows",
+    "python": "3.12.10"
+  },
+  "live_provider_calls": 0,
+  "property_testing": {
+    "dispatch_sequences": 30,
+    "max_steps_each": 20,
+    "unicode_span_examples": 80,
+    "scope": "BOUNDED_GENERATED_EXAMPLES_NOT_PROOF"
+  },
+  "cases": [
+    {
+      "id": "test_quality.QualityTests.test_conformance_and_transition_projections_check_real_sources",
+      "status": "PASS"
+    },
+    {
+      "id": "test_quality.QualityTests.test_content_addressed_evidence_deduplicates_and_detects_corruption",
+      "status": "PASS"
+    },
+    {
+      "id": "test_quality.QualityTests.test_demo_requires_explicit_scripted_mode_and_never_overwrites",
+      "status": "PASS"
+    },
+    {
+      "id": "test_quality.QualityTests.test_diagnostic_redaction_copies_without_altering_canonical_data",
+      "status": "PASS"
+    },
+    {
+      "id": "test_quality.QualityTests.test_echoes_are_one_primary_source_and_cycles_are_errors",
+      "status": "PASS"
+    },
+    {
+      "id": "test_quality.QualityTests.test_forged_review_span_cannot_become_confirmed_or_complete_round",
+      "status": "PASS"
+    },
+    {
+      "id": "test_quality.QualityTests.test_multibyte_cut_and_forged_quote_are_rejected",
+      "status": "PASS"
+    },
+    {
+      "id": "test_quality.QualityTests.test_old_points_keep_the_original_serialization",
+      "status": "PASS"
+    },
+    {
+      "id": "test_quality.QualityTests.test_pilot_mock_or_missing_intermediates_never_certify_quality",
+      "status": "PASS"
+    },
+    {
+      "id": "test_quality.QualityTests.test_provider_registry_preserves_scope_without_mock_live_claim",
+      "status": "PASS"
+    },
+    {
+      "id": "test_quality.QualityTests.test_review_aliases_balance_and_replay_preserves_seed_and_rubric",
+      "status": "PASS"
+    },
+    {
+      "id": "test_quality.QualityTests.test_review_fixture_preserves_reported_count_and_single_lineage",
+      "status": "PASS"
+    },
+    {
+      "id": "test_quality.QualityTests.test_rubric_has_explicit_dimensions_without_truth_probability",
+      "status": "PASS"
+    },
+    {
+      "id": "test_quality.QualityTests.test_unicode_span_binds_exact_bytes_and_rejects_modified_text",
+      "status": "PASS"
+    },
+    {
+      "id": "hypothesis.stateful.DurableDispatchMachine.TestCase.runTest",
+      "status": "PASS"
+    }
+  ]
+}

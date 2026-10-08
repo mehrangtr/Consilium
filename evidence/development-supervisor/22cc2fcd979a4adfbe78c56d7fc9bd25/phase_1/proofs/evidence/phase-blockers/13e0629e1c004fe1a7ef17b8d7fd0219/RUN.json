@@ -1,0 +1,17 @@
+{
+  "status": "PASS",
+  "phase": "P06",
+  "scope": "DEVELOPMENT_BLOCKER_RECORDING_ONLY",
+  "phase_status": "BLOCKED",
+  "execution": "NOT_RUN",
+  "phase_accepted": false,
+  "development_step_id": "caaf3aa5fdf4447bb4efb0bb4046f4c1",
+  "source_digest_before": "8d0987440f18b10372be78709efb0199805be403c774c21ca5792c0c07826fbd",
+  "source_digest_after": "8d0987440f18b10372be78709efb0199805be403c774c21ca5792c0c07826fbd",
+  "artifacts": {
+    "blocker": {
+      "path": "evidence/phase-blockers/13e0629e1c004fe1a7ef17b8d7fd0219/BLOCKER.json",
+      "sha256": "732ee488df6998cb222ff5ac8f8808b7f70e68f163988c6d111156b7ff54417b"
+    }
+  }
+}

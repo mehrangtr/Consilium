@@ -119,6 +119,77 @@ class ManualRoundTests(unittest.TestCase):
         self.assertNotIn("unverified-service",self.frame.expected_prompt)
         self.assertIn("MINORITY DISSENT",self.frame.expected_prompt)
 
+    def test_new_manual_review_prompt_identifies_exact_peer_targets_and_output_contract(self):
+        from consilium.core.artifact_contracts import CritiquesOutput
+        payload = json.loads(self.frame.context.frozen_input.messages[1].content)
+        self.assertEqual(self.frame.response_contract_version, 'manual-output.v2')
+        self.assertEqual(payload['manual_output_contract'], 'manual-output.v2')
+        self.assertEqual(payload['critique_output_schema'], CritiquesOutput.model_json_schema())
+        self.assertEqual(payload['review_targets'], [
+            {'target_alias': t.alias, 'source_hash': t.source_hash} for t in self.frame.targets])
+        own = {s.content_hash for s in self.frame.sources if s.item.participant_id == self.frame.participant_id}
+        self.assertFalse(own.intersection(t['source_hash'] for t in payload['review_targets']))
+        self.assertNotIn('participant_id', self.frame.context.frozen_input.messages[1].content)
+        self.assertIn('single json code block', self.frame.context.frozen_input.messages[0].content)
+
+    def test_historical_manual_frame_bytes_hash_and_acceptance_survive_new_prompt_version(self):
+        with self.store._transaction(write=False):
+            legacy = self.store.manual_rounds._frame(round_spec=self.frame.round_spec,
+                participant_id=self.frame.participant_id, connection=self.frame.connection,
+                connection_revision=self.frame.connection_revision, revision=self.frame.staged_revision,
+                grants=self.frame.grants, parameters=self.frame.context.frozen_input.parameters,
+                rubric_version=self.frame.rubric_version, presentation=self.frame.context.presentation)
+        before = legacy.model_dump_json(), legacy.content_hash, legacy.expected_prompt
+        self.assertNotIn('response_contract_version', legacy.model_dump(mode='json'))
+        self.assertNotIn('review_targets', json.loads(legacy.context.frozen_input.messages[1].content))
+        record = self.accept(self.stage(frame=legacy, actual_prompt=legacy.expected_prompt))
+        self.reopen()
+        restored = self.store.manual_rounds.get(record.candidate.candidate_id).candidate.frame
+        self.assertEqual((restored.model_dump_json(), restored.content_hash, restored.expected_prompt), before)
+
+    def test_manual_contract_version_cannot_be_removed_to_change_frozen_view(self):
+        changed = self.frame.model_copy(update={'response_contract_version': None})
+        with self.assertRaises(Conflict):
+            self.stage(frame=changed)
+
+    def test_manual_ui_output_contract_cannot_change_an_api_projection(self):
+        from consilium.core.round_context import build_round_context
+        from consilium.core.dispatch_policy import PolicyBlocked
+        f = self.frame
+        with self.assertRaisesRegex(PolicyBlocked, 'MANUAL_OUTPUT_CONTRACT_NOT_APPLICABLE'):
+            build_round_context(question=self.store.questions.get_adopted(self.debate.debate_id),
+                debate=self.debate, round_spec=f.round_spec, participant_id=f.participant_id,
+                expected_revision=f.staged_revision, sources=f.sources,
+                required_source_hashes=f.context.source_hashes, grants=f.grants,
+                connection=f.connection.model_copy(update={'mode': 'API'}),
+                parameters=f.context.frozen_input.parameters, manual_output_contract='manual-output.v2')
+
+    def test_manual_review_contract_selects_latest_peer_answer_only(self):
+        from consilium.core.round_context import build_round_context
+        f = self.frame
+        peer = next(s for s in f.sources if s.item.participant_id == UUID(int=3))
+        answer = peer.item.model_copy(update={'answer_id': UUID(int=950),
+            'round_id': UUID(int=951), 'content': 'LATEST PEER ANSWER'})
+        later = peer.model_copy(update={'item': answer, 'source_revision': self.revision,
+            'source_round': peer.source_round.model_copy(update={'round_id': answer.round_id,
+                'number': 2, 'kind': 'TARGETED', 'participant_ids': (UUID(int=3),),
+                'targets': ('unresolved peer claim',)})})
+        sources = f.sources + (later,)
+        grants = tuple(TransferGrant(source_hash=s.content_hash,
+            destination_hash=destination_hash(f.connection), ledger_revision=self.revision,
+            decision='ALLOW', trusted_user_action_id=UUID(int=960+i)) for i, s in enumerate(sources))
+        context = build_round_context(question=self.store.questions.get_adopted(self.debate.debate_id),
+            debate=self.debate, round_spec=f.round_spec.model_copy(update={'number': 3}),
+            participant_id=f.participant_id, expected_revision=self.revision, sources=sources,
+            required_source_hashes=tuple(s.content_hash for s in sources), grants=grants,
+            connection=f.connection, parameters=f.context.frozen_input.parameters,
+            continuation_decision=f.continuation_decision, presentation=f.context.presentation,
+            manual_output_contract='manual-output.v2')
+        selected = {t['source_hash'] for t in json.loads(context.frozen_input.messages[1].content)['review_targets']}
+        self.assertIn(later.content_hash, selected)
+        self.assertNotIn(peer.content_hash, selected)
+        self.assertEqual(len(selected), 2)
+
     def test_later_manual_answer_preserves_exact_text_and_historical_review(self):
         review=self.accept(self.stage()); old=self.round
         self.advance(old,"TARGETED",3,50)

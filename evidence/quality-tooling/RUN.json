@@ -1,44 +1,44 @@
 {
   "scope": "TARGETED_DEV_QUALITY_NOT_FULL_STATIC_VERIFICATION",
-  "status": "PASS",
-  "source_digest_before": "72926f3b9597fd1487babd4ec80ebe1cd990960eeedf73d401e62615429cbd64",
-  "source_digest_after": "72926f3b9597fd1487babd4ec80ebe1cd990960eeedf73d401e62615429cbd64",
+  "status": "FAIL",
+  "source_digest_before": "bbf23b0737d444deaa1013737263a77a755c5e9cf6e1c3be731ed475afdfcf0f",
+  "source_digest_after": "bbf23b0737d444deaa1013737263a77a755c5e9cf6e1c3be731ed475afdfcf0f",
   "checks": [
     {
       "id": "lint",
-      "status": "PASS",
-      "returncode": 0,
-      "elapsed_seconds": 0.033
+      "status": "FAIL",
+      "returncode": 1,
+      "elapsed_seconds": 0.03
     },
     {
       "id": "types",
-      "status": "PASS",
-      "returncode": 0,
-      "elapsed_seconds": 0.732
+      "status": "FAIL",
+      "returncode": 1,
+      "elapsed_seconds": 0.031
     },
     {
       "id": "conformance",
       "status": "PASS",
       "returncode": 0,
-      "elapsed_seconds": 0.056
+      "elapsed_seconds": 0.075
     },
     {
       "id": "transitions",
       "status": "PASS",
       "returncode": 0,
-      "elapsed_seconds": 0.197
+      "elapsed_seconds": 0.373
     },
     {
       "id": "properties_and_regressions",
-      "status": "PASS",
-      "returncode": 0,
-      "elapsed_seconds": 9.559
+      "status": "FAIL",
+      "returncode": 1,
+      "elapsed_seconds": 0.028
     },
     {
       "id": "targeted_coverage",
-      "status": "PASS",
-      "returncode": 0,
-      "elapsed_seconds": 0.126
+      "status": "FAIL",
+      "returncode": 1,
+      "elapsed_seconds": 0.03
     }
   ],
   "strict_type_targets": [
@@ -52,13 +52,5 @@
     "src/consilium/shell/evidence_store.py"
   ],
   "coverage_minimum": 70,
-  "whole_product_type_checked": false,
-  "extraction": {
-    "origin": "DERIVED_FROM_HASH_VERIFIED_NATIVE_CHECK_LOG",
-    "source": {
-      "path": "evidence/targets/Linux/20261008T185108Z_2d7b8c96/CHECK.log",
-      "sha256": "715ef0cead21e76885c863d0d4caa778311f1b3f6032cf892ca1579c6a4bce36"
-    },
-    "standalone_original_report_claimed": false
-  }
+  "whole_product_type_checked": false
 }

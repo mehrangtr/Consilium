@@ -448,6 +448,25 @@ else:s.council.finalize(debate_id=d,expected_revision=r)
         self.assertIsNone(self.store.artifacts.get(request.intent.identity.logical_operation_id))
         with self.assertRaises(Conflict):self.council.finalize(debate_id=self.debate.debate_id,expected_revision=self.revision)
 
+    def test_manual_selected_judge_receives_versioned_json_capture_contract(self):
+        from consilium.core.council_contracts import JudgeOutput
+        self.through_review()
+        pid = self.pid[0]
+        connection, revision = self.council.binding(self.debate.debate_id, pid)
+        self.store.bind_connection(self.debate.debate_id, pid,
+            connection.model_copy(update={'mode': 'MANUAL'}),
+            expected_revision=self.revision, expected_connection_revision=revision,
+            actor=ACTOR, reason='Explicit manual judge fixture before selection')
+        self.decide('FINISH');self.select()
+        frame = self.store.manual_rounds.prepare_context(debate_id=self.debate.debate_id,
+            round_id=self.round.round_id, participant_id=pid, expected_revision=self.revision,
+            grants=self.council.grants(self.round, pid, self.revision, uuid4()))
+        data = json.loads(frame.context.frozen_input.messages[1].content)
+        self.assertEqual(data['judge_output_schema'], JudgeOutput.model_json_schema())
+        self.assertEqual(frame.response_contract_version, 'manual-output.v2')
+        self.assertIn('single json code block', frame.context.frozen_input.messages[0].content)
+        self.assertIn('MINORITY_DISSENT', frame.expected_prompt)
+
     def test_explicit_named_peer_review_still_gives_selected_judge_blind_metadata(self):
         from consilium.core.round_context import NamedIdentity, NamedReviewAuthorization
         from consilium.core.dispatch_policy import destination_hash

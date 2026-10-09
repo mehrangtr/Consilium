@@ -13,7 +13,7 @@ class ManualRoundLedger:
     def __init__(self, store):
         self.store, self._db = (store, store._db)
 
-    def _frame(self, *, round_spec, participant_id, connection, connection_revision, revision, grants, parameters, named_authorization=None, rubric_version='manual-rubric.v1', max_context_bytes=1048576, presentation=None):
+    def _frame(self, *, round_spec, participant_id, connection, connection_revision, revision, grants, parameters, named_authorization=None, rubric_version='manual-rubric.v1', max_context_bytes=1048576, presentation=None, response_contract_version=None):
         question = self.store.questions.get_adopted(round_spec.debate_id)
         if question is None:
             raise Conflict('Manual round requires an adopted question')
@@ -22,14 +22,14 @@ class ManualRoundLedger:
         judge = self.store.council.authorization(round_spec, revision) if round_spec.kind == 'SYNTHESIS' else None
         for value in (question, decision, *sources):
             ensure_public_payload(value.model_dump(mode='json'), self.store._forbidden_values)
-        context = build_round_context(question=question, debate=self.store.get_debate(round_spec.debate_id), round_spec=round_spec, participant_id=participant_id, expected_revision=revision, sources=sources, required_source_hashes=tuple((s.content_hash for s in sources)), grants=grants, connection=connection, parameters=parameters, named_authorization=named_authorization, continuation_decision=decision, judge_selection=judge, presentation=presentation)
-        return ManualRoundFrame(round_spec=round_spec, participant_id=participant_id, connection=connection, connection_revision=connection_revision, context=context, sources=sources, grants=grants, continuation_decision=decision, named_authorization=named_authorization, rubric_version=rubric_version, max_context_bytes=max_context_bytes, judge_selection=judge)
+        context = build_round_context(question=question, debate=self.store.get_debate(round_spec.debate_id), round_spec=round_spec, participant_id=participant_id, expected_revision=revision, sources=sources, required_source_hashes=tuple((s.content_hash for s in sources)), grants=grants, connection=connection, parameters=parameters, named_authorization=named_authorization, continuation_decision=decision, judge_selection=judge, presentation=presentation, manual_output_contract=response_contract_version)
+        return ManualRoundFrame(round_spec=round_spec, participant_id=participant_id, connection=connection, connection_revision=connection_revision, context=context, sources=sources, grants=grants, continuation_decision=decision, named_authorization=named_authorization, rubric_version=rubric_version, max_context_bytes=max_context_bytes, judge_selection=judge, response_contract_version=response_contract_version)
 
     def _validate_frame(self, frame):
         row = self._db.execute('SELECT spec_json FROM rounds WHERE round_id=? AND debate_id=?', (str(frame.round_spec.round_id), str(frame.round_spec.debate_id))).fetchone()
         if row is None or RoundSpec.model_validate_json(row[0]) != frame.round_spec:
             raise Conflict('Manual frame differs from its registered round')
-        expected = self._frame(round_spec=frame.round_spec, participant_id=frame.participant_id, connection=frame.connection, connection_revision=frame.connection_revision, revision=frame.staged_revision, grants=frame.grants, parameters=frame.context.frozen_input.parameters, named_authorization=frame.named_authorization, rubric_version=frame.rubric_version, max_context_bytes=frame.max_context_bytes, presentation=frame.context.presentation)
+        expected = self._frame(round_spec=frame.round_spec, participant_id=frame.participant_id, connection=frame.connection, connection_revision=frame.connection_revision, revision=frame.staged_revision, grants=frame.grants, parameters=frame.context.frozen_input.parameters, named_authorization=frame.named_authorization, rubric_version=frame.rubric_version, max_context_bytes=frame.max_context_bytes, presentation=frame.context.presentation, response_contract_version=frame.response_contract_version)
         if expected != frame:
             raise Conflict('Manual frame differs from the canonical historical view')
 
@@ -43,7 +43,7 @@ class ManualRoundLedger:
                 raise Conflict('Manual round and binding must be registered')
             spec = RoundSpec.model_validate_json(row[0])
             presentation = ReviewPresentation(seed=hashlib.sha256(str(spec.round_id).encode()).hexdigest(), rubric_version=rubric_version) if spec.kind == 'REVIEW' else None
-            frame = self._frame(round_spec=spec, participant_id=participant_id, connection=ConnectionSpec.model_validate_json(binding[0]), connection_revision=binding[1], revision=expected_revision, grants=grants, parameters=parameters or GenerationParameters(), named_authorization=named_authorization, rubric_version=rubric_version, max_context_bytes=max_context_bytes, presentation=presentation)
+            frame = self._frame(round_spec=spec, participant_id=participant_id, connection=ConnectionSpec.model_validate_json(binding[0]), connection_revision=binding[1], revision=expected_revision, grants=grants, parameters=parameters or GenerationParameters(), named_authorization=named_authorization, rubric_version=rubric_version, max_context_bytes=max_context_bytes, presentation=presentation, response_contract_version='manual-output.v2' if spec.kind in {'REVIEW', 'SYNTHESIS'} else None)
             self.store.manual_sources._current(frame, expected_revision)
             return frame
 

@@ -25,6 +25,7 @@ class ManualRoundFrame(Contract):
     continuation_decision: UserDecision
     named_authorization: NamedReviewAuthorization | None = None
     judge_selection: JudgeSelection | None = None
+    response_contract_version: Literal['manual-output.v2'] | None = None
     rubric_version: Text = 'manual-rubric.v1'
     max_context_bytes: Annotated[int, Field(ge=1, le=1048576)] = 1048576
 
@@ -33,6 +34,8 @@ class ManualRoundFrame(Contract):
         data = handler(self)
         if self.judge_selection is None:
             data.pop('judge_selection', None)
+        if self.response_contract_version is None:
+            data.pop('response_contract_version', None)
         return data
 
     @property
@@ -64,6 +67,8 @@ class ManualRoundFrame(Contract):
             raise ValueError('Manual round frame role, canonical view or local byte limit is invalid')
         if (self.round_spec.kind == 'SYNTHESIS') != (self.judge_selection is not None):
             raise ValueError('Synthesis requires a selected judge')
+        if self.response_contract_version is not None and self.round_spec.kind not in {'REVIEW', 'SYNTHESIS'}:
+            raise ValueError('Manual output contract is only applicable to structured rounds')
         return self
 
     @property

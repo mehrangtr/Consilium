@@ -2,7 +2,7 @@
 
 این نما خودکار از `ROADMAP.json`، `PROGRESS.json` و `CHECKS.json` ساخته شده است. ویرایش دستی مرجع نیست؛ پس از تغییر مبنا فرمان تولید را دوباره اجرا کنید.
 
-شناسهٔ مبنای نما: `b62beeb9e88df28f542fdf493566d665fc689fdb9bcf05718617b490b3deb43a`.
+شناسهٔ مبنای نما: `f2edec7a10219dd1511b23c84cbc458bf766502e8872628e5244795254ba9018`.
 
 مرحلهٔ فعلی: `P06`. آخرین مرحلهٔ پذیرفته‌شده: `P05`.
 
@@ -22,12 +22,11 @@
     "P06 preregistration and atomic private observation journal passed 17 accounting/protocol/crash tests on both OSs; preflight passes."
   ],
   "working_changes": [
-    "Current native report graphs, hash-verified archive, sanitized audit proof and final status are retained for quality PR14.",
-    "P06 real evaluation remains unexecuted: 0/24 final outputs and zero real calls recorded.",
-    "The failed old local tooling check and Windows CI 37801218935 remain historical evidence; they do not describe the latest passing source."
+    "P06 manual-output.v2 target/schema fix; fresh native verification pending.",
+    "Real calls and private response records must remain outside the public repository."
   ],
-  "next_action": "برای نخستین مرحلهٔ ناتمام `P06`، دو مدل رایگان و حساب‌های واقعاً قابل دسترس را تعیین و تأیید کن؛ سپس ۲۴ خروجی نهاییِ سه روش را از مسیر واقعی دستی محصول با تمام فراخوانی‌های میانی ثبت کن. امتیاز کور، یافته‌های خطا و اصلاح و بازبرآورد مبتنی بر ساعات واقعی باید پیش از پذیرش آماده شوند.",
-  "next_command": "python tools/p06_pilot.py status --workspace /PRIVATE/P06_WORKSPACE",
+  "next_action": "نقد واقعی `PILOT-003/COUNCIL` را با درخواست دارای هدف صریح و `manual-output.v2` ادامه بده؛ داور کلاد است. تمام تلاش‌ها در سقف اصلی ثبت شوند. دو گروه مسدود `PILOT-001`، بررسی بومی منبع تازه، امتیاز کور و بازبرآورد پیش از پذیرش حل شوند.",
+  "next_command": "python runtime_driver.py status # در فضای خصوصی اجرای P06",
   "startup_commands": [
     "python tools/qualityctl.py status",
     "python tools/qualityctl.py navigation --check",
@@ -38,25 +37,25 @@
     "phase": "P06",
     "status": "BLOCKED_REAL_EVIDENCE",
     "title_fa": "پایلوت زودهنگام کیفیت",
-    "next_action_fa": "برای نخستین مرحلهٔ ناتمام `P06`، دو مدل رایگان و حساب‌های واقعاً قابل دسترس را تعیین و تأیید کن؛ سپس ۲۴ خروجی نهاییِ سه روش را از مسیر واقعی دستی محصول با تمام فراخوانی‌های میانی ثبت کن. امتیاز کور، یافته‌های خطا و اصلاح و بازبرآورد مبتنی بر ساعات واقعی باید پیش از پذیرش آماده شوند.",
-    "completed_fa": "`P05` ادغام شده؛ اصلاح‌های کیفیت و آماده‌سازی پایلوت روی هر دو محیط بومی موفق‌اند.",
-    "remaining_fa": "انتخاب مدل‌های قابل دسترس، ۲۴ خروجی واقعی و تمام مراحل میانی، امتیاز کور، یافته‌ها و بازبرآورد `P06`.",
+    "next_action_fa": "نقد واقعی `PILOT-003/COUNCIL` را با درخواست دارای هدف صریح و `manual-output.v2` ادامه بده؛ داور کلاد است. تمام تلاش‌ها در سقف اصلی ثبت شوند. دو گروه مسدود `PILOT-001`، بررسی بومی منبع تازه، امتیاز کور و بازبرآورد پیش از پذیرش حل شوند.",
+    "completed_fa": "P00–P05 پذیرفته‌شده‌اند؛ شش فراخوانی واقعی و یک خروجی نهایی P06 ثبت شده است.",
+    "remaining_fa": "نقد و جمع‌بندی، سایر گروه‌های مجاز، مانع سقف دو گروه، شواهد بومی، امتیاز کور و بازبرآورد.",
     "done_when_fa": "هر سه معیار اصلی پایان P06 با شواهد واقعی بررسی و پذیرفته شوند."
   },
   "inputs_missing": [
-    "Accessible selected free models for real manual pilot",
-    "Measured prior engineering hours, or a reviewed treatment of their genuine absence"
+    "Measured prior engineering hours, or a reviewed treatment of their genuine absence",
+    "Reviewed resolution of original six-call ceiling for two blocked PILOT-001 groups"
   ],
   "unfinished_work": {
     "phase": "P06",
     "items": [
       {
         "id": "P06-001",
-        "status": "BLOCKED",
-        "instruction": "برای نخستین مرحلهٔ ناتمام `P06`، دو مدل رایگان و حساب‌های واقعاً قابل دسترس را تعیین و تأیید کن؛ سپس ۲۴ خروجی نهاییِ سه روش را از مسیر واقعی دستی محصول با تمام فراخوانی‌های میانی ثبت کن. امتیاز کور، یافته‌های خطا و اصلاح و بازبرآورد مبتنی بر ساعات واقعی باید پیش از پذیرش آماده شوند."
+        "status": "IN_PROGRESS_WITH_RECORDED_BLOCKERS",
+        "instruction": "نقد واقعی `PILOT-003/COUNCIL` را با درخواست دارای هدف صریح و `manual-output.v2` ادامه بده؛ داور کلاد است. تمام تلاش‌ها در سقف اصلی ثبت شوند. دو گروه مسدود `PILOT-001`، بررسی بومی منبع تازه، امتیاز کور و بازبرآورد پیش از پذیرش حل شوند."
       }
     ],
-    "updated_at_utc": "2026-10-08T16:27:23.565788+00:00"
+    "updated_at_utc": "2026-10-09T00:24:53.001367+00:00"
   },
   "native_evidence": {
     "scope": "CURRENT_P06_OFFLINE_SOURCE_NOT_PHASE_ACCEPTANCE",
@@ -579,6 +578,42 @@
     "pr_url": "https://github.com/mehrangtr/Consilium/pull/15",
     "status": "REVIEWED_AND_NATIVE_VERIFIED",
     "phase_accepted": false
+  },
+  "p06_live_work": {
+    "status": "IN_PROGRESS_WITH_RECORDED_BLOCKERS",
+    "real_model_calls": 11,
+    "real_final_outputs": 3,
+    "required_final_outputs": 24,
+    "selected_judge": "CLAUDE_BY_DIRECT_USER_CHOICE",
+    "participants": [
+      "CLAUDE",
+      "QWEN"
+    ],
+    "external_origin_authenticated": false,
+    "token_accounting": "UNKNOWN_OR_PARTIAL",
+    "observed_cost": 0,
+    "blocked_groups": [
+      "PILOT-001/COUNCIL",
+      "PILOT-001/REPEATED_SINGLE"
+    ],
+    "phase_accepted": false,
+    "private_response_records_persisted": true,
+    "observed_elapsed_seconds": 610.048
+  },
+  "p06_local_contract_check": {
+    "status": "PRODUCT_TESTS_PASS_TOOLING_BLOCKED",
+    "source_digest": "bbf23b0737d444deaa1013737263a77a755c5e9cf6e1c3be731ed475afdfcf0f",
+    "supervisor_state": "evidence/development-supervisor/a3b10c522de943dc8860185d1561484d/STATE.json",
+    "architect_tests": 264,
+    "council_tests": 41,
+    "pilot_tests": 53,
+    "missing_tools": [
+      "ruff",
+      "mypy",
+      "coverage"
+    ],
+    "native_verification_pending": true,
+    "phase_accepted": false
   }
 }
 ```
@@ -593,7 +628,7 @@
 | `P03` | `COMPLETED` | 0 |
 | `P04` | `COMPLETED` | 0 |
 | `P05` | `COMPLETED` | 0 |
-| `P06` | `BLOCKED` | 2 |
+| `P06` | `BLOCKED` | 4 |
 | `P07` | `BLOCKED` | 1 |
 | `P08` | `BLOCKED` | 1 |
 | `P09` | `BLOCKED` | 1 |

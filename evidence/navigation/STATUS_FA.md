@@ -2,7 +2,7 @@
 
 این نما خودکار از `ROADMAP.json`، `PROGRESS.json` و `CHECKS.json` ساخته شده است. ویرایش دستی مرجع نیست؛ پس از تغییر مبنا فرمان تولید را دوباره اجرا کنید.
 
-شناسهٔ مبنای نما: `630dfc526e314008bb1afc5308a8c60968038436ce9aa02e89382e109bc016c4`.
+شناسهٔ مبنای نما: `4bd69ff6d125e5c16b4dfd2b50162f3b1140b7b79e7bf6d2a6cffcd02d415310`.
 
 مرحلهٔ فعلی: `P06`. آخرین مرحلهٔ پذیرفته‌شده: `P05`.
 
@@ -22,11 +22,11 @@
     "P06 preregistration and atomic private observation journal passed 17 accounting/protocol/crash tests on both OSs; preflight passes."
   ],
   "working_changes": [
-    "PR16 manual-output.v2 fix is merged; its 698-test native evidence is historical after the control-test-only deadline change.",
-    "PR17 initial Windows run 37905506414 failed one timing-sensitive control test. Failure and a deterministic pre-fix reproduction are retained; test fixture deadlines changed without changing production limits.",
-    "Private actual prompts/responses and pending UI boundaries remain outside public repository."
+    "PR16 manual-output.v2 fix is merged. PR17 contains the fixture-only supervisor deadline correction, retained failures, native evidence and the 66-response/16-final P06 checkpoint.",
+    "The current source is verified on native Windows/Linux with 699 tests per target. Production deadlines remain 300/900 seconds; the delayed receipt recovery test passes on both targets.",
+    "Private actual prompts/responses and pending UI boundaries remain outside public repository. P06 is not accepted; P07 is not started."
   ],
-  "next_action": "Verify the control-test deadline correction on fresh native Windows and Linux runs, then reconcile the blocked P06 browser boundaries without blind resend. P06 remains unaccepted; P07 must not start.",
+  "next_action": "Recover P06 browser work only after the automatic-review block is resolved: observe the existing Qwen response without navigation or resend; reconcile the unknown PILOT-007 send; then continue the unsent Claude review. Preserve the four original call-cap blocks and all measurement limitations. P06 remains unaccepted; P07 must not start.",
   "next_command": "python runtime_driver.py status # در فضای خصوصی اجرای P06",
   "startup_commands": [
     "python tools/qualityctl.py status",
@@ -62,13 +62,13 @@
   },
   "native_evidence": {
     "phase": "P01",
-    "scope": "HISTORICAL_MANUAL_OUTPUT_CONTRACT_NATIVE_VERIFICATION_NOT_CURRENT_SOURCE_NOT_P06_ACCEPTANCE",
-    "source_digest": "bbf23b0737d444deaa1013737263a77a755c5e9cf6e1c3be731ed475afdfcf0f",
+    "scope": "CURRENT_SUPERVISOR_TEST_FIX_NATIVE_VERIFICATION_NOT_P06_ACCEPTANCE",
+    "source_digest": "009e61d15ce3bd85ab5afff6879b96b1ae87230f5dd9e6649b5fcb1cb063a06e",
     "targets": [
       {
         "target": "Windows",
         "status": "PASS",
-        "control_tests": 117,
+        "control_tests": 118,
         "foundation_tests": 60,
         "persistence_tests": 104,
         "browser_probe_tests": 44,
@@ -77,14 +77,14 @@
         "quality_tests": 15,
         "pilot_tests": 53,
         "evidence": {
-          "path": "evidence/targets/Windows/20261009T005939Z_875bc0e2/RUN.json",
-          "sha256": "7709422d816c9002986f5edb014a99d66e0f044404466a412935a8054a7d7e3b"
+          "path": "evidence/targets/Windows/20261009T090117Z_d1c1c274/RUN.json",
+          "sha256": "bb4aa8e55de361b62f710a50374e0408f922f4dbb4cc72d556dab4c69674d1ed"
         }
       },
       {
         "target": "Linux",
         "status": "PASS",
-        "control_tests": 117,
+        "control_tests": 118,
         "foundation_tests": 60,
         "persistence_tests": 104,
         "browser_probe_tests": 44,
@@ -93,19 +93,17 @@
         "quality_tests": 15,
         "pilot_tests": 53,
         "evidence": {
-          "path": "evidence/targets/Linux/20261009T005909Z_4dc6b628/RUN.json",
-          "sha256": "973781bd01505d88a7cf517ba58cd0396fbfc220115dd09b7a441099fd4967f3"
+          "path": "evidence/targets/Linux/20261009T090059Z_9be97cd4/RUN.json",
+          "sha256": "40adb8bfdce3f40584007c5d9f61b4a436440c852e390e62828764c505a2adc3"
         }
       }
     ],
     "status": "PASS",
-    "workflow_run_id": 37867476416,
-    "tests_per_target": 698,
+    "workflow_run_id": 37908510226,
+    "tests_per_target": 699,
     "phase_accepted": false,
-    "code_commit": "e15601f9bd2985f5795649b836ad763261acd8ee",
-    "source_matches_current": false,
-    "current_source_digest": "009e61d15ce3bd85ab5afff6879b96b1ae87230f5dd9e6649b5fcb1cb063a06e",
-    "current_source_verification": "PENDING_NATIVE_WINDOWS_AND_LINUX"
+    "code_commit": "6be01f46a5bdfec382192b7c7768f1517c7068c3",
+    "source_matches_current": true
   },
   "last_verified_in_phase_checkpoint": {
     "phase": "P05",
@@ -565,7 +563,7 @@
     "reproduction_status": "FAIL_BEFORE_DEADLINE_CORRECTION",
     "reproduction_evidence": "evidence/p06/supervisor-deadline-history/reproduction-20261009/RUN.json",
     "original_failure_run": 37905506414,
-    "native_verification": "PENDING",
+    "native_verification": "PASS",
     "local_control_check": {
       "path": "evidence/control-tests/RUN.json",
       "sha256": "3a8fd86bd542b59875174f54c1c053ebfc46d0a2a9f4fb324f0fc8a741906397",
@@ -583,7 +581,59 @@
         "approved_quality_checks"
       ],
       "native_check_required": true
+    },
+    "native_review": {
+      "path": "evidence/p06/supervisor-deadline-native-37908510226/REVIEW.json",
+      "sha256": "31935b771a5c0bf0bb0b9c289c0792cdfd3bd5c280a9b472dd35b0385464ba7e",
+      "independent_review": false
     }
+  },
+  "previous_manual_output_native_evidence": {
+    "phase": "P01",
+    "scope": "HISTORICAL_MANUAL_OUTPUT_CONTRACT_NATIVE_VERIFICATION_NOT_CURRENT_SOURCE_NOT_P06_ACCEPTANCE",
+    "source_digest": "bbf23b0737d444deaa1013737263a77a755c5e9cf6e1c3be731ed475afdfcf0f",
+    "targets": [
+      {
+        "target": "Windows",
+        "status": "PASS",
+        "control_tests": 117,
+        "foundation_tests": 60,
+        "persistence_tests": 104,
+        "browser_probe_tests": 44,
+        "architect_tests": 264,
+        "council_tests": 41,
+        "quality_tests": 15,
+        "pilot_tests": 53,
+        "evidence": {
+          "path": "evidence/targets/Windows/20261009T005939Z_875bc0e2/RUN.json",
+          "sha256": "7709422d816c9002986f5edb014a99d66e0f044404466a412935a8054a7d7e3b"
+        }
+      },
+      {
+        "target": "Linux",
+        "status": "PASS",
+        "control_tests": 117,
+        "foundation_tests": 60,
+        "persistence_tests": 104,
+        "browser_probe_tests": 44,
+        "architect_tests": 264,
+        "council_tests": 41,
+        "quality_tests": 15,
+        "pilot_tests": 53,
+        "evidence": {
+          "path": "evidence/targets/Linux/20261009T005909Z_4dc6b628/RUN.json",
+          "sha256": "973781bd01505d88a7cf517ba58cd0396fbfc220115dd09b7a441099fd4967f3"
+        }
+      }
+    ],
+    "status": "PASS",
+    "workflow_run_id": 37867476416,
+    "tests_per_target": 698,
+    "phase_accepted": false,
+    "code_commit": "e15601f9bd2985f5795649b836ad763261acd8ee",
+    "source_matches_current": false,
+    "current_source_digest": "009e61d15ce3bd85ab5afff6879b96b1ae87230f5dd9e6649b5fcb1cb063a06e",
+    "current_source_verification": "PENDING_NATIVE_WINDOWS_AND_LINUX"
   }
 }
 ```

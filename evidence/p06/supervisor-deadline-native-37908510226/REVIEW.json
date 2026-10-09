@@ -1,7 +1,13 @@
 {
-  "phase": "P01",
-  "scope": "SELECTED_OS_FOUNDATION_GATE_NOT_FULL_V1_ACCEPTANCE",
+  "schema_version": 1,
+  "scope": "NATIVE_CONTROL_FIX_AND_RETAINED_P06_CHECKPOINT_NOT_PHASE_ACCEPTANCE",
+  "status": "PASS",
+  "reviewer_role": "IMPLEMENTATION_AUTHOR_IN_SEPARATE_REVIEW_PASS",
+  "independent_review": false,
   "source_digest": "009e61d15ce3bd85ab5afff6879b96b1ae87230f5dd9e6649b5fcb1cb063a06e",
+  "code_commit": "6be01f46a5bdfec382192b7c7768f1517c7068c3",
+  "workflow_run_id": 37908510226,
+  "workflow_url": "https://github.com/mehrangtr/Consilium/actions/runs/37908510226",
   "targets": [
     {
       "target": "Windows",
@@ -36,5 +42,20 @@
       }
     }
   ],
-  "status": "PASS"
+  "tests_per_target": 699,
+  "production_limits_unchanged": [
+    300,
+    900
+  ],
+  "delayed_receipt_regression_native_targets": "PASS",
+  "original_windows_failure_retained": true,
+  "pre_fix_regression_failure_retained": true,
+  "phase5_accepted_previously": true,
+  "phase6_accepted": false,
+  "phase7_started": false,
+  "verified_application_requirements": 0,
+  "public_prompt_response_records": false,
+  "private_real_model_calls": 66,
+  "private_final_outputs": 16,
+  "private_ui_blocks_unresolved": true
 }

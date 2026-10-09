@@ -1,0 +1,148 @@
+{
+  "schema_version": 1,
+  "development_step_id": "f0492f3abd3c44708e8153992fc4261c",
+  "artifacts": {
+    "evidence/environment/RUN.json": {
+      "path": "evidence/environment/RUN.json",
+      "sha256": "139206dccc8c5502356ea1222127683aef7437024b9bf1becbcc97494a5d9d62"
+    },
+    "evidence/control-tests/RUN.json": {
+      "path": "evidence/control-tests/RUN.json",
+      "sha256": "2002835262751f0045fd8d82d16b4dcf16fc3eacd4b99f3ae90349e099575697"
+    },
+    "evidence/control-tests/JUNIT.xml": {
+      "path": "evidence/control-tests/JUNIT.xml",
+      "sha256": "67c785c572332de1d222c3ab01a22b7efa0eb20bf81a26ef87175bdfcfe3c935"
+    },
+    "evidence/foundation-tests/RUN.json": {
+      "path": "evidence/foundation-tests/RUN.json",
+      "sha256": "445b4ce2c7d89f889ac4b9f9d7f67831a0ccf18b09cae1ccf2199d82b40cb0d8"
+    },
+    "evidence/foundation-tests/JUNIT.xml": {
+      "path": "evidence/foundation-tests/JUNIT.xml",
+      "sha256": "7c775438c51a685195abba490548262de4759e5d29d91293ad3bbf5bea68179d"
+    },
+    "evidence/persistence-tests/RUN.json": {
+      "path": "evidence/persistence-tests/RUN.json",
+      "sha256": "29831b7d6bd323fbfe7c2c163bf522111fbb0c3041525515cd75794ad9301596"
+    },
+    "evidence/persistence-tests/JUNIT.xml": {
+      "path": "evidence/persistence-tests/JUNIT.xml",
+      "sha256": "302fcb323734105787efe34b9e2728b19788dbc67d2a1ff033e4a22971d608a7"
+    },
+    "evidence/browser-probe-tests/RUN.json": {
+      "path": "evidence/browser-probe-tests/RUN.json",
+      "sha256": "f23f9812c795ff751de528de76a27de4b4afd811d1bd727fcac4559aa1f9f979"
+    },
+    "evidence/browser-probe-tests/JUNIT.xml": {
+      "path": "evidence/browser-probe-tests/JUNIT.xml",
+      "sha256": "cc96cd3d9eb9caaf9925bbf12a0aab6a3fb6e60c3968367ad7be5c7476ed39a9"
+    },
+    "evidence/architect-tests/RUN.json": {
+      "path": "evidence/architect-tests/RUN.json",
+      "sha256": "02a91d18c60c92f08d40677e0377f6b29af127324512155981472bc88207ffde"
+    },
+    "evidence/architect-tests/JUNIT.xml": {
+      "path": "evidence/architect-tests/JUNIT.xml",
+      "sha256": "c52e9f86a566b0f7a3becb6adaf02f31b5c894161d1ba7d00bcca749ffb15366"
+    },
+    "evidence/council-tests/RUN.json": {
+      "path": "evidence/council-tests/RUN.json",
+      "sha256": "5dfa36f79b99021ecbb1e8538e88cdb19aeaf831e91a48e7b37a60133d1982de"
+    },
+    "evidence/council-tests/JUNIT.xml": {
+      "path": "evidence/council-tests/JUNIT.xml",
+      "sha256": "42641c84b5d30bcc246dd7884dd4457290d79465797a83b923c85a6269d83ad5"
+    },
+    "evidence/quality-tests/RUN.json": {
+      "path": "evidence/quality-tests/RUN.json",
+      "sha256": "cf23e66e25a558345d757c737fd6a98312a42ba2bf6cb522a5075eccecd847c3"
+    },
+    "evidence/quality-tests/JUNIT.xml": {
+      "path": "evidence/quality-tests/JUNIT.xml",
+      "sha256": "9b04e187587cdea37ba284aa4e4f6bcb206e535d0c3131a654dddfb07bf58e9f"
+    },
+    "evidence/pilot-tests/RUN.json": {
+      "path": "evidence/pilot-tests/RUN.json",
+      "sha256": "8336a4aa873b41064224a8df18697dc0d14179d1b0c427ea34bc6e277e8e0deb"
+    },
+    "evidence/pilot-tests/JUNIT.xml": {
+      "path": "evidence/pilot-tests/JUNIT.xml",
+      "sha256": "e2114a714d61ec1fa87189bedd9429eeb38d2301f77eaf4fbaad600eded702c0"
+    }
+  },
+  "scope": "DEVELOPMENT_CHECK_WITH_SEPARATE_FOUNDATION_TESTS",
+  "status": "PASS",
+  "checks": [
+    {
+      "id": "state_navigation_python_syntax",
+      "status": "PASS"
+    },
+    {
+      "id": "control_tests",
+      "status": "PASS",
+      "returncode": 0,
+      "elapsed_seconds": 34.813
+    },
+    {
+      "id": "markdown_lexical",
+      "status": "PASS",
+      "returncode": 0,
+      "elapsed_seconds": 0.062
+    },
+    {
+      "id": "environment_lock",
+      "status": "PASS",
+      "returncode": 0,
+      "elapsed_seconds": 0.157
+    },
+    {
+      "id": "foundation_tests",
+      "status": "PASS",
+      "returncode": 0,
+      "elapsed_seconds": 1.375
+    },
+    {
+      "id": "persistence_tests",
+      "status": "PASS",
+      "returncode": 0,
+      "elapsed_seconds": 19.39
+    },
+    {
+      "id": "browser_probe_preparation_tests",
+      "status": "PASS",
+      "returncode": 0,
+      "elapsed_seconds": 8.188
+    },
+    {
+      "id": "architect_contract_tests",
+      "status": "PASS",
+      "returncode": 0,
+      "elapsed_seconds": 39.531
+    },
+    {
+      "id": "council_pipeline_tests",
+      "status": "PASS",
+      "returncode": 0,
+      "elapsed_seconds": 30.922
+    },
+    {
+      "id": "approved_quality_checks",
+      "status": "PASS",
+      "returncode": 0,
+      "elapsed_seconds": 17.406
+    },
+    {
+      "id": "pilot_accounting_tests",
+      "status": "PASS",
+      "returncode": 0,
+      "elapsed_seconds": 10.0
+    }
+  ],
+  "source_digest_before": "009e61d15ce3bd85ab5afff6879b96b1ae87230f5dd9e6649b5fcb1cb063a06e",
+  "source_digest_after": "009e61d15ce3bd85ab5afff6879b96b1ae87230f5dd9e6649b5fcb1cb063a06e",
+  "application_runtime_tests": "FOUNDATION_P02_KERNEL_P03_P04_AND_P05_OFFLINE_COUNCIL",
+  "application_phase_accepted": false,
+  "static_type_check": "TARGETED_NEW_MODULES",
+  "visual_rendering": "NOT_RUN"
+}

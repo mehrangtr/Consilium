@@ -1,0 +1,154 @@
+{
+  "schema_version": 1,
+  "scope": "OWNED_OFFLINE_DEVELOPMENT_NOT_CHAT_SESSION_CONTROL",
+  "status": "PASS",
+  "idle_seconds": 300,
+  "hard_seconds": 900,
+  "phase_advanced": false,
+  "source_digest": "009e61d15ce3bd85ab5afff6879b96b1ae87230f5dd9e6649b5fcb1cb063a06e",
+  "steps": [
+    {
+      "step": "native",
+      "attempt": 1,
+      "nonce": "f0492f3abd3c44708e8153992fc4261c",
+      "status": "COMPLETE",
+      "log": "evidence/development-supervisor/7eee9313fcab4afca1052a0cc5ca1189/native_1/OUTPUT.log",
+      "worker_pid": 8364,
+      "last_completed_milestone": "native_receipt_and_pointer_written",
+      "retained_proof": {
+        "artifacts": [
+          {
+            "original_path": "evidence/targets/Windows/20261009T090117Z_d1c1c274/RUN.json",
+            "path": "evidence/development-supervisor/7eee9313fcab4afca1052a0cc5ca1189/native_1/proofs/evidence/targets/Windows/20261009T090117Z_d1c1c274/RUN.json",
+            "sha256": "bb4aa8e55de361b62f710a50374e0408f922f4dbb4cc72d556dab4c69674d1ed"
+          },
+          {
+            "original_path": "evidence/targets/Windows/20261009T090117Z_d1c1c274/CHECK.log",
+            "path": "evidence/development-supervisor/7eee9313fcab4afca1052a0cc5ca1189/native_1/proofs/evidence/targets/Windows/20261009T090117Z_d1c1c274/CHECK.log",
+            "sha256": "e72ca2934d37068a76788b796a45b66b60f2f1d2f1f3770203b2192f938a6c8c"
+          },
+          {
+            "original_path": "evidence/targets/Windows/20261009T090117Z_d1c1c274/maintenance_report.json",
+            "path": "evidence/development-supervisor/7eee9313fcab4afca1052a0cc5ca1189/native_1/proofs/evidence/targets/Windows/20261009T090117Z_d1c1c274/maintenance_report.json",
+            "sha256": "b7eb86eac06dd882d6150a95bae24105bc582433f805d646833e34714179ff37"
+          },
+          {
+            "original_path": "evidence/targets/Windows/20261009T090117Z_d1c1c274/environment_report.json",
+            "path": "evidence/development-supervisor/7eee9313fcab4afca1052a0cc5ca1189/native_1/proofs/evidence/targets/Windows/20261009T090117Z_d1c1c274/environment_report.json",
+            "sha256": "139206dccc8c5502356ea1222127683aef7437024b9bf1becbcc97494a5d9d62"
+          },
+          {
+            "original_path": "evidence/targets/Windows/20261009T090117Z_d1c1c274/control_report.json",
+            "path": "evidence/development-supervisor/7eee9313fcab4afca1052a0cc5ca1189/native_1/proofs/evidence/targets/Windows/20261009T090117Z_d1c1c274/control_report.json",
+            "sha256": "2002835262751f0045fd8d82d16b4dcf16fc3eacd4b99f3ae90349e099575697"
+          },
+          {
+            "original_path": "evidence/targets/Windows/20261009T090117Z_d1c1c274/control_junit.xml",
+            "path": "evidence/development-supervisor/7eee9313fcab4afca1052a0cc5ca1189/native_1/proofs/evidence/targets/Windows/20261009T090117Z_d1c1c274/control_junit.xml",
+            "sha256": "67c785c572332de1d222c3ab01a22b7efa0eb20bf81a26ef87175bdfcfe3c935"
+          },
+          {
+            "original_path": "evidence/targets/Windows/20261009T090117Z_d1c1c274/foundation_report.json",
+            "path": "evidence/development-supervisor/7eee9313fcab4afca1052a0cc5ca1189/native_1/proofs/evidence/targets/Windows/20261009T090117Z_d1c1c274/foundation_report.json",
+            "sha256": "445b4ce2c7d89f889ac4b9f9d7f67831a0ccf18b09cae1ccf2199d82b40cb0d8"
+          },
+          {
+            "original_path": "evidence/targets/Windows/20261009T090117Z_d1c1c274/foundation_junit.xml",
+            "path": "evidence/development-supervisor/7eee9313fcab4afca1052a0cc5ca1189/native_1/proofs/evidence/targets/Windows/20261009T090117Z_d1c1c274/foundation_junit.xml",
+            "sha256": "7c775438c51a685195abba490548262de4759e5d29d91293ad3bbf5bea68179d"
+          },
+          {
+            "original_path": "evidence/targets/Windows/20261009T090117Z_d1c1c274/persistence_report.json",
+            "path": "evidence/development-supervisor/7eee9313fcab4afca1052a0cc5ca1189/native_1/proofs/evidence/targets/Windows/20261009T090117Z_d1c1c274/persistence_report.json",
+            "sha256": "29831b7d6bd323fbfe7c2c163bf522111fbb0c3041525515cd75794ad9301596"
+          },
+          {
+            "original_path": "evidence/targets/Windows/20261009T090117Z_d1c1c274/persistence_junit.xml",
+            "path": "evidence/development-supervisor/7eee9313fcab4afca1052a0cc5ca1189/native_1/proofs/evidence/targets/Windows/20261009T090117Z_d1c1c274/persistence_junit.xml",
+            "sha256": "302fcb323734105787efe34b9e2728b19788dbc67d2a1ff033e4a22971d608a7"
+          },
+          {
+            "original_path": "evidence/targets/Windows/20261009T090117Z_d1c1c274/browser_probe_report.json",
+            "path": "evidence/development-supervisor/7eee9313fcab4afca1052a0cc5ca1189/native_1/proofs/evidence/targets/Windows/20261009T090117Z_d1c1c274/browser_probe_report.json",
+            "sha256": "f23f9812c795ff751de528de76a27de4b4afd811d1bd727fcac4559aa1f9f979"
+          },
+          {
+            "original_path": "evidence/targets/Windows/20261009T090117Z_d1c1c274/browser_probe_junit.xml",
+            "path": "evidence/development-supervisor/7eee9313fcab4afca1052a0cc5ca1189/native_1/proofs/evidence/targets/Windows/20261009T090117Z_d1c1c274/browser_probe_junit.xml",
+            "sha256": "cc96cd3d9eb9caaf9925bbf12a0aab6a3fb6e60c3968367ad7be5c7476ed39a9"
+          },
+          {
+            "original_path": "evidence/targets/Windows/20261009T090117Z_d1c1c274/architect_report.json",
+            "path": "evidence/development-supervisor/7eee9313fcab4afca1052a0cc5ca1189/native_1/proofs/evidence/targets/Windows/20261009T090117Z_d1c1c274/architect_report.json",
+            "sha256": "02a91d18c60c92f08d40677e0377f6b29af127324512155981472bc88207ffde"
+          },
+          {
+            "original_path": "evidence/targets/Windows/20261009T090117Z_d1c1c274/architect_junit.xml",
+            "path": "evidence/development-supervisor/7eee9313fcab4afca1052a0cc5ca1189/native_1/proofs/evidence/targets/Windows/20261009T090117Z_d1c1c274/architect_junit.xml",
+            "sha256": "c52e9f86a566b0f7a3becb6adaf02f31b5c894161d1ba7d00bcca749ffb15366"
+          },
+          {
+            "original_path": "evidence/targets/Windows/20261009T090117Z_d1c1c274/council_report.json",
+            "path": "evidence/development-supervisor/7eee9313fcab4afca1052a0cc5ca1189/native_1/proofs/evidence/targets/Windows/20261009T090117Z_d1c1c274/council_report.json",
+            "sha256": "5dfa36f79b99021ecbb1e8538e88cdb19aeaf831e91a48e7b37a60133d1982de"
+          },
+          {
+            "original_path": "evidence/targets/Windows/20261009T090117Z_d1c1c274/council_junit.xml",
+            "path": "evidence/development-supervisor/7eee9313fcab4afca1052a0cc5ca1189/native_1/proofs/evidence/targets/Windows/20261009T090117Z_d1c1c274/council_junit.xml",
+            "sha256": "42641c84b5d30bcc246dd7884dd4457290d79465797a83b923c85a6269d83ad5"
+          },
+          {
+            "original_path": "evidence/targets/Windows/20261009T090117Z_d1c1c274/quality_report.json",
+            "path": "evidence/development-supervisor/7eee9313fcab4afca1052a0cc5ca1189/native_1/proofs/evidence/targets/Windows/20261009T090117Z_d1c1c274/quality_report.json",
+            "sha256": "cf23e66e25a558345d757c737fd6a98312a42ba2bf6cb522a5075eccecd847c3"
+          },
+          {
+            "original_path": "evidence/targets/Windows/20261009T090117Z_d1c1c274/quality_junit.xml",
+            "path": "evidence/development-supervisor/7eee9313fcab4afca1052a0cc5ca1189/native_1/proofs/evidence/targets/Windows/20261009T090117Z_d1c1c274/quality_junit.xml",
+            "sha256": "9b04e187587cdea37ba284aa4e4f6bcb206e535d0c3131a654dddfb07bf58e9f"
+          },
+          {
+            "original_path": "evidence/targets/Windows/20261009T090117Z_d1c1c274/pilot_report.json",
+            "path": "evidence/development-supervisor/7eee9313fcab4afca1052a0cc5ca1189/native_1/proofs/evidence/targets/Windows/20261009T090117Z_d1c1c274/pilot_report.json",
+            "sha256": "8336a4aa873b41064224a8df18697dc0d14179d1b0c427ea34bc6e277e8e0deb"
+          },
+          {
+            "original_path": "evidence/targets/Windows/20261009T090117Z_d1c1c274/pilot_junit.xml",
+            "path": "evidence/development-supervisor/7eee9313fcab4afca1052a0cc5ca1189/native_1/proofs/evidence/targets/Windows/20261009T090117Z_d1c1c274/pilot_junit.xml",
+            "sha256": "e2114a714d61ec1fa87189bedd9429eeb38d2301f77eaf4fbaad600eded702c0"
+          },
+          {
+            "original_path": "evidence/targets/Windows/20261009T090117Z_d1c1c274/smoke_1.log",
+            "path": "evidence/development-supervisor/7eee9313fcab4afca1052a0cc5ca1189/native_1/proofs/evidence/targets/Windows/20261009T090117Z_d1c1c274/smoke_1.log",
+            "sha256": "d205a567208399b9116ee60ea43fe2b75669c3052ca05edad1d1b4a0dbd5653d"
+          },
+          {
+            "original_path": "evidence/targets/Windows/20261009T090117Z_d1c1c274/smoke_2.log",
+            "path": "evidence/development-supervisor/7eee9313fcab4afca1052a0cc5ca1189/native_1/proofs/evidence/targets/Windows/20261009T090117Z_d1c1c274/smoke_2.log",
+            "sha256": "1608c92e8a3035a92aedb50f046cbe37bdd21022aba0ffb7d536d54d76a76871"
+          },
+          {
+            "original_path": "evidence/targets/Windows/20261009T090117Z_d1c1c274/smoke_3.log",
+            "path": "evidence/development-supervisor/7eee9313fcab4afca1052a0cc5ca1189/native_1/proofs/evidence/targets/Windows/20261009T090117Z_d1c1c274/smoke_3.log",
+            "sha256": "00023101bb23feabeb3e0b15ca3931435c616463dde6d5b8a97bfc73a19ef564"
+          },
+          {
+            "original_path": "evidence/targets/Windows/20261009T090117Z_d1c1c274/smoke_4.log",
+            "path": "evidence/development-supervisor/7eee9313fcab4afca1052a0cc5ca1189/native_1/proofs/evidence/targets/Windows/20261009T090117Z_d1c1c274/smoke_4.log",
+            "sha256": "3e8ce77e099a67f48db439c8448586953fd5defe92d8448541fdbe0370146584"
+          }
+        ],
+        "errors": []
+      },
+      "stop_reason": null,
+      "returncode": 0,
+      "reconciliation": {
+        "status": "VERIFIED_COMPLETE",
+        "receipt": "evidence/targets/Windows/20261009T090117Z_d1c1c274/RUN.json",
+        "sha256": "bb4aa8e55de361b62f710a50374e0408f922f4dbb4cc72d556dab4c69674d1ed"
+      }
+    }
+  ],
+  "remaining_steps": [],
+  "next_action": "REVIEW_CURRENT_PHASE_EXIT_CRITERIA_NOT_AUTOMATIC_ACCEPTANCE"
+}

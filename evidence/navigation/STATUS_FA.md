@@ -2,7 +2,7 @@
 
 این نما خودکار از `ROADMAP.json`، `PROGRESS.json` و `CHECKS.json` ساخته شده است. ویرایش دستی مرجع نیست؛ پس از تغییر مبنا فرمان تولید را دوباره اجرا کنید.
 
-شناسهٔ مبنای نما: `1ed98c174d863d02329991e61a8fcf110c08fc40d1c7ef1b7b596bc825e15499`.
+شناسهٔ مبنای نما: `630dfc526e314008bb1afc5308a8c60968038436ce9aa02e89382e109bc016c4`.
 
 مرحلهٔ فعلی: `P06`. آخرین مرحلهٔ پذیرفته‌شده: `P05`.
 
@@ -22,10 +22,11 @@
     "P06 preregistration and atomic private observation journal passed 17 accounting/protocol/crash tests on both OSs; preflight passes."
   ],
   "working_changes": [
-    "P06 manual-output.v2 fix merged in PR16 and verified on native Windows/Linux, 698 tests per target; current native evidence checkpoint is included.",
+    "PR16 manual-output.v2 fix is merged; its 698-test native evidence is historical after the control-test-only deadline change.",
+    "PR17 initial Windows run 37905506414 failed one timing-sensitive control test. Failure and a deterministic pre-fix reproduction are retained; test fixture deadlines changed without changing production limits.",
     "Private actual prompts/responses and pending UI boundaries remain outside public repository."
   ],
-  "next_action": "ابتدا رسیدهای خصوصی و مرزهای ارسال را بخوان. نقد کوئن در PILOT-007/COUNCIL نامعلوم است. نقد کوئن در PILOT-015/COUNCIL یک بار ارسال شده ولی مشاهدهٔ پایان با رد خودکار ابزار مسدود شد؛ فقط همان برگهٔ موجود بدون ناوبری یا ارسال دوباره باید پس از رفع رد بررسی شود. در PILOT-020/REPEATED_SINGLE دو پاسخ مستقل پذیرفته شده‌اند؛ نقد اول دارای STARTED منطقی است اما پرکردن کادر رد شد و Enter اجرا نشد. قبل از ادامه وضعیت همان صفحه را بررسی کن. چهار گروه چندمرحله‌ای 001/005 با سقف اصلی شش فراخوانی مسدودند. شورای 020 هنوز پس از معمار شروع نشده است. هیچ مرز مبهم را دوباره نفرست و هیچ سقف یا شکست را حذف نکن. شواهد بومی تازهٔ قالب دستی برای هر محیط 698 آزمون موفق دارند. P06 بدون خروجی‌های کامل، ارزیابی کور، بررسی خطاهای کنترل و بازبرآورد پذیرفته نیست.",
+  "next_action": "Verify the control-test deadline correction on fresh native Windows and Linux runs, then reconcile the blocked P06 browser boundaries without blind resend. P06 remains unaccepted; P07 must not start.",
   "next_command": "python runtime_driver.py status # در فضای خصوصی اجرای P06",
   "startup_commands": [
     "python tools/qualityctl.py status",
@@ -61,7 +62,7 @@
   },
   "native_evidence": {
     "phase": "P01",
-    "scope": "CURRENT_MANUAL_OUTPUT_CONTRACT_NATIVE_VERIFICATION_NOT_P06_ACCEPTANCE",
+    "scope": "HISTORICAL_MANUAL_OUTPUT_CONTRACT_NATIVE_VERIFICATION_NOT_CURRENT_SOURCE_NOT_P06_ACCEPTANCE",
     "source_digest": "bbf23b0737d444deaa1013737263a77a755c5e9cf6e1c3be731ed475afdfcf0f",
     "targets": [
       {
@@ -101,7 +102,10 @@
     "workflow_run_id": 37867476416,
     "tests_per_target": 698,
     "phase_accepted": false,
-    "code_commit": "e15601f9bd2985f5795649b836ad763261acd8ee"
+    "code_commit": "e15601f9bd2985f5795649b836ad763261acd8ee",
+    "source_matches_current": false,
+    "current_source_digest": "009e61d15ce3bd85ab5afff6879b96b1ae87230f5dd9e6649b5fcb1cb063a06e",
+    "current_source_verification": "PENDING_NATIVE_WINDOWS_AND_LINUX"
   },
   "last_verified_in_phase_checkpoint": {
     "phase": "P05",
@@ -551,6 +555,35 @@
       "reason": "Reviewer reported an uncaptured submitted review; fill failed before Enter. Last positive observation was a fresh /new page. No bypass attempted."
     },
     "recovery": "Resolve rejection; observe current existing pages and immutable private receipts before dependent action. Unknown is not non-delivery proof."
+  },
+  "p06_supervisor_deadline_correction": {
+    "scope": "TEST_FIXTURE_ONLY",
+    "production_idle_seconds": 300,
+    "production_hard_seconds": 900,
+    "fixture_idle_seconds": 3,
+    "fixture_hard_seconds": 15,
+    "reproduction_status": "FAIL_BEFORE_DEADLINE_CORRECTION",
+    "reproduction_evidence": "evidence/p06/supervisor-deadline-history/reproduction-20261009/RUN.json",
+    "original_failure_run": 37905506414,
+    "native_verification": "PENDING",
+    "local_control_check": {
+      "path": "evidence/control-tests/RUN.json",
+      "sha256": "3a8fd86bd542b59875174f54c1c053ebfc46d0a2a9f4fb324f0fc8a741906397",
+      "status": "PASS",
+      "tests": 118,
+      "failures": 0,
+      "skipped": 0,
+      "source_digest": "009e61d15ce3bd85ab5afff6879b96b1ae87230f5dd9e6649b5fcb1cb063a06e"
+    },
+    "local_complete_check": {
+      "path": "evidence/maintenance-check/RUN.json",
+      "sha256": "56729d77c51e05af9250ea7039176ec83f8a78c59c4f87e56a6853d4f161634f",
+      "status": "FAIL",
+      "failed_checks": [
+        "approved_quality_checks"
+      ],
+      "native_check_required": true
+    }
   }
 }
 ```

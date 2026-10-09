@@ -10,9 +10,12 @@ import shutil
 
 import qualityctl as q
 from development_progress import atomic_json
-from development_supervisor import IDLE_SECONDS, Step, read_progress, reconcile, supervise, timeout_reason
+from development_supervisor import HARD_SECONDS, IDLE_SECONDS, Step, read_progress, reconcile, supervise, timeout_reason
 
 FIXTURE = Path(__file__).with_name("development") / "worker_fixture.py"
+# Allow process/job startup on native Windows without changing production deadlines.
+FIXTURE_IDLE_SECONDS = 3
+FIXTURE_HARD_SECONDS = 15
 
 
 class DevelopmentSupervisorTests(unittest.TestCase):
@@ -28,8 +31,8 @@ class DevelopmentSupervisorTests(unittest.TestCase):
         return Step(mode, (sys.executable, str(FIXTURE), str(self.root), mode), replay_safe)
 
     def run_steps(self, *modes, retry_limit=0):
-        path = supervise(self.root, tuple(self.step(m) for m in modes), idle_seconds=0.8,
-                         hard_seconds=3, retry_limit=retry_limit)
+        path = supervise(self.root, tuple(self.step(m) for m in modes), idle_seconds=FIXTURE_IDLE_SECONDS,
+                         hard_seconds=FIXTURE_HARD_SECONDS, retry_limit=retry_limit)
         return json.loads(path.read_text(encoding="utf-8"))
 
     def assert_child_stopped(self):
@@ -41,6 +44,7 @@ class DevelopmentSupervisorTests(unittest.TestCase):
 
     def test_default_is_five_minutes_since_progress_not_start(self):
         self.assertEqual(IDLE_SECONDS, 300)
+        self.assertEqual(HARD_SECONDS, 900)
         self.assertIsNone(timeout_reason(0, 10, 309.99))
         self.assertEqual(timeout_reason(0, 10, 310), "IDLE_TIMEOUT")
         self.assertEqual(timeout_reason(0, 899, 900), "HARD_TIMEOUT")
@@ -66,6 +70,16 @@ class DevelopmentSupervisorTests(unittest.TestCase):
         self.assertFalse(result["phase_advanced"])
         self.assert_child_stopped()
 
+    def test_delayed_completed_receipt_before_hang_is_reverified_without_replay(self):
+        result = self.run_steps("complete_hang_delayed", "complete")
+        self.assertEqual(result["status"], "PASS", result)
+        self.assertEqual([r["status"] for r in result["steps"]], ["RECOVERED_COMPLETE", "COMPLETE"])
+        self.assertEqual(result["steps"][0]["stop_reason"], "IDLE_TIMEOUT")
+        self.assertEqual([r["attempt"] for r in result["steps"]], [1, 1])
+        self.assertEqual(result["remaining_steps"], [])
+        self.assertFalse(result["phase_advanced"])
+        self.assert_child_stopped()
+
     def test_successful_parent_does_not_leave_unfinished_child(self):
         result = self.run_steps("complete_with_child")
         self.assertEqual(result["status"], "PASS", result)
@@ -87,8 +101,8 @@ class DevelopmentSupervisorTests(unittest.TestCase):
         self.assert_child_stopped()
 
     def test_nonreplayable_step_is_not_resent_after_timeout(self):
-        path = supervise(self.root, (self.step("hang", False),), idle_seconds=0.8,
-                         hard_seconds=3, retry_limit=1)
+        path = supervise(self.root, (self.step("hang", False),), idle_seconds=FIXTURE_IDLE_SECONDS,
+                         hard_seconds=FIXTURE_HARD_SECONDS, retry_limit=1)
         result = json.loads(path.read_text(encoding="utf-8"))
         self.assertEqual(len(result["steps"]), 1)
         self.assertEqual(result["status"], "BLOCKED")

@@ -1,0 +1,59 @@
+{
+  "scope": "CURRENT_MANUAL_OUTPUT_CONTRACT_NATIVE_VERIFICATION_NOT_P06_ACCEPTANCE",
+  "status": "PASS_WITH_P06_STILL_INCOMPLETE",
+  "source_digest": "bbf23b0737d444deaa1013737263a77a755c5e9cf6e1c3be731ed475afdfcf0f",
+  "code_commit": "e15601f9bd2985f5795649b836ad763261acd8ee",
+  "merge_commit": "e567ee926794ca2547f7214942b9633b3c9b16d7",
+  "pull_request": 16,
+  "workflow_run_id": 37867476416,
+  "tests_per_target": 698,
+  "targets": [
+    {
+      "target": "Windows",
+      "status": "PASS",
+      "control_tests": 117,
+      "foundation_tests": 60,
+      "persistence_tests": 104,
+      "browser_probe_tests": 44,
+      "architect_tests": 264,
+      "council_tests": 41,
+      "quality_tests": 15,
+      "pilot_tests": 53,
+      "evidence": {
+        "path": "evidence/targets/Windows/20261009T005939Z_875bc0e2/RUN.json",
+        "sha256": "7709422d816c9002986f5edb014a99d66e0f044404466a412935a8054a7d7e3b"
+      }
+    },
+    {
+      "target": "Linux",
+      "status": "PASS",
+      "control_tests": 117,
+      "foundation_tests": 60,
+      "persistence_tests": 104,
+      "browser_probe_tests": 44,
+      "architect_tests": 264,
+      "council_tests": 41,
+      "quality_tests": 15,
+      "pilot_tests": 53,
+      "evidence": {
+        "path": "evidence/targets/Linux/20261009T005909Z_4dc6b628/RUN.json",
+        "sha256": "973781bd01505d88a7cf517ba58cd0396fbfc220115dd09b7a441099fd4967f3"
+      }
+    }
+  ],
+  "artifact_digests_verified": true,
+  "reports_and_junit_counts_verified": true,
+  "local_full_check": "FAIL_MISSING_PINNED_DEV_TOOLS_RETAINED",
+  "reviewer": "SEPARATE_REVIEW_BY_AUTHOR",
+  "independent_review": false,
+  "phase_accepted": false,
+  "full_v1_conformance": "NOT_RUN",
+  "model_quality": "NOT_CERTIFIED",
+  "review_notes": [
+    "Latest other-participant answers and exact peer aliases are supplied in v2 reviews; self-targets remain excluded.",
+    "Legacy serialization and prompt hashes are covered by regression tests.",
+    "Judge schema is supplied to new manual synthesis; service responses grant no permissions.",
+    "Both native hosts match the pinned lock and same source digest; product tests and quality tools pass.",
+    "Actual model failures, repairs, unknown UI delivery and original pilot limits remain separate from offline success."
+  ]
+}

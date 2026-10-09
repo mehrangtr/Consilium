@@ -1,11 +1,11 @@
 {
   "schema_version": 1,
   "plan_version": "1.2",
-  "updated_at": "2026-10-08",
-  "application_source_commit": "1609b614c42d954cae48f5cc863bcc58a5919de9",
+  "updated_at": "2026-10-09T08:24:28.879772+00:00",
+  "application_source_commit": "e567ee926794ca2547f7214942b9633b3c9b16d7",
   "current_phase": "P06",
   "verified_application_requirements": 0,
-  "governance_check_note": "مرحله‌های `P00` تا `P05` پذیرفته و ادغام شده‌اند. بخش آفلاین `P06` روی منبع جاری با `۶۹۲` آزمون در هر محیط ویندوز و لینوکس تأیید شده است؛ ارزیابی واقعی `0/24` و پذیرش کامل محصول `0/30` باقی مانده‌اند.",
+  "governance_check_note": "مرحله‌های P00 تا P05 پذیرفته‌اند. اصلاح قالب نقد دستی روی منبع جاری در ویندوز و لینوکس با ۶۹۸ آزمون در هر محیط تأیید و ادغام شده است؛ پایلوت واقعی و تحقق کامل ۳۰ خواسته هنوز پذیرفته نیستند.",
   "phases": [
     {
       "id": "P00",
@@ -821,10 +821,10 @@
       "P06 preregistration and atomic private observation journal passed 17 accounting/protocol/crash tests on both OSs; preflight passes."
     ],
     "working_changes": [
-      "P06 manual-output.v2 target/schema fix; fresh native verification pending.",
-      "Real calls and private response records must remain outside the public repository."
+      "P06 manual-output.v2 fix merged in PR16 and verified on native Windows/Linux, 698 tests per target; current native evidence checkpoint is included.",
+      "Private actual prompts/responses and pending UI boundaries remain outside public repository."
     ],
-    "next_action": "نقد واقعی `PILOT-003/COUNCIL` را با درخواست دارای هدف صریح و `manual-output.v2` ادامه بده؛ داور کلاد است. تمام تلاش‌ها در سقف اصلی ثبت شوند. دو گروه مسدود `PILOT-001`، بررسی بومی منبع تازه، امتیاز کور و بازبرآورد پیش از پذیرش حل شوند.",
+    "next_action": "ابتدا رسیدهای خصوصی و مرزهای ارسال را بخوان. نقد کوئن در PILOT-007/COUNCIL نامعلوم است. نقد کوئن در PILOT-015/COUNCIL یک بار ارسال شده ولی مشاهدهٔ پایان با رد خودکار ابزار مسدود شد؛ فقط همان برگهٔ موجود بدون ناوبری یا ارسال دوباره باید پس از رفع رد بررسی شود. در PILOT-020/REPEATED_SINGLE دو پاسخ مستقل پذیرفته شده‌اند؛ نقد اول دارای STARTED منطقی است اما پرکردن کادر رد شد و Enter اجرا نشد. قبل از ادامه وضعیت همان صفحه را بررسی کن. چهار گروه چندمرحله‌ای 001/005 با سقف اصلی شش فراخوانی مسدودند. شورای 020 هنوز پس از معمار شروع نشده است. هیچ مرز مبهم را دوباره نفرست و هیچ سقف یا شکست را حذف نکن. شواهد بومی تازهٔ قالب دستی برای هر محیط 698 آزمون موفق دارند. P06 بدون خروجی‌های کامل، ارزیابی کور، بررسی خطاهای کنترل و بازبرآورد پذیرفته نیست.",
     "next_command": "python runtime_driver.py status # در فضای خصوصی اجرای P06",
     "startup_commands": [
       "python tools/qualityctl.py status",
@@ -834,175 +834,73 @@
     "next_task": {
       "id": "P06-001",
       "phase": "P06",
-      "status": "BLOCKED_REAL_EVIDENCE",
+      "status": "BLOCKED_REAL_EVIDENCE_AND_BROWSER_APPROVAL",
       "title_fa": "پایلوت زودهنگام کیفیت",
-      "next_action_fa": "نقد واقعی `PILOT-003/COUNCIL` را با درخواست دارای هدف صریح و `manual-output.v2` ادامه بده؛ داور کلاد است. تمام تلاش‌ها در سقف اصلی ثبت شوند. دو گروه مسدود `PILOT-001`، بررسی بومی منبع تازه، امتیاز کور و بازبرآورد پیش از پذیرش حل شوند.",
-      "completed_fa": "P00–P05 پذیرفته‌شده‌اند؛ شش فراخوانی واقعی و یک خروجی نهایی P06 ثبت شده است.",
-      "remaining_fa": "نقد و جمع‌بندی، سایر گروه‌های مجاز، مانع سقف دو گروه، شواهد بومی، امتیاز کور و بازبرآورد.",
+      "next_action_fa": "ابتدا رسیدهای خصوصی و مرزهای ارسال را بخوان. نقد کوئن در PILOT-007/COUNCIL نامعلوم است. نقد کوئن در PILOT-015/COUNCIL یک بار ارسال شده ولی مشاهدهٔ پایان با رد خودکار ابزار مسدود شد؛ فقط همان برگهٔ موجود بدون ناوبری یا ارسال دوباره باید پس از رفع رد بررسی شود. در PILOT-020/REPEATED_SINGLE دو پاسخ مستقل پذیرفته شده‌اند؛ نقد اول دارای STARTED منطقی است اما پرکردن کادر رد شد و Enter اجرا نشد. قبل از ادامه وضعیت همان صفحه را بررسی کن. چهار گروه چندمرحله‌ای 001/005 با سقف اصلی شش فراخوانی مسدودند. شورای 020 هنوز پس از معمار شروع نشده است. هیچ مرز مبهم را دوباره نفرست و هیچ سقف یا شکست را حذف نکن. شواهد بومی تازهٔ قالب دستی برای هر محیط 698 آزمون موفق دارند. P06 بدون خروجی‌های کامل، ارزیابی کور، بررسی خطاهای کنترل و بازبرآورد پذیرفته نیست.",
+      "completed_fa": "P00–P05 پذیرفته‌شده‌اند؛ 66 فراخوانی واقعی مشاهده‌شده و 16 خروجی نهایی P06 ثبت شده است. آزمون‌های 003، 008 و 010 در هر سه روش کامل‌اند. روش مستقل و تکرار 015 و روش مستقل 020 کامل‌اند.",
+      "remaining_fa": "نقد و جمع‌بندی باقی‌مانده، رفع رد خودکار دو اقدام مرورگر، حل چهار مانع سقف اصلی و مرز نامعلوم 007، ارزیابی کور و بازبرآورد.",
       "done_when_fa": "هر سه معیار اصلی پایان P06 با شواهد واقعی بررسی و پذیرفته شوند."
     },
     "inputs_missing": [
       "Measured prior engineering hours, or a reviewed treatment of their genuine absence",
-      "Reviewed resolution of original six-call ceiling for two blocked PILOT-001 groups"
+      "Reviewed resolution of original six-call ceiling for four blocked PILOT-001/PILOT-005 multiround groups",
+      "Resolution of automatic approval rejection for existing-tab Qwen completion observation and Claude prompt fill; no indirect workaround",
+      "Read-only reconciliation of unknown Qwen PILOT-007 review submission before any resend"
     ],
     "unfinished_work": {
       "phase": "P06",
       "items": [
         {
           "id": "P06-001",
-          "status": "IN_PROGRESS_WITH_RECORDED_BLOCKERS",
-          "instruction": "نقد واقعی `PILOT-003/COUNCIL` را با درخواست دارای هدف صریح و `manual-output.v2` ادامه بده؛ داور کلاد است. تمام تلاش‌ها در سقف اصلی ثبت شوند. دو گروه مسدود `PILOT-001`، بررسی بومی منبع تازه، امتیاز کور و بازبرآورد پیش از پذیرش حل شوند."
+          "status": "BLOCKED_BROWSER_APPROVAL_AND_RECORDED_BUDGET_GATES",
+          "instruction": "ابتدا رسیدهای خصوصی و مرزهای ارسال را بخوان. نقد کوئن در PILOT-007/COUNCIL نامعلوم است. نقد کوئن در PILOT-015/COUNCIL یک بار ارسال شده ولی مشاهدهٔ پایان با رد خودکار ابزار مسدود شد؛ فقط همان برگهٔ موجود بدون ناوبری یا ارسال دوباره باید پس از رفع رد بررسی شود. در PILOT-020/REPEATED_SINGLE دو پاسخ مستقل پذیرفته شده‌اند؛ نقد اول دارای STARTED منطقی است اما پرکردن کادر رد شد و Enter اجرا نشد. قبل از ادامه وضعیت همان صفحه را بررسی کن. چهار گروه چندمرحله‌ای 001/005 با سقف اصلی شش فراخوانی مسدودند. شورای 020 هنوز پس از معمار شروع نشده است. هیچ مرز مبهم را دوباره نفرست و هیچ سقف یا شکست را حذف نکن. شواهد بومی تازهٔ قالب دستی برای هر محیط 698 آزمون موفق دارند. P06 بدون خروجی‌های کامل، ارزیابی کور، بررسی خطاهای کنترل و بازبرآورد پذیرفته نیست."
         }
       ],
-      "updated_at_utc": "2026-10-09T00:24:53.001367+00:00"
+      "updated_at_utc": "2026-10-09T08:24:28.879772+00:00"
     },
     "native_evidence": {
-      "scope": "CURRENT_P06_OFFLINE_SOURCE_NOT_PHASE_ACCEPTANCE",
-      "source_digest": "72926f3b9597fd1487babd4ec80ebe1cd990960eeedf73d401e62615429cbd64",
-      "whole_native_status": "PASS",
-      "source_matches_current": true,
-      "workflow_run_id": 37827407312,
-      "tests_per_target": 692,
+      "phase": "P01",
+      "scope": "CURRENT_MANUAL_OUTPUT_CONTRACT_NATIVE_VERIFICATION_NOT_P06_ACCEPTANCE",
+      "source_digest": "bbf23b0737d444deaa1013737263a77a755c5e9cf6e1c3be731ed475afdfcf0f",
       "targets": [
         {
           "target": "Windows",
           "status": "PASS",
-          "source_matches_current": true,
-          "report": {
-            "path": "evidence/targets/Windows/20261008T185118Z_0d03f97b/RUN.json",
-            "sha256": "229896e5d2af0ebf21576d6f7c3ebe564e30fb36ba70e04d91fc07cb9dfead5b"
-          },
-          "test_counts": {
-            "control": {
-              "tests": 117,
-              "failures": 0,
-              "errors": 0,
-              "skipped": 0,
-              "expected_failures": 0,
-              "unexpected_successes": 0
-            },
-            "foundation": {
-              "tests": 60,
-              "failures": 0,
-              "errors": 0,
-              "skipped": 0
-            },
-            "persistence": {
-              "tests": 104,
-              "failures": 0,
-              "errors": 0,
-              "skipped": 0
-            },
-            "browser_probe": {
-              "tests": 44,
-              "failures": 0,
-              "errors": 0,
-              "skipped": 0
-            },
-            "architect": {
-              "tests": 259,
-              "failures": 0,
-              "errors": 0,
-              "skipped": 0
-            },
-            "council": {
-              "tests": 40,
-              "failures": 0,
-              "errors": 0,
-              "skipped": 0
-            },
-            "quality": {
-              "tests": 15,
-              "failures": 0,
-              "errors": 0,
-              "skipped": 0
-            },
-            "pilot": {
-              "tests": 53,
-              "failures": 0,
-              "errors": 0,
-              "skipped": 0
-            }
-          },
-          "tests_total": 692
+          "control_tests": 117,
+          "foundation_tests": 60,
+          "persistence_tests": 104,
+          "browser_probe_tests": 44,
+          "architect_tests": 264,
+          "council_tests": 41,
+          "quality_tests": 15,
+          "pilot_tests": 53,
+          "evidence": {
+            "path": "evidence/targets/Windows/20261009T005939Z_875bc0e2/RUN.json",
+            "sha256": "7709422d816c9002986f5edb014a99d66e0f044404466a412935a8054a7d7e3b"
+          }
         },
         {
           "target": "Linux",
           "status": "PASS",
-          "source_matches_current": true,
-          "report": {
-            "path": "evidence/targets/Linux/20261008T185108Z_2d7b8c96/RUN.json",
-            "sha256": "4d0fff74776159b77c620ca4329c9e5f1aa8103b824ffa561e8bf41c2666b334"
-          },
-          "test_counts": {
-            "control": {
-              "tests": 117,
-              "failures": 0,
-              "errors": 0,
-              "skipped": 0,
-              "expected_failures": 0,
-              "unexpected_successes": 0
-            },
-            "foundation": {
-              "tests": 60,
-              "failures": 0,
-              "errors": 0,
-              "skipped": 0
-            },
-            "persistence": {
-              "tests": 104,
-              "failures": 0,
-              "errors": 0,
-              "skipped": 0
-            },
-            "browser_probe": {
-              "tests": 44,
-              "failures": 0,
-              "errors": 0,
-              "skipped": 0
-            },
-            "architect": {
-              "tests": 259,
-              "failures": 0,
-              "errors": 0,
-              "skipped": 0
-            },
-            "council": {
-              "tests": 40,
-              "failures": 0,
-              "errors": 0,
-              "skipped": 0
-            },
-            "quality": {
-              "tests": 15,
-              "failures": 0,
-              "errors": 0,
-              "skipped": 0
-            },
-            "pilot": {
-              "tests": 53,
-              "failures": 0,
-              "errors": 0,
-              "skipped": 0
-            }
-          },
-          "tests_total": 692
+          "control_tests": 117,
+          "foundation_tests": 60,
+          "persistence_tests": 104,
+          "browser_probe_tests": 44,
+          "architect_tests": 264,
+          "council_tests": 41,
+          "quality_tests": 15,
+          "pilot_tests": 53,
+          "evidence": {
+            "path": "evidence/targets/Linux/20261009T005909Z_4dc6b628/RUN.json",
+            "sha256": "973781bd01505d88a7cf517ba58cd0396fbfc220115dd09b7a441099fd4967f3"
+          }
         }
       ],
-      "dependency_audit": {
-        "path": "evidence/security-audit/native-37827407312/RUN.json",
-        "sha256": "4e442228449095f4a07d7021d4ef7e5aff99c4b20ebd59864d6e71fbd9dcaaeb"
-      },
-      "supervisor_receipts": [
-        {
-          "path": "evidence/development-supervisor/e36ddc0f8d834e059997a4920466843c/STATE.json",
-          "sha256": "c8ede7171bf2036679d5c94e61a1938561bfea52490d3764dbc0331350a7fa59"
-        },
-        {
-          "path": "evidence/development-supervisor/fe40182b2cdf444097adb04850001658/STATE.json",
-          "sha256": "a4b0f73f306153536bbf5153ae7f7f5f80b3ac2c9fd172e91af1a16e82784863"
-        }
-      ]
+      "status": "PASS",
+      "workflow_run_id": 37867476416,
+      "tests_per_target": 698,
+      "phase_accepted": false,
+      "code_commit": "e15601f9bd2985f5795649b836ad763261acd8ee"
     },
     "last_verified_in_phase_checkpoint": {
       "phase": "P05",
@@ -1379,9 +1277,9 @@
       "phase_accepted": false
     },
     "p06_live_work": {
-      "status": "IN_PROGRESS_WITH_RECORDED_BLOCKERS",
-      "real_model_calls": 11,
-      "real_final_outputs": 3,
+      "status": "BLOCKED_BROWSER_APPROVAL_AND_RECORDED_BUDGET_GATES",
+      "real_model_calls": 66,
+      "real_final_outputs": 16,
       "required_final_outputs": 24,
       "selected_judge": "CLAUDE_BY_DIRECT_USER_CHOICE",
       "participants": [
@@ -1393,11 +1291,19 @@
       "observed_cost": 0,
       "blocked_groups": [
         "PILOT-001/COUNCIL",
-        "PILOT-001/REPEATED_SINGLE"
+        "PILOT-001/REPEATED_SINGLE",
+        "PILOT-005/COUNCIL",
+        "PILOT-005/REPEATED_SINGLE"
       ],
       "phase_accepted": false,
       "private_response_records_persisted": true,
-      "observed_elapsed_seconds": 610.048
+      "observed_elapsed_seconds": 3081.218,
+      "unknown_submission_groups": [
+        "PILOT-007/COUNCIL",
+        "PILOT-015/COUNCIL"
+      ],
+      "counts_exclude_unresolved_submission_boundary": true,
+      "snapshot_note": "Counts at this evidence checkpoint; two unresolved Qwen submissions are excluded from committed responses and retained. Logical STARTED for blocked Claude fill is not a provider invocation."
     },
     "p06_local_contract_check": {
       "status": "PRODUCT_TESTS_PASS_TOOLING_BLOCKED",
@@ -1411,9 +1317,40 @@
         "mypy",
         "coverage"
       ],
-      "native_verification_pending": true,
+      "native_verification_pending": false,
       "phase_accepted": false
+    },
+    "p06_manual_output_contract": {
+      "status": "MERGED_AND_NATIVE_VERIFIED",
+      "source_digest": "bbf23b0737d444deaa1013737263a77a755c5e9cf6e1c3be731ed475afdfcf0f",
+      "code_commit": "e15601f9bd2985f5795649b836ad763261acd8ee",
+      "merge_commit": "e567ee926794ca2547f7214942b9633b3c9b16d7",
+      "pr_number": 16,
+      "pr_url": "https://github.com/mehrangtr/Consilium/pull/16",
+      "native_run_id": 37867476416,
+      "tests_per_target": 698,
+      "review": {
+        "path": "evidence/p06/manual-output-native-37867476416/REVIEW.json",
+        "sha256": "b68ee197122989a3e9ebdd024d7e90ee17d7862d758a0c6edb038833754a78e8"
+      },
+      "phase_accepted": false
+    },
+    "p06_browser_approval_blocks": {
+      "status": "AUTOMATIC_REVIEW_REJECTED",
+      "QWEN": {
+        "call": "PILOT-015_COUNCIL_REVIEW_1",
+        "submission_invoked_once": true,
+        "blocked_action": "READ_CURRENT_EXISTING_TAB_COMPLETION",
+        "reason": "Reviewer classified observation as opening the origin and risking an in-progress response. Code contained no navigation. No alternate observation surface or resend attempted."
+      },
+      "CLAUDE": {
+        "call": "PILOT-020_REPEATED_SINGLE_REVIEW_0",
+        "submission_invoked": false,
+        "blocked_action": "FILL_PROMPT_BEFORE_ENTER",
+        "reason": "Reviewer reported an uncaptured submitted review; fill failed before Enter. Last positive observation was a fresh /new page. No bypass attempted."
+      },
+      "recovery": "Resolve rejection; observe current existing pages and immutable private receipts before dependent action. Unknown is not non-delivery proof."
     }
   },
-  "updated_at_utc": "2026-10-09T00:46:06.571530+00:00"
+  "updated_at_utc": "2026-10-09T08:24:28.879772+00:00"
 }

@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "scope": "NATIVE_CONTROL_FIX_AND_RETAINED_P06_CHECKPOINT_NOT_PHASE_ACCEPTANCE",
+  "status": "PASS",
+  "reviewer_role": "IMPLEMENTATION_AUTHOR_IN_SEPARATE_REVIEW_PASS",
+  "independent_review": false,
+  "source_digest": "009e61d15ce3bd85ab5afff6879b96b1ae87230f5dd9e6649b5fcb1cb063a06e",
+  "code_commit": "6be01f46a5bdfec382192b7c7768f1517c7068c3",
+  "workflow_run_id": 37908510226,
+  "workflow_url": "https://github.com/mehrangtr/Consilium/actions/runs/37908510226",
+  "targets": [
+    {
+      "target": "Windows",
+      "status": "PASS",
+      "control_tests": 118,
+      "foundation_tests": 60,
+      "persistence_tests": 104,
+      "browser_probe_tests": 44,
+      "architect_tests": 264,
+      "council_tests": 41,
+      "quality_tests": 15,
+      "pilot_tests": 53,
+      "evidence": {
+        "path": "evidence/targets/Windows/20261009T090117Z_d1c1c274/RUN.json",
+        "sha256": "bb4aa8e55de361b62f710a50374e0408f922f4dbb4cc72d556dab4c69674d1ed"
+      }
+    },
+    {
+      "target": "Linux",
+      "status": "PASS",
+      "control_tests": 118,
+      "foundation_tests": 60,
+      "persistence_tests": 104,
+      "browser_probe_tests": 44,
+      "architect_tests": 264,
+      "council_tests": 41,
+      "quality_tests": 15,
+      "pilot_tests": 53,
+      "evidence": {
+        "path": "evidence/targets/Linux/20261009T090059Z_9be97cd4/RUN.json",
+        "sha256": "40adb8bfdce3f40584007c5d9f61b4a436440c852e390e62828764c505a2adc3"
+      }
+    }
+  ],
+  "tests_per_target": 699,
+  "production_limits_unchanged": [
+    300,
+    900
+  ],
+  "delayed_receipt_regression_native_targets": "PASS",
+  "original_windows_failure_retained": true,
+  "pre_fix_regression_failure_retained": true,
+  "phase5_accepted_previously": true,
+  "phase6_accepted": false,
+  "phase7_started": false,
+  "verified_application_requirements": 0,
+  "public_prompt_response_records": false,
+  "private_real_model_calls": 66,
+  "private_final_outputs": 16,
+  "private_ui_blocks_unresolved": true
+}

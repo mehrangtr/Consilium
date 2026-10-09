@@ -1,0 +1,32 @@
+{
+  "workflow_run_id": 37908510226,
+  "digest_verification": "PASS",
+  "artifacts": [
+    {
+      "name": "native-target-Windows",
+      "artifact_id": 11605857301,
+      "sha256": "b6c948f0097c5fbfe413b92528a278527a04380d40704233b81a02b06268fea9"
+    },
+    {
+      "name": "development-supervisor-Windows",
+      "artifact_id": 11605827386,
+      "sha256": "c2531f8ca769d62358a39c81a870301975be69b4b46ae29a2e81899fac9466cd"
+    },
+    {
+      "name": "native-target-Linux",
+      "artifact_id": 11605307390,
+      "sha256": "ba36d4488a44dd7e1cf57890dad348be8433699b6f15699df6500b5cf5551087"
+    },
+    {
+      "name": "development-supervisor-Linux",
+      "artifact_id": 11605187973,
+      "sha256": "921594285ef123233f1b5e9a4c5778a3079845ecbc1f1e9289f962e6c0ca9ace"
+    },
+    {
+      "name": "combined-phase-evidence",
+      "artifact_id": 11605328443,
+      "sha256": "116ccf99ab825022e7ab2a723cca8c8982adf6ebd6f6dbdb4ca2c6f376597381"
+    }
+  ],
+  "signed_download_urls_in_public_record": false
+}

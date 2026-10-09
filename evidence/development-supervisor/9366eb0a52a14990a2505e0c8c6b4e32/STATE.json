@@ -1,0 +1,126 @@
+{
+  "schema_version": 1,
+  "scope": "OWNED_OFFLINE_DEVELOPMENT_NOT_CHAT_SESSION_CONTROL",
+  "status": "BLOCKED",
+  "idle_seconds": 300,
+  "hard_seconds": 900,
+  "phase_advanced": false,
+  "source_digest": "afff2f7d9fd7b5c1e1db586be09ddd4a6463c3e9c5a8ab2ce011bbd12668797a",
+  "steps": [
+    {
+      "step": "check",
+      "attempt": 1,
+      "nonce": "4644d91c15c24462839f3c319ba1e396",
+      "status": "INCOMPLETE",
+      "log": "evidence/development-supervisor/9366eb0a52a14990a2505e0c8c6b4e32/check_1/OUTPUT.log",
+      "worker_pid": 7,
+      "last_completed_milestone": "development_check_receipt_written",
+      "retained_proof": {
+        "artifacts": [
+          {
+            "original_path": "evidence/maintenance-check/RUN.json",
+            "path": "evidence/development-supervisor/9366eb0a52a14990a2505e0c8c6b4e32/check_1/proofs/evidence/maintenance-check/RUN.json",
+            "sha256": "512f094728389b51e0eff1629573dca3155d9c7d535c127d8e39ca0b936ed60f"
+          },
+          {
+            "original_path": "evidence/environment/RUN.json",
+            "path": "evidence/development-supervisor/9366eb0a52a14990a2505e0c8c6b4e32/check_1/proofs/evidence/environment/RUN.json",
+            "sha256": "3a88435f03074e8f4bcb8b2e14cd99c89e7f60680dcfed790edeaeda621b6321"
+          },
+          {
+            "original_path": "evidence/control-tests/RUN.json",
+            "path": "evidence/development-supervisor/9366eb0a52a14990a2505e0c8c6b4e32/check_1/proofs/evidence/control-tests/RUN.json",
+            "sha256": "95ae9b1c59826cc8678f5065c25ccd571c81facc47da2913feec54e5d0c0f2b8"
+          },
+          {
+            "original_path": "evidence/control-tests/JUNIT.xml",
+            "path": "evidence/development-supervisor/9366eb0a52a14990a2505e0c8c6b4e32/check_1/proofs/evidence/control-tests/JUNIT.xml",
+            "sha256": "00e9c1595c9cfd828cb042a70b89412a6241c445fd8a4bc735c2abee6c873e27"
+          },
+          {
+            "original_path": "evidence/foundation-tests/RUN.json",
+            "path": "evidence/development-supervisor/9366eb0a52a14990a2505e0c8c6b4e32/check_1/proofs/evidence/foundation-tests/RUN.json",
+            "sha256": "69f00aa24cfe847ee6a4bf5ade72d9bf14db0225e473b46c6d19c1db83698b6e"
+          },
+          {
+            "original_path": "evidence/foundation-tests/JUNIT.xml",
+            "path": "evidence/development-supervisor/9366eb0a52a14990a2505e0c8c6b4e32/check_1/proofs/evidence/foundation-tests/JUNIT.xml",
+            "sha256": "8d407155e6b1dc1ca1a1e921d0e9a05eafbc0bc1f2ae07f4b67e55f664a99949"
+          },
+          {
+            "original_path": "evidence/persistence-tests/RUN.json",
+            "path": "evidence/development-supervisor/9366eb0a52a14990a2505e0c8c6b4e32/check_1/proofs/evidence/persistence-tests/RUN.json",
+            "sha256": "4423edd3f649e6b4df6c979274d8a2e3304118af97619dea74e4b5bac7f837de"
+          },
+          {
+            "original_path": "evidence/persistence-tests/JUNIT.xml",
+            "path": "evidence/development-supervisor/9366eb0a52a14990a2505e0c8c6b4e32/check_1/proofs/evidence/persistence-tests/JUNIT.xml",
+            "sha256": "d8f658daff1d882f8be7378768e1b15d9614519b14818008d32a97a7956c1a55"
+          },
+          {
+            "original_path": "evidence/browser-probe-tests/RUN.json",
+            "path": "evidence/development-supervisor/9366eb0a52a14990a2505e0c8c6b4e32/check_1/proofs/evidence/browser-probe-tests/RUN.json",
+            "sha256": "7bcdd87d3238240bbf3b852b387d09d11e44086a747314dae083d0328d4c45cc"
+          },
+          {
+            "original_path": "evidence/browser-probe-tests/JUNIT.xml",
+            "path": "evidence/development-supervisor/9366eb0a52a14990a2505e0c8c6b4e32/check_1/proofs/evidence/browser-probe-tests/JUNIT.xml",
+            "sha256": "d8f4b9cf44201197e9b0abd379f0abe06283fecf6ebbcb10369218643d16e702"
+          },
+          {
+            "original_path": "evidence/architect-tests/RUN.json",
+            "path": "evidence/development-supervisor/9366eb0a52a14990a2505e0c8c6b4e32/check_1/proofs/evidence/architect-tests/RUN.json",
+            "sha256": "4583ffb24873238bd00e43146c482464d2992843bbf3f90dae2dc5ab438803b9"
+          },
+          {
+            "original_path": "evidence/architect-tests/JUNIT.xml",
+            "path": "evidence/development-supervisor/9366eb0a52a14990a2505e0c8c6b4e32/check_1/proofs/evidence/architect-tests/JUNIT.xml",
+            "sha256": "6ac89d475fe50da36fcdfc3c216607779488b7207e7b17bcbfb14f6e41bdcf06"
+          },
+          {
+            "original_path": "evidence/council-tests/RUN.json",
+            "path": "evidence/development-supervisor/9366eb0a52a14990a2505e0c8c6b4e32/check_1/proofs/evidence/council-tests/RUN.json",
+            "sha256": "8e8c3cb7b430ba315a6eafd02cfd0f5d2ef51830b1b78509caa02a2b83d700cc"
+          },
+          {
+            "original_path": "evidence/council-tests/JUNIT.xml",
+            "path": "evidence/development-supervisor/9366eb0a52a14990a2505e0c8c6b4e32/check_1/proofs/evidence/council-tests/JUNIT.xml",
+            "sha256": "4affb898c1c0a1c2f9504d26dbff714b9cf5d80248bafff81e0c580d8ad286ee"
+          },
+          {
+            "original_path": "evidence/quality-tests/RUN.json",
+            "path": "evidence/development-supervisor/9366eb0a52a14990a2505e0c8c6b4e32/check_1/proofs/evidence/quality-tests/RUN.json",
+            "sha256": "4bc309e35c51f50a746d71a7e0484eb76f084e45dc8fd723281c7fe6f63f78cb"
+          },
+          {
+            "original_path": "evidence/quality-tests/JUNIT.xml",
+            "path": "evidence/development-supervisor/9366eb0a52a14990a2505e0c8c6b4e32/check_1/proofs/evidence/quality-tests/JUNIT.xml",
+            "sha256": "93219cb3e3cc52ebb1c2dbec9345b6ddb473867f09d4c32be0c1d3027fbf9f95"
+          },
+          {
+            "original_path": "evidence/pilot-tests/RUN.json",
+            "path": "evidence/development-supervisor/9366eb0a52a14990a2505e0c8c6b4e32/check_1/proofs/evidence/pilot-tests/RUN.json",
+            "sha256": "461b9675b78a593ea385abfd29458314ad33045b64515068410c81a504c97b2a"
+          },
+          {
+            "original_path": "evidence/pilot-tests/JUNIT.xml",
+            "path": "evidence/development-supervisor/9366eb0a52a14990a2505e0c8c6b4e32/check_1/proofs/evidence/pilot-tests/JUNIT.xml",
+            "sha256": "9da9618f96dd84de9b61fad0d268d63e601ded9113799dbd90b25a8096a4881d"
+          }
+        ],
+        "errors": []
+      },
+      "stop_reason": null,
+      "returncode": 1,
+      "reconciliation": {
+        "status": "INCOMPLETE",
+        "reason": "Receipt did not pass"
+      }
+    }
+  ],
+  "remaining_steps": [
+    "check",
+    "phase"
+  ],
+  "next_action": "REPAIR_OR_VERIFY_check"
+}

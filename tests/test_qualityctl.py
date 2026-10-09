@@ -6,6 +6,7 @@ import shutil
 import sys
 import tempfile
 import unittest
+from unittest import mock
 import zipfile
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -15,6 +16,29 @@ SPEC.loader.exec_module(q)
 
 
 class QualityControls(unittest.TestCase):
+    def test_ignored_evidence_is_not_enumerated_for_source_identity(self):
+        before = q.source_rows(self.root)
+        ignored = self.root / "evidence"
+        nested = ignored / "historical" / "nested"
+        nested.mkdir(parents=True)
+        (nested / "not_source.py").write_text("historical = True\n")
+        entered = []
+        real_scandir, real_listdir = q.os.scandir, q.os.listdir
+
+        def scandir(path):
+            entered.append(Path(path))
+            return real_scandir(path)
+
+        def listdir(path):
+            entered.append(Path(path))
+            return real_listdir(path)
+
+        with mock.patch.object(q.os, "scandir", side_effect=scandir), mock.patch.object(
+                q.os, "listdir", side_effect=listdir):
+            self.assertEqual(q.source_rows(self.root), before)
+        self.assertFalse(any(path == ignored or ignored in path.parents for path in entered),
+                         "Ignored historical evidence must be pruned before enumeration")
+
     def test_build_products_do_not_change_source_but_real_code_does(self):
         before = q.source_digest(self.root)
         for name in ("build/lib/generated.py", "dist/generated.whl", "src/example.egg-info/PKG-INFO"):
@@ -120,12 +144,14 @@ class QualityControls(unittest.TestCase):
                 return str(self.real).casefold() < str(other.real).casefold()
             def relative_to(self, root):
                 return self.real.relative_to(root.real)
+            def iterdir(self):
+                return (WindowsOrderedPath(p) for p in self.real.iterdir())
             def __getattr__(self, name):
                 return getattr(self.real, name)
         class WindowsOrderedRoot:
             real = self.root
-            def rglob(self, pattern):
-                return (WindowsOrderedPath(p) for p in self.real.rglob(pattern))
+            def iterdir(self):
+                return (WindowsOrderedPath(p) for p in self.real.iterdir())
         self.assertEqual(q.source_rows(self.root), q.source_rows(WindowsOrderedRoot()))
 
     def test_no_registered_checks_blocks_phase(self):

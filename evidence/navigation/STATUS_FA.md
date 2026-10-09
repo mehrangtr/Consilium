@@ -2,7 +2,7 @@
 
 این نما خودکار از `ROADMAP.json`، `PROGRESS.json` و `CHECKS.json` ساخته شده است. ویرایش دستی مرجع نیست؛ پس از تغییر مبنا فرمان تولید را دوباره اجرا کنید.
 
-شناسهٔ مبنای نما: `4bd69ff6d125e5c16b4dfd2b50162f3b1140b7b79e7bf6d2a6cffcd02d415310`.
+شناسهٔ مبنای نما: `45ace63356946a9ccf97b272539b7cf89ed6b8436e9cd664ac07f299de3301ab`.
 
 مرحلهٔ فعلی: `P06`. آخرین مرحلهٔ پذیرفته‌شده: `P05`.
 
@@ -26,7 +26,7 @@
     "The current source is verified on native Windows/Linux with 699 tests per target. Production deadlines remain 300/900 seconds; the delayed receipt recovery test passes on both targets.",
     "Private actual prompts/responses and pending UI boundaries remain outside public repository. P06 is not accepted; P07 is not started."
   ],
-  "next_action": "Recover P06 browser work only after the automatic-review block is resolved: observe the existing Qwen response without navigation or resend; reconcile the unknown PILOT-007 send; then continue the unsent Claude review. Preserve the four original call-cap blocks and all measurement limitations. P06 remains unaccepted; P07 must not start.",
+  "next_action": "Verify the ignored-tree source-walk correction on fresh native Windows and Linux before merging PR17; then resolve P06 browser approval blocks without blind resend. Original pilot ceilings remain frozen and P07 must not start.",
   "next_command": "python runtime_driver.py status # در فضای خصوصی اجرای P06",
   "startup_commands": [
     "python tools/qualityctl.py status",
@@ -62,7 +62,7 @@
   },
   "native_evidence": {
     "phase": "P01",
-    "scope": "CURRENT_SUPERVISOR_TEST_FIX_NATIVE_VERIFICATION_NOT_P06_ACCEPTANCE",
+    "scope": "HISTORICAL_SOURCE_009E61D1_NATIVE_PASS_WITH_LATER_HEAD_TIMEOUT_NOT_CURRENT_SOURCE",
     "source_digest": "009e61d15ce3bd85ab5afff6879b96b1ae87230f5dd9e6649b5fcb1cb063a06e",
     "targets": [
       {
@@ -103,7 +103,9 @@
     "tests_per_target": 699,
     "phase_accepted": false,
     "code_commit": "6be01f46a5bdfec382192b7c7768f1517c7068c3",
-    "source_matches_current": true
+    "source_matches_current": false,
+    "current_source_digest": "afff2f7d9fd7b5c1e1db586be09ddd4a6463c3e9c5a8ab2ce011bbd12668797a",
+    "current_source_verification": "PENDING_AFTER_SOURCE_WALK_CORRECTION"
   },
   "last_verified_in_phase_checkpoint": {
     "phase": "P05",
@@ -634,6 +636,26 @@
     "source_matches_current": false,
     "current_source_digest": "009e61d15ce3bd85ab5afff6879b96b1ae87230f5dd9e6649b5fcb1cb063a06e",
     "current_source_verification": "PENDING_NATIVE_WINDOWS_AND_LINUX"
+  },
+  "p06_source_walk_correction": {
+    "scope": "DEVELOPMENT_SOURCE_IDENTITY_PERFORMANCE",
+    "native_check_budget_unchanged": 240,
+    "supervisor_budgets_unchanged": [
+      300,
+      900
+    ],
+    "latest_native_failure": 37909901732,
+    "all_test_suites_passed_but_final_receipt_missing": true,
+    "selection_equivalence": "PASS",
+    "native_verification": "PENDING",
+    "local_control_tests": {
+      "status": "PASS",
+      "tests": 119,
+      "failures": 0,
+      "skipped": 0,
+      "source_digest": "afff2f7d9fd7b5c1e1db586be09ddd4a6463c3e9c5a8ab2ce011bbd12668797a",
+      "receipt_sha256": "95ae9b1c59826cc8678f5065c25ccd571c81facc47da2913feec54e5d0c0f2b8"
+    }
   }
 }
 ```

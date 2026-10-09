@@ -1,0 +1,10 @@
+{
+  "nonce": "9d1a6c8d83f747b7bf598fe7ca41b77c",
+  "task_pid": 7,
+  "sequence": 90,
+  "milestone": "configured_phase_receipt_written",
+  "receipt": {
+    "path": "/tmp/tmp2z21zxyj/project/evidence/runs/20261009T092707Z_81a58d2bf2/RUN.json",
+    "sha256": "a737675e99da86b10da907540d47a940cc8f82f563acc32940c94c5d07c8d949"
+  }
+}

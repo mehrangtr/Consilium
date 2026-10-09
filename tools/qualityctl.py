@@ -68,16 +68,23 @@ def safe_path(root, name):
 
 def source_rows(root):
     rows = []
+    pending = [root]
+    while pending:
+        for path in pending.pop().iterdir():
+            rel = path.relative_to(root)
+            # Prune excluded trees before enumeration; historical proofs grow.
+            if any(x in IGNORED or x.endswith(".egg-info") or x == ".env"
+                   or x.startswith(".env.") and x != ".env.example" for x in rel.parts):
+                continue
+            if path.is_symlink():
+                require(rel.as_posix() in MUTABLE, "Symlink in source snapshot")
+                continue
+            if path.is_dir():
+                pending.append(path)
+            elif path.is_file() and rel.as_posix() not in MUTABLE:
+                rows.append([rel.as_posix(), digest(path.read_bytes())])
     # Native Windows paths compare without case; canonical strings must not.
-    for path in sorted(root.rglob("*"), key=lambda item: item.relative_to(root).as_posix()):
-        rel = path.relative_to(root)
-        if (any(x in IGNORED or x.endswith(".egg-info") or x == ".env" or x.startswith(".env.") and x != ".env.example"
-                for x in rel.parts) or rel.as_posix() in MUTABLE):
-            continue
-        require(not path.is_symlink(), "Symlink in source snapshot")
-        if path.is_file():
-            rows.append([rel.as_posix(), digest(path.read_bytes())])
-    return rows
+    return sorted(rows, key=lambda row: row[0])
 
 
 def source_digest(root):

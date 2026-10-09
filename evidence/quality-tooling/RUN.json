@@ -1,8 +1,8 @@
 {
   "scope": "TARGETED_DEV_QUALITY_NOT_FULL_STATIC_VERIFICATION",
   "status": "FAIL",
-  "source_digest_before": "009e61d15ce3bd85ab5afff6879b96b1ae87230f5dd9e6649b5fcb1cb063a06e",
-  "source_digest_after": "009e61d15ce3bd85ab5afff6879b96b1ae87230f5dd9e6649b5fcb1cb063a06e",
+  "source_digest_before": "afff2f7d9fd7b5c1e1db586be09ddd4a6463c3e9c5a8ab2ce011bbd12668797a",
+  "source_digest_after": "afff2f7d9fd7b5c1e1db586be09ddd4a6463c3e9c5a8ab2ce011bbd12668797a",
   "checks": [
     {
       "id": "lint",
@@ -14,25 +14,25 @@
       "id": "types",
       "status": "FAIL",
       "returncode": 1,
-      "elapsed_seconds": 0.013
+      "elapsed_seconds": 0.011
     },
     {
       "id": "conformance",
       "status": "PASS",
       "returncode": 0,
-      "elapsed_seconds": 0.041
+      "elapsed_seconds": 0.043
     },
     {
       "id": "transitions",
       "status": "PASS",
       "returncode": 0,
-      "elapsed_seconds": 0.151
+      "elapsed_seconds": 0.14
     },
     {
       "id": "properties_and_regressions",
       "status": "FAIL",
       "returncode": 1,
-      "elapsed_seconds": 0.014
+      "elapsed_seconds": 0.012
     },
     {
       "id": "targeted_coverage",

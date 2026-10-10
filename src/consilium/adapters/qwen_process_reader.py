@@ -17,6 +17,7 @@ from consilium.adapters.qwen_page_reader import (
     MAX_CAPTURE_BYTES,
     _require_bounded_depth,
     _unique_object,
+    read_qwen_capture,
 )
 from consilium.core.browser_probe import BrowserContext
 from consilium.shell.qwen_capture_ingest import QwenCaptureRead
@@ -53,6 +54,36 @@ def decode_reader_output(raw):
         raise ValueError("QWEN_READER_OUTPUT_INVALID")
     return QwenCaptureRead(before, capture, after)
 
+
+
+def encode_reader_output(packet):
+    """Build a private packet, preserving exact capture bytes; no live authority."""
+    invalid = False
+    try:
+        if type(packet) is not QwenCaptureRead:
+            raise ValueError("packet")
+        before = BrowserContext.model_validate(packet.before)
+        after = BrowserContext.model_validate(packet.after)
+        page = read_qwen_capture(packet.raw)
+        identities = [
+            (context.authentication, context.account_binding_id,
+             context.conversation_binding_id, context.model_id)
+            for context in (before, page.context, after)
+        ]
+        if identities[0][0] != "AUTHENTICATED" or len(set(identities)) != 1:
+            raise ValueError("context")
+        raw = json.dumps({
+            "schema_version": 1,
+            "before": before.model_dump(mode="json"),
+            "raw_capture_base64": base64.b64encode(packet.raw).decode("ascii"),
+            "after": after.model_dump(mode="json"),
+        }, sort_keys=True, separators=(",", ":"), allow_nan=False).encode("utf-8")
+        decode_reader_output(raw)
+    except (ValueError, TypeError):
+        invalid = True
+    if invalid:
+        raise ValueError("QWEN_READER_PACKET_INVALID")
+    return raw
 
 def _stop_owned(worker, deadline):
     if os.name == "nt":

@@ -115,10 +115,29 @@ class OutputCase(fixtures.CouncilCase):
         snapshot['debate']['original_request'] = '<script>alert(1)</script> فارسی C:\\project\\file.py\n[link](javascript:alert(1))'
         html = render(snapshot)['debate.html'].decode()
         self.assertNotIn('<script>', html)
-        self.assertIn('&lt;script&gt;', html)
-        self.assertIn('unicode-bidi:plaintext', html)
-        self.assertIn('dir="auto"', html)
+        from html.parser import HTMLParser
+        class TextReader(HTMLParser):
+            def __init__(self):
+                super().__init__()
+                self.text = []
+            def handle_data(self, data):
+                self.text.append(data)
+        reader = TextReader()
+        reader.feed(html)
+        self.assertIn('<script>alert(1)</script>', ''.join(reader.text))
+        self.assertIn('unicode-bidi:isolate', html)
+        self.assertIn('<bdi dir="ltr">C:\\project\\file.py', html)
         self.assertNotIn('<a ', html)
+
+    def test_mixed_paths_links_tables_and_code_have_visible_isolation(self):
+        from consilium.shell.council_export import text_html
+        html = text_html('مسیر /home/user/project/main.py\n[پیوند](https://example.org/report?q=1)\n'
+                         '| مدل | نتیجه |\n|---|---|\n| GLM | پاسخ |\n```python\nprint("فارسی English")\n```')
+        self.assertIn('<bdi dir="ltr">/home/user/project/main.py</bdi>', html)
+        self.assertIn('href="https://example.org/report?q=1"', html)
+        self.assertIn('<table>', html)
+        self.assertIn('<td dir="auto"><bdi dir="ltr">GLM</bdi></td>', html)
+        self.assertIn('<pre class="code" dir="ltr">', html)
 
     def test_real_process_exits_during_export_keep_recoverable_complete_generation(self):
         self.through_review()

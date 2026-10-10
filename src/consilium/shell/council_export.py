@@ -11,7 +11,7 @@ from uuid import UUID, uuid4
 
 from consilium.core.output_contract import import_snapshot, read_json, validate_snapshot
 
-FORMAT_VERSION = 2
+FORMAT_VERSION = 3
 
 
 def participant_name(participant_id):
@@ -28,7 +28,7 @@ def literal(text):
 
 
 def render(snapshot, *, format_version=FORMAT_VERSION):
-    if format_version not in (1, 2):
+    if format_version not in (1, 2, 3):
         raise ValueError('Unsupported export format')
     validate_snapshot(snapshot)
     files = {'debate.json': (json.dumps(snapshot, ensure_ascii=False, indent=2)+'\n').encode('utf-8')}
@@ -43,7 +43,7 @@ def render(snapshot, *, format_version=FORMAT_VERSION):
         item = s['item']; pid = item.get('participant_id', item.get('reviewer_id'))
         text = item.get('content') or json.dumps(item, ensure_ascii=False, indent=2)
         entry = '\n## دور `'+str(s['source_round']['number'])+'`\n\nمنشأ: `'+s['provenance']+'`\n\n'+literal(text)
-        if format_version == 2:
+        if format_version >= 2:
             entry = '\nشناسهٔ مشارکت‌کننده: `'+pid+'`\n'+entry
         by_participant[pid].append(entry); main.append(entry)
     main.append('\n## تصمیم‌های کاربر\n\n')
@@ -53,7 +53,7 @@ def render(snapshot, *, format_version=FORMAT_VERSION):
     final = snapshot['final_council_result']
     if final:
         main.append('\n## نتیجهٔ نهایی و افشای داور\n\n'+literal(json.dumps(final, ensure_ascii=False, indent=2)))
-    if format_version == 2:
+    if format_version >= 2:
         main.append('\n## دفتر عملیات و دادهٔ بازتولید\n\n'
                     '[تاریخچهٔ کامل ماشین، تلاش‌های ناقص و رویدادها](debate.json)\n\n'
                     '[نمایش مستقل فارسی و انگلیسی](debate.html)\n')
@@ -70,12 +70,12 @@ def render(snapshot, *, format_version=FORMAT_VERSION):
                 'preserved_reported_objections':final['preserved_objections'], 'agreement_is_truth_probability':False}
             files['assessments/'+name+'.md'] = ('# ارزیابی نهایی مشارکت‌کننده\n\n'+literal(json.dumps(assessment, ensure_ascii=False, indent=2))).encode('utf-8')
     if final: files['final.md'] = ('# نتیجهٔ نهایی شورا\n\n'+literal(json.dumps(final, ensure_ascii=False, indent=2))).encode('utf-8')
-    if format_version == 2:
-        files['debate.html'] = render_html(snapshot).encode('utf-8')
+    if format_version >= 2:
+        files['debate.html'] = (render_html_v2(snapshot) if format_version == 2 else render_html(snapshot)).encode('utf-8')
     return files
 
 
-def render_html(snapshot):
+def render_html_v2(snapshot):
     """Offline viewer. Untrusted text is escaped; no script or remote resources."""
     def section(title, text):
         return '<section><h2>'+escape(title)+'</h2><pre dir="auto">'+escape(text)+'</pre></section>'
@@ -98,6 +98,88 @@ def render_html(snapshot):
 body{font-family:Tahoma,Arial,sans-serif;background:#f4f6f8;color:#172536;margin:0;padding:24px}
 main{max-width:960px;margin:auto}section{background:white;padding:20px;margin:20px 0;border:1px solid #ccd5df;border-radius:10px}
 h1,h2{line-height:1.7}h2{font-size:20px}pre{font:16px/1.9 Tahoma,Arial,sans-serif;white-space:pre-wrap;overflow-wrap:anywhere;unicode-bidi:plaintext;text-align:start}
+code{direction:ltr;unicode-bidi:isolate;display:inline-block;overflow-wrap:anywhere;max-width:100%}
+</style><main><h1>تاریخچهٔ شورا</h1><p>توافق به معنی احتمال درستی نیست.</p>'''+''.join(sections)+'</main></html>'
+
+
+def inline_html(text):
+    """Isolate technical runs; only explicit HTTP(S) links become anchors."""
+    pieces = []
+    pattern = r'\[([^\]\n]+)\]\((https?://[^\s)]+)\)|[A-Za-z0-9/\\][\x20-\x5a\x5c-\x7e]*'
+    previous = 0
+    for match in re.finditer(pattern, text):
+        pieces.append(escape(text[previous:match.start()]))
+        if match.group(1) is not None:
+            pieces.append('<a rel="noreferrer" href="'+escape(match.group(2), quote=True)+'">'
+                          +escape(match.group(1))+'</a> <bdi dir="ltr">'+escape(match.group(2))+'</bdi>')
+        else:
+            pieces.append('<bdi dir="ltr">'+escape(match.group())+'</bdi>')
+        previous = match.end()
+    pieces.append(escape(text[previous:]))
+    return ''.join(pieces)
+
+
+def text_html(text):
+    """Safe small Markdown subset; raw text stays exact in JSON/Markdown."""
+    lines = text.splitlines()
+    result = []
+    index = 0
+    while index < len(lines):
+        line = lines[index]
+        fence = re.match(r'^\s*(`{3,}|~{3,})', line)
+        if fence:
+            marker = fence.group(1)
+            code = []
+            index += 1
+            while index < len(lines) and not re.match(r'^\s*'+re.escape(marker[0])+r'{'+str(len(marker))+r',}\s*$', lines[index]):
+                code.append(lines[index]); index += 1
+            result.append('<pre class="code" dir="ltr">'+escape('\n'.join(code))+'</pre>')
+        elif (line.strip().startswith('|') and index+1 < len(lines)
+              and re.fullmatch(r'\s*\|?[\s:|\-]+\|?\s*', lines[index+1])
+              and '-' in lines[index+1]):
+            rows = [line]
+            index += 2
+            while index < len(lines) and lines[index].strip().startswith('|'):
+                rows.append(lines[index]); index += 1
+            result.append('<div class="table-wrap"><table>')
+            for number, row in enumerate(rows):
+                tag = 'th' if number == 0 else 'td'
+                result.append('<tr>'+''.join('<'+tag+' dir="auto">'+inline_html(cell.strip())+'</'+tag+'>'
+                                            for cell in row.strip().strip('|').split('|'))+'</tr>')
+            result.append('</table></div>')
+            continue
+        else:
+            direction = 'rtl' if re.search(r'[\u0600-\u06ff]', line) else 'ltr'
+            result.append('<div class="text-line" dir="'+direction+'">'+(inline_html(line) or '<br>')+'</div>')
+        index += 1
+    return '<div class="response">'+''.join(result)+'</div>'
+
+
+def render_html(snapshot):
+    """Offline viewer. Untrusted text is escaped; no script or remote resources."""
+    def section(title, text):
+        return '<section><h2>'+escape(title)+'</h2>'+text_html(text)+'</section>'
+    sections = [section('پرسش اصلی', snapshot['debate']['original_request'])]
+    for row in snapshot['council_sources']:
+        item = row['item']
+        identity = item.get('participant_id', item.get('reviewer_id'))
+        title = 'دور '+str(row['source_round']['number'])+' · '+row['source_round']['kind']
+        body = item.get('content') or json.dumps(item, ensure_ascii=False, indent=2)
+        sections.append('<section><h2>'+escape(title)+'</h2><p>شناسه: <code>'+escape(identity)+'</code></p>'
+                        +text_html(body)+'</section>')
+    final = snapshot['final_council_result']
+    if final:
+        sections.append(section('نتیجهٔ نهایی', final['output']['conclusion']))
+        sections.append(section('مخالفت‌ها و افشای مشارکت قبلی داور', json.dumps(final, ensure_ascii=False, indent=2)))
+    return '''<!doctype html><html lang="fa" dir="rtl"><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; img-src 'none'; base-uri 'none'; form-action 'none'">
+<title>گزارش شورا</title><style>
+body{font-family:Tahoma,Arial,sans-serif;background:#f4f6f8;color:#172536;margin:0;padding:24px}
+main{max-width:960px;margin:auto}section{background:white;padding:20px;margin:20px 0;border:1px solid #ccd5df;border-radius:10px}
+h1,h2{line-height:1.7}h2{font-size:20px}pre{font:16px/1.9 monospace;white-space:pre-wrap;overflow-wrap:anywhere;unicode-bidi:isolate;text-align:start;background:#f1f4f8;padding:12px}
+.response{font-size:16px;line-height:1.9;overflow-wrap:anywhere}.text-line{white-space:pre-wrap;text-align:start}
+bdi{unicode-bidi:isolate;overflow-wrap:anywhere}a{color:#174c99}table{border-collapse:collapse;width:100%}th,td{border:1px solid #ccd5df;padding:8px;text-align:start}.table-wrap{max-width:100%;overflow:auto}
 code{direction:ltr;unicode-bidi:isolate;display:inline-block;overflow-wrap:anywhere;max-width:100%}
 </style><main><h1>تاریخچهٔ شورا</h1><p>توافق به معنی احتمال درستی نیست.</p>'''+''.join(sections)+'</main></html>'
 
@@ -175,7 +257,7 @@ def validate_generation(directory):
         raise ValueError('Symlink in generation')
     index = read_json((directory/'EXPORT.json').read_bytes())
     version = index.get('format_version', 1)
-    if type(version) is not int or version not in (1, 2):
+    if type(version) is not int or version not in (1, 2, 3):
         raise ValueError('Unsupported generation format')
     snapshot = validate_snapshot(read_json((directory/'debate.json').read_bytes()))
     files = render(snapshot, format_version=version)

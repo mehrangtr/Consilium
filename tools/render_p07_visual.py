@@ -41,6 +41,7 @@ def main():
 مسیر C:\\project\\report.json و /home/user/project/main.py
 کد: result = A.intersection(C)
 | مدل | نتیجه |
+|---|---|
 | GLM | پیشنهاد کوتاه |
 [پیوند نمونه](https://example.org/report?q=1)
 ```python

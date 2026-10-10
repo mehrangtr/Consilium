@@ -20,8 +20,11 @@ ROOT = Path(__file__).resolve().parents[1]
 # recorder needs room for those suites and its final source-bound report.
 # P05 Windows ran all 621 cases but exhausted 120s before the final receipt.
 # The Windows run 37801218935 cut the 259-case architect suite at 60s.
-# Allow that suite 90s and the aggregate 240s; retain the 300/900 supervisor limits.
-NATIVE_CHECK_BUDGET_SECONDS = 240
+# Allow that suite 90s; retain the 300/900 supervisor limits.
+# Run 38072111564 passed all six process-reader cases on Windows but exhausted
+# the 240s aggregate budget before maintenance, pilot and API receipts. The full
+# 844-case suite receives 360s; individual suite and reader deadlines stay fixed.
+NATIVE_CHECK_BUDGET_SECONDS = 360
 
 
 def main():

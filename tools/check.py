@@ -54,6 +54,8 @@ def main():
         commands.append(('approved_quality_checks', [sys.executable, 'tools/check_quality.py']))
     if (ROOT / 'tools/run_pilot_tests.py').is_file():
         commands.append(('pilot_accounting_tests', [sys.executable, 'tools/run_pilot_tests.py']))
+    if (ROOT / 'tools/run_api_tests.py').is_file():
+        commands.append(('api_offline_tests', [sys.executable, 'tools/run_api_tests.py']))
     has_architect = (ROOT / "tools/run_architect_tests.py").is_file()
     for name, argv in commands:
         started = time.monotonic()
@@ -69,7 +71,7 @@ def main():
     after = q.source_digest(ROOT)
     passed = before == after and all(x["status"] == "PASS" for x in results)
     artifact_names = ["evidence/environment/RUN.json"]
-    for folder in ("control-tests", "foundation-tests", "persistence-tests", "browser-probe-tests", "architect-tests", "council-tests", 'quality-tests', 'pilot-tests'):
+    for folder in ("control-tests", "foundation-tests", "persistence-tests", "browser-probe-tests", "architect-tests", "council-tests", 'quality-tests', 'pilot-tests', 'api-tests'):
         artifact_names += ["evidence/" + folder + "/" + file for file in ("RUN.json", "JUNIT.xml")]
     artifacts = {name: {"path": name, "sha256": q.digest((ROOT / name).read_bytes())}
                  for name in artifact_names if (ROOT / name).is_file()}

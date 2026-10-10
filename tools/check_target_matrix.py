@@ -87,6 +87,9 @@ def inspect_matrix(root):
             pilot_required = (root / 'tools/run_pilot_tests.py').is_file()
             if pilot_required:
                 required_roles.update({'pilot_report', 'pilot_junit'})
+            api_required = (root / 'tools/run_api_tests.py').is_file()
+            if api_required:
+                required_roles.update({'api_report', 'api_junit'})
             q.require(required_roles.issubset(artifacts),
                       "Missing native artifacts")
             for reference_item in artifacts.values():
@@ -111,6 +114,9 @@ def inspect_matrix(root):
             if pilot_required:
                 report_roles.append('pilot_report')
                 junit_roles.append('pilot_junit')
+            if api_required:
+                report_roles.append('api_report')
+                junit_roles.append('api_junit')
             for role in report_roles:
                 q.require(q.load(q.artifact(root, artifacts[role]))["status"] == "PASS", "Failed target subcheck")
             scopes = {"maintenance_report": "DEVELOPMENT_CHECK_WITH_SEPARATE_FOUNDATION_TESTS",
@@ -129,6 +135,12 @@ def inspect_matrix(root):
                 scopes['quality_report'] = 'APPROVED_QUALITY_IMPROVEMENTS_OFFLINE_NOT_MODEL_QUALITY'
             if pilot_required:
                 scopes['pilot_report'] = 'OFFLINE_PILOT_ACCOUNTING_NOT_MODEL_QUALITY'
+            if api_required:
+                scopes['api_report'] = 'P08_SYNTHETIC_API_CODEC_AND_COUNCIL'
+                api = q.load(q.artifact(root, artifacts['api_report']))
+                q.require(type(api.get('live_provider_calls')) is int and api['live_provider_calls'] == 0
+                          and api.get('verified_application_requirements') == 0,
+                          'Synthetic API tests cannot certify live provider acceptance')
             for role, expected_scope in scopes.items():
                 q.require(q.load(q.artifact(root, artifacts[role]))["scope"] == expected_scope,
                           "Incorrect target subcheck scope")

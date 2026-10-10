@@ -173,6 +173,18 @@ class Council:
     def publish_confirmed(self, operation_id, *, expected_revision):
         return self.store.artifacts.publish(operation_id, expected_revision=expected_revision)
 
+    def execute_offline_api(self, request, adapter, *, expected_revision):
+        """Exercise provider envelopes through the MOCK gate; no live provenance."""
+        from consilium.adapters.api_offline import OfflineApiAdapter
+        from consilium.shell.runner import DurableRunner
+        if type(adapter) is not OfflineApiAdapter:
+            raise Conflict('P08 offline API path requires the exact synthetic driver')
+        plan = DurableRunner(self.store).execute(request, adapter, expected_revision=expected_revision)
+        if plan.attempt.state == AttemptState.CONFIRMED:
+            self.publish_confirmed(request.intent.identity.logical_operation_id,
+                                   expected_revision=self.revision(request.intent.debate_id))
+        return self.store.ledger.resume(request.intent.identity.attempt_id)
+
     def _analyze(self, round_spec, revision):
         sources = self.store.sources.context_sources(round_spec.debate_id, through_revision=revision)
         try:

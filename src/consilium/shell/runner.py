@@ -10,15 +10,18 @@ class DurableRunner:
         self.store = store
 
     def execute(self, request: AdapterRequest, adapter: Adapter, *, expected_revision: int):
+        from consilium.adapters.api_offline import OfflineApiAdapter
+        from consilium.adapters.mock import MockAdapter
+        offline_type = type(adapter) in (MockAdapter, OfflineApiAdapter)
+        if type(adapter) is OfflineApiAdapter:
+            adapter.preflight(request)
         capabilities = AdapterCapabilities.model_validate(adapter.capabilities.model_dump(mode="python"))
         if capabilities.mode != request.connection.mode:
             raise ValueError("Adapter and bound transport mode differ")
         if self.store.ledger.get_attempt(request.intent.identity.attempt_id).response_contract is not None:
-            from consilium.adapters.mock import MockAdapter
-            if type(adapter) is not MockAdapter:
-                raise Conflict("Typed source contracts currently permit only the offline MockAdapter")
-        from consilium.adapters.mock import MockAdapter
-        offline_mock = type(adapter) is MockAdapter and request.connection.provider_id == 'mock' and request.connection.model_id == 'mock-v1'
+            if not offline_type:
+                raise Conflict("Typed source contracts currently permit only registered exact offline drivers")
+        offline_mock = offline_type and request.connection.provider_id == 'mock' and request.connection.model_id == 'mock-v1'
         checkpoint = self.store.ledger.begin_send(request, expected_revision=expected_revision, offline_mock=offline_mock)
         try:
             result = adapter.send(request)

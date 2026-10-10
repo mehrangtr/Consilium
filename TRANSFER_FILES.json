@@ -87,6 +87,7 @@
     "docs/decisions/ADR-041-READ-ONLY-BROWSER-JOURNAL-ATTACHMENT_FA.md",
     "docs/decisions/ADR-042-QWEN-RENDERED-CAPTURE-READER_FA.md",
     "docs/decisions/ADR-043-ATOMIC-RAW-QWEN-CAPTURES_FA.md",
+    "docs/decisions/ADR-044-PRIVATE-CAPTURE-ERRORS_FA.md",
     "docs/p06/FUNCTIONAL_EXIT.json",
     "docs/p06/PREREGISTRATION.json",
     "docs/p06/RECOVERY_COUNCIL_20261009.json",

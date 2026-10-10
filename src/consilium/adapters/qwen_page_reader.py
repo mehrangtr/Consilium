@@ -10,7 +10,7 @@ import hashlib
 import json
 from typing import Annotated, Literal
 
-from pydantic import Field, field_validator, model_validator
+from pydantic import Field, ValidationError, field_validator, model_validator
 
 from consilium.core.browser_probe import BrowserContext
 from consilium.core.browser_watch import PageMessage, PageSnapshot
@@ -98,7 +98,33 @@ def _require_bounded_depth(raw):
             depth -= 1
 
 
-def read_qwen_capture(raw: bytes) -> PageSnapshot:
+def _reject_constant(_value):
+    raise ValueError("QWEN_NONFINITE_JSON_NUMBER")
+
+
+def _parse_capture(raw):
+    # Raise outside handlers: decoder exceptions retain the private document.
+    invalid = False
+    try:
+        value = json.loads(
+            raw.decode("utf-8"), object_pairs_hook=_unique_object,
+            parse_constant=_reject_constant,
+        )
+        normalized = json.dumps(value, ensure_ascii=False, allow_nan=False).encode("utf-8")
+    except (ValueError, UnicodeError, RecursionError):
+        invalid = True
+    if invalid:
+        raise ValueError("QWEN_CAPTURE_JSON_INVALID")
+    try:
+        capture = QwenRenderedCapture.model_validate_json(normalized)
+    except ValueError:
+        invalid = True
+    if invalid:
+        raise ValueError("QWEN_CAPTURE_SCHEMA_INVALID")
+    return capture
+
+
+def _read_qwen_capture(raw: bytes) -> PageSnapshot:
     """Hash the exact input bytes; derive only the documented UI prefix.
 
     Page text, copied action names and absence of Stop alone cannot complete a
@@ -108,13 +134,7 @@ def read_qwen_capture(raw: bytes) -> PageSnapshot:
     if type(raw) is not bytes or not raw or len(raw) > MAX_CAPTURE_BYTES:
         raise ValueError("QWEN_CAPTURE_BYTES_INVALID_OR_OVERSIZED")
     _require_bounded_depth(raw)
-    try:
-        value = json.loads(raw.decode("utf-8"), object_pairs_hook=_unique_object)
-    except RecursionError:
-        raise ValueError("QWEN_CAPTURE_NESTING_TOO_DEEP") from None
-    capture = QwenRenderedCapture.model_validate_json(
-        json.dumps(value, ensure_ascii=False, allow_nan=False)
-    )
+    capture = _parse_capture(raw)
     evidence = hashlib.sha256(raw).hexdigest()
     messages = list(capture.prior_messages)
     if capture.submitted_user is not None:
@@ -147,3 +167,15 @@ def read_qwen_capture(raw: bytes) -> PageSnapshot:
         full_history=capture.full_history,
         evidence_hash=evidence,
     )
+
+
+def read_qwen_capture(raw: bytes) -> PageSnapshot:
+    """Return a local snapshot; validation errors never export input details."""
+    invalid = False
+    try:
+        page = _read_qwen_capture(raw)
+    except ValidationError:
+        invalid = True
+    if invalid:
+        raise ValueError("QWEN_CAPTURE_PAGE_INVALID")
+    return page

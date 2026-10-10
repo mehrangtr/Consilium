@@ -193,3 +193,53 @@ class QwenPageReaderTests(unittest.TestCase):
             text = 'quoted \\" ' + "[" * 2000
             self.capture["response"]["raw_rendered_text"] = text
             self.assertEqual(read_qwen_capture(self.raw()).messages[-1].text, text)
+
+    def test_decoder_errors_do_not_retain_private_document_or_exception_chain(self):
+        for raw in (b'{"private":"sensitive-marker",', b'\xffsensitive-marker'):
+            with self.assertRaisesRegex(ValueError, "QWEN_CAPTURE_JSON_INVALID") as caught:
+                read_qwen_capture(raw)
+            error = caught.exception
+            self.assertIs(type(error), ValueError)
+            self.assertIsNone(error.__context__)
+            self.assertIsNone(error.__cause__)
+            self.assertFalse(hasattr(error, "doc"))
+            self.assertNotIn("sensitive-marker", str(error))
+
+    def test_nonfinite_numbers_and_unpaired_surrogates_are_rejected(self):
+        for token in (b"NaN", b"Infinity", b"-Infinity", b"1e9999"):
+            raw = self.raw().replace(b'"sequence": 1', b'"sequence": ' + token)
+            with self.assertRaisesRegex(ValueError, "QWEN_CAPTURE_JSON_INVALID"):
+                read_qwen_capture(raw)
+        for text in (r"\ud800", r"\udfff"):
+            value = dict(self.capture)
+            value["response"] = dict(value["response"], raw_rendered_text="PLACEHOLDER")
+            raw = json.dumps(value).encode().replace(b"PLACEHOLDER", text.encode())
+            with self.assertRaisesRegex(ValueError, "QWEN_CAPTURE_JSON_INVALID"):
+                read_qwen_capture(raw)
+        self.capture["response"]["raw_rendered_text"] = "پاسخ 😀"
+        raw = json.dumps(self.capture, ensure_ascii=True).encode()
+        self.assertEqual(read_qwen_capture(raw).messages[-1].text, "پاسخ 😀")
+
+    def test_schema_errors_have_no_input_bearing_validation_details(self):
+        self.capture["private"] = "sensitive-marker"
+        with self.assertRaisesRegex(ValueError, "QWEN_CAPTURE_SCHEMA_INVALID") as caught:
+            read_qwen_capture(self.raw())
+        self.assertIs(type(caught.exception), ValueError)
+        self.assertIsNone(caught.exception.__context__)
+        self.assertFalse(hasattr(caught.exception, "errors"))
+
+    def test_duplicate_page_error_does_not_expose_validated_message_details(self):
+        self.capture["response"]["message_id"] = str(self.f.old.message_id)
+        with self.assertRaisesRegex(ValueError, "QWEN_CAPTURE_PAGE_INVALID") as caught:
+            read_qwen_capture(self.raw())
+        self.assertIs(type(caught.exception), ValueError)
+        self.assertIsNone(caught.exception.__context__)
+        self.assertFalse(hasattr(caught.exception, "errors"))
+        self.capture["response"]["message_id"] = str(self.f.answer.message_id)
+        self.complete()
+        self.capture["response"]["raw_rendered_text"] = "Thinking completed\n"
+        with self.assertRaisesRegex(ValueError, "QWEN_CAPTURE_PAGE_INVALID") as caught:
+            read_qwen_capture(self.raw())
+        self.assertIs(type(caught.exception), ValueError)
+        self.assertIsNone(caught.exception.__context__)
+        self.assertFalse(hasattr(caught.exception, "errors"))

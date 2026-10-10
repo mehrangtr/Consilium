@@ -184,3 +184,11 @@ class QwenCaptureJournalTests(unittest.TestCase):
 
     def test_actual_process_exit_after_raw_capture_commit_recovers_both(self):
         self.crash("after", 74, 1)
+
+    def test_private_decoder_failure_does_not_change_committed_capture(self):
+        self.append()
+        with self.assertRaisesRegex(ValueError, "QWEN_CAPTURE_JSON_INVALID") as caught:
+            self.append(b'{"private":"sensitive-marker",', event_id=uuid4(), expected_revision=1)
+        self.assertIsNone(caught.exception.__context__)
+        self.assertEqual(self.open().resume()["revision"], 1)
+        self.assertEqual(self.open().read_qwen_capture(event_id=self.event)["raw"], self.raw)

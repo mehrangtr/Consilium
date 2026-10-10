@@ -53,7 +53,8 @@ print("فارسی English")
     version = (subprocess.run([browser, '--version'], capture_output=True, text=True, timeout=15, check=True).stdout.strip()
                if os.name != 'nt' else 'Chrome executable SHA256 '+hashlib.sha256(Path(browser).read_bytes()).hexdigest())
     records = []
-    for name, size in (('desktop', '1280,900'), ('mobile', '390,844')):
+    narrow = '500,844' if os.name == 'nt' else '390,844'
+    for name, size in (('desktop', '1280,900'), ('mobile', narrow)):
         screenshot = folder/(name+'.png')
         command = [browser, '--headless=new', '--no-sandbox', '--disable-gpu', '--no-first-run',
                    '--disable-background-networking', '--disable-default-apps', '--no-default-browser-check',

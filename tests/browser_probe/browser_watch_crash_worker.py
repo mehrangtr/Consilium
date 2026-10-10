@@ -40,11 +40,18 @@ def main():
             os._exit(74)
 
     sqlite3.connect = CrashConnection
-    journal.append(
-        PageSnapshot.model_validate_json(json.dumps(value["snapshot"])),
-        event_id=UUID(value["event_id"]),
-        expected_revision=0,
-    )
+    if "raw_capture_utf8" in value:
+        journal.append_qwen_capture(
+            value["raw_capture_utf8"].encode("utf-8"),
+            event_id=UUID(value["event_id"]),
+            expected_revision=0,
+        )
+    else:
+        journal.append(
+            PageSnapshot.model_validate_json(json.dumps(value["snapshot"])),
+            event_id=UUID(value["event_id"]),
+            expected_revision=0,
+        )
     return 2
 
 

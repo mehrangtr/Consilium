@@ -17,6 +17,7 @@ from consilium.core.browser_watch import PageMessage, PageSnapshot
 from consilium.core.contracts import Contract, Identifier, Text
 
 MAX_CAPTURE_BYTES = 2 * 1048576
+MAX_JSON_DEPTH = 64
 PREFIX = "Thinking completed\n"
 
 
@@ -77,6 +78,26 @@ def _unique_object(pairs):
     return result
 
 
+def _require_bounded_depth(raw):
+    depth, quoted, escaped = 0, False, False
+    for byte in raw:
+        if quoted:
+            if escaped:
+                escaped = False
+            elif byte == 92:
+                escaped = True
+            elif byte == 34:
+                quoted = False
+        elif byte == 34:
+            quoted = True
+        elif byte in (91, 123):
+            depth += 1
+            if depth > MAX_JSON_DEPTH:
+                raise ValueError("QWEN_CAPTURE_NESTING_TOO_DEEP")
+        elif byte in (93, 125):
+            depth -= 1
+
+
 def read_qwen_capture(raw: bytes) -> PageSnapshot:
     """Hash the exact input bytes; derive only the documented UI prefix.
 
@@ -86,7 +107,11 @@ def read_qwen_capture(raw: bytes) -> PageSnapshot:
     """
     if type(raw) is not bytes or not raw or len(raw) > MAX_CAPTURE_BYTES:
         raise ValueError("QWEN_CAPTURE_BYTES_INVALID_OR_OVERSIZED")
-    value = json.loads(raw.decode("utf-8"), object_pairs_hook=_unique_object)
+    _require_bounded_depth(raw)
+    try:
+        value = json.loads(raw.decode("utf-8"), object_pairs_hook=_unique_object)
+    except RecursionError:
+        raise ValueError("QWEN_CAPTURE_NESTING_TOO_DEEP") from None
     capture = QwenRenderedCapture.model_validate_json(
         json.dumps(value, ensure_ascii=False, allow_nan=False)
     )

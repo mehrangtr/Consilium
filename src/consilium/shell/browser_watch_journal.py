@@ -9,6 +9,7 @@ from contextlib import contextmanager
 from pathlib import Path
 from uuid import UUID
 
+from consilium.adapters.qwen_page_reader import read_qwen_capture
 from consilium.core.browser_probe import BrowserBinding, ProbeTicket
 from consilium.core.browser_watch import BrowserWatch, PageSnapshot
 from consilium.shell.private import ensure_public_payload
@@ -30,6 +31,19 @@ def encoded(value):
 
 def digest(value):
     return hashlib.sha256(value.encode()).hexdigest()
+
+
+def page_from_event(value):
+    if set(value) == {"kind", "snapshot"} and value["kind"] == "PAGE":
+        return PageSnapshot.model_validate_json(encoded(value["snapshot"]))
+    if (
+        set(value) == {"kind", "reader_contract", "raw_capture_utf8"}
+        and value["kind"] == "QWEN_RENDERED_PAGE"
+        and value["reader_contract"] == "QWEN_RENDERED_TEXT_V1"
+        and type(value["raw_capture_utf8"]) is str
+    ):
+        return read_qwen_capture(value["raw_capture_utf8"].encode("utf-8"))
+    raise ValueError("JOURNAL_EVENT_INVALID")
 
 
 class BrowserWatchJournal:
@@ -186,12 +200,12 @@ class BrowserWatchJournal:
                 if watch.stopped:
                     raise ValueError("JOURNAL_EVENT_AFTER_CLOSED_WATCH")
                 watch.interrupt()
-            elif set(value) == {"kind", "snapshot"} and value["kind"] == "PAGE":
-                watch.observe(
-                    PageSnapshot.model_validate_json(encoded(value["snapshot"]))
-                )
             else:
-                raise ValueError("JOURNAL_EVENT_INVALID")
+                snapshot = page_from_event(value)
+                ensure_public_payload(
+                    snapshot.model_dump(mode="json"), self.forbidden_values
+                )
+                watch.observe(snapshot)
             parent = checksum
         if (head[1], head[2]) != (len(rows), parent):
             raise ValueError("JOURNAL_HEAD_OR_TAIL_INVALID")
@@ -218,6 +232,49 @@ class BrowserWatchJournal:
             expected_revision,
         )
 
+    def append_qwen_capture(
+        self, raw: bytes, *, event_id: UUID, expected_revision: int
+    ):
+        """Commit exact UTF-8 capture bytes and their observation as one event.
+
+        Normalization is replayed from the immutable bytes, never separately
+        supplied by a caller. Local capture integrity does not prove live origin.
+        Existing encoded-event and journal size limits apply to raw captures too.
+        """
+        read_qwen_capture(raw)
+        return self._append(
+            {
+                "kind": "QWEN_RENDERED_PAGE",
+                "reader_contract": "QWEN_RENDERED_TEXT_V1",
+                "raw_capture_utf8": raw.decode("utf-8"),
+            },
+            event_id,
+            expected_revision,
+        )
+
+    def read_qwen_capture(self, *, event_id: UUID):
+        if type(event_id) is not UUID or not event_id.int:
+            raise ValueError("JOURNAL_EVENT_ID_INVALID")
+        with self._transaction() as db:
+            self._replay(db)
+            row = db.execute(
+                "SELECT revision,payload FROM events WHERE event_id=?", (str(event_id),)
+            ).fetchone()
+            if row is None:
+                raise ValueError("JOURNAL_QWEN_CAPTURE_NOT_FOUND")
+            value = json.loads(row[1])
+            if value.get("kind") != "QWEN_RENDERED_PAGE":
+                raise ValueError("JOURNAL_EVENT_IS_NOT_QWEN_CAPTURE")
+            raw = value["raw_capture_utf8"].encode("utf-8")
+            return {
+                "revision": row[0],
+                "raw": raw,
+                "sha256": hashlib.sha256(raw).hexdigest(),
+                "reader_contract": value["reader_contract"],
+                "scope": "LOCAL_CAPTURE_INTEGRITY_NOT_LIVE_AUTHORITY",
+                "live_origin_verified": False,
+            }
+
     def interrupt(self, *, event_id: UUID, expected_revision: int):
         return self._append({"kind": "INTERRUPT"}, event_id, expected_revision)
 
@@ -230,6 +287,10 @@ class BrowserWatchJournal:
         ):
             raise ValueError("JOURNAL_EVENT_ID_OR_REVISION_INVALID")
         ensure_public_payload(value, self.forbidden_values)
+        if value != {"kind": "INTERRUPT"}:
+            ensure_public_payload(
+                page_from_event(value).model_dump(mode="json"), self.forbidden_values
+            )
         payload = encoded(value)
         if len(payload.encode()) > MAX_EVENT_BYTES:
             raise ValueError("JOURNAL_EVENT_TOO_LARGE")
@@ -249,12 +310,10 @@ class BrowserWatchJournal:
             ).fetchone()[0]
             if revision >= MAX_EVENTS or size + len(payload.encode()) > MAX_TOTAL_BYTES:
                 raise ValueError("JOURNAL_LIMIT_EXCEEDED")
-            if value["kind"] == "PAGE":
-                watch.observe(
-                    PageSnapshot.model_validate_json(encoded(value["snapshot"]))
-                )
-            else:
+            if value == {"kind": "INTERRUPT"}:
                 watch.interrupt()
+            else:
+                watch.observe(page_from_event(value))
             number = revision + 1
             checksum = digest(encoded([parent, number, str(event_id), payload]))
             db.execute(

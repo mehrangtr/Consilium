@@ -32,7 +32,7 @@ def main():
                   'src/consilium/shell/browser_watch_journal.py',
                   'src/consilium/adapters/qwen_page_reader.py', 'tests/browser_probe/test_qwen_page_reader.py', 'src/consilium/shell/browser_watch_ledger.py',
                   'tests/browser_probe/test_browser_watch_ledger.py',
-                  'tests/browser_probe/test_browser_watch_attachment.py', 'tests/browser_probe/test_browser_watch_journal.py', 'tests/browser_probe/browser_watch_crash_worker.py',
+                  'tests/browser_probe/test_qwen_capture_journal.py', 'tests/browser_probe/test_browser_watch_attachment.py', 'tests/browser_probe/test_browser_watch_journal.py', 'tests/browser_probe/browser_watch_crash_worker.py',
                   'tools/development_progress.py', 'tests/test_development_progress.py',
                   'src/consilium/core/analyzers.py', 'src/consilium/core/council_repository.py',
                   'src/consilium/shell/council_repository.py', 'src/consilium/shell/demo.py', 'src/consilium/__main__.py']),

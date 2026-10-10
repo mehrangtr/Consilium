@@ -169,3 +169,27 @@ class QwenPageReaderTests(unittest.TestCase):
             self.capture["schema_version"] = version
             with self.assertRaises(ValueError):
                 read_qwen_capture(self.raw())
+
+    def test_deep_json_rejection_preserves_committed_partial_response(self):
+        with tempfile.TemporaryDirectory() as directory:
+            arguments = {
+                "operation_id": uuid4(),
+                "request_hash": "a" * 64,
+                "binding": self.f.binding,
+                "baseline": self.f.base,
+                "prompt_hash": self.f.watch.prompt_hash,
+            }
+            path = Path(directory) / "journal.sqlite3"
+            journal = BrowserWatchJournal(path, **arguments)
+            journal.append(
+                read_qwen_capture(self.raw()), event_id=uuid4(), expected_revision=0
+            )
+            with self.assertRaisesRegex(ValueError, "QWEN_CAPTURE_NESTING_TOO_DEEP"):
+                read_qwen_capture(b"[" * 2000 + b"0" + b"]" * 2000)
+            result = BrowserWatchJournal(path, **arguments).resume()
+            self.assertEqual(result["revision"], 1)
+            self.assertEqual(result["content"], "پاسخ\n")
+            self.assertEqual(result["state"], "PARTIAL")
+            text = 'quoted \\" ' + "[" * 2000
+            self.capture["response"]["raw_rendered_text"] = text
+            self.assertEqual(read_qwen_capture(self.raw()).messages[-1].text, text)

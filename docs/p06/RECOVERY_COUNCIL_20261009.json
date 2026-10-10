@@ -1,0 +1,22 @@
+{
+  "version": "p06-recovery-council.v1",
+  "scope": "THREE_STAGE_RECOVERY_REVIEW_NOT_24_OUTPUT_PILOT_REPLACEMENT",
+  "participants": ["GLM-5.3-Flash", "ChatGPT Free"],
+  "judge": "ChatGPT Free",
+  "stages": ["INDEPENDENT_DIAGNOSIS", "PEER_REVIEW", "REVISED_PROPOSAL"],
+  "final_stage": "JUDGE",
+  "successful_calls_required": 7,
+  "max_calls": 9,
+  "max_cost": 0,
+  "response_limit_requested_words": 80,
+  "criteria": [
+    "Identify six-success protocol versus six-total-attempt contradiction",
+    "Preserve original experiment and failed attempts",
+    "Do not count DIVERGED or unjournaled product records as aligned pilot finals",
+    "Retain 24 final outputs, all intermediate observations and blinded evaluation as P06 acceptance requirements",
+    "Propose a versioned prospective recovery with fixed selected models and judge",
+    "No hidden requirement change, blind resend or fabricated evidence"
+  ],
+  "phase_accepted": false,
+  "status": "PREREGISTERED_BEFORE_SUBMISSION"
+}

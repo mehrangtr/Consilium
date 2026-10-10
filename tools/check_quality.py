@@ -24,6 +24,8 @@ def main():
                   'src/consilium/core/pilot.py', 'src/consilium/core/pilot_review.py',
                   'src/consilium/shell/pilot.py', 'src/consilium/shell/pilot_review.py',
                   'tools/p06_pilot.py', 'tools/check_p06.py',
+                  'src/consilium/core/output_contract.py', 'src/consilium/shell/council_export.py',
+                  'tools/p07_output.py', 'tools/render_p07_visual.py', 'tools/check_p07_evidence.py', 'tests/council/test_output.py', 'tests/council/output_crash_worker.py',
                   'src/consilium/core/analyzers.py', 'src/consilium/core/council_repository.py',
                   'src/consilium/shell/council_repository.py', 'src/consilium/shell/demo.py', 'src/consilium/__main__.py']),
         ('types', [sys.executable, '-m', 'mypy', '--strict', '--follow-imports=skip', *TARGETS]),

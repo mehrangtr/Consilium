@@ -176,7 +176,30 @@
         "scope": "REAL_THREE_ROUND_FUNCTIONAL_EXIT_USER_REVISED_SCOPE"
       }
     ],
-    "P07": [],
+    "P07": [
+      {
+        "id": "p07_output_contract",
+        "kind": "test",
+        "scope": "P07_EXPORT_IMPORT_REAL_PROCESS_CRASH_TESTS",
+        "argv": [
+          "{python}",
+          "tools/run_output_tests.py"
+        ],
+        "junit": "evidence/output-tests/JUNIT.xml"
+      },
+      {
+        "id": "p07_real_output_visual_evidence",
+        "kind": "static",
+        "scope": "P07_REAL_OUTPUT_REPRODUCTION_AND_NATIVE_VISUAL_REVIEW",
+        "acceptance_only": true,
+        "execution_mode": "REAL_EVALUATION",
+        "argv": [
+          "{python}",
+          "tools/check_p07_evidence.py"
+        ],
+        "reason": "Validates already captured real product output and explicit native visual review; does not send model messages."
+      }
+    ],
     "P08": [],
     "P09": [],
     "P10": [],

@@ -29,6 +29,8 @@ def main():
                   'src/consilium/adapters/api_codec.py', 'src/consilium/adapters/api_offline.py', 'src/consilium/adapters/api_http.py',
                   'tests/api', 'tools/run_api_tests.py', 'src/consilium/adapters/api_plan.py',
                   'src/consilium/core/browser_watch.py', 'tests/browser_probe/test_browser_watch.py',
+                  'src/consilium/shell/browser_watch_journal.py',
+                  'tests/browser_probe/test_browser_watch_journal.py', 'tests/browser_probe/browser_watch_crash_worker.py',
                   'src/consilium/core/analyzers.py', 'src/consilium/core/council_repository.py',
                   'src/consilium/shell/council_repository.py', 'src/consilium/shell/demo.py', 'src/consilium/__main__.py']),
         ('types', [sys.executable, '-m', 'mypy', '--strict', '--follow-imports=skip', *TARGETS]),

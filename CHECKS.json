@@ -1,168 +1,179 @@
 {
-  "schema_version": 1,
+  "maintenance": [
+    {
+      "argv": [
+        "{python}",
+        "tools/check.py"
+      ],
+      "id": "portable_development_check",
+      "junit": "evidence/control-tests/JUNIT.xml",
+      "kind": "test",
+      "scope": "DEVELOPMENT_CONTROL_TOOLING_ONLY"
+    }
+  ],
   "notice": "No product phase can close until actual phase checks, exit evidence and review are registered.",
   "phases": {
     "P00": [
       {
-        "id": "scope_inventory",
-        "kind": "static",
         "argv": [
           "{python}",
           "tools/check_scope.py"
         ],
+        "id": "scope_inventory",
+        "kind": "static",
         "scope": "P00_SCOPE_NOT_PRODUCT_RUNTIME"
       },
       {
-        "id": "development_regression",
-        "kind": "test",
         "argv": [
           "{python}",
           "tools/check.py"
         ],
+        "id": "development_regression",
         "junit": "evidence/control-tests/JUNIT.xml",
-        "scope": "CONTROL_TESTS_NOT_RUNTIME_CONFORMANCE"
+        "kind": "test",
+        "scope": "CONTROL_TESTS_NOT_RUNTIME_CONFORMANCE",
+        "timeout_seconds": 240
       }
     ],
     "P01": [
       {
-        "id": "foundation_behavior",
-        "kind": "test",
         "argv": [
           "{python}",
           "tools/run_foundation_tests.py"
         ],
+        "id": "foundation_behavior",
         "junit": "evidence/foundation-tests/JUNIT.xml",
+        "kind": "test",
         "scope": "APPLICATION_FOUNDATION_NOT_FULL_RUNTIME_CONFORMANCE"
       },
       {
-        "id": "environment_lock",
-        "kind": "static",
         "argv": [
           "{python}",
           "tools/check_environment.py"
-        ]
+        ],
+        "id": "environment_lock",
+        "kind": "static"
       },
       {
-        "id": "native_target_matrix",
-        "kind": "static",
         "argv": [
           "{python}",
           "tools/check_target_matrix.py"
         ],
+        "id": "native_target_matrix",
+        "kind": "static",
         "scope": "BOTH_SELECTED_TARGETS_REQUIRED; NO_MOCK_SUBSTITUTION"
       }
     ],
     "P02": [
       {
-        "id": "persistence_durable_kernel",
-        "kind": "test",
         "argv": [
           "{python}",
           "tools/run_persistence_tests.py"
         ],
+        "id": "persistence_durable_kernel",
         "junit": "evidence/persistence-tests/JUNIT.xml",
+        "kind": "test",
         "scope": "P02_DURABLE_KERNEL_BEHAVIOR_NOT_FULL_V1_CONFORMANCE"
       }
     ],
     "P03": [
       {
-        "id": "browser_probe_preflight_and_durability",
-        "kind": "test",
         "argv": [
           "{python}",
           "tools/run_browser_probe_tests.py"
         ],
+        "id": "browser_probe_preflight_and_durability",
         "junit": "evidence/browser-probe-tests/JUNIT.xml",
+        "kind": "test",
         "scope": "P03_OFFLINE_SAFETY_TESTS; NOT_LIVE_PROVIDER_CERTIFICATION"
       },
       {
-        "id": "p03_live_evidence_consistency",
-        "kind": "static",
+        "acceptance_only": true,
         "argv": [
           "{python}",
           "tools/check_p03_feasibility.py"
         ],
-        "scope": "ACTUAL_LIVE_BROWSER_EVIDENCE_ACCEPTANCE_CHECK; COMMAND_VALIDATES_RECORDS_ONLY; NO_NEW_UI_ACTION",
         "execution_mode": "LIVE_BROWSER",
-        "acceptance_only": true,
-        "reason": "Acceptance of already executed actual Claude UI probes and controlled sign-out. This static command validates captured live findings and hashes; it makes no browser call and does not independently authenticate observations. Separate manual review of original evidence is mandatory. Exclude it from future regression runs to prevent replaying live sends or relabeling old snapshots as current."
+        "id": "p03_live_evidence_consistency",
+        "kind": "static",
+        "reason": "Acceptance of already executed actual Claude UI probes and controlled sign-out. This static command validates captured live findings and hashes; it makes no browser call and does not independently authenticate observations. Separate manual review of original evidence is mandatory. Exclude it from future regression runs to prevent replaying live sends or relabeling old snapshots as current.",
+        "scope": "ACTUAL_LIVE_BROWSER_EVIDENCE_ACCEPTANCE_CHECK; COMMAND_VALIDATES_RECORDS_ONLY; NO_NEW_UI_ACTION"
       }
     ],
     "P04": [
       {
-        "id": "architect_and_independent_context",
-        "kind": "test",
         "argv": [
           "{python}",
           "tools/run_architect_tests.py"
         ],
+        "id": "architect_and_independent_context",
         "junit": "evidence/architect-tests/JUNIT.xml",
+        "kind": "test",
         "scope": "P04_FULL_OFFLINE_QUESTION_AUTHORIZED_CONTEXT_CONTRACTS; LIVE_ADAPTER_CERTIFICATION_REMAINS_P08_P09"
       },
       {
-        "id": "p04_executed_context_exit_examples",
-        "kind": "static",
         "argv": [
           "{python}",
           "tools/record_p04_context_examples.py"
         ],
+        "id": "p04_executed_context_exit_examples",
+        "kind": "static",
         "scope": "EXECUTED_OFFLINE_CONTEXT_EXIT_EXAMPLES_NOT_LIVE_PROVIDER_CERTIFICATION"
       }
     ],
     "P05": [
       {
-        "id": "council_offline_pipeline",
-        "kind": "test",
         "argv": [
           "{python}",
           "tools/run_council_tests.py"
         ],
+        "id": "council_offline_pipeline",
         "junit": "evidence/council-tests/JUNIT.xml",
+        "kind": "test",
         "scope": "P05_FULL_OFFLINE_COUNCIL_NOT_LIVE_PROVIDER_CERTIFICATION"
       },
       {
-        "id": "council_exit_examples",
-        "kind": "static",
         "argv": [
           "{python}",
           "tools/record_p05_council_examples.py"
         ],
+        "id": "council_exit_examples",
+        "kind": "static",
         "scope": "EXECUTED_P05_OFFLINE_COUNCIL_EXIT_EXAMPLES"
       }
     ],
     "P06": [
       {
-        "id": "p06_accounting_protocol",
-        "kind": "test",
         "argv": [
           "{python}",
           "tools/run_pilot_tests.py"
         ],
+        "id": "p06_accounting_protocol",
         "junit": "evidence/pilot-tests/JUNIT.xml",
+        "kind": "test",
         "scope": "OFFLINE_PILOT_ACCOUNTING_NOT_MODEL_QUALITY"
       },
       {
-        "id": "p06_preregistered_preflight",
-        "kind": "static",
         "argv": [
           "{python}",
           "tools/check_p06.py",
           "preflight"
         ],
+        "id": "p06_preregistered_preflight",
+        "kind": "static",
         "scope": "PILOT_SETUP_NOT_REAL_QUALITY"
       },
       {
-        "id": "p06_real_quality_evidence",
-        "kind": "static",
+        "acceptance_only": true,
         "argv": [
           "{python}",
-          "tools/check_p06.py",
-          "evidence"
+          "tools/check_p06_functional.py"
         ],
-        "scope": "REAL_OUTPUTS_REQUIRED_NO_MOCK_SUBSTITUTION",
         "execution_mode": "REAL_EVALUATION",
-        "acceptance_only": true,
-        "reason": "Validate actual pilot collection and missing-evidence barrier; this command generates no model response and does not authenticate declared manual origin. It cannot pass until real scoring, product-flow and reestimate review are implemented and registered."
+        "id": "p06_real_quality_evidence",
+        "kind": "static",
+        "reason": "Validates already collected real responses, peer/conversation bindings, persisted product finals and scoped review. No new sends. The original comparative evidence barrier remains unchanged; the broader benchmark is explicitly incomplete.",
+        "scope": "REAL_THREE_ROUND_FUNCTIONAL_EXIT_USER_REVISED_SCOPE"
       }
     ],
     "P07": [],
@@ -176,16 +187,5 @@
     "P15": [],
     "P16": []
   },
-  "maintenance": [
-    {
-      "id": "portable_development_check",
-      "kind": "test",
-      "argv": [
-        "{python}",
-        "tools/check.py"
-      ],
-      "junit": "evidence/control-tests/JUNIT.xml",
-      "scope": "DEVELOPMENT_CONTROL_TOOLING_ONLY"
-    }
-  ]
+  "schema_version": 1
 }

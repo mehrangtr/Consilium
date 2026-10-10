@@ -1,10 +1,12 @@
 """Completed development milestones, not liveness heartbeats or product authority."""
+
 from __future__ import annotations
 
 import json
 import os
-from pathlib import Path
+import time
 import uuid
+from pathlib import Path
 
 
 def atomic_json(path: Path, value: dict) -> None:
@@ -28,17 +30,36 @@ def milestone(name: str, *, receipt: Path | None = None) -> None:
     if not location or not nonce:
         return
     path = Path(location)
+    # A fast task can reach its first milestone before the owning worker has
+    # atomically published READY. Wait briefly for that exact ownership record;
+    # never grant ownership from the task's own claim or reset idle time here.
+    deadline = time.monotonic() + 2.0
+    while True:
+        try:
+            ready = json.loads(path.with_name("READY.json").read_text(encoding="utf-8"))
+            break
+        except (OSError, ValueError):
+            if time.monotonic() >= deadline:
+                return
+            time.sleep(0.01)
     try:
-        ready = json.loads(path.with_name("READY.json").read_text(encoding="utf-8"))
         previous = json.loads(path.read_text(encoding="utf-8")) if path.exists() else {}
     except (OSError, ValueError):
         return
     if ready.get("nonce") != nonce or ready.get("task_pid") != os.getpid():
         return
-    value = {"nonce": nonce, "task_pid": os.getpid(), "sequence": previous.get("sequence", 0) + 1,
-             "milestone": name, "receipt": None}
+    value = {
+        "nonce": nonce,
+        "task_pid": os.getpid(),
+        "sequence": previous.get("sequence", 0) + 1,
+        "milestone": name,
+        "receipt": None,
+    }
     if receipt is not None:
         import hashlib
-        value["receipt"] = {"path": str(receipt.resolve()),
-                            "sha256": hashlib.sha256(receipt.read_bytes()).hexdigest()}
+
+        value["receipt"] = {
+            "path": str(receipt.resolve()),
+            "sha256": hashlib.sha256(receipt.read_bytes()).hexdigest(),
+        }
     atomic_json(path, value)

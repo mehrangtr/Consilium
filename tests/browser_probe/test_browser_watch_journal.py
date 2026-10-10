@@ -6,6 +6,7 @@ import subprocess
 import sys
 import tempfile
 import unittest
+from contextlib import closing
 from pathlib import Path
 from unittest.mock import patch
 from uuid import uuid4
@@ -99,7 +100,7 @@ class BrowserJournalTests(unittest.TestCase):
 
     def test_tampered_event_hash_or_header_blocks_reconstruction(self):
         self.journal.append(self.page, event_id=uuid4(), expected_revision=0)
-        with sqlite3.connect(self.database) as db:
+        with closing(sqlite3.connect(self.database)) as db, db:
             db.execute("UPDATE events SET payload='{}'")
         with self.assertRaises(ValueError):
             self.open().resume()
@@ -124,7 +125,7 @@ class BrowserJournalTests(unittest.TestCase):
 
     def test_deleted_tail_is_detected_by_committed_head(self):
         self.journal.append(self.page, event_id=uuid4(), expected_revision=0)
-        with sqlite3.connect(self.database) as db:
+        with closing(sqlite3.connect(self.database)) as db, db:
             db.execute("DELETE FROM events WHERE revision=1")
         with self.assertRaises(ValueError):
             self.open().resume()
@@ -132,7 +133,7 @@ class BrowserJournalTests(unittest.TestCase):
     def test_changed_header_or_invalid_revision_is_rejected(self):
         with self.assertRaises(ValueError):
             self.journal.append(self.page, event_id=uuid4(), expected_revision=True)
-        with sqlite3.connect(self.database) as db:
+        with closing(sqlite3.connect(self.database)) as db, db:
             db.execute("UPDATE header SET spec='{}'")
         with self.assertRaises(ValueError):
             self.open()

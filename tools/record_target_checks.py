@@ -58,6 +58,9 @@ def main():
     if (ROOT / 'tools/run_pilot_tests.py').is_file():
         inputs.update(pilot_report='evidence/pilot-tests/RUN.json',
                       pilot_junit='evidence/pilot-tests/JUNIT.xml')
+    if (ROOT / 'tools/run_api_tests.py').is_file():
+        inputs.update(api_report='evidence/api-tests/RUN.json',
+                      api_junit='evidence/api-tests/JUNIT.xml')
     # Historical immutable reports remain intact; mutable outputs must be fresh.
     for original in inputs.values():
         (ROOT / original).unlink(missing_ok=True)

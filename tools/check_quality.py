@@ -30,6 +30,7 @@ def main():
                   'tests/api', 'tools/run_api_tests.py', 'src/consilium/adapters/api_plan.py',
                   'src/consilium/core/browser_watch.py', 'tests/browser_probe/test_browser_watch.py',
                   'src/consilium/shell/browser_watch_journal.py',
+                  'src/consilium/shell/qwen_capture_ingest.py', 'tests/browser_probe/test_qwen_capture_ingest.py',
                   'src/consilium/adapters/qwen_page_reader.py', 'tests/browser_probe/test_qwen_page_reader.py', 'src/consilium/shell/browser_watch_ledger.py',
                   'tests/browser_probe/test_browser_watch_ledger.py',
                   'tests/browser_probe/test_qwen_capture_journal.py', 'tests/browser_probe/test_browser_watch_attachment.py', 'tests/browser_probe/test_browser_watch_journal.py', 'tests/browser_probe/browser_watch_crash_worker.py',

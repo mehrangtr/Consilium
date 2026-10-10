@@ -1,0 +1,14 @@
+{
+  "workflow_run_id": 37909901732,
+  "artifact_id": 11606420821,
+  "artifact_sha256": "a329af8dcf1b10d258ebdcbe858ac722d0b05a023be855987a7809f60bf62938",
+  "code_commit": "92952cbbeb0f9a21f161baab532e25d6002a7283",
+  "actual_suites_tests": 699,
+  "actual_suites_status": "PASS",
+  "run_status": "FAIL",
+  "errors": [
+    "CHECK_TIMEOUT_240_SECONDS",
+    "MISSING_CURRENT_MAINTENANCE_REPORT"
+  ],
+  "scope": "RETAINED_FAILURE_NOT_CURRENT_NATIVE_PASS"
+}

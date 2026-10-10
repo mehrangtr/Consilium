@@ -1,0 +1,49 @@
+{
+  "version": "p06-three-stage.v1",
+  "preregistered_at_utc": "2026-10-09T18:27:09Z",
+  "original_plan_preserved": "docs/p06/PREREGISTRATION.json",
+  "original_run_status": "INCOMPLETE_16_OF_24; FOUR_GROUPS_EXCEED_REMAINING_CALL_ALLOWANCE",
+  "profile": {
+    "task_ids": ["PILOT-001", "PILOT-003", "PILOT-005", "PILOT-007", "PILOT-008", "PILOT-010", "PILOT-015", "PILOT-020"],
+    "selected_provider": "chatgpt",
+    "selected_model": "ChatGPT Free (UI model unspecified)",
+    "peer_provider": "glm",
+    "peer_model": "GLM-5.3-Flash",
+    "dataset_sha256": "3875fb029cefbec79b14e60e0a07c804686d2110eca18b42de9b8783777f274d",
+    "version": "p06-three-stage.v1",
+    "max_calls": 10,
+    "max_elapsed_seconds": 1200,
+    "max_output_tokens": 3200
+  },
+  "dataset": "governance/protected/evaluation/PILOT_DATASET.json",
+  "methods": ["SINGLE", "REPEATED_SINGLE", "COUNCIL"],
+  "judge": "ChatGPT Free (UI model unspecified)",
+  "max_cost": 0,
+  "paid_calls_authorized": false,
+  "repair_attempts_consume_budget": true,
+  "mock_outputs_are_quality_evidence": false,
+  "per_call_requested_output_cap": 400,
+  "single_requested_output_cap": 2000,
+  "unknown_tokens_policy": "Record null; requested caps do not prove actual token ceilings",
+  "protocol": {
+    "ARCHITECT": "One common clarification without solving the task, explicitly shared across methods.",
+    "SINGLE": "One ChatGPT answer, before sharing GLM opinions.",
+    "REPEATED_SINGLE": "Two sequential same-model opinions per round, two subsequent rounds with all prior-round opinions, then ChatGPT synthesis. Statistical independence is not claimed.",
+    "COUNCIL": "ChatGPT and GLM first opinions without seeing the other's answer; two subsequent rounds sharing all prior-round opinions, then ChatGPT judgment."
+  },
+  "conversation_policy": "One conversation per task and model/account from first message through judgment; no switch between methods or rounds.",
+  "context_carryover": "User-required single conversation causes cross-method carryover. This is an exploratory stateful comparison, not independent randomized treatments. Record exact method execution order and do not infer superiority.",
+  "repeated_single_independence": "NOT_CLAIMED",
+  "judge_prior_participation": "DISCLOSED; CHATGPT IS BOTH PARTICIPANT AND JUDGE",
+  "blinding_seed": "consilium-p06-three-stage-20261009-v1",
+  "rubric_id": "p06-quality.v1",
+  "success_criteria": [
+    "24 real final outputs and all preceding physical attempts, with exact bytes and hashes.",
+    "Immutable plan and account/conversation binding, no premature judge, no blind resend and no secret transfer.",
+    "Name-blinded scores against withheld references, declared evaluator origin and independence limitations.",
+    "Separate product-flow review, error/fix report, paired descriptive analysis and reestimate; unknown historical hours stay unknown.",
+    "Fresh native verification and separate phase acceptance review; original failures remain preserved."
+  ],
+  "current_status": "REGISTERED_NOT_EXECUTED",
+  "phase_accepted": false
+}

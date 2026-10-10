@@ -1,0 +1,29 @@
+{
+  "scope": "SOURCE_SELECTION_EQUIVALENCE_AND_LOCAL_TIMING_NOT_NATIVE_WINDOWS_PROOF",
+  "status": "PASS",
+  "source_rows_equal": true,
+  "source_files": 229,
+  "source_digest": "afff2f7d9fd7b5c1e1db586be09ddd4a6463c3e9c5a8ab2ce011bbd12668797a",
+  "local_timing_seconds": {
+    "old": [
+      0.6469217610001579,
+      0.7237529589992846,
+      0.6731363930002772,
+      0.6899039110003287,
+      0.7139089399997829
+    ],
+    "pruned": [
+      0.01889655600007245,
+      0.015854795999985072,
+      0.013456923000376264,
+      0.014494514000034542,
+      0.012528006000138703
+    ]
+  },
+  "budgets_unchanged": [
+    240,
+    300,
+    900
+  ],
+  "application_phase_accepted": false
+}

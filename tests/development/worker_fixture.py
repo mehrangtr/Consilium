@@ -16,10 +16,13 @@ if mode == "child":
         milestone("forged_child_" + str(time.time()))
         time.sleep(0.04)
 
-if mode in {"hang", "complete_hang", "child_progress", "complete_with_child"}:
+if mode in {"hang", "complete_hang", "complete_hang_delayed", "child_progress", "complete_with_child"}:
     subprocess.Popen([sys.executable, __file__, str(root), "child"], stdin=subprocess.DEVNULL)
     (root / "evidence/PARENT_STARTED").write_text(str(os.getpid()), encoding="utf-8")
-if mode in {"complete", "complete_hang", "complete_with_child", "stale"}:
+if mode == "complete_hang_delayed":
+    # Reproduce a slow start before any legitimate completion milestone.
+    time.sleep(1.2)
+if mode in {"complete", "complete_hang", "complete_hang_delayed", "complete_with_child", "stale"}:
     source = q.source_digest(root)
     receipt = root / "evidence" / (step_id() + ".json")
     atomic_json(receipt, {"status": "PASS", "development_step_id": "old" if mode == "stale" else step_id(),

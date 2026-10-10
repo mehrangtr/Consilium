@@ -1,0 +1,16 @@
+{
+  "accepted_task_ids": [
+    "PILOT-001",
+    "PILOT-003",
+    "PILOT-005"
+  ],
+  "authorization_kind": "EXPLICIT_USER_SCOPE_REVISION",
+  "benchmark_completed": false,
+  "historical_preregistrations_preserved": true,
+  "model_superiority_claimed": false,
+  "recorded_at_utc": "2026-10-10T03:30:38.290817+00:00",
+  "scope": "Functional continuation, three rounds, selected ChatGPT judge, useful reviewed result; full comparative benchmark discontinued, not completed.",
+  "unchanged_protected_requirements": 30,
+  "user_instruction": "بیش از حد روی این قسمت تمرکز نکن اگر مدل ها به درستی با هم ارتباط برقرار کردند و جواب آخر با مشورت و مفید بوده این مرحله را به اتمام برسان",
+  "version": "p06-functional-exit.v1"
+}

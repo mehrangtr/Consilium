@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "scope": "OWNED_OFFLINE_DEVELOPMENT_NOT_CHAT_SESSION_CONTROL",
+  "status": "BLOCKED",
+  "idle_seconds": 300,
+  "hard_seconds": 900,
+  "phase_advanced": false,
+  "source_digest": "0833c1abb1ee1f0f745c9d41b2b326c70df48d11b4b1ea5930e751654822b711",
+  "steps": [
+    {
+      "step": "control_deadline_reproduce",
+      "attempt": 1,
+      "nonce": "3226ced950764793a61203c5074551e2",
+      "status": "INCOMPLETE",
+      "log": "evidence/development-supervisor/5e049b035d8243ada5ffdfb8ac02cb42/control_deadline_reproduce_1/OUTPUT.log",
+      "worker_pid": 6,
+      "last_completed_milestone": "configured_P00_test_finished",
+      "retained_proof": {
+        "artifacts": [],
+        "errors": [
+          "No receipt to preserve"
+        ]
+      },
+      "stop_reason": null,
+      "returncode": 1,
+      "reconciliation": {
+        "status": "INCOMPLETE",
+        "reason": "No completed receipt"
+      }
+    }
+  ],
+  "remaining_steps": [
+    "control_deadline_reproduce"
+  ],
+  "next_action": "REPAIR_OR_VERIFY_control_deadline_reproduce"
+}

@@ -133,6 +133,9 @@ def summarize(calls: tuple[PilotCall, ...], task_ids: tuple[str, ...], max_calls
             unique_attempts[physical] = call
         unresolved_failures += int(pending is not None)
         stages_complete = dict(observed_stages) == expected_stages and pending is None
+        remaining_required = sum(expected_stages.values()) - len(successful)
+        remaining_allowance = max_calls - len(group)
+        call_budget_feasible = remaining_required <= remaining_allowance
         models = {(c.provider, c.model_id) for c in group if c.stage != 'ARCHITECT'}
         independent_models = {(c.provider, c.model_id) for c in successful if c.stage == 'INDEPENDENT'}
         # A different judge alone cannot make the independent answers diverse.
@@ -153,7 +156,10 @@ def summarize(calls: tuple[PilotCall, ...], task_ids: tuple[str, ...], max_calls
             'failed_attempts': sum(c.outcome == 'FAILED' for c in group),
             'unknown_attempts': sum(c.outcome == 'UNKNOWN' for c in group),
             'repair_attempts': sum(c.repair_of is not None for c in group),
-            'remaining_call_allowance': max_calls - len(group)})
+            'remaining_call_allowance': remaining_allowance,
+            'remaining_required_successes': remaining_required,
+            'call_budget_feasible': call_budget_feasible,
+            'completion_blocker': 'ORIGINAL_CALL_CEILING' if not call_budget_feasible else None})
     if len(selected_models) > 1:
         raise ValueError('Single and repeated-single methods must retain one selected model')
     if any(len(signatures) > 1 for signatures in architect_signatures.values()):
@@ -177,5 +183,6 @@ def summarize(calls: tuple[PilotCall, ...], task_ids: tuple[str, ...], max_calls
             'token_accounting': 'COMPLETE' if calls and all(c.input_tokens is not None and c.output_tokens is not None for c in calls) else 'UNKNOWN_OR_PARTIAL',
             'output_budget_verification': 'OBSERVED' if calls and all(c.output_tokens is not None for c in calls) else 'PARTIAL_UNKNOWN_TOKENS',
             'per_task_method': sorted(per_method, key=lambda row: (row['task_id'], row['method'])),
+            'call_budget_blocked_groups': sum(not row['call_budget_feasible'] for row in per_method),
             'external_origin_authenticated': False,
             'model_superiority_claimed': False, 'phase_accepted': False}

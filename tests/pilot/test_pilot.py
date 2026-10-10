@@ -235,8 +235,36 @@ journal.append(PilotCall(**json.loads(sys.argv[2])), b'prompt', b'response')
         row = summarize(prior, ('task',))['per_task_method'][0]
         self.assertEqual(row['remaining_call_allowance'], 0)
         self.assertFalse(row['protocol_complete'])
+        self.assertEqual(row['remaining_required_successes'], 1)
+        self.assertFalse(row['call_budget_feasible'])
+        self.assertEqual(row['completion_blocker'], 'ORIGINAL_CALL_CEILING')
         with self.assertRaises(ValueError):
             summarize(prior + (replace(calls[-1], repair_of='failed'),), ('task',))
+
+    def test_architect_repair_exposes_impossible_completion_before_more_calls(self):
+        architect = protocol('REPEATED_SINGLE')[0]
+        failed = replace(architect, call_id='failed-architect', outcome='FAILED',
+                         failure_reason='Invalid architect output', shared_architect_call_id=None)
+        repaired = replace(architect, repair_of=failed.call_id)
+        report = summarize((failed, repaired), ('task',))
+        row = report['per_task_method'][0]
+        self.assertEqual(row['remaining_call_allowance'], 4)
+        self.assertEqual(row['remaining_required_successes'], 5)
+        self.assertFalse(row['call_budget_feasible'])
+        self.assertEqual(report['call_budget_blocked_groups'], 1)
+        self.assertEqual(report['status'], 'INCOMPLETE')
+        self.assertFalse(report['phase_accepted'])
+
+    def test_single_repair_and_clean_multiround_keep_feasible_budgets(self):
+        architect = protocol('SINGLE')[0]
+        failed = replace(architect, call_id='failed-architect', outcome='FAILED',
+                         failure_reason='Invalid architect output', shared_architect_call_id=None)
+        report = summarize((failed, replace(architect, repair_of=failed.call_id)), ('task',))
+        self.assertTrue(report['per_task_method'][0]['call_budget_feasible'])
+        self.assertIsNone(report['per_task_method'][0]['completion_blocker'])
+        clean = summarize(protocol('COUNCIL', 'other'), ('task',))
+        self.assertEqual(clean['call_budget_blocked_groups'], 0)
+        self.assertEqual(clean['per_task_method'][0]['remaining_required_successes'], 0)
 
     def test_failed_attempts_still_obey_output_and_time_ceilings(self):
         failed = call('failed', stage='SINGLE', outcome='FAILED', failure_reason='Partial output then error')

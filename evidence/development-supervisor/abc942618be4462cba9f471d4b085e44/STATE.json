@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "scope": "OWNED_OFFLINE_DEVELOPMENT_NOT_CHAT_SESSION_CONTROL",
+  "status": "BLOCKED",
+  "idle_seconds": 300,
+  "hard_seconds": 900,
+  "phase_advanced": false,
+  "source_digest": "240bb3c03ea35f05e0803e8ac1c42a62421d1b4d0e8cdcd2414e49fe3cfd0ea0",
+  "steps": [
+    {
+      "step": "source_walk_reproduce",
+      "attempt": 1,
+      "nonce": "9d1a6c8d83f747b7bf598fe7ca41b77c",
+      "status": "INCOMPLETE",
+      "log": "evidence/development-supervisor/abc942618be4462cba9f471d4b085e44/source_walk_reproduce_1/OUTPUT.log",
+      "worker_pid": 6,
+      "last_completed_milestone": "configured_P00_test_finished",
+      "retained_proof": {
+        "artifacts": [],
+        "errors": [
+          "No receipt to preserve"
+        ]
+      },
+      "stop_reason": null,
+      "returncode": 1,
+      "reconciliation": {
+        "status": "INCOMPLETE",
+        "reason": "No completed receipt"
+      }
+    }
+  ],
+  "remaining_steps": [
+    "source_walk_reproduce"
+  ],
+  "next_action": "REPAIR_OR_VERIFY_source_walk_reproduce"
+}

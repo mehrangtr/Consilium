@@ -9,7 +9,7 @@ from contextlib import contextmanager
 from pathlib import Path
 from uuid import UUID
 
-from consilium.core.browser_probe import BrowserBinding
+from consilium.core.browser_probe import BrowserBinding, ProbeTicket
 from consilium.core.browser_watch import BrowserWatch, PageSnapshot
 from consilium.shell.private import ensure_public_payload
 
@@ -38,6 +38,47 @@ class BrowserWatchJournal:
     Hashes detect accidental corruption, not an adversary rewriting the entire
     database. Stored pages are private synthetic evidence, never live authority.
     """
+
+    @classmethod
+    def from_recorded_probe(cls, database, *, store, ticket: ProbeTicket, baseline):
+        """Attach to an already recorded attempt; never begin or repeat a send.
+
+        This preparation bridge deliberately retains the narrow P03 ticket
+        contract. It does not turn fixture pages into a product response.
+        """
+        ticket = ProbeTicket.model_validate(ticket.model_dump(mode="python"))
+        record = store.ledger.get_attempt(ticket.request.intent.identity.attempt_id)
+        if record.request != ticket.request:
+            raise ValueError("JOURNAL_REQUIRES_EXACT_RECORDED_REQUEST")
+        store._public(baseline.model_dump(mode="json"))
+        return cls(
+            database,
+            operation_id=record.intent.identity.attempt_id,
+            request_hash=record.intent.request_hash,
+            binding=ticket.binding,
+            baseline=baseline,
+            prompt_hash=digest(record.intent.frozen_input.messages[0].content),
+            forbidden_values=store._forbidden_values,
+        )
+
+    def inspect_recorded_probe(self, *, store, ticket: ProbeTicket):
+        """Recheck attachment and report both states without ledger mutation."""
+        attached = type(self).from_recorded_probe(
+            self.database,
+            store=store,
+            ticket=ticket,
+            baseline=PageSnapshot.model_validate_json(encoded(self.spec["baseline"])),
+        )
+        record = store.ledger.get_attempt(ticket.request.intent.identity.attempt_id)
+        return {
+            "scope": "OFFLINE_JOURNAL_INSPECTION_NOT_TRANSPORT_RESULT",
+            "attempt_id": str(record.intent.identity.attempt_id),
+            "ledger_state": record.state.value,
+            "ledger_revision": record.active_revision,
+            "observation": attached.resume(),
+            "may_dispatch": False,
+            "may_confirm_product_response": False,
+        }
 
     def __init__(
         self,
